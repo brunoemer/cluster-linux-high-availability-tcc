@@ -12,8 +12,7 @@
   school    = "Universidade Federal de Viçosa",
   year      = "2009",
   OPTkey    = "",
-  type      = "Pós-Graduação em Ciência da Computação
-Trabalho de Conclusão (Curso de Ciência da Computação)",
+  type      = "Pós-Graduação em Ciência da Computação",
   address   = "Minas Gerais",
   OPTmonth  = "",
   OPTnote   = "",
@@ -26,29 +25,24 @@ Trabalho de Conclusão (Curso de Ciência da Computação)",
   school    = "Faculdade de Tecnologia e Ciências Sociais Aplicadas",
   year      = "2009",
   OPTkey    = "",
-  type      = "Pós-Graduação em Ciência da Computação
-Trabalho de Conclusão (Curso de Ciência da Computação)",
+  type      = "Trabalho de Conclusão (Curso de Engenharia da Computação)",
   address   = "Brasilia",
   OPTmonth  = "",
   OPTnote   = "",
   OPTannote = ""
 }
 
-
-@book{goncalves2009,
-  author    = "Eduardo Morici Gonçalves",
-  title     = "Implementação de Alta disponibilidade em máquinas virtuais utilizando Software Livre",
-  year      = "2009",
-  publisher = "",
-  address   = "Brasilia"
-}
-
-@book{reis2009,
+@MastersThesis{reis2009,
   author    = "Wanderson Santiago dos Reis",
   title     = "Virtualização de serviços baseado em contêineres: uma proposta para alta disponibilidade de serviços em redes Linux de pequeno porte",
+  school    = "Apresentada ao Departamento de Ciência da Computação",
   year      = "2009",
-  publisher = "",
-  address   = "Minas Gerais"
+  OPTkey    = "",
+  type      = "Pós-Graduação(Administração em Redes Linux)",
+  address   = "Minas Gerais",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
 }
 
 @misc{matarazzo2011,
