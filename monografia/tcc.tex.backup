@@ -1,0 +1,21 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+%opening
+\title{titulo}
+\author{Bruno Emer}
+
+%\advisor{Martinotto}{André Luis}
+%\location{Caxias do Sul}{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{}
+
+\end{document}

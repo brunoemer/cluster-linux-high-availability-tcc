@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: tcc.aux
+A level-1 auxiliary file: capitulos/introducao.aux
+A level-1 auxiliary file: capitulos/capitulo2.aux
+The style file: abnt.bst
+Database file #1: tcc.bib
+You've used 4 entries,
+            2371 wiz_defined-function locations,
+            594 strings with 4793 characters,
+and the built_in function-call counts, 5233 in all, are:
+= -- 684
+> -- 12
+< -- 40
++ -- 354
+- -- 4
+* -- 135
+:= -- 432
+add.period$ -- 16
+call.type$ -- 4
+change.case$ -- 28
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 768
+empty$ -- 190
+format.name$ -- 28
+if$ -- 1220
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 11
+num.names$ -- 20
+pop$ -- 78
+preamble$ -- 1
+purify$ -- 4
+quote$ -- 0
+skip$ -- 368
+stack$ -- 0
+substring$ -- 336
+swap$ -- 426
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 40
+warning$ -- 0
+while$ -- 24
+width$ -- 0
+write$ -- 6

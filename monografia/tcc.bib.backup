@@ -1,0 +1,13 @@
+@book{pankaj1994,
+  author    = "Jalote Pankaj",
+  title     = "Fault tolerance in distributed system",
+  year      = "1994",
+  publisher = "P T R Prentice Hall"
+}
+
+@misc{matarazzo2011,
+  author    = "Leonardo Matarazzo",
+  title     = "Redundância e contingência gerando alta disponibilidade",
+  year      = "2013",
+  note      = "$<$Disponível em: \url{http://wiki.blender.org/}$>$. Acesso em 27 de outubro de 2013."
+}

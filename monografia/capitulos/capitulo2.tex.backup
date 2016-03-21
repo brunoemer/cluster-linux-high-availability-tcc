@@ -1,0 +1,19 @@
+\chapter{Alta disponibilidade}
+Conceitualmente alta disponibilidade está diretamente relacionada a confiabilidade, dependabilidade e tolerância a falhas. 
+Confiabilidade transmite a ideia de continuidade de serviço, ... com fonte...
+Por sua vez dependabilidade é o resultado de uma implementação de alta disponibilidade com sucesso em um determinado ambiente.
+
+Alta disponibilidade é bastante conhecida atualmente, vem sendo cada vez mais empregada nos ambientes computacionais.
+Pode-se defini-la como a redundância de \textit{hardware} ou \textit{software} para que o serviço fique mais tempo disponível.
+De acordo com \cite{costa2009}, pode-se afirmar que alta disponibilidade está ligada á crescente dependecia de computadores.
+O objetivo de promover alta disponibilidade resume-se em estar sempre a disposição quando cliente solicitar ou acessar algum serviço.
+
+A alta disp. relacionada com tolerância a falhas...
+Segundo \cite{pankaj1994}, o objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, 
+aumentar o tempo de um sistema para os serviços oferecido aos usuários. Além disso um sistema é tolerante a falhas se ele pode
+mascarar a presença de falhas em um sistem usando redundância. Como se expressa \cite{costa2009}, o objetivo da tolerância a falhas é 
+alcançar a dependabilidade, assim indicando uma boa qualidade de serviço.
+
+Redundância ...
+
+Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo.

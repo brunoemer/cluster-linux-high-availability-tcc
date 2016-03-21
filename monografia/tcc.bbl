@@ -1,0 +1,20 @@
+\begin{thebibliography}{\hspace{\parindent}}
+
+\bibitem[COSTA(2009)COSTA]{costa2009} COSTA, H. L.~A\@. \textbf{Alta
+  disponibilidade e balanceamento de carga para melhoria de sistemas
+  computacionais críticos usando software livre}: um estudo de caso. Minas
+  Gerais: [s.n.], 2009.
+
+\bibitem[GONçALVES(2009)GONçALVES]{goncalves2009} GONçALVES, E.~M\@.
+  \textbf{Implementação de Alta disponibilidade em máquinas virtuais
+  utilizando Software Livre}. Brasilia: [s.n.], 2009.
+
+\bibitem[PANKAJ(1994)PANKAJ]{pankaj1994} PANKAJ, J\@. \textbf{Fault tolerance
+  in distributed system}. Nova Jérsei, Estados Unidos: P T R Prentice Hall,
+  1994.
+
+\bibitem[REIS(2009)REIS]{reis2009} REIS, W.~S.~dos. \textbf{Virtualização de
+  serviços baseado em contêineres}: uma proposta para alta disponibilidade de
+  serviços em redes linux de pequeno porte. Minas Gerais: [s.n.], 2009.
+
+\end{thebibliography}
