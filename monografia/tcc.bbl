@@ -2,12 +2,15 @@
 
 \bibitem[COSTA(2009)COSTA]{costa2009} COSTA, H. L.~A\@. \textbf{Alta
   disponibilidade e balanceamento de carga para melhoria de sistemas
-  computacionais críticos usando software livre}: um estudo de caso. Minas
-  Gerais: [s.n.], 2009.
+  computacionais críticos usando software livre}: um estudo de caso. 2009.
+  Pós-Graduação em Ciência da Computação --- Universidade Federal de
+  Viçosa, Minas Gerais.
 
 \bibitem[GONçALVES(2009)GONçALVES]{goncalves2009} GONçALVES, E.~M\@.
   \textbf{Implementação de Alta disponibilidade em máquinas virtuais
-  utilizando Software Livre}. Brasilia: [s.n.], 2009.
+  utilizando Software Livre}. 2009. Trabalho de Conclusão (Curso de Engenharia
+  da Computação) --- Faculdade de Tecnologia e Ciências Sociais Aplicadas,
+  Brasilia.
 
 \bibitem[PANKAJ(1994)PANKAJ]{pankaj1994} PANKAJ, J\@. \textbf{Fault tolerance
   in distributed system}. Nova Jérsei, Estados Unidos: P T R Prentice Hall,
@@ -15,6 +18,8 @@
 
 \bibitem[REIS(2009)REIS]{reis2009} REIS, W.~S.~dos. \textbf{Virtualização de
   serviços baseado em contêineres}: uma proposta para alta disponibilidade de
-  serviços em redes linux de pequeno porte. Minas Gerais: [s.n.], 2009.
+  serviços em redes linux de pequeno porte. 2009.
+  Pós-Graduação(Administração em Redes Linux) --- Apresentada ao
+  Departamento de Ciência da Computação, Minas Gerais.
 
 \end{thebibliography}
