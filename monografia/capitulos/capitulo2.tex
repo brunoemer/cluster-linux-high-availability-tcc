@@ -1,20 +1,29 @@
 \chapter{Alta disponibilidade}
 Conceitualmente alta disponibilidade está diretamente relacionada a confiabilidade, dependabilidade e tolerância a falhas. 
 Confiabilidade, a mais importante característica, transmite a ideia de continuidade de serviço \cite{pankaj1994}.
-Por sua vez dependabilidade é o resultado de uma implementação de alta disponibilidade com sucesso em um determinado ambiente.
+Por sua vez dependabilidade é o resultado de uma implementação de alta disponibilidade com sucesso em um determinado ambiente ou serviço,
+sendo assim haverá uma dependência deste serviço.
 
-Alta disponibilidade é bastante conhecida atualmente, vem sendo cada vez mais empregada nos ambientes computacionais.
+Alta disponibilidade é bastante conhecida, vem sendo cada vez mais empregada nos ambientes computacionais.
 Pode-se defini-la como a redundância de \textit{hardware} ou \textit{software} para que o serviço fique mais tempo disponível.
-De acordo com \cite{costa2009}, pode-se afirmar que alta disponibilidade está ligada á crescente dependecia de computadores.
-O objetivo de promover alta disponibilidade resume-se em estar sempre a disposição quando cliente solicitar ou acessar algum serviço.
-
+De acordo com \cite{costa2009}, pode-se afirmar que alta disponibilidade está ligada á crescente dependêcia de computadores.
+O objetivo de promover alta disponibilidade resume-se em estar sempre a disposição quando o cliente solicitar ou acessar algum serviço.
 Uma das palavras-chave da alta disponibilidade é a tolerância a falhas.
-Segundo \cite{pankaj1994}, o objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, 
-aumentar o tempo de disponibilidade dos serviços oferecido aos usuários. Além disso um sistema é tolerante a falhas se ele pode
-mascarar a presença de falhas em um sistem usando redundância. Como se expressa \cite{costa2009}, o objetivo da tolerância a falhas é 
-alcançar a dependabilidade, assim indicando uma boa qualidade de serviço.
+
+Sabe-se que \textit{hardware} tende a falhar por isso utiliza-se métodos como prevenção de falhas e tolerância a falhas.
+A abordagem prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço porém, não resolverá todas as possíveis falhas.
+Sendo assim, a segunda abordagem, tolerância a falhas, fornece disponibilidade mesmo com presença de falhas \cite{pankaj1994}.
+O seu objetivo é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo de disponibilidade dos serviços fornecidos aos clientes ou usuários. 
+Um sistema é tolerante a falhas se ele pode mascarar a presença de falhas em um sistema usando redundância. Como se expressa \cite{costa2009}, 
+o objetivo da tolerância a falhas é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço.
 
 Redundância pode ser geralmente feita através da replicação de componentes, para garantir o mascaramento de falhas. 
-Também pode ser através do envio de bits ou sinais junto aos dados, servindo assim para detecção de erros e até para correção \cite{weber2002}.
+Também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, servindo assim para detecção de erros e até para correção \cite{weber2002}.
 
-Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo.
+Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo...
+
+Fazer: 
+SPOF
+SLA
+MTTR
+MTBF
