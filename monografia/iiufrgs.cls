@@ -221,7 +221,8 @@
 				\titlepageworktypeinfo
                 \vfill
         }
-        \centerline{\@city, \ii@date}
+        \centerline{\@city}
+        \centerline{\ii@date}
 }
 \def\@topbox{%
         \parbox[t]{\textwidth}{%
@@ -236,7 +237,7 @@
         \parbox[b]{\titlepagewinwidth}{%
         \centering\vbox to \titlepagewinheight{%
                 \vspace*{\fill}
-                \MakeUppercase{\@authora}\\
+                \MakeUppercase{\textbf{\@authora}}\\
                 \@ifundefined{@authorb}{}{\MakeUppercase{\@authorb}\\}%
                 \@ifundefined{@authorc}{}{\MakeUppercase{\@authorc}\\}%
                 \@ifundefined{@authord}{}{\MakeUppercase{\@authord}\\}%
@@ -250,10 +251,10 @@
 \course{\ppgc}
 \newcommand{\titlepagetopinfo}{%
 	\iilogo[.5]\\
-        \MakeUppercase{\ufrgs}\\
-        \MakeUppercase{\ii}\\
+        \MakeUppercase{\textbf{\ufrgs}}\\
+        \MakeUppercase{\textbf{\ii}}\\
         \@ifundefined{@dept}{}{\MakeUppercase{\csname dept\@dept\endcsname}\\}%
-        \MakeUppercase{\@course}\\
+        \MakeUppercase{\textbf{\@course}}\\
 }
 \newcommand{\titlepageadvisorinfo}{%
         \@ifundefined{@advisor}{}{\vfill\@advisor\\\advisorname}

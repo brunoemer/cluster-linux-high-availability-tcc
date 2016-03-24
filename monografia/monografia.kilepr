@@ -49,7 +49,7 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=21
+line=24
 mode=LaTeX
 open=true
 order=1
@@ -86,19 +86,19 @@ order=2
 
 [item:tcc.tex]
 archive=true
-column=0
+column=9
 encoding=UTF-8
 highlight=LaTeX
-line=30
+line=18
 mode=LaTeX
 open=true
 order=0
 
 [view-settings,view=0,item:capitulos/capitulo2.tex]
 CursorColumn=0
-CursorLine=21
+CursorLine=24
 JumpList=
-ViMarks=.,22,86,[,22,85,],22,86
+ViMarks=.,24,0,[,24,0,],24,0
 
 [view-settings,view=0,item:capitulos/introducao.tex]
 CursorColumn=342
@@ -113,7 +113,7 @@ JumpList=
 ViMarks=.,54,15,[,54,15,],54,23
 
 [view-settings,view=0,item:tcc.tex]
-CursorColumn=0
-CursorLine=30
+CursorColumn=9
+CursorLine=18
 JumpList=
-ViMarks=.,4,16,[,5,0,],-1,-1
+ViMarks=.,15,0,[,15,0,],15,0
