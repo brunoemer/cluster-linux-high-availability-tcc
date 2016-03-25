@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  24 MAR 2016 23:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  25 MAR 2016 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -485,11 +485,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [8]
 \openout2 = `capitulos/capitulo2.aux'.
 
- (./capitulos/capitulo2.tex) [9
+ (./capitulos/capitulo2.tex [9
 
 
 
-]
+])
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 10
  []
@@ -507,12 +507,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 2688 strings out of 495005
- 34942 string characters out of 6180688
- 106710 words of memory out of 5000000
- 5845 multiletter control sequences out of 15000+600000
+ 2691 strings out of 495005
+ 34993 string characters out of 6180688
+ 108739 words of memory out of 5000000
+ 5848 multiletter control sequences out of 15000+600000
  10041 words of font info for 35 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  39i,9n,25p,678b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (12 pages, 21236 bytes).
+Output written on tcc.dvi (12 pages, 22912 bytes).

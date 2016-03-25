@@ -13,15 +13,22 @@ Uma das palavras-chave da alta disponibilidade é a tolerância a falhas.
 Sabe-se que \textit{hardware} tende a falhar por isso utiliza-se métodos como prevenção de falhas e tolerância a falhas.
 A abordagem prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço porém, não resolverá todas as possíveis falhas.
 Sendo assim, a segunda abordagem, tolerância a falhas, fornece disponibilidade mesmo com presença de falhas \cite{pankaj1994}.
-O seu objetivo é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos clientes ou usuários ficam disponíveis. 
+O seu objetivo é aumentar a disponibilidade de um sistema, isto é, 
+aumentar o tempo que os serviços fornecidos aos clientes ou usuários ficam disponíveis. 
 Um sistema é tolerante a falhas se ele pode mascarar a presença de falhas em um sistema usando redundância. Como se expressa \cite{costa2009}, 
 o objetivo da tolerância a falhas é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço.
 
 Redundância pode ser feita através da replicação de componentes, para garantir o mascaramento de falhas.
 Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo sem que haja uma interrupção no serviço.
-Também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, servindo assim para detecção de erros e até para correção \cite{weber2002}.
+Também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, 
+servindo assim para detecção de erros e até para correção \cite{weber2002}.
 
-Alta disp ... conforme tabela \ref{tab:dispexemplos}
+Um ponto importante sobre alta diponibilidade é como medi-la. Para isso temos que saber o significado dos termos \textit{uptime} e 
+\textit{downtime}, que são respectivamente o tempo que os serviços esta funcionando normalmente e o tempo que não estão funcionando.
+Outra forma de medir a alta disponibilidade é pela quantidade de ``noves'', isto é, se um serviço possui 4 noves de disponibilidade
+este possui uma disponibilidade de 99,99\% \cite{filho2004}.
+Para ilustrar, a tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados e a 
+tabela \ref{tab:dispexemplos} possui alguns exemplos de serviços relacionados ao nível de disponibilidade.
 \begin{table}
 \caption {Exemplos de sistemas}
 \label{tab:dispexemplos} 
@@ -56,20 +63,22 @@ Alta disp ... conforme tabela \ref{tab:dispexemplos}
 \end{center}
 \end{table}
 
-...
-
-Cálculo da diponibilidade\\
-Disponibilidade = MTTF / (MTTF + MTTR)
+Sendo assim podemos calcular a disponibilidade através de:\\
+D = MTBF / (MTBF + MTTR)\\
+Sabendo que D é a disponibilidade em porcentagem. O \textit{Mean Time Between Failures}(MTBF) é o tempo médio entre falhas que corresponde
+ao tempo médio entre as paradas dos serviços. E o \textit{Mean Time To Repair}(MTTR) é o tempo médio de recuperação, que é o tempo 
+entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
 Quanto maior o valor da disponibilidade maior deve ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
 em inglês \textit{Single Point Of Failure}(SPOF)
 
-Fazer: 
-SLA service level agreement
-MTTR
-MTBF
 
+
+\textbf{Fazer:} 
+
+SLA service level agreement
 
 --Tecnicas de tolerância a falhas: hardware, software, ambiente
---Fases tolerancia a falhas: deteccao, .. recuperacao de erros
+
+--Fases tolerancia a falhas: deteccao, .. recuperação de erros
 

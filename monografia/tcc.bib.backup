@@ -51,3 +51,16 @@
   year      = "2011",
   note      = "$<$Disponível em: \url{http://www.tiespecialistas.com.br/2011/01/redundancia-e-contingencia-gerando-alta-disponibilidade/}$>$. Acesso em 28 de fevereiro de 2016."
 }
+
+@MastersThesis{weber2002,
+  author    = "Taisy Silva Weber",
+  title     = "Um roteiro para exploração dos conceitos básicos de tolerância a falhas",
+  school    = "UFRGS",
+  year      = "2002",
+  OPTkey    = "",
+  type      = "Curso de Especialização em Redes e Sistemas Distribuídos",
+  address   = "Rio Grande do Sul",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
