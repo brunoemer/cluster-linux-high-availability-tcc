@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  23 MAR 2016 21:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  24 MAR 2016 21:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -328,61 +328,72 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
 ) (./tcc.aux
-(./capitulos/introducao.aux) (./capitulos/capitulo2.aux))
+(./folha_rosto.aux) (./capitulos/introducao.aux) (./capitulos/capitulo2.aux))
 \openout1 = `tcc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 21.
+(lastpage)             ! on input line 22.
 File: img/iilogo.eps Graphic file (type eps)
- <img/iilogo.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 23--23
+
+<img/iilogo.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
 
  []
 
 [1
 
 ]
+\openout2 = `folha_rosto.aux'.
+
+ (./folha_rosto.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 7.
+ [1
+
+
+])
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 26.
+(Font)              size <17.28> substituted on input line 28.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 26.
+(Font)              size <17.28> substituted on input line 28.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 26.
+(Font)              size <17.28> substituted on input line 28.
 
 (./tcc.toc
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
  []  
  []
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--3
  []  
@@ -443,19 +454,20 @@ AED: lastpage setting LastPage
 [7
 
 
-] (./tcc.aux (./capitulos/introducao.aux) (./capitulos/capitulo2.aux))
+] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
+(./capitulos/capitulo2.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 2181 strings out of 495005
- 27757 string characters out of 6180688
- 92395 words of memory out of 5000000
- 5368 multiletter control sequences out of 15000+600000
- 9128 words of font info for 32 fonts, out of 8000000 for 9000
+ 2228 strings out of 495005
+ 28548 string characters out of 6180688
+ 92964 words of memory out of 5000000
+ 5404 multiletter control sequences out of 15000+600000
+ 10041 words of font info for 35 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 39i,7n,25p,694b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,7n,25p,678b,239s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (7 pages, 14964 bytes).
+Output written on tcc.dvi (8 pages, 16100 bytes).
