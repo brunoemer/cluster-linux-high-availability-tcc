@@ -6,6 +6,8 @@ sendo assim haverá uma dependência deste serviço.
 
 Alta disponibilidade é bastante conhecida, vem sendo cada vez mais empregada nos ambientes computacionais.
 Pode-se defini-la como a redundância de \textit{hardware} ou \textit{software} para que o serviço fique mais tempo disponível.
+Quanto maior o valor da disponibilidade maior deve ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
+em inglês \textit{Single Point Of Failure}(SPOF).
 De acordo com \cite{costa2009}, pode-se afirmar que alta disponibilidade está ligada á crescente dependêcia de computadores.
 O objetivo de promover alta disponibilidade resume-se em estar sempre a disposição quando o cliente solicitar ou acessar algum serviço.
 Uma das palavras-chave da alta disponibilidade é a tolerância a falhas.
@@ -69,16 +71,14 @@ Sabendo que D é a disponibilidade em porcentagem. O \textit{Mean Time Between F
 ao tempo médio entre as paradas dos serviços. E o \textit{Mean Time To Repair}(MTTR) é o tempo médio de recuperação, que é o tempo 
 entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
-Quanto maior o valor da disponibilidade maior deve ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
-em inglês \textit{Single Point Of Failure}(SPOF)
-
-
+A alta disponibilidade é um dos principais fatores para garantir a confiabilidade de clientes ou usuários, principalmente para empresa que 
+fornece serviços \textit{online}. Por isso existe o \textit{Service Level Agreement}(SLA), acordo de nível de serviço, 
+que garante que o serviço fornecido atenda as expectativas \cite{smith2010}.
 
 \textbf{Fazer:} 
-
-SLA service level agreement
 
 --Tecnicas de tolerância a falhas: hardware, software, ambiente
 
 --Fases tolerancia a falhas: deteccao, .. recuperação de erros
 
+--Virtualizacao
