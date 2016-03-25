@@ -13,20 +13,63 @@ Uma das palavras-chave da alta disponibilidade é a tolerância a falhas.
 Sabe-se que \textit{hardware} tende a falhar por isso utiliza-se métodos como prevenção de falhas e tolerância a falhas.
 A abordagem prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço porém, não resolverá todas as possíveis falhas.
 Sendo assim, a segunda abordagem, tolerância a falhas, fornece disponibilidade mesmo com presença de falhas \cite{pankaj1994}.
-O seu objetivo é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo de disponibilidade dos serviços fornecidos aos clientes ou usuários. 
+O seu objetivo é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos clientes ou usuários ficam disponíveis. 
 Um sistema é tolerante a falhas se ele pode mascarar a presença de falhas em um sistema usando redundância. Como se expressa \cite{costa2009}, 
 o objetivo da tolerância a falhas é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço.
 
-Redundância pode ser geralmente feita através da replicação de componentes, para garantir o mascaramento de falhas. 
+Redundância pode ser feita através da replicação de componentes, para garantir o mascaramento de falhas.
+Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo sem que haja uma interrupção no serviço.
 Também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, servindo assim para detecção de erros e até para correção \cite{weber2002}.
 
-Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo...
+Alta disp ...
+\begin{table}
+\caption {Exemplos de sistemas}
+\label{tab:title} 
+\begin{center}
+\begin{tabular}{|l|l|l|l|}\hline
+  & Nome\\\hline
+1 & computadores pessoais\\\hline
+3 & sistemas de acesso\\\hline
+5 & provedores de internet\\\hline
+6 & CPD, sistemas de negócios\\\hline
+7 & 99.999\% & 5.25 minutos & 6 segundos\\\hline
+8 & 99.9999\% & 31.5 minutos & 0.6 segundos\\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
-Cálculo da diponibilidade
+\begin{table}
+\caption {Níveis de alta disponibilidade}
+\label{tab:title} 
+\begin{center}
+\begin{tabular}{|l|l|l|l|}\hline
+  & Uptime & Downtime por ano & Downtime por semana\\\hline
+1 & 90\% & 36.5 dias & 16 horas e 51 minutos\\\hline
+2 & 98\% & 7.3 dias & 3 horas e 22 minutos\\\hline
+3 & 99\% & 3.65 dias & 1 hora e 41 minutos\\\hline
+4 & 99.8\% & 17 horas e 30 minutos & 20 minutos e 10 segundos\\\hline
+5 & 99.9\% & 8 horas e 45 minutos & 10 minutos e 5 segundos\\\hline
+6 & 99.99\% & 52.5 minutos & 1 minuto\\\hline
+7 & 99.999\% & 5.25 minutos & 6 segundos\\\hline
+8 & 99.9999\% & 31.5 minutos & 0.6 segundos\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+...
+
+Cálculo da diponibilidade\\
 Disponibilidade = MTTF / (MTTF + MTTR)
 
+Quanto maior o valor da disponibilidade maior deve ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
+em inglês \textit{Single Point Of Failure}(SPOF)
+
 Fazer: 
-SPOF
-SLA
+SLA service level agreement
 MTTR
 MTBF
+
+
+--Tecnicas de tolerância a falhas: hardware, software, ambiente
+--Fases tolerancia a falhas: deteccao, .. recuperacao de erros
+

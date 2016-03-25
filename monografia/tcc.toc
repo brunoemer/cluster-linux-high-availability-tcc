@@ -1,7 +1,10 @@
 \select@language {brazilian}
-\contentsline {chapter}{Resumo}{3}
-\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{4}
-\contentsline {section}{\numberline {1.1}Quest\IeC {\~a}o de pesquisa}{5}
-\contentsline {section}{\numberline {1.2}Objetivos}{5}
-\contentsline {chapter}{\numberline {2}Alta disponibilidade}{6}
-\contentsline {chapter}{Refer{\^e}ncias}{7}
+\contentsline {chapter}{Lista de acr\IeC {\^o}nimos}{3}
+\contentsline {chapter}{Lista de Figuras}{4}
+\contentsline {chapter}{Lista de Tabelas}{5}
+\contentsline {chapter}{Resumo}{6}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{7}
+\contentsline {section}{\numberline {1.1}Quest\IeC {\~a}o de pesquisa}{8}
+\contentsline {section}{\numberline {1.2}Objetivos}{8}
+\contentsline {chapter}{\numberline {2}Alta disponibilidade}{9}
+\contentsline {chapter}{Refer{\^e}ncias}{11}

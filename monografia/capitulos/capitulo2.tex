@@ -21,7 +21,40 @@ Redundância pode ser feita através da replicação de componentes, para garant
 Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo sem que haja uma interrupção no serviço.
 Também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, servindo assim para detecção de erros e até para correção \cite{weber2002}.
 
-Tabela alta disp \%
+Alta disp ... conforme tabela \ref{tab:dispexemplos}
+\begin{table}
+\caption {Exemplos de sistemas}
+\label{tab:dispexemplos} 
+\begin{center}
+\begin{tabular}{|l|l|}\hline
+  & Nome\\\hline
+1 & computadores pessoais\\\hline
+3 & sistemas de acesso\\\hline
+5 & provedores de internet\\\hline
+6 & CPD, sistemas de negócios\\\hline
+7 & sistemas de telefonia; sistemas de saúde; sistemas bancários\\\hline
+8 & sistemas de defesa militar\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}
+\caption {Níveis de alta disponibilidade}
+\label{tab:dispniveis} 
+\begin{center}
+\begin{tabular}{|l|l|l|l|}\hline
+  & Uptime & Downtime por ano & Downtime por semana\\\hline
+1 & 90\% & 36.5 dias & 16 horas e 51 minutos\\\hline
+2 & 98\% & 7.3 dias & 3 horas e 22 minutos\\\hline
+3 & 99\% & 3.65 dias & 1 hora e 41 minutos\\\hline
+4 & 99.8\% & 17 horas e 30 minutos & 20 minutos e 10 segundos\\\hline
+5 & 99.9\% & 8 horas e 45 minutos & 10 minutos e 5 segundos\\\hline
+6 & 99.99\% & 52.5 minutos & 1 minuto\\\hline
+7 & 99.999\% & 5.25 minutos & 6 segundos\\\hline
+8 & 99.9999\% & 31.5 minutos & 0.6 segundos\\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 ...
 
@@ -35,3 +68,8 @@ Fazer:
 SLA service level agreement
 MTTR
 MTBF
+
+
+--Tecnicas de tolerância a falhas: hardware, software, ambiente
+--Fases tolerancia a falhas: deteccao, .. recuperacao de erros
+
