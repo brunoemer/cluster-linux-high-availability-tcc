@@ -1,0 +1,33 @@
+http://www.tiespecialistas.com.br/2011/01/redundancia-e-contingencia-gerando-alta-disponibilidade/
+
+
+Redundância e Contingência gerando Alta Disponibilidade
+publicado por Leonardo Matarazzo
+ 
+Independente do porte da área de Tecnologia da empresa, podemos afirmar que qualquer parada indesejada no ambiente de Infraestrutura de TI/Telecom é um problema que inevitavelmente afetará processos e causará transtornos financeiros. Hoje em dia é inaceitável que ambientes de TI, sejam eles de qualquer porte, sofram paradas não planejadas. As paradas não planejadas ocorrem principalmente pelos seguintes motivos:
+
+– Falha de Hardware ou Física
+
+– Falha de Software ou Lógica
+
+– Falha Humana
+
+A Falha de Hardware ocorre quando algum componente físico da infraestrutura falha. Isso é comum ocorrer com fontes de alimentação, discos rígidos entre outros. Para evitar este tipo de problema, podemos adquirir equipamentos que possuem tolerância à falhas de hardware, como fontes de alimentação redundantes, placas de redes redundantes e discos redundantes, montados em RAID, por exemplo.
+
+A Falha de Software ocorre quando temos algum problema no Sistema Operacional ou em algum outro serviço que é executado em servidores, por exemplo. Para evitar este tipo de falha, podemos utilizar redundância de Sistema Operacional. Isso pode ser feito através da utilização de Clusters que muitas vezes também serve como redundância física.
+
+A Falha Humana é outro componente que afeta diretamente a alta disponibilidade dos ambientes de TI. Para se corrigir este tipo de falha são necessários treinamentos, orientações e implantações de processos que visem garantir a disponibilidade de serviços de TI, como ITIL, por exemplo.
+
+Não entrarei em detalhes em rotinas de backup, pois este não é o foco deste artigo, mas sem dúvida alguma, backup é essencial para garantir a recuperação de determinados tipos de falha. Lembro aqui que apenas realizar os backups não garante a recuperação das falhas. É necessário validar estes backups frequentemente através de rotinas e processos de restore.
+
+Até agora falamos apenas de falhas que podem ocorrer internamente na área de Tecnologia. A probabilidade das falhas citadas acima ocorrer quando temos redundância é minimizada, porém precisamos pensar no que ocorre quando todos os componentes que fazem parte da redundância falham e isto sem dúvidas, é possível. Fato típico na área de tecnologia é faltar energia elétrica no Datacenter. A redundância não está preparada para este tipo de falha, bem como não está preparada para uma enchente, um curto circuito, queda de avião ou helicóptero e por aí vai. O que não faltam são tipos de desastres que podem ocorrer para tornar o datacenter indisponível.
+
+Para evitar este outro tipo de falha que acima chamamos de desastre, podemos utilizar a contingência. A contingência pode ser definida como uma redundância externa ao seu ambiente de tecnologia principal. Atualmente instituições de pequeno, médio e grande porte estão preocupadas em criar sua Contingência ou Site DR (Disaster Recovery). No caso de um desastre no datacenter principal, a contingência externa é a única forma de continuar com a operação dos serviços de TI críticos. Isso já não é coisa de outro mundo, é real e deve ser feita se existir oportunidades. Temos diversas consultorias de estratégias de risco especializadas em projetos deste tipo, bem como ferramentas dos mais diversos fabricantes que garantem a replicação de dados para ambientes externos.
+
+Em empresas que possuem uma estrutura um pouco maior, normalmente possuem um departamento de Governança Corporativa. Este departamento deve ser responsável pelo PCN (Plano de Continuidade de Negócios) da empresa. Dependendo do tipo de negócio da empresa, a contingência de TI é apenas uma pequena parte do PCN.
+
+Sem dúvidas, ter um ambiente de alta disponibilidade requer investimentos. Na maioria das vezes, estes investimentos são altos, porém necessários para determinados tipos de serviços de TI. Conheço empresas que criaram seu ambiente de contingência externo com o valor do prejuízo que teriam se ficassem 30 horas com o datacenter principal indisponível, isto é claro, sem considerar os prejuízos com a marca, com processos jurídicos que sofreriam e com a perda de clientes e credibilidade no mercado.
+
+Você sabe o que ocorre com sua empresa se seu Datacenter ficar indisponível um único dia ?
+
+

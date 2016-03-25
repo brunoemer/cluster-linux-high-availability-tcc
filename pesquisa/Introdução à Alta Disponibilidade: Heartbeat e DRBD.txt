@@ -1,0 +1,304 @@
+http://ha-mc.org/2008/02/introducao-a-alta-disponibilidade-heartbeat-e-drbd/?q=node/15
+
+
+Introdução à Alta Disponibilidade: Heartbeat e DRBD
+ fevereiro 4, 2008  Heitor Cardozo
+O conceito de Alta Disponibilidade (High Availability, ou simplesmente HA) não deve, e nem pode, ser uma novidade para os administradores de sistemas, principalmente em ambientes computacionais onde a disponibilidade é uma característica crítica. Esse conceito, que não é recente, está sendo amplamente disseminado, alcançando importância diretamente proporcional a influência que os sistemas de computação exercem nas empresas ou entidades que sustentam.
+
+Quando nos referimos a alta disponibilidade nos sistemas Linux, estão na sombra desse relacionamento dois maduros softwares livres que permitem preencher alguns requisitos de sua implementação: o Heartbeat e o DRBD. Ambos os softwares são parte integrante do conhecido projeto Linux-HA, cujo propósito é reunir informações e casos de uso sobre os principais componentes relacionados à alta disponibilidade no Linux.
+
+
+Este artigo pretende então definir Alta Disponibilidade e citar os termos estabelecidos às tecnologias envolvidas, além de apresentar uma introdução, através de exemplos, sobre o funcionamento do Heartbeat e do DRBD. Porém, o artigo não se preocupa com os detalhes sobre a instalação e configuração desses softwares.
+
+Alta Disponibilidade
+Por definição, um sistema de alta disponibilidade é aquele que utiliza mecanismos de detecção, recuperação e mascaramento de falhas, visando manter o funcionamento dos serviços durante o máximo de tempo possível, inclusive no decurso de manutenções programadas.
+
+Nesse contexto, disponibilidade refere-se a capacidade de um usuário de determinado sistema acessar, incluir ou modificar os dados existentes, assegurando a integridade de quaisquer alterações realizadas em qualquer intevalo de tempo. Caso, por qualquer que seja o motivo, um usuário não tenha acesso a todo ou parte fundamental desse sistema, é dito então que ele está indisponível, sendo o tempo total de indisponibilidade conhecido pelo termo downtime.
+
+Apoiando-se em alguns cálculos básicos, é possível definir os níveis de disponibilidade de um sistema com base no seu downtime mensal e anual. Os resultados estão na tabela abaixo:
+Disponibilidade (%)	Downtime/ano	Downtime/mês
+95%	18 dias 6:00:00	1 dias 12:00:00
+96%	14 dias 14:24:00	1 dias 4:48:00
+97%	10 dias 22:48:00	0 dias 21:36:00
+98%	7 dias 7:12:00	0 dias 14:24:00
+99%	3 dias 15:36:00	0 dias 7:12:00
+99,9%	0 dias 8:45:35.99	0 dias 0:43:11.99
+99,99%	0 dias 0:52:33.60	0 dias 0:04:19.20
+99,999%	0 dias 0:05:15.36	0 dias 0:00:25.92
+
+Tabela de Níveis de Alta Disponibilidade
+Para calcular a disponibilidade de um sistema, leva-se em consideração dois parâmetros: O tempo médio entre falhas – Mean Time Between Fail – (MTBF) e o tempo médio de recuperação – Mean Time To Repair – (MTTR), que é o espaço de tempo (médio) que decorre entre a ocorrência da falha e a total recuperação do sistema. Com o conhecimento desses parâmetros, é aplicada a fórmula:
+Disponibilidade = MTTF / (MTTF + MTTR)
+
+As soluções que se aproximam de 100% de disponibilidade exigem a redundância da estrutura para evitar a existência de pontos únicos de falha, conhecidos também pela sigla em inglês SPOF (Single Point Of Failure). Um ponto único de falha é simplesmente um recurso do sistema em que, caso falhe, provoca a indisponibilidade de todo o sistema. Óbvia e infelizmente, reduzir os pontos únicos de falha exige custos e adiciona um considerável grau de complexidade na infra-estrutura.
+
+A redundância da estrutura é, portanto, um dos requisitos para se conseguir alta disponibilidade, e deve ser combinada com uma camada de software capaz de monitorar e assumir os serviços de um servidor em produção quando nele ocorrer uma falha. Exatamente essa camada de software é preenchida pelo Heartbeat e DRBD.
+
+Heartbeat
+O Heartbeat pode ser considerado o núcleo do ambiente de alta disponibilidade, pois é sua a responsabilidade de monitorar os servidores em produção e, em caso de falha, realizar automaticamente os procedimentos para preservar o funcionamento do sistema como um todo.
+
+Através de um meio de comunicação, que pode ser Ethernet ou Serial, um servidor redundante verifica a disponibilidade do servidor em produção enviando-lhe uma mensagem e exigindo a resposta. Essa checagem é feita entre as instâncias do Heartbeat instaladas nos dois servidores. Se por algum motivo o servidor em produção não responder, ele será considerado indisponível, e então o Heartbeat do servidor redundante automaticamente providencia a configuração e inicilialização dos serviços locais, além de outros recursos, como o endereço IP, partições de disco, etc.
+
+Para dispensar mais explicações em torno do funcionamento do Heartbeat, será ilustrado um diagrama envolvendo dois servidores: webserver1 (produção) e webserver1-bkp (redundante). Ambos configurados com o Heartbeat para prover alta disponibilidade de um serviço Web (Apache):
+
+
+No diagrama acima, o endereço IP 9.8.7.3 é um IP virtual gerenciado pelo Heartbeat. É justamente por esse IP que os clientes tem acesso ao serviço Web (Apache) do servidor em produção. Os endereços IPs 9.8.7.1 e 9.8.7.2 são fixos e usados apenas para permitir o gerenciamento remoto, independente de qual servidor estiver com o IP virtual configurado.
+Ainda com base no diagrama, é possível narrar com minúcia os passos de funcionamento do Heartbeat:
+
+O Heartbeat do webserver1-bkp envia uma mensagem para o webserver1 através de uma conexão serial, usando um cabo serial cruzado que conecta os dois servidores.
+Caso o webserver1 não envie uma resposta, automaticamente o Heartbeat do webserver1-bkp inicia o serviço Apache e configura o IP 9.8.7.3, passando a funcionar como o servidor em produção.
+Quando o webserver1 estiver novamente disponível, o Heartbeat desse servidor envia um pacote alertando sobre sua disponibilidade para o webserver1-bkp, pela mesma comunicação serial.
+O webserver1-bkp então pára o serviço Apache e libera o IP 9.8.7.3, configurado anteriormente. Logo em seguida, ele envia uma mensagem para o webserver1, alertando-o sobre a possibilidade dele assumir novamente os serviços.
+O webserver1 inicia o Apache e configura novamente o IP 9.8.7.3, voltando assim a situação original.
+Um ponto importante de observação é que o próprio Heartbeat controla a inicilialização de determinados serviços e recursos dos servidores, como o Apache e o endereço IP virtual. Logo, eles não devem ser configurados para inicializar durante o boot do sistema operacional, apenas no Heartbeat.
+
+Assumindo o controle total dos serviços e recursos do ambiente de alta disponibilidade, o Heartbeat evita qualquer tipo de conflito que possa afetar o correto funcionamento do sistema. Entretanto, não é seu objetivo garantir a sincronia e a integridade dos dados entre os servidores. Para conseguir isso, o Heartbeat tem que agir em conjunto com algum software que se encarregue de manter os mesmos arquivos do servidor em produção também no servidor redundante. Essa será justamente a função do DRBD.
+
+DRBD
+DRBDO DRBD (Distributed Replicated Block Device) consiste em um módulo para o kernel Linux que faz o espelhamento dos dados de um dispositivo de bloco (partições de disco) entre diferentes servidores, interligados geralmente através de uma rede Ethernet. Para quem já é familiarizado com o conceito de RAID, o DRBD pode ser muito bem explicado como sendo um RAID-1 via rede.
+
+Cada dispositivo de bloco envolvido na configuração do DRBD tem um estado, que pode ser primário ou secundário. Todas as operações de escrita feitas no primário são replicadas para o secundário, sendo que o protocolo padrão de replicação garante a sincronia e a integridade dos dados replicados. Quanto as operações de leitura, elas são sempre realizadas localmente.
+
+Atualmente na versão 8.0, o DRBD suporta uma configuração com dois dispositivos primários (Dual-primary mode), permitindo, além da alta disponibilidade, o balanceamento de carga através da distribuição das operações de leitura e escrita. Esse modo de operação exige a utilização de um sistema de arquivos distribuído (GFS e OCFS2 são alguns exemplos), o que torna sua implementação um pouco complexa. Entretanto, a tradicional configuração primário/secundário é o suficiente para construir um ambiente de alta disponibilidade.
+
+O Heartbeat fornece scripts para controlar partições DRBD de acordo com a disponibilidade dos servidores. Em um ambiente integrado, o servidor em produção faz a replicação dos arquivos para um servidor redundante através do DRBD. O servidor redundante, por sua vez, faz o monitoramento do servidor em produção usando o Heartbeat. Em caso de indisponibilidade, ele automaticamente monta o dispositivo DRBD para leitura e escrita e inicia os demais serviços, mantendo o sistema em perfeito funcionamento e com os arquivos atualizados. Nessa situação, o Heartbeat configura o dispositivo DRBD do servidor redundante para primário.
+
+Quando o servidor em que houve a falha ficar novamente disponível, o seu Heartbeat assume a responsabilidade de iniciar os serviços, sincronizar as partições DRBD e configurá-lo novamente como primário, fechando o ciclo.
+
+Baseando-se nas informações sobre o DRBD, o diagrama dos servidores web em um ambiente de alta disponibilidade – já mencionado anteriormente – pode ser complementado da seguinte forma:
+
+
+Nesse novo diagrama, todos os arquivos dos Web Sites, armazenados debaixo de /var/www em webserver1, são replicados para o webserver1-bkp através do DRBD. A integração com o Heartbeat permite preservar as modificações nos arquivos desse diretório durante uma indisponibilidade do servidor em produção, tornando mais completo o ambiente de alta disponibilidade.
+Considerações finais
+Os pacotes pré-compilados do Heatbeat e DRBD estão disponíveis para várias distribuições Linux, como o Debian, Fedora, Red Hat (CentOS), Ubuntu e SuSE, portanto, a instalação deles é tipicamente descomplicada com o uso de ferramentas de gerenciamento de pacotes, como, por exemplo, o apt-get, yum e urpmi. Em relação aos procedimentos de configuração, é possível encontrar muita documentação espalhada na Internet para diversos casos de uso, além da ótima documentação presente nos próprios pacotes de instalação.
+
+Em meio a algumas soluções proprietárias para construir um ambiente de alta disponibilidade, o Heartbeat e o DRBD conseguem juntos excelentes resultados para sistemas Linux, e sem absolutamente nenhum custo por se tratarem de softwares livres. A maturidade desses softwares atingiu um certo nível que venceu determinadas desconfianças presentes no rigoroso mercado corporativo.
+
+Logicamente o Heartbeat não se submete ao que foi apresentado no artigo. Ele permite a integração com diversos outros recursos além do DRBD. É comum encontrá-lo também em soluções de alta disponibilidade para servidores NFS, ou integrado com o ldirectord (Linux Director Daemon), usado para fazer balanceamento de carga. A sua estrutura modular, combinada com a flexibilidade do Linux, limita o uso do Heartbeat exclusivamente a criatividade do administrador de sistemas.
+
+Referências
+Conectiva (17-11-2003). Guia do Servidor Conectiva Linux. Conectiva. Acessado em 29-01-2008.
+Wikipédia (01-01-2008). Sistema de alta disponibilidade. Acessado em 30-01-2008.
+Shaikh, Hidayatullah (12-10-2004). High-availability middleware on Linux. IBM DeveloperWorks. Acessado em 04-02-2008.
+
+ Linux, Open Source, Sistemas Operacionais.  permalink.
+Navegação da Postagem
+ Rastreamento de processos com o strace
+Entendendo o uso de memória no Linux 
+15 comentários sobre “Introdução à Alta Disponibilidade: Heartbeat e DRBD”
+Tiago Cruz diz:
+fevereiro 27, 2008 at 10:28
+Cara,
+
+excelente artigo, meus parabéns!
+se rolar uma continuação do mesmo com um exemplo prático seria matador!
+não sabia que o DRBD ja fazia write em ambos os sentidos, isso me despertou um interesse que você não tem noção…rsrsrs
+
+Abraços
+
+Responder
+Heitor Cardozo diz:
+fevereiro 28, 2008 at 00:33
+Olá Tiago,
+
+O objetivo inicial do artigo era justamente a instalação e configuração desses dois softwares, mas esse tipo de documentação é abundante na Internet, resumindo-se em mostrar os arquivos de configuração e explicar superficialmente cada opção.
+
+Exatamente devido a uma dificuldade pessoal de encontrar mais informações teóricas, decidi redigir essa introdução com uma visão mais abrangente do Heartbeat e do DRBD.
+
+Quanto a possibilidade do DRBD ser montado no modo leitura/escrita nos dois nós, de acordo com a Wikipedia:
+
+“DRBD verion 8, released in January 2007, introduced support for load-balancing configurations, allowing both nodes to access a particular DRBD in read/write mode with shared storage semantics. Such a configuration requires the use of a distributed lock manager.”
+
+Apesar de não conhecer esse recurso na prática, não há dúvida que isso permitirá o uso do DRBD para soluções mais complexas.
+
+Um abraço.
+
+Responder
+flavio diz:
+agosto 15, 2009 at 21:04
+Estou tentando implantar o sistema de ha mas não estou conseguindo. Tem muita coisa na net mas não da certo. Poderia me indicar algum curso em formato DVD para eu interagir sobre o mesmo?
+Ou me dar umas dicas sobre como montar.
+Muito grato.
+
+Responder
+Heitor Cardozo diz:
+agosto 23, 2009 at 03:22
+Flavio,
+
+Não conheço nenhum curso para lhe indicar. Toda a documentação a respeito eu encontrei na Internet.
+
+Eu recomendo os próprios sites do DRBD e do Hertbeat como pontos de partida. Assim que entender os fundamentos, você verá que a configuração é muito simples.
+
+Caso precise de alguma dica, sinta-se a vontade para me enviar um e-mail que eu tentarei lhe ajudar assim que possível.
+
+Responder
+Andre diz:
+maio 20, 2008 at 15:12
+Artigo bem escrito, com qualidade e clareza. Valeu!
+
+Responder
+Vinícius diz:
+janeiro 30, 2009 at 11:37
+E no caso do webserver1 estar ativo e respondendo o heartbeat mas a aplicação, o Apache nesse caso, não esta OK. Como o Heartbeat pode identificar de maneira mais satisfatória se um recurso esta ativo ou não?
+
+Responder
+Heitor Cardozo diz:
+janeiro 30, 2009 at 21:07
+Olá Vinícius,
+
+Nesse caso você poderia usar um software chamado Mon para integrar com o heartbeat. Ele ficaria encarregado de fazer o monitoramento dos serviços.
+
+Neste link você encontra mais detalhes a respeito dessa configuração.
+
+Responder
+Rafael diz:
+janeiro 7, 2010 at 16:17
+boa tarde,
+eu estava pensando em fazer meu TCC sobre HA,
+mas nao consigo encontrar referencias(livros, artigos…)
+Alguem teria algum material para me enviar?
+Obrigado.
+
+Responder
+Daniel diz:
+maio 16, 2011 at 17:31
+Tou fixando tudo isso que está nessa página na cabeça etenho duas perguntar simples a fazer..
+
+Ondem fala sobre o DRBD, tem umas linhas que dizem:
+
+“sendo que o protocolo padrão de replicação garante a sincronia e a integridade dos dados replicados”
+
+Minha pergunta: Qual seria o protocolo padrão? Boiei…
+
+Em seguida diz:
+“Quanto as operações de leitura, elas são sempre realizadas localmente.”
+Minha pergunta: localmente? Na mesma rede, você quer dizer?
+
+Se responder vai ajudar muuito.
+Obrigado pela atenção!
+
+Responder
+Heitor Cardozo diz:
+maio 18, 2011 at 02:51
+Olá Daniel,
+
+“Minha pergunta: Qual seria o protocolo padrão? Boiei…”
+
+Existem 3 protocolos de replicação no DRBD: A, B e C. Suas características são as seguintes:
+
+A: Uma operação de escrita é considerada completa quando o dado é escrito no disco e enviado pela rede.
+B: Uma operação de escrita é considerada completa quando confirmado o recebimento pelo outro nó.
+C: Uma operação de escrita é considerada completa após a confirmação de escrita do nó secundário.
+
+O protocolo padrão é o C – mais seguro por exigir a confirmação de escrita no nó secundário. Por isso afirmei que ele garante a sincronia e a integridade dos dados.
+
+“Minha pergunta: localmente? Na mesma rede, você quer dizer?”
+
+Neste caso é no disco local.
+
+Responder
+Junior diz:
+setembro 7, 2011 at 03:31
+Olá, primeiramente seu artigo desceu como uma coca-cola bem gelada e com uma fatia de limão estando no meio do deserto do Saara.
+Parabéns mesmo pela didática, qualidade e domínio das ferramentas apresentadas.
+
+Estou com uma dúvida… no caso de servidores de hospedagens… eu precisaria manter sincronizado todas as pastas dentro da home, apache, mysql e os arquivos que guardam as senhas e usuarios do linux… ou seja… praticamente tudo…
+Com o seu conhecimento, o DRBD poderia fazer isso?
+
+Todo o procedimento apresentado foi em uma rede local, no caso se eu tivesse 2 servidores em datacenters diferentes… teria como fazer essa sincronia pela internet?
+
+Agradeço a atenção e novamente parabéns pelo artigo
+
+Grande abraço
+
+Responder
+Heitor Cardozo diz:
+setembro 8, 2011 at 19:38
+Olá Junior,
+
+Primeiramente agradeço seus comentários sobre o artigo.
+
+Para servidores em que são executados simultaneamente diversos serviços, eu sugiro que sejam usadas máquinas virtuais em conjunto com o DRBD e o Heartbeat. Assim você poderá sincronizar todo o disco virtual entre dois servidores hospedeiros diferentes, eliminando a necessidade de um storage para conseguir alta disponibilidade.
+
+Também é possível mesclar ferramentas de sincronização. Por exemplo, configurar o DRBD para replicar os diretórios de dados do MySQL e o DocumentRoot do Apache e usar o rsync para sincronizar os arquivos de configurações. Por essa ser uma configuração mais complexa, particularmente eu sugiro o uso de máquinas virtuais.
+
+Ressalto que é muito importante que se realize testes de desempenho com o DRBD para confirmar se a solução irá atender às necessidades de sua aplicação.
+
+Responder
+David diz:
+junho 19, 2013 at 21:47
+Gostaria de uma ajuda. tenho dois servidores web usando Linux debian 7. O primário e o secundário quero configurar o IP virtual mas não consigo gostaria que alguém me ajudasse a configurar esta parte do heartbeat
+
+Responder
+Juliano diz:
+fevereiro 13, 2014 at 10:34
+Excelente artigo Heitor,
+
+Me tire a seguinte dúvida por favor: Além da alta disponibilidade, desejo também melhorar o desempenho do banco de dados para as operações de I/O e para isso penso em separar as operações de escrita para a servidor master e as operações de leitura para o servidor slave.
+
+Neste caso, quando o servidor master ficar indisponível e o slave assumir o failback e a sincronização dos dados continuaram automáticos ou pode ocorrer algum conflito nesta recuperação? (por exemplo índices únicos duplicados)
+
+Para esta solução há a necessidade de possuir mais de um servidor master?
+
+Obrigado!
+
+Responder
+Heitor Cardozo diz:
+fevereiro 16, 2014 at 21:55
+Olá Juliano,
+
+Para uma solução Master/Slave do MySQL você trabalha apenas com a replicação do próprio banco de dados e não faz uso do DRBD. Sob a perspectiva do Heatbeat, será necessário dois Resource Groups diferentes: um com o banco de dados de leitura/gravação (Master) e outro com o banco de dados somente-leitura (Slave), sendo necessário personalizar os scripts para automatizar o processo de failover e fallback.
+
+Sinceramente, a automatização com o Heatbeat deixaria esta solução complexa e, consequentemente, mais sujeita a falhas e difícil de escalar.
+
+Se me permitir sugestões fora do escopo do Heatbeat, como já é o caso de dividir a carga de leitura e gravação para melhorar o desempenho de seu sistema, eu pensaria antes em:
+
+– Usar softwares para fazer o cache como o memcached e reduzir a carga dos bancos de dados.
+– Utilizar soluções mais escaláveis como o MySQL Cluster.
+
+Espero ter ajudado.
+
+Responder
+Deixe uma resposta
+O seu endereço de email não será publicado.
+
+Nome
+
+
+Email
+
+
+Site
+
+
+Comentário
+
+
+Publicar comentário
+POPULARES
+RECENTES
+Análise do CentOS 5
+dez 30, 2007
+AIX Virtual Processor Folding
+ago 8, 2013
+Compressão de banco de dados DB2 com BLU Acceleration
+ago 25, 2013
+Escrevendo por debaixo dos panos
+jan 3, 2014
+Introdução à Alta Disponibilidade: Heartbeat e DRBD
+fev 4, 2008
+Search for:
+Procurar...
+
+Categorias
+Banco de Dados (2)
+DB2 (1)
+MySQL (1)
+Open Source (13)
+Segurança (2)
+Sistemas Operacionais (15)
+AIX (3)
+Linux (12)
+Virtualização (3)
+KVM (3)
+© 2007-2014 Heitor Augusto Murari Cardozo. É garantida a permissão para copiar, distribuir e/ou modificar os artigos publicados sob os termos da GNU Free Documentation License (GNU FDL), Versão 1.2 ou qualquer versão posterior publicada pela Free Software Foundation.	Tema por Colorlib Desenvolvido por WordPress

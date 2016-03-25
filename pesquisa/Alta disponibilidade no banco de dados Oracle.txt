@@ -1,0 +1,58 @@
+http://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle-parte-1/28971
+
+
+Alta disponibilidade no banco de dados Oracle - Parte 1
+
+Este artigo trata de conceitos de alta disponibilidade para a arquitetura de TI das empresas, focado na solução de alta disponibilidade da Oracle.
+
+ 1       Gostei (3)   (0)
+Demais posts desta série:
+Alta disponibilidade no banco de dados Oracle – Parte 2
+Alta disponibilidade no banco de dados Oracle – Parte 3
+
+Alta Disponibilidade no Banco de Dados Oracle - Parte 1
+Muito se fala em alta disponibilidade, mas nem todos os que falam sobre ela realmente sabem do que estão falando. É sempre muito importante entender todos os conceitos relacionados a alta disponibilidade para que uma análise criteriosa dos negócios da empresa possa ser feita e, principalmente, quais os processos que necessitam de alta disponibilidade.
+Entender estas questões e, efetivamente, desenhar uma solução de alta disponibilidade com base nas melhores práticas é fundamental para o sucesso da empresa. Neste sentido, este artigo trata de conceitos de alta disponibilidade para a arquitetura de TI das empresas, focado na solução de alta disponibilidade da Oracle.
+
+Em que situação o tema é útil
+Sempre que é necessário garantir o máximo de disponibilidade dos sistemas de TI das organizações é necessário pensar em alta disponibilidade e é nesta situação que o tema deste artigo é útil.
+
+Mas afinal, o que realmente é a tão falada alta disponibilidade no banco de dados Oracle?
+
+Disponibilidade é o grau de acessibilidade de uma aplicação, serviço ou função sob demanda. A disponibilidade é medida pela percepção do usuário final da aplicação. Usuários frequentemente ficam frustrados quando seus dados não estão disponíveis ou o sistema de computação não está funcionando como esperado, e eles não entendem ou se preocupam em diferenciar entre todos os componentes complexos de uma solução global para o problema. Falhas de desempenho devido ao aumento do uso esperado criam a mesma percepção que a falta de componentes críticos na arquitetura. Se um usuário não pode acessar o sistema, costuma-se dizer que o mesmo está indisponível. Geralmente, o termo “tempo de inatividade” é usado para se referir aos períodos em que o sistema não está disponível.
+
+Os usuários que querem seus sistemas prontos para atendê-los em todas as vezes que quiserem precisam de um sistema com alta disponibilidade. Um sistema que é altamente disponível é projetado para fornecer serviços de computação ininterruptas durante os períodos essenciais, na maior parte do tempo durante o dia, e na maioria dos dias da semana ao longo do ano. Esta medida é muitas vezes apresentado como 24x7x365, ou seja, o sistema deve estar disponível nas 24 horas durante os 7 dias da semana nos 365 dias do ano. No entanto, exceções podem ser feitas para que o tempo de inatividade seja mínimo para executar determinadas operações, tais como atualização de hardware ou software do sistema.
+
+Confiabilidade, recuperabilidade, detecção rápida de erros e operações contínuas são as características principais de uma solução de alta disponibilidade:
+
+· Confiabilidade: ter um hardware confiável é um dos componentes de uma solução de alta disponibilidade. Softwares confiáveis, incluindo o banco de dados, servidores Web e servidores de aplicação são tão fundamentais para a implementação de uma solução de alta disponibilidade quanto um hardware confiável. Uma característica relacionada é a resiliência. Por exemplo, hardwares de baixo custo (conhecidos como blade), combinados com um software como o Oracle Real Application Clusters (Oracle RAC), podem ser usados para implementar um sistema muito confiável. A resiliência de um banco de dados permite o processamento contínuo mesmo em caso de falhas individuais de servidores;
+
+· Recuperabilidade: pode haver muitas maneiras de se recuperar o sistema em caso de uma falha. Portanto, é importante determinar quais os tipos de falhas que podem ocorrer em seu ambiente de alta disponibilidade e como recuperar essas falhas em tempo hábil, atendendo às necessidades de negócio. Por exemplo, se uma tabela crítica é acidentalmente excluída do banco de dados, quais as medidas que devem ser tomadas para recuperá-la? A arquitetura fornece a capacidade de recuperar num tempo especificado no acordo de nível de serviço (SLA – Service Level Agreement)? Um acordo de nível de serviço (SLA – Service-Level Agreement) é uma parte de um contrato de serviço, onde um serviço é definido formalmente. Na prática, o termo é SLA é, por vezes, utilizado para se referir ao tempo de entrega contratado (do serviço ou de performance). Como exemplo, os provedores de internet comumente incluem acordos de nível de serviço dentro dos termos de seus contratos com os clientes para definir o(s) nível(s) do serviço que está sendo vendido em termos de linguagem simples. Neste caso, o SLA terá detalhes técnicos definidos no tocante a tempo médio entre falhas (MTBF – Mean Time Between Failures), tempo médio de recuperação (MTTR – Mean Time To Recover), taxa de trasferência de dados ou outro tipo de detalhe mensurável.
+
+· Detecção rápida de erros: se um componente em sua arquitetura falhar, então a detecção rápida é essencial para se recuperar da falha inesperada. Embora seja possível de se recuperar rapidamente de uma interrupção, caso haja uma demora maior que 90 minutos para descobrir o problema, então o SLA pode não ser atendido. Monitorar a saúde do seu ambiente requer software confiável para visualizar problemas rapidamente e a capacidade de notificar o administrador de banco de dados sobre um problema;
+
+· Operação contínua: proporcionar o acesso contínuo aos seus dados é essencial quando muito pouco ou nenhum tempo de inatividade é aceitável para executar as atividades de manutenção. Atividades, tais como mover uma tabela para outra localização no banco de dados ou até mesmo a adição de CPUs para o seu hardware deve ser transparente para o usuário final em uma arquitetura de alta disponibilidade.
+
+Mais especificamente, uma arquitetura de alta disponibilidade deve ter as seguintes características:
+
+· Tolerar falhas de tal forma que o processamento continua com pouca ou nenhuma interrupção;
+
+· Ser transparente, ou tolerante, a mudanças no sistema, nos dados ou na aplicação;
+
+· Fornecer medidas preventivas embutidas na própria arquitetura;
+
+· Fornecer monitoramento ativo e detecção rápida de falhas;
+
+· Fornecer recuperação rápida;
+
+"
+A exibição deste artigo foi interrompida
+Este post está disponível para assinantes MVP
+
+Publicado em Canal SQL
+Ricardo Rezende
+Ricardo Rezende ricarezende@gmail.com http://twitter.com/ricarezende DBA Oracle certificado pela Oracle University (DBA 9i track e DBA OCP 10g). IBM Certified Associated em DB2 V9. DBA Oracle na IBM do Brasil em projeto inter [...]
+
+
+
+Leia mais em: Alta disponibilidade no banco de dados Oracle - Parte 1 http://www.devmedia.com.br/alta-disponibilidade-no-banco-de-dados-oracle-parte-1/28971#ixzz41OnpNyLA
