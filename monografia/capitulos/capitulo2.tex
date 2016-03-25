@@ -13,20 +13,25 @@ Uma das palavras-chave da alta disponibilidade é a tolerância a falhas.
 Sabe-se que \textit{hardware} tende a falhar por isso utiliza-se métodos como prevenção de falhas e tolerância a falhas.
 A abordagem prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço porém, não resolverá todas as possíveis falhas.
 Sendo assim, a segunda abordagem, tolerância a falhas, fornece disponibilidade mesmo com presença de falhas \cite{pankaj1994}.
-O seu objetivo é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo de disponibilidade dos serviços fornecidos aos clientes ou usuários. 
+O seu objetivo é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos clientes ou usuários ficam disponíveis. 
 Um sistema é tolerante a falhas se ele pode mascarar a presença de falhas em um sistema usando redundância. Como se expressa \cite{costa2009}, 
 o objetivo da tolerância a falhas é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço.
 
-Redundância pode ser geralmente feita através da replicação de componentes, para garantir o mascaramento de falhas. 
+Redundância pode ser feita através da replicação de componentes, para garantir o mascaramento de falhas.
+Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo sem que haja uma interrupção no serviço.
 Também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, servindo assim para detecção de erros e até para correção \cite{weber2002}.
 
-Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo...
+Tabela alta disp \%
 
-Cálculo da diponibilidade
+...
+
+Cálculo da diponibilidade\\
 Disponibilidade = MTTF / (MTTF + MTTR)
 
+Quanto maior o valor da disponibilidade maior deve ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
+em inglês \textit{Single Point Of Failure}(SPOF)
+
 Fazer: 
-SPOF
-SLA
+SLA service level agreement
 MTTR
 MTBF
