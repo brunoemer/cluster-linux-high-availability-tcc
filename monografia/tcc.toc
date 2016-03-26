@@ -7,4 +7,6 @@
 \contentsline {section}{\numberline {1.1}Quest\IeC {\~a}o de pesquisa}{8}
 \contentsline {section}{\numberline {1.2}Objetivos}{8}
 \contentsline {chapter}{\numberline {2}Alta disponibilidade}{9}
-\contentsline {chapter}{Refer{\^e}ncias}{11}
+\contentsline {section}{\numberline {2.1}C\IeC {\'a}lculo da alta disponibilidade}{9}
+\contentsline {section}{\numberline {2.2}T\IeC {\'e}cnicas de toler\IeC {\^a}ncia a falhas}{10}
+\contentsline {chapter}{Refer{\^e}ncias}{12}

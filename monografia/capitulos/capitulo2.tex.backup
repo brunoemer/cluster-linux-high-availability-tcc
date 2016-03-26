@@ -25,6 +25,8 @@ Na prática se um componente falhar, ele deve ser reparado ou substituido por um
 Também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, 
 servindo assim para detecção de erros e até para correção \cite{weber2002}.
 
+\section{Cálculo da alta disponibilidade}
+
 Um ponto importante sobre alta diponibilidade é como medi-la. Para isso temos que saber o significado dos termos \textit{uptime} e 
 \textit{downtime}, que são respectivamente o tempo que os serviços esta funcionando normalmente e o tempo que não estão funcionando.
 Outra forma de medir a alta disponibilidade é pela quantidade de ``noves'', isto é, se um serviço possui 4 noves de disponibilidade
@@ -71,14 +73,39 @@ Sabendo que D é a disponibilidade em porcentagem. O \textit{Mean Time Between F
 ao tempo médio entre as paradas dos serviços. E o \textit{Mean Time To Repair}(MTTR) é o tempo médio de recuperação, que é o tempo 
 entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
+A alta disponibilidade é um dos principais fatores para garantir a confiabilidade de clientes ou usuários, principalmente para empresa que 
+fornece serviços \textit{online}. Por isso existe o \textit{Service Level Agreement}(SLA), acordo de nível de serviço, 
+que garante que o serviço fornecido atenda as expectativas \cite{smith2010}.
+
+\section{Técnicas de tolerância a falhas}
+
+Como visto anteriormente a tolerância a falhas é feita através de redundância. Segundo \cite{norvag2000} quatro tipos diferentes de redundância
+podem ser usados em sistemas tolerantes a falhas, são eles:
+\begin{itemize}
+ \item \textit{Hardware}: utiliza-se replicação de modulos, caso um falhe outro possa assumir seu lugar. Para fazer a detecção de erros
+ a saída de cada componente é constantemente monitorada e comparada à saída de outros componentes;
+ \item Informação: quando uma informação extra é enviada ou armazenada para permitir a detecção e correção de erros, assim permitindo
+ a autocorreção e integridade dos dados;
+ \item \textit{Software}: são todos os \textit{softwares} ou instruções utilizadas para suporte a tolerância a falhas. Podem ser implementados
+ de várias formas, desde um processo que fica monitorando o serviço para verificar se ele esta funcionando corretamente, até um programa
+ que faz checagens de resultados para saber se está operando da forma desejada;
+ \item Tempo: 
+\end{itemize}
+
+
 
 
 \textbf{Fazer:} 
 
-SLA service level agreement
+--Tecnicas de tolerância a falhas: hardware, software(pag 355 pankaj1994), ambiente
 
---Tecnicas de tolerância a falhas: hardware, software, ambiente
+--Fases tolerancia a falhas: detecção, .. recuperação de erros? detalhar? Pag 39 pankaj1994
 
---Fases tolerancia a falhas: deteccao, .. recuperação de erros
+--Espelhamento de discos
 
 --Virtualizacao
+failover e failback em cluster Virtualizacao?
+
+%\textit{Software} não possui falhas causadas por fatores físicos, ao contrário de \textit{hardware}.
+%Falhas em \textit{software} são causadas por erros no seu desenvolvimento, resultando assim em ``\textit{bugs}'' que geralmente
+%são causados por erros humanos. 
