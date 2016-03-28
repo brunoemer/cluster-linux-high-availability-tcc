@@ -68,9 +68,13 @@ tabela \ref{tab:dispexemplos} possui alguns exemplos de serviços relacionados a
 \end{table}
 
 Sendo assim podemos calcular a disponibilidade através de:\\
-D = MTBF / (MTBF + MTTR)\\
-Sabendo que D é a disponibilidade em porcentagem. O \textit{Mean Time Between Failures}(MTBF) é o tempo médio entre falhas que corresponde
-ao tempo médio entre as paradas dos serviços. E o \textit{Mean Time To Repair}(MTTR) é o tempo médio de recuperação, que é o tempo 
+%D = MTBF / (MTBF + MTTR)\\
+\begin{equation}
+D = MTBF / (MTBF + MTTR)
+\label{diponibilidade}
+\end{equation}
+Sabendo que $D$ é a disponibilidade em porcentagem. O \textit{Mean Time Between Failures}($MTBF$) é o tempo médio entre falhas que corresponde
+ao tempo médio entre as paradas dos serviços. E o \textit{Mean Time To Repair}($MTTR$) é o tempo médio de recuperação, que é o tempo 
 entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
 A alta disponibilidade é um dos principais fatores para garantir a confiabilidade de clientes ou usuários, principalmente para empresa que 
