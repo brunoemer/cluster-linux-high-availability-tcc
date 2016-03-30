@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  28 MAR 2016 19:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  29 MAR 2016 23:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -356,7 +356,8 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
 \AC@clearlist=\toks18
 ) (./tcc.aux
-(./folha_rosto.aux) (./capitulos/introducao.aux) (./capitulos/capitulo2.aux))
+(./folha_rosto.aux) (./capitulos/introducao.aux) (./capitulos/capitulo2.aux)
+(./capitulos/capitulo3.aux))
 \openout1 = `tcc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -527,6 +528,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--12
  []  
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
+ []  
+ []
+
 )
 \tf@toc=\write4
 \openout4 = `tcc.toc'.
@@ -577,7 +583,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 70--72
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
 
@@ -586,7 +592,19 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 10
  []
 
-[10]) [11] (./tcc.bbl
+[10]) [11]
+\openout2 = `capitulos/capitulo3.aux'.
+
+ (./capitulos/capitulo3.tex)
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 12
+ []
+
+[12
+
+
+
+] (./tcc.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 34--38
 []\OT1/cmr/m/n/12 SMITH, R. \OT1/cmr/bx/n/12 Ge-ren-ci-a-mento de N^^S^^Pvel de
  Servi^^Xco\OT1/cmr/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pve
@@ -607,26 +625,21 @@ px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
 
 ) 
 AED: lastpage setting LastPage
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 12
- []
-
-[12
+[13
 
 
 ] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
-(./capitulos/capitulo2.aux))
+(./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 3652 strings out of 495004
- 50016 string characters out of 6180662
- 126644 words of memory out of 5000000
- 6762 multiletter control sequences out of 15000+600000
+ 3660 strings out of 495004
+ 50191 string characters out of 6180662
+ 126945 words of memory out of 5000000
+ 6763 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  41i,9n,29p,678b,285s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -638,10 +651,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (13 pages, 118805 bytes).
+Output written on tcc.pdf (14 pages, 120188 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 86 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

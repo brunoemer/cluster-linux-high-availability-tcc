@@ -1,0 +1,21 @@
+\chapter{Virtualização}
+O conceito virtualização surgiu na década de 60
+
+%Virtualização_ da teoria a soluções.pdf
+%virtualizacao mainframes: pag 1 - Alta Disponibilidade em Servidores Virtualizados.pdf
+%pag 20 - Implementação de Alta disponibilidade em Máquinas Virtuais utilizando Software Livre.pdf
+%ferramentas pag 4 - Main - Virtualização de serviços baseado em contêineres -WandersonReis.pdf
+%pag 32 - Rejuvenescimento e migracao de vms - Matheus D'Eça de Melo.pdf
+%Com a arquitetura baseada em serviços, clientes podem utilizar serviços alocados em
+%nuvem através dosweb browsers. Unindo a computação em nuvem e a arquitetura baseada
+%em serviços, aplicativos e demais recursos de TI podem ser oferecidos remotamente, como se
+%estivessem localizados localmente. Vale a pena salientar que a arquitetura baseada em serviços
+%permite monitorar em tempo real o uso dos recursos disponibilizados, colaborando assim para
+%uma gerência mais eficiente a todo o sistema (LINTHICUM, 2009). Além disso, dependendo
+%das interfaces definidas, pode-se ampliar consideravelmente o número de potenciais clientes.
+%Recursos disponibilizados via navegador web, por exemplo, podem ser acessados tanto por
+%computadores de mesa quanto por smartphones ou tablets.
+%
+%
+
+--Virtualizacao? failover e failback em cluster?

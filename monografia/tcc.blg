@@ -4,11 +4,12 @@ The top-level auxiliary file: tcc.aux
 A level-1 auxiliary file: folha_rosto.aux
 A level-1 auxiliary file: capitulos/introducao.aux
 A level-1 auxiliary file: capitulos/capitulo2.aux
+A level-1 auxiliary file: capitulos/capitulo3.aux
 The style file: abnt.bst
 Database file #1: tcc.bib
 You've used 8 entries,
             2371 wiz_defined-function locations,
-            627 strings with 5862 characters,
+            628 strings with 5885 characters,
 and the built_in function-call counts, 9216 in all, are:
 = -- 1186
 > -- 24
