@@ -64,3 +64,51 @@
   OPTnote   = "",
   OPTannote = ""
 }
+
+@MastersThesis{filho2004,
+  author    = "Nélio Alves Pereira Filho",
+  title     = "Serviço de pertinência para clusters de alta disponibilidade",
+  school    = "Universidade de São Paulo",
+  year      = "2004",
+  OPTkey    = "",
+  type      = "Dissertação para Mestrado em Ciência da Computação",
+  address   = "São Paulo",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
+
+@misc{smith2010,
+  author    = "Ronaldo Smith",
+  title     = "Gerenciamento de Nível de Serviço",
+  year      = "2010",
+  note      = "$<$Disponível em: \url{http://blogs.technet.com/b/ronaldosjr/archive/2010/05/25/gerenciamento-de-n-237-vel-de-servi-231-o.aspx/}$>$. Acesso em 25 de março de 2016."
+}
+
+@MastersThesis{norvag2000,
+  author    = "Kjetil Nørvåg",
+  title     = "An Introduction to Fault-Tolerant Systems",
+  school    = "Norwegian University of Science and Technology",
+  year      = "2000",
+  OPTkey    = "",
+  type      = "IDI Technical Report 6/99",
+  address   = "Trondheim, Noruega",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
+
+@InCollection{Cha-2003,
+  author =       {F. M. M\"uller and A. S. {CHARÃO} and H. G. Santos},
+  title =        {Aplicações de {A}lto {D}esempenho},
+  booktitle =    {ERAD 2003},
+  publisher = {SBC/UNISINOS/UFSM/UNILASALLE},
+  year =         {2003},
+  address =      {Santa Maria, RS},
+  OPTmonth =        {}
+}
+%CARISSIMI, A. Virtualização: da teoria a soluções. Minicursos do Simpósio Brasileiro de Redes de Computadores - SBRC, v. 2008, 
+% n. XXVI Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos, p. 173–207, 2008.
+%CARISSIMI, Alexandre, Virtualização: da teoria a soluções, 26º Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos, 
+% disponível em http://www.gta.ufrj.br/ensino/CPE758/artigos-basicos/cap4- v2.pdf (Acessado em 11/10/2010).
+

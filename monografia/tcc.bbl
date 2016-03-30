@@ -1,5 +1,10 @@
 \begin{thebibliography}{\hspace{\parindent}}
 
+\bibitem[CARISSIMI(2008)CARISSIMI]{carissimi2008} CARISSIMI, A\@.
+  Virtualização: da teoria a soluções. In: \textbf{Minicursos do Simpósio
+  Brasileiro de Redes de Computadores}. Porto Alegre, RS: XXVI Simpósio
+  Brasileiro de Redes de Computadores e Sistemas Distribuídos, 2008.
+
 \bibitem[COSTA(2009)COSTA]{costa2009} COSTA, H. L.~A\@. \textbf{Alta
   disponibilidade e balanceamento de carga para melhoria de sistemas
   computacionais críticos usando software livre}: um estudo de caso. 2009.
