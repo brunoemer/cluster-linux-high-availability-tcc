@@ -72,9 +72,7 @@ Segundo \cite{norvag2000} existem quatro tipos diferentes de redundância que s�
 Um ponto importante sobre alta diponibilidade é como medi-la. Para isso são utilizados os valores de \textit{uptime} e 
 \textit{downtime}, que são respectivamente o tempo que os serviços esta funcionando normalmente e o tempo que não estão funcionando.
 Outra forma de expressar a alta disponibilidade é pela quantidade de ``noves'', isto é, se um serviço possui 4 noves de disponibilidade
-este possui uma disponibilidade de 99,99\% \cite{filho2004}.
-A tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados. Já a Tabela \ref{tab:dispexemplos} 
-possui alguns exemplos de serviços relacionados ao nível de disponibilidade. DETALHAR TABELA
+este possui uma disponibilidade de 99,99\% \cite{pereirafilho2004}.
 
 \begin{table}
 \caption {Níveis de alta disponibilidade}
@@ -95,7 +93,7 @@ Nível & Uptime & Downtime por ano & Downtime por semana\\\hline
 \end{table}
 
 \begin{table}
-\caption {Exemplos de sistemas}
+\caption {Exemplos de sistemas e seus níveis de disponibilidade}
 \label{tab:dispexemplos} 
 \begin{center}
 \begin{tabular}{|l|l|}\hline
@@ -110,6 +108,11 @@ Nível  & Nome\\\hline
 \end{center}
 \end{table}
 
+A tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados, seguido da porcentagem do \textit{Uptime}, 
+o \textit{Downtime} por ano representado na medida de tempo, e o \textit{Downtime} por semana também na medida de tempo. 
+Já a Tabela \ref{tab:dispexemplos} possui alguns exemplos de serviços relacionados ao nível de disponibilidade da tabela anterior. 
+Pode-se observar que para alguns serviços como sistemas bancários ou sistemas militares é necessário um alto nível de disponibilidade.
+
 Podemos calcular a disponibilidade através da equação
 \begin{equation}
 d = \frac{MTBF}{(MTBF + MTTR)}
@@ -119,8 +122,8 @@ onde $d$ é a porcentagem de disponibilidade. O \textit{Mean Time Between Failur
 entre as paradas dos serviços. E o \textit{Mean Time To Repair} ($MTTR$) é o tempo médio de recuperação, isto é, o tempo 
 entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
-A alta disponibilidade é um dos principais fatores para garantir a confiabilidade de clientes ou usuários, principalmente para empresa que 
-fornece serviços \textit{on-line}. Por isso existe o \textit{Service Level Agreement}(SLA), acordo de nível de serviço, 
+A alta disponibilidade é um dos principais fatores para garantir a confiança de clientes ou usuários, principalmente para empresa que 
+fornece serviços \textit{on-line}. Por isso existe o \textit{Service Level Agreement} (SLA), acordo de nível de serviço, 
 que garante que o serviço fornecido atenda as expectativas \cite{smith2010}. DETALHAR, ONDE?
 
 

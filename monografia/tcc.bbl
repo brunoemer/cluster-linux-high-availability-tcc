@@ -15,11 +15,6 @@
   Pós-Graduação em Ciência da Computação --- Universidade Federal de
   Viçosa, Minas Gerais.
 
-\bibitem[FILHO(2004)FILHO]{filho2004} FILHO, N. A.~P\@. \textbf{Serviço de
-  pertinência para clusters de alta disponibilidade}. 2004. Dissertação para
-  Mestrado em Ciência da Computação --- Universidade de São Paulo, São
-  Paulo.
-
 \bibitem[GONçALVES(2009)GONçALVES]{goncalves2009} GONçALVES, E.~M\@.
   \textbf{Implementação de Alta disponibilidade em máquinas virtuais
   utilizando Software Livre}. 2009. Trabalho de Conclusão (Curso de Engenharia
@@ -33,6 +28,11 @@
 \bibitem[PANKAJ(1994)PANKAJ]{pankaj1994} PANKAJ, J\@. \textbf{Fault tolerance
   in distributed system}. Nova Jérsei, Estados Unidos: P T R Prentice Hall,
   1994.
+
+\bibitem[PEREIRA{ }FILHO(2004)PEREIRA{ }FILHO]{pereirafilho2004} PEREIRA{
+  }FILHO, N.~A\@. \textbf{Serviço de pertinência para clusters de alta
+  disponibilidade}. 2004. Dissertação para Mestrado em Ciência da
+  Computação --- Universidade de São Paulo, São Paulo.
 
 \bibitem[REIS(2009)REIS]{reis2009} REIS, W.~S.~dos. \textbf{Virtualização de
   serviços baseado em contêineres}: uma proposta para alta disponibilidade de
