@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  3 APR 2016 00:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  3 APR 2016 19:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -360,25 +360,25 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 (./capitulos/capitulo3.aux))
 \openout1 = `tcc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 23.
+(lastpage)             ! on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -449,18 +449,18 @@ Package epstopdf Info: Source file: <img/iilogo.eps>
 (epstopdf)                    size: 8456 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/iilogo-eps-converted-t
 o.pdf img/iilogo.eps>
-(epstopdf)             \includegraphics on input line 25.
+(epstopdf)             \includegraphics on input line 26.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/iilogo-eps-converted-to.pdf, id=1, 64.24pt x 101.37875pt>
 File: img/iilogo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/iilogo-eps-converted-to.pdf>
-Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 25.
+Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 26.
 
 (pdftex.def)             Requested size: 32.11992pt x 50.68924pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--25
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
 
  []
 
@@ -483,15 +483,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ])
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 29.
+(Font)              size <17.28> substituted on input line 30.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 29.
+(Font)              size <17.28> substituted on input line 30.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 29.
+(Font)              size <17.28> substituted on input line 30.
 
 (./tcc.toc
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
@@ -524,12 +524,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--8
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
  []  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
  []  
  []
 
@@ -583,29 +583,54 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package epstopdf Info: Source file: <img/recuperacao_ret_ava.eps>
+(epstopdf)                    date: 2016-04-03 14:41:40
+(epstopdf)                    size: 68258 bytes
+(epstopdf)             Output file: <img/recuperacao_ret_ava-eps-converted-to.p
+df>
+(epstopdf)                    date: 2016-04-03 15:17:45
+(epstopdf)                    size: 30063 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/recuperacao_ret_ava-ep
+s-converted-to.pdf img/recuperacao_ret_ava.eps>
+(epstopdf)             \includegraphics on input line 53.
+Package epstopdf Info: Output file is already uptodate.
 
+<img/recuperacao_ret_ava-eps-converted-to.pdf, id=44, 668.4975pt x 373.395pt>
+File: img/recuperacao_ret_ava-eps-converted-to.pdf Graphic file (type pdf)
+
+<use img/recuperacao_ret_ava-eps-converted-to.pdf>
+Package pdftex.def Info: img/recuperacao_ret_ava-eps-converted-to.pdf used on i
+nput line 53.
+(pdftex.def)             Requested size: 359.4022pt x 200.75073pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 10
  []
 
-[10]
-Overfull \hbox (3.42212pt too wide) in paragraph at lines 120--124
-\OT1/cmr/m/n/12 onde $\OML/cmm/m/it/12 d$ \OT1/cmr/m/n/12 ^^Se a por-cen-ta-gem
- de dis-po-ni-bi-li-dade. O \OT1/cmr/m/it/12 Mean Time Between Fai-lu-res \OT1/
-cmr/m/n/12 ($\OML/cmm/m/it/12 MTBF$\OT1/cmr/m/n/12 )
- []
+[10 <./img/recuperacao_ret_ava-eps-converted-to.pdf>]
+Underfull \vbox (badness 1824) has occurred while \output is active []
 
-[11])
+ [11]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 12
  []
 
 [12]
+Overfull \hbox (3.42212pt too wide) in paragraph at lines 160--164
+\OT1/cmr/m/n/12 onde $\OML/cmm/m/it/12 d$ \OT1/cmr/m/n/12 ^^Se a por-cen-ta-gem
+ de dis-po-ni-bi-li-dade. O \OT1/cmr/m/it/12 Mean Time Between Fai-lu-res \OT1/
+cmr/m/n/12 ($\OML/cmm/m/it/12 MTBF$\OT1/cmr/m/n/12 )
+ []
+
+) [13]
 \openout2 = `capitulos/capitulo3.aux'.
 
- (./capitulos/capitulo3.tex) [13
+ (./capitulos/capitulo3.tex)
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 14
+ []
+
+[14
 
 
 
@@ -634,17 +659,17 @@ Underfull \hbox (badness 6542) in paragraph at lines 47--51
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 14
- []
-
-[14
+[15
 
 
 ]) 
 AED: lastpage setting LastPage
-[15] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 16
+ []
+
+[16] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux))
 
 LaTeX Font Warning: Size substitutions with differences
@@ -652,10 +677,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 3669 strings out of 495004
- 50398 string characters out of 6180662
- 127078 words of memory out of 5000000
- 6772 multiletter control sequences out of 15000+600000
+ 3677 strings out of 495004
+ 50674 string characters out of 6180662
+ 127089 words of memory out of 5000000
+ 6779 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  41i,8n,29p,314b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -667,10 +692,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (16 pages, 125456 bytes).
+Output written on tcc.pdf (17 pages, 157130 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

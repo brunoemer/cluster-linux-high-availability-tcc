@@ -43,7 +43,38 @@ códigos de correção de erros, em inglês \textit{error correction code} (ECC)
 Na segunda, geralmente necessita de menor redundância, e consiste em detectar, localizar e reconfigurar o \textit{software} ou
 \textit{hardware} e por sim resolver a falha \cite{weber2002}.
 
---Colocar detalhado fases tolerancia a falhas?: detecção, .. recuperação de erros? detalhar? Pag 39 pankaj1994
+\subsection{Fases da tolerância a falhas}
+
+A classificação das fases de tolerância a falhas mais comum são detecção, confinamento, recuperação e tratamento de falhas. Essas fases excluem
+o mascaramento de falhas \cite{weber2002}.
+
+\begin{figure}[falhasrecup]
+ \centering
+ \includegraphics[height=200px]{img/recuperacao_ret_ava.eps}
+ \caption{Recuperação por retorno e por avanço.}
+ \label{fig:recuperacao_ret_ava}
+\end{figure}
+
+\begin{itemize}
+ \item Detecção: é a primeira fase, a detecção de erro faz o monitoramento e aguarda uma falha se manifestar na forma de erro, para então
+ passar para a próxima fase. Um exemplo de detecção de erro é o esquema de duplicação e comparação, que é a replicação de um componente
+ que realiza as mesmas operações sobre os mesmos dados e compara os resultados de saída. Caso ocorra alguma diferença um erro é gerado.
+ \item Confinamento: esta fase é reponsável pela restrição de um erro para não se propagar para todo o sistema, pois entre a falha e a
+ detecção do erro há um intervalo de tempo. Onde pode ocorrer a propagação do erro para outros componentes do sistema, por isso antes de
+ executar medidas corretivas é necessário definir limites da propagação.
+ \item Recuperação: Após a detecção de um erro ocorre a recuperação, onde o estado de erro é alterado para estado livre de erros. A recuperação
+ pode ser feito através de duas formas:
+ \subitem \textit{forward error recovery} ou recuperação por avanço, condução para um novo estado não ocorrido anteriormente. É eficiente, porém
+ complexo porque a ação deve ser precisa. Ilustrado no segundo item da \ref{fig:recuperacao_ret_ava}.
+ \subitem \textit{backward error recovery} ou recuperação por retorno, ocorre um retorno para um estado anterior que deve estar livre de erros.
+ Para retornar ao estado anterior pode ser utilizado pontos de recuperação (\textit{checkpoints}) e na ocorrência de erro um \textit{rollback} 
+ é executado, conforme \ref{fig:recuperacao_ret_ava}.
+ \item Tratamento: A última fase serve para prevenir que futuros erros aconteçam. Inicia com a localização da falha para encontrar o componente
+ que originou a falha, após é feito um diagnóstico, que testa o componente e compara o resultado gerado com o previsto. Então o componente 
+ danificado é removido, pode ser feito de duas formas manual ou automático. O reparo manual é feito por operador, e o automático quando existe
+ um componente em espera para substituição. Exemplo de um reparo manual é a troca de um disco de um servidor, e automático uma substituição
+ de um componente de um satélite que possui longo período sem contato com algum operador.
+\end{itemize}
 
 \section{Redundância}
 
@@ -55,24 +86,32 @@ servindo assim para detecção de erros e até para correção \cite{weber2002}.
 Segundo \cite{norvag2000} existem quatro tipos diferentes de redundância que são:
 \begin{itemize}
  \item \textit{Hardware}: utiliza-se replicação de componentes, sendo que caso um falhe outro possa assumir seu lugar. 
- Para fazer a detecção de erros a saída de cada componente é constantemente monitorada e comparada à saída de outros componentes;
- \item Informação: quando uma informação extra é enviada ou armazenada para possibilitar a detecção e correção de erros;
+ Para fazer a detecção de erros a saída de cada componente é constantemente monitorada e comparada à saída de outros componentes.
+ Um exemplo prático de redundância de \textit{hardware} é servidores com fontes redundantes, normalmente são duas fontes ligadas em paralelo, 
+ caso uma falhe a outra alimente todo o servidor;
+ \item Informação: quando uma informação extra é enviada ou armazenada para possibilitar a detecção e correção de erros.
+ Um exemplo clássico são os \textit{checksums}, soma de verificação, é calculado a soma dos dados antes da transmissão ou armazenamento 
+ e recalculado aos recebe-lo ou recuperá-lo, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
+ \textit{bits} de paridade, são utilizandos para detectar falhas simples, que afetam apenas um \textit{bit}. O \textit{bit} de paridade 
+ serve apenas para checar se em um conjunto de n \textit{bits} existe um número par de zeros(ou número ímpar dependendo do tipo de paridade 
+ utilizado) \cite{weber2002};
  \item \textit{Software}: são todos os \textit{softwares} ou instruções utilizadas para suporte a tolerância a falhas. Podem ser implementados
- de várias formas, desde um processo que fica monitorando o serviço para verificar se ele esta funcionando corretamente, até um programa
- que efetua uma verificação nos resultados para saber se está operando da forma desejada;
- \item Tempo: esta é feita através da execução de instruções várias vezes no mesmo componente, assim necessitando tempo adicional. 
- 
- Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação.
-\end{itemize} COLOCAR EXEMPLOS
+ de várias formas, desde um processo que fica monitorando o serviço para verificar se ele está funcionando corretamente, até um programa
+ que efetua uma verificação nos resultados para saber se está operando da forma desejada. Exemplo de redundância de \textit{software} é 
+ blocos de recuperação, ;
+ \item Tempo: esta é feita através da execução de instruções várias vezes no mesmo componente, assim assim detectando falho caso ocorra.
+ Necessita tempo adicional, e é utilizado onde o tempo não crítico. Por exemplo um cão de guarda (\textit{watchdog timer}), ele
+ recebe um sinal do programa ou serviço monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá fazer 
+ alguma ação de reinicialização do serviço.
+ Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação \cite{costa2009}.
+\end{itemize}
 
 \section{Cálculo da alta disponibilidade}
 
 Um ponto importante sobre alta diponibilidade é como medi-la. Para isso são utilizados os valores de \textit{uptime} e 
 \textit{downtime}, que são respectivamente o tempo que os serviços esta funcionando normalmente e o tempo que não estão funcionando.
 Outra forma de expressar a alta disponibilidade é pela quantidade de ``noves'', isto é, se um serviço possui 4 noves de disponibilidade
-este possui uma disponibilidade de 99,99\% \cite{filho2004}.
-A tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados. Já a Tabela \ref{tab:dispexemplos} 
-possui alguns exemplos de serviços relacionados ao nível de disponibilidade. DETALHAR TABELA
+este possui uma disponibilidade de 99,99\% \cite{pereirafilho2004}.
 
 \begin{table}
 \caption {Níveis de alta disponibilidade}
@@ -93,7 +132,7 @@ Nível & Uptime & Downtime por ano & Downtime por semana\\\hline
 \end{table}
 
 \begin{table}
-\caption {Exemplos de sistemas}
+\caption {Exemplos de sistemas e seus níveis de disponibilidade}
 \label{tab:dispexemplos} 
 \begin{center}
 \begin{tabular}{|l|l|}\hline
@@ -108,6 +147,11 @@ Nível  & Nome\\\hline
 \end{center}
 \end{table}
 
+A tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados, seguido da porcentagem do \textit{Uptime}, 
+o \textit{Downtime} por ano representado na medida de tempo, e o \textit{Downtime} por semana também na medida de tempo. 
+Já a Tabela \ref{tab:dispexemplos} possui alguns exemplos de serviços relacionados ao nível de disponibilidade da tabela anterior. 
+Pode-se observar que para alguns serviços como sistemas bancários ou sistemas militares é necessário um alto nível de disponibilidade.
+
 Podemos calcular a disponibilidade através da equação
 \begin{equation}
 d = \frac{MTBF}{(MTBF + MTTR)}
@@ -117,15 +161,10 @@ onde $d$ é a porcentagem de disponibilidade. O \textit{Mean Time Between Failur
 entre as paradas dos serviços. E o \textit{Mean Time To Repair} ($MTTR$) é o tempo médio de recuperação, isto é, o tempo 
 entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
-A alta disponibilidade é um dos principais fatores para garantir a confiabilidade de clientes ou usuários, principalmente para empresa que 
-fornece serviços \textit{on-line}. Por isso existe o \textit{Service Level Agreement}(SLA), acordo de nível de serviço, 
+A alta disponibilidade é um dos principais fatores para garantir a confiança de clientes ou usuários, principalmente para empresa que 
+fornece serviços \textit{on-line}. Por isso existe o \textit{Service Level Agreement} (SLA), acordo de nível de serviço, 
 que garante que o serviço fornecido atenda as expectativas \cite{smith2010}. DETALHAR, ONDE?
 
-
-
-\textbf{Fazer:} 
-
---Espelhamento de discos?
 
 %\textit{Software} não possui falhas causadas por fatores físicos, ao contrário de \textit{hardware}.
 %Falhas em \textit{software} são causadas por erros no seu desenvolvimento, resultando assim em ``\textit{bugs}'' que geralmente
