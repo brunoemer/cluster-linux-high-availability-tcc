@@ -9,17 +9,17 @@ Pode-se definir alta disponibilidade como a redundância de \textit{hardware} ou
 Quanto maior for a disponibilidade desejada maior deverá ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
 em inglês \textit{Single Point Of Failure} (SPOF).
 
-A alta disponibilidade está diretamente relacionada a confiabilidade, disponibilidade, dependabilidade e tolerância a falhas. 
+A alta disponibilidade está diretamente relacionada a dependabilidade, confiabilidade, disponibilidade e tolerância a falhas. 
 
-A confiabilidade, é o mais importante atributo, transmite a ideia de continuidade de serviço \cite{pankaj1994}. Confiabilidade refere-se 
+A dependabilidade indica a qualidade do serviço fornecido e a confiança depositada nele. A dependabilidade envolve vários
+atributos como confiabilidade, disponibilidade, segurança, entre outros. Os atributos mais relevantes são confiabilidade e disponibilidade 
+\cite{weber2002}.
+
+A confiabilidade, é o mais importante atributo, pois transmite a ideia de continuidade de serviço \cite{pankaj1994}. Confiabilidade refere-se 
 a probabilidade de um serviço funcionar corretamente durante um dado intervalo de tempo. Já a disponibilidade é a probabilidade de um 
 serviço estar operacional no instante em que for solicitado \cite{costa2009}.
 
-Por sua vez dependabilidade indica a qualidade do serviço fornecido e a confiança depositada nele. A dependabilidade envolve vários
-atributos como confiabilidade, disponibilidade, segurança, entre outros. Os atributos mais relevantes são confiabilidade e disponibilidade,
-definidos anteriormente \cite{weber2002}.
-
-A tolerância a falhas fornece disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar falhas, 
+Por sua vez a tolerância a falhas fornece disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar falhas, 
 e seu objetivo é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço \cite{costa2009}.
 Uma das principais palavras-chave da alta disponibilidade é a tolerância a falhas, que será melhor detalhada na próxima seção.
 
@@ -34,18 +34,18 @@ ou recuperar-se de uma falha, frenquentemente a tolerância a falhas é implemen
 
 A tolerancia a falhas pode ser dividida em duas classes:
 \begin{itemize}
- \item Mascaramento
- \item Detecção, localização e reconfiguração
+ \item Mascaramento;
+ \item Detecção, localização e reconfiguração.
 \end{itemize}
 
-Na primeira, mascaramento, as falhas são tratadas na origem e manifesta-se na forma de erro. Um exemplo são os 
+Na primeira classe o mascaramento trata as falhas na origem e manifesta-se na forma de erro. Um exemplo são os 
 códigos de correção de erros, em inglês \textit{error correction code} (ECC), utilizados em memórias para detecção e correção de erros.
 Na segunda, geralmente necessita de menor redundância, e consiste em detectar, localizar e reconfigurar o \textit{software} ou
-\textit{hardware} e por sim resolver a falha \cite{weber2002}.
+\textit{hardware} e por fim resolver a falha \cite{weber2002}.
 
 \subsection{Fases da tolerância a falhas}
 
-A classificação das fases de tolerância a falhas mais comum são detecção, confinamento, recuperação e tratamento de falhas. Essas fases excluem
+A classificação das fases de tolerância a falhas mais comuns são detecção, confinamento, recuperação e tratamento. Essas fases excluem
 o mascaramento de falhas \cite{weber2002}.
 
 \begin{figure}[falhasrecup]
@@ -63,9 +63,9 @@ o mascaramento de falhas \cite{weber2002}.
  detecção do erro há um intervalo de tempo. Onde pode ocorrer a propagação do erro para outros componentes do sistema, por isso antes de
  executar medidas corretivas é necessário definir limites da propagação.
  \item Recuperação: Após a detecção de um erro ocorre a recuperação, onde o estado de erro é alterado para estado livre de erros. A recuperação
- pode ser feito através de duas formas:
- \subitem \textit{forward error recovery} ou recuperação por avanço, condução para um novo estado não ocorrido anteriormente. É eficiente, porém
- complexo porque a ação deve ser precisa. Ilustrado no segundo item da \ref{fig:recuperacao_ret_ava}.
+ pode ser feita de duas formas:
+ \subitem \textit{forward error recovery} ou recuperação por avanço, condução para um novo estado não ocorrido anteriormente. É o mais eficiente, 
+ porém complexo pois a ação deve ser precisa. Ilustrado no segundo item da \ref{fig:recuperacao_ret_ava}.
  \subitem \textit{backward error recovery} ou recuperação por retorno, ocorre um retorno para um estado anterior que deve estar livre de erros.
  Para retornar ao estado anterior pode ser utilizado pontos de recuperação (\textit{checkpoints}) e na ocorrência de erro um \textit{rollback} 
  é executado, conforme \ref{fig:recuperacao_ret_ava}.
@@ -98,7 +98,8 @@ Segundo \cite{norvag2000} existem quatro tipos diferentes de redundância que s�
  \item \textit{Software}: são todos os \textit{softwares} ou instruções utilizadas para suporte a tolerância a falhas. Podem ser implementados
  de várias formas, desde um processo que fica monitorando o serviço para verificar se ele está funcionando corretamente, até um programa
  que efetua uma verificação nos resultados para saber se está operando da forma desejada. Exemplo de redundância de \textit{software} é 
- blocos de recuperação, ;
+ blocos de recuperação, que funciona com um programa primário e um ou mais programas secundários, caso o programa primário falhar um secundário
+ entrará em seu lugar;
  \item Tempo: esta é feita através da execução de instruções várias vezes no mesmo componente, assim assim detectando falho caso ocorra.
  Necessita tempo adicional, e é utilizado onde o tempo não crítico. Por exemplo um cão de guarda (\textit{watchdog timer}), ele
  recebe um sinal do programa ou serviço monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá fazer 
