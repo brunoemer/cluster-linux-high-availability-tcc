@@ -1,60 +1,87 @@
 \chapter{Alta disponibilidade}
-Conceitualmente alta disponibilidade está diretamente relacionada a confiabilidade, dependabilidade e tolerância a falhas. 
-Confiabilidade, a mais importante característica, transmite a ideia de continuidade de serviço \cite{pankaj1994}.
-Por sua vez dependabilidade é o resultado de uma implementação de alta disponibilidade com sucesso em um determinado ambiente ou serviço,
-sendo assim haverá uma dependência deste serviço.
 
-Alta disponibilidade é bastante conhecida, vem sendo cada vez mais empregada nos ambientes computacionais.
-Pode-se defini-la como a redundância de \textit{hardware} ou \textit{software} para que o serviço fique mais tempo disponível.
-Quanto maior o valor da disponibilidade maior deve ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
-em inglês \textit{Single Point Of Failure}(SPOF).
-De acordo com \cite{costa2009}, pode-se afirmar que alta disponibilidade está ligada á crescente dependêcia de computadores.
-O objetivo de promover alta disponibilidade resume-se em estar sempre a disposição quando o cliente solicitar ou acessar algum serviço.
-Uma das palavras-chave da alta disponibilidade é a tolerância a falhas.
+\section{Definição da alta disponibilidade}
 
-Sabe-se que \textit{hardware} tende a falhar por isso utiliza-se métodos como prevenção de falhas e tolerância a falhas.
+Alta disponibilidade é bastante conhecida, sendo cada vez mais empregada nos ambientes computacionais.
+O objetivo de promover alta disponibilidade resume-se em um serviço estar sempre 
+a disposição quando o cliente solicitar ou acessar \cite{costa2009}.
+Pode-se definir alta disponibilidade como a redundância de \textit{hardware} ou \textit{software} para que o serviço fique mais tempo disponível.
+Quanto maior for a disponibilidade desejada maior deverá ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
+em inglês \textit{Single Point Of Failure} (SPOF).
+
+A alta disponibilidade está diretamente relacionada a confiabilidade, disponibilidade, dependabilidade e tolerância a falhas. 
+
+A confiabilidade, é o mais importante atributo, transmite a ideia de continuidade de serviço \cite{pankaj1994}. Confiabilidade refere-se 
+a probabilidade de um serviço funcionar corretamente durante um dado intervalo de tempo. Já a disponibilidade é a probabilidade de um 
+serviço estar operacional no instante em que for solicitado \cite{costa2009}.
+
+Por sua vez dependabilidade indica a qualidade do serviço fornecido e a confiança depositada nele. A dependabilidade envolve vários
+atributos como confiabilidade, disponibilidade, segurança, entre outros. Os atributos mais relevantes são confiabilidade e disponibilidade,
+definidos anteriormente \cite{weber2002}.
+
+A tolerância a falhas fornece disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar falhas, 
+e seu objetivo é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço \cite{costa2009}.
+Uma das principais palavras-chave da alta disponibilidade é a tolerância a falhas, que será melhor detalhada na próxima seção.
+
+\section{Tolerância a falhas}
+
+Sabe-se que o \textit{hardware} tende a falhar por isso utiliza-se métodos como prevenção de falhas e tolerância a falhas.
 A abordagem prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço porém, não resolverá todas as possíveis falhas.
-Sendo assim, a segunda abordagem, tolerância a falhas, fornece disponibilidade mesmo com presença de falhas \cite{pankaj1994}.
-O seu objetivo é aumentar a disponibilidade de um sistema, isto é, 
-aumentar o tempo que os serviços fornecidos aos clientes ou usuários ficam disponíveis. 
-Um sistema é tolerante a falhas se ele pode mascarar a presença de falhas em um sistema usando redundância. Como se expressa \cite{costa2009}, 
-o objetivo da tolerância a falhas é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço.
+Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com presença de falhas \cite{pankaj1994}.
+O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos 
+clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas 
+ou recuperar-se de uma falha, frenquentemente a tolerância a falhas é implementada utilizando redundância detalhada na próxima seção.
+
+A tolerancia a falhas pode ser dividida em duas classes:
+\begin{itemize}
+ \item Mascaramento
+ \item Detecção, localização e reconfiguração
+\end{itemize}
+
+Na primeira, mascaramento, as falhas são tratadas na origem e manifesta-se na forma de erro. Um exemplo são os 
+códigos de correção de erros, em inglês \textit{error correction code} (ECC), utilizados em memórias para detecção e correção de erros.
+Na segunda, geralmente necessita de menor redundância, e consiste em detectar, localizar e reconfigurar o \textit{software} ou
+\textit{hardware} e por sim resolver a falha \cite{weber2002}.
+
+--Colocar detalhado fases tolerancia a falhas?: detecção, .. recuperação de erros? detalhar? Pag 39 pankaj1994
+
+\section{Redundância}
 
 Redundância pode ser feita através da replicação de componentes, para garantir o mascaramento de falhas.
 Na prática se um componente falhar, ele deve ser reparado ou substituido por um novo sem que haja uma interrupção no serviço.
 Também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, 
 servindo assim para detecção de erros e até para correção \cite{weber2002}.
 
+Segundo \cite{norvag2000} existem quatro tipos diferentes de redundância que são:
+\begin{itemize}
+ \item \textit{Hardware}: utiliza-se replicação de componentes, sendo que caso um falhe outro possa assumir seu lugar. 
+ Para fazer a detecção de erros a saída de cada componente é constantemente monitorada e comparada à saída de outros componentes;
+ \item Informação: quando uma informação extra é enviada ou armazenada para possibilitar a detecção e correção de erros;
+ \item \textit{Software}: são todos os \textit{softwares} ou instruções utilizadas para suporte a tolerância a falhas. Podem ser implementados
+ de várias formas, desde um processo que fica monitorando o serviço para verificar se ele esta funcionando corretamente, até um programa
+ que efetua uma verificação nos resultados para saber se está operando da forma desejada;
+ \item Tempo: esta é feita através da execução de instruções várias vezes no mesmo componente, assim assim detectando falho caso ocorra.
+ Necessita tempo adicional, e é utilizado onde o tempo não crítico. Por exemplo um cão de guarda (\textit{watchdog timer}), ele
+ recebe um sinal do programa ou serviço monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá fazer 
+ alguma ação de reinicialização do serviço.
+ Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação \cite{costa2009}.
+\end{itemize} COLOCAR EXEMPLOS
+
 \section{Cálculo da alta disponibilidade}
 
-Um ponto importante sobre alta diponibilidade é como medi-la. Para isso temos que saber o significado dos termos \textit{uptime} e 
+Um ponto importante sobre alta diponibilidade é como medi-la. Para isso são utilizados os valores de \textit{uptime} e 
 \textit{downtime}, que são respectivamente o tempo que os serviços esta funcionando normalmente e o tempo que não estão funcionando.
-Outra forma de medir a alta disponibilidade é pela quantidade de ``noves'', isto é, se um serviço possui 4 noves de disponibilidade
+Outra forma de expressar a alta disponibilidade é pela quantidade de ``noves'', isto é, se um serviço possui 4 noves de disponibilidade
 este possui uma disponibilidade de 99,99\% \cite{filho2004}.
-Para ilustrar, a tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados e a 
-tabela \ref{tab:dispexemplos} possui alguns exemplos de serviços relacionados ao nível de disponibilidade.
-\begin{table}
-\caption {Exemplos de sistemas}
-\label{tab:dispexemplos} 
-\begin{center}
-\begin{tabular}{|l|l|}\hline
-  & Nome\\\hline
-1 & computadores pessoais\\\hline
-3 & sistemas de acesso\\\hline
-5 & provedores de internet\\\hline
-6 & CPD, sistemas de negócios\\\hline
-7 & sistemas de telefonia; sistemas de saúde; sistemas bancários\\\hline
-8 & sistemas de defesa militar\\\hline
-\end{tabular}
-\end{center}
-\end{table}
+A tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados. Já a Tabela \ref{tab:dispexemplos} 
+possui alguns exemplos de serviços relacionados ao nível de disponibilidade. DETALHAR TABELA
 
 \begin{table}
 \caption {Níveis de alta disponibilidade}
 \label{tab:dispniveis} 
 \begin{center}
 \begin{tabular}{|l|l|l|l|}\hline
-  & Uptime & Downtime por ano & Downtime por semana\\\hline
+Nível & Uptime & Downtime por ano & Downtime por semana\\\hline
 1 & 90\% & 36.5 dias & 16 horas e 51 minutos\\\hline
 2 & 98\% & 7.3 dias & 3 horas e 22 minutos\\\hline
 3 & 99\% & 3.65 dias & 1 hora e 41 minutos\\\hline
@@ -67,42 +94,35 @@ tabela \ref{tab:dispexemplos} possui alguns exemplos de serviços relacionados a
 \end{center}
 \end{table}
 
-Sendo assim podemos calcular a disponibilidade através de:\\
+\begin{table}
+\caption {Exemplos de sistemas}
+\label{tab:dispexemplos} 
+\begin{center}
+\begin{tabular}{|l|l|}\hline
+Nível  & Nome\\\hline
+1 & computadores pessoais\\\hline
+3 & sistemas de acesso\\\hline
+5 & provedores de internet\\\hline
+6 & CPD, sistemas de negócios\\\hline
+7 & sistemas de telefonia; sistemas de saúde; sistemas bancários\\\hline
+8 & sistemas de defesa militar\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Podemos calcular a disponibilidade através da equação
 \begin{equation}
-D = MTBF / (MTBF + MTTR)
+d = \frac{MTBF}{(MTBF + MTTR)}
 \label{diponibilidade}
 \end{equation}
-Sabendo que $D$ é a disponibilidade em porcentagem. O \textit{Mean Time Between Failures}($MTBF$) é o tempo médio entre falhas que corresponde
-ao tempo médio entre as paradas dos serviços. E o \textit{Mean Time To Repair}($MTTR$) é o tempo médio de recuperação, que é o tempo 
+onde $d$ é a porcentagem de disponibilidade. O \textit{Mean Time Between Failures} ($MTBF$) é o tempo médio entre falhas, correspondente ao tempo médio 
+entre as paradas dos serviços. E o \textit{Mean Time To Repair} ($MTTR$) é o tempo médio de recuperação, isto é, o tempo 
 entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
 A alta disponibilidade é um dos principais fatores para garantir a confiabilidade de clientes ou usuários, principalmente para empresa que 
-fornece serviços \textit{online}. Por isso existe o \textit{Service Level Agreement}(SLA), acordo de nível de serviço, 
-que garante que o serviço fornecido atenda as expectativas \cite{smith2010}.
+fornece serviços \textit{on-line}. Por isso existe o \textit{Service Level Agreement}(SLA), acordo de nível de serviço, 
+que garante que o serviço fornecido atenda as expectativas \cite{smith2010}. DETALHAR, ONDE?
 
-\section{Técnicas de tolerância a falhas}
-
-Como visto anteriormente a tolerância a falhas é feita através de redundância. Segundo \cite{norvag2000} quatro tipos diferentes de redundância
-podem ser usados em sistemas tolerantes a falhas, são eles:
-\begin{itemize}
- \item \textit{Hardware}: utiliza-se replicação de módulos, caso um falhe outro possa assumir seu lugar. Para fazer a detecção de erros
- a saída de cada componente é constantemente monitorada e comparada à saída de outros componentes;
- \item Informação: quando uma informação extra é enviada ou armazenada para permitir a detecção e correção de erros, assim permitindo
- a autocorreção e integridade dos dados;
- \item \textit{Software}: são todos os \textit{softwares} ou instruções utilizadas para suporte a tolerância a falhas. Podem ser implementados
- de várias formas, desde um processo que fica monitorando o serviço para verificar se ele esta funcionando corretamente, até um programa
- que faz checagens de resultados para saber se está operando da forma desejada;
- \item Tempo: esta é feita através da execução de instruções várias vezes no mesmo módulo, assim necessitando tempo adicional. 
- Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação.
-\end{itemize}
-
-
-
-\textbf{Fazer:} 
-
---Fases tolerancia a falhas?: detecção, .. recuperação de erros? detalhar? Pag 39 pankaj1994
-
---Espelhamento de discos?
 
 %\textit{Software} não possui falhas causadas por fatores físicos, ao contrário de \textit{hardware}.
 %Falhas em \textit{software} são causadas por erros no seu desenvolvimento, resultando assim em ``\textit{bugs}'' que geralmente

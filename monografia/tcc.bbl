@@ -1,9 +1,13 @@
 \begin{thebibliography}{\hspace{\parindent}}
 
+\bibitem[BATISTA(2007)BATISTA]{batista2007} BATISTA, A.~C\@. \textbf{Estudo
+  teórico sobre cluster linux}. 2007. Pós-Graduação(Administração em
+  Redes Linux) --- Universidade Federal de Lavras, Minas Gerais.
+
 \bibitem[CARISSIMI(2008)CARISSIMI]{carissimi2008} CARISSIMI, A\@.
   Virtualização: da teoria a soluções. In: \textbf{Minicursos do Simpósio
-  Brasileiro de Redes de Computadores}. Porto Alegre, RS: XXVI Simpósio
-  Brasileiro de Redes de Computadores e Sistemas Distribuídos, 2008.
+  Brasileiro de Redes de Computadores}. Porto Alegre: XXVI Simpósio Brasileiro
+  de Redes de Computadores e Sistemas Distribuídos, 2008.
 
 \bibitem[COSTA(2009)COSTA]{costa2009} COSTA, H. L.~A\@. \textbf{Alta
   disponibilidade e balanceamento de carga para melhoria de sistemas
@@ -32,12 +36,13 @@
 
 \bibitem[REIS(2009)REIS]{reis2009} REIS, W.~S.~dos. \textbf{Virtualização de
   serviços baseado em contêineres}: uma proposta para alta disponibilidade de
-  serviços em redes linux de pequeno porte. 2009.
+  serviços em redes linux de pequeno porte. 2009. Monografia
   Pós-Graduação(Administração em Redes Linux) --- Apresentada ao
   Departamento de Ciência da Computação, Minas Gerais.
 
-\bibitem[SMITH(2005)SMITH]{smithenair2005} SMITH, J.~E\@. The architecture of
-  virtual machines. In: \textbf{}. [S.l.]: IEEE Computer Society, 2005.
+\bibitem[SMITH; NAIR(2005)SMITH; NAIR]{smithenair2005} SMITH, J.~E.; NAIR, R\@.
+  The architecture of virtual machines. \textbf{IEEE Computer}, [S.l.], v.38,
+  p.32--38, 2005.
 
 \bibitem[SMITH(2010)SMITH]{smith2010} SMITH, R\@. \textbf{Gerenciamento de
   Nível de Serviço}. $<$Disponível em:
