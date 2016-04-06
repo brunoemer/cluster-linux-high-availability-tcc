@@ -1,18 +1,63 @@
 \chapter{Virtualização}
 O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
 conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} possuía
-um próprio sistema operacional necessitando assim a criação de máquinas virtuais, mais conhecida como \textit{virtual machine} (VM).
-
-Segundo \cite{carissimi2008}  falar sobre vantagens virtualizacao
+um próprio sistema operacional necessitando assim a criação de máquinas virtuais, mais conhecida como \textit{virtual machine} (VM) \cite{carissimi2008}.
 
 Virtualização defini-se como uma camada entre o \textit{hardware} e o sistema operacional assim possibilitando a divisão e proteção
-dos recursos físicos \cite{smithenair2005}. 
+dos recursos físicos. Virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a emulação do \textit{hardware}.
+Além disso ela utiliza abstração em sua arquitetura. Por exemplo, a virtualização transforma um disco físico em dois discos virtuais menores, 
+sendo que esses discos virtuais são arquivos armazenados no disco físico. Com isso a virtualização utiliza abstração de arquivos como 
+intermédio entre discos virtuais e reais, logo pode-se dizer que arquivos são uma abstração em um disco real \cite{smithenair2005}. 
+
+Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como por exemplo servidores de e-mail, hospedagens e 
+banco de dados. Com isso existe uma ociosidade grande de recursos. Uma das grandes vantagens da virtualização é o melhor aproveitamento
+destes recursos, alocando vários serviços em uma única máquina gera um melhor aproveitamento do \textit{hardware} \cite{moreira2006}.
+Além disso pode-se ter uma redução de custos com administração e manutenção dos servidores. Em um ambiente heterogênio pode-se também
+utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais.
+
+Atualmente o elevado custo da energia elétrica realça a necessidade de redução consumo, assim favorecendo a implantação de servidores
+mais robustos que podem substituir dezenas de servidores comuns. Outros fatores que favorecem a implantação de virtualização é a 
+refrigeração do ambiente e espaço utilizado.
+
+A virtualização também favorece a Implementação do conceito um servidor por serviço, ..
+
+--falar sobre cloud compiting
+ 
+ 
+\section{Funcionamento}
+
+
+\section{Tipos de virtualização}
+
 
 %Virtualização_ da teoria a soluções.pdf
 %virtualizacao mainframes: pag 1 - Alta Disponibilidade em Servidores Virtualizados.pdf
 %pag 32 - Rejuvenescimento e migracao de vms - Matheus D'Eça de Melo.pdf
 %pag 20 - Implementação de Alta disponibilidade em Máquinas Virtuais utilizando Software Livre.pdf
 %ferramentas pag 4 - Main - Virtualização de serviços baseado em contêineres -WandersonReis.pdf
+
+%Virtualizacao da teoria a pratica:
+%No entanto, essa abordagem trouxe como contra-partida a filosofia “um servidor
+%por serviço”. Rapidamente, os responsáveis pelas áreas de TI se deram conta do
+%problema (e custo) em gerenciar diferentes máquinas físicas, mesmo que tivessem o
+%mesmo sistema operacional. Além disso, há problemas relacionados com consumo de
+%energia elétrica, refrigeração, espaço físico, segurança física, etc. Nesse contexto, a
+%virtualização surge como uma possibilidade de agregar os benefícios da componetização
+%de sofware com a redução dos custos de manutenção de hardware e software. Assim, é
+%possível manter a idéia de um “um servidor por serviço” sem ter um hardware
+%específico.
+%Essa abordagem é reforçada pela lei de Zipf [Adamic, 2008] que pode ser
+%sintetizada da seguinte forma: a freqüência de um evento é proporcional a x −α , onde x é
+%um ranking de comparação de um evento a outro. Alguns estudos [Breslau, Cao, Fan,
+%Philips e Shenker, 2008] mostraram que a freqüência de acesso a servidores web e
+%outros serviços Internet seguem uma distribuição Zipfian, o que, na prática, se traduz
+%pelo fato de que a maioria dos acessos a serviços Internet é para uma minoria deles.
+%Portanto, conclui-se que uma minoria de serviços está ativa enquanto a maioria está
+%bloqueada a espera de requisições, o que, claramente, representa um desperdício de
+%recursos. Para exemplificar, imagine, entre outros, o uso dos servidores de autenticação,
+%DHCP, impressão, arquivos, e-mail, web e DNS em sua rede corporativa.
+
+%Rejuvenescimento e migracao de vms:
 %Com a arquitetura baseada em serviços, clientes podem utilizar serviços alocados em
 %nuvem através dos web browsers. Unindo a computação em nuvem e a arquitetura baseada
 %em serviços, aplicativos e demais recursos de TI podem ser oferecidos remotamente, como se

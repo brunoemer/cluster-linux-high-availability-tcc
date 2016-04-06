@@ -1,0 +1,37 @@
+http://idgnow.com.br/ti-corporativa/2006/08/01/idgnoticia.2006-07-31.7918579158/#&panel1-1
+
+Virtualização: rode vários sistemas operacionais na mesma máquinaDaniela Moreira, repórter do IDG Now!01 de agosto - 07h00 - Atualizada em 15 de março - 14h01
+
+São Paulo – Conheça uma tecnologia, usada por 40% das empresas nos EUA, que pode ajudar sua empresa reduzir custos e otimizar recursos de hardware.
+
+virtualizacao_88x66A capacidade de rodar, em uma mesma máquina física, diferentes estações lógicas - ou virtuais - não é um conceito novo. Porém, embora sua origem remeta aos ambientes de mainframe, nos anos 60, a chamada virtualização está longe de ser uma tecnologia anacrônica. 
+
+De acordo com a IDC, ela está a caminho de se tornar uma prática “padrão” entre as mil maiores empresas do mundo, listadas no ranking Fortune 1.000. Segundo dados da Forrester Research, mais de 40% das empresas norte-americanas já abraçaram a tecnologia.
+
+De carona na onda da consolidação de servidores, a vitualização é um conceito que começou a chamar a atenção das empresas há cerca de cinco anos. Até então, era uma prática comum entre as empresas - como ainda é, em muitos casos - utilizar servidores separados para hospedar aplicações críticas, como servidores de e-mail, bancos de dados e softwares de gestão. 
+
+O problema deste modelo é que ele aproveita mal os recursos das máquinas - em média, os servidores utilizam somente de 5% a 10% da sua capacidade, segundo estimativa da empresa de software para virtualização VMware.
+
+Com o objetivo de reduzir os custos de administração e manutenção e centralizar o trabalho dos gerentes de tecnologia, as empresas apostaram em um novo conceito: utilizar equipamentos mais robustos, com mais recursos de processamento e espaço em disco, para hospedar as diversas aplicações da companhia, prática batizada de consolidação de servidores.
+
+Apesar dos ganhos em administração, energia e espaço, este modelo trazia uma desvantagem fundamental em relação à infra-estrutura descentralizada: se todas as aplicações da sua empresa rodam sobre um único hardware, isso significa que se ele quebrar, tudo pára. Além disso, as aplicações de uma empresa nem sempre rodam sobre a mesma plataforma; muitas vezes exigem sistemas operacionais diferentes ou mesmo versões distintas de um mesmo sistema.
+++++
+Assim, a virtualização emergiu quase como uma tecnologia irmã da consolidação, permitindo rodar paralelamente, em um mesmo servidor, diversos ambientes operacionais independentes. Há diferentes formas de emular estas estações virtuais em uma mesma estação. A maneira mais comum é a instalação de uma camada de software de virtualização - fornecido por empresas como a VMware, a XenSource e a própria Microsoft - sobre o hardware, que permite a criação das máquinas virtuais que podem rodar sistemas operacionais diferentes, como Linux, Unix ou Windows. 
+
+O software de virtualização estabelece os recursos de hardware - como processamento, memória e armazenamento - que serão designados a cada estação virtual, e permite realocar estes recursos de acordo com a demanda de cada aplicação em determinado momento da companhia. “Uma das vantagens da virtualização é que é possível aproveitar melhor os recursos da máquina. Por exemplo, um servidor de e-mail exige mais do hardware durante o dia, enquanto todos os funcionários trabalham, mas fica com a capacidade ociosa durante à noite. Esses recursos podem ser alocados para rodar relatórios em uma aplicação de banco de dados durante este período”, explica Marcel Saraiva, gerente de plataformas corporativas da Intel.
+
+“A virtualização atende a uma necessidade das companhias por maximizar os ativos existentes, fazendo mais com o mesmo. O balanceamento de responsabilidades e de uso reduz a necessidade de compra e elimina o custo de ociosidade. É uma tecnologia que tem grande apelo, pois traz resultados claros para a área financeira”, enfatiza Daniel Domeneghetti, sócio-fundador da E-Consulting e CEO da DOM Strategy.
+
+Outra vantagem da virtualização é que é possível manter estações virtuais rodando aplicações redundantes, permitindo que, no caso de falha em um ambiente, o outro seja utilizado como recurso de contingência. Com a ajuda dos softwares apropriados, é possível ainda mover estações virtuais para hardwares diferentes, em caso de um problema físico, evitando assim a perda de produtividade. 
+
+De acordo com dados da VMware, a virtualização, combinada à consolidação de servidores, reduz em até 53% os custos com hardware e 79% os custos operacionais, gerando uma economia média de até 64% para a empresa que adota a solução.  
+++++
+Esta redução de custos faz com que a tecnologia tenha apelo especialmente junto a pequenas e médias empresas. “No Brasil, ainda está restrito às grandes companhias, mas a tendência é que se popularize na medida em que a arquitetura blade ganhe mais espaço”, opina o analista da IDC Brasil, Reinaldo Roveri.
+ 
+Para Saraiva, da Intel, um fator que deve fomentar a adoção da virtualização nas empresas é a evolução dos processadores com múltiplos núcleos - a companhia prepara chips de quatro núcleos para lançar no mercado ainda em 2006 e a rival AMD promete sua linha quadri-core para 2007.
+
+De acordo com projeções da IDC, as iniciativas de consolidação e virtualização de servidores vão contribuir para um aumento de 20% ano-a-ano nas vendas de sistemas quadriprocessados (com quatro chips) no segundo semestre de 2006.
+
+Do ponto de vista de software, a Forrester Research prevê que os desafios iniciais na obtenção de suporte para plataformas virtuais e modelos de licenciamento que se adaptem à tecnologia se tornem coisa do passado, diante da rápida adoção da tecnologia.
+
+Um exemplo desta flexibilização é o recente anúncio de uma improvável parceira entre a Microsoft e a fornecedora de virtualização XenSource, que fará com que a nova versão versão do sistema operacional Windows Server e sua tecnologia de virtualização suportem a emulação de estações rodando sistemas operacionais Linux e Unix, por meio de ferramentas da Xen. Ao que tudo indica, os ventos da indústria de tecnologia sopram a favor da virtualização
