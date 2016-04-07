@@ -1,11 +1,12 @@
 \chapter{Virtualização}
 O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
-conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} possuía
-um próprio sistema operacional necessitando assim a criação de máquinas virtuais, mais conhecida como \textit{virtual machine} (VM) \cite{carissimi2008}.
+conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} necessitava
+do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional o qual executava. Assim
+sendo necessário a criação de máquinas virtuais, mais conhecida como \textit{virtual machine} (VM) \cite{carissimi2008}.
 
-Virtualização defini-se como uma camada entre o \textit{hardware} e o sistema operacional assim possibilitando a divisão e proteção
+Virtualização defini-se como uma camada entre o \textit{hardware} e o sistema operacional que possibilita a divisão e proteção
 dos recursos físicos. Virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a emulação do \textit{hardware}.
-Além disso ela utiliza abstração em sua arquitetura. Por exemplo, a virtualização transforma um disco físico em dois discos virtuais menores, 
+Virtualização utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos virtuais menores, 
 sendo que esses discos virtuais são arquivos armazenados no disco físico. Com isso a virtualização utiliza abstração de arquivos como 
 intermédio entre discos virtuais e reais, logo pode-se dizer que arquivos são uma abstração em um disco real \cite{smithenair2005}. 
 
@@ -13,17 +14,19 @@ Em muitos casos empresas utilizam serviços distribuídos entre servidores físi
 banco de dados. Com isso existe uma ociosidade grande de recursos. Uma das grandes vantagens da virtualização é o melhor aproveitamento
 destes recursos, alocando vários serviços em uma única máquina gera um melhor aproveitamento do \textit{hardware} \cite{moreira2006}.
 Além disso pode-se ter uma redução de custos com administração e manutenção dos servidores. Em um ambiente heterogênio pode-se também
-utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais.
+utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
 
-Atualmente o elevado custo da energia elétrica realça a necessidade de redução consumo, assim favorecendo a implantação de servidores
-mais robustos que podem substituir dezenas de servidores comuns. Outros fatores que favorecem a implantação de virtualização é a 
-refrigeração do ambiente e espaço utilizado.
+Atualmente o elevado custo da energia elétrica realça a necessidade de redução do consumo, que pode ser feito através da implantação 
+de servidores mais robustos para substituir dezenas de servidores comuns, assim reduzindo o consumo de energia elétrica. 
+Outros fatores como refrigeração do ambiente e espaço físico utilizado também podem ser reduzidos com a implantação de virtualização de
+servidores, e consequentemente reduzir custos com energia.
 
-A virtualização também favorece a Implementação do conceito um servidor por serviço, ..
+A virtualização favorece a implementação do conceito um servidor por serviço, que consiste em ter um servidor para cada serviço.
+Mas porque não colocar todos serviços em um único servidor? Muitas vezes com uma variedade de serviços é necessário diferentes 
+sistemas operacionais, portanto isto se torna inviável. Outro fator relevante que também favorece a implementação de um servidor por
+serviço é, caso exista uma falha de segurança em apenas um serviço, essa vulnerabilidade poderá comprometer todos os outros serviços 
+\cite{carissimi2008}.
 
---falar sobre cloud compiting
- 
- 
 \section{Funcionamento}
 
 
@@ -36,7 +39,7 @@ A virtualização também favorece a Implementação do conceito um servidor por
 %pag 20 - Implementação de Alta disponibilidade em Máquinas Virtuais utilizando Software Livre.pdf
 %ferramentas pag 4 - Main - Virtualização de serviços baseado em contêineres -WandersonReis.pdf
 
-%Virtualizacao da teoria a pratica:
+%Virtualizacao da teoria a solucoes:
 %No entanto, essa abordagem trouxe como contra-partida a filosofia “um servidor
 %por serviço”. Rapidamente, os responsáveis pelas áreas de TI se deram conta do
 %problema (e custo) em gerenciar diferentes máquinas físicas, mesmo que tivessem o
