@@ -3,37 +3,37 @@ O crescente avanço tecnológico e o desenvolvimento da internet, provocou um au
 infraestrutura de TI. Além disso, percebe-se um aumento significativo no número de operações e negócios \textit{on-line} que são realizados, 
 tanto por organizações públicas ou privadas, quanto por grande parte da sociedade.
 
-Desta forma, a sociedade está cada vez mais dependente da tecnologia, computadores e sistemas. 
+Desta forma, a sociedade está cada vez mais dependente da tecnologia, de computadores e de sistemas. 
 De fato, pode-se observar sistemas computacionais desde em uma farmácia, até em uma grande indústria. 
-Sendo assim, a estabilidade e disponibilidade destes sistemas tem grande importância em nosso dia-a-dia, 
-pois um número significante de atividades cotidianas dependem destes.
+Sendo assim, a estabilidade e disponibilidade destes sistemas tem uma grande importância em nosso dia-a-dia, 
+pois um número significante de atividades cotidianas dependem deles.
 
 Uma interrupção imprevista em um ambiente computacional poderá causar um prejuízo financeiro para a empresa que fornece o serviço, 
 além de interferir na vida de pessoas que dependem de forma direta ou indireta deste serviço. 
 Essa interrupção terá maior relevância para corporações cujo o serviço ou produto final é fornecido através da internet, 
 como por exemplo, comércio eletrônico, \textit{web sites}, sistemas corporativos, entre outros. 
 Em um ambiente extremo, pode-se imaginar o caos e o possível risco de perda de vidas que ocorreria em caso de uma falha 
-em algum sistema de controle aéreo \cite{costa2009}.
+em um sistema de controle aéreo \cite{costa2009}.
 
-Para essas empresas um plano de contingência é fundamental para garantir uma boa qualidade de serviço, 
-otimizar o desempenho das atividades, bem como para uma prevenção de falhas e uma recuperação rápida caso essas ocorram \cite{costa2009}.
+Para essas empresas um plano de contingência é fundamental para garantir uma boa qualidade de serviço, além de
+otimizar o desempenho das atividades, e também para fazer uma prevenção de falhas e uma recuperação rápida caso essas ocorram \cite{costa2009}.
 De fato, hoje em dia a confiança em um serviço ou em um sistema é um grande diferencial para a empresa fornecedora deste serviço, 
 sendo que a alta disponibilidade é fundamental para atingir esse objetivo.
 
 A alta disponibilidade consiste em manter um sistema disponível por meio da tolerância a falhas, isto é, utilizando mecanismos que fazem a 
 detecção, mascaramento e a recuperação de falhas, sendo que esses mecanismos podem ser implementados a nível de \textit{software} ou de 
-\textit{hardware} \cite{reis2009}. Para que um sistema seja altamente disponível ele deve ser tolerante a falhas, ou seja, utilizando redundância.
-Redundância é feita através da duplicação de componentes, caso ocorra falha em um dos componentes evita-se a interrupção do sistema 
-\cite{batista2007}.
+\textit{hardware} \cite{reis2009}. Para que um sistema seja altamente disponível ele deve ser tolerante a falhas, sendo que a tolerância
+a falhas é implementada frequentemente utilizando redundância. No caso de uma falha em um dos componentes evita-se a interrupção do sistema,
+uma vez que a redundância é feita através da replicação de componentes \cite{batista2007}.
 
 Neste trabalho será realizado um estudo sobre a implementação de um sistema de alta disponibilidade em uma empresa de hospedagens. 
-Essa oferece serviços pela internet, como por exemplo hospedagens de sites, \textit{e-mail}, sistemas de gestão, \textit{e-mail marketing}, 
+Essa empresa oferece serviços pela internet, como por exemplo hospedagens de sites, \textit{e-mail}, sistemas de gestão, \textit{e-mail marketing}, 
 entre outros. A empresa possui aproximadamente 55 servidores físicos e virtuais, e aproximadamente 9000 clientes, 
 sendo que em períodos de pico atende em torno de 1000 requisições por segundo. 
 
-Atualmente, essa empresa possui redundância de conexões de acesso a internet, refrigeração e energia, com \textit{nobreaks} e geradores. 
-Porém, essa empresa não possui nenhuma redundância dos serviços que estão sendo executados nos servidores. Desta forma, 
-caso ocorra uma falha de software ou hardware os serviços ficarão indisponíveis. Neste trabalho será realizada uma análise dos serviços 
+Atualmente, a empresa possui redundância de conexões de acesso a internet, refrigeração e energia, com \textit{nobreaks} e geradores. 
+Porém, essa empresa não possui nenhuma redundância nos serviços que estão sendo executados nos servidores. Desta forma, 
+caso ocorra uma falha de software ou hardware, os serviços ficarão indisponíveis. Neste trabalho será realizada uma análise dos serviços 
 oferecidos pela empresa, sendo que mecanismos de alta disponibilidade serão desenvolvidos para os serviços mais críticos. 
 Para a redução dos custos serão utilizadas ferramentas gratuitas e de código aberto.
 
