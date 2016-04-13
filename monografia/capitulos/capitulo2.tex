@@ -28,9 +28,13 @@ prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviç
 o maior número de falhas possíveis antes de colocar o sistema em uso. Mas essa prevenção não resolverá todas as possíveis falhas. 
 Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com presença de falhas. Enquanto a prevenção de falhas 
 tem foco em projeto, teste e validação, a tolerância a falhas tem como foco usar componentes para mascarar as falhas \cite{pankaj1994}.
+
 O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos 
 clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
-de uma falha sendo que frenquentemente a tolerância a falhas é implementada utilizando redundância detalhada seção \ref{section:redundancia}.
+de uma falha sendo que frenquentemente a tolerância a falhas é implementada utilizando redundância que será detalhada na seção 
+\ref{section:redundancia}. Um exemplo bastante utilizando atualmente é tolerância a falhas em servidores de virtualização, onde normalmente
+existem dois servidores com os seus dados replicados. Caso um dos servidores falhe por algum motivo um \textit{software} de monitoramento
+fará a transferência das maquinas virtuais para o outro servidor. Este tema, virtualização, será detalhado no capítulo \ref{cap:virtualizacao}.
 
 A tolerância a falhas pode ser dividida em duas classes que são o mascaramento e a detecção, localização e reconfiguração.
 Na primeira classe o mascaramento trata as falhas na origem e manifesta-se na forma de erro. Um exemplo são os códigos de correção de 
