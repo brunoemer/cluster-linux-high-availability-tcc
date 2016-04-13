@@ -1,0 +1,39 @@
+http://searchstorage.techtarget.com/definition/hot-spare
+
+hot spare
+
+Posted by: Margaret Rouse
+WhatIs.com
+   
+Contributor(s): Kimberly Hefner
+
+Sponsored News
+Rapid Recovery for Today's Virtual and Cloud Environments
+–Dell
+Why HC Lets You Rest Easy with Better Resiliency and Data Protection
+–SimpliVity
+See More
+Vendor Resources
+Windows Server and Storage eBook, Ch 3 - Assess Your Data Center Storage Needs
+–Dell, Inc. and Intel
+Reference Architectures for Big Data
+–Rackspace
+A hot spare, also called a hot standby, is a backup component that can be placed into service immediately when a primary component fails.  
+
+How to stay ahead of the data storage technology curve
+
+
+Download our recent edition of Storage Magazine Online to check out our Hot Techs for 2016! For the past 13 years, we've honored the best and brightest technologies for the upcoming year. As always, we are proud to present a batch of technologies we believe will make a big impact on the data storage market technology.
+Corporate E-mail Address:
+Download Now
+By submitting your email address, you agree to receive emails regarding relevant topic offers from TechTarget and its partners. You can withdraw your consent at any time. Contact TechTarget at 275 Grove Street, Newton, MA.
+You also agree that your personal information may be transferred and processed in the United States, and that you have read and agree to the Terms of Use and the Privacy Policy.
+ Safe Harbor
+The adjective "hot" means that the backup component (which can be hardware or software) can replace the primary component without shutting the system down. A hot spare can be compared to a cold spare, which requires some kind of action before it can be placed into service.  Placing a cold spare into service can increase the mean time to recovery.
+
+
+In storage, hot spares are used to replace failing or failed disks in a RAID configuration. Originally, a hot spare had to be included in the array being protected, but through advances in controller design and SAN architecture, several arrays on the same SAN can now share hot spares. 
+
+See also: hot swap, hot backup
+
+This was first published in June 2013

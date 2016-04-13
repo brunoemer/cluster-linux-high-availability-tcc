@@ -1,0 +1,30 @@
+http://searchstorage.techtarget.com/definition/hot-spare
+
+hot spare
+
+Posted by: Margaret Rouse
+WhatIs.com
+   
+Contributor(s): Kimberly Hefner
+
+Sponsored News
+Rapid Recovery for Today's Virtual and Cloud Environments
+–Dell
+Why HC Lets You Rest Easy with Better Resiliency and Data Protection
+–SimpliVity
+See More
+Vendor Resources
+Windows Server and Storage eBook, Ch 3 - Assess Your Data Center Storage Needs
+–Dell, Inc. and Intel
+Reference Architectures for Big Data
+–Rackspace
+A hot spare, also called a hot standby, is a backup component that can be placed into service immediately when a primary component fails.  
+
+The adjective "hot" means that the backup component (which can be hardware or software) can replace the primary component without shutting the system down. A hot spare can be compared to a cold spare, which requires some kind of action before it can be placed into service.  Placing a cold spare into service can increase the mean time to recovery.
+
+
+In storage, hot spares are used to replace failing or failed disks in a RAID configuration. Originally, a hot spare had to be included in the array being protected, but through advances in controller design and SAN architecture, several arrays on the same SAN can now share hot spares. 
+
+See also: hot swap, hot backup
+
+This was first published in June 2013

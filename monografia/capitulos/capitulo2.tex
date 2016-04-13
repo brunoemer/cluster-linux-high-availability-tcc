@@ -24,13 +24,15 @@ Uma das principais palavras-chave da alta disponibilidade é a tolerância a fal
 \label{section:toleranciafalhas}
 
 Sabe-se que o \textit{hardware} tende a falhar por isso utiliza-se métodos como prevenção de falhas e tolerância a falhas. A abordagem 
-prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, por exemplo XXX ????. Mas essa prevenção não resolverá todas as 
-possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com presença de falhas \cite{pankaj1994}.
+prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, isto é, tem como objetivo prever e eliminar 
+o maior número de falhas possíveis antes de colocar o sistema em uso. Mas essa prevenção não resolverá todas as possíveis falhas. 
+Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com presença de falhas. Enquanto a prevenção de falhas 
+tem foco em projeto, teste e validação, a tolerância a falhas tem como foco usar componentes para mascarar as falhas \cite{pankaj1994}.
 O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos 
 clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
 de uma falha sendo que frenquentemente a tolerância a falhas é implementada utilizando redundância detalhada seção \ref{section:redundancia}.
 
-A tolerancia a falhas pode ser dividida em duas classes que são o mascaramento e a detecção, localização e reconfiguração.
+A tolerância a falhas pode ser dividida em duas classes que são o mascaramento e a detecção, localização e reconfiguração.
 Na primeira classe o mascaramento trata as falhas na origem e manifesta-se na forma de erro. Um exemplo são os códigos de correção de 
 erros, em inglês \textit{error correction code} (ECC) que são utilizados em memórias para detecção e correção de erros.
 Na segunda, geralmente necessita de menor redundância, e consiste em detectar, localizar e reconfigurar o \textit{software} ou
@@ -67,8 +69,11 @@ o mascaramento de falhas \cite{weber2002}.
  \end{itemize}
  \item Tratamento: a última fase serve para prevenir que futuros erros aconteçam. Nesta fase ocorre a localização da falha para descobrir o 
  componente que originou a falha e após é feito um diagnóstico sendo que a remoção do componente danificado pode ser feita de duas formas, 
- manual ou automática. O reparo manual é feito por operador, e o automático quando existe um componente em espera para substituição.
- Exemplo de um reparo manual é a troca de um disco de um servidor. E um exemplo de reparo automático é XXX ???.
+ manual ou automática. O reparo manual é feito por um operador, e o automático quando existe um componente em espera para substituição.
+ Exemplo de um reparo manual é um operador fazer a troca de um disco de um servidor. E um exemplo de reparo automático é um disco configurado
+ como \textit{hot spare}, que de acordo com \cite{rouse2013} \textit{hot spare} é definido como um componete de \textit{backup} que assumirá 
+ o lugar de outro imediatamente após o componente principal falhar. Em \textit{storages} ou servidores a \textit{hot spare} pode ser configurada 
+ em uma \textit{redundant array of independent disks} (RAID) juntamente com o \textit{array} de discos.
 \end{itemize}
 
 \section{Redundância}
@@ -89,19 +94,18 @@ Segundo \cite{norvag2000} existem quatro tipos diferentes de redundância que s�
  Um exemplo clássico são os \textit{checksums} (soma de verificação). Esses são calculados antes da transmissão ou armazenamento 
  e recalculado ao recebê-los ou recuperá-los, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
  \textit{bits} de paridade que são utilizandos para detectar falhas simples, que afetam apenas um \textit{bit} \cite{weber2002};
- %O \textit{bit} de paridade 
- %serve apenas para checar se em um conjunto de n \textit{bits} existe um número par de zeros (ou número ímpar dependendo do tipo de paridade 
- %utilizado) 
- \item \textit{Software}: são todos os \textit{softwares} ou instruções utilizados para suporte a tolerância a falhas. Podem ser implementados
- de várias formas, desde um processo que fica monitorando um serviço para verificar se este está funcionando corretamente, até mesmo um programa
- que efetua uma verificação nos resultados para saber se está operando da forma desejada. Exemplo XXX ??? de redundância de \textit{software} são 
- blocos de recuperação, que funcionam com um programa primário e um ou mais programas secundários, caso o programa primário falhar um secundário
- entrará em seu lugar;
- \item Tempo: ver XXX ??? este é feito através da execução de instruções várias vezes no mesmo componente, assim detectando falha caso ocorra.
- Essa técnica necessita tempo adicional, e é utilizado onde o tempo não é crítico. Por exemplo, um cão de guarda (\textit{watchdog timer})
- recebe um sinal do programa ou serviço monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá fazer 
- uma ação de reinicialização do serviço.
- Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação \cite{costa2009}.
+ \item \textit{Software}: redundância de \textit{software} não é muito útil pois replicando um \textit{software} as falhas ou 
+ \textit{bugs} estarão presentes em todas replicas. Existem algumas técnicas que podem ajudar com esse problema. Por exemplo, programação 
+ de n-versões, esta técnica consiste em criar n versões para um mesmo \textit{software} assim possibilitando o aumento da disponibilidade do 
+ \textit{software}. Porém a programação de n-versões possui um custo muito elevado pois é complexo de manter. Além disso existem \textit{softwares} 
+ para detecção de falhas, que muitas vezes podem ser utilizandos para detecção de falhas em \textit{hardware} também. Como por exemplo 
+ um cão de guarda (\textit{watchdog timer}), ele recebe um sinal do programa ou serviço monitorado e caso este sinal não seja recebido, 
+ devido alguma falha, o \textit{watchdog} irá fazer uma ação de reinicialização do serviço.
+ \item Tempo: este é feito através da execução de instruções várias vezes no mesmo componente, assim detectando falha caso ocorra.
+ Essa técnica necessita tempo adicional, e é utilizado onde o tempo não é crítico. Por exemplo um \textit{software} de monitoramento de serviços e
+ servidores, ele faz o teste de cada serviço e caso ocorra uma falha o \textit{software} poderá executar uma ação corretiva para reestabelecer o
+ serviço. Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação 
+ \cite{costa2009}.
 \end{itemize}
 
 \section{Cálculo da alta disponibilidade}

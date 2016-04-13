@@ -24,13 +24,14 @@ Uma das principais palavras-chave da alta disponibilidade é a tolerância a fal
 \label{section:toleranciafalhas}
 
 Sabe-se que o \textit{hardware} tende a falhar por isso utiliza-se métodos como prevenção de falhas e tolerância a falhas. A abordagem 
-prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, por exemplo ????. Mas essa prevenção não resolverá todas as 
-possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com presença de falhas \cite{pankaj1994}.
+prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, . Mas essa prevenção não resolverá todas as 
+possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com presença de falhas. Enquanto a prevenção
+de falhas tem foco em projeto, teste e validação a tolerância a falhas  \cite{pankaj1994}.
 O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos 
 clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
 de uma falha sendo que frenquentemente a tolerância a falhas é implementada utilizando redundância detalhada seção \ref{section:redundancia}.
 
-A tolerancia a falhas pode ser dividida em duas classes que são o mascaramento e a detecção, localização e reconfiguração.
+A tolerância a falhas pode ser dividida em duas classes que são o mascaramento e a detecção, localização e reconfiguração.
 Na primeira classe o mascaramento trata as falhas na origem e manifesta-se na forma de erro. Um exemplo são os códigos de correção de 
 erros, em inglês \textit{error correction code} (ECC) que são utilizados em memórias para detecção e correção de erros.
 Na segunda, geralmente necessita de menor redundância, e consiste em detectar, localizar e reconfigurar o \textit{software} ou
@@ -67,8 +68,11 @@ o mascaramento de falhas \cite{weber2002}.
  \end{itemize}
  \item Tratamento: a última fase serve para prevenir que futuros erros aconteçam. Nesta fase ocorre a localização da falha para descobrir o 
  componente que originou a falha e após é feito um diagnóstico sendo que a remoção do componente danificado pode ser feita de duas formas, 
- manual ou automática. O reparo manual é feito por operador, e o automático quando existe um componente em espera para substituição.
- Exemplo de um reparo manual é a troca de um disco de um servidor. E um exemplo de repato automático é XXX.
+ manual ou automática. O reparo manual é feito por um operador, e o automático quando existe um componente em espera para substituição.
+ Exemplo de um reparo manual é um operador fazer a troca de um disco de um servidor. E um exemplo de reparo automático é um disco configurado
+ como \textit{hot spare}, que de acordo com \cite{rouse2013} \textit{hot spare} é definido como um componete de \textit{backup} que assumirá 
+ o lugar de outro imediatamente após o componente principal falhar. Em \textit{storages} ou servidores a \textit{hot spare} pode ser configurada 
+ em uma \textit{redundant array of independent disks} (RAID) juntamente com o \textit{array} de discos.
 \end{itemize}
 
 \section{Redundância}
@@ -86,21 +90,21 @@ Segundo \cite{norvag2000} existem quatro tipos diferentes de redundância que s�
  Um exemplo prático de redundância de \textit{hardware} é servidores com fontes redundantes, normalmente são duas fontes ligadas em paralelo, 
  caso uma falhe a outra suprirá a necessidade de todo o servidor;
  \item Informação: ocorre quando uma informação extra é enviada ou armazenada para possibilitar a detecção e correção de erros.
- Um exemplo clássico são os \textit{checksums} (soma de verificação), é calculado a soma dos dados antes da transmissão ou armazenamento 
+ Um exemplo clássico são os \textit{checksums} (soma de verificação). Esses são calculados antes da transmissão ou armazenamento 
  e recalculado ao recebê-los ou recuperá-los, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
- \textit{bits} de paridade, são utilizandos para detectar falhas simples, que afetam apenas um \textit{bit}. O \textit{bit} de paridade 
- serve apenas para checar se em um conjunto de n \textit{bits} existe um número par de zeros (ou número ímpar dependendo do tipo de paridade 
- utilizado) \cite{weber2002};
- \item \textit{Software}: são todos os \textit{softwares} ou instruções utilizados para suporte a tolerância a falhas. Podem ser implementados
- de várias formas, desde um processo que fica monitorando o serviço para verificar se ele está funcionando corretamente, até um programa
- que efetua uma verificação nos resultados para saber se está operando da forma desejada. Exemplo de redundância de \textit{software} são 
- blocos de recuperação, que funcionam com um programa primário e um ou mais programas secundários, caso o programa primário falhar um secundário
- entrará em seu lugar;
+ \textit{bits} de paridade que são utilizandos para detectar falhas simples, que afetam apenas um \textit{bit} \cite{weber2002};
+ \item \textit{Software}: redundância de \textit{software} não é muito útil pois replicando um \textit{software} as falhas ou 
+ \textit{bugs} estarão presentes em todas replicas. Existem algumas técnicas que podem ajudar com esse problema. Por exemplo, programação 
+ de n-versões, esta técnica consiste em criar n versões para um mesmo \textit{software} assim possibilitando o aumento da disponibilidade do 
+ \textit{software}. Porém a programação de n-versões possui um custo muito elevado pois é complexo de manter. Além disso existem \textit{softwares} 
+ para detecção de falhas, que muitas vezes podem ser utilizandos para detecção de falhas em \textit{hardware} também. Como por exemplo 
+ um cão de guarda (\textit{watchdog timer}), ele recebe um sinal do programa ou serviço monitorado e caso este sinal não seja recebido, 
+ devido alguma falha, o \textit{watchdog} irá fazer uma ação de reinicialização do serviço.
  \item Tempo: este é feito através da execução de instruções várias vezes no mesmo componente, assim detectando falha caso ocorra.
- Necessita tempo adicional, e é utilizado onde o tempo não é crítico. Por exemplo, um cão de guarda (\textit{watchdog timer})
- recebe um sinal do programa ou serviço monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá fazer 
- uma ação de reinicialização do serviço.
- Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação \cite{costa2009}.
+ Essa técnica necessita tempo adicional, e é utilizado onde o tempo não é crítico. Por exemplo um \textit{software} de monitoramento de serviços e
+ servidores, ele faz o teste de cada serviço e caso ocorra uma falha o \textit{software} poderá executar uma ação corretiva para reestabelecer o
+ serviço. Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação 
+ \cite{costa2009}.
 \end{itemize}
 
 \section{Cálculo da alta disponibilidade}
@@ -111,60 +115,43 @@ Outra forma de expressar a alta disponibilidade é pela quantidade de ``noves'',
 este possui uma disponibilidade de 99,99\% \cite{pereirafilho2004}.
 
 \begin{table}
-\caption {Níveis de alta disponibilidade}
-\label{tab:dispniveis} 
+\caption {Níveis de alta disponibilidade e exemplos de sistemas}
+\label{tab:dispniveis}
 \begin{center}
 \begin{tabular}{|l|l|l|l|}\hline
-Nível & Uptime & Downtime por ano & Downtime por semana\\\hline
-1 & 90\% & 36.5 dias & 16 horas e 51 minutos\\\hline
-2 & 98\% & 7.3 dias & 3 horas e 22 minutos\\\hline
-3 & 99\% & 3.65 dias & 1 hora e 41 minutos\\\hline
-4 & 99.8\% & 17 horas e 30 minutos & 20 minutos e 10 segundos\\\hline
-5 & 99.9\% & 8 horas e 45 minutos & 10 minutos e 5 segundos\\\hline
-6 & 99.99\% & 52.5 minutos & 1 minuto\\\hline
-7 & 99.999\% & 5.25 minutos & 6 segundos\\\hline
-8 & 99.9999\% & 31.5 minutos & 0.6 segundos\\\hline
+Nível & Uptime & Downtime por ano & Exemplos\\\hline
+1 & 90\% & 36.5 dias & computadores pessoais\\\hline
+2 & 98\% & 7.3 dias & \\\hline
+3 & 99\% & 3.65 dias & sistemas de acesso\\\hline
+4 & 99.8\% & 17 horas e 30 minutos & \\\hline
+5 & 99.9\% & 8 horas e 45 minutos & provedores de acesso\\\hline
+6 & 99.99\% & 52.5 minutos & CPD, sistemas de negócios\\\hline
+7 & 99.999\% & 5.25 minutos & sistemas de telefonia ou bancários\\\hline
+8 & 99.9999\% & 31.5 minutos & sistemas de defesa militar\\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-\begin{table}
-\caption {Exemplos de sistemas e seus níveis de disponibilidade}
-\label{tab:dispexemplos} 
-\begin{center}
-\begin{tabular}{|l|l|}\hline
-Nível  & Nome\\\hline
-1 & computadores pessoais\\\hline
-3 & sistemas de acesso\\\hline
-5 & provedores de internet\\\hline
-6 & CPD, sistemas de negócios\\\hline
-7 & sistemas de telefonia; sistemas de saúde; sistemas bancários\\\hline
-8 & sistemas de defesa militar\\\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-A tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados, seguido da porcentagem do \textit{Uptime}, 
-o \textit{Downtime} por ano representado na medida de tempo, e o \textit{Downtime} por semana também na medida de tempo. 
-Já a Tabela \ref{tab:dispexemplos} possui alguns exemplos de serviços relacionados ao nível de disponibilidade da tabela anterior. 
+A Tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados, seguido da porcentagem do \textit{Uptime} e 
+o \textit{Downtime} por ano representado na medida de tempo.
+Já a última coluna possui alguns exemplos de serviços relacionados ao nível de disponibilidade. 
 Pode-se observar que para alguns serviços como sistemas bancários ou sistemas militares é necessário um alto nível de disponibilidade.
 
-Podemos calcular a disponibilidade através da equação
+A alta diponibilidade pode ser calculada através da equação
 \begin{equation}
 d = \frac{MTBF}{(MTBF + MTTR)}
 \label{diponibilidade}
 \end{equation}
-onde $d$ é a porcentagem de disponibilidade. O \textit{Mean Time Between Failures} ($MTBF$) é o tempo médio entre falhas, correspondente ao tempo médio 
-entre as paradas dos serviços. E o \textit{Mean Time To Repair} ($MTTR$) é o tempo médio de recuperação, isto é, o tempo 
-entre a queda e a recuperação de um serviço \cite{goncalves2009}.
+onde $d$ é a porcentagem de disponibilidade. O \textit{Mean Time Between Failures} ($MTBF$) é o tempo médio entre falhas, correspondendo ao 
+tempo médio entre as paradas de um determinado serviço. Já o \textit{Mean Time To Repair} ($MTTR$) é o tempo médio de recuperação, isto é, 
+o tempo entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
-A alta disponibilidade é um dos principais fatores que fornece confiança aos clientes ou usuários, e é
-extremante importante em empresas que fornecem serviços \textit{on-line}. Por isso existe o \textit{Service Level Agreement} (SLA), 
-acordo de nível de serviço, que garante que o serviço fornecido atenda as expectativas dos clientes. Um SLA é um documento contendo uma
-descrição e uma definição das características importantes do serviço que será fornecido. Ele também deve conter o nível de serviço exigido
-pelo negócio, sendo que este deve ser minuciosamente definido. Um SLA pode, por exemplo, conter descrição do serviço, requerimentos, horário de funcionamento,
+A alta disponibilidade é um dos principais fatores que fornece confiança aos clientes ou usuários, sendo extremante importante em empresas 
+que fornecem serviços \textit{on-line}. Por isso existe o \textit{Service Level Agreement} (SLA), que é um acordo de nível de serviço, 
+que garante que o serviço fornecido atenda as expectativas dos clientes. Um SLA é um documento contendo uma descrição e uma definição 
+das características importantes do serviço que será fornecido. Esse acordo também deve conter o nível de serviço exigido pelo negócio, 
+sendo que este deve ser minuciosamente definido. Por exemplo, um SLA pode conter descrição do serviço, requerimentos, horário de funcionamento,
 disponibilidade esperada, entre outros \cite{smith2010}.
-
 
 %\textit{Software} não possui falhas causadas por fatores físicos, ao contrário de \textit{hardware}.
 %Falhas em \textit{software} são causadas por erros no seu desenvolvimento, resultando assim em ``\textit{bugs}'' que geralmente
