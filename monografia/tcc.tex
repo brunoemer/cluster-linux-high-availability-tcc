@@ -4,9 +4,8 @@
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{setspace}
-\usepackage[printonlyused]{acronym}
+\usepackage{acro}
 \usepackage{graphicx}
-
 %\usepackage[brazilian]{babel}
 
 \setdescription{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
@@ -21,6 +20,9 @@
 \location{Caxias do Sul}{}
 \bibpunct{(}{)}{;}{a}{,}{,}
 
+%declaracoes siglas
+\include{acronym}
+
 \begin{document}
 
 \maketitle
@@ -29,11 +31,11 @@
 
 \tableofcontents
 
+\chapter*{Lista de siglas}
+\printacronyms[include-classes=abbrev,name=]
 %\chapter*{Lista de acrônimos}
-%\vspace{20px}
 %\begin{acronym}[XXXXXXXXXX]
-%\acro{TCC}[TCC]{Trabalho de Conclusão de Curso}
-
+%\acro{API}[\textit{API}]{\textit{Application Programming Interface}}
 %\end{acronym}
 
 \listoffigures

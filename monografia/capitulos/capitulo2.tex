@@ -5,7 +5,7 @@ Alta disponibilidade é muito conhecida, sendo cada vez mais empregada nos ambie
 resume-se em garantir que um serviço esteja sempre a disposição quando o cliente solicitar ou acessar \cite{costa2009}.
 A alta disponibilidade é definida como a redundância de \textit{hardware} ou \textit{software} para que o serviço fique mais tempo disponível.
 Quanto maior for a disponibilidade desejada maior deverá ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
-que em inglês são chamados de \textit{Single Point Of Failure} (SPOF).
+que em inglês são chamados de \ac{SPOF}.
 
 A alta disponibilidade está diretamente relacionada a dependabilidade, confiabilidade, disponibilidade e tolerância a falhas. 
 \begin{itemize}
@@ -34,7 +34,7 @@ de uma falha sendo que frenquentemente a tolerância a falhas é implementada ut
 
 A tolerância a falhas pode ser dividida em duas classes que são o mascaramento e a detecção, localização e reconfiguração.
 Na primeira classe o mascaramento trata as falhas na origem e manifesta-se na forma de erro. Um exemplo são os códigos de correção de 
-erros, em inglês \textit{error correction code} (ECC) que são utilizados em memórias para detecção e correção de erros.
+erros, em inglês \ac{ECC} que são utilizados em memórias para detecção e correção de erros.
 Na segunda, geralmente necessita de menor redundância, e consiste em detectar, localizar e reconfigurar o \textit{software} ou
 \textit{hardware} e por fim resolver a falha \cite{weber2002}.
 
@@ -73,13 +73,13 @@ o mascaramento de falhas \cite{weber2002}.
  Exemplo de um reparo manual é um operador fazer a troca de um disco de um servidor. E um exemplo de reparo automático é um disco configurado
  como \textit{hot spare}, que de acordo com \cite{rouse2013} \textit{hot spare} é definido como um componete de \textit{backup} que assumirá 
  o lugar de outro imediatamente após o componente principal falhar. Em \textit{storages} ou servidores a \textit{hot spare} pode ser configurada 
- em uma \textit{redundant array of independent disks} (RAID) juntamente com o \textit{array} de discos.
+ em uma  \ac{RAID} juntamente com o \textit{array} de discos.
 \end{itemize}
 
 \section{Redundância}
 \label{section:redundancia}
 
-Redundância pode ser feita através da replicação de componentes, para reduzir o número de SPOF e garantir o mascaramento de falhas.
+Redundância pode ser feita através da replicação de componentes, para reduzir o número de \ac{SPOF} e garantir o mascaramento de falhas.
 Na prática, se um componente falhar ele deve ser reparado ou substituído por um novo, sem que haja uma interrupção no serviço.
 A redundância também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, 
 servindo assim para detecção de erros e até para correção \cite{weber2002}.
@@ -143,16 +143,18 @@ A alta diponibilidade pode ser calculada através da equação
 d = \frac{MTBF}{(MTBF + MTTR)}
 \label{diponibilidade}
 \end{equation}
-onde $d$ é a porcentagem de disponibilidade. O \textit{Mean Time Between Failures} ($MTBF$) é o tempo médio entre falhas, correspondendo ao 
-tempo médio entre as paradas de um determinado serviço. Já o \textit{Mean Time To Repair} ($MTTR$) é o tempo médio de recuperação, isto é, 
+onde $d$ é a porcentagem de disponibilidade. O \ac{MTBF} é o tempo médio entre falhas, correspondendo ao 
+tempo médio entre as paradas de um determinado serviço. Já o \ac{MTTR} é o tempo médio de recuperação, isto é, 
 o tempo entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
 A alta disponibilidade é um dos principais fatores que fornece confiança aos clientes ou usuários, sendo extremante importante em empresas 
-que fornecem serviços \textit{on-line}. Por isso existe o \textit{Service Level Agreement} (SLA), que é um acordo de nível de serviço, 
-que garante que o serviço fornecido atenda as expectativas dos clientes. Um SLA é um documento contendo uma descrição e uma definição 
+que fornecem serviços \textit{on-line}. Por isso existe o \ac{SLA}, que é um acordo de nível de serviço, 
+que garante que o serviço fornecido atenda as expectativas dos clientes. Um \ac{SLA} é um documento contendo uma descrição e uma definição 
 das características importantes do serviço que será fornecido. Esse acordo também deve conter o nível de serviço exigido pelo negócio, 
-sendo que este deve ser minuciosamente definido. Por exemplo, um SLA pode conter descrição do serviço, requerimentos, horário de funcionamento,
+sendo que este deve ser minuciosamente definido. Por exemplo, um \ac{SLA} pode conter descrição do serviço, requerimentos, horário de funcionamento,
 disponibilidade esperada, entre outros \cite{smith2010}.
+
+Parágrafo sobre virtualização...
 
 %\textit{Software} não possui falhas causadas por fatores físicos, ao contrário de \textit{hardware}.
 %Falhas em \textit{software} são causadas por erros no seu desenvolvimento, resultando assim em ``\textit{bugs}'' que geralmente

@@ -1,0 +1,90 @@
+\ifglsentryexists{ECC}{}%
+{%
+\gls@defglossaryentry{ECC}%
+{%
+name={ECC},%
+sort={ECC},%
+type={acronym},%
+first={error correction code (ECC)},%
+firstplural={error correction codes(ECCs)},%
+text={ECC},%
+plural={ECCs},%
+description={error correction code},%
+descriptionplural={error correction code\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={error correction code},%
+longplural={error correction codes},%
+short={ECC},%
+shortplural={ECCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{adt}{}%
+{%
+\gls@defglossaryentry{adt}%
+{%
+name={ADT},%
+sort={ADT},%
+type={acronym},%
+first={Atlantic Daylight Time (ADT)},%
+firstplural={Atlantic Daylight Times(ADTs)},%
+text={ADT},%
+plural={ADTs},%
+description={Atlantic Daylight Time},%
+descriptionplural={Atlantic Daylight Time\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Atlantic Daylight Time},%
+longplural={Atlantic Daylight Times},%
+short={ADT},%
+shortplural={ADTs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{est}{}%
+{%
+\gls@defglossaryentry{est}%
+{%
+name={EST},%
+sort={EST},%
+type={acronym},%
+first={Eastern Standard Time (EST)},%
+firstplural={Eastern Standard Times(ESTs)},%
+text={EST},%
+plural={ESTs},%
+description={Eastern Standard Time},%
+descriptionplural={Eastern Standard Time\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Eastern Standard Time},%
+longplural={Eastern Standard Times},%
+short={EST},%
+shortplural={ESTs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
