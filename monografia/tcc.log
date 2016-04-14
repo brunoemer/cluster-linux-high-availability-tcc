@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.14)  13 APR 2016 15:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  13 APR 2016 21:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1024,7 +1024,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1147) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1032,14 +1032,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [10]
-Underfull \vbox (badness 1824) has occurred while \output is active []
+Underfull \vbox (badness 3657) has occurred while \output is active []
 
- [11]
+ [11])
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 12
  []
 
-[12]) [13]
+[12] [13]
 \openout2 = `capitulos/capitulo3.aux'.
 
  (./capitulos/capitulo3.tex)
@@ -1103,6 +1103,6 @@ Here is how much of TeX's memory you used:
  14487 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,9n,57p,10386b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,9n,57p,10386b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (18 pages, 46856 bytes).
+Output written on tcc.dvi (18 pages, 46800 bytes).

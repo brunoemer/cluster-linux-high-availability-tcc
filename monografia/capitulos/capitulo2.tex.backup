@@ -33,7 +33,8 @@ O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, 
 clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
 de uma falha sendo que frenquentemente a tolerância a falhas é implementada utilizando redundância que será detalhada na seção 
 \ref{section:redundancia}. Um exemplo bastante utilizando atualmente é tolerância a falhas em servidores de virtualização, onde normalmente
-existem dois servidores com os seus dados replicados
+existem dois servidores com os seus dados replicados. Caso um dos servidores falhe por algum motivo um \textit{software} de monitoramento
+fará a transferência das maquinas virtuais para o outro servidor. Este tema, virtualização, será detalhado no capítulo \ref{cap:virtualizacao}.
 
 A tolerância a falhas pode ser dividida em duas classes que são o mascaramento e a detecção, localização e reconfiguração.
 Na primeira classe o mascaramento trata as falhas na origem e manifesta-se na forma de erro. Um exemplo são os códigos de correção de 
@@ -156,8 +157,6 @@ que garante que o serviço fornecido atenda as expectativas dos clientes. Um \ac
 das características importantes do serviço que será fornecido. Esse acordo também deve conter o nível de serviço exigido pelo negócio, 
 sendo que este deve ser minuciosamente definido. Por exemplo, um \ac{SLA} pode conter descrição do serviço, requerimentos, horário de funcionamento,
 disponibilidade esperada, entre outros \cite{smith2010}.
-
-Parágrafo sobre virtualização...
 
 %\textit{Software} não possui falhas causadas por fatores físicos, ao contrário de \textit{hardware}.
 %Falhas em \textit{software} são causadas por erros no seu desenvolvimento, resultando assim em ``\textit{bugs}'' que geralmente
