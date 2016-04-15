@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  13 APR 2016 21:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  15 APR 2016 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1150,10 +1150,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 12162 strings out of 495004
- 235109 string characters out of 6180662
- 290780 words of memory out of 5000000
- 15123 multiletter control sequences out of 15000+600000
+ 12160 strings out of 495004
+ 235064 string characters out of 6180662
+ 290861 words of memory out of 5000000
+ 15121 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,9n,57p,10386b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1165,7 +1165,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (18 pages, 132262 bytes).
+Output written on tcc.pdf (18 pages, 133391 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  67 compressed objects within 1 object stream
