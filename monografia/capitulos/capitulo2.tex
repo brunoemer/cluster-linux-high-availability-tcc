@@ -1,53 +1,52 @@
 \chapter{Alta disponibilidade}
 \label{cap:altadiponibilidade}
 
-Alta disponibilidade é muito conhecida, sendo cada vez mais empregada nos ambientes computacionais. O objetivo de promover alta disponibilidade 
-resume-se em garantir que um serviço esteja sempre a disposição quando o cliente solicitar ou acessar \cite{costa2009}.
-A alta disponibilidade é definida como a redundância de \textit{hardware} ou \textit{software} para que o serviço fique mais tempo disponível.
+Alta disponibilidade é um termo muito conhecido, sendo cada vez mais empregada nos ambientes computacionais. O objetivo de promover 
+alta disponibilidade resume-se em garantir que um serviço esteja sempre disponível quando o cliente solicitar ou acessar \cite{costa2009}.
+A alta disponibilidade é definida como a redundância de \textit{hardware} ou de \textit{software} para que o serviço fique mais tempo disponível.
 Quanto maior for a disponibilidade desejada maior deverá ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
-que em inglês são chamados de \ac{SPOF}.
-
-A alta disponibilidade está diretamente relacionada a dependabilidade, confiabilidade, disponibilidade e tolerância a falhas. 
+que em inglês são chamados de \ac{SPOF}. A alta disponibilidade está diretamente relacionada a: 
 \begin{itemize}
- \item Dependabilidade indica a qualidade do serviço fornecido e a confiança depositada nele. A dependabilidade envolve vários
-atributos como segunrança de funcionamento, segurança, manutenabilidade, testabilidade e comprometimento do desempenho \cite{weber2002};
- \item Confiabilidade é o mais importante atributo, pois transmite a ideia de continuidade de serviço \cite{pankaj1994}. A confiabilidade refere-se 
-a probabilidade de um serviço funcionar corretamente durante um dado intervalo de tempo;
- \item Disponibilidade é a probabilidade de um serviço estar operacional no instante em que for solicitado \cite{costa2009};
-  \item Tolerância a falhas tenta garantir a disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar falhas, 
-e seu objetivo é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço \cite{costa2009}.
+ \item Dependabilidade: indica a qualidade do serviço fornecido e a confiança depositada neste serviço. A dependabilidade envolve atributos 
+ como segurança de funcionamento, segurança de acesso, manutenabilidade, testabilidade e comprometimento do desempenho \cite{weber2002};
+ \item Confiabilidade: é o atributo mais importante, pois transmite a ideia de continuidade de serviço \cite{pankaj1994}. A confiabilidade 
+ refere-se a probabilidade de um serviço funcionar corretamente durante um dado intervalo de tempo;
+ \item Disponibilidade: é a probabilidade de um serviço estar operacional no instante em que for solicitado \cite{costa2009};
+ \item Tolerância a falhas: procura garantir a disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar 
+ falhas, e seu objetivo é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço \cite{costa2009}. A tolerância a falhas é 
+ um dos principais conceitos da alta diponibilidade, sendo assim será melhor discutida na Seção \ref{section:toleranciafalhas}.
 \end{itemize}
-
-Uma das principais palavras-chave da alta disponibilidade é a tolerância a falhas, que será melhor discutida na seção \ref{section:toleranciafalhas}.
 
 \section{Tolerância a falhas}
 \label{section:toleranciafalhas}
 
-Sabe-se que o \textit{hardware} tende a falhar devido a fatores físicos, por isso utiliza-se métodos como prevenção de falhas e 
-tolerância a falhas. A abordagem prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, isto é, tem como 
+Sabe-se que o \textit{hardware} tende a falhar, principalmente devido a fatores físicos, por isso utiliza-se métodos para a prevenção 
+de falhas e para a tolerância a falhas. A abordagem prevenção de falhas DEFINIR ??? melhora a disponibilidade e a confiabilidade de um 
+serviço, isto é, tem como 
 objetivo prever e eliminar o maior número de falhas possíveis antes de colocar o sistema em uso. Mas essa prevenção não resolverá todas 
-as possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com presença de falhas. Enquanto a 
-prevenção de falhas tem foco em projeto, teste e validação, a tolerância a falhas tem como foco usar componentes para mascarar as 
-falhas \cite{pankaj1994}.
+as possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com a presença de falhas. Enquanto a 
+prevenção de falhas tem foco nas fases de projeto, teste e validação, a tolerância a falhas tem como foco na utilização de componentes 
+replicados para mascarar as falhas \cite{pankaj1994}.
 
 O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos 
 clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
-de uma falha sendo que frenquentemente a tolerância a falhas é implementada utilizando redundância que será detalhada na seção 
-\ref{section:redundancia}. Um exemplo bastante utilizando atualmente é tolerância a falhas em servidores de virtualização, onde normalmente
-existem dois servidores com os seus dados replicados. Caso um dos servidores falhe por algum motivo um \textit{software} de monitoramento
+de uma falha. A tolerância a falhas é implementada utilizando redundância, que será detalhada na Seção \ref{section:redundancia}. 
+Um exemplo frequentemente utilizando hoje em dia é tolerância a falhas em servidores de virtualização MELHOR EXEMPLO ???, onde normalmente
+existem dois servidores com os seus dados replicados. Caso um dos servidores falhe por algum motivo, um \textit{software} de monitoramento
 fará a transferência das maquinas virtuais para o outro servidor evitando assim a indisponibilidade do serviço. Este tema, virtualização, 
-será detalhado no capítulo \ref{cap:virtualizacao}.
+será detalhado no Capítulo \ref{cap:virtualizacao}.
 
-A tolerância a falhas pode ser dividida em duas classes que são o mascaramento e a detecção, localização e reconfiguração.
-Na primeira classe o mascaramento trata as falhas na origem e manifesta-se na forma de erro. Um exemplo são os códigos de correção de 
-erros, em inglês \ac{ECC} que são utilizados em memórias para detecção e correção de erros.
-Na segunda, geralmente necessita de menor redundância, e consiste em detectar, localizar e reconfigurar o \textit{software} ou
-\textit{hardware} e por fim resolver a falha \cite{weber2002}.
+A tolerância a falhas pode ser dividida em dois tipos que são: mascaramento; ou detecção, localização e reconfiguração.
+O primeiro tipo, o mascaramento, não se manifesta na forma de erro sendo assim não necessita que o sistema trate este erro,
+pois as falhas são tratadas na origem. O mascaramento é utilizado principalmente em sistemas de tempo real crítico. 
+Um exemplo são os códigos de correção de erros, em inglês \ac{ECC}, que são utilizados em memórias para detecção e correção de erros.
+No segundo tipo consiste em detectar, localizar e reconfigurar o \textit{software} ou \textit{hardware} e por fim resolver a 
+falha \cite{weber2002}. O último tipo será melhor detalhado na Seção \ref{section:fasestolerancia}.
 
 \subsection{Fases da tolerância a falhas}
+\label{section:fasestolerancia}
 
-A classificação das fases de tolerância a falhas mais comuns são detecção, confinamento, recuperação e tratamento. Essas fases excluem
-o mascaramento de falhas \cite{weber2002}.
+A classificação das fases de tolerância a falhas mais comuns são detecção, confinamento, recuperação e tratamento \cite{weber2002}.
 
 %\begin{figure}[falhasrecup]
 % \centering
@@ -58,30 +57,29 @@ o mascaramento de falhas \cite{weber2002}.
 % exemplo referencia: \ref{fig:recuperacao_ret_ava}
 
 \begin{itemize}
- \item Detecção: a detecção de erro faz o monitoramento e aguarda uma falha se manifestar na forma de erro, para então
- passar para a próxima fase. Um exemplo de detecção de erro é o cão de guarda (\textit{watchdog timer}), ele recebe um sinal do programa ou 
- serviço monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá se manifestar na forma de erro. 
- Outro exemplo é o esquema de duplicação e comparação, onde é feita replicação do componente que realiza as operações sobre os 
- mesmos dados e compara os resultados de saída. Caso ocorra alguma diferença nos resultados um erro é gerado.
- \item Confinamento: esta fase é responsável pela restrição de um erro para que esse não se propague para todo o sistema, pois entre a falha e a
- detecção do erro há um intervalo de tempo. Neste intervalo pode ocorrer a propagação do erro para outros componentes do sistema, por isso 
- antes de executar medidas corretivas é necessário definir os limites da propagação.
+ \item Detecção: realiza o monitoramento e aguarda uma falha se manifestar na forma de erro, para então passar para a próxima fase. 
+ Um exemplo de detecção de erro é o cão de guarda (\textit{watchdog timer}), que recebe um sinal do programa ou serviço que esta sendo 
+ monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá se manifestar na forma de erro. 
+ Outro exemplo é o esquema de duplicação e comparação, onde é feito operações em componentes replicados com mesmos dados de entrada, e então
+ seus dados de saída são comparados, assim se houver alguma diferença um erro é gerado.
+ \item Confinamento: responsável pela restrição de um erro para que esse não se propague para todo o sistema, pois entre a falha e a
+ detecção do erro há um intervalo de tempo. Neste intervalo pode ocorrer a propagação do erro para outros componentes do sistema, sendo assim 
+ antes de executar medidas corretivas é necessário definir os limites da propagação. EXEMPLO ???
  \item Recuperação: após a detecção de um erro ocorre a recuperação, onde o estado de erro é alterado para estado livre de erros. A recuperação
- pode ser feita de duas formas:
+ pode ser feita de duas formas, que são:
  \begin{itemize}
-  \item \textit{forward error recovery} ou recuperação por avanço: ocorre uma condução para um novo estado não ocorrido anteriormente. É o mais 
-  eficiente, porém complexo de ser implementado pois a ação deve ser precisa.
-  \item \textit{backward error recovery} ou recuperação por retorno: ocorre um retorno para um estado anterior que deve estar livre de erros.
+  \item \textit{forward error recovery} (recuperação por avanço): ocorre uma condução para um novo estado não ocorrido anteriormente. É a forma
+  de recuperação mais eficiente, porém mais complexo de ser implementado pois a ação deve ser precisa.
+  \item \textit{backward error recovery} (recuperação por retorno): ocorre um retorno para um estado anterior que deve estar livre de erros.
   Para retornar ao estado anterior pode ser utilizado pontos de recuperação (\textit{checkpoints}), e quando ocorrer um erro, um \textit{rollback} 
-  é executado, assim retornará a um \textit{checkpoint} anterior.
+  é executado, ou seja, retornará a um estado anterior a falha.
  \end{itemize}
- \item Tratamento: a última fase serve para prevenir que futuros erros aconteçam. Nesta fase ocorre a localização da falha para descobrir o 
- componente que originou a falha e após é feito um diagnóstico sendo que a remoção do componente danificado pode ser feita de duas formas, 
- manual ou automática. O reparo manual é feito por um operador, e o automático quando existe um componente em espera para substituição.
- Exemplo de um reparo manual é um operador fazer a troca de um disco de um servidor. E um exemplo de reparo automático é um disco configurado
- como \textit{hot spare}, que de acordo com \cite{rouse2013} \textit{hot spare} é definido como um componete de \textit{backup} que assumirá 
- o lugar de outro imediatamente após o componente principal falhar. Em \textit{storages} ou servidores a \textit{hot spare} pode ser configurada 
- em uma  \ac{RAID} juntamente com o \textit{array} de discos.
+ \item Tratamento: procura prevenir que futuros erros aconteçam. Nesta fase ocorre a localização da falha para descobrir o 
+ componente que originou a falha. A substituição do componente danificado pode ser feita de duas formas, manual ou automática. 
+ O reparo manual é feito por um operador, e o automático quando existe um componente em espera para substituição. Exemplo de um reparo 
+ manual é um operador que efetua a troca de um disco de um servidor. E um exemplo de reparo automático é um disco configurado como 
+ \textit{hot spare}, ou seja, um componente de \textit{backup} que assumirá o lugar do outro imediatamente após o componente principal 
+ falhar. Em \textit{storages} ou servidores o \textit{hot spare} pode ser configurado através de um \ac{RAID} \cite{rouse2013}.
 \end{itemize}
 
 \section{Redundância}
