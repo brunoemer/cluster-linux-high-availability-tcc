@@ -87,37 +87,36 @@ A classificação das fases de tolerância a falhas mais comuns são detecção,
 
 Redundância pode ser feita através da replicação de componentes, para reduzir o número de \ac{SPOF} e garantir o mascaramento de falhas.
 Na prática, se um componente falhar ele deve ser reparado ou substituído por um novo, sem que haja uma interrupção no serviço.
-A redundância também pode ser através do envio de sinais ou \textit{bits} de controle junto aos dados, 
-servindo assim para detecção de erros e até para correção \cite{weber2002}.
-
-Segundo \cite{norvag2000} existem quatro tipos diferentes de redundância que são:
+A redundância pode ser implementada ainda através do envio de sinais ou \textit{bits} de controle junto aos dados, servindo assim para 
+detecção de erros e até para correção \cite{weber2002}. Segundo \cite{norvag2000} existem quatro tipos diferentes de redundância que são:
 \begin{itemize}
  \item \textit{Hardware}: utiliza-se a replicação de componentes, sendo que caso um falhe outro possa assumir seu lugar. 
  Para fazer a detecção de erros a saída de cada componente é constantemente monitorada e comparada à saída de outros componentes.
- Um exemplo prático de redundância de \textit{hardware} é servidores com fontes redundantes, normalmente são duas fontes ligadas em paralelo, 
- caso uma falhe a outra suprirá a necessidade de todo o servidor;
+ Um exemplo prático de redundância de \textit{hardware} são os servidores com fontes redundantes. Nestes são utilizadas duas fontes ligadas 
+ em paralelo, sendo que caso uma falhe a outra suprirá a necessidade de todo o servidor;
  \item Informação: ocorre quando uma informação extra é enviada ou armazenada para possibilitar a detecção e correção de erros.
- Um exemplo clássico são os \textit{checksums} (soma de verificação). Esses são calculados antes da transmissão ou armazenamento 
+ Um exemplo clássico são os \textit{checksums} (soma de verificação). Esses são calculados antes da transmissão ou armazenamento dos dados 
  e recalculado ao recebê-los ou recuperá-los, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
- \textit{bits} de paridade que são utilizandos para detectar falhas simples, que afetam apenas um \textit{bit} \cite{weber2002};
- \item \textit{Software}: redundância de \textit{software} não é muito útil pois replicando um \textit{software} as falhas ou 
- \textit{bugs} estarão presentes em todas replicas. Existem algumas técnicas que podem ajudar com esse problema. A programação 
- de n-versões é uma delas, esta técnica consiste em criar n versões para um mesmo \textit{software} assim possibilitando o aumento da 
- disponibilidade pois elas provavelmente não apresentarão os mesmos erros. Por outro lado a programação de n-versões possui um custo muito 
- elevado devido a complexidade da sua manutenção.
- \item Tempo: este é feito através da execução de instruções várias vezes no mesmo componente, assim detectando falha caso ocorra.
- Essa técnica necessita tempo adicional, e é utilizado onde o tempo não é crítico. Por exemplo um \textit{software} de monitoramento de serviços e
- servidores, ele faz o teste de cada serviço e caso ocorra uma falha o \textit{software} poderá executar uma ação corretiva para reestabelecer o
- serviço. Diferentemente de redundância de \textit{hardware} e informação ela não requer um \textit{hardware} extra para sua implementação 
- \cite{costa2009}.
+ \textit{bits} de paridade que são utilizandos para detectar falhas que afetam apenas um \textit{bit} \cite{weber2002};
+ \item \textit{Software}: CONCEITO EXEMPLO MYSQL REPLICACAO ???. 
+ Outro maneira de implementar redundância de \textit{software} é através da replicação do mesmo \textit{software}, que não é muito útil 
+ pois replicando um \textit{software} as falhas ou \textit{bugs} estarão presentes em todas replicas. Existem algumas técnicas que podem 
+ ajudar com esse problema. A programação de \textit{n}-versões é uma delas, que consiste em criar \textit{n} versões para um mesmo 
+ \textit{software}. Desta forma, possibilita-se o aumento da disponibilidade, uma vez que elas provavelmente não apresentarão os mesmos 
+ erros. Por outro lado a programação de \textit{n}-versões possui um custo muito elevado devido a complexidade da sua manutenção.
+ \item Tempo: este é feito através da execução de um conjunto de instruções várias vezes no mesmo componente, assim detectando uma falha caso 
+ ocorra. Essa técnica necessita tempo adicional, e é utilizada onde o tempo não é crítico. Por exemplo, um \textit{software} de monitoramento 
+ de serviços e servidores, que faz um teste em cada serviço e caso ocorra uma falha o \textit{software} poderá executar uma ação corretiva para 
+ reestabelecer o serviço. Essa técnica, diferentemente da redundância de \textit{hardware} e informação, não requer um \textit{hardware} 
+ extra para sua implementação \cite{costa2009}.
 \end{itemize}
 
 \section{Cálculo da alta disponibilidade}
 
-Um ponto importante sobre alta diponibilidade é como medi-la. Para isso são utilizados os valores de \textit{uptime} e 
-\textit{downtime}, que são respectivamente o tempo que os serviços estão funcionando normalmente e o tempo que não estão funcionando.
-A alta disponibilidade pode ser expressa pela quantidade de ``noves'', isto é, se um serviço possui quatro noves de disponibilidade
-este possui uma disponibilidade de 99,99\% \cite{pereirafilho2004}.
+Um ponto importante sobre alta diponibilidade é como medi-la. Para isso são utilizados os valores de \textit{uptime} e \textit{downtime}, 
+que são respectivamente, o tempo que os serviços estão funcionando normalmente e o tempo que não estão funcionando. A alta disponibilidade 
+pode ser expressa pela quantidade de ``noves'', isto é, se um serviço possui quatro noves de disponibilidade, este possui uma 
+disponibilidade de 99,99\% \cite{pereirafilho2004}.
 
 \begin{table}
 \caption {Níveis de alta disponibilidade e exemplos de sistemas}
@@ -137,23 +136,21 @@ Nível & Uptime & Downtime por ano & Exemplos\\\hline
 \end{center}
 \end{table}
 
-A Tabela \ref{tab:dispniveis} possui alguns níveis de disponibilidade enumerados, seguido da porcentagem do \textit{Uptime}, 
-o \textit{Downtime} por ano representado na medida de tempo e na última coluna possui alguns exemplos de serviços relacionados ao 
-nível de disponibilidade. Pode-se observar que para alguns serviços como sistemas bancários ou sistemas militares é necessário um 
-alto nível de disponibilidade.
+A Tabela \ref{tab:dispniveis} apresenta alguns níveis de disponibilidade, a sua porcentagem do \textit{Uptime}, o \textit{Downtime} por ano 
+e a última coluna possui alguns exemplos de serviços relacionados ao nível de disponibilidade. Pode-se observar que para alguns serviços, 
+como por exemplo sistemas bancários ou sistemas militares é necessário um alto nível de disponibilidade.
 
-A alta diponibilidade pode ser calculada através da equação
+A porcentagem de diponibilidade pode ser calculada através da equação
 \begin{equation}
 d = \frac{MTBF}{(MTBF + MTTR)}
 \label{diponibilidade}
 \end{equation}
-onde $d$ é a porcentagem de disponibilidade. O \ac{MTBF} é o tempo médio entre falhas, correspondendo ao 
-tempo médio entre as paradas de um determinado serviço. Já o \ac{MTTR} é o tempo médio de recuperação, isto é, 
-o tempo entre a queda e a recuperação de um serviço \cite{goncalves2009}.
+onde \ac{MTBF} é o tempo médio entre falhas, ou seja, esse corresponde ao tempo médio entre as paradas de um serviço. Já o \ac{MTTR} é o 
+tempo médio de recuperação, isto é, o tempo entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
-A alta disponibilidade é um dos principais fatores que fornece dependabilidade dos clientes ou usuários, sendo extremante importante 
+A alta disponibilidade é um dos principais fatores que fornece confiança aos clientes ou usuários, sendo extremante importante 
 em empresas que fornecem serviços \textit{on-line}. Por isso existe o \ac{SLA}, que é um acordo de nível de serviço, que garante que 
 o serviço fornecido atenda as expectativas dos clientes. Um \ac{SLA} é um documento contendo uma descrição e uma definição das 
 características mais importantes do serviço que será fornecido. Esse acordo também deve conter o nível de serviço exigido pelo negócio, 
-sendo que este deve ser minuciosamente definido. Por exemplo, um \ac{SLA} pode conter descrição do serviço, requerimentos, horário de 
-funcionamento, disponibilidade esperada, entre outros \cite{smith2010}.
+isto é, a porcentagem da diponibilidade exigida, sendo que esta deve ser minuciosamente definido. Por exemplo, um \ac{SLA} pode conter 
+descrição do serviço, requerimentos, horário de funcionamento, entre outros \cite{smith2010}.

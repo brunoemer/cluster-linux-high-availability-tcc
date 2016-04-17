@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  16 APR 2016 21:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  17 APR 2016 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1032,7 +1032,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [10]
-Underfull \vbox (badness 3657) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11])
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1105,4 +1105,4 @@ Here is how much of TeX's memory you used:
  16 hyphenation exceptions out of 8191
  62i,9n,57p,10386b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (18 pages, 46740 bytes).
+Output written on tcc.dvi (18 pages, 46932 bytes).
