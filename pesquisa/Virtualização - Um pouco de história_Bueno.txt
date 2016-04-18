@@ -1,0 +1,24 @@
+https://hbueno.wordpress.com/2009/04/29/virtualizacao-um-pouco-de-historia/
+
+Henrique Bueno
+
+Virtualização - Um pouco de história
+Por hbueno
+Apesar da tecnologia de virtualização de servidores receber tanta atenção atualmente, seu conceito não é novo. Na verdade a idéia surgiu na metade dos anos 1960, quando os gigantes e caros computadores da época atingiram uma grande velocidade de processamento mas se mostravam ineficientes em aproveitar seu caro tempo de cálculo, devido ao gerenciamento de processos ser feito manualmente pelo operador. Viu-se então que para tirar o melhor proveito do caríssimo processamento computacional era necessário executar vários processos paralelamente. Com isso surgiu o conceito de tempo compartilhado (time sharing), que culminou com a idéia de virtualização.
+
+Time Sharing: Este conceito significa compartilhamento de tempo, ou seja, o tempo ocioso entre os processos são compartilhados com outros processos para dinamizar o sistema. Múltiplos job são executados simultaneamente, sendo que a CPU atende cada job por um pequeno tempo, um a um em seqüência. Os tempos dedicados para cada job são pequenos o suficiente para que os usuários consigam interagir com cada programa sem que percebam que existem outros programas rodando.
+
+Em 1972, um cientista da computação americano, Robert P. Goldberg, lançou a base teórica da arquitetura para sistemas computacionais virtuais em sua dissertação na universidade de Harvard. No mesmo ano a IBM lançou um mainframe capaz de executar simultaneamente diferentes sistemas operacionais sob a supervisão de um programa de controle – hypervisor.
+
+O sistema 370 da IBM foi o primeiro computador comercial inteiramente projetado para virtualização, que com o sistema operacional CP/CMS, permitia executar múltiplas instâncias simultaneamente. Este foi seguido pelo IBM z/VM, que se aproveitava da virtualização via hardware de forma mais completa, onde todas duas interfaces de hardware eram virtualizadas. O VM/CMS é muito bem conceituado e amplamente distribuído na indústria e em ambientes acadêmicos. Várias abordagens modernas de virtualização devem muito às implementações originais para computadores de grande porte da IBM.
+
+Com o passar dos anos a virtualização começou a cair no esquecimento devido a criação de novas aplicações client/servidor e ao declínio da plataforma mainframe que perdeu força frente a ascensão da plataforma x86. De acordo com a VMWare, a ampla adoção do Windows e Linux como sistema operacional em servidores na década de 1990 acabaram por estabelecer a arquitetura x86 como padrão da indústria.
+
+Devido ao alto custo para aquisição de um mainframe, empresas  passaram a adquirir servidores de plataforma x86 de acordo com a demanda, processo este chamado de low-end (várias máquinas pequenas fazendo o trabalho de um grande servidor). Neste cenário, ao invés de ter um alto custo inicial com a aquisição de um mainframe, optava-se por adquirir servidores menores de acordo com a necessidade.
+
+O impacto dessa nova estratégia foi que para garantir uma boa margem de folga contra problemas de dimensionamento de hardware, grande parte destes servidores eram usados para uma única aplicação. Assim, de acordo com a International Data  Corporation, em cada implementação de algum  servidor x86 típico, o teto de uso das CPUs ficava entre 10 a 15% da capacidade total deste servidor.
+Os servidores eram superdimensionados para a aplicação que iriam executar, e por conseqüência, acabavam por sofrer do mesmo problema dos mainframes da década de 1960, isto é, não se aproveitava toda sua capacidade computacional, eram subutilizados.
+
+Então, em 1999, a VMWare Inc. introduziu o conceito de virtualização na plataforma x86 como uma maneira mais eficiente para utilizar o equipamento desta  plataforma, aproveitando servidores x86 para fornecer uma estrutura computacional que possibilitasse o total aproveitamento dos recursos computacionais destes servidores.
+
+A partir de 2005 fabricantes de processadores como Intel e AMD deram mais atenção a necessidade de melhorar o suporte via hardware em seus produtos. A Intel com sua tecnologia Intel VT e a AMD com a AMD-V. Estes hardwares contém funcionalidades explícitas que permitem que hypervisores melhorados sejam utilizados com a técnica de virtualização completa (full virtualization), que tornam mais fácil a implementação e potencializam a melhora de performance.
