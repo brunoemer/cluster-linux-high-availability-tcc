@@ -1,0 +1,156 @@
+Gerenciamento de Nível de Serviço
+
+ Ronaldo Smith Jr_ Ronaldo Smith Jr_ 25 May 2010 5:54 PM 1
+Se o objetivo de uma organização de TI é entregar de forma efetiva e eficaz os serviços de TI aos usuários e clientes, é importante que haja planejamento para todas as fases necessárias para tal.  A quais fases estou me referindo? Às fases que mapeiam o ciclo de vida de um serviço de TI, representada, segundo o Microsoft Operations Framework (MOF), pela figura abaixo:
+
+MOF
+
+Os envolvidos no planejamento, entrega e operação desses serviços de TI devem ser capazes de:
+
+Compreender as necessidades operacionais e de negócio para os serviços e criar uma solução que resolva a necessidade de negócio, respeitando a arquitetura corporativa e as necessidades e limitações operacionais;
+Entregar os serviços aos usuários e clientes capazes de prestar o serviço dentro dos níveis de serviço acordados;
+Operar a solução com excelência e qualidade de modo a entregar um serviço no qual os clientes e usuários possam confiar.
+A melhor forma de atingir aos objetivos listados acima é garantir que as responsabilidades estejam mapeadas com os papéis e times de trabalho.
+
+Organização em Times de Trabalho
+Todos que executam uma tarefa ou atividade associada a um serviço deve ter claramente definido seu papel, entender suas responsabilidades e possuir a capacitação correta para cumprir essas responsabilidades.
+
+Embora algumas responsabilidades possam variar dependendo da área de TIC e da indústria de atuação da organização, existem algumas responsabilidades básicas que podemos mapear, a saber:
+
+Suporte, que é associada a fase Operar do MOF e responsável pelo atendimento ao usuário e correção de incidentes e problemas dos serviços;
+Operação, que é associada a fase Operar do MOF e responsável pela correta operação da produção e cumprimento dos OLAs acordados;
+Serviço, que é associada a fase Planejar e responsável pela definição dos serviços e seus níveis de entrega;
+Arquitetura, que é associada a fase Panejar do MOF e responsável pela definição da arquitetura de TIC;
+Soluções, que é associada a fase Entregar do MOF e responsável pelo desenvolvimento de novos serviços ou atualização dos existentes;
+Gerenciamento, que é associada a camada Gerenciar do MOF e tem a responsabilidade de garantir a gestão dos times de TIC e controles internos.
+A separação do time de trabalho em papéis e responsabilidades é necessária para que todos saibam quem é responsável a fazer o que. Isso ajuda a:
+
+Evitar erros de entendimento sobre quais tarefas devem ser desempenhadas por quem;
+Evitar tarefas sem alguém para executá-las;
+Clarificar o entendimento sobre papéis e responsabilidades de toda a organização de TI;
+Alinhar responsabilidades; e
+Assinalar tarefas.
+Uma correta separação de papéis e responsaabilidades demonstra como construir e manter um time que é:
+
+Focado em execução: garantindo que as tarefas necessárias são executadas;
+Responsável: tem a responsabilidade de responder pelas tarefas e serviços sob sua coordenação;
+Flexível: construído sobre times físicos e virtuais para responder a determinadas responsabilidades; e
+Escalável: capaz de atender às necessidades dos diferentes serviços e demandas da organização.
+ 
+
+Service Level Agreements (SLAs)
+Um passo importantíssimo para entregar o valor esperado pelos clientes com os serviços de TI é garantir que exista um acordo de nível de serviço, planejado por todas as áreas de TI bem como com o cliente final. Logicamente não basta existir um SLA, ele deve ser cumprido, mas o fato de existir algum SLA já é o primeiro passo, por que significa que o mesmo foi discutido dentro da área de TI bem como com o cliente.
+
+O SLA é útil para garantir que os serviços entregues atendem às expectativas de negócios, as metas de desempenho e os custos necessários para a entrega de um determinado serviço de TIC a um conjunto de clientes. Um SLA eficaz reflete a comunicação entre os clientes e usuários (os consumidores do serviço) e deverá traduzir-se na tabela de indicadores. Os objetivos de nível de serviço que são identificados, em seguida, serão usados para desenvolver e personalizar o scorecard de aderência para o serviço.
+
+O SLA deve ser balanceado entre ser relevante e factível. Em geral, a disponibilidade desejada por todos é de 100%, mas isso, infelizmente, é irreal. O SLA deve conter um objetivo relevante a ponto de atingir o nível de serviço realmente necessário e exigido pelo negócio, mas também deve ser possível de ser entregue, não pode conter premissas ou promessas irreais.
+
+Um SLA deve possuir a descrição e definição, em linguagem clara para o cliente, de todos os pontos importantes sobre o serviço de TIC. Por exemplo, descrição do serviço, seus requerimentos, necessidades de dados de entrada, saídas esperadas, horários de funcionamento do serviço, tempos de atendimento ao usuário em caso de problema, disponibilidade total esperada, tempo de retorno em caso de indisponibilidade, etc.
+
+Cálculo de Disponibilidade
+Um dos pontos mais comuns de ser descrito em um SLA é a disponibilidade esperada do serviço. Um indicador comum usado para medir a disponibilidade é o percentual de tempo que um serviço foi capaz de servir aos seus clientes e usuários.
+
+Percentagem de disponibilidade = Tempo Total em Serviço / Tempo Total Esperado em Serviço
+No caso de um serviço que é esperado que funcione 24 x 7, o tempo total esperado, no ano, é de 24 horas x 365 dias = 8760 horas.
+
+Em geral, a disponibilidade desejada por todos é 100%, mas isso, infelizmente, é irreal. Num caso mais realista, a disponibilidade nos SLAs é medida em “noves”, ou seja, quantos “noves” no percentual são esperados. Um serviço que é esperado “3 noves” deve ter disponibilidade de 99,9%.
+
+A tabela abaixo mostra os cálculos de disponibilidade em relação a um serviço 24x7, com base anual.
+
+% Disponibilidade
+
+Horas Totais no Ano (24x7)
+
+Tempo máximo de indisponibilidade
+
+Horas Totais no Ano (8x5)
+
+Tempo máximo de indisponibilidade
+
+90%
+
+8760 horas
+
+876 horas (36,5 dias)
+
+2086 horas
+
+208.6 horas (26 dias)
+
+95%
+
+8760 horas
+
+438 horas (18,3 dias)
+
+2086 horas
+
+104 horas (13 dias)
+
+99% (2 noves)
+
+8760 horas
+
+87 horas (3,6 dias)
+
+2086 horas
+
+20,86 horas (2,6 dias)
+
+99,9% (3 noves)
+
+8760 horas
+
+8,76 horas
+
+2086 horas
+
+2 horas
+
+99,99% (4 noves)
+
+8760 horas
+
+52,56 minutos
+
+2086 horas
+
+12,5 minutos
+
+99,999% (5 noves)
+
+8760 horas
+
+5,3 minutos
+
+2086 horas
+
+1,25 minutos
+
+Como pode ser reparado na tabela de tempos de indisponibilidade, o tempo máximo aceitável de indisponibilidade é alterado com a alteração do tempo total esperado de serviço (janela de funcionamento do serviço). No caso de um serviço em horário comercial (8x5), uma queda do sistema durante a madrugada, com o serviço voltando a funcionar antes ainda do horário comercial não afeta o cálculo de disponibilidade para efeitos do SLA, por que o serviço não tinha a obrigação de funcionar fora da sua janela estipulada.
+
+O que deve ser considerado para confecção de um SLA?
+A Microsoft recomenda considerar os seguintes pontos quando da criação e manutenção de SLAs e medições de disponibilidade:
+
+Necessidades reais de negócio – Os custos de alcançar maior disponibilidade podem não valer a pena considerando os benefícios reais necessários. Analise a real disponibilidade de serviço de TIC que sua empresa realmente precisa antes de definir metas. Ter sempre meta de 24x7 com 99,999% de disponibilidade pode ser desejável para todos os serviços, mas obriga um enorme investimento em pessoas, processos e tecnologia a fim de atingir esse nível e poucos serviços realmente precisam disso.
+Correta granularidade – Um sistema de TI, seja qual for, tem múltiplas medições e monitorações de disponibilidade, e não simplesmente funcionando e parado. Partes distintas podem estar funcionando enquanto outras podem ter algum problema de disponibilidade. Uma regra simples, clara e justa deve ser alcançada para que o cálculo não seja mais custoso que a informação resultante deste.
+Responsabilidade e Cobrança – uma pessoa ou time deve ser responsável por cada medição, e deve ser garantido poder de decisão necessário para que seja feito o que é necessário para controlar o serviço e respeitar os SLAs.
+Riscos Ordinários e Extraordinários – Falha de disco ou memória, bem como rede e falta de energia são riscos ordinários, previsíveis, que são parte do cotidiano. Você sabe que os enfrentará mais cedo ou mais tarde e deve se planejar para quando isso ocorrer. A maior probabilidade de indisponibilidade pode ser tratada analisando e previnindo riscos ordinários. 
+O tipo de planejamento a ser feito para riscos extraordinários é bem diferente e deve inclusive levar em conta risco de perda de pessoal e instalações. São eventos mais raros e especiais, mas que devem ser avaliados se vale a pena prevení-los ou apenas conhecê-los e preparar reação em caso de ocorrência. Isso vai depender do custo da prevenção e também da quantidade e importância dos recursos envolvidos pelo risco.
+Escopo e tolerâncias – métricas rígidas e absolutas podem trazer mais malefícios do que benefícios. Atritos entre áreas, avaliações e auditorias no cálculo do SLA e outros fatores podem ser resultados de intolerâncias. Em geral, recomenda-se trabalhar com médias e desvio padrão para cálculos de indicadores de SLA.
+Mensurabilidade – cada item do SLA deve ter um indicador e meta determinada. O SLA deve ser oficializado em cima de valores trangíveis e objetivos, nunca sobre avaliações pessoais e subjetividade. Termos como “melhor”, “mais disponível”, “total”, etc. devem ser evitados, dando-se preferência para “10% de melhoria a cada ano”, ou ainda, “99% de disponibilidade claculada sobre a fórumula XXX =YYY / ZZZ”.
+Margens de Erro – um outro aspecto da capacidade de medir algo é a margem de erro de medição. Por exemplo, a Microsoft possui dezenas de Active Directory Domain Controllers e Exchange Servers espalhados pelo mundo em diversos datacenters. Sincronização de horário entre todos os serviodres pode levar um certo tempo e ainda assim acontecer com pequenas diferenças de horário. Uma mensagem de ping pode ter o seu horário de chegada, visto por um servidor, milisegundos antes do seu horário de saída. Sabemos que isso é impossível, logo deve-se ao fato de sincronização e outros detalhes inerentes a distribuição e às margens de erro de medição. As objetivos de nível de serviço não devem ser tão pequenos e precisos que sejam da mesma ordem de grandeza que a margem de erro de medição.
+ 
+
+Reunião de Revisão de Nível de Serviço
+Conduzir uma reunião regular de Revisão de Nível de Serviço é uma forma importante de entender o estado atual do serviço. A revisão frequente dos dados atingidos mantém o foco de trabalho nos mais importantes indicadores de negócio, bem como pode alertar com boa antecedência para eventuais desvios aos objetivos dos SLAs.
+
+Após a documentação e formalização do serviço do SAJ com mapa de serviço, SLAs, OLAs, e a tecnologia totalmente revisada e corretamente configurada, a manutenção dos níveis de serviço requerem criação de:
+
+Procedimentos operacionais para todos os componentes do serviço, a fim de garantir que todas as engrenagens estão funcionando corretamente, e de suporte, a fim de garantir que o atendimento ao usuário está sendo feito conforme o acordado no SLA;
+Disciplina e comprometimento do time a fim de colocarem em prática uma reunião de Revisão de Nível de Serviço com frequência mínima quinzenal.
+Bem, espero que as informações discutidas aqui possam ajudar o entendimento da função de Gerenciamento de Nível de Serviço, possibilitando a área de TI entregar serviços de TI com mais qualidade, agregando valor ao cliente.
+
+Abraços e até o próximo post,
+
+Ronaldo Smith Jr.
