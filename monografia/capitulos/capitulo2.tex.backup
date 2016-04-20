@@ -21,17 +21,17 @@ que em inglês são chamados de \ac{SPOF}. A alta disponibilidade está diretame
 \label{section:toleranciafalhas}
 
 Sabe-se que o \textit{hardware} tende a falhar, principalmente devido a fatores físicos, por isso utiliza-se métodos para a prevenção 
-de falhas e para a tolerância a falhas. A abordagem prevenção de falhas DEFINIR ??? melhora a disponibilidade e a confiabilidade de um 
-serviço, isto é, tem como 
-objetivo prever e eliminar o maior número de falhas possíveis antes de colocar o sistema em uso. Mas essa prevenção não resolverá todas 
-as possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com a presença de falhas. Enquanto a 
-prevenção de falhas tem foco nas fases de projeto, teste e validação, a tolerância a falhas tem como foco na utilização de componentes 
-replicados para mascarar as falhas \cite{pankaj1994}.
+de falhas e para a tolerância a falhas. A abordagem prevenção de falhas defini-se como um projeto feito na criação de componentes para
+impedir que futuras falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, isto é, 
+tem como objetivo prever e eliminar o maior número de falhas possíveis antes de colocar o sistema em uso. Mas essa prevenção não resolverá 
+todas as possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com a presença de falhas. 
+Enquanto a prevenção de falhas tem foco nas fases de projeto, teste e validação, a tolerância a falhas tem como foco na utilização de 
+componentes replicados para mascarar as falhas \cite{pankaj1994}.
 
 O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos 
 clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
 de uma falha. A tolerância a falhas é implementada utilizando redundância, que será detalhada na Seção \ref{section:redundancia}. 
-Um exemplo frequentemente utilizando hoje em dia é tolerância a falhas em servidores de virtualização MELHOR EXEMPLO ???, onde normalmente
+Um exemplo que frequentemente pode ser visto em diversas empresas é a utilização de virtualização para tornar um sistema ou serviço tolerante a falhas, onde normalmente
 existem dois servidores com os seus dados replicados. Caso um dos servidores falhe por algum motivo, um \textit{software} de monitoramento
 fará a transferência das maquinas virtuais para o outro servidor evitando assim a indisponibilidade do serviço. Este tema, virtualização, 
 será detalhado no Capítulo \ref{cap:virtualizacao}.
@@ -152,5 +152,5 @@ A alta disponibilidade é um dos principais fatores que fornece confiança aos c
 em empresas que fornecem serviços \textit{on-line}. Por isso existe o \ac{SLA}, que é um acordo de nível de serviço, que garante que 
 o serviço fornecido atenda as expectativas dos clientes. Um \ac{SLA} é um documento contendo uma descrição e uma definição das 
 características mais importantes do serviço que será fornecido. Esse acordo também deve conter o nível de serviço exigido pelo negócio, 
-sendo que este deve ser minuciosamente definido. Por exemplo, um \ac{SLA} pode conter descrição do serviço, requerimentos, horário de 
-funcionamento, disponibilidade esperada, entre outros \cite{smith2010}.
+isto é, a porcentagem da diponibilidade exigida, sendo que esta deve ser minuciosamente definido. Por exemplo, um \ac{SLA} pode conter 
+descrição do serviço, requerimentos, horário de funcionamento, entre outros \cite{smith2010}.

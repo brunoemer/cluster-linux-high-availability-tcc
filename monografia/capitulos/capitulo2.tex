@@ -28,13 +28,14 @@ todas as possíveis falhas. Sendo assim, a tolerância a falhas fornece disponib
 Enquanto a prevenção de falhas tem foco nas fases de projeto, teste e validação, a tolerância a falhas tem como foco na utilização de 
 componentes replicados para mascarar as falhas \cite{pankaj1994}.
 
-O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos 
-clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
+O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos ficam 
+disponíveis aos clientes ou usuários. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
 de uma falha. A tolerância a falhas é implementada utilizando redundância, que será detalhada na Seção \ref{section:redundancia}. 
-Um exemplo frequentemente utilizando hoje em dia é tolerância a falhas em servidores de virtualização MELHOR EXEMPLO ???, onde normalmente
-existem dois servidores com os seus dados replicados. Caso um dos servidores falhe por algum motivo, um \textit{software} de monitoramento
-fará a transferência das maquinas virtuais para o outro servidor evitando assim a indisponibilidade do serviço. Este tema, virtualização, 
-será detalhado no Capítulo \ref{cap:virtualizacao}.
+Um exemplo que frequentemente pode ser visto em uma grande variedade de empresas é a utilização de virtualização para tornar um sistema ou 
+serviço tolerante a falhas. Nestes ambientes normalmente existem dois servidores nos quais maquinas virtuais estão executando, caso um dos 
+servidores falhe por um motivo qualquer, o \textit{software} de monitoramento fará, de forma automática, a transferência das maquinas 
+virtuais para o outro servidor evitando assim a indisponibilidade do serviço. Este tema, virtualização, será detalhado no 
+Capítulo \ref{cap:virtualizacao}.
 
 A tolerância a falhas pode ser dividida em dois tipos que são: mascaramento; ou detecção, localização e reconfiguração.
 O primeiro tipo, o mascaramento, não se manifesta na forma de erro sendo assim não necessita que o sistema trate este erro,
@@ -62,9 +63,11 @@ A classificação das fases de tolerância a falhas mais comuns são detecção,
  monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá se manifestar na forma de erro. 
  Outro exemplo é o esquema de duplicação e comparação, onde é feito operações em componentes replicados com mesmos dados de entrada, e então
  seus dados de saída são comparados, assim se houver alguma diferença um erro é gerado.
- \item Confinamento: responsável pela restrição de um erro para que esse não se propague para todo o sistema, pois entre a falha e a
+ \item Confinamento: responsável pela restrição de um erro para que dado inválidos não se propaguem para todo o sistema, pois entre a falha e a
  detecção do erro há um intervalo de tempo. Neste intervalo pode ocorrer a propagação do erro para outros componentes do sistema, sendo assim 
- antes de executar medidas corretivas é necessário definir os limites da propagação. EXEMPLO ???
+ antes de executar medidas corretivas é necessário definir os limites da propagação. Na fase de projeto essas restrições devem ser previstas
+ e tratadas. Um exemplo de confinamento é o isolamento de processos de um sistema operacional, onde existe restrições para que um processo
+ não gere problemas em outro processo, com isso as falhas de um programa estão restritas ao processo.
  \item Recuperação: após a detecção de um erro ocorre a recuperação, onde o estado de erro é alterado para estado livre de erros. A recuperação
  pode ser feita de duas formas, que são:
  \begin{itemize}
