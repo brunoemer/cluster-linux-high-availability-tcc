@@ -28,13 +28,14 @@ todas as possíveis falhas. Sendo assim, a tolerância a falhas fornece disponib
 Enquanto a prevenção de falhas tem foco nas fases de projeto, teste e validação, a tolerância a falhas tem como foco na utilização de 
 componentes replicados para mascarar as falhas \cite{pankaj1994}.
 
-O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos aos 
-clientes ou usuários ficam disponíveis. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
+O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos ficam 
+disponíveis aos clientes ou usuários. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
 de uma falha. A tolerância a falhas é implementada utilizando redundância, que será detalhada na Seção \ref{section:redundancia}. 
-Um exemplo que frequentemente pode ser visto em diversas empresas é a utilização de virtualização para tornar um sistema ou serviço tolerante a falhas, onde normalmente
-existem dois servidores com os seus dados replicados. Caso um dos servidores falhe por algum motivo, um \textit{software} de monitoramento
-fará a transferência das maquinas virtuais para o outro servidor evitando assim a indisponibilidade do serviço. Este tema, virtualização, 
-será detalhado no Capítulo \ref{cap:virtualizacao}.
+Um exemplo que frequentemente pode ser visto em uma grande variedade de empresas é a utilização de virtualização para tornar um sistema ou 
+serviço tolerante a falhas. Nestes ambientes normalmente existem dois servidores nos quais maquinas virtuais estão executando, caso um dos 
+servidores falhe por um motivo qualquer, o \textit{software} de monitoramento fará, de forma automática, a transferência das maquinas 
+virtuais para o outro servidor evitando assim a indisponibilidade do serviço. Este tema, virtualização, será detalhado no 
+Capítulo \ref{cap:virtualizacao}.
 
 A tolerância a falhas pode ser dividida em dois tipos que são: mascaramento; ou detecção, localização e reconfiguração.
 O primeiro tipo, o mascaramento, não se manifesta na forma de erro sendo assim não necessita que o sistema trate este erro,
@@ -62,9 +63,11 @@ A classificação das fases de tolerância a falhas mais comuns são detecção,
  monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá se manifestar na forma de erro. 
  Outro exemplo é o esquema de duplicação e comparação, onde é feito operações em componentes replicados com mesmos dados de entrada, e então
  seus dados de saída são comparados, assim se houver alguma diferença um erro é gerado.
- \item Confinamento: responsável pela restrição de um erro para que esse não se propague para todo o sistema, pois entre a falha e a
+ \item Confinamento: responsável pela restrição de um erro para que dado inválidos não se propaguem para todo o sistema, pois entre a falha e a
  detecção do erro há um intervalo de tempo. Neste intervalo pode ocorrer a propagação do erro para outros componentes do sistema, sendo assim 
- antes de executar medidas corretivas é necessário definir os limites da propagação. EXEMPLO ???
+ antes de executar medidas corretivas é necessário definir os limites da propagação. Na fase de projeto essas restrições devem ser previstas
+ e tratadas. Um exemplo de confinamento é o isolamento de processos de um sistema operacional, onde existe restrições para que um processo
+ não gere problemas em outro processo, com isso as falhas de um programa estão restritas ao processo.
  \item Recuperação: após a detecção de um erro ocorre a recuperação, onde o estado de erro é alterado para estado livre de erros. A recuperação
  pode ser feita de duas formas, que são:
  \begin{itemize}
@@ -98,12 +101,17 @@ detecção de erros e até para correção \cite{weber2002}. Segundo \cite{norva
  Um exemplo clássico são os \textit{checksums} (soma de verificação). Esses são calculados antes da transmissão ou armazenamento dos dados 
  e recalculado ao recebê-los ou recuperá-los, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
  \textit{bits} de paridade que são utilizandos para detectar falhas que afetam apenas um \textit{bit} \cite{weber2002};
- \item \textit{Software}: CONCEITO EXEMPLO MYSQL REPLICACAO ???. 
+ \item \textit{Software}: pode-se definir redundância de \textit{software} como uma configuração de um serviço ou \textit{software} em
+ dois ou mais locais diferentes. Como por exemplo um sistema gerenciador de banco de dados \textit{MySQL (italico?)} configurado para
+ replicação do tipo \textit{master-slave}, onde possui um servidor principal (\textit{master}) que grava as operações em um arquivo, para então 
+ os servidores \textit{slaves} recuperarem essas operações e assim mantendo os dados replicados. Tanto no \textit{master} quanto nos \textit{slaves} 
+ executam o serviço \textit{MySQL} assim caracterizando a redundância \cite{viana}.
  Outro maneira de implementar redundância de \textit{software} é através da replicação do mesmo \textit{software}, que não é muito útil 
- pois replicando um \textit{software} as falhas ou \textit{bugs} estarão presentes em todas replicas. Existem algumas técnicas que podem 
- ajudar com esse problema. A programação de \textit{n}-versões é uma delas, que consiste em criar \textit{n} versões para um mesmo 
- \textit{software}. Desta forma, possibilita-se o aumento da disponibilidade, uma vez que elas provavelmente não apresentarão os mesmos 
- erros. Por outro lado a programação de \textit{n}-versões possui um custo muito elevado devido a complexidade da sua manutenção.
+ pois replicando um \textit{software} as falhas ou \textit{bugs} estarão presentes em todas replicas. Para \textit{softwares} muito críticos
+ existem algumas técnicas que podem ajudar com esse problema. A programação de \textit{n}-versões é uma delas, que consiste em criar 
+ \textit{n} versões para um mesmo \textit{software}. Desta forma, possibilita-se o aumento da disponibilidade, uma vez que elas provavelmente 
+ não apresentarão os mesmos erros. Por outro lado a programação de \textit{n}-versões possui um custo muito elevado devido a complexidade 
+ da sua manutenção.
  \item Tempo: este é feito através da execução de um conjunto de instruções várias vezes no mesmo componente, assim detectando uma falha caso 
  ocorra. Essa técnica necessita tempo adicional, e é utilizada onde o tempo não é crítico. Por exemplo, um \textit{software} de monitoramento 
  de serviços e servidores, que faz um teste em cada serviço e caso ocorra uma falha o \textit{software} poderá executar uma ação corretiva para 

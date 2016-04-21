@@ -101,12 +101,17 @@ detecção de erros e até para correção \cite{weber2002}. Segundo \cite{norva
  Um exemplo clássico são os \textit{checksums} (soma de verificação). Esses são calculados antes da transmissão ou armazenamento dos dados 
  e recalculado ao recebê-los ou recuperá-los, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
  \textit{bits} de paridade que são utilizandos para detectar falhas que afetam apenas um \textit{bit} \cite{weber2002};
- \item \textit{Software}: OUTRO CONCEITO + EXEMPLO MYSQL REPLICACAO ???. 
+ \item \textit{Software}: pode-se definir redundância de \textit{software} como uma configuração de um serviço ou \textit{software} em
+ dois ou mais locais diferentes. Como por exemplo um sistema gerenciador de banco de dados \textit{MySQL (italico?)} configurado para
+ replicação do tipo \textit{master-slave}, onde possui um servidor principal (\textit{master}) que grava as operações em um arquivo, 
+ para então os servidores \textit{slaves} recuperarem essas operações e assim mantendo os dados replicados. Tanto no \textit{master} 
+ quanto nos \textit{slaves} executam o serviço \textit{MySQL} caracterizando assim a redundância \cite{viana201}.
  Outro maneira de implementar redundância de \textit{software} é através da replicação do mesmo \textit{software}, que não é muito útil 
- pois replicando um \textit{software} as falhas ou \textit{bugs} estarão presentes em todas replicas. Existem algumas técnicas que podem 
- ajudar com esse problema. A programação de \textit{n}-versões é uma delas, que consiste em criar \textit{n} versões para um mesmo 
- \textit{software}. Desta forma, possibilita-se o aumento da disponibilidade, uma vez que elas provavelmente não apresentarão os mesmos 
- erros. Por outro lado a programação de \textit{n}-versões possui um custo muito elevado devido a complexidade da sua manutenção.
+ pois replicando um \textit{software} as falhas ou \textit{bugs} estarão presentes em todas replicas. Para \textit{softwares} muito críticos
+ existem algumas técnicas que podem ajudar com esse problema. A programação de \textit{n}-versões é uma delas, que consiste em criar 
+ \textit{n} versões para um mesmo \textit{software}. Desta forma, possibilita-se o aumento da disponibilidade, uma vez que elas provavelmente 
+ não apresentarão os mesmos erros. Por outro lado a programação de \textit{n}-versões possui um custo muito elevado devido a complexidade 
+ da sua manutenção.
  \item Tempo: este é feito através da execução de um conjunto de instruções várias vezes no mesmo componente, assim detectando uma falha caso 
  ocorra. Essa técnica necessita tempo adicional, e é utilizada onde o tempo não é crítico. Por exemplo, um \textit{software} de monitoramento 
  de serviços e servidores, que faz um teste em cada serviço e caso ocorra uma falha o \textit{software} poderá executar uma ação corretiva para 
