@@ -4,8 +4,12 @@
 O conceito virtualização surgiu na década de 60, sendo que muitas vezes havia a necessidade de cada usuário utilizar um ambiente individual 
 com suas próprias aplicações e totalmente isolado dos outros usuários. Sabendo que naquela época era utilizado grandes servidores, conhecidos
 como \textit{mainframes}, para a execução dessas aplicações, assim aproveitando ineficientemente o \textit{hardware}. Por esse motivo houve
-a necessidade da criação de máquinas virtuais, mais conhecida como \ac{VM}, que surgiram com um dos principais sistemas comerciais com
-suporte a virtualização, \ac{OS} \textit{370} que foi desenvolvido pela \textit{IBM} \cite{laureano2008}.
+a necessidade da criação de máquinas virtuais, mais conhecida como \ac{VM}, que teve forte expansão com um dos principais sistemas comerciais 
+com suporte a virtualização, sistema operacional \textit{370} que foi desenvolvido pela \textit{IBM}. Na década de 80, houve uma redução da
+utilização da virtualização devido a popularização de \textit{hardware} barato como o \ac{PC}. Na época era mais vantajoso colocar um \ac{PC} 
+para cada usuário, do que investir em caros e complexos \textit{mainframes}. Devido ao crescente avanço e melhor desempenho do \ac{PC} e
+ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnologia de virtualização retornou com o conceito de virtualização
+de aplicação \cite{laureano2008}.
 %O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
 %conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} necessitava
 %do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional no qual executava. Assim
@@ -16,19 +20,19 @@ CONCEITO VIRTUALIZACAO VER reis e oliveira.
 A virtualização é definida como uma camada entre o \textit{hardware} e o sistema operacional que possibilita a divisão e proteção
 dos recursos físicos. Virtualização utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
 virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
-em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a emulação 
+em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
 do \textit{hardware} \cite{smithenair2005}. ???
 
-Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como por exemplo servidores de e-mail, hospedagens e 
-banco de dados. Com isso existe uma ociosidade grande de recursos. Uma das grandes vantagens da virtualização é o melhor aproveitamento
-destes recursos, alocando vários serviços em uma única máquina gera um melhor aproveitamento do \textit{hardware} \cite{moreira2006}.
-Além disso pode-se ter uma redução de custos com administração e manutenção dos servidores. Em um ambiente heterogênio pode-se também
-utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
+Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como, por exemplo, servidores de e-mail, hospedagens e 
+banco de dados, com isso existe uma ociosidade grande de recursos. Portanto uma das grandes vantagens da virtualização é um melhor 
+aproveitamento destes recursos, alocando vários serviços em um único servidor gerando um melhor aproveitamento do \textit{hardware} 
+\cite{moreira2006}. Além disso, pode-se ter uma redução de custos com a administração e a manutenção dos servidores. Em um ambiente 
+heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
 
-Atualmente o elevado custo da energia elétrica realça a necessidade de redução do consumo, que pode ser feito através da implantação 
-de servidores mais robustos para substituir dezenas de servidores comuns, assim reduzindo o consumo de energia elétrica. 
-Outros fatores como refrigeração do ambiente e espaço físico utilizado também podem ser reduzidos com a implantação de virtualização de
-servidores, e consequentemente reduzem os custos de energia também.
+Uma outra motivação para a utilização de virtualização consiste no custo da energia elétrica. A economia de energia pode ser obtida através 
+da implantação de servidores mais robustos para substituir dezenas de servidores comuns. Outros fatores como refrigeração do ambiente e 
+espaço físico utilizado também podem ser reduzidos com a implantação de virtualização de servidores, e consequentemente, reduzem os 
+custos de energia também.
 
 A virtualização favorece a implementação do conceito um servidor por serviço, que consiste em ter um servidor para cada serviço.
 Mas porque não colocar todos serviços em um único servidor? Muitas vezes com uma variedade de serviços é necessário diferentes 
@@ -50,7 +54,7 @@ ver jvm e wine
 
 \section{Funcionamento}
 
-** Anéis de privilégios, e hypervisor \cite{goncalves2009}.
+** Anéis de privilégios, compatibilidade, e hypervisor \cite{goncalves2009}.
 
 
 %Virtualização_ da teoria a soluções.pdf

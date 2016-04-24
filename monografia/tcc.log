@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  23 APR 2016 23:24
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  24 APR 2016 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,12 +1091,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 11522 strings out of 495005
- 225337 string characters out of 6180688
- 275598 words of memory out of 5000000
- 14503 multiletter control sequences out of 15000+600000
+ 11533 strings out of 495005
+ 225592 string characters out of 6180688
+ 275761 words of memory out of 5000000
+ 14514 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,9n,57p,10386b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (18 pages, 50096 bytes).
+Output written on tcc.dvi (18 pages, 50848 bytes).
