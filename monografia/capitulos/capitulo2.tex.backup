@@ -103,9 +103,9 @@ detecção de erros e até para correção \cite{weber2002}. Segundo \cite{norva
  \textit{bits} de paridade que são utilizandos para detectar falhas que afetam apenas um \textit{bit} \cite{weber2002};
  \item \textit{Software}: pode-se definir redundância de \textit{software} como uma configuração de um serviço ou \textit{software} em
  dois ou mais locais diferentes. Como por exemplo um sistema gerenciador de banco de dados \textit{MySQL (italico?)} configurado para
- replicação do tipo \textit{master-slave}, onde possui um servidor principal (\textit{master}) que grava as operações em um arquivo, para então 
- os servidores \textit{slaves} recuperarem essas operações e assim mantendo os dados replicados. Tanto no \textit{master} quanto nos \textit{slaves} 
- executam o serviço \textit{MySQL} assim caracterizando a redundância \cite{viana}.
+ replicação do tipo \textit{master-slave}, onde possui um servidor principal (\textit{master}) que grava as operações em um arquivo, 
+ para então os servidores \textit{slaves} recuperarem essas operações e assim mantendo os dados replicados. Tanto no \textit{master} 
+ quanto nos \textit{slaves} executam o serviço \textit{MySQL} caracterizando assim a redundância \cite{viana201}.
  Outro maneira de implementar redundância de \textit{software} é através da replicação do mesmo \textit{software}, que não é muito útil 
  pois replicando um \textit{software} as falhas ou \textit{bugs} estarão presentes em todas replicas. Para \textit{softwares} muito críticos
  existem algumas técnicas que podem ajudar com esse problema. A programação de \textit{n}-versões é uma delas, que consiste em criar 

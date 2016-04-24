@@ -1,14 +1,20 @@
 \chapter{Virtualização}
-O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
-conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} necessitava
-do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional o qual executava. Assim
-sendo necessário a criação de máquinas virtuais, mais conhecida como \textit{virtual machine} (VM) \cite{carissimi2008}.
+\label{cap:virtualizacao}
 
-Virtualização defini-se como uma camada entre o \textit{hardware} e o sistema operacional que possibilita a divisão e proteção
-dos recursos físicos. Virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a emulação do \textit{hardware}.
-Virtualização utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos virtuais menores, 
-sendo que esses discos virtuais são arquivos armazenados no disco físico. Com isso a virtualização utiliza abstração de arquivos como 
-intermédio entre discos virtuais e reais, logo pode-se dizer que arquivos são uma abstração em um disco real \cite{smithenair2005}. 
+
+
+%O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
+%conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} necessitava
+%do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional no qual executava. Assim
+%sendo necessário a criação de máquinas virtuais, mais conhecida como \ac{VM} \cite{carissimi2008}.
+
+CONCEITO VIRTUALIZACAO VER reis e oliveira.
+
+A virtualização é definida como uma camada entre o \textit{hardware} e o sistema operacional que possibilita a divisão e proteção
+dos recursos físicos. Virtualização utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
+virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
+em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a emulação 
+do \textit{hardware} \cite{smithenair2005}. ???
 
 Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como por exemplo servidores de e-mail, hospedagens e 
 banco de dados. Com isso existe uma ociosidade grande de recursos. Uma das grandes vantagens da virtualização é o melhor aproveitamento
@@ -17,19 +23,31 @@ Além disso pode-se ter uma redução de custos com administração e manutenç�
 utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
 
 Atualmente o elevado custo da energia elétrica realça a necessidade de redução do consumo, que pode ser feito através da implantação 
-de servidores mais robustos para substituir dezenas de servidores comuns, assim reduzindo o consumo de energia elétrica. Outros fatores 
-que favorecem a implantação de virtualização é a refrigeração do ambiente e espaço utilizado.
+de servidores mais robustos para substituir dezenas de servidores comuns, assim reduzindo o consumo de energia elétrica. 
+Outros fatores como refrigeração do ambiente e espaço físico utilizado também podem ser reduzidos com a implantação de virtualização de
+servidores, e consequentemente reduzem os custos de energia também.
 
 A virtualização favorece a implementação do conceito um servidor por serviço, que consiste em ter um servidor para cada serviço.
 Mas porque não colocar todos serviços em um único servidor? Muitas vezes com uma variedade de serviços é necessário diferentes 
-sistemas operacionais, portanto isto se torna inviável. Outro fator relevante que também favorece a implementação de um servidor por
-serviço é, caso exista uma falha de segurança em apenas um serviço, essa vulnerabilidade poderá comprometer todos os outros serviços 
+sistemas operacionais, ou os serviços necessitam rodar nas mesmas portas, portanto isto se torna inviável. Outro fator relevante que 
+também favorece a implementação de um servidor por serviço é, caso exista uma falha de segurança em apenas um serviço, essa 
+vulnerabilidade poderá comprometer todos os outros serviços 
 \cite{carissimi2008}.
+
+\section{Tipos de virtualização}
+
+\begin{itemize}
+ \item Emulação
+ \item Virtualização completa
+ \item Paravirtualização
+ \item Virtualização baseada em contêineres
+\end{itemize}
+
+ver jvm e wine
 
 \section{Funcionamento}
 
-
-\section{Tipos de virtualização}
+** Anéis de privilégios, e hypervisor \cite{goncalves2009}.
 
 
 %Virtualização_ da teoria a soluções.pdf

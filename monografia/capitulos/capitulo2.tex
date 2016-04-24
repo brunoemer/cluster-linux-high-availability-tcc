@@ -1,5 +1,5 @@
 \chapter{Alta disponibilidade}
-\label{cap:altadiponibilidade}
+\label{cap:altadisponibilidade}
 
 Alta disponibilidade é um termo muito conhecido, sendo cada vez mais empregada nos ambientes computacionais. O objetivo de promover 
 alta disponibilidade resume-se em garantir que um serviço esteja sempre disponível quando o cliente solicitar ou acessar \cite{costa2009}.
@@ -14,14 +14,14 @@ que em inglês são chamados de \ac{SPOF}. A alta disponibilidade está diretame
  \item Disponibilidade: é a probabilidade de um serviço estar operacional no instante em que for solicitado \cite{costa2009};
  \item Tolerância a falhas: procura garantir a disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar 
  falhas, e seu objetivo é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço \cite{costa2009}. A tolerância a falhas é 
- um dos principais conceitos da alta diponibilidade, sendo assim será melhor discutida na Seção \ref{section:toleranciafalhas}.
+ um dos principais conceitos da alta disponibilidade, sendo assim será melhor discutida na Seção \ref{section:toleranciafalhas}.
 \end{itemize}
 
 \section{Tolerância a falhas}
 \label{section:toleranciafalhas}
 
 Sabe-se que o \textit{hardware} tende a falhar, principalmente devido a fatores físicos, por isso utiliza-se métodos para a prevenção 
-de falhas e para a tolerância a falhas. A abordagem prevenção de falhas defini-se como um projeto feito na criação de componentes para
+de falhas e para a tolerância a falhas. A abordagem prevenção de falhas define-se como um projeto feito na criação de componentes para
 impedir que futuras falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, isto é, 
 tem como objetivo prever e eliminar o maior número de falhas possíveis antes de colocar o sistema em uso. Mas essa prevenção não resolverá 
 todas as possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço mesmo com a presença de falhas. 
@@ -30,14 +30,14 @@ componentes replicados para mascarar as falhas \cite{pankaj1994}.
 
 O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, isto é, aumentar o tempo que os serviços fornecidos ficam 
 disponíveis aos clientes ou usuários. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
-de uma falha. A tolerância a falhas é implementada utilizando redundância, que será detalhada na Seção \ref{section:redundancia}. 
-Um exemplo que frequentemente pode ser visto em uma grande variedade de empresas é a utilização de virtualização para tornar um sistema ou 
-serviço tolerante a falhas. Nestes ambientes normalmente existem dois servidores nos quais maquinas virtuais estão executando, caso um dos 
-servidores falhe por um motivo qualquer, o \textit{software} de monitoramento fará, de forma automática, a transferência das maquinas 
-virtuais para o outro servidor evitando assim a indisponibilidade do serviço. Este tema, virtualização, será detalhado no 
-Capítulo \ref{cap:virtualizacao}.
+de uma falha sem afetar o funcionamento do sistema. A tolerância a falhas é implementada utilizando redundância, que será detalhada na 
+Seção \ref{section:redundancia}. Um exemplo que frequentemente pode ser visto em uma grande variedade de empresas é a utilização de 
+virtualização para tornar um sistema ou serviço tolerante a falhas. Nestes ambientes normalmente existem dois servidores nos quais 
+maquinas virtuais estão executando, caso um dos servidores falhe por um motivo qualquer, o \textit{software} de monitoramento fará a 
+transferência das maquinas virtuais automaticamente para o outro servidor evitando assim a indisponibilidade do serviço. 
+Este tema, virtualização, será detalhado no Capítulo \ref{cap:virtualizacao}.
 
-A tolerância a falhas pode ser dividida em dois tipos que são: mascaramento; ou detecção, localização e reconfiguração.
+A tolerância a falhas pode ser dividida em dois tipos que são: mascaramento; detecção, localização e reconfiguração.
 O primeiro tipo, o mascaramento, não se manifesta na forma de erro sendo assim não necessita que o sistema trate este erro,
 pois as falhas são tratadas na origem. O mascaramento é utilizado principalmente em sistemas de tempo real crítico. 
 Um exemplo são os códigos de correção de erros, em inglês \ac{ECC}, que são utilizados em memórias para detecção e correção de erros.
@@ -100,9 +100,9 @@ detecção de erros e até para correção \cite{weber2002}. Segundo \cite{norva
  \item Informação: ocorre quando uma informação extra é enviada ou armazenada para possibilitar a detecção e correção de erros.
  Um exemplo clássico são os \textit{checksums} (soma de verificação). Esses são calculados antes da transmissão ou armazenamento dos dados 
  e recalculado ao recebê-los ou recuperá-los, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
- \textit{bits} de paridade que são utilizandos para detectar falhas que afetam apenas um \textit{bit} \cite{weber2002};
+ \textit{bits} de paridade que são utilizados para detectar falhas que afetam apenas um \textit{bit} \cite{weber2002};
  \item \textit{Software}: pode-se definir redundância de \textit{software} como uma configuração de um serviço ou \textit{software} em
- dois ou mais locais diferentes. Como por exemplo um sistema gerenciador de banco de dados \textit{MySQL (italico?)} configurado para
+ dois ou mais locais diferentes. Como por exemplo um sistema gerenciador de banco de dados \textit{MySQL} configurado para
  replicação do tipo \textit{master-slave}, onde possui um servidor principal (\textit{master}) que grava as operações em um arquivo, 
  para então os servidores \textit{slaves} recuperarem essas operações e assim mantendo os dados replicados. Tanto no \textit{master} 
  quanto nos \textit{slaves} executam o serviço \textit{MySQL} caracterizando assim a redundância \cite{viana201}.
@@ -121,7 +121,7 @@ detecção de erros e até para correção \cite{weber2002}. Segundo \cite{norva
 
 \section{Cálculo da alta disponibilidade}
 
-Um ponto importante sobre alta diponibilidade é como medi-la. Para isso são utilizados os valores de \textit{uptime} e \textit{downtime}, 
+Um aspecto importante sobre alta disponibilidade é como medi-la. Para isso são utilizados os valores de \textit{uptime} e \textit{downtime}, 
 que são respectivamente, o tempo que os serviços estão funcionando normalmente e o tempo que não estão funcionando. A alta disponibilidade 
 pode ser expressa pela quantidade de ``noves'', isto é, se um serviço possui quatro noves de disponibilidade, este possui uma 
 disponibilidade de 99,99\% \cite{pereirafilho2004}.
@@ -146,12 +146,12 @@ Nível & Uptime & Downtime por ano & Exemplos\\\hline
 
 A Tabela \ref{tab:dispniveis} apresenta alguns níveis de disponibilidade, a sua porcentagem do \textit{Uptime}, o \textit{Downtime} por ano 
 e a última coluna possui alguns exemplos de serviços relacionados ao nível de disponibilidade. Pode-se observar que para alguns serviços, 
-como por exemplo sistemas bancários ou sistemas militares é necessário um alto nível de disponibilidade.
+como por exemplo sistemas bancários ou sistemas militares é necessário um alto nível de disponibilidade \cite{pereirafilho2004}.
 
-A porcentagem de diponibilidade pode ser calculada através da equação
+A porcentagem de disponibilidade pode ser calculada através da equação
 \begin{equation}
 d = \frac{MTBF}{(MTBF + MTTR)}
-\label{diponibilidade}
+\label{disponibilidade}
 \end{equation}
 onde \ac{MTBF} é o tempo médio entre falhas, ou seja, esse corresponde ao tempo médio entre as paradas de um serviço. Já o \ac{MTTR} é o 
 tempo médio de recuperação, isto é, o tempo entre a queda e a recuperação de um serviço \cite{goncalves2009}.
@@ -160,5 +160,5 @@ A alta disponibilidade é um dos principais fatores que fornece confiança aos c
 em empresas que fornecem serviços \textit{on-line}. Por isso existe o \ac{SLA}, que é um acordo de nível de serviço, que garante que 
 o serviço fornecido atenda as expectativas dos clientes. Um \ac{SLA} é um documento contendo uma descrição e uma definição das 
 características mais importantes do serviço que será fornecido. Esse acordo também deve conter o nível de serviço exigido pelo negócio, 
-isto é, a porcentagem da diponibilidade exigida, sendo que esta deve ser minuciosamente definido. Por exemplo, um \ac{SLA} pode conter 
+isto é, a porcentagem da disponibilidade exigida, sendo que esta deve ser minuciosamente definido. Por exemplo, um \ac{SLA} pode conter 
 descrição do serviço, requerimentos, horário de funcionamento, entre outros \cite{smith2010}.
