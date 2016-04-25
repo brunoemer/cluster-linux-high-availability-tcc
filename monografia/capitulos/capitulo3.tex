@@ -15,13 +15,39 @@ de aplicação \cite{laureano2008}.
 %do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional no qual executava. Assim
 %sendo necessário a criação de máquinas virtuais, mais conhecida como \ac{VM} \cite{carissimi2008}.
 
-CONCEITO VIRTUALIZACAO VER reis e oliveira.
+A virtualização foi definida nos anos 60 e 70 como uma camada entre o \textit{hardware} e o sistema operacional que possibilitava a 
+divisão e proteção dos recursos físicos. Porém atualmente, ela engloba outros conceitos, como por exemplo a \ac{JVM}, que não virtualiza
+um \textit{hardware}. Atualmente pode-se definir virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos
+de uma determinada interface de sistema para criar outra interface de mesmo nível, com isso poderá suprir a necessidade dos componentes do 
+sistema que irão utilizá-la. Essa camada irá permitir a comunicação entre interfaces distintas, de forma que uma aplicação desenvolvida para
+uma plataforma \textit{X} possa também executar em uma plataforma \textit{Y} \cite{laureano2008}.
 
-A virtualização é definida como uma camada entre o \textit{hardware} e o sistema operacional que possibilita a divisão e proteção
-dos recursos físicos. Virtualização utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
+Virtualização utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
 virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
 em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
-do \textit{hardware} \cite{smithenair2005}. ???
+do \textit{hardware} \cite{smithenair2005}.
+
+Existem várias formas de virtualização, portanto elas serão detalhas na Seção \ref{section:tiposvirt}.
+
+\section{Tipos de virtualização}
+\label{section:tiposvirt}
+
+\begin{itemize}
+ \item Emulação
+ \item Virtualização completa
+ \item Paravirtualização
+ \item Virtualização baseada em contêineres
+\end{itemize}
+
+ver jvm e wine
+
+\section{Funcionamento}
+\label{section:funcionamentovirt}
+
+** Anéis de privilégios, compatibilidade, e hypervisor \cite{goncalves2009}.
+
+\section{Vantagens}
+\label{section:vantagensvirt}
 
 Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como, por exemplo, servidores de e-mail, hospedagens e 
 banco de dados, com isso existe uma ociosidade grande de recursos. Portanto uma das grandes vantagens da virtualização é um melhor 
@@ -40,21 +66,6 @@ sistemas operacionais, ou os serviços necessitam rodar nas mesmas portas, porta
 também favorece a implementação de um servidor por serviço é, caso exista uma falha de segurança em apenas um serviço, essa 
 vulnerabilidade poderá comprometer todos os outros serviços 
 \cite{carissimi2008}.
-
-\section{Tipos de virtualização}
-
-\begin{itemize}
- \item Emulação
- \item Virtualização completa
- \item Paravirtualização
- \item Virtualização baseada em contêineres
-\end{itemize}
-
-ver jvm e wine
-
-\section{Funcionamento}
-
-** Anéis de privilégios, compatibilidade, e hypervisor \cite{goncalves2009}.
 
 
 %Virtualização_ da teoria a soluções.pdf

@@ -5,7 +5,11 @@ O conceito virtualização surgiu na década de 60, sendo que muitas vezes havia
 com suas próprias aplicações e totalmente isolado dos outros usuários. Sabendo que naquela época era utilizado grandes servidores, conhecidos
 como \textit{mainframes}, para a execução dessas aplicações, assim aproveitando ineficientemente o \textit{hardware}. Por esse motivo houve
 a necessidade da criação de máquinas virtuais, mais conhecida como \ac{VM}, que teve forte expansão com um dos principais sistemas comerciais 
-com suporte a virtualização, sistema operacional \textit{370} que foi desenvolvido pela \textit{IBM} \cite{laureano2008}.
+com suporte a virtualização, sistema operacional \textit{370} que foi desenvolvido pela \textit{IBM}. Na década de 80, houve uma redução da
+utilização da virtualização devido a popularização de \textit{hardware} barato como o \ac{PC}. Na época era mais vantajoso colocar um \ac{PC} 
+para cada usuário, do que investir em caros e complexos \textit{mainframes}. Devido ao crescente avanço e melhor desempenho do \ac{PC} e
+ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnologia de virtualização retornou com o conceito de virtualização
+de aplicação \cite{laureano2008}.
 %O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
 %conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} necessitava
 %do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional no qual executava. Assim
@@ -13,8 +17,14 @@ com suporte a virtualização, sistema operacional \textit{370} que foi desenvol
 
 CONCEITO VIRTUALIZACAO VER reis e oliveira.
 
-A virtualização é definida como uma camada entre o \textit{hardware} e o sistema operacional que possibilita a divisão e proteção
-dos recursos físicos. Virtualização utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
+A virtualização foi definida nos anos 60 e 70 como uma camada entre o \textit{hardware} e o sistema operacional que possibilitava a 
+divisão e proteção dos recursos físicos. Porém atualmente, ela engloba outros conceitos, como por exemplo a \ac{JVM}, que não virtualiza
+um \textit{hardware}. Atualmente pode-se definir virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos
+de uma determinada interface de sistema para criar outra interface de mesmo nível, com isso suprirá a necessidade dos componentes do sistema
+que irão utilizá-la. Sendo assim essa camada permite a comunicação entre interfaces distintas, de forma que uma aplicação desenvolvida para
+uma plataforma X  \cite{laureano2008}.
+
+Virtualização utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
 virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
 em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
 do \textit{hardware} \cite{smithenair2005}. ???
@@ -50,7 +60,7 @@ ver jvm e wine
 
 \section{Funcionamento}
 
-** Anéis de privilégios, e hypervisor \cite{goncalves2009}.
+** Anéis de privilégios, compatibilidade, e hypervisor \cite{goncalves2009}.
 
 
 %Virtualização_ da teoria a soluções.pdf
