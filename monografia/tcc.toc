@@ -5,6 +5,7 @@
 \contentsline {chapter}{Resumo}{6}
 \contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{7}
 \contentsline {section}{\numberline {1.1}Objetivos}{8}
+\contentsline {section}{\numberline {1.2}Estrutura do trabalho}{8}
 \contentsline {chapter}{\numberline {2}Alta disponibilidade}{9}
 \contentsline {section}{\numberline {2.1}Toler\IeC {\^a}ncia a falhas}{9}
 \contentsline {subsection}{\numberline {2.1.1}Fases da toler\IeC {\^a}ncia a falhas}{10}
