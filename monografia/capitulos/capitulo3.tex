@@ -25,34 +25,30 @@ sistema para criar outra interface de mesmo nível. Essa camada irá permitir a 
 necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
 em uma plataforma \textit{Y} \cite{laureano2008}.
 
-\begin{figure}[acoplamento_interfaces]
- \centering
- \includegraphics[height=140px]{img/acoplamento_interfaces.eps}
- \caption{Acoplamento entre interfaces distintas}
- \label{fig:acoplamento_interfaces}
-\end{figure}
-Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} ....
-
-
---------------------------------
-
-
-Máquinas virtuais podem ser divididas em dois grupos: máquinas virtuais de aplicação e máquinas virtuais de sistema. A primeira faz a
+Máquinas virtuais podem ser divididas em dois grupos: máquinas virtuais de aplicação, detalhado na seção \ref{section:virtaplicacao}, e 
+máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a
 virtualização de uma aplicação, suporta apenas um processo ou aplicação. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. 
 A máquina virtual de sistema suporta sistemas operacionais convidados, com suas aplicações executando sobre ele. Um exemplo é o sistema
 \textit{VMware} \cite{laureano2008}.
-Virtualização de sistema utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
-virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
-em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
-do \textit{hardware} \cite{smithenair2005}.
-Existem várias formas de implementar a virtualização, por isso elas serão detalhas na Seção \ref{section:tiposvirt}.
 
 \section{Virtualização de aplicação}
 \label{section:virtaplicacao}
 
 
+\subsection{Sistemas operacionais multi-tarefas}
+\subsection{Tradutores dinâmicos}
+\subsection{Depuradores de memória}
+
+
 \section{Virtualização de sistema}
 \label{section:virtsistema}
+
+
+\subsection{Hipervisores nativos}
+\subsection{Hipervisores convidados}
+
+\subsection{Virtualização de recursos}
+\subsection{Virtualização completa}
 
 
 \begin{itemize}
@@ -62,6 +58,22 @@ Existem várias formas de implementar a virtualização, por isso elas serão de
  \item Virtualização baseada em contêineres
 \end{itemize}
 ver jvm e wine
+
+
+\begin{figure}[acoplamento_interfaces]
+ \centering
+ \includegraphics[height=140px]{img/acoplamento_interfaces.eps}
+ \caption{Acoplamento entre interfaces distintas}
+ \label{fig:acoplamento_interfaces}
+ Fonte: \citet{laureano2008}
+\end{figure}
+Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} ....
+
+Virtualização de sistema utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
+virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
+em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
+do \textit{hardware} \cite{smithenair2005}.
+Existem várias formas de implementar a virtualização, por isso elas serão detalhas na Seção \ref{section:tiposvirt}.
 
 Um ambiente de virtualização é composto basicamente por três componentes:
 \begin{itemize}
@@ -93,8 +105,6 @@ também favorece a implementação de um servidor por serviço é, caso exista u
 vulnerabilidade poderá comprometer todos os outros serviços 
 \cite{carissimi2008}.
 
-\section{Funcionamento}
-\label{section:funcionamentovirt}
 
 ** Anéis de privilégios, compatibilidade, e hypervisor \cite{goncalves2009}.
 
