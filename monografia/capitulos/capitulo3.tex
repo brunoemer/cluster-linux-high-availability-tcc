@@ -1,45 +1,41 @@
 \chapter{Virtualização}
 \label{cap:virtualizacao}
 
-O conceito virtualização surgiu na década de 60, sendo que muitas vezes havia a necessidade de cada usuário utilizar um ambiente individual 
-com suas próprias aplicações e totalmente isolado dos outros usuários. Sabendo que naquela época era utilizado grandes servidores, conhecidos
-como \textit{mainframes}, para a execução dessas aplicações, assim aproveitando ineficientemente o \textit{hardware}. Por esse motivo houve
-a necessidade da criação de máquinas virtuais, mais conhecida como \ac{VM}, que teve forte expansão com um dos principais sistemas comerciais 
-com suporte a virtualização, sistema operacional \textit{370} que foi desenvolvido pela \textit{IBM}. Na década de 80, houve uma redução da
-utilização da virtualização devido a popularização de \textit{hardware} barato como o \ac{PC}. Na época era mais vantajoso colocar um \ac{PC} 
-para cada usuário, do que investir em caros e complexos \textit{mainframes}. Devido ao crescente avanço e melhor desempenho do \ac{PC} e
-ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnologia de virtualização retornou com o conceito de virtualização
-de aplicação \cite{laureano2008}.
+O conceito virtualização surgiu na década de 60, onde muitas vezes havia a necessidade de um usuário utilizar um ambiente individual, 
+com suas próprias aplicações e totalmente isolado dos outros usuários. Este foi um dos principais motivos para a criação de máquinas 
+virtuais, mais conhecida como \ac{VM}, que teve forte expansão com um dos principais sistemas comerciais com suporte a virtualização, 
+sistema operacional \textit{370} que foi desenvolvido pela \textit{IBM}. Este sistema operacional executava sobre \textit{mainframes}, 
+que na época eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
 %O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
 %conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} necessitava
 %do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional no qual executava. Assim
 %sendo necessário a criação de máquinas virtuais, mais conhecida como \ac{VM} \cite{carissimi2008}.
 
+Na década de 80, houve uma redução da utilização da virtualização devido a popularização do \ac{PC}. Na época era mais vantajoso disponibilizar 
+um \ac{PC} para cada usuário, do que investir em \textit{mainframes}. Devido ao crescente avanço e melhor desempenho do \ac{PC} e
+ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnologia de virtualização retornou com o conceito de virtualização
+de aplicação.
+
 A virtualização foi definida nos anos 60 e 70 como uma camada entre o \textit{hardware} e o sistema operacional que possibilitava a 
 divisão e proteção dos recursos físicos. Porém, atualmente ela engloba outros conceitos, como por exemplo a \ac{JVM}, que não virtualiza
-um \textit{hardware}. Atualmente pode-se definir virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos
-de uma determinada interface de sistema para criar outra interface de mesmo nível, com isso poderá suprir a necessidade dos componentes do 
-sistema que irão utilizá-la. Essa camada irá permitir a comunicação entre interfaces distintas, de forma que uma aplicação desenvolvida para
-uma plataforma \textit{X} possa também executar em uma plataforma \textit{Y} \cite{laureano2008}.
+um \textit{hardware}. 
+
+Atualmente define-se virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos de uma determinada interface de 
+sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, para suprir as 
+necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
+em uma plataforma \textit{Y} \cite{laureano2008}.
+
+\begin{figure}[acoplamento_interfaces]
+ \centering
+ \includegraphics[height=140px]{img/acoplamento_interfaces.eps}
+ \caption{Acoplamento entre interfaces distintas}
+ \label{fig:acoplamento_interfaces}
+\end{figure}
+Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} ....
 
 
-%\begin{figure}[falhasrecup]
-% \centering
-% \includegraphics[height=200px]{img/recuperacao_ret_ava.eps}
-% \caption{Recuperação por retorno e por avanço.}
-% \label{fig:recuperacao_ret_ava}
-%\end{figure}
-% exemplo referencia: \ref{fig:recuperacao_ret_ava}
+--------------------------------
 
-
-Um ambiente de virtualização é composto basicamente por três componentes:
-\begin{itemize}
- \item Sistema real: também pode ser chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
- \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM}, tem como função criar interfaces virtuais a
- partir de interfaces físicas para a comunicação do sistema real com o sistema virtual;
- \item Sistema virtual: também conhecido como \textit{guest}, ou sistema convidado, que executa sobre o sistema real. Geralmente
- existem vários sistemas virtuais executando simultaneamente sobre o sistema real.
-\end{itemize}
 
 Máquinas virtuais podem ser divididas em dois grupos: máquinas virtuais de aplicação e máquinas virtuais de sistema. A primeira faz a
 virtualização de uma aplicação, suporta apenas um processo ou aplicação. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. 
@@ -50,6 +46,16 @@ virtuais menores, sendo que esses discos virtuais são arquivos armazenados no d
 em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
 do \textit{hardware} \cite{smithenair2005}.
 Existem várias formas de implementar a virtualização, por isso elas serão detalhas na Seção \ref{section:tiposvirt}.
+
+
+Um ambiente de virtualização é composto basicamente por três componentes:
+\begin{itemize}
+ \item Sistema real: também pode ser chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
+ \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM}, tem como função criar interfaces virtuais a
+ partir de interfaces físicas para a comunicação do sistema real com o sistema virtual;
+ \item Sistema virtual: também conhecido como \textit{guest}, ou sistema convidado, que executa sobre o sistema real. Geralmente
+ existem vários sistemas virtuais executando simultaneamente sobre o sistema real.
+\end{itemize}
 
 \section{Vantagens}
 \label{section:vantagensvirt}

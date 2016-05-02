@@ -13,6 +13,6 @@
 \contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo da alta disponibilidade}{12}
 \contentsline {chapter}{\numberline {3}Virtualiza\IeC {\c c}\IeC {\~a}o}{14}
 \contentsline {section}{\numberline {3.1}Vantagens}{15}
-\contentsline {section}{\numberline {3.2}Tipos de virtualiza\IeC {\c c}\IeC {\~a}o}{15}
+\contentsline {section}{\numberline {3.2}Tipos de virtualiza\IeC {\c c}\IeC {\~a}o}{16}
 \contentsline {section}{\numberline {3.3}Funcionamento}{16}
 \contentsline {chapter}{Refer{\^e}ncias}{17}
