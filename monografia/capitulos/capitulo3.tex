@@ -45,11 +45,18 @@ um acesso controlado das aplicações aos dispositivos periféricos, à memória
 instruções privilegiadas do processador.
 
 
-Máquinas virtuais podem ser divididas em dois grupos: máquinas virtuais de aplicação, detalhado na seção \ref{section:virtaplicacao}, e 
-máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a
-virtualização de uma aplicação, suporta apenas um processo ou aplicação. 
-A máquina virtual de sistema suporta sistemas operacionais convidados, com suas aplicações executando sobre ele \cite{laureano2008}.
-//adicionar figura vm de processo e de sistema
+Máquinas virtuais podem ser divididas em dois grupos principais: máquinas virtuais de aplicação, detalhado na seção 
+\ref{section:virtaplicacao}, e máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a virtualização 
+de uma aplicação, suporta apenas um processo ou aplicação. A máquina virtual de sistema suporta sistemas operacionais convidados, com suas 
+aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano2008}.
+
+\begin{figure}[vms_tipos]
+ \centering
+ \includegraphics[height=160px]{img/vms_tipos.eps}
+ \caption{Máquinas virtuais de aplicação e de sistema}
+ \label{fig:vms_tipos}
+ Fonte: \citet{laureano2008}
+\end{figure}
 
 \section{Máquinas virtuais de aplicação}
 \label{section:virtaplicacao}
@@ -58,13 +65,14 @@ onde um sistema operacional suporte uma aplicação convidada, sendo que esta ap
 do sistema diferentes do sistema hospedeiro.
 
 Quando temos chamadas do sistema operacional ou instruções de máquina que são diferentes das oferecidas pela máquina real, será necessário
-uma tradução dessas interfaces que será feita pela camada de virtualização. Exemplos dessa tradução são:
+uma tradução dessas interfaces que será feita pela camada de virtualização. Exemplos dessa definição são:
 
 \begin{itemize}
- \item Máquinas virtuais de linguagem de alto nível
-JVM Carrisimi
-permite a execução de aplicações \textit{Java} em diversos sistemas operacionais.
-
+ \item Máquinas virtuais de linguagem de alto nível: este tipo de máquina virtual foi criado levando em consideração uma linguagem de 
+ programação e seu compilador. O código compilado gera um código binário que não pode ser executado em nenhuma arquitetura real, mas pode
+ ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que faça
+ esse intermédio permitindo a execução de aplicações em sistemas operacionais diversos. Exemplos são: \textit{Microsoft Common Language 
+ Infrastructure}, base do \textit{.Net}; Máquina virtual Java (\ac{JVM}) \cite{carissimi2008}.
  \item Emulação no sistema operacional: 
  
 Ex:
