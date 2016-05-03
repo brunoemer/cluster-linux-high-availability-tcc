@@ -23,7 +23,27 @@ um \textit{hardware}.
 Atualmente define-se virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos de uma determinada interface de 
 sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, para suprir as 
 necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
-em uma plataforma \textit{Y} \cite{laureano2008}. COLOCAR CONCEITO ISA
+em uma plataforma \textit{Y} \cite{laureano2008}.
+
+
+EXPLICAR TIPOS INTERFACES:
+As interfaces existentes entre os componentes de um sistema de computação são:
+• Conjunto de instruções (\ac{ISA}): é a interface básica
+entre o hardware e o software, sendo constituída pelas instruções em código de
+máquina aceitas pelo processador e todas as operações de acesso aos recursos do
+hardware (acesso físico à memória, às portas de entrada/saída, ao relógio do sis-
+tema, etc.). Essa interface é dividida em duas partes:
+– Instruções de usuário (User ISA): compreende as instruções do processador e
+demais itens de hardware acessíveis aos programas do usuário, que executam
+com o processador operando em modo não-privilegiado;
+– Instruções de sistema (System ISA): compreende as instruções do processa-
+dor e demais itens de hardware, unicamente acessíveis ao núcleo do sistema
+operacional, que executa em modo privilegiado;
+• Chamadas de sistema (syscalls): é o conjunto de operações oferecidas pelo nú-
+cleo do sistema operacional aos processos dos usuários. Essas chamadas permitem
+um acesso controlado das aplicações aos dispositivos periféricos, à memória e às
+instruções privilegiadas do processador.
+
 
 Máquinas virtuais podem ser divididas em dois grupos: máquinas virtuais de aplicação, detalhado na seção \ref{section:virtaplicacao}, e 
 máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a
@@ -34,11 +54,37 @@ A máquina virtual de sistema suporta sistemas operacionais convidados, com suas
 \section{Máquinas virtuais de aplicação}
 \label{section:virtaplicacao}
 As máquinas virtuais de aplicação, também chamada de máquinas virtuais de processo, é geralmente conhecida por prover um ambiente
-onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções diferentes
-do sistema hospedeiro. Um exemplo disto é a \ac{JVM}, que permite a execução de aplicações \textit{Java} em diversos sistemas 
-operacionais.
+onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções ou de chamadas
+do sistema diferentes do sistema hospedeiro.
 
-Na virtualização de aplicação também pode existir máquinas virtuais que utilizam as mesmas interfaces \ac{ISA} da máquina real,
+Quando temos chamadas do sistema operacional ou instruções de máquina que são diferentes das oferecidas pela máquina real, será necessário
+uma tradução dessas interfaces que será feita pela camada de virtualização. Exemplos dessa tradução são:
+
+\begin{itemize}
+ \item Máquinas virtuais de linguagem de alto nível
+JVM Carrisimi
+permite a execução de aplicações \textit{Java} em diversos sistemas operacionais.
+
+ \item Emulação no sistema operacional: 
+ 
+Ex:
+As máquinas virtuais de aplicação mais populares hoje são aquelas em que a in-
+terface binária de aplicação (ABI) requerida pela aplicação é diferente da oferecida pela
+máquina real. Como a ABI é composta pelas chamadas do sistema operacional e as ins-
+truções de máquina disponíveis à aplicação (user ISA), as diferenças podem ocorrer em
+ambos. Nos dois casos, o hipervisor terá de realizar traduções dinâmicas (durante a exe-
+cução) das ações requeridas pela aplicação em suas equivalentes na máquina real (como
+visto, um hipervisor com essa função é denominado tradutor dinâmico).
+Caso as diferenças de interface entre aplicação e máquina real se restrinjam às
+chamadas do sistema operacional, o hipervisor precisa apenas mapear as chamadas de
+sistema usadas pela aplicação sobre as chamadas oferecidas pelo sistema operacional da
+máquina real. Essa é a abordagem usada, por exemplo, pelo ambiente Wine, que permite
+executar aplicações Windows em plataformas Unix. As chamadas de sistema Windows
+emitidas pela aplicação em execução são interceptadas e transformadas em chamadas
+Unix, de forma dinâmica e transparente (figura 4.12).
+\end{itemize}
+
+Na virtualização de aplicação também existem máquinas virtuais que utilizam as mesmas interfaces \ac{ISA} da máquina real,
 com isso uma grande parte das instruções podem ser executadas diretamente, com exceção de instruções sensíveis, que serão devidamente
 tratadas. Alguns tipos de máquinas virtuais de aplicação que utilizam as interfaces da máquina real são detalhadas abaixo:
 
@@ -57,29 +103,6 @@ visto, um hipervisor com essa função é denominado tradutor dinâmico).
 
  \item Depuradores de memória
  
-\end{itemize}
-
-Pode-se criar 
-
-\begin{itemize}
- \item Máquinas virtuais de linguagem de alto nível
-JVM Carrisimi
- \item Emulação no sistema operacional
-Ex:
-As máquinas virtuais de aplicação mais populares hoje são aquelas em que a in-
-terface binária de aplicação (ABI) requerida pela aplicação é diferente da oferecida pela
-máquina real. Como a ABI é composta pelas chamadas do sistema operacional e as ins-
-truções de máquina disponíveis à aplicação (user ISA), as diferenças podem ocorrer em
-ambos. Nos dois casos, o hipervisor terá de realizar traduções dinâmicas (durante a exe-
-cução) das ações requeridas pela aplicação em suas equivalentes na máquina real (como
-visto, um hipervisor com essa função é denominado tradutor dinâmico).
-Caso as diferenças de interface entre aplicação e máquina real se restrinjam às
-chamadas do sistema operacional, o hipervisor precisa apenas mapear as chamadas de
-sistema usadas pela aplicação sobre as chamadas oferecidas pelo sistema operacional da
-máquina real. Essa é a abordagem usada, por exemplo, pelo ambiente Wine, que permite
-executar aplicações Windows em plataformas Unix. As chamadas de sistema Windows
-emitidas pela aplicação em execução são interceptadas e transformadas em chamadas
-Unix, de forma dinâmica e transparente (figura 4.12).
 \end{itemize}
 
 
