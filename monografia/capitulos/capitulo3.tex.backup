@@ -23,33 +23,71 @@ um \textit{hardware}.
 Atualmente define-se virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos de uma determinada interface de 
 sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, para suprir as 
 necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
-em uma plataforma \textit{Y} \cite{laureano2008}.
+em uma plataforma \textit{Y} \cite{laureano2008}. COLOCAR CONCEITO ISA
+
+Máquinas virtuais podem ser divididas em dois grupos: máquinas virtuais de aplicação, detalhado na seção \ref{section:virtaplicacao}, e 
+máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a
+virtualização de uma aplicação, suporta apenas um processo ou aplicação. 
+A máquina virtual de sistema suporta sistemas operacionais convidados, com suas aplicações executando sobre ele \cite{laureano2008}.
+//adicionar figura vm de processo e de sistema
+
+\section{Máquinas virtuais de aplicação}
+\label{section:virtaplicacao}
+As máquinas virtuais de aplicação, também chamada de máquinas virtuais de processo, é geralmente conhecida por prover um ambiente
+onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções diferentes
+do sistema hospedeiro. Um exemplo disto é a \ac{JVM}, que permite a execução de aplicações \textit{Java} em diversos sistemas 
+operacionais.
+
+Na virtualização de aplicação também pode existir máquinas virtuais que utilizam as mesmas interfaces \ac{ISA} da máquina real,
+com isso uma grande parte das instruções podem ser executadas diretamente, com exceção de instruções sensíveis, que serão devidamente
+tratadas.
+
+\subsection{Sistemas operacionais multi-tarefas}
+
+\subsection{Tradutores dinâmicos}
+
+As máquinas virtuais de aplicação mais populares hoje são aquelas em que a in-
+terface binária de aplicação (ABI) requerida pela aplicação é diferente da oferecida pela
+máquina real. Como a ABI é composta pelas chamadas do sistema operacional e as ins-
+truções de máquina disponíveis à aplicação (user ISA), as diferenças podem ocorrer em
+ambos. Nos dois casos, o hipervisor terá de realizar traduções dinâmicas (durante a exe-
+cução) das ações requeridas pela aplicação em suas equivalentes na máquina real (como
+visto, um hipervisor com essa função é denominado tradutor dinâmico).
+
+\subsection{Depuradores de memória}
+
+\subsection{Máquinas virtuais de linguagem de alto nível}
+JVM Carrisimi
+
+\subsection{Emulação do sistema operacional}
+Ex:
+As máquinas virtuais de aplicação mais populares hoje são aquelas em que a in-
+terface binária de aplicação (ABI) requerida pela aplicação é diferente da oferecida pela
+máquina real. Como a ABI é composta pelas chamadas do sistema operacional e as ins-
+truções de máquina disponíveis à aplicação (user ISA), as diferenças podem ocorrer em
+ambos. Nos dois casos, o hipervisor terá de realizar traduções dinâmicas (durante a exe-
+cução) das ações requeridas pela aplicação em suas equivalentes na máquina real (como
+visto, um hipervisor com essa função é denominado tradutor dinâmico).
+Caso as diferenças de interface entre aplicação e máquina real se restrinjam às
+chamadas do sistema operacional, o hipervisor precisa apenas mapear as chamadas de
+sistema usadas pela aplicação sobre as chamadas oferecidas pelo sistema operacional da
+máquina real. Essa é a abordagem usada, por exemplo, pelo ambiente Wine, que permite
+executar aplicações Windows em plataformas Unix. As chamadas de sistema Windows
+emitidas pela aplicação em execução são interceptadas e transformadas em chamadas
+Unix, de forma dinâmica e transparente (figura 4.12).
 
 
-%\begin{figure}[falhasrecup]
-% \centering
-% \includegraphics[height=200px]{img/recuperacao_ret_ava.eps}
-% \caption{Recuperação por retorno e por avanço.}
-% \label{fig:recuperacao_ret_ava}
-%\end{figure}
-% exemplo referencia: \ref{fig:recuperacao_ret_ava}
+\section{Máquinas virtuais de sistema}
+\label{section:virtsistema}
 
 
---------------------------------
 
-
-Máquinas virtuais podem ser divididas em dois grupos: máquinas virtuais de aplicação e máquinas virtuais de sistema. A primeira faz a
-virtualização de uma aplicação, suporta apenas um processo ou aplicação. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. 
-A máquina virtual de sistema suporta sistemas operacionais convidados, com suas aplicações executando sobre ele. Um exemplo é o sistema
-\textit{VMware} \cite{laureano2008}.
 Virtualização de sistema utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
 virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
 em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
 do \textit{hardware} \cite{smithenair2005}.
-Existem várias formas de implementar a virtualização, por isso elas serão detalhas na Seção \ref{section:tiposvirt}.
 
-
-Um ambiente de virtualização é composto basicamente por três componentes:
+Um ambiente de virtualização de sistema é composto basicamente por três componentes:
 \begin{itemize}
  \item Sistema real: também pode ser chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
  \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM}, tem como função criar interfaces virtuais a
@@ -57,6 +95,28 @@ Um ambiente de virtualização é composto basicamente por três componentes:
  \item Sistema virtual: também conhecido como \textit{guest}, ou sistema convidado, que executa sobre o sistema real. Geralmente
  existem vários sistemas virtuais executando simultaneamente sobre o sistema real.
 \end{itemize}
+
+
+\subsection{Hipervisores nativos}
+\subsection{Hipervisores convidados}
+
+\subsection{Virtualização de recursos}
+\subsection{Virtualização completa}
+
+
+
+\begin{figure}[acoplamento_interfaces]
+ \centering
+ \includegraphics[height=140px]{img/acoplamento_interfaces.eps}
+ \caption{Acoplamento entre interfaces distintas}
+ \label{fig:acoplamento_interfaces}
+ Fonte: \citet{laureano2008}
+\end{figure}
+Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} ....
+
+
+Emulação????
+
 
 \section{Vantagens}
 \label{section:vantagensvirt}
@@ -79,20 +139,6 @@ também favorece a implementação de um servidor por serviço é, caso exista u
 vulnerabilidade poderá comprometer todos os outros serviços 
 \cite{carissimi2008}.
 
-\section{Tipos de virtualização}
-\label{section:tiposvirt}
-
-\begin{itemize}
- \item Emulação
- \item Virtualização completa
- \item Paravirtualização
- \item Virtualização baseada em contêineres
-\end{itemize}
-
-ver jvm e wine
-
-\section{Funcionamento}
-\label{section:funcionamentovirt}
 
 ** Anéis de privilégios, compatibilidade, e hypervisor \cite{goncalves2009}.
 
