@@ -25,25 +25,19 @@ sistema para criar outra interface de mesmo nível. Essa camada irá permitir a 
 necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
 em uma plataforma \textit{Y} \cite{laureano2008}.
 
-
-EXPLICAR TIPOS INTERFACES:
-As interfaces existentes entre os componentes de um sistema de computação são:
-• Conjunto de instruções (\ac{ISA}): é a interface básica
-entre o hardware e o software, sendo constituída pelas instruções em código de
-máquina aceitas pelo processador e todas as operações de acesso aos recursos do
-hardware (acesso físico à memória, às portas de entrada/saída, ao relógio do sis-
-tema, etc.). Essa interface é dividida em duas partes:
-– Instruções de usuário (User ISA): compreende as instruções do processador e
-demais itens de hardware acessíveis aos programas do usuário, que executam
-com o processador operando em modo não-privilegiado;
-– Instruções de sistema (System ISA): compreende as instruções do processa-
-dor e demais itens de hardware, unicamente acessíveis ao núcleo do sistema
-operacional, que executa em modo privilegiado;
-• Chamadas de sistema (syscalls): é o conjunto de operações oferecidas pelo nú-
-cleo do sistema operacional aos processos dos usuários. Essas chamadas permitem
-um acesso controlado das aplicações aos dispositivos periféricos, à memória e às
-instruções privilegiadas do processador.
-
+Deve-se entender os diferentes tipodes de interfaces existentes em sistemas de computação:
+\begin{itemize}
+ \item Conjunto de instruções ou \ac{ISA}: é a interface básica, fica entre o \textit{software} e o \textit{hardware}, e é composta por 
+ instruções de código de máquina. Esta interface é dividida em dois:
+ \begin{itemize}
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários. Executam
+  em modo não-privilegiado;
+  \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. 
+  São executadas em modo privilegiado;
+ \end{itemize}
+ \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
+ Sendo que essas chamadas permitem acesso controlado aos dispositivos, memório e processador.
+\end{itemize}
 
 Máquinas virtuais podem ser divididas em dois grupos principais: máquinas virtuais de aplicação, detalhado na seção 
 \ref{section:virtaplicacao}, e máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a virtualização 
@@ -60,6 +54,7 @@ aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano200
 
 \section{Máquinas virtuais de aplicação}
 \label{section:virtaplicacao}
+
 As máquinas virtuais de aplicação, também chamada de máquinas virtuais de processo, é geralmente conhecida por prover um ambiente
 onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções ou de chamadas
 do sistema diferentes do sistema hospedeiro.
@@ -72,24 +67,12 @@ uma tradução dessas interfaces que será feita pela camada de virtualização.
  programação e seu compilador. O código compilado gera um código binário que não pode ser executado em nenhuma arquitetura real, mas pode
  ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que faça
  esse intermédio permitindo a execução de aplicações em sistemas operacionais diversos. Exemplos são: \textit{Microsoft Common Language 
- Infrastructure}, base do \textit{.Net}; Máquina virtual Java (\ac{JVM}) \cite{carissimi2008}.
- \item Emulação no sistema operacional: 
- 
-Ex:
-As máquinas virtuais de aplicação mais populares hoje são aquelas em que a in-
-terface binária de aplicação (ABI) requerida pela aplicação é diferente da oferecida pela
-máquina real. Como a ABI é composta pelas chamadas do sistema operacional e as ins-
-truções de máquina disponíveis à aplicação (user ISA), as diferenças podem ocorrer em
-ambos. Nos dois casos, o hipervisor terá de realizar traduções dinâmicas (durante a exe-
-cução) das ações requeridas pela aplicação em suas equivalentes na máquina real (como
-visto, um hipervisor com essa função é denominado tradutor dinâmico).
-Caso as diferenças de interface entre aplicação e máquina real se restrinjam às
-chamadas do sistema operacional, o hipervisor precisa apenas mapear as chamadas de
-sistema usadas pela aplicação sobre as chamadas oferecidas pelo sistema operacional da
-máquina real. Essa é a abordagem usada, por exemplo, pelo ambiente Wine, que permite
-executar aplicações Windows em plataformas Unix. As chamadas de sistema Windows
-emitidas pela aplicação em execução são interceptadas e transformadas em chamadas
-Unix, de forma dinâmica e transparente (figura 4.12).
+ Infrastructure}, base do \textit{.Net} e a máquina virtual Java (\ac{JVM}) \cite{carissimi2008};
+ \item Emulação no sistema operacional: ocorre quando as interfaces se restrinjem à chamadas do sistema operacional, ou seja,
+ é feito um mapeamento das chamadas utilizada pela aplicação com as chamadas do sistema operacional da máquina real. Este tipo de 
+ virtualização de aplicação pode ser encontrado em ferramentas que emulam uma aplicação desenvolvida para uma plataforma em outra
+ plataforma distinta. Como por exemplo o \textit{Wine}, que resumidamente permite executar aplicações \textit{Windows} em plataformas
+ \textit{Unix}.
 \end{itemize}
 
 Na virtualização de aplicação também existem máquinas virtuais que utilizam as mesmas interfaces \ac{ISA} da máquina real,
@@ -97,32 +80,20 @@ com isso uma grande parte das instruções podem ser executadas diretamente, com
 tratadas. Alguns tipos de máquinas virtuais de aplicação que utilizam as interfaces da máquina real são detalhadas abaixo:
 
 \begin{itemize}
- \item Sistemas operacionais multi-tarefas
- 
- \item Tradutores dinâmicos
- 
-As máquinas virtuais de aplicação mais populares hoje são aquelas em que a in-
-terface binária de aplicação (ABI) requerida pela aplicação é diferente da oferecida pela
-máquina real. Como a ABI é composta pelas chamadas do sistema operacional e as ins-
-truções de máquina disponíveis à aplicação (user ISA), as diferenças podem ocorrer em
-ambos. Nos dois casos, o hipervisor terá de realizar traduções dinâmicas (durante a exe-
-cução) das ações requeridas pela aplicação em suas equivalentes na máquina real (como
-visto, um hipervisor com essa função é denominado tradutor dinâmico).
-
- \item Depuradores de memória
- 
+ \item Sistemas operacionais multi-tarefas: sistemas operacionais que suportam simultaneamente mais de um usuário também podem ser
+ vistos como máquinas virtuais. Em um sistema multi-tarefa cada processo possui um ``processador virtual'' (devido a rápida troca de 
+ contextos do processador real), uma ``memória virtual'' (memória alocada para o processo) e outros recursos que podem ser acessados
+ através de chamadas de sistema;
+ \item Tradutores dinâmicos: esse tradutor analisa e otimiza o código de máquina para torna-lo mais eficiente. Essa otimização pode ser
+ feita durante a carga do processo na memória ou durante a execução das instruções;
+ \item Depuradores de memória: são sistemas de depuração de memória que detectam erros decorrentes do uso incorreto da memória.
+ Um exemplo de depurador é o sistema \textit{Valgrind}, que faz a execução em uma máquina virtual.
 \end{itemize}
-
 
 \section{Máquinas virtuais de sistema}
 \label{section:virtsistema}
 
-
-
-Virtualização de sistema utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
-virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
-em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
-do \textit{hardware} \cite{smithenair2005}.
+Máquina virtual de sistema também pode ser chamada de hipervisor ou monitor (\ac{VMM}), ...
 
 Um ambiente de virtualização de sistema é composto basicamente por três componentes:
 \begin{itemize}
@@ -132,6 +103,11 @@ Um ambiente de virtualização de sistema é composto basicamente por três comp
  \item Sistema virtual: também conhecido como \textit{guest}, ou sistema convidado, que executa sobre o sistema real. Geralmente
  existem vários sistemas virtuais executando simultaneamente sobre o sistema real.
 \end{itemize}
+
+Virtualização de sistema utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
+virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
+em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
+do \textit{hardware} \cite{smithenair2005}.
 
 
 \subsection{Hipervisores nativos}

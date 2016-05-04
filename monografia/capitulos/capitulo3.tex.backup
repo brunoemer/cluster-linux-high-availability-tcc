@@ -23,58 +23,70 @@ um \textit{hardware}.
 Atualmente define-se virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos de uma determinada interface de 
 sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, para suprir as 
 necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
-em uma plataforma \textit{Y} \cite{laureano2008}. COLOCAR CONCEITO ISA
+em uma plataforma \textit{Y} \cite{laureano2008}.
 
-Máquinas virtuais podem ser divididas em dois grupos: máquinas virtuais de aplicação, detalhado na seção \ref{section:virtaplicacao}, e 
-máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a
-virtualização de uma aplicação, suporta apenas um processo ou aplicação. 
-A máquina virtual de sistema suporta sistemas operacionais convidados, com suas aplicações executando sobre ele \cite{laureano2008}.
-//adicionar figura vm de processo e de sistema
+Deve-se entender os diferentes tipodes de interfaces existentes em sistemas de computação:
+\begin{itemize}
+ \item Conjunto de instruções ou \ac{ISA}: é a interface básica, fica entre o \textit{software} e o \textit{hardware}, e é composta por 
+ instruções de código de máquina. Esta interface é dividida em dois:
+ \begin{itemize}
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários. Executam
+  em modo não-privilegiado;
+  \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. 
+  São executadas em modo privilegiado;
+ \end{itemize}
+ \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
+ Sendo que essas chamadas permitem acesso controlado aos dispositivos, memório e processador.
+\end{itemize}
+
+Máquinas virtuais podem ser divididas em dois grupos principais: máquinas virtuais de aplicação, detalhado na seção 
+\ref{section:virtaplicacao}, e máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a virtualização 
+de uma aplicação, suporta apenas um processo ou aplicação. A máquina virtual de sistema suporta sistemas operacionais convidados, com suas 
+aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano2008}.
+
+\begin{figure}[vms_tipos]
+ \centering
+ \includegraphics[height=160px]{img/vms_tipos.eps}
+ \caption{Máquinas virtuais de aplicação e de sistema}
+ \label{fig:vms_tipos}
+ Fonte: \citet{laureano2008}
+\end{figure}
 
 \section{Máquinas virtuais de aplicação}
 \label{section:virtaplicacao}
 As máquinas virtuais de aplicação, também chamada de máquinas virtuais de processo, é geralmente conhecida por prover um ambiente
-onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções diferentes
-do sistema hospedeiro. Um exemplo disto é a \ac{JVM}, que permite a execução de aplicações \textit{Java} em diversos sistemas 
-operacionais.
+onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções ou de chamadas
+do sistema diferentes do sistema hospedeiro.
 
-Na virtualização de aplicação também pode existir máquinas virtuais que utilizam as mesmas interfaces \ac{ISA} da máquina real,
+Quando temos chamadas do sistema operacional ou instruções de máquina que são diferentes das oferecidas pela máquina real, será necessário
+uma tradução dessas interfaces que será feita pela camada de virtualização. Exemplos dessa definição são:
+
+\begin{itemize}
+ \item Máquinas virtuais de linguagem de alto nível: este tipo de máquina virtual foi criado levando em consideração uma linguagem de 
+ programação e seu compilador. O código compilado gera um código binário que não pode ser executado em nenhuma arquitetura real, mas pode
+ ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que faça
+ esse intermédio permitindo a execução de aplicações em sistemas operacionais diversos. Exemplos são: \textit{Microsoft Common Language 
+ Infrastructure}, base do \textit{.Net} e a máquina virtual Java (\ac{JVM}) \cite{carissimi2008};
+ \item Emulação no sistema operacional: ocorre quando as interfaces se restrinjem à chamadas do sistema operacional, ou seja,
+ é feito um mapeamento das chamadas utilizada pela aplicação com as chamadas do sistema operacional da máquina real. Este tipo de 
+ virtualização de aplicação pode ser encontrado em ferramentas que emulam uma aplicação desenvolvida para uma plataforma em outra
+ plataforma distinta. Como por exemplo o \textit{Wine}, que resumidamente permite executar aplicações \textit{Windows} em plataformas
+ \textit{Unix}.
+\end{itemize}
+
+Na virtualização de aplicação também existem máquinas virtuais que utilizam as mesmas interfaces \ac{ISA} da máquina real,
 com isso uma grande parte das instruções podem ser executadas diretamente, com exceção de instruções sensíveis, que serão devidamente
-tratadas.
+tratadas. Alguns tipos de máquinas virtuais de aplicação que utilizam as interfaces da máquina real são detalhadas abaixo:
 
-\subsection{Sistemas operacionais multi-tarefas}
-
-\subsection{Tradutores dinâmicos}
-
-As máquinas virtuais de aplicação mais populares hoje são aquelas em que a in-
-terface binária de aplicação (ABI) requerida pela aplicação é diferente da oferecida pela
-máquina real. Como a ABI é composta pelas chamadas do sistema operacional e as ins-
-truções de máquina disponíveis à aplicação (user ISA), as diferenças podem ocorrer em
-ambos. Nos dois casos, o hipervisor terá de realizar traduções dinâmicas (durante a exe-
-cução) das ações requeridas pela aplicação em suas equivalentes na máquina real (como
-visto, um hipervisor com essa função é denominado tradutor dinâmico).
-
-\subsection{Depuradores de memória}
-
-\subsection{Máquinas virtuais de linguagem de alto nível}
-JVM Carrisimi
-
-\subsection{Emulação do sistema operacional}
-Ex:
-As máquinas virtuais de aplicação mais populares hoje são aquelas em que a in-
-terface binária de aplicação (ABI) requerida pela aplicação é diferente da oferecida pela
-máquina real. Como a ABI é composta pelas chamadas do sistema operacional e as ins-
-truções de máquina disponíveis à aplicação (user ISA), as diferenças podem ocorrer em
-ambos. Nos dois casos, o hipervisor terá de realizar traduções dinâmicas (durante a exe-
-cução) das ações requeridas pela aplicação em suas equivalentes na máquina real (como
-visto, um hipervisor com essa função é denominado tradutor dinâmico).
-Caso as diferenças de interface entre aplicação e máquina real se restrinjam às
-chamadas do sistema operacional, o hipervisor precisa apenas mapear as chamadas de
-sistema usadas pela aplicação sobre as chamadas oferecidas pelo sistema operacional da
-máquina real. Essa é a abordagem usada, por exemplo, pelo ambiente Wine, que permite
-executar aplicações Windows em plataformas Unix. As chamadas de sistema Windows
-emitidas pela aplicação em execução são interceptadas e transformadas em chamadas
-Unix, de forma dinâmica e transparente (figura 4.12).
+\begin{itemize}
+ \item Sistemas operacionais multi-tarefas: sistemas operacionais que suportam simultaneamente mais de um usuário também podem ser
+ vistos como máquinas virtuais. Em um sistema multi-tarefa cada processo possui um ``processador virtual'' (devido a rápida troca de 
+ contextos do processador real), uma ``memória virtual'' (memória alocada para o processo) e outros recursos que podem ser acessados
+ através de chamadas de sistema;
+ \item Tradutores dinâmicos: esse tradutor analisa e otimiza o código de máquina para torna-lo mais eficiente. Essa otimização pode ser
+ feita durante a carga do processo na memória ou durante a execução das instruções;
+ %\item Depuradores de memória: 
+\end{itemize}
 
 
 \section{Máquinas virtuais de sistema}
