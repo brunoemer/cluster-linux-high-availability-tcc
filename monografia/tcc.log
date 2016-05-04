@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  3 MAY 2016 23:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.14)  4 MAY 2016 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -970,7 +970,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
  []  
  []
 
@@ -1060,27 +1060,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 File: img/vms_tipos.eps Graphic file (type eps)
  <img/vms_tipos.eps> [15]
-File: img/acoplamento_interfaces.eps Graphic file (type eps)
- <img/acoplamento_interfaces.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 16
  []
 
-[16]) [17]
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 18
- []
-
-[18] (./tcc.bbl
+[16]) [17] (./tcc.bbl
 Underfull \hbox (badness 6758) in paragraph at lines 3--6
 []\OT1/cmr/m/n/12 BATISTA, A. C. \OT1/cmr/bx/n/12 Es-tudo te^^Sorico so-bre clu
 s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
  []
 
-[19
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 18
+ []
+
+[18
 
 
 ]
@@ -1104,12 +1099,7 @@ px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
 
 ) 
 AED: lastpage setting LastPage
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 20
- []
-
-[20] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
+[19] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux))
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1117,12 +1107,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 11578 strings out of 495005
- 226625 string characters out of 6180688
- 276444 words of memory out of 5000000
- 14557 multiletter control sequences out of 15000+600000
+ 11576 strings out of 495005
+ 226552 string characters out of 6180688
+ 276463 words of memory out of 5000000
+ 14556 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,9n,57p,10386b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (21 pages, 63212 bytes).
+Output written on tcc.dvi (20 pages, 63092 bytes).
