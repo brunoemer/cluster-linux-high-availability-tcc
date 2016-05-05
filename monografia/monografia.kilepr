@@ -80,10 +80,10 @@ order=2
 
 [item:capitulos/capitulo3.tex]
 archive=true
-column=31
+column=29
 encoding=UTF-8
 highlight=LaTeX
-line=156
+line=164
 mode=LaTeX
 open=true
 order=3
@@ -151,10 +151,10 @@ JumpList=
 ViMarks=.,154,137,[,155,0,],-1,-1
 
 [view-settings,view=0,item:capitulos/capitulo3.tex]
-CursorColumn=31
-CursorLine=156
+CursorColumn=29
+CursorLine=164
 JumpList=
-ViMarks=.,156,30,[,156,30,],156,30
+ViMarks=.,163,25,[,163,21,],163,25
 
 [view-settings,view=0,item:capitulos/introducao.tex]
 CursorColumn=73
