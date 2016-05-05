@@ -47,7 +47,7 @@ aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano200
 \begin{figure}[vms_tipos]
  \centering
  \includegraphics[height=160px]{img/vms_tipos.eps}
- \caption{Máquinas virtuais de aplicação e de sistema}
+ \caption{Máquinas virtuais de aplicação e de sistema.}
  \label{fig:vms_tipos}
  Fonte: \citet{laureano2008}
 \end{figure}
@@ -120,19 +120,41 @@ Pode-se classificar ambientes de máquinas virtuais de sistema de duas formas, p
 
 \begin{itemize}
  \item Hipervisores nativos: esse hipervisor executa diretamente sobre o \textit{hardware}, ou seja, sem um sistema operacional
- hospedeiro. O hipervisor nativo faz a multiplexação dos recursos do \textit{hardware}, por exemplo memória, disco, entre outros.
- E diponibiliza para as máquinas virtuais.
- \item Hipervisores convidados: 
+ hospedeiro. O hipervisor nativo faz a multiplexação dos recursos do \textit{hardware}, por exemplo memória, disco, entre outros,
+ e diponibiliza esses recursos para as máquinas virtuais. Alguns exemplos que utilizam esse hipervisor são \textit{IBM 370}, 
+ o \textit{Xen} e o \textit{VMware ESX Server};
+ \item Hipervisores convidados: esse tipo de hipervisor executa sobre um sistema operacional hospedeiro, e utiliza os recursos 
+ desse sistema para gerar recursos virtuais para as máquinas virtuais. Normalmente este tipo suporta apenas um sistema 
+ operacional convidado para cada hipervisor. Exemplos de sistemas são o \textit{VirtualBox} e o \textit{QEmu}.
 \end{itemize}
+
+Sabendo essas definições pode-se concluir que hipervisor convidados são mais flexíveis que os nativos, pois podem ser implementados
+em diversos sistemas operacionais e \textit{hardwares}. Já o hipervisor nativo possui melhor desempenho pois acessa o \textit{hardware}
+diretamente.
 
 \subsection{Níveis de virtualização}
 \label{section:virtniv}
 
 \begin{itemize}
- \item Virtualização de recursos: 
- \item Virtualização completa: 
+ \item Virtualização de recursos: neste tipo de virtualização os recursos como por exemplo memória e disco e também as instruções 
+ privilegiadas (\textit{system \ac{ISA}}) são virtualizadas. Somente a interface \ac{ISA} de usuário é utilizada diretamente, 
+ por isso o desempenho do sistema convidado é mais próximo a um sistema executando diretamente sobre um \textit{hardware}. O 
+ \textit{VirtualBox} e o \textit{VirtualPC da Microsoft} são exemplos de virtualização de recursos;
+ \item Virtualização completa: na virtualização completa todas interfaces são virtualizadas. Sendo assim o hipervisor fornece uma
+ interface distinta ao sistema operacional convidado. Esse tipo de virtualização possui um eficiência menor, por outro lado ele
+ permite executar sistemas operacionais em plataformas distintas a qual foram projetadas inicialmente. Por exemplo, o 
+ \textit{MS Virtual PC for MAC}, que permite executar o sistema \textit{Windows} sobre plataforma de \textit{hardware} \textit{PowerPC}.
 \end{itemize}
 
+\begin{figure}[vms_classificacao]
+ \centering
+ \includegraphics[height=400px]{img/vms_classificacao.eps}
+ \caption{Classificação de máquinas virtuais de sistema.}
+ \label{fig:vms_classificacao}
+ Fonte: \citet{laureano2008}
+\end{figure}
+
+Tendo essas classificações ... \ref{fig:vms_classificacao}
 
 % \subsection{Vantagens}
 
