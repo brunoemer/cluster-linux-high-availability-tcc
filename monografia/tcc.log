@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.14)  5 MAY 2016 11:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  5 MAY 2016 22:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -934,10 +934,10 @@ e
 ))
 \AtBeginShipoutBox=\box43
 Package epstopdf Info: Source file: <img/iilogo.eps>
-(epstopdf)                    date: 2016-03-22 10:25:59
+(epstopdf)                    date: 2016-03-19 18:23:38
 (epstopdf)                    size: 14378 bytes
 (epstopdf)             Output file: <img/iilogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-22 10:25:59
+(epstopdf)                    date: 2016-03-19 18:29:56
 (epstopdf)                    size: 8456 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/iilogo-eps-converted-t
 o.pdf img/iilogo.eps>
@@ -1112,18 +1112,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 ]
 Package epstopdf Info: Source file: <img/vms_tipos.eps>
-(epstopdf)                    date: 2016-05-03 15:27:11
+(epstopdf)                    date: 2016-05-03 20:14:27
 (epstopdf)                    size: 175557 bytes
 (epstopdf)             Output file: <img/vms_tipos-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-05 19:48:30
+(epstopdf)                    size: 66293 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_tipos-eps-converte
 d-to.pdf img/vms_tipos.eps>
 (epstopdf)             \includegraphics on input line 49.
-runsystem(repstopdf --outfile=img/vms_tipos-eps-converted-to.pdf img/vms_tipos.
-eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <img/vms_tipos-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-05 11:39:52
-(epstopdf)                    size: 66293 bytes.
+Package epstopdf Info: Output file is already uptodate.
  <img/vms_tipos-eps-converted-to.pdf, id=61, 805.0075pt x 393.47pt>
 File: img/vms_tipos-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -1138,20 +1135,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [16]
 Package epstopdf Info: Source file: <img/vms_classificacao.eps>
-(epstopdf)                    date: 2016-05-05 08:18:13
+(epstopdf)                    date: 2016-05-04 22:19:01
 (epstopdf)                    size: 310917 bytes
 (epstopdf)             Output file: <img/vms_classificacao-eps-converted-to.pdf
 >
+(epstopdf)                    date: 2016-05-05 19:48:30
+(epstopdf)                    size: 123117 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_classificacao-eps-
 converted-to.pdf img/vms_classificacao.eps>
 (epstopdf)             \includegraphics on input line 154.
-runsystem(repstopdf --outfile=img/vms_classificacao-eps-converted-to.pdf img/vm
-s_classificacao.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <img/vms_classificacao-eps-converted-to.pdf
->
-(epstopdf)                    date: 2016-05-05 11:39:52
-(epstopdf)                    size: 123117 bytes.
+Package epstopdf Info: Output file is already uptodate.
 
 <img/vms_classificacao-eps-converted-to.pdf, id=71, 779.91376pt x 703.62875pt>
 File: img/vms_classificacao-eps-converted-to.pdf Graphic file (type pdf)
@@ -1160,26 +1153,23 @@ File: img/vms_classificacao-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: img/vms_classificacao-eps-converted-to.pdf used on inp
 ut line 154.
 (pdftex.def)             Requested size: 401.50146pt x 362.2279pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [17])
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 18
  []
 
-[18] [19 <./img/vms_classificacao-eps-converted-to.pdf>] (./tcc.bbl
+[18] [19]
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 20
+ []
+
+[20 <./img/vms_classificacao-eps-converted-to.pdf>] (./tcc.bbl
 Underfull \hbox (badness 6758) in paragraph at lines 3--6
 []\OT1/cmr/m/n/12 BATISTA, A. C. \OT1/cmr/bx/n/12 Es-tudo te^^Sorico so-bre clu
 s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
  []
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 20
- []
-
-[20
+[21
 
 
 ]
@@ -1203,7 +1193,12 @@ px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
 
 ) 
 AED: lastpage setting LastPage
-[21] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 22
+ []
+
+[22] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux))
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1211,10 +1206,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 12243 strings out of 495004
- 237075 string characters out of 6180662
- 292052 words of memory out of 5000000
- 15202 multiletter control sequences out of 15000+600000
+ 12265 strings out of 495004
+ 237627 string characters out of 6180662
+ 292457 words of memory out of 5000000
+ 15224 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,9n,57p,10386b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1226,10 +1221,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (22 pages, 335393 bytes).
+Output written on tcc.pdf (23 pages, 337495 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
+ 122 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

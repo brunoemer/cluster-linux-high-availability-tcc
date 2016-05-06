@@ -46,8 +46,8 @@ aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano200
 
 \begin{figure}[vms_tipos]
  \centering
- \includegraphics[height=160px]{img/vms_tipos.eps}
- \caption{Máquinas virtuais de aplicação e de sistema}
+ \includegraphics[width=320px]{img/vms_tipos.eps}
+ \caption{Máquinas virtuais de aplicação e de sistema.}
  \label{fig:vms_tipos}
  Fonte: \citet{laureano2008}
 \end{figure}
@@ -142,14 +142,43 @@ diretamente.
  \textit{VirtualBox} e o \textit{VirtualPC da Microsoft} são exemplos de virtualização de recursos;
  \item Virtualização completa: na virtualização completa todas interfaces são virtualizadas. Sendo assim o hipervisor fornece uma
  interface distinta ao sistema operacional convidado. Esse tipo de virtualização possui um eficiência menor, por outro lado ele
- permite executar sistemas operacionais em plataformas distintas a qual foram projetadas inicialmente. Por exemplo, 
+ permite executar sistemas operacionais em plataformas distintas a qual foram projetadas inicialmente. Por exemplo, o 
+ \textit{MS Virtual PC for MAC}, que permite executar o sistema \textit{Windows} sobre plataforma de \textit{hardware} \textit{PowerPC}.
 \end{itemize}
 
-Tendo essa classificação ...
+Tendo essas classificações, pode-se combiná-las para se obter quatro maneiras diferentes de implementar virtualização. Na Figura 
+\ref{fig:vms_classificacao} tem-se essas combinações com seus respectivos exemplos.
 
-Figura comparacao...
+\begin{figure}[vms_classificacao]
+ \centering
+ \includegraphics[width=400px]{img/vms_classificacao.eps}
+ \caption{Classificação de máquinas virtuais de sistema.}
+ \label{fig:vms_classificacao}
+ Fonte: \citet{laureano2008}
+\end{figure}
 
-% \subsection{Vantagens}
+\subsection{Estratégias de virtualização}
+\label{section:virtestrat}
+
+\begin{itemize}
+ \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma
+ possibilita-se que sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. A grande
+ vantagem dessa virtualização é a possibilidade de um sistema convidado executar normalmente sem precisar ser modificado. Porém
+ existe uma redução significativa no desempenho devido ao hipervisor intermediar todas as chamadas e operações do sistema convidado.
+ Exemplo de virtualização total é o \textit{QEmu};
+ \item Paravirtualização: esta prove um melhor acoplamento entre o sistema operacional convidados e o hipervisor. Para isso o sistema
+ convidado deve ser adaptado para o hipervisor no qual executará, ou seja, a interface de sistema (\textit{system ISA}) será acessada
+ diretamente pelo sistema convidado, com isso haverá um melhor desempenho. Um exemplo de paravirtualização é o \textit{Xen}.
+\end{itemize}
+
+A paravirtualização possui um desempenho melhor comparado a virtualização total pois a primeira acessa alguns recursos diretamente, 
+sendo que o hipervisor apenas monitora informando os limites do convidado. Por exemplo o gerenciamento da memória, na virtualização total
+o hipervisor reserva um espaço para cada sistema convidado, por sua vez cada sistema acessa a memória como se fosse a memória de uma
+máquina física, o endereçamento inicia em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor precisará
+converter os endereços do sistema convidado para endereços reais. Ao contrário da paravirtualização, 
+
+\subsection{Um servidor por serviço}
+\label{section:virtserv}
 
 Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como, por exemplo, servidores de e-mail, hospedagens e 
 banco de dados, com isso existe uma ociosidade grande de recursos. Portanto uma das grandes vantagens da virtualização é um melhor 
@@ -181,7 +210,6 @@ vulnerabilidade poderá comprometer todos os outros serviços \cite{carissimi200
 
 \section{Emulação}
 ????
-
 
 
 %Virtualizacao da teoria a solucoes:

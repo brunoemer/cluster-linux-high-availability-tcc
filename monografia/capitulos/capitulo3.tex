@@ -161,9 +161,26 @@ Tendo essas classificações, pode-se combiná-las para se obter quatro maneiras
 \label{section:virtestrat}
 
 \begin{itemize}
- \item Virtualização total: ...
- \item Paravirtualização: ...
+ \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma
+ possibilita-se que sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. A grande
+ vantagem dessa virtualização é a possibilidade de um sistema convidado executar normalmente sem precisar ser modificado. Porém
+ existe uma redução significativa no desempenho devido ao hipervisor intermediar todas as chamadas e operações do sistema convidado.
+ Exemplo de virtualização total é o \textit{QEmu};
+ \item Paravirtualização: esta prove um melhor acoplamento entre o sistema operacional convidados e o hipervisor. Para isso o sistema
+ convidado deve ser adaptado para o hipervisor no qual executará, ou seja, a interface de sistema (\textit{system ISA}) será acessada
+ diretamente pelo sistema convidado, com isso haverá um melhor desempenho. Um exemplo de paravirtualização é o \textit{Xen}.
 \end{itemize}
+
+A paravirtualização possui um desempenho melhor comparado a virtualização total pois a primeira acessa alguns recursos diretamente, 
+sendo que o hipervisor apenas monitora informando os limites do convidado. Por exemplo o gerenciamento da memória, na virtualização total
+o hipervisor reserva um espaço para cada sistema convidado, por sua vez cada sistema acessa a memória como se fosse a memória de uma
+máquina física, o endereçamento inicia em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor precisará
+converter os endereços do sistema convidado para endereços reais. Ao contrário, na paravirtualização o hipervisor informa ao sistema 
+convidado a área de memória que ele pode utilizar.
+
+A virtualização total obteve uma grande ganho de performance com a incorporação da virtualização aos processadores, através das 
+tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
+e outro específico para máquinas virtuais. 
 
 \subsection{Um servidor por serviço}
 \label{section:virtserv}
