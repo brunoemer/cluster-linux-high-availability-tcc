@@ -83,7 +83,7 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=182
+line=188
 mode=LaTeX
 open=true
 order=3
@@ -152,9 +152,9 @@ ViMarks=.,154,137,[,155,0,],-1,-1
 
 [view-settings,view=0,item:capitulos/capitulo3.tex]
 CursorColumn=0
-CursorLine=182
+CursorLine=188
 JumpList=
-ViMarks=.,181,139,[,182,0,],-1,-1
+ViMarks=.,179,86,[,179,86,],179,86
 
 [view-settings,view=0,item:capitulos/introducao.tex]
 CursorColumn=73

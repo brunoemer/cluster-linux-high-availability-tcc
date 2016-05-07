@@ -17,7 +17,7 @@ ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnolo
 de aplicação.
 
 A virtualização foi definida nos anos 60 e 70 como uma camada entre o \textit{hardware} e o sistema operacional que possibilitava a 
-divisão e proteção dos recursos físicos. Porém, atualmente ela engloba outros conceitos, como por exemplo a \ac{JVM}, que não virtualiza
+divisão e proteção dos recursos físicos. Porém, atualmente ela abrange outros conceitos, como por exemplo a \ac{JVM}, que não virtualiza
 necessariamente um \textit{hardware}. 
 
 Atualmente define-se virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos de uma determinada interface de 
@@ -25,7 +25,7 @@ sistema para criar outra interface de mesmo nível. Essa camada irá permitir a 
 necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
 em uma plataforma \textit{Y} \cite{laureano2008}.
 
-Deve-se entender os diferentes tipodes de interfaces existentes em sistemas de computação:
+Deve-se entender os diferentes tipos de interfaces existentes em sistemas de computação:
 \begin{itemize}
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Esta interface é dividida em dois grupos:
@@ -36,13 +36,13 @@ Deve-se entender os diferentes tipodes de interfaces existentes em sistemas de c
   São executadas em modo privilegiado;
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
- Sendo que essas chamadas permitem acesso controlado aos dispositivos, memório e processador.
+ Sendo que essas chamadas permitem acesso controlado aos dispositivos, memória e processador.
 \end{itemize}
 
 Máquinas virtuais podem ser divididas em dois grupos principais: máquinas virtuais de aplicação, detalhado na seção 
 \ref{section:virtaplicacao}, e máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a virtualização 
-de uma aplicação, suporta apenas um processo ou aplicação. A máquina virtual de sistema suporta sistemas operacionais convidados, com suas 
-aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano2008}.
+de uma aplicação e suporta apenas um processo ou aplicação. Já a máquina virtual de sistema suporta sistemas operacionais convidados, com 
+suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano2008}.
 
 \begin{figure}[vms_tipos]
  \centering
@@ -55,7 +55,7 @@ aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano200
 \section{Máquinas virtuais de aplicação}
 \label{section:virtaplicacao}
 
-As máquinas virtuais de aplicação, também chamada de máquinas virtuais de processo, é geralmente conhecida por prover um ambiente
+As máquinas virtuais de aplicação, também chamadas de máquinas virtuais de processo, é geralmente conhecida por prover um ambiente
 onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções ou de chamadas
 do sistema diferentes do sistema hospedeiro.
 
@@ -68,7 +68,7 @@ uma tradução dessas interfaces que será feita pela camada de virtualização.
  ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que faça
  esse intermédio permitindo a execução de aplicações em sistemas operacionais diversos. Exemplos são: \textit{Microsoft Common Language 
  Infrastructure}, base do \textit{.Net} e a máquina virtual Java (\ac{JVM}) \cite{carissimi2008};
- \item Emulação no sistema operacional: ocorre quando as interfaces se restrinjem à chamadas do sistema operacional, ou seja,
+ \item Emulação no sistema operacional: ocorre quando as interfaces restringe-se às chamadas do sistema operacional, ou seja,
  é feito um mapeamento das chamadas utilizada pela aplicação com as chamadas do sistema operacional da máquina real. Este tipo de 
  virtualização de aplicação pode ser encontrado em ferramentas que emulam uma aplicação desenvolvida para uma plataforma em outra
  plataforma distinta. Como por exemplo o \textit{Wine}, que resumidamente permite executar aplicações \textit{Windows} em plataformas
@@ -84,8 +84,8 @@ tratadas. Alguns tipos de máquinas virtuais de aplicação que utilizam as inte
  vistos como máquinas virtuais. Em um sistema multi-tarefa cada processo possui um ``processador virtual'' (devido a rápida troca de 
  contextos do processador real), uma ``memória virtual'' (memória alocada para o processo) e outros recursos que podem ser acessados
  através de chamadas de sistema;
- \item Tradutores dinâmicos: esse tradutor analisa e otimiza o código de máquina para torna-lo mais eficiente. Essa otimização pode ser
- feita durante a carga do processo na memória ou durante a execução das instruções;
+ \item Tradutores dinâmicos: esses tradutores analisam e otimizam o código de máquina para torná-lo mais eficiente. Essa otimização 
+ pode ser feita durante a carga do processo na memória ou durante a execução das instruções;
  \item Depuradores de memória: são sistemas de depuração de memória que detectam erros decorrentes do uso incorreto da memória.
  Um exemplo de depurador é o sistema \textit{Valgrind}, que faz a execução em uma máquina virtual.
 \end{itemize}
@@ -93,7 +93,7 @@ tratadas. Alguns tipos de máquinas virtuais de aplicação que utilizam as inte
 \section{Máquinas virtuais de sistema}
 \label{section:virtsistema}
 
-Máquina virtual de sistema também pode ser chamada de hipervisor ou monitor (\ac{VMM}), é uma camada de \textit{software} que possibilita
+Máquina virtual de sistema também pode ser chamada de hipervisor ou monitor (\ac{VMM}), que é uma camada de \textit{software} que possibilita
 que um ou mais sistemas operacionais convidados executem independentemente sobre uma mesma máquina real. O hipervisor prove uma interface
 \ac{ISA} virtual que pode ou não ser igual a interface real, e virtualiza outros componentes de \textit{hardware}, para então cada máquina
 virtual convidada ter seus próprios recursos isolados.
@@ -101,7 +101,7 @@ virtual convidada ter seus próprios recursos isolados.
 Um ambiente de virtualização de sistema é composto basicamente por três componentes:
 \begin{itemize}
  \item Sistema real: também pode ser chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
- \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM}, tem como função criar interfaces virtuais a
+ \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM} e tem como função criar interfaces virtuais a
  partir de interfaces físicas para a comunicação do sistema real com o sistema virtual;
  \item Sistema virtual: também conhecido como \textit{guest}, ou sistema convidado, que executa sobre o sistema real. Geralmente
  existem vários sistemas virtuais executando simultaneamente sobre o sistema real.
@@ -120,7 +120,7 @@ Pode-se classificar ambientes de máquinas virtuais de sistema de duas formas, p
 
 \begin{itemize}
  \item Hipervisores nativos: esse hipervisor executa diretamente sobre o \textit{hardware}, ou seja, sem um sistema operacional
- hospedeiro. O hipervisor nativo faz a multiplexação dos recursos do \textit{hardware}, por exemplo memória, disco, entre outros,
+ hospedeiro. O hipervisor nativo faz a multiplexação dos recursos do \textit{hardware} como memória, disco, entre outros,
  e diponibiliza esses recursos para as máquinas virtuais. Alguns exemplos que utilizam esse hipervisor são \textit{IBM 370}, 
  o \textit{Xen} e o \textit{VMware ESX Server};
  \item Hipervisores convidados: esse tipo de hipervisor executa sobre um sistema operacional hospedeiro, e utiliza os recursos 
@@ -136,7 +136,7 @@ diretamente.
 \label{section:virtniv}
 
 \begin{itemize}
- \item Virtualização de recursos: neste tipo de virtualização os recursos como por exemplo memória e disco e também as instruções 
+ \item Virtualização de recursos: neste tipo de virtualização os recursos como memória e disco, além das instruções 
  privilegiadas (\textit{system \ac{ISA}}) são virtualizadas. Somente a interface \ac{ISA} de usuário é utilizada diretamente, 
  por isso o desempenho do sistema convidado é mais próximo a um sistema executando diretamente sobre um \textit{hardware}. O 
  \textit{VirtualBox} e o \textit{VirtualPC da Microsoft} são exemplos de virtualização de recursos;
@@ -160,6 +160,8 @@ Tendo essas classificações, pode-se combiná-las para se obter quatro maneiras
 \subsection{Estratégias de virtualização}
 \label{section:virtestrat}
 
+Pode-se dividir máquinas virtuais de sistema em dois tipos de estratégias distintas, são elas:
+
 \begin{itemize}
  \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma
  possibilita-se que sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. A grande
@@ -173,10 +175,10 @@ Tendo essas classificações, pode-se combiná-las para se obter quatro maneiras
 
 A paravirtualização possui um desempenho melhor comparado a virtualização total pois a primeira acessa alguns recursos diretamente, 
 sendo que o hipervisor apenas monitora informando os limites do convidado. Por exemplo o gerenciamento da memória, na virtualização total
-o hipervisor reserva um espaço para cada sistema convidado, por sua vez cada sistema acessa a memória como se fosse a memória de uma
-máquina física, o endereçamento inicia em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor precisará
-converter os endereços do sistema convidado para endereços reais. Ao contrário, na paravirtualização o hipervisor informa ao sistema 
-convidado a área de memória que ele pode utilizar.
+o hipervisor reserva um espaço para cada sistema convidado, que por sua vez acessa a memória como se fosse a memória de uma máquina física
+iniciando seu endereçamento em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor precisará
+converter os endereços do sistema convidado para endereços reais. Na paravirtualização o hipervisor informa ao sistema 
+convidado a área de memória que ele pode utilizar, otimizando assim as operações.
 
 A virtualização total obteve uma grande ganho de performance com a incorporação da virtualização aos processadores, através das 
 tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
@@ -187,14 +189,14 @@ e outro específico para máquinas virtuais.
 
 Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como, por exemplo, servidores de e-mail, hospedagens e 
 banco de dados, com isso existe uma ociosidade grande de recursos. Portanto uma das grandes vantagens da virtualização é um melhor 
-aproveitamento destes recursos, alocando vários serviços em um único servidor gerando um melhor aproveitamento do \textit{hardware} 
+aproveitamento destes recursos, alocando vários serviços em um único servidor físico e gerando um melhor aproveitamento do \textit{hardware} 
 \cite{moreira2006}. Além disso, pode-se ter uma redução de custos com a administração e a manutenção dos servidores. Em um ambiente 
 heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
 
 Uma outra motivação para a utilização de virtualização consiste no custo da energia elétrica. A economia de energia pode ser obtida através 
 da implantação de servidores mais robustos para substituir dezenas de servidores comuns. Outros fatores como refrigeração do ambiente e 
 espaço físico utilizado também podem ser reduzidos com a implantação de virtualização de servidores, e consequentemente, reduzem os 
-custos de energia também.
+custos de energia.
 
 A virtualização favorece a implementação do conceito um servidor por serviço, que consiste em ter um servidor para cada serviço.
 Mas porque não colocar todos serviços em um único servidor? Muitas vezes com uma variedade de serviços é necessário diferentes 
