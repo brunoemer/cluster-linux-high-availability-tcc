@@ -160,7 +160,7 @@ Tendo essas classificações, pode-se combiná-las para se obter quatro maneiras
 \subsection{Estratégias de virtualização}
 \label{section:virtestrat}
 
-Pode-se 
+Pode-se dividir máquinas virtuais de sistema em dois tipos de estratégias distintas, são elas:
 
 \begin{itemize}
  \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma
@@ -175,10 +175,10 @@ Pode-se
 
 A paravirtualização possui um desempenho melhor comparado a virtualização total pois a primeira acessa alguns recursos diretamente, 
 sendo que o hipervisor apenas monitora informando os limites do convidado. Por exemplo o gerenciamento da memória, na virtualização total
-o hipervisor reserva um espaço para cada sistema convidado, por sua vez cada sistema acessa a memória como se fosse a memória de uma
-máquina física, o endereçamento inicia em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor precisará
-converter os endereços do sistema convidado para endereços reais. Ao contrário, na paravirtualização o hipervisor informa ao sistema 
-convidado a área de memória que ele pode utilizar.
+o hipervisor reserva um espaço para cada sistema convidado, que por sua vez acessa a memória como se fosse a memória de uma máquina física
+iniciando seu endereçamento em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor precisará
+converter os endereços do sistema convidado para endereços reais. Na paravirtualização o hipervisor informa ao sistema 
+convidado a área de memória que ele pode utilizar, otimizando assim as operações.
 
 A virtualização total obteve uma grande ganho de performance com a incorporação da virtualização aos processadores, através das 
 tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
@@ -204,6 +204,15 @@ sistemas operacionais, ou os serviços necessitam rodar nas mesmas portas, porta
 também favorece a implementação de um servidor por serviço é, caso exista uma falha de segurança em apenas um serviço, essa 
 vulnerabilidade poderá comprometer todos os outros serviços \cite{carissimi2008}.
 
+\section{Emulação}
+
+Emulação é a capacidade de uma aplicação ou um dispositivo imitar um determinado conjunto de \textit{hardware}. Normalmente é
+executado como um aplicativo em um sistema operacional. A emulação é uma camada de \textit{software} que possibilita a execução
+de uma plataforma em outra plataforma distinta, com isso obtem-se a portabilidade das máquinas virtuais hospedeiras \cite{silva2009}.
+
+Este tipo de virtualização possui uma considerável redução de desempenho, pelo fato de toda comunicação com o \textit{hardware}
+ser intermediada pela camada de \textit{software} que faz a sua tradução. Por outro lado ela não visa desempenho, mas sim flexibilidade,
+por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{hardware} 
 
 %\begin{figure}[acoplamento_interfaces]
 % \centering
@@ -213,11 +222,6 @@ vulnerabilidade poderá comprometer todos os outros serviços \cite{carissimi200
 % Fonte: \citet{laureano2008}
 %\end{figure}
 %Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} .... VER ONDE COLOCAR
-
-
-\section{Emulação}
-????
-
 
 %Virtualizacao da teoria a solucoes:
 %No entanto, essa abordagem trouxe como contra-partida a filosofia “um servidor
@@ -250,6 +254,3 @@ vulnerabilidade poderá comprometer todos os outros serviços \cite{carissimi200
 %das interfaces definidas, pode-se ampliar consideravelmente o número de potenciais clientes.
 %Recursos disponibilizados via navegador web, por exemplo, podem ser acessados tanto por
 %computadores de mesa quanto por smartphones ou tablets.
-%
-
-%ver failover e failback em cluster?
