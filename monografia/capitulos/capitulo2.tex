@@ -3,9 +3,10 @@
 
 Alta disponibilidade é um termo muito conhecido, sendo cada vez mais empregada em ambientes computacionais. O objetivo de promover 
 alta disponibilidade resume-se em garantir que um serviço esteja sempre disponível quando o cliente solicitar ou acessar \cite{costa2009}.
-A alta disponibilidade é definida como a redundância de \textit{hardware} ou de \textit{software} para que o serviço fique mais tempo disponível.
-Quanto maior for a disponibilidade desejada maior deverá ser a redundância no ambiente, assim reduzindo os pontos únicos de falha,
-que em inglês são chamados de \ac{SPOF}. A alta disponibilidade está diretamente relacionada aos conceitos de: 
+A alta disponibilidade frequentemente é implementada com uma redundância de \textit{hardware} ou de \textit{software} para que o serviço 
+fique mais tempo disponível, sendo que quanto maior for a disponibilidade desejada maior deverá ser a redundância no ambiente, assim 
+reduzindo os pontos únicos de falha, que em inglês são chamados de \ac{SPOF}. A alta disponibilidade está diretamente relacionada aos 
+conceitos de: 
 \begin{itemize}
  \item Dependabilidade: indica a qualidade do serviço fornecido e a confiança depositada neste serviço. A dependabilidade envolve atributos 
  como segurança de funcionamento, segurança de acesso, manutenabilidade, testabilidade e comprometimento do desempenho \cite{weber2002};
@@ -14,67 +15,65 @@ que em inglês são chamados de \ac{SPOF}. A alta disponibilidade está diretame
  \item Disponibilidade: é a probabilidade de um serviço estar operacional no instante em que for solicitado \cite{costa2009};
  \item Tolerância a falhas: procura garantir a disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar 
  falhas, e seu objetivo é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço \cite{costa2009}. A tolerância a falhas é 
- um dos principais conceitos da alta disponibilidade, sendo melhor discutida na Seção \ref{section:toleranciafalhas}.
+ um dos principais conceitos da alta disponibilidade, sendo melhor apresentada na Seção \ref{section:toleranciafalhas}.
 \end{itemize}
 
 \section{Tolerância a falhas}
 \label{section:toleranciafalhas}
 
 Sabe-se que o \textit{hardware} tende a falhar, principalmente devido a fatores físicos, por isso utiliza-se métodos para a prevenção 
-de falhas e para a tolerância a falhas. A abordagem de prevenção de falhas define-se como um projeto feito na criação de mecanismos para
-impedir que falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, uma vez que essa 
+de falhas. A abordagem de prevenção de falhas é realizada na etapa de projeto, ou seja, consiste na criação de mecanismos que impeçam que 
+que as falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, uma vez que essa 
 tem como objetivo prever e eliminar o maior número de falhas possíveis antes de colocar o sistema em uso. 
 
-A prevenção de falhas não resolverá todas as possíveis falhas. Sendo assim, a tolerância a falhas fornece disponibilidade de um serviço 
-mesmo com a presença de falhas. Enquanto a prevenção de falhas tem foco nas fases de projeto, teste e validação, a tolerância a falhas 
-tem como foco na utilização de componentes replicados para mascarar as falhas \cite{pankaj1994}.
+A prevenção de falhas não resolverá todas as possíveis falhas. Sendo assim, a tolerância a falhas procura fornecer a disponibilidade de 
+um serviço mesmo com a presença de falhas. De fato, enquanto a prevenção de falhas tem foco nas fases de projeto, teste e validação, a tolerância 
+a falhas tem como foco na utilização de componentes replicados para mascarar as falhas \cite{pankaj1994}.
 
-O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, ou seja, aumentar o intervalo de tempo que os serviços 
-fornecidos ficam disponíveis aos usuários. Um sistema é dito tolerante a falhas se ele pode mascarar a presença de falhas ou recuperar-se 
+O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, ou seja, aumentar o intervalo de tempo em que os serviços 
+fornecidos estão disponíveis aos usuários. Um sistema é dito tolerante a falhas se ele for capaz de mascarar a presença de falhas ou recuperar-se 
 de uma falha sem afetar o funcionamento do sistema. A tolerância a falhas é implementada utilizando redundância (Seção \ref{section:redundancia}). 
 Um exemplo muito utilizado para tornar um sistema tolerante a falhas é a virtualização. Nestes ambientes normalmente existem dois servidores 
-físicos nos quais máquinas virtuais estão sendo executadas, sendo que no caso de um dos servidores falhar, o \textit{software} de monitoramento fará a 
+físicos onde máquinas virtuais são executadas, sendo que no caso de um dos servidores falhar, o \textit{software} de monitoramento fará a 
 transferência das máquinas virtuais para o outro servidor, de forma transparente aos usuários, evitando assim a indisponibilidade do serviço. 
-Este tema, virtualização, será detalhado no Capítulo \ref{cap:virtualizacao}.
+Os principais conceitos de virtualização, são apresentados no Capítulo \ref{cap:virtualizacao}.
 
-A tolerância a falhas pode ser dividida em dois tipos que são: mascaramento; detecção, localização e reconfiguração.
-O primeiro tipo, o mascaramento, não se manifesta na forma de erro sendo assim não necessita que o sistema trate este erro,
-pois as falhas são tratadas na origem. O mascaramento é utilizado principalmente em sistemas de tempo real crítico. 
-Um exemplo são os códigos de correção de erros, em inglês \ac{ECC}, que são utilizados em memórias para detecção e correção de erros.
-O segundo tipo consiste em detectar, localizar a falha e reconfigurar o \textit{software} ou \textit{hardware} e por fim resolver a 
-falha \cite{weber2002}. O segundo tipo de tolerância a falahas será decrito na Seção \ref{section:fasestolerancia}.
+A tolerância a falhas pode ser dividida em dois tipos. O primeiro tipo, o mascaramento, não se manifesta na forma de erro sendo assim 
+não necessita que o sistema trate este erro, pois as falhas são tratadas na origem. O mascaramento é utilizado principalmente em 
+sistemas de tempo real crítico. Um exemplo são os códigos de correção de erros, em inglês \ac{ECC}, que são utilizados em memórias para 
+detecção e correção de erros.
 
-\subsection{Fases da tolerância a falhas}
-\label{section:fasestolerancia}
-
-A classificação das fases de tolerância a falhas mais comuns são \cite{weber2002}:
+O segundo tipo consiste em detectar, localizar a falha e reconfigurar o \textit{software} ou \textit{hardware} de forma a corrigir a falha. 
+Esse tipo de tolerância a falha é dividido nas seguintes etapas \cite{weber2002}. 
 
 \begin{itemize}
  \item Detecção: realiza o monitoramento e aguarda uma falha se manifestar na forma de erro, para então passar para a próxima fase. 
  Um exemplo de detecção de erro é o cão de guarda (\textit{watchdog timer}), que recebe um sinal do programa ou serviço que esta sendo 
- monitorado e caso este sinal não seja recebido, devido alguma falha, o \textit{watchdog} irá se manifestar na forma de erro. 
+ monitorado e caso este sinal não seja recebido, o \textit{watchdog} irá se manifestar na forma de erro. 
  Um outro exemplo é o esquema de duplicação e comparação, onde são realizadas operações em componentes replicados com mesmos dados de 
  entrada, e então os dados de saída são comparados. No caso de diferenças nos dados de saída um erro é gerado.
  \item Confinamento: responsável pela restrição de um erro para que dados inválidos não se propaguem para todo o sistema, pois entre a falha e a
  detecção do erro há um intervalo de tempo. Neste intervalo pode ocorrer a propagação do erro para outros componentes do sistema, sendo assim 
  antes de executar medidas corretivas é necessário definir os limites da propagação. Na fase de projeto essas restrições devem ser previstas
- e tratadas. Um exemplo de confinamento é o isolamento de processos de um sistema operacional, onde existe restrições para que um processo
- não gere problemas em outro processo, com isso as falhas de um programa estão restritas ao processo. COMO É FEITO ???
+ e tratadas. Um exemplo de confinamento é o isolamento dos processos de um sistema operacional, sendo que esse sistema faz o gerenciamento
+ dos processos para isolar e impedir que as falhas de um processo gerem problemas em outros processos, com isso as falhas de um programa 
+ estão restritas ao processo.
  \item Recuperação: após a detecção de um erro ocorre a recuperação, onde o estado de erro é alterado para estado livre de erros. A recuperação
  pode ser feita de duas formas, que são:
  \begin{itemize}
-  \item \textit{forward error recovery} (recuperação por avanço): ocorre uma condução para um novo estado não ocorrido anteriormente. É a forma
+  \item \textit{forward error recovery} (recuperação por avanço): ocorre uma condução para um estado que ainda não ocorreu. É a forma
   de recuperação mais eficiente, porém mais complexo de ser implementado.
-  \item \textit{backward error recovery} (recuperação por retorno): ocorre um retorno para um estado anterior que deve estar livre de erros.
-  Para retornar ao estado anterior pode ser utilizados pontos de recuperação (\textit{checkpoints}), e quando ocorrer um erro, um 
+  \item \textit{backward error recovery} (recuperação por retorno): ocorre um retorno para um estado anterior livre de erros.
+  Para retornar ao estado anterior pode ser utilizados pontos de recuperação (\textit{checkpoints}). Assim quando ocorrer um erro, um 
   \textit{rollback} é executado, ou seja, o sistema retornará a um estado anterior a falha.
  \end{itemize}
  \item Tratamento: procura prevenir que futuros erros aconteçam. Nesta fase ocorre a localização da falha para descobrir o 
  componente que originou a falha. A substituição do componente danificado pode ser feita de forma manual ou automática. 
- O reparo manual é feito por um operador, e o automático quando existe um componente em espera para substituição. Exemplo de um reparo 
- manual é um operador que efetua a troca de um disco rígido de um servidor. E um exemplo de reparo automático é um disco configurado como 
- \textit{hot spare}, ou seja, um componente de \textit{backup} que assumirá o lugar do outro imediatamente após o componente principal 
- falhar. Em \textit{storages} ou servidores, o \textit{hot spare} pode ser configurado através de um \ac{RAID} \cite{rouse2013}.
+ O reparo manual é feito por um operador que é responsável pelo reparo ou substituição de um componente. Como exemplo pode-se citar
+ a troca de um disco rígido de um servidor. Já o reparo automático é utilizado quando existe um componente em espera para substituição, 
+ como por exemplo, um disco configurado como \textit{hot spare}, ou seja, um componente de \textit{backup} que assumirá o lugar do 
+ outro imediatamente após o componente principal falhar. Em \textit{storages} ou servidores, o \textit{hot spare} pode ser configurado 
+ através de um \ac{RAID} \cite{rouse2013}.
 \end{itemize}
 
 \section{Redundância}
@@ -82,8 +81,8 @@ A classificação das fases de tolerância a falhas mais comuns são \cite{weber
 
 A redundância pode ser implementada através da replicação de componentes, e tem como objetivo reduzir o número de \ac{SPOF} e garantir 
 o mascaramento de falhas. Na prática, se um componente falhar ele deve ser reparado ou substituído por um novo, sem que haja uma 
-interrupção no serviço. A redundância pode ser implementada ainda através do envio de sinais ou \textit{bits} de controle junto aos dados, 
-servindo assim para detecção de erros e até para correção \cite{weber2002}. Segundo \cite{norvag2000} existem quatro tipos diferentes 
+interrupção no serviço. Além disso redundância pode ser implementada através do envio de sinais ou \textit{bits} de controle junto aos dados, 
+servindo assim para detecção e correção de erros \cite{weber2002}. Segundo \cite{norvag2000} existem quatro tipos diferentes 
 de redundância que são:
 \begin{itemize}
  \item \textit{Hardware}: utiliza-se a replicação de componentes, sendo que caso um falhe outro possa assumir seu lugar. 
@@ -95,26 +94,26 @@ de redundância que são:
  e recalculados ao recebê-los ou recuperá-los, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
  \textit{bits} de paridade que são utilizados para detectar falhas que afetam apenas um \textit{bit} \cite{weber2002};
  \item \textit{Software}: pode-se definir redundância de \textit{software} como a configuração de um serviço ou \textit{software} em
- dois ou mais locais diferentes. Pode-se citar um exemplo de um sistema gerenciador de banco de dados \textit{MySQL}, que pode ser configurado 
+ dois ou mais locais diferentes. Pode-se citar como exemplo, um sistema gerenciador de banco de dados \textit{MySQL}, que pode ser configurado 
  com um modelo de replicação do tipo \textit{master-slave}, onde um servidor principal (\textit{master}) grava as operações em um arquivo, 
  para então os servidores \textit{slaves} recuperarem e executarem essas operações, com isso mantendo os dados sincronizados. Neste caso, 
- tanto o servidor \textit{master} quanto os \textit{slaves} executam o serviço \textit{MySQL} caracterizando assim uma redundância 
- \cite{viana201}. A redundância de \textit{software} também pode ser implementada com o objetivo de tolerar falhas e \textit{bugs} de um
- \textit{software} crítico, sendo que este \textit{software} é replicado em diferentes locais. Existem algumas técnicas que podem ser 
- utilizadas para essa implementação. Por exemplo, a programação de \textit{n}-versões, que consiste em criar \textit{n} versões para um 
- mesmo \textit{software}, desta forma, possibilita-se o aumento da disponibilidade, uma vez que elas provavelmente não apresentarão os 
- mesmos erros. Por outro lado a programação de \textit{n}-versões possui um custo muito elevado por isso não é muito utilizada.
+ tanto o servidor \textit{master} quanto os \textit{slaves} executam o serviço \textit{MySQL}, caracterizando uma redundância \cite{viana201}. 
+ A redundância de \textit{software} também pode ser implementada com o objetivo de tolerar falhas e \textit{bugs} em um
+ \textit{software} crítico. Existem algumas técnicas que podem ser utilizadas para essa implementação, como por exemplo, a programação de 
+ \textit{n}-versões, que consiste em criar \textit{n} versões para um mesmo \textit{software}, desta forma, possibilita-se o aumento da 
+ disponibilidade, uma vez que elas provavelmente não apresentarão os mesmos erros. Por outro lado a programação de \textit{n}-versões 
+ possui um custo muito elevado, não sendo muito utilizada.
  \item Tempo: este é feito através da execução de um conjunto de instruções repetidas vezes em um mesmo componente, assim detectando uma 
  falha caso ocorra. Essa técnica necessita tempo adicional, e é utilizada em sistemas onde o tempo não é crítico. Por exemplo, um 
- \textit{software} de monitoramento de serviços em servidores, que faz um teste em cada serviço e caso ocorra alguma falha, uma ação 
- corretiva  será executada para reestabelecer este serviço. Essa técnica, diferentemente da redundância de \textit{hardware}, não requer 
- um \textit{hardware} extra para sua implementação \cite{costa2009}.
+ \textit{software} de monitoramento de serviços em servidores que faz um teste em cada serviço. No caso de ocorrência de alguma falha, 
+ uma ação corretiva  será executada para reestabelecer este serviço. Essa técnica, diferentemente da redundância de \textit{hardware}, 
+ não requer um \textit{hardware} extra para sua implementação \cite{costa2009}.
 \end{itemize}
 
 \section{Cálculo da alta disponibilidade}
 
 Um aspecto importante sobre alta disponibilidade é como medi-la. Para isso são utilizados os valores de \textit{uptime} e \textit{downtime}, 
-que são respectivamente, o tempo que os serviços estão em execução e o tempo que não estão executando. A alta disponibilidade 
+que são respectivamente, o tempo em que os serviços estão em execução e o tempo em que não estão executando. A alta disponibilidade 
 pode ser expressa pela quantidade de ``noves'', isto é, se um serviço possui quatro noves de disponibilidade, este possui uma 
 disponibilidade de 99,99\% \cite{pereirafilho2004}.
 
@@ -137,7 +136,7 @@ Nível & Uptime & Downtime por ano & Exemplos\\\hline
 \end{table}
 
 A Tabela \ref{tab:dispniveis} apresenta alguns níveis de disponibilidade, a suas porcentagens de \textit{Uptime}, os \textit{Downtime} por ano. 
-A última coluna possui alguns exemplos de serviços relacionados ao nível de disponibilidade. Pode-se observar que para alguns serviços, 
+Já na última coluna tem-se alguns exemplos de serviços relacionados ao nível de disponibilidade. Pode-se observar que para alguns serviços, 
 como por exemplo, sistemas bancários ou sistemas militares é necessário um alto nível de disponibilidade \cite{pereirafilho2004}.
 
 A porcentagem de disponibilidade (\textit{d}) pode ser calculada através da equação
@@ -152,5 +151,5 @@ A alta disponibilidade é um dos principais fatores que fornece confiança aos c
 em empresas que fornecem serviços \textit{on-line}. Por isso, as empresas desenvolveram o \ac{SLA}, que é um acordo de nível de serviço, 
 que garante que o serviço fornecido atenda as expectativas dos clientes. Um \ac{SLA} é um documento contendo uma descrição e uma definição 
 das características mais importantes do serviço que será fornecido. Esse acordo também deverá conter a porcentagem de disponibilidade exigida
-pelo negócio, sendo que esta deve ser minuciosamente definida. Por exemplo, um \ac{SLA} pode conter descrição do serviço, requerimentos, 
-horário de funcionamento, entre outros \cite{smith2010}.
+pelo negócio, sendo que esta deve ser minuciosamente definida. Por exemplo, um \ac{SLA} deverá conter descrição do serviço, requerimentos, 
+horário de funcionamento, \textit{uptime} do serviço, \textit{downtime} máximo do serviço, entre outros \cite{smith2010}.

@@ -204,16 +204,16 @@ sistemas operacionais, ou os serviços necessitam rodar nas mesmas portas, porta
 também favorece a implementação de um servidor por serviço é, caso exista uma falha de segurança em apenas um serviço, essa 
 vulnerabilidade poderá comprometer todos os outros serviços \cite{carissimi2008}.
 
-\section{Emulação ????}
+%\section{Emulação ????}
 
-Emulação é a capacidade de uma aplicação ou um dispositivo imitar um determinado conjunto de \textit{hardware}. Normalmente é
-executado como um aplicativo em um sistema operacional. A emulação é uma camada de \textit{software} que possibilita a execução
-de uma plataforma em outra plataforma distinta, com isso obtem-se a portabilidade das máquinas virtuais hospedeiras \cite{silva2009}.
+%Emulação é a capacidade de uma aplicação ou um dispositivo imitar um determinado conjunto de \textit{hardware}. Normalmente é
+%executado como um aplicativo em um sistema operacional. A emulação é uma camada de \textit{software} que possibilita a execução
+%de uma plataforma em outra plataforma distinta, com isso obtem-se a portabilidade das máquinas virtuais hospedeiras \cite{silva2009}.
 
-Este tipo de virtualização possui uma considerável redução de desempenho, pelo fato de toda comunicação com o \textit{hardware}
-ser intermediada pela camada de \textit{software} que faz a sua tradução. Por outro lado ela não visa desempenho, mas sim flexibilidade,
-por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{hardware} simulem e validem aplicativos sem a presença
-do \textit{hardware} real.
+%Este tipo de virtualização possui uma considerável redução de desempenho, pelo fato de toda comunicação com o \textit{hardware}
+%ser intermediada pela camada de \textit{software} que faz a sua tradução. Por outro lado ela não visa desempenho, mas sim flexibilidade,
+%por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{hardware} simulem e validem aplicativos sem a presença
+%do \textit{hardware} real.
 
 %\begin{figure}[acoplamento_interfaces]
 % \centering
@@ -223,35 +223,3 @@ do \textit{hardware} real.
 % Fonte: \citet{laureano2008}
 %\end{figure}
 %Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} .... VER ONDE COLOCAR
-
-%Virtualizacao da teoria a solucoes:
-%No entanto, essa abordagem trouxe como contra-partida a filosofia “um servidor
-%por serviço”. Rapidamente, os responsáveis pelas áreas de TI se deram conta do
-%problema (e custo) em gerenciar diferentes máquinas físicas, mesmo que tivessem o
-%mesmo sistema operacional. Além disso, há problemas relacionados com consumo de
-%energia elétrica, refrigeração, espaço físico, segurança física, etc. Nesse contexto, a
-%virtualização surge como uma possibilidade de agregar os benefícios da componetização
-%de sofware com a redução dos custos de manutenção de hardware e software. Assim, é
-%possível manter a idéia de um “um servidor por serviço” sem ter um hardware
-%específico.
-%Essa abordagem é reforçada pela lei de Zipf [Adamic, 2008] que pode ser
-%sintetizada da seguinte forma: a freqüência de um evento é proporcional a x −α , onde x é
-%um ranking de comparação de um evento a outro. Alguns estudos [Breslau, Cao, Fan,
-%Philips e Shenker, 2008] mostraram que a freqüência de acesso a servidores web e
-%outros serviços Internet seguem uma distribuição Zipfian, o que, na prática, se traduz
-%pelo fato de que a maioria dos acessos a serviços Internet é para uma minoria deles.
-%Portanto, conclui-se que uma minoria de serviços está ativa enquanto a maioria está
-%bloqueada a espera de requisições, o que, claramente, representa um desperdício de
-%recursos. Para exemplificar, imagine, entre outros, o uso dos servidores de autenticação,
-%DHCP, impressão, arquivos, e-mail, web e DNS em sua rede corporativa.
-
-%Rejuvenescimento e migracao de vms:
-%Com a arquitetura baseada em serviços, clientes podem utilizar serviços alocados em
-%nuvem através dos web browsers. Unindo a computação em nuvem e a arquitetura baseada
-%em serviços, aplicativos e demais recursos de TI podem ser oferecidos remotamente, como se
-%estivessem localizados localmente. Vale a pena salientar que a arquitetura baseada em serviços
-%permite monitorar em tempo real o uso dos recursos disponibilizados, colaborando assim para
-%uma gerência mais eficiente a todo o sistema (LINTHICUM, 2009). Além disso, dependendo
-%das interfaces definidas, pode-se ampliar consideravelmente o número de potenciais clientes.
-%Recursos disponibilizados via navegador web, por exemplo, podem ser acessados tanto por
-%computadores de mesa quanto por smartphones ou tablets.
