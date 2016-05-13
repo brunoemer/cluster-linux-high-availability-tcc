@@ -1,48 +1,46 @@
 \chapter{Virtualização}
 \label{cap:virtualizacao}
 
-O conceito virtualização surgiu na década de 60, onde muitas vezes havia a necessidade de um usuário utilizar um ambiente individual, 
-com suas próprias aplicações e totalmente isolado dos outros usuários. Este foi um dos principais motivos para a criação de máquinas 
-virtuais, mais conhecida como \ac{VM}, que teve forte expansão com um dos principais sistemas comerciais com suporte a virtualização, 
-sistema operacional \textit{370} que foi desenvolvido pela \textit{IBM}. Este sistema operacional executava sobre \textit{mainframes}, 
-que na época eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
-%O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
-%conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} necessitava
-%do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional no qual executava. Assim
-%sendo necessário a criação de máquinas virtuais, mais conhecida como \ac{VM} \cite{carissimi2008}.
+O conceito virtualização surgiu na década de 60, onde muitas vezes era necessário que um usuário utilizasse um ambiente individual, 
+com suas próprias aplicações e totalmente isolado dos demais usuários. Este foi um dos principais motivos para a criação de máquinas 
+virtuais, mais conhecida como \ac{VM}, que apresentaram uma forte expansão com o sistema operacional \textit{370} que foi desenvolvido 
+pela \textit{IBM} e foi um dos principais sistemas comerciais com suporte a virtualização da época. Este sistema operacional executava 
+sobre \textit{mainframes}, que na época eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
 
 Na década de 80, houve uma redução da utilização da virtualização devido a popularização do \ac{PC}. Na época era mais vantajoso disponibilizar 
-um \ac{PC} para cada usuário, do que investir em \textit{mainframes}. Devido ao crescente avanço e melhor desempenho do \ac{PC} e
+um \ac{PC} para cada usuário, do que investir em \textit{mainframes}. Devido ao crescente avanço e o melhor desempenho do \ac{PC} e
 ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnologia de virtualização retornou com o conceito de virtualização
 de aplicação.
 
 A virtualização foi definida nos anos 60 e 70 como uma camada entre o \textit{hardware} e o sistema operacional que possibilitava a 
 divisão e proteção dos recursos físicos. Porém, atualmente ela abrange outros conceitos, como por exemplo a \ac{JVM}, que não virtualiza
-necessariamente um \textit{hardware}. 
+necessariamente um \textit{hardware}. Ela proporciona que uma aplicação convidada execute em diferentes tipos de sistemas operacionais.
 
 Atualmente define-se virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos de uma determinada interface de 
-sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, para suprir as 
-necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
-em uma plataforma \textit{Y} \cite{laureano2008}.
+sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, de forma que uma 
+aplicação desenvolvida para uma plataforma \textit{X} possa também executar em uma plataforma \textit{Y} \cite{laureano2008}.
 
-Deve-se entender os diferentes tipos de interfaces existentes em sistemas de computação:
+Neste Capítulo será apresentado as diferentes classificações de máquinas virtuais, porém antes disso deve-se conhecer os diferentes 
+tipos de interfaces existentes em sistemas de computação:
 \begin{itemize}
- \item Conjunto de instruções ou \ac{ISA}: é a interface básica, fica entre o \textit{software} e o \textit{hardware}, e é composta por 
+ \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Esta interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários. Executam
-  em modo não-privilegiado;
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários. Essas 
+  executam em modo não-privilegiado. Um exemplo de instrução de usuário é uma instrução do processador executadas diretamente sobre a memória
+  alocada para o programa ????;
   \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. 
-  São executadas em modo privilegiado;
+  Essas são executadas em modo privilegiado. Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de instruções de sistema;
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
- Sendo que essas chamadas permitem acesso controlado aos dispositivos, memória e processador.
+ Essas operações permitem o acesso controlado aos dispositivos, memória e processador. Um exemplo de chamada de sistema é uma escrita em disco.
 \end{itemize}
 
-Máquinas virtuais podem ser divididas em dois grupos principais: máquinas virtuais de aplicação, detalhado na seção 
-\ref{section:virtaplicacao}, e máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a virtualização 
-de uma aplicação e suporta apenas um processo ou aplicação. Já a máquina virtual de sistema suporta sistemas operacionais convidados, com 
-suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano2008}.
+Máquinas virtuais podem ser divididas em dois grupos principais, que são: as máquinas virtuais de aplicação, na (Seção \ref{section:virtaplicacao}), 
+e máquinas virtuais de sistema, na (Seção \ref{section:virtsistema}). As máquinas virtuais de aplicação fazem a virtualização de uma 
+aplicação e suportam apenas um processo ou aplicação. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. Já uma máquina virtual de 
+sistema suporta sistemas operacionais convidados, com suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}). Uma máquina virtual 
+executando com \ac{KVM} é um exemplo de máquina virtual de aplicação \cite{laureano2008}.
 
 \begin{figure}[vms_tipos]
  \centering
@@ -55,12 +53,10 @@ suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laurea
 \section{Máquinas virtuais de aplicação}
 \label{section:virtaplicacao}
 
-As máquinas virtuais de aplicação, também chamadas de máquinas virtuais de processo, é geralmente conhecida por prover um ambiente
+As máquinas virtuais de aplicação, também chamadas de máquinas virtuais de processos são responsáveis por prover um ambiente
 onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções ou de chamadas
-do sistema diferentes do sistema hospedeiro.
-
-Quando temos chamadas do sistema operacional ou instruções de máquina que são diferentes das oferecidas pela máquina real, será necessário
-uma tradução dessas interfaces que será feita pela camada de virtualização. Exemplos dessa definição são:
+do sistema diferentes da arquitetura do sistema hospedeiro. De fato quando temos chamadas do sistema operacional ou instruções de máquina 
+que são diferentes das oferecidas pela máquina real, será necessário uma tradução dessas interfaces que será feita pela camada de virtualização. Exemplos dessa definição são:
 
 \begin{itemize}
  \item Máquinas virtuais de linguagem de alto nível: este tipo de máquina virtual foi criado levando em consideração uma linguagem de 
@@ -189,7 +185,7 @@ e outro específico para máquinas virtuais.
 
 Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como, por exemplo, servidores de e-mail, hospedagens e 
 banco de dados, com isso existe uma ociosidade grande de recursos. Portanto uma das grandes vantagens da virtualização é um melhor 
-aproveitamento destes recursos, alocando vários serviços em um único servidor físico e gerando um melhor aproveitamento do \textit{hardware} 
+aproveitamento destes recursos, alocando vários serviços em um único servidor físico e assim gerando um melhor aproveitamento do \textit{hardware} 
 \cite{moreira2006}. Além disso, pode-se ter uma redução de custos com a administração e a manutenção dos servidores. Em um ambiente 
 heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
 
@@ -204,15 +200,16 @@ sistemas operacionais, ou os serviços necessitam rodar nas mesmas portas, porta
 também favorece a implementação de um servidor por serviço é, caso exista uma falha de segurança em apenas um serviço, essa 
 vulnerabilidade poderá comprometer todos os outros serviços \cite{carissimi2008}.
 
-\section{Emulação}
+%\section{Emulação ????}
 
-Emulação é a capacidade de uma aplicação ou um dispositivo imitar um determinado conjunto de \textit{hardware}. Normalmente é
-executado como um aplicativo em um sistema operacional. A emulação é uma camada de \textit{software} que possibilita a execução
-de uma plataforma em outra plataforma distinta, com isso obtem-se a portabilidade das máquinas virtuais hospedeiras \cite{silva2009}.
+%Emulação é a capacidade de uma aplicação ou um dispositivo imitar um determinado conjunto de \textit{hardware}. Normalmente é
+%executado como um aplicativo em um sistema operacional. A emulação é uma camada de \textit{software} que possibilita a execução
+%de uma plataforma em outra plataforma distinta, com isso obtem-se a portabilidade das máquinas virtuais hospedeiras \cite{silva2009}.
 
-Este tipo de virtualização possui uma considerável redução de desempenho, pelo fato de toda comunicação com o \textit{hardware}
-ser intermediada pela camada de \textit{software} que faz a sua tradução. Por outro lado ela não visa desempenho, mas sim flexibilidade,
-por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{hardware} 
+%Este tipo de virtualização possui uma considerável redução de desempenho, pelo fato de toda comunicação com o \textit{hardware}
+%ser intermediada pela camada de \textit{software} que faz a sua tradução. Por outro lado ela não visa desempenho, mas sim flexibilidade,
+%por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{hardware} simulem e validem aplicativos sem a presença
+%do \textit{hardware} real.
 
 %\begin{figure}[acoplamento_interfaces]
 % \centering
@@ -222,35 +219,3 @@ por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{ha
 % Fonte: \citet{laureano2008}
 %\end{figure}
 %Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} .... VER ONDE COLOCAR
-
-%Virtualizacao da teoria a solucoes:
-%No entanto, essa abordagem trouxe como contra-partida a filosofia “um servidor
-%por serviço”. Rapidamente, os responsáveis pelas áreas de TI se deram conta do
-%problema (e custo) em gerenciar diferentes máquinas físicas, mesmo que tivessem o
-%mesmo sistema operacional. Além disso, há problemas relacionados com consumo de
-%energia elétrica, refrigeração, espaço físico, segurança física, etc. Nesse contexto, a
-%virtualização surge como uma possibilidade de agregar os benefícios da componetização
-%de sofware com a redução dos custos de manutenção de hardware e software. Assim, é
-%possível manter a idéia de um “um servidor por serviço” sem ter um hardware
-%específico.
-%Essa abordagem é reforçada pela lei de Zipf [Adamic, 2008] que pode ser
-%sintetizada da seguinte forma: a freqüência de um evento é proporcional a x −α , onde x é
-%um ranking de comparação de um evento a outro. Alguns estudos [Breslau, Cao, Fan,
-%Philips e Shenker, 2008] mostraram que a freqüência de acesso a servidores web e
-%outros serviços Internet seguem uma distribuição Zipfian, o que, na prática, se traduz
-%pelo fato de que a maioria dos acessos a serviços Internet é para uma minoria deles.
-%Portanto, conclui-se que uma minoria de serviços está ativa enquanto a maioria está
-%bloqueada a espera de requisições, o que, claramente, representa um desperdício de
-%recursos. Para exemplificar, imagine, entre outros, o uso dos servidores de autenticação,
-%DHCP, impressão, arquivos, e-mail, web e DNS em sua rede corporativa.
-
-%Rejuvenescimento e migracao de vms:
-%Com a arquitetura baseada em serviços, clientes podem utilizar serviços alocados em
-%nuvem através dos web browsers. Unindo a computação em nuvem e a arquitetura baseada
-%em serviços, aplicativos e demais recursos de TI podem ser oferecidos remotamente, como se
-%estivessem localizados localmente. Vale a pena salientar que a arquitetura baseada em serviços
-%permite monitorar em tempo real o uso dos recursos disponibilizados, colaborando assim para
-%uma gerência mais eficiente a todo o sistema (LINTHICUM, 2009). Além disso, dependendo
-%das interfaces definidas, pode-se ampliar consideravelmente o número de potenciais clientes.
-%Recursos disponibilizados via navegador web, por exemplo, podem ser acessados tanto por
-%computadores de mesa quanto por smartphones ou tablets.

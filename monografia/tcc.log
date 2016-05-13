@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  11 MAY 2016 22:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  12 MAY 2016 21:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1040,13 +1040,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout2 = `capitulos/capitulo3.aux'.
 
  (./capitulos/capitulo3.tex
-Overfull \hbox (17.64131pt too wide) in paragraph at lines 35--37
+Overfull \hbox (17.64131pt too wide) in paragraph at lines 32--34
 []\OT1/cmr/m/n/12 Instru^^Xc~oes de sis-tema ou \OT1/cmr/m/it/12 Sys-tem []ISA\
 OT1/cmr/m/n/12 : s~ao ins-tru^^Xc~oes ex-clu-si-va-mente acess^^S^^Pveis
  []
-
-
-Underfull \vbox (badness 2310) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1060,40 +1057,37 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 File: img/vms_tipos.eps Graphic file (type eps)
  <img/vms_tipos.eps> [15]
-Overfull \hbox (10.36938pt too wide) in paragraph at lines 87--89
-[]\OT1/cmr/m/n/12 Tradutores din^amicos: es-ses tra-du-to-res ana-li-sam e oti-
-mi-zam o c^^Sodigo de m^^Saquina
- []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 16
  []
 
 [16]
-Overfull \hbox (2.1403pt too wide) in paragraph at lines 139--143
+Overfull \hbox (2.1403pt too wide) in paragraph at lines 135--139
 []\OT1/cmr/m/n/12 Virtualiza^^Xc~ao de re-cur-sos: neste tipo de vir-tu-a-liza^
 ^Xc~ao os re-cur-sos como mem^^Soria
  []
 
 File: img/vms_classificacao.eps Graphic file (type eps)
-<img/vms_classificacao.eps> [17]
+<img/vms_classificacao.eps>
+Underfull \vbox (badness 4569) has occurred while \output is active []
+
+ [17])
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 18
  []
 
-[18]) [19]
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 20
- []
-
-[20] (./tcc.bbl
+[18] [19] (./tcc.bbl
 Underfull \hbox (badness 6758) in paragraph at lines 3--6
 []\OT1/cmr/m/n/12 BATISTA, A. C. \OT1/cmr/bx/n/12 Es-tudo te^^Sorico so-bre clu
 s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
  []
 
-[21
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 20
+ []
+
+[20
 
 
 ]
@@ -1117,12 +1111,7 @@ px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
 
 ) 
 AED: lastpage setting LastPage
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 22
- []
-
-[22] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
+[21] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux))
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1130,12 +1119,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 11602 strings out of 495005
- 227186 string characters out of 6180688
- 276922 words of memory out of 5000000
- 14581 multiletter control sequences out of 15000+600000
+ 11613 strings out of 495005
+ 227451 string characters out of 6180688
+ 277101 words of memory out of 5000000
+ 14592 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,9n,57p,10386b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,9n,57p,10386b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (23 pages, 70424 bytes).
+Output written on tcc.dvi (22 pages, 69364 bytes).

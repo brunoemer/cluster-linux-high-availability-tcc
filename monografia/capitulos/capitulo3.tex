@@ -1,48 +1,46 @@
 \chapter{Virtualização}
 \label{cap:virtualizacao}
 
-O conceito virtualização surgiu na década de 60, onde muitas vezes havia a necessidade de um usuário utilizar um ambiente individual, 
-com suas próprias aplicações e totalmente isolado dos outros usuários. Este foi um dos principais motivos para a criação de máquinas 
-virtuais, mais conhecida como \ac{VM}, que teve forte expansão com um dos principais sistemas comerciais com suporte a virtualização, 
-sistema operacional \textit{370} que foi desenvolvido pela \textit{IBM}. Este sistema operacional executava sobre \textit{mainframes}, 
-que na época eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
-%O conceito virtualização surgiu na década de 60, sendo que um dos principais motivos foi a necessidade de um grande servidor,
-%conhecido como \textit{mainframe}, executar uma variedade de \textit{softwares}. Isso ocorreu pois cada \textit{mainframe} necessitava
-%do próprio sistema operacional, pois cada \textit{software} possuia além da aplicação todo o ambiente operacional no qual executava. Assim
-%sendo necessário a criação de máquinas virtuais, mais conhecida como \ac{VM} \cite{carissimi2008}.
+O conceito virtualização surgiu na década de 60, onde muitas vezes era necessário que um usuário utilizasse um ambiente individual, 
+com suas próprias aplicações e totalmente isolado dos demais usuários. Este foi um dos principais motivos para a criação de máquinas 
+virtuais, mais conhecida como \ac{VM}, que apresentaram uma forte expansão com o sistema operacional \textit{370} que foi desenvolvido 
+pela \textit{IBM} e foi um dos principais sistemas comerciais com suporte a virtualização da época. Este sistema operacional executava 
+sobre \textit{mainframes}, que na época eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
 
 Na década de 80, houve uma redução da utilização da virtualização devido a popularização do \ac{PC}. Na época era mais vantajoso disponibilizar 
-um \ac{PC} para cada usuário, do que investir em \textit{mainframes}. Devido ao crescente avanço e melhor desempenho do \ac{PC} e
+um \ac{PC} para cada usuário, do que investir em \textit{mainframes}. Devido ao crescente avanço e o melhor desempenho do \ac{PC} e
 ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnologia de virtualização retornou com o conceito de virtualização
 de aplicação.
 
 A virtualização foi definida nos anos 60 e 70 como uma camada entre o \textit{hardware} e o sistema operacional que possibilitava a 
 divisão e proteção dos recursos físicos. Porém, atualmente ela abrange outros conceitos, como por exemplo a \ac{JVM}, que não virtualiza
-necessariamente um \textit{hardware}. 
+necessariamente um \textit{hardware}. Ela proporciona que uma aplicação convidada execute em diferentes tipos de sistemas operacionais.
 
 Atualmente define-se virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos de uma determinada interface de 
-sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, para suprir as 
-necessidades dos componentes do sistema, de forma que uma aplicação desenvolvida para uma plataforma \textit{X} possa também executar 
-em uma plataforma \textit{Y} \cite{laureano2008}.
+sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, de forma que uma 
+aplicação desenvolvida para uma plataforma \textit{X} possa também executar em uma plataforma \textit{Y} \cite{laureano2008}.
 
-Deve-se entender os diferentes tipos de interfaces existentes em sistemas de computação:
+Neste Capítulo será apresentado as diferentes classificações de máquinas virtuais, porém antes disso deve-se conhecer os diferentes 
+tipos de interfaces existentes em sistemas de computação:
 \begin{itemize}
- \item Conjunto de instruções ou \ac{ISA}: é a interface básica, fica entre o \textit{software} e o \textit{hardware}, e é composta por 
+ \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Esta interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários. Executam
-  em modo não-privilegiado;
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários. Essas 
+  executam em modo não-privilegiado. Um exemplo de instrução de usuário é uma instrução do processador executadas diretamente sobre a memória
+  alocada para o programa ????;
   \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. 
-  São executadas em modo privilegiado;
+  Essas são executadas em modo privilegiado. Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de instruções de sistema;
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
- Sendo que essas chamadas permitem acesso controlado aos dispositivos, memória e processador.
+ Essas operações permitem o acesso controlado aos dispositivos, memória e processador. Um exemplo de chamada de sistema é uma escrita em disco.
 \end{itemize}
 
-Máquinas virtuais podem ser divididas em dois grupos principais: máquinas virtuais de aplicação, detalhado na seção 
-\ref{section:virtaplicacao}, e máquinas virtuais de sistema, detalhado na seção \ref{section:virtsistema}. A primeira faz a virtualização 
-de uma aplicação e suporta apenas um processo ou aplicação. Já a máquina virtual de sistema suporta sistemas operacionais convidados, com 
-suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laureano2008}.
+Máquinas virtuais podem ser divididas em dois grupos principais, que são: as máquinas virtuais de aplicação, na (Seção \ref{section:virtaplicacao}), 
+e máquinas virtuais de sistema, na (Seção \ref{section:virtsistema}). As máquinas virtuais de aplicação fazem a virtualização de uma 
+aplicação e suportam apenas um processo ou aplicação. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. Já uma máquina virtual de 
+sistema suporta sistemas operacionais convidados, com suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}). Uma máquina virtual 
+executando com \ac{KVM} é um exemplo de máquina virtual de aplicação \cite{laureano2008}.
 
 \begin{figure}[vms_tipos]
  \centering
@@ -55,63 +53,63 @@ suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}) \cite{laurea
 \section{Máquinas virtuais de aplicação}
 \label{section:virtaplicacao}
 
-As máquinas virtuais de aplicação, também chamadas de máquinas virtuais de processo, é geralmente conhecida por prover um ambiente
+As máquinas virtuais de aplicação, também chamadas de máquinas virtuais de processos são responsáveis por prover um ambiente
 onde um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções ou de chamadas
-do sistema diferentes do sistema hospedeiro.
-
-Quando temos chamadas do sistema operacional ou instruções de máquina que são diferentes das oferecidas pela máquina real, será necessário
-uma tradução dessas interfaces que será feita pela camada de virtualização. Exemplos dessa definição são:
+do sistema diferentes da arquitetura do sistema hospedeiro. De fato quando temos chamadas do sistema operacional ou instruções de máquina 
+que são diferentes das oferecidas pela máquina real, será necessário uma tradução dessas interfaces que será feita pela camada  de 
+virtualização. Abaixo são detalhados dois tipos de máquinas virtuais de aplicação:
 
 \begin{itemize}
  \item Máquinas virtuais de linguagem de alto nível: este tipo de máquina virtual foi criado levando em consideração uma linguagem de 
- programação e seu compilador. O código compilado gera um código binário que não pode ser executado em nenhuma arquitetura real, mas pode
- ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que faça
- esse intermédio permitindo a execução de aplicações em sistemas operacionais diversos. Exemplos são: \textit{Microsoft Common Language 
- Infrastructure}, base do \textit{.Net} e a máquina virtual Java (\ac{JVM}) \cite{carissimi2008};
- \item Emulação no sistema operacional: ocorre quando as interfaces restringe-se às chamadas do sistema operacional, ou seja,
- é feito um mapeamento das chamadas utilizada pela aplicação com as chamadas do sistema operacional da máquina real. Este tipo de 
- virtualização de aplicação pode ser encontrado em ferramentas que emulam uma aplicação desenvolvida para uma plataforma em outra
- plataforma distinta. Como por exemplo o \textit{Wine}, que resumidamente permite executar aplicações \textit{Windows} em plataformas
- \textit{Unix}.
+ programação e seu compilador. O código compilado gera um código binário que não pode ser executado em uma arquitetura real, mas pode
+ ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que
+ permita a execução da aplicação neste ambiente. Como exemplo deste tipo de máquina virtual pode-se citar a: \textit{Microsoft Common 
+ Language Infrastructure}, base do \textit{.Net} e a máquina virtual Java (\ac{JVM}) \cite{carissimi2008};
+ \item Emulação no sistema operacional: neste caos é feito um mapeamento entre as chamadas de sistema que são utilizadas pela aplicação 
+ e as chamadas do sistema operacional real. A virtualização de aplicação pode ser encontrado em ferramentas que emulam uma aplicação 
+ desenvolvida para uma plataforma em outra plataforma distinta, como por exemplo o \textit{Wine}, que permite executar aplicações 
+ \textit{Windows} em plataformas \textit{Linux}.
 \end{itemize}
 
-Na virtualização de aplicação também existem máquinas virtuais que utilizam as mesmas interfaces \ac{ISA} da máquina real,
-com isso uma grande parte das instruções podem ser executadas diretamente, com exceção de instruções sensíveis, que serão devidamente
-tratadas. Alguns tipos de máquinas virtuais de aplicação que utilizam as interfaces da máquina real são detalhadas abaixo:
+%Na virtualização de aplicação também existem máquinas virtuais que utilizam as mesmas interfaces \ac{ISA} do computador real,
+%com isso uma grande parte das instruções podem ser executadas diretamente, com exceção de instruções privilegiadas, que serão devidamente
+%tratadas. Alguns tipos de máquinas virtuais de aplicação que utilizam as interfaces do sistema real são:
 
-\begin{itemize}
- \item Sistemas operacionais multi-tarefas: sistemas operacionais que suportam simultaneamente mais de um usuário também podem ser
- vistos como máquinas virtuais. Em um sistema multi-tarefa cada processo possui um ``processador virtual'' (devido a rápida troca de 
- contextos do processador real), uma ``memória virtual'' (memória alocada para o processo) e outros recursos que podem ser acessados
- através de chamadas de sistema;
- \item Tradutores dinâmicos: esses tradutores analisam e otimizam o código de máquina para torná-lo mais eficiente. Essa otimização 
- pode ser feita durante a carga do processo na memória ou durante a execução das instruções;
- \item Depuradores de memória: são sistemas de depuração de memória que detectam erros decorrentes do uso incorreto da memória.
- Um exemplo de depurador é o sistema \textit{Valgrind}, que faz a execução em uma máquina virtual.
-\end{itemize}
+%\begin{itemize}
+% \item Sistemas operacionais multi-tarefas: sistemas operacionais que suportam simultaneamente mais de um usuário também podem ser
+% vistos como máquinas virtuais. Em um sistema multi-tarefa cada processo possui um ``processador virtual'' (devido a rápida troca de 
+% contextos do processador real), uma ``memória virtual'' (memória alocada para o processo) e outros recursos que podem ser acessados
+% através de chamadas de sistema;
+% \item Tradutores dinâmicos: esses tradutores analisam e otimizam o código de máquina para torná-lo mais eficiente. Essa otimização 
+% pode ser feita durante a carga do processo na memória ou durante a execução das instruções;
+% \item Depuradores de memória: são sistemas de depuração de memória que detectam erros decorrentes do uso incorreto da memória.
+% Um exemplo de depurador é o sistema \textit{Valgrind}, que utiliza uma máquina virtual para efetuar essa depuração.
+%\end{itemize}
 
 \section{Máquinas virtuais de sistema}
 \label{section:virtsistema}
 
-Máquina virtual de sistema também pode ser chamada de hipervisor ou monitor (\ac{VMM}), que é uma camada de \textit{software} que possibilita
-que um ou mais sistemas operacionais convidados executem independentemente sobre uma mesma máquina real. O hipervisor prove uma interface
-\ac{ISA} virtual que pode ou não ser igual a interface real, e virtualiza outros componentes de \textit{hardware}, para então cada máquina
-virtual convidada ter seus próprios recursos isolados.
+As máquinas virtuais de sistema também chamadas de hipervisor ou \ac{VMM}, são uma camada de \textit{software} que possibilita
+que um ou mais sistemas operacionais convidados executem independentemente sobre um memsmo computador físico. O hipervisor prove uma interface
+\ac{ISA} virtual que pode ou não ser igual a interface real, e virtualiza outros componentes de \textit{hardware}, para que cada máquina
+virtual convidada possa ter seus próprios recursos isolados.
 
-Um ambiente de virtualização de sistema é composto basicamente por três componentes:
+Neste modelo, um ambiente de virtualização de sistema é composto basicamente por três componentes:
 \begin{itemize}
  \item Sistema real: também pode ser chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
  \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM} e tem como função criar interfaces virtuais a
- partir de interfaces físicas para a comunicação do sistema real com o sistema virtual;
+ partir de interfaces físicas, para a comunicação do sistema virtual com o sistema real;
  \item Sistema virtual: também conhecido como \textit{guest}, ou sistema convidado, que executa sobre o sistema real. Geralmente
  existem vários sistemas virtuais executando simultaneamente sobre o sistema real.
 \end{itemize}
 
-Virtualização de sistema utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco físico em dois discos 
+Virtualização de sistema utiliza abstração em sua arquitetura, por exemplo, ela transforma um disco rígidos físico em dois discos rígidos
 virtuais menores, sendo que esses discos virtuais são arquivos armazenados no disco físico. Sabendo que arquivos são uma abstração
-em um disco físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
+em um disco rígidos físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
 do \textit{hardware} \cite{smithenair2005}.
 
+
+VER
 Pode-se classificar ambientes de máquinas virtuais de sistema de duas formas, pela arquitetura de virtualização 
 (Seção \ref{section:virtarq}) ou pelo nível de virtualização (Seção \ref{section:virtniv}), ambos serão vistos nas próximas seções.
 
