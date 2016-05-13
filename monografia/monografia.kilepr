@@ -80,10 +80,10 @@ order=2
 
 [item:capitulos/capitulo3.tex]
 archive=true
-column=3
+column=28
 encoding=UTF-8
 highlight=LaTeX
-line=111
+line=160
 mode=LaTeX
 open=true
 order=3
@@ -110,10 +110,10 @@ order=-1
 
 [item:tcc.bib]
 archive=true
-column=37
+column=15
 encoding=UTF-8
 highlight=BibTeX
-line=164
+line=182
 mode=BibTeX
 open=true
 order=4
@@ -151,10 +151,10 @@ JumpList=
 ViMarks=.,153,100,[,153,100,],153,100
 
 [view-settings,view=0,item:capitulos/capitulo3.tex]
-CursorColumn=3
-CursorLine=111
+CursorColumn=28
+CursorLine=160
 JumpList=
-ViMarks=.,111,2,[,110,0,],111,2
+ViMarks=.,160,17,[,160,17,],160,27
 
 [view-settings,view=0,item:capitulos/introducao.tex]
 CursorColumn=11
@@ -163,10 +163,10 @@ JumpList=
 ViMarks=.,55,10,[,55,10,],55,10
 
 [view-settings,view=0,item:tcc.bib]
-CursorColumn=37
-CursorLine=164
+CursorColumn=15
+CursorLine=182
 JumpList=
-ViMarks=.,164,15,[,164,15,],164,36
+ViMarks=.,182,15,[,182,15,],182,15
 
 [view-settings,view=0,item:tcc.tex]
 CursorColumn=0

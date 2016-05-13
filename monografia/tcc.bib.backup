@@ -38,7 +38,7 @@
   school    = "Apresentada ao Departamento de Ciência da Computação",
   year      = "2009",
   OPTkey    = "",
-  type      = "Pós-Graduação(Administração em Redes Linux)",
+  type      = "Monografia Pós-Graduação(Administração em Redes Linux)",
   address   = "Minas Gerais",
   OPTmonth  = "",
   OPTnote   = "",
@@ -65,8 +65,8 @@
   OPTannote = ""
 }
 
-@MastersThesis{filho2004,
-  author    = "Nélio Alves Pereira Filho",
+@MastersThesis{pereirafilho2004,
+  author    = "Nélio Alves Pereira{ }Filho",
   title     = "Serviço de pertinência para clusters de alta disponibilidade",
   school    = "Universidade de São Paulo",
   year      = "2004",
@@ -98,17 +98,80 @@
   OPTannote = ""
 }
 
-@InCollection{Cha-2003,
-  author =       {F. M. M\"uller and A. S. {CHARÃO} and H. G. Santos},
-  title =        {Aplicações de {A}lto {D}esempenho},
-  booktitle =    {ERAD 2003},
-  publisher = {SBC/UNISINOS/UFSM/UNILASALLE},
-  year =         {2003},
-  address =      {Santa Maria, RS},
-  OPTmonth =        {}
+@InCollection{carissimi2008,
+  author    = "Alexandre Carissimi",
+  title     = "Virtualização: da teoria a soluções",
+  booktitle = "Minicursos do Simpósio Brasileiro de Redes de Computadores",
+  publisher = "XXVI Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos",
+  year      = "2008",
+  address   = "Porto Alegre",
+  OPTmonth  = ""
 }
-%CARISSIMI, A. Virtualização: da teoria a soluções. Minicursos do Simpósio Brasileiro de Redes de Computadores - SBRC, v. 2008, 
-% n. XXVI Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos, p. 173–207, 2008.
-%CARISSIMI, Alexandre, Virtualização: da teoria a soluções, 26º Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos, 
-% disponível em http://www.gta.ufrj.br/ensino/CPE758/artigos-basicos/cap4- v2.pdf (Acessado em 11/10/2010).
 
+@article{smithenair2005,
+  author = "James E Smith and Ravi Nair",
+  title = "The architecture of virtual machines",
+  journal = "IEEE Computer",
+  volume = "38",
+  year = "2005",
+  pages = "32--38",
+}
+
+@MastersThesis{batista2007,
+  author    = "Alexandre Cavalcanti Batista",
+  title     = "Estudo teórico sobre cluster linux",
+  school    = "Universidade Federal de Lavras",
+  year      = "2007",
+  OPTkey    = "",
+  type      = "Pós-Graduação(Administração em Redes Linux)",
+  address   = "Minas Gerais",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
+
+@misc{moreira2006,
+  author    = "Daniela Moreira",
+  title     = "Virtualização: rode vários sistemas operacionais na mesma máquina",
+  year      = "2006",
+  note      = "$<$Disponível em: \url{http://idgnow.com.br/ti-corporativa/2006/08/01/idgnoticia.2006-07-31.7918579158/#&panel1-3}$>$. Acesso em 5 de abril de 2016."
+}
+
+@misc{rouse2013,
+  author    = "Margaret Rouse",
+  title     = "Hot spare",
+  year      = "2013",
+  note      = "$<$Disponível em: \url{http://searchstorage.techtarget.com/definition/hot-spare}$>$. Acesso em 12 de abril de 2016."
+}
+
+@misc{viana201,
+  author    = "Adriel Lucas da Silva Viana",
+  title     = "MySQL: Replicação de dados",
+  year      = "2015",
+  note      = "$<$Disponível em: \url{http://www.devmedia.com.br/mysql-replicacao-de-dados/22923}$>$. Acesso em 21 de abril de 2016."
+}
+
+@InCollection{laureano2008,
+  author    = "Marcos Aurelio Pchek Laureano and Carlos Alberto Maziero",
+  title     = "Virtualização: Conceitos e aplicações em segurança",
+  booktitle = "Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais",
+  publisher = "VIII Simpósio Brasileiro em Segurança da Informação e de Sistemas Computacionais",
+  year      = "2008",
+  address   = "Gramado - Rio Grande do Sul",
+  OPTmonth  = ""
+}
+
+@MastersThesis{silva2009,
+  author    = "Yuri Franzoni da Silva",
+  title     = "Uma Avaliação sobre a Viabilidade do Uso de Técnicas de Virtualização em Ambientes de Alto Desempenho",
+  school    = "Universidade de Caxias do Sul",
+  year      = "2009",
+  OPTkey    = "",
+  type      = "Trabalho de Conclusão (Curso de Ciência da Computação)",
+  address   = "Caxias do Sul - Rio Grande do Sul",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
+
+Sistemas Operacionais: Conceitos e Mecanismos

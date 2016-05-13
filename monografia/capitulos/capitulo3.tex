@@ -44,7 +44,7 @@ executando com \ac{KVM} é um exemplo de máquina virtual de aplicação \cite{l
 
 \begin{figure}[vms_tipos]
  \centering
- \includegraphics[width=320px]{img/vms_tipos.eps}
+ \includegraphics[width=380px]{img/vms_tipos.eps}
  \caption{Máquinas virtuais de aplicação e de sistema.}
  \label{fig:vms_tipos}
  Fonte: \citet{laureano2008}
@@ -108,57 +108,57 @@ virtuais menores, sendo que esses discos virtuais são arquivos armazenados no d
 em um disco rígidos físico, pode-se dizer que virtualização não é apenas uma camada de abstração do \textit{hardware}, ela faz a reprodução 
 do \textit{hardware} \cite{smithenair2005}.
 
-
-VER
-Pode-se classificar ambientes de máquinas virtuais de sistema de duas formas, pela arquitetura de virtualização 
-(Seção \ref{section:virtarq}) ou pelo nível de virtualização (Seção \ref{section:virtniv}), ambos serão vistos nas próximas seções.
-
-\subsection{Arquiteturas de virtualização}
-\label{section:virtarq}
-
+Existe basicamente duas arquiteturas de hipervisor de sistema \cite{maziero2013}:
 \begin{itemize}
  \item Hipervisores nativos: esse hipervisor executa diretamente sobre o \textit{hardware}, ou seja, sem um sistema operacional
- hospedeiro. O hipervisor nativo faz a multiplexação dos recursos do \textit{hardware} como memória, disco, entre outros,
- e diponibiliza esses recursos para as máquinas virtuais. Alguns exemplos que utilizam esse hipervisor são \textit{IBM 370}, 
- o \textit{Xen} e o \textit{VMware ESX Server};
+ hospedeiro. O hipervisor nativo faz a multiplexação dos recursos do \textit{hardware} como memória, disco rígido, interface de rede, 
+ entre outros, e diponibiliza esses recursos para as máquinas virtuais. Alguns exemplos que utilizam esse hipervisor são 
+ \textit{IBM 370}, o \textit{Xen} e o \textit{VMware ESX Server};
  \item Hipervisores convidados: esse tipo de hipervisor executa sobre um sistema operacional hospedeiro, e utiliza os recursos 
  desse sistema para gerar recursos virtuais para as máquinas virtuais. Normalmente este tipo suporta apenas um sistema 
- operacional convidado para cada hipervisor. Exemplos de sistemas são o \textit{VirtualBox} e o \textit{QEmu}.
+ operacional convidado para cada hipervisor. Exemplos deste tipo de sistema são: o \textit{VirtualBox} e o \textit{QEmu}.
 \end{itemize}
 
 Sabendo essas definições pode-se concluir que hipervisor convidados são mais flexíveis que os nativos, pois podem ser implementados
 em diversos sistemas operacionais e \textit{hardwares}. Já o hipervisor nativo possui melhor desempenho pois acessa o \textit{hardware}
-diretamente.
+diretamente (Figura \ref{fig:vms_arquiteturas}).
 
-\subsection{Níveis de virtualização}
-\label{section:virtniv}
-
-\begin{itemize}
- \item Virtualização de recursos: neste tipo de virtualização os recursos como memória e disco, além das instruções 
- privilegiadas (\textit{system \ac{ISA}}) são virtualizadas. Somente a interface \ac{ISA} de usuário é utilizada diretamente, 
- por isso o desempenho do sistema convidado é mais próximo a um sistema executando diretamente sobre um \textit{hardware}. O 
- \textit{VirtualBox} e o \textit{VirtualPC da Microsoft} são exemplos de virtualização de recursos;
- \item Virtualização completa: na virtualização completa todas interfaces são virtualizadas. Sendo assim o hipervisor fornece uma
- interface distinta ao sistema operacional convidado. Esse tipo de virtualização possui um eficiência menor, por outro lado ele
- permite executar sistemas operacionais em plataformas distintas a qual foram projetadas inicialmente. Por exemplo, o 
- \textit{MS Virtual PC for MAC}, que permite executar o sistema \textit{Windows} sobre plataforma de \textit{hardware} \textit{PowerPC}.
-\end{itemize}
-
-Tendo essas classificações, pode-se combiná-las para se obter quatro maneiras diferentes de implementar virtualização. Na Figura 
-\ref{fig:vms_classificacao} tem-se essas combinações com seus respectivos exemplos.
-
-\begin{figure}[vms_classificacao]
+\begin{figure}[vms_arquiteturas]
  \centering
- \includegraphics[width=400px]{img/vms_classificacao.eps}
- \caption{Classificação de máquinas virtuais de sistema.}
- \label{fig:vms_classificacao}
- Fonte: \citet{laureano2008}
+ \includegraphics[width=380px]{img/vms_arquiteturas.eps}
+ \caption{Arquiteturas de máquinas virtuais de sistema.}
+ \label{fig:vms_arquiteturas}
+ Fonte: \citet{maziero2013}
 \end{figure}
+
+%\subsection{Níveis de virtualização}
+%\label{section:virtniv}
+%\begin{itemize}
+% \item Virtualização de recursos: neste tipo de virtualização os recursos como memória e disco, além das instruções 
+% privilegiadas (\textit{system \ac{ISA}}) são virtualizadas. Somente a interface \ac{ISA} de usuário é utilizada diretamente, 
+% por isso o desempenho do sistema convidado é mais próximo a um sistema executando diretamente sobre um \textit{hardware}. O 
+% \textit{VirtualBox} e o \textit{VirtualPC da Microsoft} são exemplos de virtualização de recursos;
+% \item Virtualização completa: na virtualização completa todas interfaces são virtualizadas. Sendo assim o hipervisor fornece uma
+% interface distinta ao sistema operacional convidado. Esse tipo de virtualização possui um eficiência menor, por outro lado ele
+% permite executar sistemas operacionais em plataformas distintas a qual foram projetadas inicialmente. Por exemplo, o 
+% \textit{MS Virtual PC for MAC}, que permite executar o sistema \textit{Windows} sobre plataforma de \textit{hardware} \textit{PowerPC}.
+%\end{itemize}
+
+%Tendo essas classificações, pode-se combiná-las para se obter quatro maneiras diferentes de implementar virtualização. Na Figura 
+%\ref{fig:vms_classificacao} tem-se essas combinações com seus respectivos exemplos.
+
+%\begin{figure}[vms_classificacao]
+% \centering
+% \includegraphics[width=400px]{img/vms_classificacao.eps}
+% \caption{Classificação de máquinas virtuais de sistema.}
+% \label{fig:vms_classificacao}
+% Fonte: \citet{laureano2008}
+%\end{figure}
 
 \subsection{Estratégias de virtualização}
 \label{section:virtestrat}
 
-Pode-se dividir máquinas virtuais de sistema em dois tipos de estratégias distintas, são elas:
+REESCREVER \cite{maziero2013} Pode-se dividir máquinas virtuais de sistema em dois tipos de estratégias distintas, são elas:
 
 \begin{itemize}
  \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma
