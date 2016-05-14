@@ -161,28 +161,33 @@ implementados em diversos sistemas operacionais e \textit{hardwares}. Já o hipe
 \label{section:virtestrat}
 
 As máquinas virtuais de sistema podem ser classificadas em diferentes tipos de estratégias. Atualmente as estratégias mais utilizadas
-são a virtualização total e a paravirtualização. Antes disso deve-se compreender uma técnica utilizada para melhorar o desempenho das 
-máquinas virtuais, que é a tradução dinâmica. Nesta técnica o hipervisor faz a análise e reoganização das instruções do sistema convidado, 
-assim otimizando o desempenho da execução.
+são a virtualização total e a paravirtualização. Antes disso deve-se compreender uma técnica conhecida como tradução dinâmica. Nesta 
+técnica o hipervisor adapta as instruções geradas pelo sistema convidado para a interface \ac{ISA} do sistema real. Outra função da 
+tradução dinâmica é analisar e reoganizar as instruções do sistema convidado, com o objetivo de melhorar o desempenho da execução do 
+sistema convidado.
 
 \begin{itemize}
  \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma
- possibilita-se que sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. A grande
- vantagem dessa virtualização é a possibilidade de um sistema convidado executar sem a necessidade de ser modificado. Porém, existe uma 
- redução significativa no desempenho devido ao hipervisor intermediar todas as chamada de sistemas e operações do sistema convidado.
- Um exemplo de virtualização total é o \textit{QEmu};
- \item Paravirtualização: esta prove um melhor acoplamento entre os sistemas operacionais convidados e o hipervisor. Para isso o sistema
- convidado deve ser adaptado para o hipervisor no qual executará, ou seja, a interface de sistema (\textit{system ISA}) será acessada
- diretamente pelo sistema convidado, resultando em um desempenho melhor. Um exemplo de sistema que implementa a paravirtualização é o 
- \textit{Xen} e o \textit{VMware ESX Server}.
+ possibilita-se que sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. Na virtualização
+ total o conjunto de instruções do processador é acessível somente pelo hipervisor, sendo que essa estratégia utiliza tradução dinâmica
+ para traduzir as instruções do sistema convidado. A grande vantagem dessa virtualização é a possibilidade de um sistema convidado 
+ executar sem a necessidade de ser modificado. Porém, existe uma redução significativa no desempenho devido ao hipervisor intermediar 
+ todas as chamada de sistemas e operações do sistema convidado. Um exemplo de virtualização total é o \textit{QEmu};
+ \item Paravirtualização: esta utiliza arquitetura de hipervisor nativo, prove um melhor acoplamento entre os sistemas operacionais 
+ convidados e o hipervisor. Para isso o sistema convidado deve ser adaptado para o hipervisor no qual executará, ou seja, a interface de 
+ sistema (\textit{system ISA}) será acessada diretamente pelo sistema convidado, resultando em um desempenho melhor. São exemplos de 
+ sistema que implementa a paravirtualização: o \textit{Xen} e o \textit{VMware ESX Server}.
 \end{itemize}
 
 A paravirtualização possui um desempenho melhor se comparada a virtualização total, pois acessa alguns recursos diretamente, sendo que 
 o hipervisor é reponsável somente por impedir que o sistema convidado faça operações indevidas. Por exemplo, o gerenciamento da memória, 
-na virtualização total o hipervisor reserva um espaço para cada sistema convidado, que por sua vez acessa a memória como se fosse a memória de uma máquina física
-iniciando seu endereçamento em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor precisará
-converter os endereços do sistema convidado para endereços reais. Na paravirtualização o hipervisor informa ao sistema 
+na virtualização total o hipervisor reserva um espaço para cada sistema convidado, que por sua vez acessa a memória como se fosse a memória 
+de uma máquina física iniciando seu endereçamento em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor 
+precisará converter os endereços do sistema convidado para endereços reais. Na paravirtualização o hipervisor informa ao sistema 
 convidado a área de memória que ele pode utilizar, otimizando assim as operações.
+
+Por outro lado, a virtualização total possui uma maior portabilidade, ou seja, permite que sistemas operacionais convencionais executem
+como convidados. Pode-se por exemplo, transferir um sistema operacional instalado diretamente 
 
 A virtualização total obteve uma grande ganho de performance com a incorporação da virtualização aos processadores, através das 
 tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
