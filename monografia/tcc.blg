@@ -5,11 +5,13 @@ A level-1 auxiliary file: folha_rosto.aux
 A level-1 auxiliary file: capitulos/introducao.aux
 A level-1 auxiliary file: capitulos/capitulo2.aux
 A level-1 auxiliary file: capitulos/capitulo3.aux
+A level-1 auxiliary file: capitulos/capitulo4.aux
+A level-1 auxiliary file: capitulos/capitulo5.aux
 The style file: abnt.bst
 Database file #1: tcc.bib
 You've used 16 entries,
             2371 wiz_defined-function locations,
-            674 strings with 7378 characters,
+            676 strings with 7424 characters,
 and the built_in function-call counts, 16252 in all, are:
 = -- 1981
 > -- 54
