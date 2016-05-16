@@ -16,5 +16,7 @@
 \contentsline {subsection}{\numberline {3.2.1}Estrat\IeC {\'e}gias de virtualiza\IeC {\c c}\IeC {\~a}o}{17}
 \contentsline {subsection}{\numberline {3.2.2}Vantagens}{18}
 \contentsline {chapter}{\numberline {4}Estudo de caso}{20}
+\contentsline {section}{\numberline {4.1}Servi\IeC {\c c}os}{20}
+\contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{20}
 \contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{21}
 \contentsline {chapter}{Refer{\^e}ncias}{22}

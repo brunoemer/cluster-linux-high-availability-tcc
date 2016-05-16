@@ -65,7 +65,7 @@ virtualização. Abaixo são detalhados dois tipos de máquinas virtuais de apli
  ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que
  permita a execução da aplicação nesse ambiente. Como exemplo deste tipo de máquina virtual pode-se citar a: \textit{Microsoft Common 
  Language Infrastructure}, base do \textit{.Net} e a máquina virtual Java (\ac{JVM}) \cite{carissimi2008};
- \item Emulação no sistema operacional: nesse caos é feito um mapeamento entre as chamadas de sistema que são utilizadas pela aplicação 
+ \item Emulação no sistema operacional: nesse caso é feito um mapeamento entre as chamadas de sistema que são utilizadas pela aplicação 
  e as chamadas do sistema operacional real. A virtualização de aplicação pode ser encontrado em ferramentas que emulam uma aplicação 
  desenvolvida para uma plataforma em outra plataforma distinta, como por exemplo o \textit{Wine}, que permite executar aplicações 
  \textit{Windows} em plataformas \textit{Linux}.
@@ -91,15 +91,15 @@ virtualização. Abaixo são detalhados dois tipos de máquinas virtuais de apli
 \label{section:virtsistema}
 
 As máquinas virtuais de sistema também chamadas de hipervisor ou \ac{VMM}, são uma camada de \textit{software} que possibilita
-que um ou mais sistemas operacionais convidados executem independentemente sobre um memsmo computador físico. O hipervisor prove uma interface
+que um ou mais sistemas operacionais convidados executem independentemente sobre o mesmo computador físico. O hipervisor prove uma interface
 \ac{ISA} virtual que pode ou não ser igual a interface real, e virtualiza outros componentes de \textit{hardware}, para que cada máquina
 virtual convidada possa ter seus próprios recursos isolados.
 
-Nesse modelo, um ambiente de virtualização de sistema é composto basicamente por três componentes:
+Nesse modelo, o ambiente de virtualização de sistema é composto basicamente por três componentes:
 \begin{itemize}
  \item Sistema real: também pode ser chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
- \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM} e tem como função criar interfaces virtuais a
- partir de interfaces físicas, para a comunicação do sistema virtual com o sistema real;
+ \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM}, essa camada tem como função criar interfaces 
+ virtuais a partir de interfaces físicas, para a comunicação do sistema virtual com o sistema real;
  \item Sistema virtual: também conhecido como \textit{guest}, ou sistema convidado, que executa sobre o sistema real. Geralmente
  existem vários sistemas virtuais executando simultaneamente sobre o sistema real.
 \end{itemize}
@@ -173,22 +173,22 @@ sistema convidado.
  para traduzir as instruções do sistema convidado. A grande vantagem dessa virtualização é a possibilidade de um sistema convidado 
  executar sem a necessidade de ser modificado. Porém, existe uma redução significativa no desempenho devido ao hipervisor intermediar 
  todas as chamada de sistemas e operações do sistema convidado. Um exemplo de virtualização total é o \textit{QEmu};
- \item Paravirtualização: esta utiliza arquitetura de hipervisor nativo, prove um melhor acoplamento entre os sistemas operacionais 
- convidados e o hipervisor. Para isso o sistema convidado deve ser adaptado para o hipervisor no qual executará, ou seja, a interface de 
- sistema (\textit{system ISA}) será acessada diretamente pelo sistema convidado, resultando em um desempenho melhor. São exemplos de 
- sistema que implementa a paravirtualização: o \textit{Xen} e o \textit{VMware ESX Server}.
+ \item Paravirtualização: esta utiliza arquitetura de hipervisor nativo, sendo que essa estratégia prove um melhor acoplamento entre os 
+ sistemas operacionais convidados e o hipervisor. Para isso o sistema convidado deve ser adaptado para o hipervisor no qual executará, 
+ ou seja, a interface de sistema (\textit{system ISA}) será acessada diretamente pelo sistema convidado, resultando em um desempenho melhor. 
+ São exemplos de sistema que implementa a paravirtualização: o \textit{Xen} e o \textit{VMware ESX Server}.
 \end{itemize}
 
 A paravirtualização possui um desempenho melhor se comparada a virtualização total, pois acessa alguns recursos diretamente, sendo que 
 o hipervisor é reponsável somente por impedir que o sistema convidado faça operações indevidas. Por exemplo, o gerenciamento da memória, 
 na virtualização total o hipervisor reserva um espaço para cada sistema convidado, que por sua vez acessa a memória como se fosse a memória 
 de uma máquina física iniciando seu endereçamento em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor 
-precisará converter os endereços do sistema convidado para endereços reais. Na paravirtualização o hipervisor informa ao sistema 
-convidado a área de memória que ele pode utilizar, otimizando assim as operações.
+precisará converter os endereços do sistema convidado para endereços reais de memória. Na paravirtualização o hipervisor informa ao sistema 
+convidado a área de memória que ele pode utilizar, assim obtendo um melhor desempenho na execução de operações.
 
 Por outro lado, a virtualização total possui maior portabilidade, ou seja, permite que sistemas operacionais convencionais executem
-como convidados, sem serem modificados. Pode-se, por exemplo, transferir um sistema operacional instalado diretamente em uma máquina física 
-para um ambiente virtual, sem a necessidade de reinstalar e reconfigurar o sistema operacional.
+como convidados, sem a necessidade de serem modificados. Pode-se, por exemplo, transferir um sistema operacional instalado diretamente 
+em uma máquina física para um ambiente virtual, sem a necessidade de reinstalá-lo e reconfigurá-lo.
 
 A virtualização total obteve uma grande ganho de performance com a incorporação da virtualização aos processadores, através das 
 tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
