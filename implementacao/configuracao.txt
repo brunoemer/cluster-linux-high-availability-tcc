@@ -1,0 +1,5 @@
+http://linux.opm.si/programska-oprema/linux-gruca-cluster
+
+sudo apt-get install lsscsi sysstat iftop iptraf iputils-arping bridge-utils ifenslave drbd8-utils drbdlinks qemu-kvm ubuntu-vm-builder libvirt-bin virt-viewer ntp pacemaker pacemaker-mgmt corosync resource-agents fence-agents 
+
+
