@@ -28,7 +28,7 @@ tipos de interfaces existentes em sistemas de computação:
  \begin{itemize}
   \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários. Essas 
   executam em modo não-privilegiado. Um exemplo de instrução de usuário é uma instrução do processador executadas diretamente sobre a memória
-  alocada para o programa ????;
+  alocada para o programa;
   \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. 
   Essas são executadas em modo privilegiado. Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de instruções de sistema;
  \end{itemize}
@@ -65,7 +65,7 @@ virtualização. Abaixo são detalhados dois tipos de máquinas virtuais de apli
  ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que
  permita a execução da aplicação nesse ambiente. Como exemplo deste tipo de máquina virtual pode-se citar a: \textit{Microsoft Common 
  Language Infrastructure}, base do \textit{.Net} e a máquina virtual Java (\ac{JVM}) \cite{carissimi2008};
- \item Emulação no sistema operacional: nesse caos é feito um mapeamento entre as chamadas de sistema que são utilizadas pela aplicação 
+ \item Emulação no sistema operacional: nesse caso é feito um mapeamento entre as chamadas de sistema que são utilizadas pela aplicação 
  e as chamadas do sistema operacional real. A virtualização de aplicação pode ser encontrado em ferramentas que emulam uma aplicação 
  desenvolvida para uma plataforma em outra plataforma distinta, como por exemplo o \textit{Wine}, que permite executar aplicações 
  \textit{Windows} em plataformas \textit{Linux}.
@@ -91,15 +91,15 @@ virtualização. Abaixo são detalhados dois tipos de máquinas virtuais de apli
 \label{section:virtsistema}
 
 As máquinas virtuais de sistema também chamadas de hipervisor ou \ac{VMM}, são uma camada de \textit{software} que possibilita
-que um ou mais sistemas operacionais convidados executem independentemente sobre um memsmo computador físico. O hipervisor prove uma interface
+que um ou mais sistemas operacionais convidados executem independentemente sobre o mesmo computador físico. O hipervisor prove uma interface
 \ac{ISA} virtual que pode ou não ser igual a interface real, e virtualiza outros componentes de \textit{hardware}, para que cada máquina
 virtual convidada possa ter seus próprios recursos isolados.
 
-Nesse modelo, um ambiente de virtualização de sistema é composto basicamente por três componentes:
+Nesse modelo, o ambiente de virtualização de sistema é composto basicamente por três componentes:
 \begin{itemize}
  \item Sistema real: também pode ser chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
- \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM} e tem como função criar interfaces virtuais a
- partir de interfaces físicas, para a comunicação do sistema virtual com o sistema real;
+ \item Camada de virtualização: é conhecida como hipervisor ou também chamado de \ac{VMM}, essa camada tem como função criar interfaces 
+ virtuais a partir de interfaces físicas, para a comunicação do sistema virtual com o sistema real;
  \item Sistema virtual: também conhecido como \textit{guest}, ou sistema convidado, que executa sobre o sistema real. Geralmente
  existem vários sistemas virtuais executando simultaneamente sobre o sistema real.
 \end{itemize}
@@ -173,22 +173,22 @@ sistema convidado.
  para traduzir as instruções do sistema convidado. A grande vantagem dessa virtualização é a possibilidade de um sistema convidado 
  executar sem a necessidade de ser modificado. Porém, existe uma redução significativa no desempenho devido ao hipervisor intermediar 
  todas as chamada de sistemas e operações do sistema convidado. Um exemplo de virtualização total é o \textit{QEmu};
- \item Paravirtualização: esta utiliza arquitetura de hipervisor nativo, prove um melhor acoplamento entre os sistemas operacionais 
- convidados e o hipervisor. Para isso o sistema convidado deve ser adaptado para o hipervisor no qual executará, ou seja, a interface de 
- sistema (\textit{system ISA}) será acessada diretamente pelo sistema convidado, resultando em um desempenho melhor. São exemplos de 
- sistema que implementa a paravirtualização: o \textit{Xen} e o \textit{VMware ESX Server}.
+ \item Paravirtualização: esta utiliza arquitetura de hipervisor nativo, sendo que essa estratégia prove um melhor acoplamento entre os 
+ sistemas operacionais convidados e o hipervisor. Para isso o sistema convidado deve ser adaptado para o hipervisor no qual executará, 
+ ou seja, a interface de sistema (\textit{system ISA}) será acessada diretamente pelo sistema convidado, resultando em um desempenho melhor. 
+ São exemplos de sistema que implementa a paravirtualização: o \textit{Xen} e o \textit{VMware ESX Server}.
 \end{itemize}
 
 A paravirtualização possui um desempenho melhor se comparada a virtualização total, pois acessa alguns recursos diretamente, sendo que 
 o hipervisor é reponsável somente por impedir que o sistema convidado faça operações indevidas. Por exemplo, o gerenciamento da memória, 
 na virtualização total o hipervisor reserva um espaço para cada sistema convidado, que por sua vez acessa a memória como se fosse a memória 
 de uma máquina física iniciando seu endereçamento em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor 
-precisará converter os endereços do sistema convidado para endereços reais. Na paravirtualização o hipervisor informa ao sistema 
-convidado a área de memória que ele pode utilizar, otimizando assim as operações.
+precisará converter os endereços do sistema convidado para endereços reais de memória. Na paravirtualização o hipervisor informa ao sistema 
+convidado a área de memória que ele pode utilizar, assim obtendo um melhor desempenho na execução de operações.
 
 Por outro lado, a virtualização total possui maior portabilidade, ou seja, permite que sistemas operacionais convencionais executem
-como convidados, sem serem modificados. Pode-se, por exemplo, transferir um sistema operacional instalado diretamente em uma máquina física para um ambiente
-virtual, sem a necessidade de reinstalar e reconfigurar o sistema operacional.
+como convidados, sem a necessidade de serem modificados. Pode-se, por exemplo, transferir um sistema operacional instalado diretamente 
+em uma máquina física para um ambiente virtual, sem a necessidade de reinstalá-lo e reconfigurá-lo.
 
 A virtualização total obteve uma grande ganho de performance com a incorporação da virtualização aos processadores, através das 
 tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
@@ -198,26 +198,23 @@ e outro específico para máquinas virtuais.
 \label{section:virtvantag}
 
 Em muitos casos empresas utilizam serviços distribuídos entre servidores físicos, como, por exemplo, servidores de e-mail, hospedagens e 
-banco de dados, com isso existe uma ociosidade grande de recursos. Portanto uma das grandes vantagens da virtualização de sistema é um melhor 
-aproveitamento destes recursos, alocando vários serviços em um único servidor físico e assim gerando um melhor aproveitamento do \textit{hardware} 
-\cite{moreira2006}. Além disso, pode-se ter uma redução de custos com a administração e a manutenção dos servidores. Em um ambiente 
+banco de dados, com isso existe uma grande ociosidade de recursos. Portanto uma das grandes vantagens da virtualização de sistema é um melhor 
+aproveitamento desses recursos, alocando vários serviços em um único servidor físico e assim gerando um melhor aproveitamento do \textit{hardware} 
+\cite{moreira2006}. Além disso, pode-se ter uma redução de custos com a administração e a manutenção dos servidores físicos. Em um ambiente 
 heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
 Considerando isto, esse tipo de virtualização favorece a implementação do conceito um servidor por serviço, que consiste em ter um servidor
-para cada serviço. Outro fator relevante que favorece a implementação desse conceito é se caso exista uma falha de segurança em um serviço \cite{carissimi2008}.
+para cada serviço. Outro fator relevante que favorece a implementação desse conceito é o isolamento de serviços, ou seja, caso ocorra
+uma falha de segurança em um serviço, essa falha comprometerá todo o sistema e seus respectivos serviços \cite{carissimi2008}.
 
 Uma outra motivação para a utilização de virtualização do sistema consiste no custo da energia elétrica. A economia de energia pode ser obtida 
 através da implantação de servidores mais robustos para substituir dezenas de servidores comuns. Outros fatores como refrigeração do ambiente e 
 espaço físico utilizado também podem ser reduzidos com a implantação de virtualização de servidores, e consequentemente, reduzem os 
 custos de energia.
 
-
-A virtualização favorece a implementação do conceito um servidor por serviço, que consiste em ter um servidor para cada serviço.
-Mas porque não colocar todos serviços em um único servidor? Muitas vezes com uma variedade de serviços é necessário diferentes 
-sistemas operacionais, ou os serviços necessitam rodar nas mesmas portas, portanto isto se torna inviável. Outro fator relevante que 
-também favorece a implementação de um servidor por serviço é, caso exista uma falha de segurança em apenas um serviço, essa 
-vulnerabilidade poderá comprometer todos os outros serviços \cite{carissimi2008}.
-
-Virtualizacao de desktop ???
+A portabilidade é outra vantagem da virtualização, que também pode ser aplicada em \textit{desktops}, pode-se citar como exemplo o desenvolvimento 
+de \textit{software} para diversos sistemas operacionais sem a necessidade de um computador para cada sistema operacional. Assim, 
+máquinas virtuais em \textit{desktops} podem ser utilizadas em ambientes de desenvolvimento, pois possibilita a execução de multiplas 
+plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Pode-se citar como exemplo o \textit{VMware Workstation}, 
 
 %\section{Emulação ????}
 

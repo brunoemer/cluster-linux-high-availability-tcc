@@ -18,5 +18,4 @@
 \contentsline {chapter}{\numberline {4}Estudo de caso}{20}
 \contentsline {section}{\numberline {4.1}Servi\IeC {\c c}os}{20}
 \contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{20}
-\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{21}
-\contentsline {chapter}{Refer{\^e}ncias}{22}
+\contentsline {chapter}{Refer{\^e}ncias}{21}
