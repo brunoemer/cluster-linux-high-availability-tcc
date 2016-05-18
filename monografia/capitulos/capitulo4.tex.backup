@@ -1,0 +1,109 @@
+\chapter{Estudo de caso ? esse titulo ?}
+\label{cap:estudodecaso}
+
+Após terem sido compreendidos os conceitos de alta disponibilidade e de virtualização, pode-se iniciar a análise da estrutura atual da empresa.
+Essa empresa, que fornece serviços de hospedagens, será o foco desse trabalho, sabendo que ela atualmente possui redundância de refrigeração 
+e energia. Assim, essas redundâncias tem como objetivo prover um ambiente físico estável e confiável.
+
+Para ser possível propor uma solução de alta diponibilidade é necessário conhecer o cenário atual da empresa. 
+Nas próximas seções serão detalhados: o ambiente físico (Seção \ref{section:estfis}); a estrutura lógica, com a relação de servidores físicos
+e virtuais (Seção \ref{section:estlog}); todos os serviços fornecidos pela empresa (Seção \ref{section:serv}); e por fim o levantamento
+dos serviços críticos.
+
+\section{Estrutura física}
+\label{section:estfis}
+
+A estrutura atual da empresa é composta por 14 servidores montados em um \textit{rack}.
+
+\begin{table}
+\caption {Configuração dos servidores físicos}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}\hline
+Servidores & Processador & Memória & Disco & SO\\\hline
+bello &  &  &  & Ubuntu 14.04\\\hline
+brina & 2 x Intel Xeon CPU E5410 & 24GB DDR2 & 6 x HD SAS 300GB & Ubuntu 14.04\\\hline
+cacti &  &  &  & \\\hline
+dati &  &  &  & Ubuntu 14.04\\\hline
+fulmine &  &  &  & Ubuntu 14.04\\\hline
+monit &  &  &  & Ubuntu 12.04\\\hline
+nino &  &  &  & Ubuntu 14.04\\\hline
+piova &  &  &  & Ubuntu 14.04\\\hline
+raggio &  &  &  & Ubuntu 14.04\\\hline
+sfrunhon &  &  &  & \\\hline
+tempesta &  &  &  & Ubuntu 14.04\\\hline
+tuono &  &  &  & Ubuntu 14.04\\\hline
+venti &  &  &  & Ubuntu 14.04\\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+diagrama físico
+
+
+\section{Estrutura lógica}
+\label{section:estlog}
+
+diagramas máquinas de virtualização
+
+\section{Serviços}
+\label{section:serv}
+
+\begin{table}
+\caption {Serviços e descrições}
+\begin{center}
+\begin{tabular}[]{|l|l|l|}\hline
+Servidores & Serviços & Descrição\\\hline
+asp & HTTP/ASP & Servidor web linguagem ASP\\\hline
+backup & HTTP+SSH & Servidor de backup equipamentos de rede do provedor\\\hline
+bello & BACULA-STORAGE & Servidor de storage do bacula, para backup dos outros servidores\\\hline
+brina & VIRTUALIZACAO & Servidor de virtualização\\\hline
+cacti & CACTI & \\\hline
+dati & MYSQL & \\\hline
+dio & HTTP/PHP4 & \\\hline
+esibire & VIDEO STREAMING & \\\hline
+fatefurbo & GERENCIA FIBRA & \\\hline
+fiberhome & GERENCIA FIBRA & \\\hline
+fulmine & VIRTUALIZACAO & \\\hline
+hotspot &  & \\\hline
+ledriovardar &  & \\\hline
+masterauth &  & \\\hline
+merak &  & \\\hline
+miatanto &  & \\\hline
+mondoperso &  & \\\hline
+monete &  & \\\hline
+monit &  & \\\hline
+nino &  & \\\hline
+ns &  & \\\hline
+ottico &  & \\\hline
+parla &  & \\\hline
+passata &  & \\\hline
+passata2 &  & \\\hline
+piova & VIRTUALIZACAO & \\\hline
+pomodoro &  & \\\hline
+postfix &  & \\\hline
+quebei &  & \\\hline
+raggio & VIRTUALIZACAO & \\\hline
+rauco &  & \\\hline
+roncon &  & \\\hline
+ronconradius &  & \\\hline
+servo &  & \\\hline
+servo6 &  & \\\hline
+sfrunhon &  & \\\hline
+simplesip &  & \\\hline
+soldi &  & \\\hline
+speedauth &  & \\\hline
+tempesta & VIRTUALIZACAO & \\\hline
+trapel &  & \\\hline
+tuono & VIRTUALIZACAO & \\\hline
+venti & VIRTUALIZACAO & \\\hline
+vigilante &  & \\\hline
+vinicolagaribaldi &  & \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Serviços críticos}
+\label{section:servcrit}
+
+
