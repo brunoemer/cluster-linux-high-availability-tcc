@@ -4,11 +4,11 @@
 O conceito virtualização surgiu na década de 60, onde muitas vezes era necessário que um usuário utilizasse um ambiente individual, 
 com suas próprias aplicações e totalmente isolado dos demais usuários. Esse foi um dos principais motivos para a criação de máquinas 
 virtuais, mais conhecida como \ac{VM}, que apresentaram uma forte expansão com o sistema operacional \textit{370} que foi desenvolvido 
-pela \textit{IBM} e foi um dos principais sistemas comerciais com suporte a virtualização da época. Esse sistema operacional executava 
+pela \textit{IBM} e foi um dos principais sistemas comerciais com suporte à virtualização da época. Esse sistema operacional executava 
 sobre \textit{mainframes}, que na época eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
 
 Na década de 80, houve uma redução da utilização da virtualização devido a popularização do \ac{PC}. Na época era mais vantajoso disponibilizar 
-um \ac{PC} para cada usuário, do que investir em \textit{mainframes}. Devido ao crescente avanço e o melhor desempenho do \ac{PC} e
+um \ac{PC} para cada usuário, ao invés de investir em \textit{mainframes}. Devido ao crescente avanço e o melhor desempenho do \ac{PC} e
 ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnologia de virtualização retornou com o conceito de virtualização
 de aplicação.
 
@@ -27,18 +27,19 @@ tipos de interfaces existentes em sistemas de computação:
  instruções de código de máquina. Esta interface é dividida em dois grupos:
  \begin{itemize}
   \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários. Essas 
-  executam em modo não-privilegiado. Um exemplo de instrução de usuário é uma instrução do processador executadas diretamente sobre a memória
+  executam em modo não-privilegiado. Um exemplo de instrução de usuário é uma instrução do processador que executa diretamente sobre a memória
   alocada para o programa;
   \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. 
   Essas são executadas em modo privilegiado. Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de instruções de sistema;
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
- Essas operações permitem o acesso controlado aos dispositivos, memória e processador. Um exemplo de chamada de sistema é uma escrita em disco.
+ Essas operações permitem o acesso controlado aos dispositivos, memória e processador. Um exemplo de chamada de sistema é uma operação de escrita 
+ em disco.
 \end{itemize}
 
 Máquinas virtuais podem ser divididas em dois grupos principais, que são: as máquinas virtuais de aplicação, na (Seção \ref{section:virtaplicacao}), 
 e máquinas virtuais de sistema, na (Seção \ref{section:virtsistema}). As máquinas virtuais de aplicação fazem a virtualização de uma 
-aplicação e suportam apenas um processo ou aplicação. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. Já uma máquina virtual de 
+aplicação e suportam apenas um processo ou aplicação. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. Enquanto uma máquina virtual de 
 sistema suporta sistemas operacionais convidados, com suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}). Uma máquina virtual 
 executando com \ac{KVM} é um exemplo de máquina virtual de aplicação \cite{laureano2008}.
 
@@ -62,11 +63,11 @@ virtualização. Abaixo são detalhados dois tipos de máquinas virtuais de apli
 \begin{itemize}
  \item Máquinas virtuais de linguagem de alto nível: esse tipo de máquina virtual foi criado levando em consideração uma linguagem de 
  programação e seu compilador. O código compilado gera um código binário que não pode ser executado em uma arquitetura real, mas pode
- ser executada em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que
- permita a execução da aplicação nesse ambiente. Como exemplo deste tipo de máquina virtual pode-se citar a: \textit{Microsoft Common 
+ ser executado em uma máquina virtual. Sendo assim para cada arquitetura ou sistema operacional deve existir uma máquina virtual que
+ permita a execução da aplicação nesse ambiente. Como exemplo deste tipo de máquina virtual pode-se citar a \textit{Microsoft Common 
  Language Infrastructure}, base do \textit{.Net} e a máquina virtual Java (\ac{JVM}) \cite{carissimi2008};
  \item Emulação no sistema operacional: nesse caso é feito um mapeamento entre as chamadas de sistema que são utilizadas pela aplicação 
- e as chamadas do sistema operacional real. A virtualização de aplicação pode ser encontrado em ferramentas que emulam uma aplicação 
+ e as chamadas do sistema operacional real. A virtualização de aplicação pode ser encontrada em ferramentas que emulam uma aplicação 
  desenvolvida para uma plataforma em outra plataforma distinta, como por exemplo o \textit{Wine}, que permite executar aplicações 
  \textit{Windows} em plataformas \textit{Linux}.
 \end{itemize}
@@ -214,7 +215,8 @@ custos de energia.
 A portabilidade é outra vantagem da virtualização, que também pode ser aplicada em \textit{desktops}, pode-se citar como exemplo o desenvolvimento 
 de \textit{software} para diversos sistemas operacionais sem a necessidade de um computador para cada sistema operacional. Assim, 
 máquinas virtuais em \textit{desktops} podem ser utilizadas em ambientes de desenvolvimento, pois possibilita a execução de multiplas 
-plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Pode-se citar como exemplo o \textit{VMware Workstation}, 
+plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Pode-se citar como exemplo o \textit{VMware Workstation}, que 
+possibilita a virtualização em \ac{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
 
 %\section{Emulação ????}
 
