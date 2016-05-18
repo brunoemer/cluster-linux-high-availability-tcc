@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  17 MAY 2016 22:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.14)  18 MAY 2016 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -874,6 +874,27 @@ File: acro1.def
 . Defining document command \printacronyms with arg. spec. 'O{}' on line 506.
 .................................................
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/pbox/pbox.sty
+Package: pbox 2011/12/07 v1.2 Dynamic parboxes
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count141
+\calc@Bcount=\count142
+\calc@Adimen=\dimen141
+\calc@Bdimen=\dimen142
+\calc@Askip=\skip64
+\calc@Bskip=\skip65
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count143
+\calc@Cskip=\skip66
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\pb@xlen=\skip67
+)
 \@input{acronym.aux}
 \openout2 = `acronym.aux'.
 
@@ -882,38 +903,38 @@ File: acro1.def
 (./capitulos/capitulo4.aux) (./capitulos/capitulo5.aux))
 \openout1 = `tcc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 26.
+(lastpage)             ! on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count141
-\scratchdimen=\dimen141
+\scratchcounter=\count144
+\scratchdimen=\dimen143
 \scratchbox=\box42
-\nofMPsegments=\count142
-\nofMParguments=\count143
+\nofMPsegments=\count145
+\nofMParguments=\count146
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count144
-\MPscratchDim=\dimen142
-\MPnumerator=\count145
-\makeMPintoPDFobject=\count146
+\MPscratchCnt=\count147
+\MPscratchDim=\dimen144
+\MPnumerator=\count148
+\makeMPintoPDFobject=\count149
 \everyMPtoPDFconversion=\toks24
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -935,25 +956,25 @@ e
 ))
 \AtBeginShipoutBox=\box43
 Package epstopdf Info: Source file: <img/iilogo.eps>
-(epstopdf)                    date: 2016-03-19 18:23:38
+(epstopdf)                    date: 2016-03-22 10:25:59
 (epstopdf)                    size: 14378 bytes
 (epstopdf)             Output file: <img/iilogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-19 18:29:56
+(epstopdf)                    date: 2016-03-22 10:25:59
 (epstopdf)                    size: 8456 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/iilogo-eps-converted-t
 o.pdf img/iilogo.eps>
-(epstopdf)             \includegraphics on input line 28.
+(epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/iilogo-eps-converted-to.pdf, id=1, 64.24pt x 101.37875pt>
 File: img/iilogo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/iilogo-eps-converted-to.pdf>
-Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 28.
+Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 32.
 
 (pdftex.def)             Requested size: 32.11992pt x 50.68924pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--28
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
 
  []
 
@@ -978,15 +999,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ])
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 36.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 36.
 
 (./tcc.toc
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
@@ -1120,10 +1141,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 ]
 Package epstopdf Info: Source file: <img/vms_tipos.eps>
-(epstopdf)                    date: 2016-05-12 23:04:53
+(epstopdf)                    date: 2016-05-13 18:20:06
 (epstopdf)                    size: 164964 bytes
 (epstopdf)             Output file: <img/vms_tipos-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-13 20:06:30
+(epstopdf)                    date: 2016-05-16 08:24:20
 (epstopdf)                    size: 55375 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_tipos-eps-converte
 d-to.pdf img/vms_tipos.eps>
@@ -1143,11 +1164,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [16]
 Package epstopdf Info: Source file: <img/vms_arquiteturas.eps>
-(epstopdf)                    date: 2016-05-12 22:54:20
+(epstopdf)                    date: 2016-05-13 18:20:06
 (epstopdf)                    size: 147866 bytes
 (epstopdf)             Output file: <img/vms_arquiteturas-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2016-05-13 20:06:30
+(epstopdf)                    date: 2016-05-16 08:24:20
 (epstopdf)                    size: 54901 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_arquiteturas-eps-c
 onverted-to.pdf img/vms_arquiteturas.eps>
@@ -1170,12 +1191,22 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout2 = `capitulos/capitulo4.aux'.
 
  (./capitulos/capitulo4.tex
-Overfull \hbox (144.85457pt too wide) in paragraph at lines 63--111
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+[]\OT1/cmr/m/n/12 Intel Pen-tium Dual
+ []
+
+
+Overfull \hbox (38.60835pt too wide) in paragraph at lines 23--40
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 42.84924pt on input line 112.
+Overfull \hbox (144.85457pt too wide) in paragraph at lines 64--112
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 42.84924pt on input line 113.
 
 )
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1243,13 +1274,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12319 strings out of 495004
- 238867 string characters out of 6180662
- 304586 words of memory out of 5000000
- 15264 multiletter control sequences out of 15000+600000
+ 12481 strings out of 495004
+ 241036 string characters out of 6180662
+ 310610 words of memory out of 5000000
+ 15416 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,9n,57p,10386b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,57p,10386b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
@@ -1258,7 +1289,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (25 pages, 266161 bytes).
+Output written on tcc.pdf (25 pages, 266623 bytes).
 PDF statistics:
  129 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream
