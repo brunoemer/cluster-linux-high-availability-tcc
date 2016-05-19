@@ -104,10 +104,10 @@ order=4
 
 [item:capitulos/capitulo4.tex]
 archive=true
-column=0
+column=13
 encoding=UTF-8
 highlight=LaTeX
-line=42
+line=102
 mode=LaTeX
 open=true
 order=5
@@ -201,10 +201,10 @@ JumpList=
 ViMarks=.,215,125,[,215,125,],215,125
 
 [view-settings,view=0,item:capitulos/capitulo4.tex]
-CursorColumn=0
-CursorLine=42
+CursorColumn=13
+CursorLine=102
 JumpList=
-ViMarks=.,44,147,[,45,0,],-1,-1
+ViMarks=.,102,12,[,102,5,],102,12
 
 [view-settings,view=0,item:capitulos/capitulo5.tex]
 CursorColumn=0
