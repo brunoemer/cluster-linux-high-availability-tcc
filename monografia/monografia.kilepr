@@ -84,10 +84,10 @@ order=0
 
 [item:capitulos/capitulo2.tex]
 archive=true
-column=6
+column=20
 encoding=UTF-8
 highlight=LaTeX
-line=137
+line=72
 mode=LaTeX
 open=true
 order=3
@@ -189,8 +189,8 @@ JumpList=
 ViMarks=.,82,29,[,82,18,],82,29
 
 [view-settings,view=0,item:capitulos/capitulo2.tex]
-CursorColumn=6
-CursorLine=137
+CursorColumn=20
+CursorLine=72
 JumpList=
 ViMarks=.,0,0,[,0,0,],0,0
 
@@ -204,7 +204,7 @@ ViMarks=.,215,125,[,215,125,],215,125
 CursorColumn=0
 CursorLine=42
 JumpList=
-ViMarks=.,47,25,[,47,25,],47,25
+ViMarks=.,44,147,[,45,0,],-1,-1
 
 [view-settings,view=0,item:capitulos/capitulo5.tex]
 CursorColumn=0

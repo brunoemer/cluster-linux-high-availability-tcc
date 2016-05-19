@@ -1,20 +1,21 @@
-\chapter{Estudo de caso ? esse titulo ?}
+\chapter{Estudo de caso ? titulo ?}
 \label{cap:estudodecaso}
 
-Após terem sido compreendidos os conceitos de alta disponibilidade e de virtualização, pode-se iniciar a análise da estrutura atual da empresa.
+Após os conceitos de alta disponibilidade e de virtualização terem sido compreendidos, pode-se iniciar a análise da estrutura atual da empresa.
 Essa empresa, que fornece serviços de hospedagens, será o foco desse trabalho, sabendo que ela atualmente possui redundância de refrigeração 
 e energia. Assim, essas redundâncias tem como objetivo prover um ambiente físico estável e confiável.
 
-Para ser possível propor uma solução de alta diponibilidade é necessário conhecer o cenário atual da empresa. Então, nas próximas seções 
-serão detalhados: o ambiente físico, com a estrutura e configuração dos servidores (Seção \ref{section:estfis}); a estrutura lógica, com 
-a relação de servidores físicos e virtuais (Seção \ref{section:estlog}); todos os serviços fornecidos pela empresa (Seção \ref{section:serv}); 
-e por fim a seleção dos serviços críticos (Seção \ref{section:servcrit}).
+Para ser possível propor uma solução de alta diponibilidade é necessário conhecer o cenário atual da empresa, além de selecionar os serviços
+mais críticos para a empresa. Então, nas próximas seções serão detalhados: o ambiente físico, com a estrutura e configuração dos servidores 
+(Seção \ref{section:estfis}); a estrutura lógica, com a relação de servidores físicos e virtuais (Seção \ref{section:estlog}); todos os 
+serviços fornecidos pela empresa (Seção \ref{section:serv}); e por fim a seleção dos serviços críticos (Seção \ref{section:servcrit}).
 
 \section{Estrutura física}
 \label{section:estfis}
 
-A estrutura atual da empresa é composta por quatorze servidores montados em um \textit{rack}. A configuração desses servidores esta listado
-na Tabela \ref{tab:servfisicos}.
+A estrutura atual da empresa é composta por quatorze servidores físicos montados em um \textit{rack}. A configuração de \textit{hardware} desses 
+servidores esta listado na Tabela \ref{tab:servfisicos}, que possui os campos nome do servidor, modelo e quantidade de processadores, quantidade
+e tipo de memória, número de discos e a capacidade unitária, e o modelo e marca do servidor.
 
 \begin{table}
 \caption {Configuração dos servidores físicos}
@@ -40,16 +41,35 @@ vigilante & Intel Pentium Dual CPU E2180 2.00GHz & 4GB DDR2 & 2,5TB SATA & \\\hl
 \end{center}
 \end{table}
 
--diagrama físico
+%feito depois enviado para professor
+Os servidores utilizados para virtualização possuem redundância de \textit{hardware}, com fonte de alimentação, discos configurados com \ac{RAID}, ...
 
--graficos cpu memoria disco
+O diagrama (Figura \ref{fig:servfisicos}) demonstra a estrutura física....
+%feito depois enviado para professor
+Para cada servidor de virtualização dois cabos de rede são ligados a um \textit{switch} \textit{gigabit}, com isso possibilitando a configuração 
+de \texit{link aggregation}, dobrando assim a capacidade de tráfego de dados...
+
+\begin{figure}[servfisicos]
+ \centering
+ \includegraphics[width=180px]{img/servfisicos.eps}
+ \caption{Estrutura física.}
+ \label{fig:servfisicos}
+\end{figure}
 
 \section{Estrutura lógica}
 \label{section:estlog}
 
-Atualmente sete servidores são utilizados para virtualização. O primeiro (Figura \ref{fig:servlog_1}), ...
+Atualmente sete servidores são utilizados para virtualização, e os outros sete possuem serviços rodando diretamente. O primeiro servidor 
+de virtualização (brina ? Como citar nome ?), que esta na Figura \ref{fig:servlog_1}, possui seis máquinas virtuais.
+O segundo...
 
 -diagramas máquinas de virtualização
+
+%feito depois enviado para professor
+Todos os servidores de virtualização possuem o sistema operacional \textit{Ubuntu} versão 14.04 LTS, para virtualização utilizam o hipervisor 
+\ac{kvm} e \textit{qemu} para compor o ambiente de virtualização...
+
+-graficos cpu memoria disco cada servidor de virtualizacao?
 
 \begin{figure}[servlog_1]
  \centering
@@ -61,16 +81,19 @@ Atualmente sete servidores são utilizados para virtualização. O primeiro (Fig
 \section{Serviços}
 \label{section:serv}
 
-A empresa fornece serviços diversos, desde hospedagens de sites até \textit{DNS} recursivo para um provedor de internet.
+A empresa fornece serviços diversos, desde hospedagens de sites até \textit{DNS} recursivo para um provedor de internet. É importante
+salientar que esse provedor utiliza a maior parte dos serviços, pois possui maior número de clientes.
 A Tabela \ref{tab:servporservidor} mostra todos os servidores, incluindo virtuais, e seus respectivos serviços.
+
+A maioria dos serviços são fornecidos por meio de \textit{software} de código aberto, e a maioria dos sistemas operacionais são \textit{Ubuntu}
+ou outro sistema de código aberto, que também é \textit{software} livre.
 
 \begin{table}
 \caption {Serviços por servidor}
 \label{tab:servporservidor}
-
 \begin{center}
 \begin{tabular}{|l|p{12cm}|}\hline
-Servidores & Descrição\\\hline
+Servidor & Descrição\\\hline
 asp & Servidor web linguagem ASP\\\hline
 backup & Servidor de backup equipamentos de rede do provedor\\\hline
 bello & Servidor de storage do bacula, para backup dos outros servidores\\\hline
@@ -124,4 +147,22 @@ vinicolag & Servidor de backup de um cliente\\\hline
 \section{Serviços críticos}
 \label{section:servcrit}
 
-
+Esboço:\\
+-DNS (impacto direto para clientes): \\
+requisicoes por segundo\\
+numero de usuarios\\
+-Radius (impacto direto para clientes): \\
+numero de usuarios autentidados em x tempo\\
+quantidade de dados armazenados no db em x tempo, trafego utilizado, tempo conexao\\
+numero de usuarios\\
+-Sistemas (impacto indireto para clientes): \\
+gasto com funcionarios ociosos\\
+quantidade de atendimento a clientes\\
+numero de cobrancas enviadas para clientes efetuar pagamento\\
+comunicacao entre setores e funcionarios\\
+numero de usuarios\\
+-Telefonia (impacto indireto para clientes): \\
+quantidade de atendimento a clientes\\
+comunicacao entre setores e funcionarios\\
+ligacoes saintes, atendimento, cobranca, tecnicos instalacoes internet\\
+numero de usuarios\\
