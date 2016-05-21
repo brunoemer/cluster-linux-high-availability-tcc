@@ -10,11 +10,13 @@
 \contentsline {section}{\numberline {2.1}Toler\IeC {\^a}ncia a falhas}{9}
 \contentsline {section}{\numberline {2.2}Redund\IeC {\^a}ncia}{11}
 \contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo da alta disponibilidade}{12}
+\contentsline {section}{\numberline {2.4}Considera\IeC {\c c}\IeC {\~o}es finais}{13}
 \contentsline {chapter}{\numberline {3}Virtualiza\IeC {\c c}\IeC {\~a}o}{14}
 \contentsline {section}{\numberline {3.1}M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o}{15}
 \contentsline {section}{\numberline {3.2}M\IeC {\'a}quinas virtuais de sistema}{16}
-\contentsline {subsection}{\numberline {3.2.1}Estrat\IeC {\'e}gias de virtualiza\IeC {\c c}\IeC {\~a}o}{17}
-\contentsline {subsection}{\numberline {3.2.2}Vantagens}{18}
+\contentsline {subsection}{\numberline {3.2.1}Arquiteturas de m\IeC {\'a}quinas virtuais de sistema}{16}
+\contentsline {subsection}{\numberline {3.2.2}Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema}{17}
+\contentsline {subsection}{\numberline {3.2.3}Vantagens}{18}
 \contentsline {chapter}{\numberline {4}Estudo de caso ? titulo ?}{20}
 \contentsline {section}{\numberline {4.1}Estrutura f\IeC {\'\i }sica}{20}
 \contentsline {section}{\numberline {4.2}Estrutura l\IeC {\'o}gica}{20}

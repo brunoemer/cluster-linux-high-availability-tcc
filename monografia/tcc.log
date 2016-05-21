@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  20 MAY 2016 21:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  21 MAY 2016 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -74,18 +74,10 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 91.
+Package graphics Info: Driver file: dvips.def on input line 91.
 
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count89
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
@@ -95,14 +87,14 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip43
 \bibsep=\skip44
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count90
+\c@NAT@ctr=\count89
 )
 \ii@topmargin=\skip45
 \ii@pagenummargin=\skip46
 \ii@bottommargin=\skip47
 \ii@sidemargin=\skip48
-\c@ii@authorcount=\count91
-\c@kwcounter=\count92
+\c@ii@authorcount=\count90
+\c@kwcounter=\count91
 \titlepagewinwidth=\skip49
 \titlepagewinheight=\skip50
 \titlepagewinvoffset=\skip51
@@ -331,7 +323,7 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@outerparindent=\dimen106
 \enit@toks=\toks17
 \enit@inbox=\box26
-\enitdp@description=\count93
+\enitdp@description=\count92
 )
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
@@ -350,7 +342,7 @@ Package: l3names 2014/01/04 v4640 L3 Namespace for primitives
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count94
+\et@xins=\count93
 )
 Package: expl3 2014/01/07 v4646 L3 Experimental code bundle wrapper
 
@@ -368,18 +360,18 @@ Package: l3seq 2013/12/14 v4623 L3 Sequences and stacks
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3int.sty
 Package: l3int 2013/08/02 v4583 L3 Integers
-\c_max_int=\count95
-\l_tmpa_int=\count96
-\l_tmpb_int=\count97
-\g_tmpa_int=\count98
-\g_tmpb_int=\count99
+\c_max_int=\count94
+\l_tmpa_int=\count95
+\l_tmpb_int=\count96
+\g_tmpa_int=\count97
+\g_tmpb_int=\count98
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3quark.sty
 Package: l3quark 2013/12/14 v4623 L3 Quarks
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3prg.sty
 Package: l3prg 2014/01/04 v4642 L3 Control structures
-\g__prg_map_int=\count100
+\g__prg_map_int=\count99
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3clist.sty
 Package: l3clist 2013/07/28 v4581 L3 Comma separated lists
@@ -395,11 +387,11 @@ Package: l3msg 2013/07/28 v4581 L3 Messages
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3file.sty
 Package: l3file 2013/10/13 v4596 L3 File and I/O operations
-\l_iow_line_count_int=\count101
-\l__iow_target_count_int=\count102
-\l__iow_current_line_int=\count103
-\l__iow_current_word_int=\count104
-\l__iow_current_indentation_int=\count105
+\l_iow_line_count_int=\count100
+\l__iow_target_count_int=\count101
+\l__iow_current_line_int=\count102
+\l__iow_current_word_int=\count103
+\l__iow_current_indentation_int=\count104
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3skip.sty
 Package: l3skip 2013/07/28 v4581 L3 Dimensions and skips
@@ -424,20 +416,20 @@ Package: l3skip 2013/07/28 v4581 L3 Dimensions and skips
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3keys.sty
 Package: l3keys 2013/12/08 v4614 L3 Experimental key-value interfaces
-\g__keyval_level_int=\count106
-\l_keys_choice_int=\count107
+\g__keyval_level_int=\count105
+\l_keys_choice_int=\count106
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3fp.sty
 Package: l3fp 2014/01/04 v4642 L3 Floating points
-\c__fp_leading_shift_int=\count108
-\c__fp_middle_shift_int=\count109
-\c__fp_trailing_shift_int=\count110
-\c__fp_big_leading_shift_int=\count111
-\c__fp_big_middle_shift_int=\count112
-\c__fp_big_trailing_shift_int=\count113
-\c__fp_Bigg_leading_shift_int=\count114
-\c__fp_Bigg_middle_shift_int=\count115
-\c__fp_Bigg_trailing_shift_int=\count116
+\c__fp_leading_shift_int=\count107
+\c__fp_middle_shift_int=\count108
+\c__fp_trailing_shift_int=\count109
+\c__fp_big_leading_shift_int=\count110
+\c__fp_big_middle_shift_int=\count111
+\c__fp_big_trailing_shift_int=\count112
+\c__fp_Bigg_leading_shift_int=\count113
+\c__fp_Bigg_middle_shift_int=\count114
+\c__fp_Bigg_trailing_shift_int=\count115
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3box.sty
 Package: l3box 2013/07/28 v4581 L3 Experimental boxes
@@ -474,8 +466,8 @@ Package: l3color 2012/08/29 v4156 L3 Experimental color support
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3luatex.sty
 Package: l3luatex 2013/07/28 v4581 L3 Experimental LuaTeX-specific functions
-\g__cctab_allocate_int=\count117
-\g__cctab_stack_int=\count118
+\g__cctab_allocate_int=\count116
+\g__cctab_stack_int=\count117
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3candidates.sty
 Package: l3candidates 2014/01/06 v4643 L3 Experimental additions to l3kernel
@@ -498,25 +490,25 @@ Package: l3candidates 2014/01/06 v4643 L3 Experimental additions to l3kernel
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/l3experimental/l3sort/l3sort.sty
 Package: l3sort 2013/12/14 v4623 L3 Experimental sorting functions
-\l__sort_length_int=\count119
-\l__sort_block_int=\count120
-\l__sort_begin_int=\count121
-\l__sort_end_int=\count122
-\l__sort_A_int=\count123
-\l__sort_B_int=\count124
-\l__sort_C_int=\count125
+\l__sort_length_int=\count118
+\l__sort_block_int=\count119
+\l__sort_begin_int=\count120
+\l__sort_end_int=\count121
+\l__sort_A_int=\count122
+\l__sort_B_int=\count123
+\l__sort_C_int=\count124
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2013/12/31 v4634 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count126
-\l__xparse_m_args_int=\count127
-\l__xparse_mandatory_args_int=\count128
-\l__xparse_processor_int=\count129
-\l__xparse_v_nesting_int=\count130
+\l__xparse_current_arg_int=\count125
+\l__xparse_m_args_int=\count126
+\l__xparse_mandatory_args_int=\count127
+\l__xparse_processor_int=\count128
+\l__xparse_v_nesting_int=\count129
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2013/12/31 v4634 LaTeX2e option processing using LaTeX3 keys
@@ -525,7 +517,7 @@ Package: l3keys2e 2013/12/31 v4634 LaTeX2e option processing using LaTeX3 keys
 Package: xtemplate 2013/12/31 v4634 L3 Experimental prototype document function
 s
 \l__xtemplate_tmp_dim=\dimen138
-\l__xtemplate_tmp_int=\count131
+\l__xtemplate_tmp_int=\count130
 \l__xtemplate_tmp_muskip=\muskip17
 \l__xtemplate_tmp_skip=\skip60
 Variant \prop_get:NoNTF already defined; not changing it on line 106
@@ -533,10 +525,10 @@ Variant \prop_get:NoNT already defined; not changing it on line 107
 Variant \prop_get:NoNF already defined; not changing it on line 108
 )
 Package: acro 2013/12/18 v1.5 Typeset Acronyms
-\l__acro_tmpa_int=\count132
-\l__acro_tmpb_int=\count133
-\l__acro_tmpc_int=\count134
-\l__acro_tmpd_int=\count135
+\l__acro_tmpa_int=\count131
+\l__acro_tmpb_int=\count132
+\l__acro_tmpc_int=\count133
+\l__acro_tmpd_int=\count134
 Variant \tl_put_right:NV already defined; not changing it on line 124
 Variant \seq_use:cnnn already defined; not changing it on line 127
 \l__acro_table_width_dim=\dimen139
@@ -568,6 +560,12 @@ Package: zref-abspage 2012/04/04 v2.24 Module abspage for zref (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/zref-base.sty
 Package: zref-base 2012/04/04 v2.24 Module base for zref (HO)
 
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 
@@ -592,7 +590,7 @@ Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
+Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
@@ -604,7 +602,7 @@ Package zref Info: New property: page on input line 761.
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
 )
-\c@abspage=\count136
+\c@abspage=\count135
 Package zref Info: New property: abspage on input line 62.
 )
 .................................................
@@ -824,11 +822,11 @@ Package: pgfopts 2011/06/02 v2.1 LaTeX package options with pgfkeys
 )
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
-\etb@tempcnta=\count137
+\etb@tempcnta=\count136
 )
-\c@cnltx@tmpa=\count138
-\c@cnltx@tmpb=\count139
-\c@cnltx@tmpc=\count140
+\c@cnltx@tmpa=\count137
+\c@cnltx@tmpb=\count138
+\c@cnltx@tmpc=\count139
 \cnltx@tmpa@length=\skip61
 \cnltx@tmpb@length=\skip62
 \cnltx@tmpc@length=\skip63
@@ -839,9 +837,8 @@ Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Driver file: dvips.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
@@ -901,58 +898,9 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
 (lastpage)             ! on input line 26.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count141
-\scratchdimen=\dimen141
-\scratchbox=\box42
-\nofMPsegments=\count142
-\nofMParguments=\count143
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count144
-\MPscratchDim=\dimen142
-\MPnumerator=\count145
-\makeMPintoPDFobject=\count146
-\everyMPtoPDFconversion=\toks24
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-)
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-\AtBeginShipoutBox=\box43
-Package epstopdf Info: Source file: <img/iilogo.eps>
-(epstopdf)                    date: 2016-03-19 18:23:38
-(epstopdf)                    size: 14378 bytes
-(epstopdf)             Output file: <img/iilogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-19 18:29:56
-(epstopdf)                    size: 8456 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/iilogo-eps-converted-t
-o.pdf img/iilogo.eps>
-(epstopdf)             \includegraphics on input line 28.
-Package epstopdf Info: Output file is already uptodate.
-
-<img/iilogo-eps-converted-to.pdf, id=1, 64.24pt x 101.37875pt>
-File: img/iilogo-eps-converted-to.pdf Graphic file (type pdf)
-
-<use img/iilogo-eps-converted-to.pdf>
-Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 28.
-
-(pdftex.def)             Requested size: 32.11992pt x 50.68924pt.
-
+\AtBeginShipoutBox=\box42
+File: img/iilogo.eps Graphic file (type eps)
+ <img/iilogo.eps>
 Underfull \hbox (badness 10000) in paragraph at lines 28--28
 
  []
@@ -961,8 +909,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--28
 
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/iilogo-eps-converted
--to.pdf>]
+]
 \openout2 = `folha_rosto.aux'.
 
  (./folha_rosto.tex
@@ -1019,17 +966,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--9
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
  []  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--18
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
  []  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--23
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
  []  
  []
 
@@ -1104,6 +1051,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout2 = `capitulos/capitulo3.aux'.
 
  (./capitulos/capitulo3.tex
+Overfull \hbox (17.54982pt too wide) in paragraph at lines 29--32
+\OT1/cmr/m/n/12 ^^Ra aplica^^Xc~oes de usu^^Sarios, sendo que es-sas exe-cu-tam
+ em modo n~ao-privilegiado.
+ []
+
+
 Overfull \hbox (17.64131pt too wide) in paragraph at lines 32--34
 []\OT1/cmr/m/n/12 Instru^^Xc~oes de sis-tema ou \OT1/cmr/m/it/12 Sys-tem []ISA\
 OT1/cmr/m/n/12 : s~ao ins-tru^^Xc~oes ex-clu-si-va-mente acess^^S^^Pveis
@@ -1119,49 +1072,42 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Package epstopdf Info: Source file: <img/vms_tipos.eps>
-(epstopdf)                    date: 2016-05-12 23:04:53
-(epstopdf)                    size: 164964 bytes
-(epstopdf)             Output file: <img/vms_tipos-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-13 20:06:30
-(epstopdf)                    size: 55375 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/vms_tipos-eps-converte
-d-to.pdf img/vms_tipos.eps>
-(epstopdf)             \includegraphics on input line 48.
-Package epstopdf Info: Output file is already uptodate.
- <img/vms_tipos-eps-converted-to.pdf, id=61, 665.48625pt x 394.47375pt>
-File: img/vms_tipos-eps-converted-to.pdf Graphic file (type pdf)
+File: img/vms_tipos.eps Graphic file (type eps)
+ <img/vms_tipos.eps> [15]
 
-<use img/vms_tipos-eps-converted-to.pdf>
-Package pdftex.def Info: img/vms_tipos-eps-converted-to.pdf used on input line 
-48.
-(pdftex.def)             Requested size: 381.42639pt x 226.09833pt.
- [15 <./img/vms_tipos-eps-converted-to.pdf>]
+LaTeX Warning: Reference `wine' on page 16 undefined on input line 72.
+
+
+LaTeX Warning: Reference `fig:virtcomponentes' on page 16 undefined on input li
+ne 105.
+
+
+LaTeX Warning: Reference `ibm370' on page 16 undefined on input line 122.
+
+
+LaTeX Warning: Reference `xen' on page 16 undefined on input line 122.
+
+
+LaTeX Warning: Reference `vmwareesx' on page 16 undefined on input line 122.
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 16
  []
 
 [16]
-Package epstopdf Info: Source file: <img/vms_arquiteturas.eps>
-(epstopdf)                    date: 2016-05-12 22:54:20
-(epstopdf)                    size: 147866 bytes
-(epstopdf)             Output file: <img/vms_arquiteturas-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2016-05-13 20:06:30
-(epstopdf)                    size: 54901 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/vms_arquiteturas-eps-c
-onverted-to.pdf img/vms_arquiteturas.eps>
-(epstopdf)             \includegraphics on input line 131.
-Package epstopdf Info: Output file is already uptodate.
+LaTeX Warning: Reference `virtualbox' on page 17 undefined on input line 126.
 
-<img/vms_arquiteturas-eps-converted-to.pdf, id=71, 647.41875pt x 365.365pt>
-File: img/vms_arquiteturas-eps-converted-to.pdf Graphic file (type pdf)
 
-<use img/vms_arquiteturas-eps-converted-to.pdf>
-Package pdftex.def Info: img/vms_arquiteturas-eps-converted-to.pdf used on inpu
-t line 131.
-(pdftex.def)             Requested size: 381.42639pt x 215.25685pt.
- [17 <./img/vms_arquiteturas-eps-converted-to.pdf>]
+LaTeX Warning: Reference `vmwareplayer' on page 17 undefined on input line 126.
+
+
+
+LaTeX Warning: Reference `qemu' on page 17 undefined on input line 126.
+
+File: img/vms_arquiteturas.eps Graphic file (type eps)
+<img/vms_arquiteturas.eps> [17]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 18
  []
@@ -1199,42 +1145,10 @@ Overfull \hbox (63.4379pt too wide) in paragraph at lines 24--41
  [] 
  []
 
-Package epstopdf Info: Source file: <img/servfisicos.eps>
-(epstopdf)                    date: 2016-05-19 00:43:22
-(epstopdf)                    size: 91053 bytes
-(epstopdf)             Output file: <img/servfisicos-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-19 19:52:49
-(epstopdf)                    size: 22611 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/servfisicos-eps-conver
-ted-to.pdf img/servfisicos.eps>
-(epstopdf)             \includegraphics on input line 53.
-Package epstopdf Info: Output file is already uptodate.
-<img/servfisicos-eps-converted-to.pdf, id=85, 295.1025pt x 338.26375pt>
-File: img/servfisicos-eps-converted-to.pdf Graphic file (type pdf)
-
-<use img/servfisicos-eps-converted-to.pdf>
-Package pdftex.def Info: img/servfisicos-eps-converted-to.pdf used on input lin
-e 53.
-(pdftex.def)             Requested size: 180.67566pt x 207.10448pt.
-Package epstopdf Info: Source file: <img/servlog_1.eps>
-(epstopdf)                    date: 2016-05-18 19:38:40
-(epstopdf)                    size: 62149 bytes
-(epstopdf)             Output file: <img/servlog_1-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-18 19:38:40
-(epstopdf)                    size: 10942 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/servlog_1-eps-converte
-d-to.pdf img/servlog_1.eps>
-(epstopdf)             \includegraphics on input line 74.
-Package epstopdf Info: Output file is already uptodate.
-
-<img/servlog_1-eps-converted-to.pdf, id=86, 609.27625pt x 279.0425pt>
-File: img/servlog_1-eps-converted-to.pdf Graphic file (type pdf)
-
-<use img/servlog_1-eps-converted-to.pdf>
-Package pdftex.def Info: img/servlog_1-eps-converted-to.pdf used on input line 
-74.
-(pdftex.def)             Requested size: 381.42639pt x 174.69492pt.
-
+File: img/servfisicos.eps Graphic file (type eps)
+<img/servfisicos.eps>
+File: img/servlog_1.eps Graphic file (type eps)
+ <img/servlog_1.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 20
  []
@@ -1266,8 +1180,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 24
  []
 
-[24 <./img/servfisicos-eps-converted-to.pdf> <./img/servlog_1-eps-converted-to.
-pdf>]
+[24]
 \openout2 = `capitulos/capitulo5.aux'.
 
  (./capitulos/capitulo5.tex) (./tcc.bbl
@@ -1319,25 +1232,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12333 strings out of 495004
- 239274 string characters out of 6180662
- 301649 words of memory out of 5000000
- 15276 multiletter control sequences out of 15000+600000
+ 11675 strings out of 495005
+ 228695 string characters out of 6180688
+ 286159 words of memory out of 5000000
+ 14638 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,11n,57p,10386b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (27 pages, 299136 bytes).
-PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 62i,11n,57p,10386b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+Output written on tcc.dvi (27 pages, 92100 bytes).
