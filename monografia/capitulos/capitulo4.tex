@@ -1,4 +1,4 @@
-\chapter{Estudo de caso ? titulo ?}
+\chapter{Estudo de caso}
 \label{cap:estudodecaso}
 
 Após os conceitos de alta disponibilidade e de virtualização terem sido compreendidos, pode-se iniciar a análise da estrutura atual da empresa.
@@ -10,8 +10,8 @@ mais críticos para a empresa. Então, nas próximas seções serão detalhados:
 (Seção \ref{section:estfis}); a estrutura lógica, com a relação de servidores físicos e virtuais (Seção \ref{section:estlog}); todos os 
 serviços fornecidos pela empresa (Seção \ref{section:serv}); e por fim a seleção dos serviços críticos (Seção \ref{section:servcrit}).
 
-\section{Estrutura física}
-\label{section:estfis}
+\section{Ambiente da empresa}
+\label{section:ambiente}
 
 A estrutura atual da empresa é composta por quatorze servidores físicos montados em um \textit{rack}. A configuração de \textit{hardware} desses 
 servidores esta listado na Tabela \ref{tab:servfisicos}, que possui os campos nome do servidor, modelo e quantidade de processadores, quantidade
@@ -75,9 +75,6 @@ Todos os servidores de virtualização possuem o sistema operacional \textit{Ubu
  \caption{Servidor virtualização.}
  \label{fig:servlog_1}
 \end{figure}
-
-\section{Serviços}
-\label{section:serv}
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \textit{DNS} recursivo para um provedor de internet. É importante
 salientar que esse provedor utiliza a maior parte dos serviços, pois possui maior número de clientes.

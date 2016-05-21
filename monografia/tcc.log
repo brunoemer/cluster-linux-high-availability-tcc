@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  21 MAY 2016 15:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  21 MAY 2016 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -976,7 +976,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--20
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--25
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
  []  
  []
 
@@ -1108,6 +1108,11 @@ LaTeX Warning: Reference `qemu' on page 17 undefined on input line 126.
 
 File: img/vms_arquiteturas.eps Graphic file (type eps)
 <img/vms_arquiteturas.eps> [17]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 187.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 187.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 18
  []
@@ -1116,6 +1121,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout2 = `capitulos/capitulo4.aux'.
 
  (./capitulos/capitulo4.tex
+
+LaTeX Warning: Reference `section:estfis' on page 20 undefined on input line 10
+.
+
+
+LaTeX Warning: Reference `section:serv' on page 20 undefined on input line 11.
+
+
 Underfull \hbox (badness 4872) in paragraph at lines 26--26
 []\OT1/cmr/m/n/12 Intel Core 2 Duo
  []
@@ -1158,15 +1171,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ] [21]
-Overfull \hbox (10.77292pt too wide) in paragraph at lines 93--142
+Overfull \hbox (10.77292pt too wide) in paragraph at lines 90--139
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 86.74922pt on input line 143.
+LaTeX Warning: Float too large for page by 86.74922pt on input line 140.
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 149--52
+Underfull \hbox (badness 10000) in paragraph at lines 146--52
 
  []
 
@@ -1232,12 +1245,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 11675 strings out of 495005
- 228695 string characters out of 6180688
- 286159 words of memory out of 5000000
- 14638 multiletter control sequences out of 15000+600000
+ 11676 strings out of 495005
+ 228713 string characters out of 6180688
+ 286085 words of memory out of 5000000
+ 14639 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,11n,57p,10386b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (27 pages, 92100 bytes).
+Output written on tcc.dvi (27 pages, 91272 bytes).
