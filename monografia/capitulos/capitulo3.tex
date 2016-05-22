@@ -201,14 +201,25 @@ em uma máquina física para um ambiente virtual, sem a necessidade de reinstal�
 %tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
 %e outro específico para máquinas virtuais. 
 
-\subsection{Vantagens}
+\subsection{Vantagens das máquinas virtuais de sistema}
 \label{section:virtvantag}
 
 A portabilidade é uma das grandes vantagens da virtualização, que também pode ser aplicada em \textit{desktops}. Pode-se citar como exemplo 
 o desenvolvimento de \textit{software} para diversos sistemas operacionais sem a necessidade de um computador para cada sistema operacional. 
-Assim, máquinas virtuais em \textit{desktops} podem ser utilizadas em ambientes de desenvolvimento, pois possibilita a execução de múltiplas 
+Assim, máquinas virtuais em \textit{desktops} podem ser utilizadas em ambientes de desenvolvimento, pois possibilitam a execução de múltiplas 
 plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Pode-se citar como exemplo o \textit{VMware Workstation}, que 
 possibilita a virtualização em \ac{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
+
+Em empresas pode-se utilizar virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um servidor 
+para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops} e exige um \textit{hardware} de 
+menor valor, além disso essa técnica possibilita uma maior segurança dos dados. 
+%Em empresas pode-se utilizar virtualização de \textit{desktops} para reduzir a subutilização dos \textit{desktops}, que pode ser feito através da
+%colaboração com projetos científicos de \textit{clusters} de computadores virtuais \cite{carissimi2008}. %exemplo seti@home
+
+Pode-se também encontrar virtualização de \textit{desktops} em laboratórios de universidades, devido a necessidade de executar diferentes sistemas 
+operacionais para determinadas disciplinas. Isso é necessário quando pretende-se configurar e executar aplicações para fim de experimentos ou
+aprendizagem, com isso essas ações não afetarão o sistema hospedeiro, pois estarão executando no sistema operacional de uma máquina virtual. 
+O benefício desse tipo de cenário é a facilidade de manipulação das máquinas virtuais, pois podem ser restauradas de uma forma simples.
 
 Em muitos casos as empresas utilizam serviços distribuídos entre diferentes servidores físicos, como, por exemplo, servidores de e-mail, 
 hospedagens e banco de dados, com isso existe uma grande ociosidade de recursos. Portanto, uma das grandes vantagens da virtualização é um melhor 
@@ -223,6 +234,9 @@ Outra motivação para a utilização de virtualização consiste no custo da en
 através da implantação de servidores mais robustos para substituir dezenas de servidores comuns. Outros fatores como refrigeração do ambiente e 
 espaço físico utilizado também podem ser reduzidos com a implantação de virtualização de servidores, e consequentemente, reduzem os 
 custos de energia.
+
+\section{Considerações finais}
+
 
 %\section{Emulação ????}
 

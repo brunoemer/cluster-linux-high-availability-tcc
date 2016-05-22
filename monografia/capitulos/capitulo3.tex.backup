@@ -187,43 +187,55 @@ são a virtualização total e a paravirtualização, detalhadas a seguir:
 além disso a tradução dinâmica adapta as instruções do sistema convidado para o sistema real.}
 
 A paravirtualização possui um desempenho superior se comparada a virtualização total, pois acessa alguns recursos de forma direta, sendo que 
-o hipervisor é reponsável somente por impedir que o sistema convidado execute operações indevidas. Pode-se citar como exemplo o controle feito
-pelo hipervisor, 
-na virtualização total o hipervisor reserva um espaço para cada sistema convidado, que por sua vez acessa a memória como se fosse uma memória 
-de uma máquina física iniciando seu endereçamento em zero. Sendo assim cada vez que o sistema convidado acessar a memória, o hipervisor 
-precisará converter os endereços do sistema convidado para endereços reais de memória. Na paravirtualização o hipervisor informa ao sistema 
-convidado a área de memória que ele pode utilizar, assim obtendo um melhor desempenho na execução de operações.
+o hipervisor é reponsável somente por impedir que o sistema convidado execute operações indevidas. Pode-se citar como exemplo o controle de
+acesso à memoria feito pelo hipervisor. Na virtualização total o hipervisor reserva um espaço para cada sistema convidado, que por sua vez 
+acessa a memória como se fosse uma memória física, que inicia o seu endereçamento na posição zero. Sendo assim, cada vez que o sistema convidado 
+acessar a memória, o hipervisor precisará converter os endereços do sistema convidado para os endereços reais de memória. Na paravirtualização 
+o hipervisor informa ao sistema convidado a área de memória que ele pode utilizar, assim não sendo necessário nenhum conversão de endereços.
 
-Por outro lado, a virtualização total possui maior portabilidade, ou seja, permite que sistemas operacionais convencionais executem
-como convidados, sem a necessidade de serem modificados. Pode-se, por exemplo, transferir um sistema operacional instalado diretamente 
-em uma máquina física para um ambiente virtual, sem a necessidade de reinstalá-lo e reconfigurá-lo.
+Apesar de apresentar um desempenho inferior, a virtualização total possui uma maior portabilidade, ou seja, permite que sistemas operacionais 
+executem como convidados, sem a necessidade de serem modificados. Pode-se, por exemplo, transferir um sistema operacional instalado diretamente 
+em uma máquina física para um ambiente virtual, sem a necessidade de reinstalá-lo e reconfigurar todas as aplicações.
 
-A virtualização total obteve um grande ganho de performance com a incorporação da virtualização aos processadores, através das 
-tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
-e outro específico para máquinas virtuais. 
+%A virtualização total obteve um grande ganho de performance com a incorporação da virtualização aos processadores, através das 
+%tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
+%e outro específico para máquinas virtuais. 
 
-\subsection{Vantagens}
+\subsection{Vantagens das máquinas virtuais de sistema}
 \label{section:virtvantag}
 
-Em muitos casos as empresas utilizam serviços distribuídos entre servidores físicos, como, por exemplo, servidores de e-mail, hospedagens e 
-banco de dados, com isso existe uma grande ociosidade de recursos. Portanto uma das grandes vantagens da virtualização de sistema é um melhor 
-aproveitamento desses recursos, alocando vários serviços em um único servidor físico e assim gerando um melhor aproveitamento do \textit{hardware} 
+A portabilidade é uma das grandes vantagens da virtualização, que também pode ser aplicada em \textit{desktops}. Pode-se citar como exemplo 
+o desenvolvimento de \textit{software} para diversos sistemas operacionais sem a necessidade de um computador para cada sistema operacional. 
+Assim, máquinas virtuais em \textit{desktops} podem ser utilizadas em ambientes de desenvolvimento, pois possibilitam a execução de múltiplas 
+plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Pode-se citar como exemplo o \textit{VMware Workstation}, que 
+possibilita a virtualização em \ac{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
+
+Em empresas pode-se utilizar virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um servidor 
+para centralizar as máquinas virtuais. 
+%Em empresas pode-se utilizar virtualização de \textit{desktops} para reduzir a subutilização dos \textit{desktops}, que pode ser feito através da
+%colaboração com projetos científicos de \textit{clusters} de computadores virtuais \cite{carissimi2008}. %exemplo seti@home
+
+Pode-se também encontrar virtualização de \textit{desktops} em laboratórios de universidades, devido a necessidade de executar diferentes sistemas 
+operacionais para determinadas disciplinas. Isso é necessário quando pretende-se configurar e executar aplicações para fim de experimentos ou
+aprendizagem, com isso essas ações não afetarão o sistema hospedeiro, pois estarão executando no sistema operacional de uma máquina virtual. 
+O benefício desse tipo de cenário é a facilidade de manipulação das máquinas virtuais, pois podem ser restauradas de uma forma simples.
+
+Em muitos casos as empresas utilizam serviços distribuídos entre diferentes servidores físicos, como, por exemplo, servidores de e-mail, 
+hospedagens e banco de dados, com isso existe uma grande ociosidade de recursos. Portanto, uma das grandes vantagens da virtualização é um melhor 
+aproveitamento dos recursos. De fato, alocando vários serviços em um único servidor físico e tem-se um melhor aproveitamento do \textit{hardware} 
 \cite{moreira2006}. Além disso, pode-se ter uma redução de custos com a administração e a manutenção dos servidores físicos. Em um ambiente 
 heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
-Considerando isso, esse tipo de virtualização favorece a implementação do conceito ``um servidor por serviço'', que consiste em ter um servidor
-para cada serviço. Outro fator relevante que favorece a implementação desse conceito é o isolamento de serviços, ou seja, caso ocorra
-uma falha de segurança em um serviço, essa falha comprometerá todo o sistema e seus respectivos serviços \cite{carissimi2008}.
+Esse tipo de virtualização favorece a implementação do conceito ``um servidor por serviço'', que consiste em ter um servidor para cada 
+serviço. Além disso tem-se o isolamento de serviços, ou seja, caso ocorra uma falha de segurança em um serviço, essa falha não comprometerá 
+todo o sistema \cite{carissimi2008}.
 
-Outra motivação para a utilização de virtualização do sistema consiste no custo da energia elétrica. A economia de energia pode ser obtida 
+Outra motivação para a utilização de virtualização consiste no custo da energia elétrica. A economia de energia pode ser obtida 
 através da implantação de servidores mais robustos para substituir dezenas de servidores comuns. Outros fatores como refrigeração do ambiente e 
 espaço físico utilizado também podem ser reduzidos com a implantação de virtualização de servidores, e consequentemente, reduzem os 
 custos de energia.
 
-A portabilidade é outra vantagem da virtualização, que também pode ser aplicada em \textit{desktops}, pode-se citar como exemplo o desenvolvimento 
-de \textit{software} para diversos sistemas operacionais sem a necessidade de um computador para cada sistema operacional. Assim, 
-máquinas virtuais em \textit{desktops} podem ser utilizadas em ambientes de desenvolvimento, pois possibilita a execução de múltiplas 
-plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Pode-se citar como exemplo o \textit{VMware Workstation}, que 
-possibilita a virtualização em \ac{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
+\section{Considerações finais}
+
 
 %\section{Emulação ????}
 
