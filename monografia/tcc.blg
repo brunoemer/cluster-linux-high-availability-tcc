@@ -9,44 +9,44 @@ A level-1 auxiliary file: capitulos/capitulo4.aux
 A level-1 auxiliary file: capitulos/capitulo5.aux
 The style file: abnt.bst
 Database file #1: tcc.bib
-You've used 17 entries,
+You've used 18 entries,
             2371 wiz_defined-function locations,
-            681 strings with 7572 characters,
-and the built_in function-call counts, 16861 in all, are:
-= -- 2044
-> -- 57
-< -- 180
-+ -- 1105
-- -- 25
-* -- 617
-:= -- 1434
-add.period$ -- 66
-call.type$ -- 17
-change.case$ -- 131
+            686 strings with 7760 characters,
+and the built_in function-call counts, 17616 in all, are:
+= -- 2131
+> -- 60
+< -- 190
++ -- 1154
+- -- 26
+* -- 647
+:= -- 1502
+add.period$ -- 69
+call.type$ -- 18
+change.case$ -- 138
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 2377
-empty$ -- 655
-format.name$ -- 133
-if$ -- 3760
+cite$ -- 18
+duplicate$ -- 2480
+empty$ -- 685
+format.name$ -- 140
+if$ -- 3924
 int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 37
-num.names$ -- 85
-pop$ -- 270
+newline$ -- 39
+num.names$ -- 90
+pop$ -- 284
 preamble$ -- 1
-purify$ -- 17
+purify$ -- 18
 quote$ -- 0
-skip$ -- 1141
+skip$ -- 1190
 stack$ -- 0
-substring$ -- 1024
-swap$ -- 1419
+substring$ -- 1069
+swap$ -- 1482
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 125
+type$ -- 130
 warning$ -- 0
-while$ -- 105
+while$ -- 111
 width$ -- 0
-write$ -- 19
+write$ -- 20

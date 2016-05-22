@@ -7,10 +7,15 @@
 \usepackage[list-style=extra-tabular]{acro}
 \usepackage{graphicx}
 %\usepackage[brazilian]{babel}
+\usepackage{floatrow}
   
 \setdescription{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
 \setitemize{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
 \setenumerate{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
+%tamanho das tabelas
+\DeclareFloatFont{scriptsize}{\scriptsize}% "scriptsize" is defined by floatrow, "scriptsize" not
+\floatsetup[table]{font=scriptsize}
+
 
 %capa
 \course{\cgcc}

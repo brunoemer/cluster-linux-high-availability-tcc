@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  22 MAY 2016 00:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  22 MAY 2016 20:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -871,6 +871,56 @@ File: acro1.def
 . Defining document command \printacronyms with arg. spec. 'O{}' on line 506.
 .................................................
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/floatrow/floatrow.sty
+Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen141
+\captionmargin@=\dimen142
+\captionwidth=\dimen143
+\caption@tempdima=\dimen144
+\caption@indent=\dimen145
+\caption@parindent=\dimen146
+\caption@hangindent=\dimen147
+)
+\c@float@type=\count140
+\float@exts=\toks23
+\float@box=\box42
+\@floatcapt=\box43
+Package floatrow Info: Modified float package code loaded on input line 455.
+Package floatrow Info: Modified rotfloat package code loaded on input line 473.
+
+\FR@everyfloat=\toks24
+\flrow@foot=\insert233
+\FB@wd=\dimen148
+\FBo@wd=\dimen149
+\FBc@wd=\dimen150
+\FBo@ht=\skip64
+\FBc@ht=\skip65
+\FBf@ht=\skip66
+\FBo@max=\skip67
+\FBc@max=\skip68
+\FBf@max=\skip69
+\c@FBl@b=\count141
+\floatbox@depth=\count142
+\c@FRobj=\count143
+\c@FRsobj=\count144
+\Xhsize=\skip70
+\sXhsize=\skip71
+\Zhsize=\skip72
+\sZhsize=\skip73
+\flrow@rowbox=\box44
+\FR@Zunitlength=\dimen151
+\c@FBcnt=\count145
+\FPOScnt=\count146
+\LTleft=\skip74
+\LTright=\skip75
+\LTleft=\skip76
+\LTright=\skip77
+\flrow@types=\toks25
+)
 \@input{acronym.aux}
 \openout2 = `acronym.aux'.
 
@@ -879,29 +929,31 @@ File: acro1.def
 (./capitulos/capitulo4.aux) (./capitulos/capitulo5.aux))
 \openout1 = `tcc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 26.
-\AtBeginShipoutBox=\box42
+(lastpage)             ! on input line 31.
+\AtBeginShipoutBox=\box45
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 File: img/iilogo.eps Graphic file (type eps)
  <img/iilogo.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 28--28
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
 
  []
 
@@ -925,15 +977,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ])
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 37.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 37.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 32.
+(Font)              size <17.28> substituted on input line 37.
 
 (./tcc.toc
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
@@ -1043,6 +1095,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 122.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 12
  []
@@ -1051,13 +1106,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout2 = `capitulos/capitulo3.aux'.
 
  (./capitulos/capitulo3.tex
-Overfull \hbox (17.54982pt too wide) in paragraph at lines 29--32
+Overfull \hbox (17.54982pt too wide) in paragraph at lines 29--33
 \OT1/cmr/m/n/12 ^^Ra aplica^^Xc~oes de usu^^Sarios, sendo que es-sas exe-cu-tam
- em modo n~ao-privilegiado.
+ em modo n~ao-privilegiado; 
  []
 
 
-Overfull \hbox (17.64131pt too wide) in paragraph at lines 32--34
+Overfull \hbox (17.64131pt too wide) in paragraph at lines 33--35
 []\OT1/cmr/m/n/12 Instru^^Xc~oes de sis-tema ou \OT1/cmr/m/it/12 Sys-tem []ISA\
 OT1/cmr/m/n/12 : s~ao ins-tru^^Xc~oes ex-clu-si-va-mente acess^^S^^Pveis
  []
@@ -1073,22 +1128,23 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 ]
 File: img/vms_tipos.eps Graphic file (type eps)
- <img/vms_tipos.eps> [15]
+ <img/vms_tipos.eps>
+Underfull \vbox (badness 5490) has occurred while \output is active []
 
-LaTeX Warning: Reference `wine' on page 16 undefined on input line 72.
+ [15]
 
+LaTeX Warning: Reference `wine' on page 16 undefined on input line 73.
 
-LaTeX Warning: Reference `fig:virtcomponentes' on page 16 undefined on input li
-ne 105.
+File: img/virtcomponentes.eps Graphic file (type eps)
+<img/virtcomponentes.eps>
 
-
-LaTeX Warning: Reference `ibm370' on page 16 undefined on input line 122.
-
-
-LaTeX Warning: Reference `xen' on page 16 undefined on input line 122.
+LaTeX Warning: Reference `ibm370' on page 16 undefined on input line 131.
 
 
-LaTeX Warning: Reference `vmwareesx' on page 16 undefined on input line 122.
+LaTeX Warning: Reference `xen' on page 16 undefined on input line 131.
+
+
+LaTeX Warning: Reference `vmwareesx' on page 16 undefined on input line 131.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1097,70 +1153,42 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [16]
 
-LaTeX Warning: Reference `virtualbox' on page 17 undefined on input line 126.
+LaTeX Warning: Reference `virtualbox' on page 17 undefined on input line 135.
 
 
-LaTeX Warning: Reference `vmwareplayer' on page 17 undefined on input line 126.
+LaTeX Warning: Reference `vmwareplayer' on page 17 undefined on input line 135.
 
 
 
-LaTeX Warning: Reference `qemu' on page 17 undefined on input line 126.
+LaTeX Warning: Reference `qemu' on page 17 undefined on input line 135.
 
 File: img/vms_arquiteturas.eps Graphic file (type eps)
 <img/vms_arquiteturas.eps> [17]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 187.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 187.
+(Font)              <7> on input line 196.
 
-
-LaTeX Warning: Reference `xendesktop' on page 18 undefined on input line 216.
-
-
-LaTeX Warning: Reference `vmwareview' on page 18 undefined on input line 216.
+Underfull \vbox (badness 4713) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 18
  []
 
-[18]) [19]
+[18]
+
+LaTeX Warning: Reference `xendesktop' on page 19 undefined on input line 225.
+
+
+LaTeX Warning: Reference `vmwareview' on page 19 undefined on input line 225.
+
+) [19]
 \openout2 = `capitulos/capitulo4.aux'.
 
  (./capitulos/capitulo4.tex
-Underfull \hbox (badness 4872) in paragraph at lines 28--28
-[]\OT1/cmr/m/n/12 Intel Core 2 Duo
- []
+
+LaTeX Warning: Reference `fig:servrack' on page 20 undefined on input line 29.
 
 
-Underfull \hbox (badness 1590) in paragraph at lines 33--33
-[]\OT1/cmr/m/n/12 Intel Core 2 Quad
- []
-
-
-Underfull \hbox (badness 4872) in paragraph at lines 34--34
-[]\OT1/cmr/m/n/12 Intel Core 2 Duo
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
-[]\OT1/cmr/m/n/12 Intel Xeon CPU
- []
-
-
-Underfull \hbox (badness 1173) in paragraph at lines 41--41
-[]\OT1/cmr/m/n/12 Intel Pen-tium Dual
- []
-
-
-Overfull \hbox (63.4379pt too wide) in paragraph at lines 26--43
- [] 
- []
-
-File: img/servfisicos.eps Graphic file (type eps)
-<img/servfisicos.eps>
-File: img/servlog_1.eps Graphic file (type eps)
- <img/servlog_1.eps>
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 20
  []
@@ -1169,20 +1197,19 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 
-] [21]
-Overfull \hbox (10.77292pt too wide) in paragraph at lines 92--141
- [] 
+]
+File: img/servfisicos.eps Graphic file (type eps)
+ <img/servfisicos.eps>
+File: img/servlog_1.eps Graphic file (type eps)
+ <img/servlog_1.eps>
+Underfull \vbox (badness 5893) has occurred while \output is active []
+
+ [21]
+Underfull \hbox (badness 10000) in paragraph at lines 166--185
+
  []
-
-
-LaTeX Warning: Float too large for page by 86.74922pt on input line 142.
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 148--52
-
- []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 22
  []
@@ -1196,7 +1223,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout2 = `capitulos/capitulo5.aux'.
 
  (./capitulos/capitulo5.tex) (./tcc.bbl
-Underfull \hbox (badness 6758) in paragraph at lines 3--6
+Underfull \hbox (badness 6758) in paragraph at lines 8--11
 []\OT1/cmr/m/n/12 BATISTA, A. C. \OT1/cmr/bx/n/12 Es-tudo te^^Sorico so-bre clu
 s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
  []
@@ -1207,20 +1234,20 @@ s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 73--77
+Underfull \hbox (badness 10000) in paragraph at lines 78--82
 []\OT1/cmr/m/n/12 SMITH, R. \OT1/cmr/bx/n/12 Ge-ren-ci-a-mento de N^^S^^Pvel de
  Servi^^Xco\OT1/cmr/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pve
 l
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--77
+Underfull \hbox (badness 10000) in paragraph at lines 78--82
 \OT1/cmr/m/n/12 em: $\OT1/cmtt/m/n/12 http : / / blogs . technet . com / b / ro
 naldosjr / archive / 2010 / 05 / 25 /
  []
 
 
-Underfull \hbox (badness 6542) in paragraph at lines 73--77
+Underfull \hbox (badness 6542) in paragraph at lines 78--82
 \OT1/cmtt/m/n/12 gerenciamento-[]de-[]n-[]237-[]vel-[]de-[]servi-[]231-[]o . as
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
@@ -1244,12 +1271,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 11676 strings out of 495005
- 228707 string characters out of 6180688
- 286085 words of memory out of 5000000
- 14639 multiletter control sequences out of 15000+600000
+ 12798 strings out of 495005
+ 247486 string characters out of 6180688
+ 308669 words of memory out of 5000000
+ 15751 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,11n,57p,10386b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (27 pages, 93024 bytes).
+Output written on tcc.dvi (27 pages, 97548 bytes).
