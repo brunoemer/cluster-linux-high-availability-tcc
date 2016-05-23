@@ -3,7 +3,7 @@
 \bibitem[ANDRADE(2011)ANDRADE]{andrade2011} ANDRADE, L\@. \textbf{Visão geral
   sobre virtualização}. $<$Disponível em:
   \url{https://tecnologiasemsegredos.wordpress.com/category/virtualizacao/}$>$.
-  Acesso em 22 de maio de 2016.
+  Acesso em 21 de maio de 2016.
 
 \bibitem[BATISTA(2007)BATISTA]{batista2007} BATISTA, A.~C\@. \textbf{Estudo
   teórico sobre cluster linux}. 2007. Pós-Graduação(Administração em
@@ -13,6 +13,15 @@
   Virtualização: da teoria a soluções. In: \textbf{Minicursos do Simpósio
   Brasileiro de Redes de Computadores}. Porto Alegre: XXVI Simpósio Brasileiro
   de Redes de Computadores e Sistemas Distribuídos, 2008.
+
+\bibitem[{Citrix}(2016a){Citrix}]{xen} {Citrix}. \textbf{The Xen Project, the
+  powerful open source industry standard for virtualization}. $<$Disponível
+  em: \url{http://www.xenproject.org/}$>$. Acesso em 22 de maio de 2016.
+
+\bibitem[{Citrix}(2016b){Citrix}]{xendesktop} {Citrix}. \textbf{XenApp and
+  XenDesktop - Virtual Apps and Desktops}. $<$Disponível em:
+  \url{https://www.citrix.com/products/xenapp-xendesktop/}$>$. Acesso em 22 de
+  maio de 2016.
 
 \bibitem[COSTA(2009)COSTA]{costa2009} COSTA, H. L.~A\@. \textbf{Alta
   disponibilidade e balanceamento de carga para melhoria de sistemas
@@ -25,6 +34,11 @@
   utilizando Software Livre}. 2009. Trabalho de Conclusão (Curso de Engenharia
   da Computação) --- Faculdade de Tecnologia e Ciências Sociais Aplicadas,
   Brasilia.
+
+\bibitem[{IBM}(2016){IBM}]{ibm370} {IBM}. \textbf{System/370 Model 145}.
+  $<$Disponível em:
+  \url{https://www-03.ibm.com/ibm/history/exhibits/mainframe/mainframe_PP3145.html}$>$.
+  Acesso em 22 de maio de 2016.
 
 \bibitem[LAUREANO; MAZIERO(2008)LAUREANO; MAZIERO]{laureano2008} LAUREANO, M.
   A.~P.; MAZIERO, C.~A\@. Virtualização: conceitos e aplicações em
@@ -46,6 +60,10 @@
   Introduction to Fault-Tolerant Systems}. 2000. IDI Technical Report 6/99 ---
   Norwegian University of Science and Technology, Trondheim, Noruega.
 
+\bibitem[{Oracle}(2016){Oracle}]{virtualbox} {Oracle}. \textbf{Oracle VM
+  VirtualBox}. $<$Disponível em: \url{https://www.virtualbox.org/}$>$. Acesso
+  em 22 de maio de 2016.
+
 \bibitem[PANKAJ(1994)PANKAJ]{pankaj1994} PANKAJ, J\@. \textbf{Fault tolerance
   in distributed system}. Nova Jérsei, Estados Unidos: P T R Prentice Hall,
   1994.
@@ -54,6 +72,10 @@
   }FILHO, N.~A\@. \textbf{Serviço de pertinência para clusters de alta
   disponibilidade}. 2004. Dissertação para Mestrado em Ciência da
   Computação --- Universidade de São Paulo, São Paulo.
+
+\bibitem[{QEmu}(2016){QEmu}]{qemu} {QEmu}. \textbf{QEMU open source processor
+  emulator}. $<$Disponível em: \url{http://wiki.qemu.org/Main_Page}$>$. Acesso
+  em 22 de maio de 2016.
 
 \bibitem[REIS(2009)REIS]{reis2009} REIS, W.~S.~dos. \textbf{Virtualização de
   serviços baseado em contêineres}: uma proposta para alta disponibilidade de
@@ -80,10 +102,29 @@
   \url{http://blogs.technet.com/b/ronaldosjr/archive/2010/05/25/gerenciamento-de-n-237-vel-de-servi-231-o.aspx/}$>$.
   Acesso em 25 de março de 2016.
 
+\bibitem[{VMware}(2016a){VMware}]{vmwareesxi} {VMware}. \textbf{VMware ESXi}.
+  $<$Disponível em:
+  \url{http://www.vmware.com/products/esxi-and-esx/overview.html}$>$. Acesso em
+  22 de maio de 2016.
+
+\bibitem[{VMware}(2016b){VMware}]{vmwareplayer} {VMware}. \textbf{VMware
+  Workstation Player (formerly known as Player Pro)}. $<$Disponível em:
+  \url{https://www.vmware.com/products/player}$>$. Acesso em 22 de maio de
+  2016.
+
+\bibitem[{VMware}(2016c){VMware}]{vmwareview} {VMware}. \textbf{VDI Virtual
+  Desktop Infrastructure with Horizon}. $<$Disponível em:
+  \url{https://www.vmware.com/products/horizon-view}$>$. Acesso em 22 de maio
+  de 2016.
+
 \bibitem[WEBER(2002)WEBER]{weber2002} WEBER, T.~S\@. \textbf{Um roteiro para
   exploração dos conceitos básicos de tolerância a falhas}. 2002. Curso de
   Especialização em Redes e Sistemas Distribuídos --- UFRGS, Rio Grande do
   Sul.
+
+\bibitem[{WineHQ}(2016){WineHQ}]{wine} {WineHQ}. \textbf{WineHQ - Execute
+  aplicativos Windows no Linux, BSD, Solaris e Mac OS X}. $<$Disponível em:
+  \url{https://www.winehq.org/}$>$. Acesso em 22 de maio de 2016.
 
 \bibitem[{WMware}(2016){WMware}]{vmware2016} {WMware}. \textbf{VMware
   Workstation Pro}. $<$Disponível em:

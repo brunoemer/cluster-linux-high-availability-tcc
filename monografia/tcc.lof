@@ -9,8 +9,11 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 3.1:}{\ignorespaces M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o e de sistema.}}{15}
 \contentsline {figure}{\numberline {Figura\nobreakspace 3.2:}{\ignorespaces Componentes da virtualiza\IeC {\c c}\IeC {\~a}o.}}{17}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.3:}{\ignorespaces Arquiteturas de m\IeC {\'a}quinas virtuais de sistema. VER HIPERVISOR CONVIDADO ???}}{18}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.3:}{\ignorespaces Arquiteturas de m\IeC {\'a}quinas virtuais de sistema. COLOCAR host OS ABAIXO DO HIPERVISOR ???}}{17}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.4:}{\ignorespaces Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema.}}{18}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.1:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{24}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.2:}{\ignorespaces Servidor virtualiza\IeC {\c c}\IeC {\~a}o.}}{24}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.1:}{\ignorespaces Imagem do \textit {rack} e dos servidores.}}{24}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.2:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{24}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.3:}{\ignorespaces Servidor virtualiza\IeC {\c c}\IeC {\~a}o Brina. REFAZER ???}}{24}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.4:}{\ignorespaces Servidor virtualiza\IeC {\c c}\IeC {\~a}o Fulmine.}}{25}
 \addvspace {10\p@ }

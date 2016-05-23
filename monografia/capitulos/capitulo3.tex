@@ -70,7 +70,7 @@ virtualização. Existem dois tipos de máquinas virtuais de aplicação, que s�
  e a \textit{Microsoft Common Language Infrastructure}, que é a base da plataforma \textit{.NET} \cite{carissimi2008};
  \item Emulação no sistema operacional: nesse caso é feito um mapeamento entre as chamadas de sistema que são utilizadas pela aplicação 
  e as chamadas do sistema operacional real. A virtualização de aplicação pode ser encontrada em ferramentas que emulam uma aplicação 
- desenvolvida para uma plataforma em outra plataforma. Como exemplo, pode-se citar o \textit{Wine} \ref{wine}, que permite executar aplicações 
+ desenvolvida para uma plataforma em outra plataforma. Como exemplo, pode-se citar o \textit{Wine} \cite{wine}, que permite executar aplicações 
  \textit{Windows} em plataformas \textit{Linux}.
 \end{itemize}
 
@@ -128,23 +128,23 @@ Existem basicamente duas arquiteturas de hipervisor de sistema, que são apresen
  \item Hipervisores nativos: esse hipervisor executa diretamente sobre o \textit{hardware}, ou seja, sem um sistema operacional
  hospedeiro. Neste caso, o hipervisor nativo faz a multiplexação dos recursos do \textit{hardware} (memória, disco rígido, interface de rede, 
  entre outros) e diponibiliza esses recursos para as máquinas virtuais. Alguns exemplos que utilizam esse hipervisor são 
- \textit{IBM 370} \ref{ibm370}, o \textit{Xen} \ref{xen} e o \textit{VMware ESX Server} \ref{vmwareesx};
+ \textit{IBM 370} \cite{ibm370}, o \textit{Xen} \cite{xen} e o \textit{VMware ESXi} \cite{vmwareesxi};
  \item Hipervisores convidados: esse tipo de hipervisor executa sobre um sistema operacional hospedeiro, e utiliza os recursos 
  desse sistema para gerar recursos virtuais para as máquinas virtuais. Normalmente esse tipo suporta apenas um sistema 
  operacional convidado para cada hipervisor. Exemplos de \textit{softwares} que possuem esse tipo de arquitetura são: o 
- \textit{VirtualBox} \ref{virtualbox}, o \textit{VMware Player} \ref{vmwareplayer} e o \textit{QEmu} \ref{qemu}.
+ \textit{VirtualBox} \cite{virtualbox}, o \textit{VMware Player} \cite{vmwareplayer} e o \textit{QEmu} \cite{qemu}.
 \end{itemize}
-
-Destaca-se que hipervisores convidados são mais flexíveis que os nativos, pois podem ser implementados em diversos sistemas operacionais 
-e \textit{hardwares}. Já os hipervisores nativos possuem melhor desempenho pois acessam o \textit{hardware} diretamente.
 
 \begin{figure}[vms_arquiteturas]
  \centering
  \includegraphics[width=380px]{img/vms_arquiteturas.eps}
- \caption{Arquiteturas de máquinas virtuais de sistema. VER HIPERVISOR CONVIDADO ???}
+ \caption{Arquiteturas de máquinas virtuais de sistema. COLOCAR host OS ABAIXO DO HIPERVISOR ???}
  \label{fig:vms_arquiteturas}
  Fonte: \citet{maziero2013}
 \end{figure}
+
+Destaca-se que hipervisores convidados são mais flexíveis que os nativos, pois podem ser implementados em diversos sistemas operacionais 
+e \textit{hardwares}. Já os hipervisores nativos possuem melhor desempenho pois acessam o \textit{hardware} diretamente.
 
 %\subsection{Níveis de virtualização}
 %\label{section:virtniv}
@@ -174,11 +174,7 @@ e \textit{hardwares}. Já os hipervisores nativos possuem melhor desempenho pois
 \label{section:virtestrat}
 
 As máquinas virtuais de sistema podem ser implementadas usando diferentes tipos de estratégias. Atualmente as estratégias mais utilizadas
-são a virtualização total e a paravirtualização, detalhadas a seguir:
-%Antes disso deve-se compreender uma técnica conhecida como tradução dinâmica. Nesta 
-%técnica o hipervisor adapta as instruções geradas pelo sistema convidado para a interface \ac{ISA} do sistema real. Outra função da 
-%tradução dinâmica é analisar e reoganizar as instruções do sistema convidado, com o objetivo de melhorar o desempenho da execução.
-
+são a virtualização total e a paravirtualização (Figura \ref{fig:vms_implementacao}), detalhadas a seguir:
 \begin{itemize}
  \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma, possibilita-se 
  que sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. Na virtualização total o conjunto de 
@@ -189,8 +185,16 @@ são a virtualização total e a paravirtualização, detalhadas a seguir:
  \item Paravirtualização: esta utiliza arquitetura de hipervisor nativo, sendo que essa estratégia provê um melhor acoplamento entre os 
  sistemas operacionais convidados e o hipervisor. Para isso, o sistema convidado deve ser adaptado para o hipervisor no qual executará, 
  ou seja, a interface de sistema (\textit{system ISA}) será acessada diretamente pelo sistema convidado, resultando em um desempenho melhor. 
- São exemplos de sistemas que implementam a paravirtualização: o \textit{Xen} e o \textit{VMware ESX Server}.
+ Um exemplo de sistema que implementa a paravirtualização é o \textit{Xen}.
 \end{itemize}
+
+\begin{figure}[vms_implementacao]
+ \centering
+ \includegraphics[width=330px]{img/vms_implementacao.eps}
+ \caption{Implementações de máquinas virtuais de sistema.}
+ \label{fig:vms_implementacao}
+ Fonte: \citet{maziero2013}
+\end{figure}
 
 \footnotetext[1]{A tradução dinâmica analisa e reorganiza as instruções de um sistema convidado para melhorar o desempenho da execução, 
 além disso a tradução dinâmica adapta as instruções do sistema convidado para o sistema real.}
@@ -222,7 +226,7 @@ possibilita a virtualização em \ac{PC} para fins de desenvolvimento de \textit
 Em empresas pode-se utilizar virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um servidor 
 para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops} e exige um \textit{hardware} de 
 menor valor, além disso essa técnica possibilita uma maior segurança dos dados. Exemplos desse tipo de virtualização são o \textit{Xen Desktop}
-\ref{xendesktop} e o \textit{VMware View} \ref{vmwareview}.
+\cite{xendesktop} e o \textit{VMware Horizon View} \cite{vmwareview}.
 %Em empresas pode-se utilizar virtualização de \textit{desktops} para reduzir a subutilização dos \textit{desktops}, que pode ser feito através da
 %colaboração com projetos científicos de \textit{clusters} de computadores virtuais \cite{carissimi2008}. %exemplo seti@home
 
