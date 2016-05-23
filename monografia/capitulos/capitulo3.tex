@@ -28,7 +28,7 @@ tipos de interfaces existentes em sistemas de computação (Figura \ref{fig:inte
  \begin{itemize}
   \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários;
   %Um exemplo de instrução de usuário é uma instrução do processador que executa diretamente sobre a 
-  %memória alocada para o programa ??? ver se é realmente isso; %ver exemplo se esta certo
+  %memória alocada para o programa; %ver exemplo se esta certo
   \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. 
   Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de instruções de sistema;
  \end{itemize}
@@ -257,7 +257,13 @@ espaço físico utilizado também podem ser reduzidos com a implantação de vir
 custos de energia.
 
 \section{Considerações finais}
-Neste Capítulo...
+
+Neste Capítulo foram descritos um breve histórico e os dois principais grupos de máquinas virtuais, máquinas virtuais de aplicação e máquinas 
+virtuais de sistema. Também foi apresentado as vantagens e as estratégias de implementação de máquinas virtuais. Deu-se ênfase em máquinas 
+virtuais de sistema pois são o foco deste trabalho. Pôde-se perceber que máquinas virtuais podem ser utilizadas para fazer redundância de 
+\textit{software}. No próximo Capítulo será feito uma análise na empresa e a seleção dos seus serviços mais importantes para propor uma 
+solução de alta diponibilidade.
+
 
 %\section{Emulação ????}
 
@@ -269,12 +275,3 @@ Neste Capítulo...
 %ser intermediada pela camada de \textit{software} que faz a sua tradução. Por outro lado ela não visa desempenho, mas sim flexibilidade,
 %por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{hardware} simulem e validem aplicativos sem a presença
 %do \textit{hardware} real.
-
-%\begin{figure}[acoplamento_interfaces]
-% \centering
-% \includegraphics[height=140px]{img/acoplamento_interfaces.eps}
-% \caption{Acoplamento entre interfaces distintas}
-% \label{fig:acoplamento_interfaces}
-% Fonte: \citet{laureano2008}
-%\end{figure}
-%Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} .... VER ONDE COLOCAR

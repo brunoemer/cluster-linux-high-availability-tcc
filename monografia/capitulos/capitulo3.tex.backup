@@ -20,29 +20,37 @@ Atualmente, define-se virtualização como uma camada de \textit{software} que u
 sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, de forma que uma 
 aplicação desenvolvida para uma plataforma \textit{X} possa também executar em uma plataforma \textit{Y} \cite{laureano2008}.
 
-??? Nesse Capítulo será apresentado as diferentes classificações de máquinas virtuais, para isso são apresentados os diferentes 
-tipos de interfaces existentes em sistemas de computação:
+Nesse Capítulo será apresentado as diferentes classificações de máquinas virtuais, para isso são apresentados os diferentes 
+tipos de interfaces existentes em sistemas de computação (Figura \ref{fig:interfaces_isa}):
 \begin{itemize}
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Esta interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários, sendo que 
-  essas executam em modo não-privilegiado. Um exemplo de instrução de usuário é uma instrução do processador que executa diretamente sobre a 
-  memória alocada para o programa ??? ver se é realmente isso;
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções de \textit{hardware} disponíveis à aplicações de usuários;
+  %Um exemplo de instrução de usuário é uma instrução do processador que executa diretamente sobre a 
+  %memória alocada para o programa; %ver exemplo se esta certo
   \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. 
-  Essas são executadas em modo privilegiado. Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de instruções de sistema;
+  Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de instruções de sistema;
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
  Essas operações permitem o acesso controlado aos dispositivos, memória e processador. Um exemplo de chamada de sistema é uma operação de escrita 
  em disco.
 \end{itemize}
 
+\begin{figure}[interfaces_isa]
+ \centering
+ \includegraphics[width=350px]{img/interfaces_isa.eps}
+ \caption{.}
+ \label{fig:interfaces_isa}
+ Fonte: \citet{maziero2013}
+\end{figure}
+
 Máquinas virtuais podem ser divididas em dois grupos principais, que são: as máquinas virtuais de aplicação (Seção \ref{section:virtaplicacao}), 
 e máquinas virtuais de sistema (Seção \ref{section:virtsistema}). As máquinas virtuais de aplicação fazem a virtualização de uma 
 aplicação e suportam apenas um processo ou aplicação, ou seja, elas provêm um ambiente onde um sistema operacional permita a execução de
 uma aplicação convidada. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. Enquanto uma máquina virtual de sistema suporta um sistema
-operacional convidado, com suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}). Uma máquina virtual executando sobre \ac{KVM} 
-é um exemplo de máquina virtual de aplicação \cite{laureano2008}.
+operacional convidado, com suas aplicações executando sobre ele (Figura \ref{fig:vms_tipos}). Uma máquina virtual executando sobre o 
+hipervidor \ac{KVM} é um exemplo de máquina virtual de aplicação \cite{laureano2008}.
 
 \begin{figure}[vms_tipos]
  \centering
@@ -69,7 +77,7 @@ virtualização. Existem dois tipos de máquinas virtuais de aplicação, que s�
  e a \textit{Microsoft Common Language Infrastructure}, que é a base da plataforma \textit{.NET} \cite{carissimi2008};
  \item Emulação no sistema operacional: nesse caso é feito um mapeamento entre as chamadas de sistema que são utilizadas pela aplicação 
  e as chamadas do sistema operacional real. A virtualização de aplicação pode ser encontrada em ferramentas que emulam uma aplicação 
- desenvolvida para uma plataforma em outra plataforma. Como exemplo, pode-se citar o \textit{Wine} \ref{wine}, que permite executar aplicações 
+ desenvolvida para uma plataforma em outra plataforma. Como exemplo, pode-se citar o \textit{Wine} \cite{wine}, que permite executar aplicações 
  \textit{Windows} em plataformas \textit{Linux}.
 \end{itemize}
 
@@ -104,12 +112,20 @@ do \textit{hardware} \cite{smithenair2005}.
 
 Nesse modelo, o ambiente de virtualização de sistema é composto basicamente por três componentes (Figura \ref{fig:virtcomponentes}):
 \begin{itemize}
- \item Sistema real: também chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
+ \item Máquina real: também chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
  \item Camada de virtualização: é conhecida como hipervisor ou também chamada de \ac{VMM}. Essa camada tem como função criar interfaces 
- virtuais, para a comunicação do sistema virtual com o sistema real;
- \item Sistema virtual: também conhecido como sistema convidado, que executa sobre a camada de virtualização. Sendo que, geralmente
- existem vários sistemas virtuais executando simultaneamente.
+ virtuais, para a comunicação da máquina virtual com a máquina real;
+ \item Máquina virtual: também conhecido como sistema convidado, que executa sobre a camada de virtualização. Sendo que, geralmente
+ existem várias máquinas virtuais executando simultaneamente.
 \end{itemize}
+
+\begin{figure}[virtcomponentes]
+ \centering
+ \includegraphics[width=300px]{img/virtcomponentes.eps}
+ \caption{Componentes da virtualização.}
+ \label{fig:virtcomponentes}
+ Fonte: \citet{andrade2011}
+\end{figure}
 
 \subsection{Arquiteturas de máquinas virtuais de sistema}
 \label{section:virtarquit}
@@ -119,23 +135,23 @@ Existem basicamente duas arquiteturas de hipervisor de sistema, que são apresen
  \item Hipervisores nativos: esse hipervisor executa diretamente sobre o \textit{hardware}, ou seja, sem um sistema operacional
  hospedeiro. Neste caso, o hipervisor nativo faz a multiplexação dos recursos do \textit{hardware} (memória, disco rígido, interface de rede, 
  entre outros) e diponibiliza esses recursos para as máquinas virtuais. Alguns exemplos que utilizam esse hipervisor são 
- \textit{IBM 370} \ref{ibm370}, o \textit{Xen} \ref{xen} e o \textit{VMware ESX Server} \ref{vmwareesx};
+ \textit{IBM 370} \cite{ibm370}, o \textit{Xen} \cite{xen} e o \textit{VMware ESXi} \cite{vmwareesxi};
  \item Hipervisores convidados: esse tipo de hipervisor executa sobre um sistema operacional hospedeiro, e utiliza os recursos 
  desse sistema para gerar recursos virtuais para as máquinas virtuais. Normalmente esse tipo suporta apenas um sistema 
  operacional convidado para cada hipervisor. Exemplos de \textit{softwares} que possuem esse tipo de arquitetura são: o 
- \textit{VirtualBox} \ref{virtualbox}, o \textit{VMware Player} \ref{vmwareplayer} e o \textit{QEmu} \ref{qemu}.
+ \textit{VirtualBox} \cite{virtualbox}, o \textit{VMware Player} \cite{vmwareplayer} e o \textit{QEmu} \cite{qemu}.
 \end{itemize}
-
-Destaca-se que hipervisores convidados são mais flexíveis que os nativos, pois podem ser implementados em diversos sistemas operacionais 
-e \textit{hardwares}. Já os hipervisores nativos possuem melhor desempenho pois acessam o \textit{hardware} diretamente.
 
 \begin{figure}[vms_arquiteturas]
  \centering
  \includegraphics[width=380px]{img/vms_arquiteturas.eps}
- \caption{Arquiteturas de máquinas virtuais de sistema. VER HIPERVISOR CONVIDADO ???}
+ \caption{Arquiteturas de máquinas virtuais de sistema. COLOCAR host OS ABAIXO DO HIPERVISOR ???}
  \label{fig:vms_arquiteturas}
  Fonte: \citet{maziero2013}
 \end{figure}
+
+Destaca-se que hipervisores convidados são mais flexíveis que os nativos, pois podem ser implementados em diversos sistemas operacionais 
+e \textit{hardwares}. Já os hipervisores nativos possuem melhor desempenho pois acessam o \textit{hardware} diretamente.
 
 %\subsection{Níveis de virtualização}
 %\label{section:virtniv}
@@ -165,11 +181,7 @@ e \textit{hardwares}. Já os hipervisores nativos possuem melhor desempenho pois
 \label{section:virtestrat}
 
 As máquinas virtuais de sistema podem ser implementadas usando diferentes tipos de estratégias. Atualmente as estratégias mais utilizadas
-são a virtualização total e a paravirtualização, detalhadas a seguir:
-%Antes disso deve-se compreender uma técnica conhecida como tradução dinâmica. Nesta 
-%técnica o hipervisor adapta as instruções geradas pelo sistema convidado para a interface \ac{ISA} do sistema real. Outra função da 
-%tradução dinâmica é analisar e reoganizar as instruções do sistema convidado, com o objetivo de melhorar o desempenho da execução.
-
+são a virtualização total e a paravirtualização (Figura \ref{fig:vms_implementacao}), detalhadas a seguir:
 \begin{itemize}
  \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma, possibilita-se 
  que sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. Na virtualização total o conjunto de 
@@ -180,8 +192,16 @@ são a virtualização total e a paravirtualização, detalhadas a seguir:
  \item Paravirtualização: esta utiliza arquitetura de hipervisor nativo, sendo que essa estratégia provê um melhor acoplamento entre os 
  sistemas operacionais convidados e o hipervisor. Para isso, o sistema convidado deve ser adaptado para o hipervisor no qual executará, 
  ou seja, a interface de sistema (\textit{system ISA}) será acessada diretamente pelo sistema convidado, resultando em um desempenho melhor. 
- São exemplos de sistemas que implementam a paravirtualização: o \textit{Xen} e o \textit{VMware ESX Server}.
+ Um exemplo de sistema que implementa a paravirtualização é o \textit{Xen}.
 \end{itemize}
+
+\begin{figure}[vms_implementacao]
+ \centering
+ \includegraphics[width=330px]{img/vms_implementacao.eps}
+ \caption{Implementações de máquinas virtuais de sistema.}
+ \label{fig:vms_implementacao}
+ Fonte: \citet{maziero2013}
+\end{figure}
 
 \footnotetext[1]{A tradução dinâmica analisa e reorganiza as instruções de um sistema convidado para melhorar o desempenho da execução, 
 além disso a tradução dinâmica adapta as instruções do sistema convidado para o sistema real.}
@@ -211,7 +231,9 @@ plataformas sem comprometer o sistema operacional original \cite{carissimi2008}.
 possibilita a virtualização em \ac{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
 
 Em empresas pode-se utilizar virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um servidor 
-para centralizar as máquinas virtuais. 
+para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops} e exige um \textit{hardware} de 
+menor valor, além disso essa técnica possibilita uma maior segurança dos dados. Exemplos desse tipo de virtualização são o \textit{Xen Desktop}
+\cite{xendesktop} e o \textit{VMware Horizon View} \cite{vmwareview}.
 %Em empresas pode-se utilizar virtualização de \textit{desktops} para reduzir a subutilização dos \textit{desktops}, que pode ser feito através da
 %colaboração com projetos científicos de \textit{clusters} de computadores virtuais \cite{carissimi2008}. %exemplo seti@home
 
@@ -236,6 +258,11 @@ custos de energia.
 
 \section{Considerações finais}
 
+Neste Capítulo foram descritos um breve histórico e os dois principais grupos de máquinas virtuais, máquinas virtuais de aplicação e máquinas 
+virtuais de sistema. Deu-se ênfase em máquinas virtuais de sistema pois são o foco deste trabalho. Pôde-se perceber que máquinas virtuais 
+podem ser utilizadas para fazer redundância de \textit{software}. No próximo Capítulo será feito uma análise na empresa e a seleção dos seus 
+serviços mais importantes.
+
 
 %\section{Emulação ????}
 
@@ -247,12 +274,3 @@ custos de energia.
 %ser intermediada pela camada de \textit{software} que faz a sua tradução. Por outro lado ela não visa desempenho, mas sim flexibilidade,
 %por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{hardware} simulem e validem aplicativos sem a presença
 %do \textit{hardware} real.
-
-%\begin{figure}[acoplamento_interfaces]
-% \centering
-% \includegraphics[height=140px]{img/acoplamento_interfaces.eps}
-% \caption{Acoplamento entre interfaces distintas}
-% \label{fig:acoplamento_interfaces}
-% Fonte: \citet{laureano2008}
-%\end{figure}
-%Exemplo de camada de virtualização \ref{fig:acoplamento_interfaces} .... VER ONDE COLOCAR
