@@ -107,7 +107,7 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=34
+line=103
 mode=LaTeX
 open=true
 order=5
@@ -202,7 +202,7 @@ ViMarks=.,28,129,[,28,129,],28,129
 
 [view-settings,view=0,item:capitulos/capitulo4.tex]
 CursorColumn=0
-CursorLine=34
+CursorLine=103
 JumpList=
 ViMarks=.,89,14,[,89,14,],89,14
 

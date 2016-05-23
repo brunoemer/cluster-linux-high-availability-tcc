@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.14)  23 MAY 2016 12:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.14)  23 MAY 2016 12:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1154,36 +1154,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout2 = `capitulos/capitulo4.aux'.
 
  (./capitulos/capitulo4.tex
-
-LaTeX Warning: File `img/servrack.eps' not found on input line 35.
-
-
-! LaTeX Error: File `img/servrack.eps' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.35 ...udegraphics[width=200px]{img/servrack.eps}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Cannot determine size of graphic in img/servrack.eps (no Boundin
-gBox).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.35 ...udegraphics[width=200px]{img/servrack.eps}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
 File: img/servrack.eps Graphic file (type eps)
-<img/servrack.eps> [21
+ <img/servrack.eps> [21
 
 
 
@@ -1240,6 +1212,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [24] [25]
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 26
+ []
+
+[26]
 \openout2 = `capitulos/capitulo5.aux'.
 
  (./capitulos/capitulo5.tex) (./tcc.bbl
@@ -1248,12 +1225,7 @@ Underfull \hbox (badness 6758) in paragraph at lines 8--11
 s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
  []
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 26
- []
-
-[26
+[27
 
 
 
@@ -1277,14 +1249,14 @@ Underfull \hbox (badness 6542) in paragraph at lines 100--104
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
 
-[27]) 
-AED: lastpage setting LastPage
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 28
  []
 
-[28] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
+[28]) 
+AED: lastpage setting LastPage
+[29] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux)
 (./capitulos/capitulo4.aux) (./capitulos/capitulo5.aux))
 
@@ -1301,4 +1273,4 @@ Here is how much of TeX's memory you used:
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10386b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (29 pages, 95568 bytes).
+Output written on tcc.dvi (30 pages, 95736 bytes).
