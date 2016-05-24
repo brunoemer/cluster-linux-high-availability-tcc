@@ -2,7 +2,7 @@
 \label{cap:virtualizacao}
 
 O conceito virtualização surgiu na década de 60, onde muitas vezes era necessário que um usuário utilizasse um ambiente individual, 
-com suas próprias aplicações e totalmente isolado dos demais usuários. Esse foi um dos principais motivos para a criação de máquinas 
+com suas próprias aplicações e totalmente isolado dos demais usuários. Esse foi um dos principais motivos para a criação das máquinas 
 virtuais, que são conhecidas como \ac{VM}. As \ac{VM}s apresentaram uma forte expansão com o sistema operacional \textit{370}, que foi 
 desenvolvido pela \textit{IBM}, e foi um dos principais sistemas comerciais com suporte à virtualização da época. Esse sistema operacional 
 executava em \textit{mainframes}, que na época eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
@@ -20,20 +20,21 @@ Atualmente, define-se virtualização como uma camada de \textit{software} que u
 sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, de forma que uma 
 aplicação desenvolvida para uma plataforma \textit{X} possa também executar em uma plataforma \textit{Y} \cite{laureano2008}.
 
-Nesse Capítulo será apresentado as diferentes classificações de máquinas virtuais, para isso são apresentados os diferentes 
-tipos de interfaces existentes em sistemas de computação (Figura \ref{fig:interfaces_isa}) \cite{maziero2013}:
+Nesse Capítulo será apresentado as diferentes classificações de máquinas virtuais, para isso são apresentados os diferentes tipos de 
+interfaces existentes em sistemas de computação (Figura \ref{fig:interfaces_isa}) \cite{maziero2013}:
 \begin{itemize}
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Essa interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis à aplicações de usuários. Instruções de usuário são instruções 
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis à aplicações de usuários. Essas são instruções 
   não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir em outras tarefas, porque elas não acessam recursos 
   compartilhados. Essas instruções executam em modo usuário, sendo que nesse modo há restrição para controle dos recursos de \textit{hardware}. 
-  Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção \cite{buyya2013};
+  Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção e será devidamente tratada 
+  \cite{buyya2013};
   %Um exemplo de instrução de usuário é uma instrução do processador que executa diretamente sobre a 
   %memória alocada para o programa; %ver exemplo se esta certo
-  \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional, que 
-  são instruções privilegiadas, ou seja, são instruções que acessam recursus compartilhados. Essas instruções são executadas em modo supervisor 
+  \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. Elas 
+  são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo supervisor 
   (ou modo \textit{kernel}), que permitem realizar operações sensíveis\footnotemark[1] no \textit{hardware} \cite{buyya2013}. 
   Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de instruções de sistema;
  \end{itemize}
@@ -76,7 +77,7 @@ As máquinas virtuais de aplicação, também chamadas de máquinas virtuais de 
 que um sistema operacional suporte uma aplicação convidada, sendo que esta aplicação possui um conjunto de instruções, ou de chamadas
 do sistema, diferentes da arquitetura do sistema hospedeiro. Neste caso, quando temos chamadas do sistema operacional ou instruções de máquina 
 que são diferentes das oferecidas pela máquina real, será necessário uma tradução dessas interfaces, que será feita pela camada de 
-virtualização. Existem dois tipos de máquinas virtuais de aplicação, que são:
+virtualização. Os dois principais tipos de máquinas virtuais de aplicação são:
 
 \begin{itemize}
  \item Máquinas virtuais de linguagem de alto nível: esse tipo de máquina virtual foi criado levando em consideração uma linguagem de 
@@ -124,8 +125,8 @@ Nesse modelo, o ambiente de virtualização de sistema é composto basicamente p
  \item Máquina real: também chamado de hospedeiro, que é o \textit{hardware} onde o sistema de virtualização irá executar;
  \item Camada de virtualização: é conhecida como hipervisor ou também chamada de \ac{VMM}. Essa camada tem como função criar interfaces 
  virtuais, para a comunicação da máquina virtual com a máquina real;
- \item Máquina virtual: também conhecido como sistema convidado, que executa sobre a camada de virtualização. Sendo que, geralmente
- existem várias máquinas virtuais executando simultaneamente.
+ \item Máquina virtual: também conhecido como sistema convidado, que executa sobre a camada de virtualização. Geralmente tem-se
+ várias máquinas virtuais executando simultaneamente sobre esta camada.
 \end{itemize}
 
 \begin{figure}[virtcomponentes]
@@ -193,7 +194,7 @@ As máquinas virtuais de sistema podem ser implementadas usando diferentes tipos
 são a virtualização total e a paravirtualização (Figura \ref{fig:vms_implementacao}), detalhadas a seguir:
 \begin{itemize}
  \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma, possibilita-se 
- que sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. Na virtualização total o conjunto de 
+ que os sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. Na virtualização total o conjunto de 
  instruções do processador é acessível somente pelo hipervisor. Sendo que essa estratégia utiliza tradução dinâmica\footnotemark[1]
  para traduzir as instruções do sistema convidado. A grande vantagem dessa estratégia é a possibilidade de um sistema convidado ser executado 
  sem a necessidade de ser modificado. Porém, essa estratégia possui um desempenho inferior devido ao fato do hipervisor intermediar todas as 
@@ -236,8 +237,8 @@ em uma máquina física para um ambiente virtual, sem a necessidade de reinstal�
 A portabilidade é uma das grandes vantagens da virtualização, que também pode ser aplicada em \textit{desktops}. Pode-se citar como exemplo 
 o desenvolvimento de \textit{software} para diversos sistemas operacionais sem a necessidade de um computador para cada sistema operacional. 
 Assim, máquinas virtuais em \textit{desktops} podem ser utilizadas em ambientes de desenvolvimento, pois possibilitam a execução de múltiplas 
-plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Pode-se citar como exemplo o \textit{VMware Workstation}, que 
-possibilita a virtualização em \ac{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
+plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Um exemplo é o \textit{VMware Workstation}, que possibilita 
+a virtualização em \ac{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
 
 Em empresas pode-se utilizar virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um servidor 
 para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops} e exige um \textit{hardware} de 
@@ -248,16 +249,16 @@ menor valor, além disso essa técnica possibilita uma maior segurança dos dado
 
 Pode-se também encontrar virtualização de \textit{desktops} em laboratórios de universidades, devido a necessidade de executar diferentes sistemas 
 operacionais para determinadas disciplinas. Isso é necessário quando pretende-se configurar e executar aplicações para fim de experimentos ou
-aprendizagem, com isso essas ações não afetarão o sistema hospedeiro, pois estarão executando no sistema operacional de uma máquina virtual. 
+aprendizagem, com isso, essas ações não afetarão o sistema hospedeiro, pois estarão executando no sistema operacional de uma máquina virtual. 
 O benefício desse tipo de cenário é a facilidade de manipulação das máquinas virtuais, pois podem ser restauradas de uma forma simples.
 
 Em muitos casos as empresas utilizam serviços distribuídos entre diferentes servidores físicos, como, por exemplo, servidores de e-mail, 
 hospedagens e banco de dados, com isso existe uma grande ociosidade de recursos. Portanto, uma das grandes vantagens da virtualização é um melhor 
-aproveitamento dos recursos. De fato, alocando vários serviços em um único servidor físico e tem-se um melhor aproveitamento do \textit{hardware} 
+aproveitamento dos recursos. De fato, alocando vários serviços em um único servidor físico tem-se um melhor aproveitamento do \textit{hardware} 
 \cite{moreira2006}. Além disso, pode-se ter uma redução de custos com a administração e a manutenção dos servidores físicos. Em um ambiente 
 heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um único servidor.
 Esse tipo de virtualização favorece a implementação do conceito ``um servidor por serviço'', que consiste em ter um servidor para cada 
-serviço. Além disso tem-se o isolamento de serviços, ou seja, caso ocorra uma falha de segurança em um serviço, essa falha não comprometerá 
+serviço. Além disso, tem-se o isolamento de serviços, ou seja, caso ocorra uma falha de segurança em um serviço, essa falha não comprometerá 
 todo o sistema \cite{carissimi2008}.
 
 Outra motivação para a utilização de virtualização consiste no custo da energia elétrica. A economia de energia pode ser obtida 
@@ -268,10 +269,10 @@ custos de energia.
 \section{Considerações finais}
 
 Neste Capítulo foram descritos um breve histórico e os dois principais grupos de máquinas virtuais, máquinas virtuais de aplicação e máquinas 
-virtuais de sistema. Também foi apresentado as vantagens e as estratégias de implementação de máquinas virtuais. Deu-se ênfase em máquinas 
-virtuais de sistema pois são o foco deste trabalho. Pôde-se perceber que máquinas virtuais podem ser utilizadas para fazer redundância de 
-\textit{software}. No próximo Capítulo será feito uma análise na empresa e a seleção dos seus serviços mais importantes para propor uma 
-solução de alta diponibilidade.
+virtuais de sistema. Também foi apresentado as vantagens e as estratégias de implementação de máquinas virtuais de sistema. Deu-se ênfase 
+para máquinas virtuais de sistema pois são o foco deste trabalho. Também pôde-se perceber que máquinas virtuais podem ser utilizadas para fazer 
+redundância de \textit{software}. No próximo Capítulo será feito uma análise na empresa e a seleção dos seus serviços mais importantes para 
+propor uma solução de alta diponibilidade e assim aumentar a confiabilidade dos serviços.
 
 
 %\section{Emulação ????}
