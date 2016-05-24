@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  23 MAY 2016 20:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  23 MAY 2016 21:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1153,18 +1153,20 @@ File: img/servrack.eps Graphic file (type eps)
 ]
 File: img/servfisicos.eps Graphic file (type eps)
  <img/servfisicos.eps>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 22
  []
 
 [22]
-File: img/servlog1.eps Graphic file (type eps)
- <img/servlog1.eps>
+Overfull \hbox (10.39308pt too wide) in paragraph at lines 98--99
+[]\OT1/cmr/m/it/12 Radius \OT1/cmr/m/n/12 au-ten-tica^^Xc~ao []\OT1/cmr/m/it/12
+ Point-to-point pro-to-col over ether-net \OT1/cmr/m/n/12 (PP-PoE): Servi^^Xco
+ []
 
-LaTeX Warning: File `img/servlog2.eps' not found on input line 107.
+File: img/servlog1.eps Graphic file (type eps)
+<img/servlog1.eps>
+
+LaTeX Warning: File `img/servlog2.eps' not found on input line 123.
 
 
 ! LaTeX Error: File `img/servlog2.eps' not found.
@@ -1173,7 +1175,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.107 ...degraphics[width=380px]{img/servlog2.eps}
+l.123 ...degraphics[width=380px]{img/servlog2.eps}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1186,18 +1188,21 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.107 ...degraphics[width=380px]{img/servlog2.eps}
+l.123 ...degraphics[width=380px]{img/servlog2.eps}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 File: img/servlog2.eps Graphic file (type eps)
 <img/servlog2.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 180--199
+Underfull \hbox (badness 10000) in paragraph at lines 199--218
 
  []
 
-) [23]
+
+Underfull \vbox (badness 1082) has occurred while \output is active []
+
+ [23])
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 24
  []
@@ -1207,7 +1212,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 26
  []
 
-[26]
+[26] [27]
 \openout2 = `capitulos/capitulo5.aux'.
 
  (./capitulos/capitulo5.tex) (./tcc.bbl
@@ -1216,7 +1221,12 @@ Underfull \hbox (badness 6758) in paragraph at lines 8--11
 s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
  []
 
-[27
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 28
+ []
+
+[28
 
 
 
@@ -1240,14 +1250,14 @@ Underfull \hbox (badness 6542) in paragraph at lines 104--108
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
 
+[29]) 
+AED: lastpage setting LastPage
 
 Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 28
+\OT1/cmr/m/n/10.95 30
  []
 
-[28]) 
-AED: lastpage setting LastPage
-[29] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
+[30] (./tcc.aux (./folha_rosto.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux)
 (./capitulos/capitulo4.aux) (./capitulos/capitulo5.aux))
 
@@ -1256,12 +1266,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 12828 strings out of 495005
- 248026 string characters out of 6180688
- 307066 words of memory out of 5000000
- 15777 multiletter control sequences out of 15000+600000
+ 12910 strings out of 495005
+ 250010 string characters out of 6180688
+ 308613 words of memory out of 5000000
+ 15859 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,10n,57p,10386b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,10n,57p,10386b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (30 pages, 97980 bytes).
+Output written on tcc.dvi (31 pages, 101004 bytes).

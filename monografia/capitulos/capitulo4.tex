@@ -79,20 +79,36 @@ respectivas \ac{VM}s, que executam aplicações, e existem servidores que execut
 \section{Serviços e virtualização ?}
 \label{section:servicos}
 
-A empresa fornece serviços diversos, desde hospedagens de sites até \textit{DNS} recursivo para um provedor de internet. 
+A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para um provedor de internet. 
 Atualmente sete servidores são utilizados com a virtualização, e os outros sete possuem aplicações executando diretamente. 
 Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidores de virtualização, esses servidores são:
 \begin{itemize}
- \item Servidor Brina: possui quatro \ac{VM}s, que executam os serviços de ... (Figura \ref{fig:servlog1});
+ \item Servidor Brina: possui quatro \ac{VM}s, que executam os serviços (Figura \ref{fig:servlog1}):
+ 
  \item Servidor Fulmine: este executa doze \ac{VM}s (Figura \ref{fig:servlog2}), que executam:
  \begin{itemize}
-  \item 
+  \item \textit{Backup}: serviço de \textit{backup} dos equipamentos do provedor;
+  \item \ac{DNS} autoritativo secundário: fornece o serviço de \ac{DNS} autoritativo dos domínios hospedados pela empresa;
+  \item \ac{DNS} recursivo primário: fornece o serviço de \ac{DNS} para clientes de todo o provedor;
+  \item Gerência \textit{Hotspot}: Servidor de gerência de equipamentos da Ubiquiti que fazem hotspot utilizado pelo provedor;
+  \item Hospedagem sites \ac{WHM}: serviços de hospedagens de sites e banco de dados gerenciados pelo \ac{WHM};
+  \item \ac{IPv6}: fornece o serviço de \ac{DNS} e \ac{NAT} para navegação \ac{IPv6} do provedor;
+  \item Monitoramento \ac{PRTG}: serviço de monitoramento de tráfego e equipamentos da rede \textit{core} do provedor;
+  \item \textit{Radius} \ac{ADSL}: Serviço de autenticação \ac{ADSL} de terceiros utilizando \textit{radius};
+  \item \textit{Radius} autenticação \ac{PPPoE}: Serviço de autenticação \ac{PPPoE} do provedor utilizando \textit{radius};
+  \item Telefonia: serviço de telefonia (central telefônica) \textit{Asterisk} do provedor;
+  \item \textit{Terminal service}: \textit{terminal service} para suporte e gerência de fibra óptica do provedor;
  \end{itemize}
  \item Servidor Piova: 
+
  \item Servidor Raggio: 
+ 
  \item Servidor Tempesta: 
+ 
  \item Servidor Tuono: 
+ 
  \item Servidor Venti: 
+
 \end{itemize}
 
 \begin{figure}[servlog1]
@@ -177,6 +193,7 @@ ou outros sistemas de código aberto, que também são \textit{softwares} livre.
 \section{Serviços críticos}
 \label{section:servcrit}
 
+Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis.
 
 
 Esboço:\\
