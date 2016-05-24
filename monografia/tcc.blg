@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tcc.aux
 A level-1 auxiliary file: folha_rosto.aux
+A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: capitulos/introducao.aux
 A level-1 auxiliary file: capitulos/capitulo2.aux
 A level-1 auxiliary file: capitulos/capitulo3.aux
@@ -11,7 +12,7 @@ The style file: abnt.bst
 Database file #1: tcc.bib
 You've used 28 entries,
             2371 wiz_defined-function locations,
-            723 strings with 9302 characters,
+            724 strings with 9314 characters,
 and the built_in function-call counts, 26338 in all, are:
 = -- 3167
 > -- 96

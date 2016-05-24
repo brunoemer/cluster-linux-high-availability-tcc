@@ -85,7 +85,7 @@ Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidore
 \begin{itemize}
  \item Servidor Brina: possui quatro \ac{VM}s, que executam os serviços (Figura \ref{fig:servlog1}):
  \begin{itemize}
-  \item 
+  \item Hospedagem: ...
  \end{itemize}
  \item Servidor Fulmine: este executa doze \ac{VM}s (Figura \ref{fig:servlog2}), que executam:
  \begin{itemize}
@@ -102,28 +102,38 @@ Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidore
   \item \textit{Terminal service}: \textit{terminal service} para suporte e gerência de fibra óptica do provedor;
  \end{itemize}
  \item Servidor Piova: 
-
+ \begin{itemize}
+  \item 
+ \end{itemize}
  \item Servidor Raggio: 
- 
+ \begin{itemize}
+  \item 
+ \end{itemize}
  \item Servidor Tempesta: 
- 
+ \begin{itemize}
+  \item 
+ \end{itemize}
  \item Servidor Tuono: 
- 
+ \begin{itemize}
+  \item 
+ \end{itemize}
  \item Servidor Venti: 
-
+ \begin{itemize}
+  \item 
+ \end{itemize}
 \end{itemize}
 
 \begin{figure}[servlog1]
  \centering
  \includegraphics[width=380px]{img/servlog1.eps}
- \caption{Servidor virtualização Brina. REFAZER ???}
+ \caption{Servidor de virtualização Brina. REFAZER ???}
  \label{fig:servlog1}
 \end{figure}
 
 \begin{figure}[servlog2]
  \centering
  \includegraphics[width=430px]{img/servlog2.eps}
- \caption{Servidor virtualização Fulmine.}
+ \caption{Servidor de virtualização Fulmine.}
  \label{fig:servlog2}
 \end{figure}
 
@@ -132,8 +142,39 @@ hipervisor \ac{KVM} e o \textit{QEmu}, ambos são projetos de \textit{software} 
 
 -graficos cpu memoria disco cada servidor de virtualizacao? colocar aqui ou na implementacao?
 
-A maioria dos serviços são fornecidos por meio de \textit{software} de código aberto, e a maioria dos sistemas operacionais são \textit{Ubuntu}
-ou outros sistemas de código aberto, que também são \textit{softwares} livre.
+A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto, que executam sobre sistemas operacionais, normalmente 
+\textit{Ubuntu}, que também são \textit{softwares} livre.
+
+\section{Serviços críticos}
+\label{section:servcrit}
+
+Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis na empresa, com isso nesta seção será feito a idenficação
+dos serviços críticos para a empresa.
+...
+
+Esboço:\\
+-DNS (impacto direto para clientes e rede interna): \\
+requisicoes por segundo\\
+numero de usuarios\\
+-Radius (impacto direto para clientes): \\
+numero de usuarios autentidados em x tempo\\
+quantidade de dados armazenados no db em x tempo, trafego utilizado, tempo conexao\\
+numero de usuarios\\
+-Sistemas (impacto indireto para clientes): \\
+gasto com funcionarios ociosos\\
+quantidade de atendimento a clientes\\
+numero de cobrancas enviadas para clientes efetuar pagamento\\
+comunicacao entre setores e funcionarios\\
+numero de usuarios\\
+-Telefonia (impacto indireto para clientes): \\
+quantidade de atendimento a clientes\\
+comunicacao entre setores e funcionarios\\
+ligacoes saintes, atendimento, cobranca, tecnicos instalacoes internet\\
+numero de usuarios\\
+
+Exibir disponibilidade média atual dos serviços, com gráficos
+
+
 
 %A Tabela \ref{tab:servporservidor} mostra todos os servidores, incluindo virtuais, e seus respectivos serviços.
 %\begin{table}
@@ -191,32 +232,3 @@ ou outros sistemas de código aberto, que também são \textit{softwares} livre.
 %\end{tabular}
 %\end{center}
 %\end{table}
-
-\section{Serviços críticos}
-\label{section:servcrit}
-
-Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis.
-...
-
-Esboço:\\
--DNS (impacto direto para clientes e rede interna): \\
-requisicoes por segundo\\
-numero de usuarios\\
--Radius (impacto direto para clientes): \\
-numero de usuarios autentidados em x tempo\\
-quantidade de dados armazenados no db em x tempo, trafego utilizado, tempo conexao\\
-numero de usuarios\\
--Sistemas (impacto indireto para clientes): \\
-gasto com funcionarios ociosos\\
-quantidade de atendimento a clientes\\
-numero de cobrancas enviadas para clientes efetuar pagamento\\
-comunicacao entre setores e funcionarios\\
-numero de usuarios\\
--Telefonia (impacto indireto para clientes): \\
-quantidade de atendimento a clientes\\
-comunicacao entre setores e funcionarios\\
-ligacoes saintes, atendimento, cobranca, tecnicos instalacoes internet\\
-numero de usuarios\\
-
-Exibir disponibilidade média atual dos serviços, com gráficos
-
