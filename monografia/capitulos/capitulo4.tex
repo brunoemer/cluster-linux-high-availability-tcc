@@ -1,13 +1,11 @@
 \chapter{Estudo de caso}
 \label{cap:estudodecaso}
 
-Neste trabalho será feito um estudo sobre uma empresa que fornece serviços de hospedagens e também está associada a um 
-provedor de internet\footnotemark[1]. 
+Neste trabalho será feito um estudo sobre uma empresa que fornece serviços de hospedagens e também está associada a um provedor de 
+internet\footnote{É importante salientar que esse provedor utiliza a maior parte dos serviços da empresa, pois possui maior número de clientes.}. 
 A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, sendo que o número de clientes é aproximadamente 9000. 
 A sede da empresa está localizada na cidade de Garibaldi, além disso possui quatro filiais no estado, atendendo aproximadamente xx?? cidades.
 Essa empresa, que será o foco deste trabalho, possui aproximadamente xx?? funcionários.
-
-\footnotetext[1]{É importante salientar que esse provedor utiliza a maior parte dos serviços da empresa, pois possui maior número de clientes.}
 
 Essa empresa oferece serviços pela internet aos seus clientes, que são: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
 \textit{e-mail marketing}, \textit{backup}, \textit{máquinas virtuais}, autenticação \textit{ADSL}, rádio \textit{online} e telefonia.
@@ -30,7 +28,7 @@ A estrutura atual da empresa é composta por quatorze servidores físicos montad
 A configuração de \textit{hardware} desses servidores esta listado na Tabela \ref{tab:servfisicos}, que possui o nome do servidor, 
 quantidade e modelo de processadores, quantidade e tipo de memória, número de discos e a capacidade unitária, e o modelo do servidor.
 
-\begin{figure}[servrack]
+\begin{figure}[h!]
  \centering
  \includegraphics[width=200px]{img/servrack.eps}
  \caption{Imagem do \textit{rack} e dos servidores.}
@@ -69,7 +67,7 @@ O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutu
 estão ligados ao \textit{switch}, que provê aos servidores acesso à internet através do roteador. Os servidores de virtualização possuem suas 
 respectivas \ac{VM}s, que executam aplicações, e existem servidores que executam aplicações diretamente.
 
-\begin{figure}[servfisicos]
+\begin{figure}[h!]
  \centering
  \includegraphics[width=430px]{img/servfisicos.eps}
  \caption{Estrutura física.}
@@ -123,14 +121,14 @@ Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidore
  \end{itemize}
 \end{itemize}
 
-\begin{figure}[servlog1]
+\begin{figure}[h!]
  \centering
  \includegraphics[width=380px]{img/servlog1.eps}
  \caption{Servidor de virtualização Brina. REFAZER ???}
  \label{fig:servlog1}
 \end{figure}
 
-\begin{figure}[servlog2]
+\begin{figure}[h!]
  \centering
  \includegraphics[width=430px]{img/servlog2.eps}
  \caption{Servidor de virtualização Fulmine.}
