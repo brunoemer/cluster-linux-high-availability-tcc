@@ -3,9 +3,9 @@
 
 O conceito virtualização surgiu na década de 60, onde muitas vezes era necessário que um usuário utilizasse um ambiente individual, 
 com suas próprias aplicações e totalmente isolado dos demais usuários. Esse foi um dos principais motivos para a criação das máquinas 
-virtuais, que são conhecidas como \ac{VM}. As \ac{VM}s apresentaram uma forte expansão com o sistema operacional \textit{370}, que foi 
+virtuais, que eram conhecidas como \ac{VM}. As \ac{VM}s apresentaram uma forte expansão com o sistema operacional \textit{370}, que foi 
 desenvolvido pela \textit{IBM}, e foi um dos principais sistemas comerciais com suporte à virtualização da época. Esse sistema operacional 
-executava em \textit{mainframes}, que na época eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
+executava em \textit{mainframes}, que eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
 
 Na década de 80 houve uma redução no uso da virtualização devido a popularização do \ac{PC}. Na época era mais vantajoso disponibilizar 
 um \ac{PC} para cada usuário, do que investir em \textit{mainframes}. Devido à crescente melhora na performance do \ac{PC} e
@@ -17,18 +17,19 @@ divisão e a proteção dos recursos físicos. Porém, atualmente ela abrange ou
 um \textit{hardware}. De fato, essa permite que uma aplicação convidada execute em diferentes tipos de sistemas operacionais.
 
 Atualmente, define-se virtualização como uma camada de \textit{software} que utiliza os serviços fornecidos por uma determinada interface de 
-sistema para criar outra interface de mesmo nível. Essa camada irá permitir a comunicação entre interfaces distintas, de forma que uma 
+sistema para criar outra interface de mesmo nível. De fato, essa camada permite a comunicação entre interfaces distintas, de forma que uma 
 aplicação desenvolvida para uma plataforma \textit{X} possa também executar em uma plataforma \textit{Y} \cite{laureano2008}.
 
-Nesse Capítulo será apresentado as diferentes classificações de máquinas virtuais, para isso são apresentados os diferentes tipos de 
-interfaces existentes em sistemas de computação (Figura \ref{fig:interfaces_isa}) \cite{maziero2013}:
+Como mencionado, a virtualização permite a comunicação entre diferentes interfaces, sendo que existem diferentes tipo de interfaces
+em sistemas de computação (Figura \ref{fig:interfaces_isa}) \cite{maziero2013}:
 \begin{itemize}
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Essa interface é dividida em dois grupos:
  \begin{itemize}
   \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis à aplicações de usuários. Essas são instruções 
   não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir em outras tarefas, porque elas não acessam recursos 
-  compartilhados. Essas instruções executam em modo usuário, sendo que nesse modo há restrição para controle dos recursos de \textit{hardware}. 
+  compartilhados EXEMPLO ??. Essas instruções executam em modo usuário, sendo que nesse modo há restrição para controle dos 
+  recursos de \textit{hardware} EXEMPLO ??. 
   Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção e será devidamente tratada 
   \cite{buyya2013};
   %Um exemplo de instrução de usuário é uma instrução do processador que executa diretamente sobre a 
@@ -44,8 +45,6 @@ interfaces existentes em sistemas de computação (Figura \ref{fig:interfaces_is
 \end{itemize}
 
 \footnotetext[1]{Operações sensíveis são operações que podem alterar o estado do processador.}
-%Mastering Cloud Computing: Foundations and Applications Programming
-%Por Rajkumar Buyya,Christian Vecchiola,S.Thamarai Selvi
 
 \begin{figure}[interfaces_isa]
  \centering
