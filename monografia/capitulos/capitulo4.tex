@@ -14,7 +14,14 @@ Além disso, o provedor associado fornece aos seus clientes acesso à internet v
 Atualmente a empresa possui redundância de refrigeração e de energia. A redundância de refrigeração é composta por três ares-condicionados. 
 A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles são utilizados para alimentação dos servidores e outros 
 equipamentos como por exemplo roteadores, e o outro \textit{nobreak} é utilizando para alimentar os computadores dos funcionários. Além disso, 
-possui dois geradores para suprir a necessidade de consumo de energia elétrica (Figura estrutura eletrica ??).
+possui dois geradores para suprir a necessidade de consumo de energia elétrica (Figura \ref{fig:insteletrica}).
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=380px]{img/insteletrica.eps}
+ \caption{Diagrama de instalação elétrica.}
+ \label{fig:insteletrica}
+\end{figure}
 
 Nas próximas seções serão detalhados: o ambiente físico dos servidores, com suas estruturas e suas configurações, além da estrutura de 
 virtualização e todos os serviços fornecidos pelos servidores (Seção \ref{section:ambiente}), e por fim, a seleção dos serviços 
@@ -70,7 +77,7 @@ O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutu
  \label{fig:servfisicos}
 \end{figure}
 
-Existem sete servidores que possuem serviços executando sem virtualização:
+Existem sete servidores que possuem serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização:
 \begin{itemize}
  \item Bello: 
  \item Cacti: 
@@ -163,7 +170,7 @@ A maioria dos serviços são fornecidos por meio de \textit{softwares} de códig
 Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis na empresa, com isso nesta seção será feito a idenficação
 dos serviços mais críticos para a empresa.
 
-Para selecionar os serviços críticos foi feito uma análise de todos os serviços, sendo que os seguintes critérios foram utilizados: 
+Para selecionar os serviços críticos foi feito uma análise de todos os serviços, sendo que os seguintes critérios foram utilizados: NAO COLOCAR EM ITENS ?? 
 a quantidade de usuários ou funcionários que utilizam o serviço; 
 o número de requisições em um determinado tempo;
 o volume de objetos do serviço;
