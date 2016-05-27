@@ -20,12 +20,12 @@ Nas próximas seções serão detalhados: o ambiente físico dos servidores, com
 virtualização e todos os serviços fornecidos pelos servidores (Seção \ref{section:ambiente}), e por fim, a seleção dos serviços 
 críticos (Seção \ref{section:servcrit}).
 
-\section{Ambiente físico, virtual e os serviços}
+\section{Ambiente físico e virtual}
 \label{section:ambiente}
 
 A estrutura atual da empresa é composta por quatorze servidores físicos montados em um \textit{rack} (Figura \ref{fig:servrack}). 
-A configuração de \textit{hardware} desses servidores esta listado na Tabela \ref{tab:servfisicos}, que possui o nome do servidor, 
-quantidade e modelo de processadores, quantidade e tipo de memória, número de discos e a capacidade unitária, e o modelo do servidor.
+A configuração de \textit{hardware} desses servidores encontradas na Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo do 
+servidor, a configuração dos processadores, quantidade de memória, número de discos e a capacidade unitária de cada disco.
 
 \begin{figure}[h!]
  \centering
@@ -38,33 +38,30 @@ quantidade e modelo de processadores, quantidade e tipo de memória, número de 
 \caption{Configuração dos servidores físicos.}
 \label{tab:servfisicos}
 \begin{center}
-\begin{tabular}{|l|p{4cm}|l|p{2.2cm}|l|}\hline
-Servidor & Processador & Memória & Disco & Modelo\\\hline
-bello & 1 x Intel Core 2 Duo CPU E6750 2.66 GHz & 2 GB DDR2 & 5,5 TB SATA & \\\hline
-brina & 2 x Intel Xeon CPU E5410 2.33 GHz & 24 GB DDR2 & 6 x 300 GB SAS & Dell PowerEdge 2950\\\hline
-cacti & 2 x Intel Xeon CPU E5310 1.60 GHz & 12 GB DDR2 & 2 x 73 GB SAS & Dell PowerEdge 2950\\\hline
-dati & 2 x Intel Xeon CPU 3.20 GHz & 4 GB DDR2 & 2 x 146 GB SCSI & Dell PowerEdge 1850\\\hline
-fulmine & 1 x Intel Xeon CPU E5-2650 2.00 GHz & 32 GB DDR3 & 6 x 2 TB SATA & IBM System x3650 M4\\\hline
-monit & 1 x Intel Core 2 Quad CPU Q9550 2.83 GHz & 4 GB DDR2 & 120 GB SSD & \\\hline
-nino & 1 x Intel Core 2 Duo CPU E4500 2.20 GHz & 4 GB DDR2 & 500 GB SATA & \\\hline
-piova & 2 x Intel Xeon CPU E5530 2.40 GHz & 32 GB DDR3 & 4 x 500G SATA & Dell PowerEdge R410\\\hline
-raggio & 2 x  Intel Xeon CPU E5630 2.53 GHz & 32 GB DDR3 & 4 x 300 GB SAS & HP ProLiant DL360 G7\\\hline
-sfrunhon & 1 x Intel Xeon CPU X3330 2.66 GHz & 8 GB DDR2 & 750 GB SATA & \\\hline
-tempesta & 2 x Intel Xeon CPU E5-2620 2.00 GHz & 32 GB DDR3 & 5 x 1 TB SATA & Dell PowerEdge R620\\\hline
-tuono & 2 x Intel Xeon CPU E5649 2.53 GHz & 32 GB DDR3 & 6 x 300 GB SAS 2 x 146 GB SAS & HP ProLiant DL380 G7\\\hline
-venti & 1 x Intel Xeon CPU E3-1220 3.10 GHz & 16 GB DDR3 & 2 x 3 TB SATA & Dell PowerEdge R210 II\\\hline
-vigilante & 1 x Intel Pentium Dual CPU E2180 2.00 GHz & 4 GB DDR2 & 2,5 TB SATA & \\\hline
+\begin{tabular}{|l|l|p{4cm}|l|p{2.1cm}|}\hline
+Servidor & Modelo & Processador & Memória & Disco\\\hline
+Bello & & 1 x Intel Core 2 Duo CPU E6750 2.66 GHz & 2 GB DDR2 & 5,5 TB SATA\\\hline
+Cacti & Dell PowerEdge 2950 & 2 x Intel Xeon CPU E5310 1.60 GHz & 12 GB DDR2 & 2 x 73 GB SAS\\\hline
+Dati & Dell PowerEdge 1850 & 2 x Intel Xeon CPU 3.20 GHz & 4 GB DDR2 & 2 x 146 GB SCSI\\\hline
+Monit & & 1 x Intel Core 2 Quad CPU Q9550 2.83 GHz & 4 GB DDR2 & 120 GB SSD\\\hline
+Nino & & 1 x Intel Core 2 Duo CPU E4500 2.20 GHz & 4 GB DDR2 & 500 GB SATA\\\hline
+Sfrunhon & & 1 x Intel Xeon CPU X3330 2.66 GHz & 8 GB DDR2 & 750 GB SATA\\\hline
+Vigilante & & 1 x Intel Pentium Dual CPU E2180 2.00 GHz & 4 GB DDR2 & 2,5 TB SATA\\\hline
+Brina & Dell PowerEdge 2950 & 2 x Intel Xeon CPU E5410 2.33 GHz & 24 GB DDR2 & 6 x 300 GB SAS\\\hline
+Fulmine & IBM System x3650 M4 & 1 x Intel Xeon CPU E5-2650 2.00 GHz & 32 GB DDR3 & 6 x 2 TB SATA\\\hline
+Piova & Dell PowerEdge R410 & 2 x Intel Xeon CPU E5530 2.40 GHz & 32 GB DDR3 & 4 x 500G SATA\\\hline
+Raggio & HP ProLiant DL360 G7 & 2 x  Intel Xeon CPU E5630 2.53 GHz & 32 GB DDR3 & 4 x 300 GB SAS\\\hline
+Tempesta & Dell PowerEdge R620 & 2 x Intel Xeon CPU E5-2620 2.00 GHz & 32 GB DDR3 & 5 x 1 TB SATA 3 x 1,2 TB SAS\\\hline
+Tuono & HP ProLiant DL380 G7 & 2 x Intel Xeon CPU E5649 2.53 GHz & 32 GB DDR3 & 6 x 300 GB SAS 2 x 146 GB SAS\\\hline
+Venti & Dell PowerEdge R210 II & 1 x Intel Xeon CPU E3-1220 3.10 GHz & 16 GB DDR3 & 2 x 3 TB SATA\\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-Os servidores utilizados para virtualização possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através 
-de um \ac{RAID}.
-Além disso, para cada servidor de virtualização dois cabos de rede são ligados a um \textit{switch} \textit{gigabit}, para possibilitar a 
+Todos os servidores estão ligados ao \textit{switch}, que provê aos servidores acesso à internet através do roteador. 
+Para os servidores mais importantes utiliza-se dois cabos de rede que estão ligados a um \textit{switch} \textit{gigabit}, para possibilitar a 
 configuração de \textit{link aggregation}, assim caracterizando a redundância do cabeamento e dobrando a capacidade de tráfego de dados.
-O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutura física dos servidores da empresa. Todos os servidores 
-estão ligados ao \textit{switch}, que provê aos servidores acesso à internet através do roteador. Os servidores de virtualização possuem suas 
-respectivas \ac{VM}s, que executam aplicações, e existem servidores que executam aplicações diretamente.
+O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutura física dos servidores da empresa. 
 
 \begin{figure}[h!]
  \centering
@@ -73,11 +70,32 @@ respectivas \ac{VM}s, que executam aplicações, e existem servidores que execut
  \label{fig:servfisicos}
 \end{figure}
 
+Existem sete servidores que possuem serviços executando sem virtualização:
+\begin{itemize}
+ \item Bello: 
+ \item Cacti: 
+ \item Dati: 
+ \item Monit: 
+ \item Nino: 
+ \item Sfrunhon: 
+ \item Vigilante: 
+\end{itemize}
+
+Servidores virtualização
+
+Os servidores de virtualização possuem suas 
+respectivas \ac{VM}s, que executam aplicações, e existem servidores que executam aplicações diretamente.
+Os servidores utilizados para virtualização possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através 
+de um \ac{RAID}.
+
+Todos os servidores de virtualização possuem o sistema operacional \textit{Ubuntu} versão \textit{14.04 LTS}, para virtualização utiliza-se o 
+hipervisor \ac{KVM} e o \textit{QEmu}, ambos são projetos de \textit{software} livre, para compor o ambiente de virtualização...
+
 %\section{Serviços e virtualização ?}
 %\label{section:servicos}
 
-A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para um provedor de internet. 
-Atualmente sete servidores são utilizados com a virtualização, e os outros sete possuem aplicações executando diretamente. 
+A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de internet. Atualmente sete servidores 
+são utilizados com a virtualização, e os outros sete possuem aplicações executando diretamente sobre o sistema operacional nativo. 
 Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidores de virtualização, esses servidores são:
 \begin{itemize}
  \item Servidor Brina: possui quatro \ac{VM}s, que executam os serviços (Figura \ref{fig:servlog1}):
@@ -133,9 +151,6 @@ Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidore
  \caption{Servidor de virtualização Fulmine.}
  \label{fig:servlog2}
 \end{figure}
-
-Todos os servidores de virtualização possuem o sistema operacional \textit{Ubuntu} versão \textit{14.04 LTS}, para virtualização utiliza-se o 
-hipervisor \ac{KVM} e o \textit{QEmu}, ambos são projetos de \textit{software} livre, para compor o ambiente de virtualização...
 
 -graficos cpu memoria disco cada servidor de virtualizacao? colocar aqui ou na implementacao?
 

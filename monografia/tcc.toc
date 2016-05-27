@@ -21,8 +21,7 @@
 \contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{20}
 \contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{21}
 \contentsline {chapter}{\numberline {4}Estudo de caso}{22}
-\contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico da empresa}{22}
-\contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os e virtualiza\IeC {\c c}\IeC {\~a}o ?}{23}
-\contentsline {section}{\numberline {4.3}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{26}
+\contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico e virtual}{22}
+\contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{27}
 \contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{28}
 \contentsline {chapter}{Refer{\^e}ncias}{29}
