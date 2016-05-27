@@ -1,27 +1,26 @@
 \chapter{Estudo de caso}
 \label{cap:estudodecaso}
 
-Neste trabalho será feito um estudo sobre uma empresa que fornece serviços de hospedagens e também está associada a um provedor de 
+Neste trabalho será apresentada a estrutura de uma empresa que fornece serviços de hospedagens e também está associada a um provedor de 
 internet\footnote{É importante salientar que esse provedor utiliza a maior parte dos serviços da empresa, pois possui maior número de clientes.}. 
-A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, sendo que o número de clientes é aproximadamente 9000. 
-A sede da empresa está localizada na cidade de Garibaldi, além disso possui quatro filiais no estado, atendendo aproximadamente xx?? cidades.
-Essa empresa, que será o foco deste trabalho, possui aproximadamente xx?? funcionários.
+A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, sendo que atualmente essa empresa possui 
+aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de Garibaldi, além disso possui quatro filiais no estado, 
+atendendo aproximadamente xx?? cidades. Essa empresa possui aproximadamente xx?? funcionários.
 
-Essa empresa oferece serviços pela internet aos seus clientes, que são: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
+A empresa oferece serviços pela internet aos seus clientes, que são: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
 \textit{e-mail marketing}, \textit{backup}, \textit{máquinas virtuais}, autenticação \textit{ADSL}, rádio \textit{online} e telefonia.
-O provedor associado fornece aos seus clientes acesso à internet via rádio e acesso à internet por meio de fibra óptica.
+Além disso, o provedor associado fornece aos seus clientes acesso à internet via rádio e acesso à internet por meio de fibra óptica.
 
-Sabendo que a empresa atualmente possui redundância de refrigeração e energia. A redundância de refrigeração é composta por três ares-condicionados. 
-A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles fazem o balanceamento de carga dos servidores e outros 
-equipamentos como por exemplo roteadores. Além disso, possui dois geradores para suprir a necessidade de consumo de energia elétrica. 
-Assim, essas redundâncias tem como objetivo prover um ambiente físico estável e confiável.
+Atualmente a empresa possui redundância de refrigeração e de energia. A redundância de refrigeração é composta por três ares-condicionados. 
+A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles são utilizados para alimentação dos servidores e outros 
+equipamentos como por exemplo roteadores, e o outro \textit{nobreak} é utilizando para alimentar os computadores dos funcionários. Além disso, 
+possui dois geradores para suprir a necessidade de consumo de energia elétrica (Figura estrutura eletrica ??).
 
-Para ser possível propor uma solução de alta diponibilidade nos servidores é necessário conhecer o cenário atual da empresa, além de selecionar 
-os serviços mais críticos para a empresa. Nas próximas seções serão detalhados: o ambiente físico dos servidores, com suas estruturas e suas 
-configurações (Seção \ref{section:ambiente}); a estrutura de virtualização, com a relação de servidores físicos e virtuais, e todos os 
-serviços fornecidos pela empresa (Seção \ref{section:servicos}); e por fim a seleção dos serviços críticos (Seção \ref{section:servcrit}).
+Nas próximas seções serão detalhados: o ambiente físico dos servidores, com suas estruturas e suas configurações, além da estrutura de 
+virtualização e todos os serviços fornecidos pelos servidores (Seção \ref{section:ambiente}), e por fim, a seleção dos serviços 
+críticos (Seção \ref{section:servcrit}).
 
-\section{Ambiente físico da empresa}
+\section{Ambiente físico, virtual e os serviços}
 \label{section:ambiente}
 
 A estrutura atual da empresa é composta por quatorze servidores físicos montados em um \textit{rack} (Figura \ref{fig:servrack}). 
@@ -74,8 +73,8 @@ respectivas \ac{VM}s, que executam aplicações, e existem servidores que execut
  \label{fig:servfisicos}
 \end{figure}
 
-\section{Serviços e virtualização ?}
-\label{section:servicos}
+%\section{Serviços e virtualização ?}
+%\label{section:servicos}
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para um provedor de internet. 
 Atualmente sete servidores são utilizados com a virtualização, e os outros sete possuem aplicações executando diretamente. 
