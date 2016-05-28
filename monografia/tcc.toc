@@ -22,6 +22,6 @@
 \contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{21}
 \contentsline {chapter}{\numberline {4}Estudo de caso}{22}
 \contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico e virtual}{22}
-\contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{27}
+\contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{26}
 \contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{29}
 \contentsline {chapter}{Refer{\^e}ncias}{30}
