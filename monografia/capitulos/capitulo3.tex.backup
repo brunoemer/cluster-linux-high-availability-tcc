@@ -26,21 +26,20 @@ em sistemas de computação (Figura \ref{fig:interfaces_isa}) \cite{maziero2013}
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Essa interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis à aplicações de usuários. Essas são instruções 
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis à aplicações de usuários. Essas instruções executam em 
+  modo usuário, sendo que nesse modo há restrição para controle dos recursos de \textit{hardware}. Instruções de usuário são instruções 
   não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir em outras tarefas, porque elas não acessam recursos 
-  compartilhados EXEMPLO ??. Essas instruções executam em modo usuário, sendo que nesse modo há restrição para controle dos 
-  recursos de \textit{hardware} EXEMPLO ??. 
-  Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção e será devidamente tratada 
+  compartilhados. Este grupo de interface contém, por exemplo, instruções de operações aritméticas e instruções de ponto flutuante; 
+  %Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção e será devidamente tratada;
   \cite{buyya2013};
-  %Um exemplo de instrução de usuário é uma instrução do processador que executa diretamente sobre a 
-  %memória alocada para o programa; %ver exemplo se esta certo
-  \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. Elas 
-  são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo supervisor 
-  (ou modo \textit{kernel}), que permitem realizar operações sensíveis\footnote{Operações sensíveis são operações que podem alterar o estado 
-  do processador.} no \textit{hardware} \cite{buyya2013}. Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de 
-  instruções de sistema;
+  \item Instruções de sistema ou \textit{System \ac{ISA}}: essas instruções geralmente são disponibilizadas para o núcleo do sistema operacional. 
+  Elas são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo 
+  supervisor (ou modo \textit{kernel}), que permitem realizar operações sensíveis\footnote{Operações sensíveis são operações que podem alterar o 
+  estado do processador.} no \textit{hardware} \cite{buyya2013}. Pode-se citar as instruções que alteram o estado dos registradores do processador 
+  como exemplo de instruções de sistema; % entrada e saida (E/S)
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
+ As instruções privilegiadas não podem ser executadas no modo usuário, por isso, as aplicações de usuários utilizam chamadas de sistemas
  Essas operações permitem um acesso controlado aos dispositivos, memória e processador. Um exemplo de chamada de sistema é uma operação de escrita 
  em disco ES DA INSTRUCAO DE SISTEMA ???.
 \end{itemize}
@@ -254,8 +253,9 @@ os dados serão armazenados em um local seguro, como um datacenter por exemplo. 
 %colaboração com projetos científicos de \textit{clusters} de computadores virtuais \cite{carissimi2008}. %exemplo seti@home
 
 Para usuários de computadores em geral a virtualização é importante também, algumas vezes precisa-se utilizar ou testar \textit{softwares}
-que 
-vm para usuario testarem softwares de diferentes so...
+que não estão disponíveis para a plataforma utilizada, deste modo a virtualização possibilita executar qualquer sistema operacional no computador
+do usuário, sem a necessidade de reiniciá-lo. Por exemplo, para usuários \textit{Linux} é comum precisar executar aplicações que não existem 
+para sua plataforma, sendo assim necessário utilizar uma máquina virtual \textit{Windows} para isso.
 
 Pode-se também encontrar virtualização de \textit{desktops} em laboratórios de ensino, devido a necessidade de executar diferentes sistemas 
 operacionais para determinadas disciplinas. Isso é necessário quando pretende-se configurar e executar aplicações para fim de experimentos ou
@@ -283,7 +283,10 @@ custos pode ser obtida através da implantação de servidores mais robustos par
 refrigeração do ambiente também pode ser reduzido com a implantação de virtualização de servidores, que consequentemente reduz o 
 custo de energia.
 
-Migracao de maquinas virtuais a quente...
+A vantagem que fará parte da implementação deste trabalho é a migração em tempo real, mais conhecida como \textit{live migration}.
+Nessa técnica existe a possibilidade de uma máquina virtual, que esta executando em um \textit{hardware}, ser transferida através da rede 
+para outro \textit{hardware} sem ser reiniciada. Nesse processo a máquina fica no estado suspenso (por um período bem curto de tempo) até que
+o \textit{hardware} de destino receba os dados necessários para continuar a execução da máquina virtual \cite{silva2009}.
 
 \section{Considerações finais}
 
@@ -293,14 +296,3 @@ dando ênfase para as máquinas virtuais de sistema, uma vez que essas são o fo
 \textit{software} que será utilizada neste trabalho. No próximo capítulo será feito o levantamento e análise dos serviços fornecidos pela empresa, 
 e posteriormente a seleção dos serviços mais críticos para possibilitar a implementação da solução de alta disponibilidade.
 
-
-%\section{Emulação ????}
-
-%Emulação é a capacidade de uma aplicação ou um dispositivo imitar um determinado conjunto de \textit{hardware}. Normalmente é
-%executado como um aplicativo em um sistema operacional. A emulação é uma camada de \textit{software} que possibilita a execução
-%de uma plataforma em outra plataforma distinta, com isso obtem-se a portabilidade das máquinas virtuais hospedeiras \cite{silva2009}.
-
-%Este tipo de virtualização possui uma considerável redução de desempenho, pelo fato de toda comunicação com o \textit{hardware}
-%ser intermediada pela camada de \textit{software} que faz a sua tradução. Por outro lado ela não visa desempenho, mas sim flexibilidade,
-%por exemplo ela permite que desenvolvedores de \textit{firmware} e de \textit{hardware} simulem e validem aplicativos sem a presença
-%do \textit{hardware} real.

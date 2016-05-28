@@ -26,23 +26,23 @@ em sistemas de computação (Figura \ref{fig:interfaces_isa}) \cite{maziero2013}
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Essa interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis à aplicações de usuários. Essas são instruções 
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis à aplicações de usuários. Essas instruções executam em 
+  modo usuário, sendo que nesse modo há restrição para controle dos recursos de \textit{hardware}. Instruções de usuário são instruções 
   não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir em outras tarefas, porque elas não acessam recursos 
-  compartilhados EXEMPLO ??. Essas instruções executam em modo usuário, sendo que nesse modo há restrição para controle dos 
-  recursos de \textit{hardware} EXEMPLO ??. 
-  Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção e será devidamente tratada 
+  compartilhados. Este grupo de interface contém, por exemplo, instruções de operações aritméticas e instruções de ponto flutuante; 
+  %Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção e será devidamente tratada;
   \cite{buyya2013};
-  %Um exemplo de instrução de usuário é uma instrução do processador que executa diretamente sobre a 
-  %memória alocada para o programa; %ver exemplo se esta certo
-  \item Instruções de sistema ou \textit{System \ac{ISA}}: são instruções exclusivamente acessíveis ao núcleo do sistema operacional. Elas 
-  são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo supervisor 
-  (ou modo \textit{kernel}), que permitem realizar operações sensíveis\footnote{Operações sensíveis são operações que podem alterar o estado 
-  do processador.} no \textit{hardware} \cite{buyya2013}. Pode-se citar as instruções de entrada e saída (\textit{E/S}) como exemplo de 
-  instruções de sistema;
+  \item Instruções de sistema ou \textit{System \ac{ISA}}: essas instruções geralmente são disponibilizadas para o núcleo do sistema operacional. 
+  Elas são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo 
+  supervisor (ou modo \textit{kernel}), que permitem realizar operações sensíveis\footnote{Operações sensíveis são operações que podem alterar o 
+  estado do processador.} no \textit{hardware} \cite{buyya2013}. Pode-se citar as instruções que alteram o estado dos registradores do processador 
+  como exemplo de instruções de sistema; % entrada e saida (E/S)
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
- Essas operações permitem um acesso controlado aos dispositivos, memória e processador. Um exemplo de chamada de sistema é uma operação de escrita 
- em disco ES DA INSTRUCAO DE SISTEMA ???.
+ Essas operações permitem um acesso controlado aos dispositivos, memória e processador. 
+ As instruções privilegiadas não podem ser executadas no modo usuário, por isso, as aplicações de usuários utilizam chamadas de sistemas em seu 
+ lugar, e então o sistema operacional determina se essas operações não irão comprometer a integridade do sistema \cite{marinescu2013}.
+ Um exemplo de chamada de sistema é uma operação de escrita em disco ou qualquer operação de entrada e saída feito por aplicações de usuários.
 \end{itemize}
 
 \begin{figure}[h!]

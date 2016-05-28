@@ -10,11 +10,14 @@ atendendo aproximadamente xx?? cidades. Essa empresa possui aproximadamente xx??
 A empresa oferece serviços pela internet aos seus clientes, que são: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
 \textit{e-mail marketing}, \textit{backup}, \textit{máquinas virtuais}, autenticação \textit{ADSL}, rádio \textit{online} e telefonia.
 Além disso, o provedor associado fornece aos seus clientes acesso à internet via rádio e acesso à internet por meio de fibra óptica.
+A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto, que executam sobre sistemas operacionais, normalmente 
+distribuições \textit{Linux}, e também são \textit{softwares} livre.
 
-Atualmente a empresa possui redundância de refrigeração e de energia. A redundância de refrigeração é composta por três ares-condicionados. 
+Atualmente a empresa possui redundância de refrigeração e de energia. A redundância de refrigeração é composta por dois ares-condicionados. 
 A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles são utilizados para alimentação dos servidores e outros 
-equipamentos como por exemplo roteadores, e o outro \textit{nobreak} é utilizando para alimentar os computadores dos funcionários. Além disso, 
-possui dois geradores para suprir a necessidade de consumo de energia elétrica (Figura \ref{fig:insteletrica}).
+equipamentos como por exemplo roteadores, de uma forma que caso um falhar o outro alimente todos os equipamentos.O terceiro \textit{nobreak} é 
+utilizado para alimentar os computadores dos funcionários de dois setores. Além disso, dois geradores suprem a necessidade de consumo de 
+energia elétrica do ambiente (Figura \ref{fig:insteletrica}).
 
 \begin{figure}[h!]
  \centering
@@ -66,9 +69,11 @@ Venti & Dell PowerEdge R210 II & 1 x Intel Xeon CPU E3-1220 3.10 GHz & 16 GB DDR
 \end{table}
 
 Todos os servidores estão ligados ao \textit{switch}, que provê aos servidores acesso à internet através do roteador. 
-Para os servidores mais importantes utiliza-se dois cabos de rede que estão ligados a um \textit{switch} \textit{gigabit}, para possibilitar a 
-configuração de \textit{link aggregation}, assim caracterizando a redundância do cabeamento e dobrando a capacidade de tráfego de dados.
-O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutura física dos servidores da empresa. 
+Para os servidores mais importantes utiliza-se dois cabos de rede que estão ligados a um \textit{switch} \textit{gigabit}, assim possibilitando
+a configuração de \textit{link aggregation}, que possibilita configurar mais de uma interface de rede física em uma interface agregada, com isso 
+caracteriza-se a redundância do cabeamento e também permite dobrar a capacidade de tráfego de dados.
+O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutura física dos servidores da empresa, com dois exemplos de cada 
+tipo de servidor. 
 
 \begin{figure}[h!]
  \centering
@@ -77,7 +82,8 @@ O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutu
  \label{fig:servfisicos}
 \end{figure}
 
-Existem sete servidores que possuem serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização:
+Existem sete servidores que possuem serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização. Eles são os sete 
+primeiros servidores da Tabela \ref{tab:servfisicos}:
 \begin{itemize}
  \item Bello: 
  \item Cacti: 
@@ -88,15 +94,15 @@ Existem sete servidores que possuem serviços executando sobre o sistema operaci
  \item Vigilante: 
 \end{itemize}
 
-Servidores virtualização
 
-Os servidores de virtualização possuem suas 
-respectivas \ac{VM}s, que executam aplicações, e existem servidores que executam aplicações diretamente.
-Os servidores utilizados para virtualização possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através 
-de um \ac{RAID}.
+Os servidores de virtualização possuem suas respectivas \ac{VM}s, que executam aplicações. Para virtualização utiliza-se o hipervisor 
+\ac{KVM} e o \textit{QEmu}, sendo que ambos são projetos de \textit{software} livre.
+Esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através de um \ac{RAID}, geralmente
+utilizando \ac{RAID} 5, em alguns casos, que possui apenas dois discos é utilizado \ac{RAID} 1.
+Além disso os servidores de virtualização executam com o sistema operacional \textit{Ubuntu} versão \textit{14.04 LTS}.
 
-Todos os servidores de virtualização possuem o sistema operacional \textit{Ubuntu} versão \textit{14.04 LTS}, para virtualização utiliza-se o 
-hipervisor \ac{KVM} e o \textit{QEmu}, ambos são projetos de \textit{software} livre, para compor o ambiente de virtualização...
+Os últimos sete servidores da Tabela \ref{tab:servfisicos} são o \textit{hardware} atual para virtualização da empresa.
+O servidor Brina
 
 %\section{Serviços e virtualização ?}
 %\label{section:servicos}
@@ -161,8 +167,6 @@ Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidore
 
 -graficos cpu memoria disco cada servidor de virtualizacao? colocar aqui ou na implementacao?
 
-A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto, que executam sobre sistemas operacionais, normalmente 
-\textit{Ubuntu}, que também são \textit{softwares} livre.
 
 \section{Serviços críticos}
 \label{section:servcrit}
@@ -170,7 +174,8 @@ A maioria dos serviços são fornecidos por meio de \textit{softwares} de códig
 Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis na empresa, com isso nesta seção será feito a idenficação
 dos serviços mais críticos para a empresa.
 
-Para selecionar os serviços críticos foi feito uma análise de todos os serviços, sendo que os seguintes critérios foram utilizados: NAO COLOCAR EM ITENS ?? 
+Para selecionar os serviços críticos anteriormente foi detalhado todos os serviços, sendo que os seguintes critérios foram utilizados: 
+NAO COLOCAR EM ITENS ?? 
 a quantidade de usuários ou funcionários que utilizam o serviço; 
 o número de requisições em um determinado tempo;
 o volume de objetos do serviço;
