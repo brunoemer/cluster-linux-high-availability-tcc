@@ -88,24 +88,30 @@ primeiros servidores da Tabela \ref{tab:servfisicos}:
 \begin{itemize}
  \item Bello: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Sua função é armazenar dados de \textit{backup}, ele 
  possui \textit{storage} da ferramenta \textit{bacula} (pacote \textit{bacula-storage} versão ??) para \textit{backup} dos outros servidores;
+ 
  \item Cacti: um dos servidores de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.??} e executa a aplicação
  \textit{Cacti} versão 0.??, que é uma ferramenta de código aberto desenvolvida para monitorar equipamentos de rede. Ela monitora atualmente a 
  maior parte da rede \textit{core} e a rede \textit{backbone} tanto dos clientes de internet via rádio, como de fibra óptica;
+ 
  \item Dati: é o servidor de banco de dados principal. Esse possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. O serviço que executa
  sobre esse servidor é um banco de dados \textit{MySQL} versão 5.5 ??, onde armazena os dados das aplicações de \textit{ZoneMinder} (servidor 
  de câmeras) e \textit{Icewarp Mail Server ??} (servidor de e-mail), que serão detalhados posteriormente;
+ 
  \item Monit: esse servidor faz o monitoramento de todos os servidores. Ele possui o sistema operacional \textit{Ubuntu 12.04 \ac{LTS}}.
  Suas aplicações são \textit{Nagios} versão 3.?? e \textit{Munin} versão 1.??, ambos \textit{softwares} livres. O primeiro monitora desde os 
  serviços de cada servidor, até o seu \textit{hardware}, para isso utiliza um cliente (\ac{NRPE}), que deve ser instalado em cada servidor, para 
  monitorar dados não acessíveis externamente, como espaço em disco, número de processos, falhas de \textit{hardware}, entre outros. O segundo, 
  \textit{Munin}, é responsável por gerar gráficos para ajudar com monitoramento, com ele pode-se criar por exemplo gráfico de processador, 
  memória, utilização de disco, e até temperatura e velocidade dos \textit{fans ??ac??} para alguns servidores;
+ 
  \item Nino: esse é o servidor utilizado pelo setor de desenvolvimento de \textit{software}. Suas aplicações executam sobre o sistema operacional
  \textit{Ubuntu 14.04 \ac{LTS}}. Os serviços fornecidos pelo servidor são: servidor \textit{web} (\textit{apache 2.4 ??} e 
- \textit{\ac{PHP} 5.6 ??}), banco de dados (\textit{MySQL 5.??}), arquivos compartilhados?? (\textit{samba ??}), controle de versões de 
- \textit{software} (\textit{\ac{SVN} ??}), .. ?? ;
+ \textit{\ac{PHP} 5.6 ??}), banco de dados (\textit{MySQL 5.??} e \textit{PostgreSQL} 9.??), arquivos compartilhados?? (\textit{samba ??}), 
+ controle de versões de \textit{software} (\textit{\ac{SVN} ??}), .. ?? ;
+ 
  \item Sfrunhon: outro servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.??} e executa a aplicação
  \textit{Cacti} versão 0.??. Esse servidor monitora atualmente o trafego dos clientes, tanto de internet via rádio, como de fibra óptica;
+ 
  \item Vigilante: esse servidor é responsável por capturar e armazenar \textit{streaming} de vídeo de câmeras do provedor. Esse servidor possui
  o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. O servidor executa a aplicação \textit{ZoneMinder}, que também é uma ferramenta de códito 
  aberto, para capturar e armazenar as imagens das câmeras do provedor.
@@ -119,33 +125,22 @@ Os servidores de virtualização possuem suas respectivas \ac{VM}s, que executam
 com o objetivo de facilitar a manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional, esse sistema operacional é
 o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}}.
 Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através de um \ac{RAID}, 
-geralmente utilizando \ac{RAID} 5, em alguns casos, que possui apenas dois discos é utilizado \ac{RAID} 1. Além disso, como visto anteriormente, 
-possui uma redundância do cabeamento.
+geralmente utilizando \ac{RAID} 5, em alguns casos, que possui apenas dois discos é utilizado \ac{RAID} 1. O ambiente também possui uma 
+redundância do cabeamento, como visto anteriormente.
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de internet. Atualmente sete servidores 
-são utilizados com a virtualização, que são os últimos sete servidores da Tabela \ref{tab:servfisicos}.
+são utilizados para virtualizar sistemas, esses servidores são os últimos sete servidores da Tabela \ref{tab:servfisicos}.
 Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidores de virtualização.
+Para melhor entender, a seguir será descrito esses servidores e suas respectivas máquinas virtuais.
 
-
-O servidor Brina possui X \ac{VM}s, que executam os serviços (Figura \ref{fig:servlog1}):
+O servidor Brina possui ?? \ac{VM}s, que executam os serviços (Figura \ref{fig:servlog1}):
 \begin{itemize}
- \item \textit{Merak}: 
-\end{itemize}
+ \item \textit{Merak}: esse servidor virtual fornece serviço de e-mail. Ele possui uma configuração de quatro \textit{cores} para processamento, 
+ 8 GB de memória e 1000 GB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2 ??} e executa o \textit{software} 
+ \textit{Icewarp Mail Server ??}. Essa aplicação fornece os serviços de envios de e-mails (\ac{SMTP}), recebimentos de e-mails (\ac{POP} e 
+ \ac{IMAP}), Webmail (\ac{PHP}), ?? ... Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
+ Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor.
 
-O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), que fornecem os seguintes serviços:
-\begin{itemize}
- \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 2 GB de memória e X GB de disco. Nele é executado o serviço 
- de \textit{backup} dos equipamentos do provedor, para isso é utilizado \textit{scripts} que buscam e copiam os dados por \ac{FTP};
- \item \ac{DNS} autoritativo secundário: fornece o serviço de \ac{DNS} autoritativo dos domínios hospedados pela empresa;
- \item \ac{DNS} recursivo primário: fornece o serviço de \ac{DNS} para clientes de todo o provedor;
- \item Gerência \textit{Hotspot}: Servidor de gerência de equipamentos da Ubiquiti que fazem hotspot utilizado pelo provedor;
- \item Hospedagem sites \ac{WHM}: serviços de hospedagens de sites e banco de dados gerenciados pelo \ac{WHM};
- \item \ac{IPv6}: fornece o serviço de \ac{DNS} e \ac{NAT} para navegação \ac{IPv6} do provedor;
- \item Monitoramento \ac{PRTG}: serviço de monitoramento de tráfego e equipamentos da rede \textit{core} do provedor;
- \item \textit{Radius} \ac{ADSL}: Serviço de autenticação \ac{ADSL} de terceiros utilizando \textit{radius};
- \item \textit{Radius} autenticação \ac{PPPoE}: Serviço de autenticação \ac{PPPoE} do provedor utilizando \textit{radius};
- \item Telefonia: serviço de telefonia (central telefônica) \textit{Asterisk} do provedor;
- \item \textit{Terminal service}: \textit{terminal service} para suporte e gerência de fibra óptica do provedor;
 \end{itemize}
 
 \begin{figure}[h!]
@@ -154,6 +149,41 @@ O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), qu
  \caption{Servidor de virtualização Brina. REFAZER ???}
  \label{fig:servlog1}
 \end{figure}
+
+O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), que fornecem os seguintes serviços:
+\begin{itemize}
+ \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 2 GB de memória e X?? GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Nele é executado o serviço de \textit{backup} dos equipamentos do provedor, para isso 
+ é utilizado \textit{scripts} que buscam e copiam os dados por \ac{FTP};
+ 
+ \item \textit{Servo}: sua configuração é 2 \textit{core} para processamento, X GB de memória e 20 ?? GB de disco. Esse servidor possui o 
+ sistema operacional \textit{CentOS 6.??}. Esse servidor fornece, através do \textit{pacote ???}, o serviço de \ac{DNS} autoritativo e é o 
+ servidor \ac{DNS} secundário dos domínios hospedados pela empresa;
+ 
+ \item \textit{Passata}: esse servidor possui ?? \textit{cores} para processamento, x?? GB de memória e 8 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele fornece o serviço de \ac{DNS} recursivo, através do \textit{software} \textit{BIND??}, 
+ e sendo o servidor é o primário e o mais importante para navegação dos clientes de todo o provedor. Quantidade de requisições ??;
+ 
+ \item \textit{Hotspot}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele é o servidor de gerência de equipamentos da \textit{Ubiquiti} que fazem \textit{hotspot}, 
+ que é uma tecnologia de \textit{Wifi} ??, utilizado pelo provedor;
+ 
+ \item \textit{Roncon}: esse servidor possui 4 \textit{cores} para processamento, 6?? GB de memória e 400 GB de disco. Ele possui o sistema
+ operacional Redhat 5.??. Hospedagem sites \ac{WHM}: 
+ serviços de hospedagens de sites e banco de dados gerenciados pelo \ac{WHM}.
+ \textit{Radius} \ac{ADSL}: Serviço de autenticação \ac{ADSL} de terceiros utilizando \textit{radius};
+ 
+ \item \ac{IPv6}: fornece o serviço de \ac{DNS} e \ac{NAT} para navegação \ac{IPv6} do provedor;
+ 
+ \item Monitoramento \ac{PRTG}: serviço de monitoramento de tráfego e equipamentos da rede \textit{core} do provedor;
+ 
+ \item \textit{Radius} autenticação \ac{PPPoE}: Serviço de autenticação \ac{PPPoE} do provedor utilizando \textit{radius};
+ 
+ \item Telefonia: serviço de telefonia (central telefônica) \textit{Asterisk} do provedor;
+ 
+ \item \textit{Terminal service}: \textit{terminal service} para suporte e gerência de fibra óptica do provedor;
+
+\end{itemize}
 
 \begin{figure}[h!]
  \centering

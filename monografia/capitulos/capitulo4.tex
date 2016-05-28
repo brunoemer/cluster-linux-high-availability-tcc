@@ -107,7 +107,7 @@ primeiros servidores da Tabela \ref{tab:servfisicos}:
  \item Nino: esse é o servidor utilizado pelo setor de desenvolvimento de \textit{software}. Suas aplicações executam sobre o sistema operacional
  \textit{Ubuntu 14.04 \ac{LTS}}. Os serviços fornecidos pelo servidor são: servidor \textit{web} (\textit{apache 2.4 ??} e 
  \textit{\ac{PHP} 5.6 ??}), banco de dados (\textit{MySQL 5.??} e \textit{PostgreSQL} 9.??), arquivos compartilhados?? (\textit{samba ??}), 
- controle de versões de \textit{software} (\textit{\ac{SVN} ??}), .. ?? ;
+ controle de versões de \textit{software} (\textit{\ac{SVN} ??}), gerenciador de \textit{bugs} (\textit{Trac} 0.??) .. ?? ;
  
  \item Sfrunhon: outro servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.??} e executa a aplicação
  \textit{Cacti} versão 0.??. Esse servidor monitora atualmente o trafego dos clientes, tanto de internet via rádio, como de fibra óptica;
@@ -152,18 +152,47 @@ O servidor Brina possui ?? \ac{VM}s, que executam os serviços (Figura \ref{fig:
 
 O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), que fornecem os seguintes serviços:
 \begin{itemize}
- \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 2 GB de memória e X GB de disco. Nele é executado o serviço 
- de \textit{backup} dos equipamentos do provedor, para isso é utilizado \textit{scripts} que buscam e copiam os dados por \ac{FTP};
- \item \ac{DNS} autoritativo secundário: fornece o serviço de \ac{DNS} autoritativo dos domínios hospedados pela empresa;
- \item \ac{DNS} recursivo primário: fornece o serviço de \ac{DNS} para clientes de todo o provedor;
- \item Gerência \textit{Hotspot}: Servidor de gerência de equipamentos da Ubiquiti que fazem hotspot utilizado pelo provedor;
- \item Hospedagem sites \ac{WHM}: serviços de hospedagens de sites e banco de dados gerenciados pelo \ac{WHM};
- \item \ac{IPv6}: fornece o serviço de \ac{DNS} e \ac{NAT} para navegação \ac{IPv6} do provedor;
- \item Monitoramento \ac{PRTG}: serviço de monitoramento de tráfego e equipamentos da rede \textit{core} do provedor;
- \item \textit{Radius} \ac{ADSL}: Serviço de autenticação \ac{ADSL} de terceiros utilizando \textit{radius};
- \item \textit{Radius} autenticação \ac{PPPoE}: Serviço de autenticação \ac{PPPoE} do provedor utilizando \textit{radius};
- \item Telefonia: serviço de telefonia (central telefônica) \textit{Asterisk} do provedor;
- \item \textit{Terminal service}: \textit{terminal service} para suporte e gerência de fibra óptica do provedor;
+ \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 2 GB de memória e X?? GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Nele é executado o serviço de \textit{backup} dos equipamentos do provedor, para isso 
+ é utilizado \textit{scripts} que buscam e copiam os dados por \ac{FTP};
+ 
+ \item \textit{Servo}: sua configuração é 2 \textit{core} para processamento, X GB de memória e 20 ?? GB de disco. Esse servidor possui o 
+ sistema operacional \textit{CentOS 6.??}. Esse servidor fornece, através do \textit{pacote ???}, o serviço de \ac{DNS} autoritativo e é o 
+ servidor \ac{DNS} secundário dos domínios hospedados pela empresa;
+ 
+ \item \textit{Passata}: esse servidor possui 2?? \textit{cores} para processamento, x?? GB de memória e 8 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele fornece o serviço de \ac{DNS} recursivo, através do \textit{software} \textit{BIND??}, 
+ e sendo o servidor é o primário e o mais importante para navegação dos clientes de todo o provedor. Quantidade de requisições ??;
+ 
+ \item \textit{Hotspot}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele é o servidor de gerência de equipamentos da \textit{Ubiquiti} que fazem \textit{hotspot}, 
+ que é uma tecnologia utilizada com a \textit{Wifi} para prover acesso a internet em ambientes grandes ??, e é utilizado pelo provedor;
+ 
+ \item \textit{Roncon}: esse servidor possui 4 \textit{cores} para processamento, 6?? GB de memória e 400 GB de disco. Ele possui o sistema
+ operacional Redhat 5.??. Nele esta instalado o \textit{software} \ac{WHM}, que faz a gerência dos serviços de hospedagens de sites e banco de 
+ dados. Outra ferramenta que faz parte do \ac{WHM} é o \textit{cPanel}, sendo que ele fornece a gerência de cada hospedagem de site para seu 
+ respectivo desenvolvedor.
+ Além disso esse servidor fornece o serviço de autenticação \ac{ADSL} de terceiros utilizando o \textit{software} \textit{radius??};
+ 
+ \item \textit{IPv6Dns}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8 GB de disco. O sistema operacional é o 
+ \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor fornece o serviço de \ac{DNS} e \ac{NAT} para navegação \ac{IPv6} do provedor;
+ \item \textit{IPv6Dns64}: mesma configuracao?? juntar em um item
+ \item \textit{IPv6Nat64}: mesma configuracao??
+ 
+ \item \ac{PRTG}: esse servidor possui 2 \textit{cores} para processamento, 4?? GB de memória e 50?? GB de disco. O servidor possui o sistema 
+ operacional \textit{Windows 2008 Server R2 ??}. Sua função é fazer o monitoramento de tráfego e equipamentos da rede \textit{core} do provedor;
+ 
+ \item \textit{Masterauth}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8 GB de disco. O sistema operacional é o 
+ \textit{Ubuntu 14.04 \ac{LTS}}. Esse é o servidor que fornece o serviço de autenticação \ac{PPPoE} para clientes do provedor utilizando 
+ \textit{radius} (\textit{freeradius 1.??});
+ 
+ \item \textit{SimplesIP}: esse servidor possui 2 \textit{cores} para processamento, 4?? GB de memória e 100?? GB de disco. O servidor possui 
+ o sistema operacional \textit{CentOS 6.??}. Esse é o servidor de telefonia do provedor, que utiliza como base o \textit{software} livre 
+ \textit{Asterisk 2.??};
+ 
+ \item \textit{Ottico}: esse servidor possui 2 \textit{cores} para processamento, 3?? GB de memória e 50 GB de disco. O servidor possui o sistema 
+ operacional \textit{Windows 2007 Server R??}. Ele possui o serviço de \textit{terminal service} para suporte e gerência de fibra óptica do 
+ provedor;
 \end{itemize}
 
 \begin{figure}[h!]
@@ -172,6 +201,13 @@ O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), qu
  \caption{Servidor de virtualização Fulmine.}
  \label{fig:servlog2}
 \end{figure}
+
+O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:servlog3}), que fornecem os seguintes serviços:
+\begin{itemize}
+ \item \textit{ASP}: 
+ 
+\end{itemize}
+
 
 -graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao?
 
