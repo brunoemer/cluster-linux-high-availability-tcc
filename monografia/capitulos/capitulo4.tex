@@ -8,16 +8,17 @@ aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de G
 atendendo aproximadamente xx?? cidades. Essa empresa possui aproximadamente xx?? funcionários.
 
 A empresa oferece serviços pela internet aos seus clientes, que são: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
-\textit{e-mail marketing}, \textit{backup}, \textit{máquinas virtuais}, autenticação \textit{ADSL}, rádio \textit{online} e telefonia.
+\textit{e-mail marketing}, \textit{backup}, \textit{máquinas virtuais}, autenticação \ac{ADSL}, rádio \textit{online} e telefonia.
 Além disso, o provedor associado fornece aos seus clientes acesso à internet via rádio e acesso à internet por meio de fibra óptica.
 A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto, que executam sobre sistemas operacionais, normalmente 
 distribuições \textit{Linux}, e também são \textit{softwares} livre.
 
-Atualmente a empresa possui redundância de refrigeração e de energia. A redundância de refrigeração é composta por dois ares-condicionados. 
+Atualmente a empresa possui redundância de refrigeração e de energia (Figura \ref{fig:insteletrica}). A redundância de refrigeração é composta 
+por dois ares-condicionados. 
 A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles são utilizados para alimentação dos servidores e outros 
-equipamentos como por exemplo roteadores, de uma forma que caso um falhar o outro alimente todos os equipamentos.O terceiro \textit{nobreak} é 
+equipamentos como por exemplo roteadores, de uma forma que caso um falhar o outro alimente todos os equipamentos. O terceiro \textit{nobreak} é 
 utilizado para alimentar os computadores dos funcionários de dois setores. Além disso, dois geradores suprem a necessidade de consumo de 
-energia elétrica do ambiente (Figura \ref{fig:insteletrica}).
+energia elétrica do ambiente.
 
 \begin{figure}[h!]
  \centering
@@ -71,7 +72,7 @@ Venti & Dell PowerEdge R210 II & 1 x Intel Xeon CPU E3-1220 3.10 GHz & 16 GB DDR
 Todos os servidores estão ligados ao \textit{switch}, que provê aos servidores acesso à internet através do roteador. 
 Para os servidores mais importantes utiliza-se dois cabos de rede que estão ligados a um \textit{switch} \textit{gigabit}, assim possibilitando
 a configuração de \textit{link aggregation}, que possibilita configurar mais de uma interface de rede física em uma interface agregada, com isso 
-caracteriza-se a redundância do cabeamento e também permite dobrar a capacidade de tráfego de dados.
+permitindo dobrar a capacidade de tráfego de dados e assim é caracterizado a redundância do cabeamento.
 O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutura física dos servidores da empresa, com dois exemplos de cada 
 tipo de servidor. 
 
@@ -85,36 +86,74 @@ tipo de servidor.
 Existem sete servidores que possuem serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização. Eles são os sete 
 primeiros servidores da Tabela \ref{tab:servfisicos}:
 \begin{itemize}
- \item Bello: 
- \item Cacti: 
- \item Dati: 
- \item Monit: 
- \item Nino: 
- \item Sfrunhon: 
- \item Vigilante: 
+ \item Bello: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Sua função é armazenar dados de \textit{backup}, ele 
+ possui \textit{storage} da ferramenta \textit{bacula} (pacote \textit{bacula-storage} versão ??) para \textit{backup} dos outros servidores;
+ 
+ \item Cacti: um dos servidores de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.??} e executa a aplicação
+ \textit{Cacti} versão 0.??, que é uma ferramenta de código aberto desenvolvida para monitorar equipamentos de rede. Ela monitora atualmente a 
+ maior parte da rede \textit{core} e a rede \textit{backbone} tanto dos clientes de internet via rádio, como de fibra óptica;
+ 
+ \item Dati: é o servidor de banco de dados principal. Esse possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. O serviço que executa
+ sobre esse servidor é um banco de dados \textit{MySQL} versão 5.5 ??, onde armazena os dados das aplicações de \textit{ZoneMinder} (servidor 
+ de câmeras) e \textit{Icewarp Mail Server ??} (servidor de e-mail), que serão detalhados posteriormente;
+ 
+ \item Monit: esse servidor faz o monitoramento de todos os servidores. Ele possui o sistema operacional \textit{Ubuntu 12.04 \ac{LTS}}.
+ Suas aplicações são \textit{Nagios} versão 3.?? e \textit{Munin} versão 1.??, ambos \textit{softwares} livres. O primeiro monitora desde os 
+ serviços de cada servidor, até o seu \textit{hardware}, para isso utiliza um cliente (\ac{NRPE}), que deve ser instalado em cada servidor, para 
+ monitorar dados não acessíveis externamente, como espaço em disco, número de processos, falhas de \textit{hardware}, entre outros. O segundo, 
+ \textit{Munin}, é responsável por gerar gráficos para ajudar com monitoramento, com ele pode-se criar por exemplo gráfico de processador, 
+ memória, utilização de disco, e até temperatura e velocidade dos \textit{fans ??ac??} para alguns servidores;
+ 
+ \item Nino: esse é o servidor utilizado pelo setor de desenvolvimento de \textit{software}. Suas aplicações executam sobre o sistema operacional
+ \textit{Ubuntu 14.04 \ac{LTS}}. Os serviços fornecidos pelo servidor são: servidor \textit{web} (\textit{apache 2.4 ??} e 
+ \textit{\ac{PHP} 5.6 ??}), banco de dados (\textit{MySQL 5.??} e \textit{PostgreSQL} 9.??), arquivos compartilhados?? (\textit{samba ??}), 
+ controle de versões de \textit{software} (\textit{\ac{SVN} ??}), .. ?? ;
+ 
+ \item Sfrunhon: outro servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.??} e executa a aplicação
+ \textit{Cacti} versão 0.??. Esse servidor monitora atualmente o trafego dos clientes, tanto de internet via rádio, como de fibra óptica;
+ 
+ \item Vigilante: esse servidor é responsável por capturar e armazenar \textit{streaming} de vídeo de câmeras do provedor. Esse servidor possui
+ o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. O servidor executa a aplicação \textit{ZoneMinder}, que também é uma ferramenta de códito 
+ aberto, para capturar e armazenar as imagens das câmeras do provedor.
 \end{itemize}
 
 %\section{Serviços e virtualização ?}
 %\label{section:servicos}
 
 Os servidores de virtualização possuem suas respectivas \ac{VM}s, que executam aplicações. Para virtualização utiliza-se o hipervisor 
-\ac{KVM} e o \textit{QEmu}, sendo que ambos são projetos de \textit{software} livre.
-Esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através de um \ac{RAID}, geralmente
-utilizando \ac{RAID} 5, em alguns casos, que possui apenas dois discos é utilizado \ac{RAID} 1.
-Além disso os servidores de virtualização executam com o sistema operacional \textit{Ubuntu} versão \textit{14.04 LTS}.
+\ac{KVM} e a ferramenta \textit{QEmu}, sendo que ambos são projetos de \textit{software} livre. Procurou-se manter um ambiente homogêneo?? 
+com o objetivo de facilitar a manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional, esse sistema operacional é
+o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}}.
+Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através de um \ac{RAID}, 
+geralmente utilizando \ac{RAID} 5, em alguns casos, que possui apenas dois discos é utilizado \ac{RAID} 1. O ambiente também possui uma 
+redundância do cabeamento, como visto anteriormente.
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de internet. Atualmente sete servidores 
-são utilizados com a virtualização, que são os últimos sete servidores da Tabela \ref{tab:servfisicos}.
-Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidores de virtualização, esses servidores são:
+são utilizados para virtualizar sistemas, esses servidores são os últimos sete servidores da Tabela \ref{tab:servfisicos}.
+Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidores de virtualização.
+Para melhor entender, a seguir será descrito esses servidores e suas respectivas máquinas virtuais.
 
-O servidor Brina possui X \ac{VM}s, que executam os serviços (Figura \ref{fig:servlog1}):
+O servidor Brina possui ?? \ac{VM}s, que executam os serviços (Figura \ref{fig:servlog1}):
 \begin{itemize}
- \item \textit{Merak}: 
+ \item \textit{Merak}: esse servidor virtual fornece serviço de e-mail. Ele possui uma configuração de quatro \textit{cores} para processamento, 
+ 8 GB de memória e 1000 GB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2 ??} e executa o \textit{software} 
+ \textit{Icewarp Mail Server ??}. Essa aplicação fornece os serviços de envios de e-mails (\ac{SMTP}), recebimentos de e-mails (\ac{POP} e 
+ \ac{IMAP}), Webmail (\ac{PHP}), ?? ... Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
+ Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor.
+
 \end{itemize}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=380px]{img/servlog1.eps}
+ \caption{Servidor de virtualização Brina. REFAZER ???}
+ \label{fig:servlog1}
+\end{figure}
 
 O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), que fornecem os seguintes serviços:
 \begin{itemize}
- \item \textit{Backup}: serviço de \textit{backup} dos equipamentos do provedor;
+ \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 2 GB de memória e X GB de disco. Nele é executado o serviço 
+ de \textit{backup} dos equipamentos do provedor, para isso é utilizado \textit{scripts} que buscam e copiam os dados por \ac{FTP};
  \item \ac{DNS} autoritativo secundário: fornece o serviço de \ac{DNS} autoritativo dos domínios hospedados pela empresa;
  \item \ac{DNS} recursivo primário: fornece o serviço de \ac{DNS} para clientes de todo o provedor;
  \item Gerência \textit{Hotspot}: Servidor de gerência de equipamentos da Ubiquiti que fazem hotspot utilizado pelo provedor;
@@ -129,20 +168,14 @@ O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), qu
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=380px]{img/servlog1.eps}
- \caption{Servidor de virtualização Brina. REFAZER ???}
- \label{fig:servlog1}
-\end{figure}
-
-\begin{figure}[h!]
- \centering
  \includegraphics[width=430px]{img/servlog2.eps}
  \caption{Servidor de virtualização Fulmine.}
  \label{fig:servlog2}
 \end{figure}
 
--graficos cpu memoria disco cada servidor de virtualizacao? colocar aqui ou na implementacao?
+-graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao?
 
+-citar ferramentas monitoramento, update e backup??
 
 \section{Serviços críticos}
 \label{section:servcrit}
@@ -210,7 +243,7 @@ Exibir disponibilidade média atual dos serviços, com gráficos
 %brina & Servidor de virtualização\\\hline
 %cacti & Servidor de monitoramento da rede do provedor\\\hline
 %cactibackbone & Servidor de monitoramento da rede do provedor\\\hline
-%dati & Banco de dados dos servidores de email e cameras\\\hline
+%dati & Banco de dados dos servidores de e-mail e cameras\\\hline
 %dio & Servidor de hospedagem de sites PHP4\\\hline
 %esibire & Servidor de hospedagem de vídeos\\\hline
 %fatefurbo & Servidor para gerência da fibra óptica do provedor\\\hline
@@ -219,7 +252,7 @@ Exibir disponibilidade média atual dos serviços, com gráficos
 %hotspot & Servidor de gerência de equipamentos da Ubiquiti que fazem hotspot utilizado pelo provedor\\\hline
 %ledriovardar & Servidor de terminal service do suporte e gerência do provedor\\\hline
 %masterauth & Servidor de autenticação PPPoE do provedor\\\hline
-%merak & Servidor de email\\\hline
+%merak & Servidor de e-mail\\\hline
 %miatanto & Servidor de streaming Icecast para web rádio\\\hline
 %mondoperso & Servidor de streaming Icecast de uma rádio ao vivo\\\hline
 %monete & Servidor de hospedagem de site dedicada do provedor\\\hline
@@ -232,7 +265,7 @@ Exibir disponibilidade média atual dos serviços, com gráficos
 %passata2 & Servidor secundário de DNS recursivo do provedor\\\hline
 %piova & Servidor de virtualização\\\hline
 %pomodoro & Servidor de documentação Sakai do provedor\\\hline
-%postfix & Servidor de SMTP para envio de email marketing\\\hline
+%postfix & Servidor de SMTP para envio de e-mail marketing\\\hline
 %quebei & Servidor de gerência do bacula, para backup dos outros servidores\\\hline
 %raggio & Servidor de virtualização\\\hline
 %rauco & Servidor de hospedagens WHM\\\hline
