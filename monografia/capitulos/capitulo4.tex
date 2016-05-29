@@ -176,10 +176,9 @@ O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), qu
  \textit{MySQL} 5.?? e \textit{PostgreSQL 9.??}.
  Além da hospedagem, esse servidor fornece o serviço de autenticação \ac{ADSL} de terceiros utilizando o \textit{software} \textit{Radius??};
  
- \item \textit{IPv6Dns}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8 GB de disco. O sistema operacional é o 
- \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor fornece o serviço de \ac{DNS} e \ac{NAT} para navegação \ac{IPv6} do provedor;
- \item \textit{IPv6Dns64}: mesma configuracao?? juntar em um item
- \item \textit{IPv6Nat64}: mesma configuracao??
+ \item \textit{IPv6Dns}, \textit{IPv6Dns64} e \textit{IPv6Nat64}: suas configurações são 1 \textit{core} para processamento, 1 GB de memória e 
+ 8 GB de disco. O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}}. Esses servidores fornecem o serviço de \ac{DNS} e \ac{NAT} para 
+ navegação \ac{IPv6} do provedor;
  
  \item \ac{PRTG}: esse servidor possui 2 \textit{cores} para processamento, 4?? GB de memória e 50?? GB de disco. O servidor possui o sistema 
  operacional \textit{Windows 2008 Server R2 ??}. Sua função é fazer o monitoramento de tráfego e equipamentos da rede \textit{core} do provedor;
@@ -337,30 +336,33 @@ selecionar os serviços mais críticos, assim possibilitando a implementação d
 Deste modo, pode-se afirmar que esses critérios são importantes, pois caso os serviços relacionados a eles ficarem indisponíveis causarão 
 um prejuízo financeiro para a empresa. 
 
-Os serviços mais críticos estão listados a seguir e ordenados por relevância:
+Os serviços mais críticos estão listados a seguir e ordenados de acordo com sua relevância:
 \begin{itemize}
- \item \ac{DNS} primário: esse serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor, que 
- totalizam aproximadamente 9000 clientes. Sendo um provedor de internet, sua prioridade é fornecer uma navegação de qualidade aos seus clientes, 
- sabendo que o \ac{DNS} é fundamental para essa navegação, assim caracterizando essa importante classificação. Outro importante critério é
- o número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os outros serviços;
+ \item \ac{DNS} recursivo primário: esse serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor, e 
+ é o único serviço que todos os clientes utilizam, que totalizam aproximadamente 9000 clientes. Sendo um provedor de internet, sua prioridade é 
+ fornecer uma navegação de qualidade aos seus clientes, sabendo que o \ac{DNS} é fundamental para essa navegação, assim caracterizando essa 
+ importante classificação. Outro importante critério é o número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os 
+ outros serviços;
  
  \item \textit{Radius}: esse serviço também é importante para navegação dos clientes do provedor, pois, como visto anteriormente, ele faz a
  autenticação dos clientes de acesso a internet de todo o provedor, que chega aproximadamente da 9000 clientes. Caso esse serviço fique 
- indisponível os clientes não conseguirão estabelecer conexão para navegar. Além disso, esse serviço armazena dados de clientes como: o 
- endereço de \ac{IP} de cada cliente utilizado em um determinado período, o trafego de dados da conexão, o tempo da conexão de cada cliente, 
- entre outros. Essas operações resultam em um número de requisições por segundo, que esta detalhado na Figura GRAFICO??;
+ indisponível os clientes não conseguirão estabelecer conexão para navegar, sabendo que atualmente esse serviço recebe x?? requisições de
+ autenticação por x (Figura GRAFICO FREERADIUS??). Além disso, esse serviço armazena dados de clientes como: o endereço de \ac{IP} de cada 
+ cliente utilizado em um determinado período, o trafego de dados da conexão, o tempo da conexão de cada cliente, entre outros. 
+ Essas operações resultam em um número de requisições por segundo, que esta detalhado na Figura GRAFICO??;
  
  \item Sistemas: esse serviço não tem um grande impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e 
  do provedor. Totalizando x?? funcionários, caso houver uma indisponibilidade dos sistemas a maior parte desses funcionários ficarão 
- impossibilitados de trabalhar (aproximadamente x?? funcionários simultâneos), isso poderia gerar um prejuizo elevado para a empresa e o 
- provedor. Pois, o sistema do provedor é responsável pela maior parte das operações do provedor, como por exemplo, emissão de boletos e envio 
- para clientes, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros;
+ impossibilitados de trabalhar (aproximadamente x?? funcionários simultâneos de acordo com a Figura GRAFICO??), isso poderia gerar um prejuizo 
+ elevado para a empresa e o provedor. Sendo que o sistema do provedor é responsável pela maior parte das operações do provedor, 
+ como por exemplo, emissão de boletos e envio para clientes, atendimento de clientes, comunicação interna da empresa, vendas, 
+ ativações de novos clientes, entre outros;
  
  \item Telefonia: esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre clientes e funcionários, 
- e também entre funcionários e outros funcionários, sendo essencial para qualquer empresa. Sabendo que possui uma média de x?? ligações por xx,
- sendo que essas ligações são utilizadas por todos o setores do provedor e também da empresa. Exemplos práticos são: atendimento a clientes para
- suporte técnico, comunicação interna entre funcionários, cobranças a clientes inadimplentes, ... Levando isso em consideração, se esse serviço
- ficar indisponível irá gerar prejuízos para a empresa.
+ e também entre funcionários e outros funcionários, sendo essencial para qualquer empresa. Sabendo que possui uma média de x?? ligações por xx
+ (Figura GRAFICO??), sendo que essas ligações são utilizadas por todos o setores do provedor e também da empresa. Exemplos práticos são: 
+ atendimento a clientes para suporte técnico, comunicação interna entre funcionários, cobranças a clientes inadimplentes, ??... 
+ Levando isso em consideração, se esse serviço ficar indisponível irá gerar prejuízos para a empresa.
 \end{itemize}
 
 Tendo esses serviços pode-se identificar quais máquinas virtuais serão incluídas no ambiente de alta disponibilidade...
