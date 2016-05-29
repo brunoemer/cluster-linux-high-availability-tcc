@@ -134,14 +134,8 @@ são utilizados para virtualizar sistemas, esses servidores são os últimos set
 Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidores de virtualização.
 Para melhor entender, a seguir será descrito esses servidores e suas respectivas máquinas virtuais.
 
-O servidor Brina possui ?? \ac{VM}s, que executam os serviços (Figura \ref{fig:servlog1}):
+O servidor Brina possui uma \ac{VM}, que executam os serviços (Figura \ref{fig:serv_brina}):
 \begin{itemize}
- \item \textit{Merak}: esse servidor virtual fornece serviço de e-mail. Ele possui uma configuração de quatro \textit{cores} para processamento, 
- 8 GB de memória e 1000 GB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2 ??} e executa o \textit{software} 
- \textit{Icewarp Mail Server ??}. Essa aplicação fornece os serviços de envios de e-mails (\ac{SMTP}), recebimentos de e-mails (\ac{POP} e 
- \ac{IMAP}), Webmail (\ac{PHP}), ?? ... %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
- %Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor.
-
  \item \textit{Speedauth}: sua configuração é 2 \textit{core} para processamento, 2?? GB de memória e 8 GB de disco. O sistema operacional é o 
  \textit{Ubuntu 14.04 \ac{LTS}}. Esse é o servidor que fornece o serviço de autenticação \ac{PPPoE} para maior parte dos clientes do provedor 
  utilizando \textit{Radius} (\textit{Freeradius 1.??});
@@ -149,12 +143,12 @@ O servidor Brina possui ?? \ac{VM}s, que executam os serviços (Figura \ref{fig:
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=380px]{img/servlog1.eps}
+ \includegraphics[width=250px]{img/serv_brina.eps}
  \caption{Servidor de virtualização Brina. REFAZER ???}
- \label{fig:servlog1}
+ \label{fig:serv_brina}
 \end{figure}
 
-O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), que fornecem os seguintes serviços:
+O servidor chamado Fulmine executa onze \ac{VM}s (Figura \ref{fig:serv_fulmine}), que fornecem os seguintes serviços:
 \begin{itemize}
  \item \textit{Servo}: sua configuração é 2 \textit{core} para processamento, 2?? GB de memória e 20 ?? GB de disco. Esse servidor possui o 
  sistema operacional \textit{CentOS 6.??}. Esse servidor fornece, através do \textit{software} \textit{???}, o serviço de \ac{DNS} autoritativo 
@@ -198,9 +192,9 @@ O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), qu
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=430px]{img/servlog2.eps}
+ \includegraphics[width=430px]{img/serv_fulmine.eps}
  \caption{Servidor de virtualização Fulmine.}
- \label{fig:servlog2}
+ \label{fig:serv_fulmine}
 \end{figure}
 
 O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:servlog3}), que fornecem os seguintes serviços:
@@ -241,12 +235,17 @@ O servidor chamado Raggio executa doze \ac{VM}s, que fornecem os serviços de vi
 são instaladas com o sistema operacional da preferência do cliente, e são disponibilizadas através de um acesso remoto, como por exemplo através
 de \ac{SSH}.
 
-O servidor chamado Tempesta executa x?? \ac{VM}s (Figura \ref{fig:servlog5}), que fornecem os seguintes serviços:
+O servidor chamado Tempesta executa uma \ac{VM} (Figura \ref{fig:servlog5}), que fornecem os seguintes serviços:
 \begin{itemize}
- \item ??
+  \item \textit{Merak}: esse servidor virtual fornece serviço de e-mail. Ele possui uma configuração de quatro \textit{cores} para processamento, 
+ 8 GB de memória e 1000 GB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2 ??} e executa o \textit{software} 
+ \textit{Icewarp Mail Server ??}. Essa aplicação fornece os serviços de envios de e-mails (\ac{SMTP}), recebimentos de e-mails (\ac{POP} e 
+ \ac{IMAP}), Webmail (\ac{PHP}), ?? ... %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
+ %Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor.
+
 \end{itemize}
 
-O servidor chamado Tuono executa nove \ac{VM}s (Figura \ref{fig:servlog6}), que fornecem os seguintes serviços:
+O servidor chamado Tuono executa oito \ac{VM}s (Figura \ref{fig:servlog6}), que fornecem os seguintes serviços:
 \begin{itemize}
  \item \textit{Ledriovardar}: esse servidor possui 2 \textit{cores} para processamento, 4?? GB de memória e 50 GB de disco. O servidor possui 
  o sistema operacional \textit{Windows 2007 Server R2}. Ele possui o serviço de \textit{terminal service} para suporte e gerência de fibra 
