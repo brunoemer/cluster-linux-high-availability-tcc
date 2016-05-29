@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  28 MAY 2016 19:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  28 MAY 2016 21:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1465,19 +1465,44 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [28 <./img/servlog2-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 245--264
+Overfull \hbox (0.85541pt too wide) in paragraph at lines 222--224
+[]\OT1/cmr/m/it/12 FiberHome\OT1/cmr/m/n/12 : sua con-fi-gura^^Xc~ao ^^Se 2 \OT
+1/cmr/m/it/12 core \OT1/cmr/m/n/12 para pro-ces-sa-mento, 2?? GB de mem^^Soria
+ []
+
+
+Overfull \hbox (2.94728pt too wide) in paragraph at lines 225--228
+\OT1/cmr/m/it/12 14.04 []LTS\OT1/cmr/m/n/12 . Ele for-nece o servi^^Xco de []DN
+S re-cur-sivo, atrav^^Ses do \OT1/cmr/m/it/12 soft-ware BIND??\OT1/cmr/m/n/12 ,
 
  []
 
-) [29]
-\openout2 = `capitulos/capitulo5.aux'.
 
- (./capitulos/capitulo5.tex)
+LaTeX Warning: Reference `fig:servlog5' on page 29 undefined on input line 241.
+
+
+
+LaTeX Warning: Reference `fig:servlog6' on page 29 undefined on input line 246.
+
+
+
+LaTeX Warning: Reference `fig:servlog7' on page 29 undefined on input line 251.
+
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 289--308
+
+ []
+
+)
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 30
  []
 
-[30
+[30]
+\openout2 = `capitulos/capitulo5.aux'.
+
+ (./capitulos/capitulo5.tex) [31
 
 
 
@@ -1487,7 +1512,12 @@ Underfull \hbox (badness 6758) in paragraph at lines 8--11
 s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
  []
 
-[31
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 32
+ []
+
+[32
 
 
 ]
@@ -1509,14 +1539,14 @@ Underfull \hbox (badness 6542) in paragraph at lines 113--117
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
 
+[33]) 
+AED: lastpage setting LastPage
 
 Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 32
+\OT1/cmr/m/n/10.95 34
  []
 
-[32]) 
-AED: lastpage setting LastPage
-[33] (./tcc.aux (./folha_rosto.aux) (./abstract.aux)
+[34] (./tcc.aux (./folha_rosto.aux) (./abstract.aux)
 (./capitulos/introducao.aux) (./capitulos/capitulo2.aux)
 (./capitulos/capitulo3.aux) (./capitulos/capitulo4.aux)
 (./capitulos/capitulo5.aux))
@@ -1532,10 +1562,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13716 strings out of 495004
- 264357 string characters out of 6180662
- 326623 words of memory out of 5000000
- 16638 multiletter control sequences out of 15000+600000
+ 13730 strings out of 495004
+ 264664 string characters out of 6180662
+ 326937 words of memory out of 5000000
+ 16652 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10386b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1549,10 +1579,10 @@ e1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt12.pfb>
-Output written on tcc.pdf (34 pages, 976528 bytes).
+Output written on tcc.pdf (35 pages, 979683 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
+ 200 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

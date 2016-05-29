@@ -79,7 +79,7 @@ tipo de servidor.
 \begin{figure}[h!]
  \centering
  \includegraphics[width=430px]{img/servfisicos.eps}
- \caption{Estrutura física.}
+ \caption{Modelo de estrutura física.}
  \label{fig:servfisicos}
 \end{figure}
 
@@ -156,22 +156,22 @@ O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), qu
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Nele é executado o serviço de \textit{backup} dos equipamentos do provedor, para isso 
  é utilizado \textit{scripts} que buscam e copiam os dados por \ac{FTP};
  
- \item \textit{Servo}: sua configuração é 2 \textit{core} para processamento, X GB de memória e 20 ?? GB de disco. Esse servidor possui o 
+ \item \textit{Servo}: sua configuração é 2 \textit{core} para processamento, 2?? GB de memória e 20 ?? GB de disco. Esse servidor possui o 
  sistema operacional \textit{CentOS 6.??}. Esse servidor fornece, através do \textit{pacote ???}, o serviço de \ac{DNS} autoritativo e é o 
  servidor \ac{DNS} secundário dos domínios hospedados pela empresa;
  
  \item \textit{Passata}: esse servidor possui 2?? \textit{cores} para processamento, x?? GB de memória e 8 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele fornece o serviço de \ac{DNS} recursivo, através do \textit{software} \textit{BIND??}, 
- e sendo o servidor é o primário e o mais importante para navegação dos clientes de todo o provedor. Quantidade de requisições ??;
+ e sendo o servidor é o primário e o mais importante para navegação dos clientes de todo o provedor. A quantidade de requisições é ??;
  
  \item \textit{Hotspot}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele é o servidor de gerência de equipamentos da \textit{Ubiquiti} que fazem \textit{hotspot}, 
  que é uma tecnologia utilizada com a \textit{Wifi} para prover acesso a internet em ambientes grandes ??, e é utilizado pelo provedor;
  
  \item \textit{Roncon}: esse servidor possui 4 \textit{cores} para processamento, 6?? GB de memória e 400 GB de disco. Ele possui o sistema
- operacional Redhat 5.??. Nele esta instalado o \textit{software} \ac{WHM}, que faz a gerência dos serviços de hospedagens de sites e banco de 
- dados. Outra ferramenta que faz parte do \ac{WHM} é o \textit{cPanel}, sendo que ele fornece a gerência de cada hospedagem de site para seu 
- respectivo desenvolvedor.
+ operacional Redhat 5.??. Esse servidor provê acesso a sites \textit{web} desenvolvidos com a linguagem \ac{PHP}. Nele esta instalado o 
+ \textit{software} \ac{WHM}, que faz a gerência dos serviços de hospedagens de sites e banco de dados. Outra ferramenta que faz parte do 
+ \ac{WHM} é o \textit{cPanel}, sendo que ele fornece a gerência de cada hospedagem de site para seu respectivo desenvolvedor.
  Além disso esse servidor fornece o serviço de autenticação \ac{ADSL} de terceiros utilizando o \textit{software} \textit{radius??};
  
  \item \textit{IPv6Dns}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8 GB de disco. O sistema operacional é o 
@@ -204,10 +204,54 @@ O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), qu
 
 O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:servlog3}), que fornecem os seguintes serviços:
 \begin{itemize}
- \item \textit{ASP}: 
+ \item \textit{ASP}: esse servidor possui 1 \textit{core} para processamento, 2?? GB de memória e 20?? GB de disco. O servidor possui o sistema 
+ operacional \textit{Windows 2008 Server R2 ??}. Esse servidor provê acesso a sites \textit{web} desenvolvidos com a linguagem \ac{ASP}.
+ Sendo que possui aproximadamente dez sites hospedados;
  
+ \item \textit{CactiBackbone}: esse servidor possui 1 \textit{core} para processamento, 2?? GB de memória e 10?? GB de disco. Ele é um servidor
+ de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.??} e executa a aplicação \textit{Cacti} versão 0.??. 
+ Essa aplicação monitora atualmente a uma parte da rede \textit{backbone} do provedor;
+ 
+ \item \textit{Dio}: esse servidor possui 1 \textit{core} para processamento, 1?? GB de memória e 17 GB de disco. O servidor possui o sistema 
+ operacional \textit{Ubuntu 6.04 ??}. Esse servidor fornece serviço de hospedagens de sites desenvolvidos com a linguagem \ac{PHP} versão 4, 
+ sendo que esses sites são mantidos devido a incompatibilidade com a versão 5. O número de sites é baixo, aproximadamente 10 sites;
+ 
+ \item \textit{FateFurbo}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8?? GB de disco. O sistema operacional é o 
+ \textit{Ubuntu 14.04 \ac{LTS}}. Ele possui um \textit{software} proprietário que faz a gerência de uma parte da fibra óptica do provedor;
+ 
+ \item \textit{FiberHome}: sua configuração é 2 \textit{core} para processamento, 2?? GB de memória e 50?? GB de disco. O sistema operacional é o 
+ \textit{Windows XP}. Ele possui um \textit{software} para gerência da fibra óptica do provedor;
+ 
+ \item \textit{Passata2}: esse servidor possui 2?? \textit{cores} para processamento, 2?? GB de memória e 8 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele fornece o serviço de \ac{DNS} recursivo, através do \textit{software} \textit{BIND??}, 
+ e é o servidor secundário do provedor. A quantidade de requisições é ??;
+ 
+ \item \textit{Postfix}: sua configuração é 2?? \textit{cores} para processamento, 2?? GB de memória e 10?? GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele fornece o serviço de \ac{DNS} recursivo, através do \textit{software} \textit{BIND??}, 
+ e é o servidor secundário do provedor. A quantidade de requisições é ??;
+ 
+ \item \textit{Servo6}: sua configuração é 2 \textit{core} para processamento, 2?? GB de memória e 20 ?? GB de disco. Esse servidor possui o 
+ sistema operacional \textit{CentOS 6.??}. Esse servidor fornece, através do \textit{pacote ???}, o serviço de \ac{DNS} autoritativo e é o 
+ servidor \ac{DNS} terciário dos domínios hospedados pela empresa;
 \end{itemize}
 
+O servidor chamado Raggio executa doze \ac{VM}s, que fornecem os serviços de virtualização para empresas.
+...
+
+O servidor chamado Tempesta executa x?? \ac{VM}s (Figura \ref{fig:servlog5}), que fornecem os seguintes serviços:
+\begin{itemize}
+ \item ??
+\end{itemize}
+
+O servidor chamado Tuono executa nove \ac{VM}s (Figura \ref{fig:servlog6}), que fornecem os seguintes serviços:
+\begin{itemize}
+ \item 
+\end{itemize}
+
+O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:servlog7}), que fornecem os seguintes serviços:
+\begin{itemize}
+ \item 
+\end{itemize}
 
 -graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao?
 
