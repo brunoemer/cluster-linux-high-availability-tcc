@@ -336,20 +336,27 @@ selecionar os serviços mais críticos, assim possibilitando a implementação d
 
 Deste modo, pode-se afirmar que esses critérios são importantes, pois caso os serviços relacionados a eles ficarem indisponíveis causarão 
 um prejuízo financeiro para a empresa. 
-.. Ex desconto na mensalidade de uma cliente caso não consiga utilizar a internet.
 
 Os serviços mais críticos estão listados a seguir e ordenados por relevância:
 \begin{itemize}
  \item \ac{DNS} primário: esse serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor, que 
  totalizam aproximadamente 9000 clientes. Sendo um provedor de internet, sua prioridade é fornecer uma navegação de qualidade aos seus clientes, 
  sabendo que o \ac{DNS} é fundamental para essa navegação, assim caracterizando essa importante classificação. Outro importante critério é
- o número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os outros serviços.
+ o número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os outros serviços;
+ 
  \item \textit{Radius}: esse serviço também é importante para navegação dos clientes do provedor, pois, como visto anteriormente, ele faz a
- autenticação dos clientes de acesso a internet de todo o provedor. Além disso, esse serviço armazena dados de clientes como: ...
+ autenticação dos clientes de acesso a internet de todo o provedor, que chega aproximadamente da 9000 clientes. Caso esse serviço fique 
+ indisponível os clientes não conseguirão estabelecer conexão para navegar. Além disso, esse serviço armazena dados de clientes como: o 
+ endereço de \ac{IP} de cada cliente utilizado em um determinado período, o trafego de dados da conexão, o tempo da conexão de cada cliente, 
+ entre outros. Essas operações resultam em um número de requisições por segundo, que esta detalhado na Figura GRAFICO??;
  
- \item Sistemas: 
+ \item Sistemas: esse serviço não tem um grande impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e 
+ do provedor. Totalizando x?? funcionários, caso houver uma indisponibilidade dos sistemas a maior parte desses funcionários ficarão 
+ impossibilitados de trabalhar (aproximadamente x?? funcionários simultâneos), isso poderia gerar um prejuizo elevado para a empresa e o 
+ provedor. Pois, o sistema do provedor é responsável pela maior parte das operações do provedor, como por exemplo, emissão de boletos e envio 
+ para clientes, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros;
  
- \item telefonia: 
+ \item Telefonia: 
  
 \end{itemize}
 
