@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  28 MAY 2016 23:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  29 MAY 2016 11:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1399,7 +1399,7 @@ Package epstopdf Info: Source file: <img/servlog1.eps>
 (epstopdf)                    size: 10942 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servlog1-eps-converted
 -to.pdf img/servlog1.eps>
-(epstopdf)             \includegraphics on input line 149.
+(epstopdf)             \includegraphics on input line 152.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/servlog1-eps-converted-to.pdf, id=129, 609.27625pt x 279.0425pt>
@@ -1407,27 +1407,35 @@ File: img/servlog1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servlog1-eps-converted-to.pdf>
 Package pdftex.def Info: img/servlog1-eps-converted-to.pdf used on input line 1
-49.
+52.
 (pdftex.def)             Requested size: 381.42639pt x 174.69492pt.
 
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 26
- []
 
-[26 <./img/servlog1-eps-converted-to.pdf>]
-Overfull \hbox (2.94728pt too wide) in paragraph at lines 160--163
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (2.94728pt too wide) in paragraph at lines 163--166
 \OT1/cmr/m/it/12 14.04 []LTS\OT1/cmr/m/n/12 . Ele for-nece o servi^^Xco de []DN
 S re-cur-sivo, atrav^^Ses do \OT1/cmr/m/it/12 soft-ware BIND??\OT1/cmr/m/n/12 ,
 
  []
 
 
-Overfull \hbox (1.89432pt too wide) in paragraph at lines 184--187
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 26
+ []
+
+[26]
+Overfull \hbox (1.89432pt too wide) in paragraph at lines 187--190
 []\OT1/cmr/m/it/12 Masterauth\OT1/cmr/m/n/12 : sua con-fi-gura^^Xc~ao ^^Se 1 \O
 T1/cmr/m/it/12 core \OT1/cmr/m/n/12 para pro-ces-sa-mento, 1?? GB de mem^^Soria
 
  []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27 <./img/servlog1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/servlog2.eps>
 (epstopdf)                    date: 2016-05-23 22:54:45
 (epstopdf)                    size: 215089 bytes
@@ -1436,35 +1444,24 @@ Package epstopdf Info: Source file: <img/servlog2.eps>
 (epstopdf)                    size: 92726 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servlog2-eps-converted
 -to.pdf img/servlog2.eps>
-(epstopdf)             \includegraphics on input line 199.
+(epstopdf)             \includegraphics on input line 202.
 Package epstopdf Info: Output file is already uptodate.
-<img/servlog2-eps-converted-to.pdf, id=136, 713.66624pt x 573.14125pt>
+
+<img/servlog2-eps-converted-to.pdf, id=139, 713.66624pt x 573.14125pt>
 File: img/servlog2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servlog2-eps-converted-to.pdf>
-Package pdftex.def Info: img/servlog2-eps-converted-to.pdf used on input line 1
-99.
+Package pdftex.def Info: img/servlog2-eps-converted-to.pdf used on input line 2
+02.
 (pdftex.def)             Requested size: 431.61407pt x 346.62471pt.
 
-Overfull \hbox (4.82272pt too wide) in paragraph at lines 199--200
+Overfull \hbox (4.82272pt too wide) in paragraph at lines 202--203
  [][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Reference `fig:servlog3' on page 28 undefined on input line 207.
 
-
-LaTeX Warning: Reference `fig:servlog3' on page 27 undefined on input line 204.
-
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27]
-Overfull \hbox (0.85541pt too wide) in paragraph at lines 221--223
-[]\OT1/cmr/m/it/12 FiberHome\OT1/cmr/m/n/12 : sua con-fi-gura^^Xc~ao ^^Se 2 \OT
-1/cmr/m/it/12 core \OT1/cmr/m/n/12 para pro-ces-sa-mento, 2?? GB de mem^^Soria
- []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1472,27 +1469,33 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [28 <./img/servlog2-eps-converted-to.pdf>]
-Overfull \hbox (2.94728pt too wide) in paragraph at lines 224--227
+Overfull \hbox (0.85541pt too wide) in paragraph at lines 224--226
+[]\OT1/cmr/m/it/12 FiberHome\OT1/cmr/m/n/12 : sua con-fi-gura^^Xc~ao ^^Se 2 \OT
+1/cmr/m/it/12 core \OT1/cmr/m/n/12 para pro-ces-sa-mento, 2?? GB de mem^^Soria
+ []
+
+
+Overfull \hbox (2.94728pt too wide) in paragraph at lines 227--230
 \OT1/cmr/m/it/12 14.04 []LTS\OT1/cmr/m/n/12 . Ele for-nece o servi^^Xco de []DN
 S re-cur-sivo, atrav^^Ses do \OT1/cmr/m/it/12 soft-ware BIND??\OT1/cmr/m/n/12 ,
 
  []
 
 
-LaTeX Warning: Reference `fig:servlog5' on page 29 undefined on input line 241.
+LaTeX Warning: Reference `fig:servlog5' on page 29 undefined on input line 245.
 
 
 
-LaTeX Warning: Reference `fig:servlog6' on page 29 undefined on input line 246.
+LaTeX Warning: Reference `fig:servlog6' on page 29 undefined on input line 250.
 
 
 [29]
 
 Package natbib Warning: Citation `speedtest' on page 30 undefined on input line
- 283.
+ 287.
 
 
-LaTeX Warning: Reference `fig:servlog7' on page 30 undefined on input line 286.
+LaTeX Warning: Reference `fig:servlog7' on page 30 undefined on input line 290.
 
 
 
@@ -1500,20 +1503,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 30
  []
 
-[30]
-Underfull \hbox (badness 10000) in paragraph at lines 336--355
-
- []
-
-) [31]
-\openout2 = `capitulos/capitulo5.aux'.
-
- (./capitulos/capitulo5.tex)
+[30] [31])
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 32
  []
 
-[32
+[32]
+\openout2 = `capitulos/capitulo5.aux'.
+
+ (./capitulos/capitulo5.tex) [33
 
 
 
@@ -1523,7 +1521,12 @@ Underfull \hbox (badness 6758) in paragraph at lines 8--11
 s-ter li-nux\OT1/cmr/m/n/12 . 2007. P^^Sos-
  []
 
-[33
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 34
+ []
+
+[34
 
 
 ]
@@ -1545,14 +1548,14 @@ Underfull \hbox (badness 6542) in paragraph at lines 113--117
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
 
+[35]) 
+AED: lastpage setting LastPage
 
 Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 34
+\OT1/cmr/m/n/10.95 36
  []
 
-[34]) 
-AED: lastpage setting LastPage
-[35]
+[36]
 
 Package natbib Warning: There were undefined citations.
 
@@ -1571,10 +1574,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13742 strings out of 495004
- 264951 string characters out of 6180662
- 327376 words of memory out of 5000000
- 16664 multiletter control sequences out of 15000+600000
+ 13754 strings out of 495004
+ 265232 string characters out of 6180662
+ 327645 words of memory out of 5000000
+ 16676 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10386b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1588,10 +1591,10 @@ e1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt12.pfb>
-Output written on tcc.pdf (36 pages, 983870 bytes).
+Output written on tcc.pdf (37 pages, 986454 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

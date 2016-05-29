@@ -94,8 +94,8 @@ primeiros servidores da Tabela \ref{tab:servfisicos}:
  maior parte da rede \textit{core} e a rede \textit{backbone} tanto dos clientes de internet via rádio, como de fibra óptica;
  
  \item Dati: é o servidor de banco de dados principal. Esse possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. O serviço que executa
- sobre esse servidor é um banco de dados \textit{MySQL} versão 5.5 ??, onde armazena os dados das aplicações de \textit{ZoneMinder} (servidor 
- de câmeras) e \textit{Icewarp Mail Server ??} (servidor de e-mail), que serão detalhados posteriormente;
+ sobre esse servidor é um sistema gerenciador de banco de dados \textit{MySQL} versão 5.5 ??, onde armazena os dados das aplicações de 
+ \textit{ZoneMinder} (servidor de câmeras) e \textit{Icewarp Mail Server ??} (servidor de e-mail), que serão detalhados posteriormente;
  
  \item Monit: esse servidor faz o monitoramento de todos os servidores. Ele possui o sistema operacional \textit{Ubuntu 12.04 \ac{LTS}}.
  Suas aplicações são \textit{Nagios} versão 3.?? e \textit{Munin} versão 1.??, ambos \textit{softwares} livres. O primeiro monitora desde os 
@@ -106,9 +106,9 @@ primeiros servidores da Tabela \ref{tab:servfisicos}:
  
  \item Nino: esse é o servidor utilizado pelo setor de desenvolvimento de \textit{software}. Suas aplicações executam sobre o sistema operacional
  \textit{Ubuntu 14.04 \ac{LTS}}. Os serviços fornecidos pelo servidor são: servidor \textit{web} (\textit{Apache 2.4 ??} e 
- \textit{\ac{PHP} 5.6 ??}), banco de dados (\textit{MySQL 5.??} e \textit{PostgreSQL} 9.??), arquivos compartilhados?? (\textit{Samba ??}), 
- controle de versões de \textit{software} (\textit{\ac{SVN} ??}), gerenciador de \textit{bugs} (\textit{Trac} 0.??), mensagens instantâneas 
- (\textit{Ejabberd 1.??}), .. ?? ;
+ \textit{\ac{PHP} 5.6 ??}), sistema gerenciador de banco de dados (\textit{MySQL 5.??} e \textit{PostgreSQL} 9.??), arquivos compartilhados?? 
+ (\textit{Samba ??}), controle de versões de \textit{software} (\textit{\ac{SVN} ??}), gerenciador de \textit{bugs} (\textit{Trac} 0.??), 
+ mensagens instantâneas (\textit{Ejabberd 1.??}), .. ?? ;
  
  \item Sfrunhon: outro servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.??} e executa a aplicação
  \textit{Cacti} versão 0.??. Esse servidor monitora atualmente o trafego dos clientes, tanto de internet via rádio, como de fibra óptica;
@@ -142,6 +142,9 @@ O servidor Brina possui ?? \ac{VM}s, que executam os serviços (Figura \ref{fig:
  \ac{IMAP}), Webmail (\ac{PHP}), ?? ... %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
  %Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor.
 
+ \item \textit{Speedauth}: sua configuração é 2 \textit{core} para processamento, 2?? GB de memória e 8 GB de disco. O sistema operacional é o 
+ \textit{Ubuntu 14.04 \ac{LTS}}. Esse é o servidor que fornece o serviço de autenticação \ac{PPPoE} para maior parte dos clientes do provedor 
+ utilizando \textit{Radius} (\textit{Freeradius 1.??});
 \end{itemize}
 
 \begin{figure}[h!]
@@ -183,7 +186,7 @@ O servidor chamado Fulmine executa doze \ac{VM}s (Figura \ref{fig:servlog2}), qu
  
  \item \textit{Masterauth}: sua configuração é 1 \textit{core} para processamento, 1?? GB de memória e 8 GB de disco. O sistema operacional é o 
  \textit{Ubuntu 14.04 \ac{LTS}}. Esse é o servidor que fornece o serviço de autenticação \ac{PPPoE} para clientes do provedor utilizando 
- \textit{radius} (\textit{Freeradius 1.??});
+ \textit{Radius} (\textit{Freeradius 1.??});
  
  \item \textit{SimplesIP}: esse servidor possui 2 \textit{cores} para processamento, 4?? GB de memória e 100?? GB de disco. O servidor possui 
  o sistema operacional \textit{CentOS 6.??}. Esse é o servidor de telefonia do provedor, que utiliza como base o \textit{software} livre 
@@ -235,8 +238,9 @@ O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:servlog3}), que 
  e é o servidor \ac{DNS} terciário dos domínios hospedados pela empresa;
 \end{itemize}
 
-O servidor chamado Raggio executa doze \ac{VM}s, que fornecem os serviços de virtualização para empresas.
-...
+O servidor chamado Raggio executa doze \ac{VM}s, que fornecem os serviços de virtualização para algumas empresas. Sendo que as máquinas virtuais
+são instaladas com o sistema operacional da preferência do cliente, e são disponibilizadas através de um acesso remoto, como por exemplo através
+de \ac{SSH}.
 
 O servidor chamado Tempesta executa x?? \ac{VM}s (Figura \ref{fig:servlog5}), que fornecem os seguintes serviços:
 \begin{itemize}
@@ -249,7 +253,7 @@ O servidor chamado Tuono executa nove \ac{VM}s (Figura \ref{fig:servlog6}), que 
  o sistema operacional \textit{Windows 2007 Server R2}. Ele possui o serviço de \textit{terminal service} para suporte e gerência de fibra 
  óptica do provedor;
  
- \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de processamento, 1 GB de memória e 8 GB de disco. Esse servidor possui o 
+ \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de processamento, 1?? GB de memória e 8 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. O servidor fornece \textit{streaming} de áudio para uma web rádio, esse serviço é feito
  através do \textit{software} livre \textit{Icecast};
  
@@ -289,14 +293,22 @@ O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:servlog7}), que
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Nele é executado o serviço de \textit{backup} dos equipamentos do provedor, para isso 
  é utilizado \textit{scripts} que buscam e copiam os dados por \ac{FTP};
  
- \item \textit{Esibire}: 
+ \item \textit{Esibire}: sua configuração é 1 \textit{core} para processamento, 1 GB de memória e 50 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor faz a hospedagem de vídeos e a reprodução de \textit{streaming};
  
- \item \textit{Miatanto}: 
+ \item \textit{Miatanto}: sua configuração é 1 \textit{core} de processamento, 1?? GB de memória e 8 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. O servidor fornece \textit{streaming} de áudio para uma web rádio, esse serviço é feito
+ através do \textit{software} livre \textit{Icecast};
  
- \item \textit{Pomodoro}: 
+ \item \textit{Pomodoro}: sua configuração é 1 \textit{core} de processamento, 2?? GB de memória e 20 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor faz a documentação dos equipamentos do provedor, utilizando a aplicação
+ open source? \textit{Sakai};
  
- \item \textit{Quebei}: 
- 
+ \item \textit{Quebei}: sua configuração é 1 \textit{core} de processamento, 4?? GB de memória e 140 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Sua função é gerenciar o \textit{backup} dos outros servidores, para isso ele utiliza a 
+ ferramenta \textit{bacula} (pacote \textit{bacula-dir} versão ??). Além disso, esse servidor possui o sistema gerenciador de banco de dados 
+ \textit{MySQL} 5.?? instalado, que esta configurado como \textit{master-slave}, sendo que esse servidor é o \textit{slave} e o servidor 
+ \textit{Dati} é o \textit{master};
 \end{itemize}
 
 -graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao?
@@ -306,55 +318,64 @@ O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:servlog7}), que
 \section{Serviços críticos}
 \label{section:servcrit}
 
-Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis na empresa, com isso nesta seção será feito a idenficação
-dos serviços mais críticos para a empresa.
+Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis na empresa, com isso nesta seção será feito a 
+idenficação dos serviços mais críticos para a empresa.
 
-Para selecionar os serviços críticos anteriormente foi detalhado todos os serviços, sendo que os seguintes critérios foram utilizados: 
-NAO COLOCAR EM ITENS ?? 
-a quantidade de usuários ou funcionários que utilizam o serviço; 
-o número de requisições em um determinado tempo;
-o volume de objetos do serviço;
-a quantidade de transações.
+Para selecionar os serviços críticos anteriormente foram detalhados todos os serviços. Sendo assim os seguintes critérios serão utilizados para
+selecionar os serviços mais críticos, assim possibilitando a implementação do ambiente de alta disponibilidade: 
+\begin{itemize}
+ \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
+ da empresa. Por exemplo, se um cliente ficar sem acesso à internet, a sua mensalidade pode ser reduzida de acordo com o tempo que ele ficou
+ sem acesso; 
+ \item O número de requisições em um determinado tempo: esse número é importante, devido ao fato de indicar ações dos usuários. Sabe-se que
+ quanto mais ações, mais usuários dependem do serviço. São exemplos dessa medida: quantidade de acessos por minuto em um servidor de hospedagens 
+ de sites, ou quantidade de requisições \ac{DNS} a um servidor recursivo;
+ \item O volume de objetos do serviço: essa medida demonstra a abrangência do serviço, ou seja, qual a demanda que o serviço pode atingir.
+ Por exemplo, a quantidade de equipamentos monitorados por um servidor de monitoramento.
+\end{itemize}
+
 Deste modo, pode-se afirmar que esses critérios são importantes, pois caso os serviços relacionados a eles ficarem indisponíveis causarão 
 um prejuízo financeiro para a empresa. 
 .. Ex desconto na mensalidade de uma cliente caso não consiga utilizar a internet.
 
-Os serviços estão listados a seguir e ordenados por relevância:
+Os serviços mais críticos estão listados a seguir e ordenados por relevância:
 \begin{itemize}
- \item \ac{DNS} primário: este serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor, que 
+ \item \ac{DNS} primário: esse serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor, que 
  totalizam aproximadamente 9000 clientes. Sendo um provedor de internet, sua prioridade é fornecer uma navegação de qualidade aos seus clientes, 
  sabendo que o \ac{DNS} é fundamental para essa navegação, assim caracterizando essa importante classificação. Outro importante critério é
- o número de requisições por segundo (Figura ??), que é o maior entre todos os outros serviços.
- \item \textit{Radius}: 
+ o número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os outros serviços.
+ \item \textit{Radius}: esse serviço também é importante para navegação dos clientes do provedor, pois, como visto anteriormente, ele faz a
+ autenticação dos clientes de acesso a internet de todo o provedor. Além disso, esse serviço armazena dados de clientes como: ...
+ 
  \item Sistemas: 
+ 
  \item telefonia: 
+ 
 \end{itemize}
 
 Tendo esses serviços pode-se identificar quais máquinas virtuais serão incluídas no ambiente de alta disponibilidade...
 
-
-Esboço: \\
--DNS (impacto direto para clientes e rede interna): \\
-requisicoes por segundo\\
-numero de usuarios\\
--Radius (impacto direto para clientes): \\
-numero de usuarios autentidados em x tempo\\
-quantidade de dados armazenados no db em x tempo, trafego utilizado, tempo conexao\\
-numero de usuarios\\
--Sistemas (impacto indireto para clientes): \\
-gasto com funcionarios ociosos\\
-quantidade de atendimento a clientes\\
-numero de cobrancas enviadas para clientes efetuar pagamento\\
-comunicacao entre setores e funcionarios\\
-numero de usuarios\\
--Telefonia (impacto indireto para clientes): \\
-quantidade de atendimento a clientes\\
-comunicacao entre setores e funcionarios\\
-ligacoes saintes, atendimento, cobranca, tecnicos instalacoes internet\\
-numero de usuarios\\
-
 Exibir disponibilidade média atual dos serviços, com gráficos
 
+%Esboço: \\
+%-DNS (impacto direto para clientes e rede interna): \\
+%requisicoes por segundo\\
+%numero de usuarios\\
+%-Radius (impacto direto para clientes): \\
+%numero de usuarios autentidados em x tempo\\
+%quantidade de dados armazenados no db em x tempo, trafego utilizado, tempo conexao\\
+%numero de usuarios\\
+%-Sistemas (impacto indireto para clientes): \\
+%gasto com funcionarios ociosos\\
+%quantidade de atendimento a clientes\\
+%numero de cobrancas enviadas para clientes efetuar pagamento\\
+%comunicacao entre setores e funcionarios\\
+%numero de usuarios\\
+%-Telefonia (impacto indireto para clientes): \\
+%quantidade de atendimento a clientes\\
+%comunicacao entre setores e funcionarios\\
+%ligacoes saintes, atendimento, cobranca, tecnicos instalacoes internet\\
+%numero de usuarios\\
 
 
 %A Tabela \ref{tab:servporservidor} mostra todos os servidores, incluindo virtuais, e seus respectivos serviços.
