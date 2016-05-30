@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  29 MAY 2016 20:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  29 MAY 2016 22:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1512,7 +1512,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [32]
 \openout2 = `capitulos/capitulo5.aux'.
 
- (./capitulos/capitulo5.tex) [33
+ (./capitulos/capitulo5.tex
+Overfull \hbox (6.71257pt too wide) in paragraph at lines 7--9
+[]\OT1/cmr/m/n/12 O pri-meiro passo para essa im-ple-menta^^Xc~ao ^^Se fa-zer u
+ma re-or-ga-niza^^Xc~ao das m^^Saquinas
+ []
+
+) [33
 
 
 
@@ -1562,7 +1568,12 @@ Package natbib Warning: There were undefined citations.
 
 (./tcc.aux (./folha_rosto.aux) (./abstract.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux)
-(./capitulos/capitulo4.aux) (./capitulos/capitulo5.aux))
+(./capitulos/capitulo4.aux) (./capitulos/capitulo5.aux)
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -1575,10 +1586,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13765 strings out of 495004
- 265522 string characters out of 6180662
+ 13767 strings out of 495004
+ 265562 string characters out of 6180662
  327856 words of memory out of 5000000
- 16687 multiletter control sequences out of 15000+600000
+ 16689 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10386b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1592,7 +1603,7 @@ e1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt12.pfb>
-Output written on tcc.pdf (37 pages, 990265 bytes).
+Output written on tcc.pdf (37 pages, 990960 bytes).
 PDF statistics:
  209 PDF objects out of 1000 (max. 8388607)
  137 compressed objects within 2 object streams

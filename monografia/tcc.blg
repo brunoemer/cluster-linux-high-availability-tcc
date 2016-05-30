@@ -10,50 +10,50 @@ A level-1 auxiliary file: capitulos/capitulo4.aux
 A level-1 auxiliary file: capitulos/capitulo5.aux
 The style file: abnt.bst
 Database file #1: tcc.bib
-I was expecting a `,' or a `}'---line 281 of file tcc.bib
+I was expecting a `,' or a `}'---line 282 of file tcc.bib
  :   
  :   isbn      = "9780124046412",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You've used 30 entries,
+You've used 31 entries,
             2371 wiz_defined-function locations,
-            734 strings with 9651 characters,
-and the built_in function-call counts, 28612 in all, are:
-= -- 3457
-> -- 102
-< -- 320
-+ -- 1889
-- -- 38
-* -- 1027
-:= -- 2464
-add.period$ -- 108
-call.type$ -- 30
-change.case$ -- 232
-chr.to.int$ -- 3
-cite$ -- 30
-duplicate$ -- 4024
-empty$ -- 1097
-format.name$ -- 238
-if$ -- 6356
-int.to.chr$ -- 3
+            737 strings with 9757 characters,
+and the built_in function-call counts, 29104 in all, are:
+= -- 3500
+> -- 105
+< -- 330
++ -- 1917
+- -- 39
+* -- 1055
+:= -- 2510
+add.period$ -- 111
+call.type$ -- 31
+change.case$ -- 239
+chr.to.int$ -- 4
+cite$ -- 31
+duplicate$ -- 4083
+empty$ -- 1127
+format.name$ -- 245
+if$ -- 6454
+int.to.chr$ -- 4
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 63
-num.names$ -- 150
-pop$ -- 468
+newline$ -- 65
+num.names$ -- 155
+pop$ -- 482
 preamble$ -- 1
-purify$ -- 30
+purify$ -- 31
 quote$ -- 0
-skip$ -- 1938
+skip$ -- 1967
 stack$ -- 0
-substring$ -- 1713
-swap$ -- 2408
+substring$ -- 1734
+swap$ -- 2449
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 208
+type$ -- 213
 warning$ -- 0
-while$ -- 183
+while$ -- 189
 width$ -- 0
-write$ -- 32
+write$ -- 33
 (There was 1 error message)
