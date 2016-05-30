@@ -67,6 +67,10 @@
   Introduction to Fault-Tolerant Systems}. 2000. IDI Technical Report 6/99 ---
   Norwegian University of Science and Technology, Trondheim, Noruega.
 
+\bibitem[{Ookla}(2016){Ookla}]{speedtest} {Ookla}. \textbf{Speedtest.net by
+  Ookla - The Global Broadband Speed Test}. $<$Disponível em:
+  \url{https://www.speedtest.net/}$>$. Acesso em 28 de maio de 2016.
+
 \bibitem[{Oracle}(2016){Oracle}]{virtualbox} {Oracle}. \textbf{Oracle VM
   VirtualBox}. $<$Disponível em: \url{https://www.virtualbox.org/}$>$. Acesso
   em 22 de maio de 2016.
@@ -128,10 +132,6 @@
 \bibitem[{VMware}(2016c){VMware}]{vmwareview} {VMware}. \textbf{VDI Virtual
   Desktop Infrastructure with Horizon}. $<$Disponível em:
   \url{https://www.vmware.com/products/horizon-view}$>$. Acesso em 22 de maio
-  de 2016.
-
-\bibitem[{VMware}(2016d){VMware}]{speedtest} {VMware}. \textbf{speedtest ??}
-  $<$Disponível em: \url{https://www.speedtest.net/}$>$. Acesso em 28 de maio
   de 2016.
 
 \bibitem[WEBER(2002)WEBER]{weber2002} WEBER, T.~S\@. \textbf{Um roteiro para

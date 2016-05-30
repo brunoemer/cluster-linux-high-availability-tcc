@@ -17,25 +17,25 @@ I was expecting a `,' or a `}'---line 282 of file tcc.bib
 I'm skipping whatever remains of this entry
 You've used 31 entries,
             2371 wiz_defined-function locations,
-            737 strings with 9757 characters,
-and the built_in function-call counts, 29104 in all, are:
-= -- 3500
+            738 strings with 9808 characters,
+and the built_in function-call counts, 29629 in all, are:
+= -- 3588
 > -- 105
 < -- 330
-+ -- 1917
++ -- 1960
 - -- 39
 * -- 1055
-:= -- 2510
+:= -- 2554
 add.period$ -- 111
 call.type$ -- 31
 change.case$ -- 239
-chr.to.int$ -- 4
+chr.to.int$ -- 3
 cite$ -- 31
-duplicate$ -- 4083
+duplicate$ -- 4171
 empty$ -- 1127
 format.name$ -- 245
-if$ -- 6454
-int.to.chr$ -- 4
+if$ -- 6586
+int.to.chr$ -- 3
 int.to.str$ -- 0
 missing$ -- 0
 newline$ -- 65
@@ -44,10 +44,10 @@ pop$ -- 482
 preamble$ -- 1
 purify$ -- 31
 quote$ -- 0
-skip$ -- 1967
+skip$ -- 2011
 stack$ -- 0
-substring$ -- 1734
-swap$ -- 2449
+substring$ -- 1778
+swap$ -- 2493
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
