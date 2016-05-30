@@ -1,0 +1,11 @@
+\chapter{Proposta de solução}
+\label{cap:propostadesolucao}
+
+Este capítulo será propor um ambiente de alta disponibilidade para serviços críticos para empresa que foram selecionados no capítulo anterior
+
+%reorganizacao de vms
+%ferramentas selecionadas, colocar motivo para escolher e citar ferramentas parecidas
+%muitos servicos, melhor solucao utilizar 2 servidores para fazer redundancia
+%em caso de falha de um servidor fisico...
+%ferramentas open source...
+%colocar a disponibilidade do nagios do ano passado?
