@@ -1,9 +1,36 @@
 \chapter{Proposta de solução}
 \label{cap:propostadesolucao}
 
-Este capítulo será propor um ambiente de alta disponibilidade para serviços críticos para empresa que foram selecionados no capítulo anterior
+Neste capítulo será proposto uma solução de implementação de um ambiente de alta disponibilidade para os serviços críticos da empresa, que 
+foram selecionados no capítulo anterior. Com isso pretende-se atingir o objetivo deste trabalho.
 
-%reorganizacao de vms
+O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, para então liberar o 
+\textit{hardware} suficiente, assim possibilitando a implementação do ambiente de alta disponibilidade. 
+
+As ferramentas necessárias para a implementação podem ser divididas em dois tipos: ferramenta de replicação de dados (Seção \ref{section:toolrepl}) 
+e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais em caso de falhas (Seção \ref{section:toolcluster}).
+
+\section{Ferramentas de replicação de dados}
+\label{section:toolrepl}
+
+Replicação de dados pode ser feita de diversas maneiras, pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
+Dependendo do objetivo e da aplicação pode-se usar ferramentas como por exemplo o \textit{rsync}, que faz o sincronismo de dados de uma origem
+para um destino. Sendo assim, essa ferramenta não é . falar sobre replicação raid e rsync...
+
+A solução de replicação ideal para esta implementação é um espelhamento de dados através da redes, assim permitindo a cópia dos dados para uma
+máquina remota. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware} \cite{zaminhani2008}.
+
+A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
+aberto, e permite a replicação de dados em tempo real de um dispositivo local.
+
+\section{Ferramentas de gerenciamento de cluster}
+\label{section:toolcluster}
+
+
+\cite{zaminhani2008}.
+
+
+%reorganização de vms
 %ferramentas selecionadas, colocar motivo para escolher e citar ferramentas parecidas
 %muitos servicos, melhor solucao utilizar 2 servidores para fazer redundancia
 %em caso de falha de um servidor fisico...

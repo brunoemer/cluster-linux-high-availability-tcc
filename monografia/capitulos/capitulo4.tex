@@ -126,8 +126,8 @@ Os servidores de virtualização possuem suas respectivas \ac{VM}s, que executam
 com o objetivo de facilitar a manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional, esse sistema operacional é
 o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}}.
 Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através de um \ac{RAID}, 
-geralmente utilizando \ac{RAID} 5, em alguns casos, que possui apenas dois discos é utilizado \ac{RAID} 1. O ambiente também possui uma 
-redundância do cabeamento, como visto anteriormente.
+geralmente utilizando \ac{RAID} 5, em alguns casos, que possui apenas dois discos é utilizado \ac{RAID} 1 (espelhamento de discos). O ambiente 
+também possui uma redundância do cabeamento, como visto anteriormente.
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de internet. Atualmente sete servidores 
 são utilizados para virtualizar sistemas, esses servidores são os últimos sete servidores da Tabela \ref{tab:servfisicos}.
@@ -325,8 +325,8 @@ O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:servlog7}), que
 Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis na empresa, com isso nesta seção será feito a 
 idenficação dos serviços mais críticos para a empresa.
 
-Para selecionar os serviços críticos anteriormente foram detalhados todos os serviços. Sendo assim os seguintes critérios serão utilizados para
-selecionar os serviços mais críticos, assim possibilitando a implementação do ambiente de alta disponibilidade: 
+Para selecionar os serviços críticos, anteriormente foram detalhados todos os serviços da empresa, sendo assim os seguintes critérios serão 
+utilizados para selecionar os serviços mais críticos, para possibilitar a implementação do ambiente de alta disponibilidade: 
 \begin{itemize}
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. Por exemplo, se um cliente ficar sem acesso à internet, a sua mensalidade pode ser reduzida de acordo com o tempo que ele ficou
