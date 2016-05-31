@@ -194,12 +194,12 @@ O servidor chamado Fulmine executa onze \ac{VM}s (Figura \ref{fig:serv_fulmine})
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=430px]{img/serv_fulmine.eps}
+ \includegraphics[width=420px]{img/serv_fulmine.eps}
  \caption{Servidor de virtualização Fulmine.}
  \label{fig:serv_fulmine}
 \end{figure}
 
-O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:servlog3}), que fornecem os seguintes serviços:
+O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:serv_piova}), que fornecem os seguintes serviços:
 \begin{itemize}
  \item \textit{ASP}: esse servidor possui 1 \textit{core} para processamento, 1 GB de memória e 50 GB de disco. O servidor possui o sistema 
  operacional \textit{Windows 2008 Server R2}. Esse servidor provê acesso a sites \textit{web} desenvolvidos com a linguagem \ac{ASP}, com
@@ -233,11 +233,25 @@ O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:servlog3}), que 
  autoritativo e é o servidor \ac{DNS} terciário dos domínios hospedados pela empresa;
 \end{itemize}
 
-O servidor chamado Raggio executa doze \ac{VM}s, que fornecem os serviços de virtualização para algumas empresas. Sendo que as máquinas virtuais
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=430px]{img/serv_piova.eps}
+ \caption{Servidor de virtualização Piova.}
+ \label{fig:serv_piova}
+\end{figure}
+
+O servidor chamado Raggio executa doze \ac{VM}s (Figura \ref{fig:serv_raggio}), que fornecem os serviços de virtualização para algumas empresas. Sendo que as máquinas virtuais
 são instaladas com o sistema operacional da preferência do cliente, e são disponibilizadas através de um acesso remoto, como por exemplo através
 de \ac{SSH}.
 
-O servidor chamado Tempesta executa uma \ac{VM} (Figura \ref{fig:servlog5}), que fornecem os seguintes serviços:
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=280px]{img/serv_raggio.eps}
+ \caption{Servidor de virtualização Raggio.}
+ \label{fig:serv_raggio}
+\end{figure}
+
+O servidor chamado Tempesta executa uma \ac{VM} (Figura \ref{fig:serv_tempesta}), que fornecem os seguintes serviços:
 \begin{itemize}
   \item \textit{Merak}: esse servidor virtual fornece serviço de e-mail. Ele possui uma configuração de 6 \textit{cores} para processamento, 
  10 GB de memória e 1000 GB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e executa o \textit{software} 
@@ -248,7 +262,14 @@ O servidor chamado Tempesta executa uma \ac{VM} (Figura \ref{fig:servlog5}), que
 
 \end{itemize}
 
-O servidor chamado Tuono executa oito \ac{VM}s (Figura \ref{fig:servlog6}), que fornecem os seguintes serviços:
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=260px]{img/serv_tempesta.eps}
+ \caption{Servidor de virtualização Tempesta.}
+ \label{fig:serv_tempesta}
+\end{figure}
+
+O servidor chamado Tuono executa oito \ac{VM}s (Figura \ref{fig:serv_tuono}), que fornecem os seguintes serviços:
 \begin{itemize}
  \item \textit{Ledriovardar}: esse servidor possui 2 \textit{cores} para processamento, 2 GB de memória e 80 GB de disco. O servidor possui 
  o sistema operacional \textit{Windows 2008 Server R2}. Ele possui o serviço de \textit{terminal service} para suporte e gerência de fibra 
@@ -290,7 +311,14 @@ O servidor chamado Tuono executa oito \ac{VM}s (Figura \ref{fig:servlog6}), que 
  \textit{\ac{PHP} 5.5.9}, e um \textit{software} desenvolvido pelo \textit{SpeedTest} \cite{speedtest};
 \end{itemize}
 
-O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:servlog7}), que fornecem os seguintes serviços:
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=340px]{img/serv_tuono.eps}
+ \caption{Servidor de virtualização Tuono.}
+ \label{fig:serv_tuono}
+\end{figure}
+
+O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:serv_venti}), que fornecem os seguintes serviços:
 \begin{itemize}
  \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 1 GB de memória e 15 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Nele é executado o serviço de \textit{backup} dos equipamentos do provedor, para isso 
@@ -314,6 +342,13 @@ O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:servlog7}), que
  \textit{MySQL 5.5.49} instalado, que esta configurado como \textit{master-slave}, sendo que esse servidor é o \textit{slave} e o servidor 
  \textit{Dati} é o \textit{master};
 \end{itemize}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=430px]{img/serv_venti.eps}
+ \caption{Servidor de virtualização Venti.}
+ \label{fig:serv_venti}
+\end{figure}
 
 -graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao??
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  30 MAY 2016 21:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  31 MAY 2016 20:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1416,37 +1416,29 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [26 <./img/serv_brina-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/serv_fulmine.eps>
-(epstopdf)                    date: 2016-05-23 22:54:45
-(epstopdf)                    size: 215089 bytes
+(epstopdf)                    date: 2016-05-31 20:25:15
+(epstopdf)                    size: 160740 bytes
 (epstopdf)             Output file: <img/serv_fulmine-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-23 22:55:10
-(epstopdf)                    size: 92726 bytes
+(epstopdf)                    date: 2016-05-31 20:25:50
+(epstopdf)                    size: 112193 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/serv_fulmine-eps-conve
 rted-to.pdf img/serv_fulmine.eps>
 (epstopdf)             \includegraphics on input line 197.
 Package epstopdf Info: Output file is already uptodate.
 
-<img/serv_fulmine-eps-converted-to.pdf, id=136, 713.66624pt x 573.14125pt>
+<img/serv_fulmine-eps-converted-to.pdf, id=136, 613.29124pt x 492.84125pt>
 File: img/serv_fulmine-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/serv_fulmine-eps-converted-to.pdf>
 Package pdftex.def Info: img/serv_fulmine-eps-converted-to.pdf used on input li
 ne 197.
-(pdftex.def)             Requested size: 431.61407pt x 346.62471pt.
-
-Overfull \hbox (4.82272pt too wide) in paragraph at lines 197--198
- [][] 
- []
+(pdftex.def)             Requested size: 421.57654pt x 338.7824pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:servlog3' on page 27 undefined on input line 202.
-
-
 [27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3977) has occurred while \output is active []
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1454,42 +1446,148 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [28 <./img/serv_fulmine-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <img/serv_piova.eps>
+(epstopdf)                    date: 2016-05-31 19:49:29
+(epstopdf)                    size: 138026 bytes
+(epstopdf)             Output file: <img/serv_piova-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-31 19:49:47
+(epstopdf)                    size: 63242 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/serv_piova-eps-convert
+ed-to.pdf img/serv_piova.eps>
+(epstopdf)             \includegraphics on input line 238.
+Package epstopdf Info: Output file is already uptodate.
 
-LaTeX Warning: Reference `fig:servlog5' on page 29 undefined on input line 240.
+<img/serv_piova-eps-converted-to.pdf, id=146, 618.31pt x 482.80376pt>
+File: img/serv_piova-eps-converted-to.pdf Graphic file (type pdf)
+
+<use img/serv_piova-eps-converted-to.pdf>
+Package pdftex.def Info: img/serv_piova-eps-converted-to.pdf used on input line
+ 238.
+(pdftex.def)             Requested size: 431.61407pt x 337.03209pt.
+
+Overfull \hbox (4.82272pt too wide) in paragraph at lines 238--239
+ [][] 
+ []
+
+Package epstopdf Info: Source file: <img/serv_raggio.eps>
+(epstopdf)                    date: 2016-05-31 19:59:30
+(epstopdf)                    size: 77612 bytes
+(epstopdf)             Output file: <img/serv_raggio-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-31 19:59:46
+(epstopdf)                    size: 32222 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/serv_raggio-eps-conver
+ted-to.pdf img/serv_raggio.eps>
+(epstopdf)             \includegraphics on input line 249.
+Package epstopdf Info: Output file is already uptodate.
+<img/serv_raggio-eps-converted-to.pdf, id=147, 392.46625pt x 342.27875pt>
+File: img/serv_raggio-eps-converted-to.pdf Graphic file (type pdf)
+
+<use img/serv_raggio-eps-converted-to.pdf>
+Package pdftex.def Info: img/serv_raggio-eps-converted-to.pdf used on input lin
+e 249.
+(pdftex.def)             Requested size: 281.05103pt x 245.12436pt.
 
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Warning: Reference `fig:servlog6' on page 29 undefined on input line 251.
+[29 <./img/serv_piova-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <img/serv_tempesta.eps>
+(epstopdf)                    date: 2016-05-31 20:06:47
+(epstopdf)                    size: 22865 bytes
+(epstopdf)             Output file: <img/serv_tempesta-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-31 20:07:07
+(epstopdf)                    size: 11971 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/serv_tempesta-eps-conv
+erted-to.pdf img/serv_tempesta.eps>
+(epstopdf)             \includegraphics on input line 267.
+Package epstopdf Info: Output file is already uptodate.
 
+<img/serv_tempesta-eps-converted-to.pdf, id=154, 362.35374pt x 100.375pt>
+File: img/serv_tempesta-eps-converted-to.pdf Graphic file (type pdf)
 
-[29]
-
-LaTeX Warning: Reference `fig:servlog7' on page 30 undefined on input line 293.
-
-
+<use img/serv_tempesta-eps-converted-to.pdf>
+Package pdftex.def Info: img/serv_tempesta-eps-converted-to.pdf used on input l
+ine 267.
+(pdftex.def)             Requested size: 260.97595pt x 72.29291pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 30
  []
 
-[30] [31])
+[30 <./img/serv_raggio-eps-converted-to.pdf> <./img/serv_tempesta-eps-converted
+-to.pdf>]
+Package epstopdf Info: Source file: <img/serv_tuono.eps>
+(epstopdf)                    date: 2016-05-31 20:19:26
+(epstopdf)                    size: 125446 bytes
+(epstopdf)             Output file: <img/serv_tuono-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-31 20:19:43
+(epstopdf)                    size: 54377 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/serv_tuono-eps-convert
+ed-to.pdf img/serv_tuono.eps>
+(epstopdf)             \includegraphics on input line 316.
+Package epstopdf Info: Output file is already uptodate.
+
+<img/serv_tuono-eps-converted-to.pdf, id=165, 507.8975pt x 445.665pt>
+File: img/serv_tuono-eps-converted-to.pdf Graphic file (type pdf)
+
+<use img/serv_tuono-eps-converted-to.pdf>
+Package pdftex.def Info: img/serv_tuono-eps-converted-to.pdf used on input line
+ 316.
+(pdftex.def)             Requested size: 341.27625pt x 299.47124pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[31]
+Package epstopdf Info: Source file: <img/serv_venti.eps>
+(epstopdf)                    date: 2016-05-31 20:29:01
+(epstopdf)                    size: 94554 bytes
+(epstopdf)             Output file: <img/serv_venti-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-05-31 20:29:25
+(epstopdf)                    size: 39630 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/serv_venti-eps-convert
+ed-to.pdf img/serv_venti.eps>
+(epstopdf)             \includegraphics on input line 348.
+Package epstopdf Info: Output file is already uptodate.
+ <img/serv_venti-eps-converted-to.pdf, id=169, 638.385pt x 447.6725pt>
+File: img/serv_venti-eps-converted-to.pdf Graphic file (type pdf)
+
+<use img/serv_venti-eps-converted-to.pdf>
+Package pdftex.def Info: img/serv_venti-eps-converted-to.pdf used on input line
+ 348.
+(pdftex.def)             Requested size: 431.61407pt x 302.67139pt.
+
+Overfull \hbox (4.82272pt too wide) in paragraph at lines 348--349
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 32
  []
 
-[32]
+[32 <./img/serv_tuono-eps-converted-to.pdf>] [33 <./img/serv_venti-eps-converte
+d-to.pdf>])
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 34
+ []
+
+[34]
 \openout2 = `capitulos/capitulo5.aux'.
 
- (./capitulos/capitulo5.tex) [33
+ (./capitulos/capitulo5.tex) [35
 
 
 
 ] (./tcc.bbl
 Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 34
+\OT1/cmr/m/n/10.95 36
  []
 
-[34
+[36
 
 
 ]
@@ -1511,14 +1609,14 @@ Underfull \hbox (badness 6542) in paragraph at lines 117--121
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
 
-[35]) 
+[37]) 
 AED: lastpage setting LastPage
 
 Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 36
+\OT1/cmr/m/n/10.95 38
  []
 
-[36] (./tcc.aux (./folha_rosto.aux) (./abstract.aux)
+[38] (./tcc.aux (./folha_rosto.aux) (./abstract.aux)
 (./capitulos/introducao.aux) (./capitulos/capitulo2.aux)
 (./capitulos/capitulo3.aux) (./capitulos/capitulo4.aux)
 (./capitulos/capitulo5.aux))
@@ -1527,17 +1625,14 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13796 strings out of 495004
- 266227 string characters out of 6180662
- 328410 words of memory out of 5000000
- 16718 multiletter control sequences out of 15000+600000
+ 13822 strings out of 495004
+ 267140 string characters out of 6180662
+ 328467 words of memory out of 5000000
+ 16739 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10386b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1551,10 +1646,10 @@ e1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt12.pfb>
-Output written on tcc.pdf (37 pages, 993544 bytes).
+Output written on tcc.pdf (39 pages, 1205092 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
+ 235 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
