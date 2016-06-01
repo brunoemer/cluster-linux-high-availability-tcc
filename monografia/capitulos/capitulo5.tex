@@ -7,9 +7,14 @@ foram selecionados no capítulo anterior. Com isso pretende-se atingir o objetiv
 O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, para então liberar o 
 \textit{hardware} suficiente, assim possibilitando a implementação do ambiente de alta disponibilidade. 
 
-Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os configurando 
-de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão tranferidas para 
-o outro servidor físico. As ferramentas necessárias para essa implementação podem ser divididas em dois tipos: ferramenta de replicação de dados 
+Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
+configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
+tranferidas para o outro servidor físico. 
+A configuração deverá ser: 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco para cada servidor. Essa configuração foi 
+calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas no capítulo
+anterior na Seção \ref{section:servcrit}.
+
+As ferramentas necessárias para essa implementação podem ser divididas em dois tipos: ferramenta de replicação de dados 
 (Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais em caso de falhas 
 (Seção \ref{section:toolcluster}).
 
@@ -30,6 +35,7 @@ máquina remota. Essa solução além de fazer a replicação dos dados, faz a r
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
 aberto, e permite a replicação de dados em tempo real de um dispositivo local. 
 APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
+
 % dispositivo primario e secundario zaminhani2008
 % Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
 %dependendo da aplicação, a execução ocorra em todos os nós do cluster

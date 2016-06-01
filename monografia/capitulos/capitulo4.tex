@@ -246,7 +246,7 @@ de \ac{SSH}.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=280px]{img/serv_raggio.eps}
+ \includegraphics[width=300px]{img/serv_raggio.eps}
  \caption{Servidor de virtualização Raggio.}
  \label{fig:serv_raggio}
 \end{figure}
@@ -313,7 +313,7 @@ O servidor chamado Tuono executa oito \ac{VM}s (Figura \ref{fig:serv_tuono}), qu
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=340px]{img/serv_tuono.eps}
+ \includegraphics[width=360px]{img/serv_tuono.eps}
  \caption{Servidor de virtualização Tuono.}
  \label{fig:serv_tuono}
 \end{figure}
@@ -414,9 +414,16 @@ Tendo esses serviços pode-se identificar quais máquinas virtuais serão inclu�
  \item \textit{SimplesIP}
 \end{itemize}
 
-Os recursos virtuais somados são 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco.
+Sendo assim, os recursos das máquinas virtuais, citadas anteriormente, somados são 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco.
 
 -Exibir disponibilidade média atual dos serviços, com gráficos??
+
+\section{Considerações finais}
+
+Neste capítulo foi apresentado a empresa e feito uma análise de seus serviços. Com isso no próximo capítulo será desenvolvido uma proposta 
+para implementação de um ambiente de alta disponibilidade nos servidores de virtualização da empresa, além de identificar as ferramentas
+que serão utilizadas para essa implementação.
+
 
 %Esboço: \\
 %-DNS (impacto direto para clientes e rede interna): \\
@@ -438,60 +445,3 @@ Os recursos virtuais somados são 11 \textit{cores} de processamento, 12 GB de m
 %ligacoes saintes, atendimento, cobranca, tecnicos instalacoes internet\\
 %numero de usuarios\\
 
-
-%A Tabela \ref{tab:servporservidor} mostra todos os servidores, incluindo virtuais, e seus respectivos serviços.
-%\begin{table}
-%\caption {Serviços por servidor}
-%\label{tab:servporservidor}
-%\begin{center}
-%\begin{tabular}{|l|p{12cm}|}\hline
-%Servidor & Descrição\\\hline
-%asp & Servidor web linguagem ASP\\\hline
-%backup & Servidor de backup equipamentos de rede do provedor\\\hline
-%bello & Servidor de storage do bacula, para backup dos outros servidores\\\hline
-%brina & Servidor de virtualização\\\hline
-%cacti & Servidor de monitoramento da rede do provedor\\\hline
-%cactibackbone & Servidor de monitoramento da rede do provedor\\\hline
-%dati & Banco de dados dos servidores de e-mail e cameras\\\hline
-%dio & Servidor de hospedagem de sites PHP4\\\hline
-%esibire & Servidor de hospedagem de vídeos\\\hline
-%fatefurbo & Servidor para gerência da fibra óptica do provedor\\\hline
-%fiberhome & Servidor para gerência da fibra óptica do provedor\\\hline
-%fulmine & Servidor de virtualização\\\hline
-%hotspot & Servidor de gerência de equipamentos da Ubiquiti que fazem hotspot utilizado pelo provedor\\\hline
-%ledriovardar & Servidor de terminal service do suporte e gerência do provedor\\\hline
-%masterauth & Servidor de autenticação PPPoE do provedor\\\hline
-%merak & Servidor de e-mail\\\hline
-%miatanto & Servidor de streaming Icecast para web rádio\\\hline
-%mondoperso & Servidor de streaming Icecast de uma rádio ao vivo\\\hline
-%monete & Servidor de hospedagem de site dedicada do provedor\\\hline
-%monit & Servidor de monitoramento e gráficos de todos servidores\\\hline
-%nino & Ambiente de desenvolvimento para setor de programação web\\\hline
-%ns & Servidor primário de DNS autoritativo\\\hline
-%ottico & Servidor de terminal service do suporte e gerência de fibra óptica do provedor\\\hline
-%parla & Servidor de mensagens instantâneas XMPP do provedor\\\hline
-%passata & Servidor primário de DNS recursivo do provedor\\\hline
-%passata2 & Servidor secundário de DNS recursivo do provedor\\\hline
-%piova & Servidor de virtualização\\\hline
-%pomodoro & Servidor de documentação Sakai do provedor\\\hline
-%postfix & Servidor de SMTP para envio de e-mail marketing\\\hline
-%quebei & Servidor de gerência do bacula, para backup dos outros servidores\\\hline
-%raggio & Servidor de virtualização\\\hline
-%rauco & Servidor de hospedagens WHM\\\hline
-%roncon & Servidor de hospedagens WHM\\\hline
-%ronconradius & Servidor de radius ADSL de terceiros\\\hline
-%servo & Servidor secundário de DNS autoritativo\\\hline
-%servo6 & Servidor terciário de DNS autoritativo\\\hline
-%sfrunhon & Servidor de gráficos para monitoramento de clientes do provedor\\\hline
-%simplesip & Servidor de telefonia Asterisk do provedor\\\hline
-%soldi & Servidor de sistemas do provedor e outros ERPs\\\hline
-%speedauth & Servidor de autenticação PPPoE do provedor\\\hline
-%tempesta & Servidor de virtualização\\\hline
-%trapel & Servidor de teste de banda do provedor\\\hline
-%tuono & Servidor de virtualização\\\hline
-%venti & Servidor de virtualização\\\hline
-%vigilante & Servidor de reprodução e armazenamento das câmeras do provedor\\\hline
-%vinicolag & Servidor de backup de um cliente\\\hline
-%\end{tabular}
-%\end{center}
-%\end{table}
