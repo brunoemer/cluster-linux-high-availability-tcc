@@ -25,5 +25,5 @@
 \contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{32}
 \contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{35}
 \contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{35}
-\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster}{35}
-\contentsline {chapter}{Refer{\^e}ncias}{36}
+\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{36}
+\contentsline {chapter}{Refer{\^e}ncias}{37}

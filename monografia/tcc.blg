@@ -15,9 +15,10 @@ I was expecting a `,' or a `}'---line 282 of file tcc.bib
  :   isbn      = "9780124046412",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "perkov2011"
 You've used 32 entries,
             2371 wiz_defined-function locations,
-            742 strings with 9997 characters,
+            743 strings with 10007 characters,
 and the built_in function-call counts, 31051 in all, are:
 = -- 3781
 > -- 108

@@ -7,8 +7,11 @@ foram selecionados no capítulo anterior. Com isso pretende-se atingir o objetiv
 O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, para então liberar o 
 \textit{hardware} suficiente, assim possibilitando a implementação do ambiente de alta disponibilidade. 
 
-As ferramentas necessárias para a implementação podem ser divididas em dois tipos: ferramenta de replicação de dados (Seção \ref{section:toolrepl}) 
-e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais em caso de falhas (Seção \ref{section:toolcluster}).
+Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os configurando 
+de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão tranferidas para 
+o outro servidor físico. As ferramentas necessárias para essa implementação podem ser divididas em dois tipos: ferramenta de replicação de dados 
+(Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais em caso de falhas 
+(Seção \ref{section:toolcluster}).
 
 \section{Ferramentas de replicação de dados}
 \label{section:toolrepl}
@@ -27,12 +30,22 @@ máquina remota. Essa solução além de fazer a replicação dos dados, faz a r
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
 aberto, e permite a replicação de dados em tempo real de um dispositivo local. 
 APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
-% primario e secundario zaminhani2008
+% dispositivo primario e secundario zaminhani2008
+% Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
+%dependendo da aplicação, a execução ocorra em todos os nós do cluster
+%simultaneamente (Ativo/Ativo). Para tornar isso possível é necessária a
+%utilização de um sistema de arquivos exclusivo para cluster, como o OCFS2 6 e o
+%GFS 7 por exemplo. Como a abordagem deste trabalho é cluster de alta
+%disponibilidade, a utilização do DRBD no modo Ativo/Ativo não será discutida.
 
-\section{Ferramentas de gerenciamento de cluster}
+\section{Ferramentas de gerenciamento de cluster?}
 \label{section:toolcluster}
 
-... \textit{Heartbeat} \cite{zaminhani2008}.
+Para ser possível implementar uma solução de alta disponibilidade é necessário uma ferramenta que monitora os recursos, fazendo a detecção e
+recuperação do serviço utilizando mensagens entre os servidores \cite{perkov2011}.
+
+\textit{Pacemaker} é uma ferramenta de detecção e recuperação de falhas a nível de serviço \cite{perkov2011}. 
+\textit{Heartbeat} \cite{zaminhani2008}.
 
 
 %reorganização de vms
