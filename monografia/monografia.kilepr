@@ -104,16 +104,16 @@ highlight=LaTeX
 line=196
 mode=LaTeX
 open=true
-order=4
+order=3
 
 [item:capitulos/capitulo2.tex]
 archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=162
+line=0
 mode=LaTeX
-open=true
+open=false
 order=0
 
 [item:capitulos/capitulo3.tex]
@@ -121,39 +121,39 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=298
+line=299
+mode=LaTeX
+open=true
+order=0
+
+[item:capitulos/capitulo4.tex]
+archive=true
+column=15
+encoding=UTF-8
+highlight=LaTeX
+line=405
 mode=LaTeX
 open=true
 order=1
 
-[item:capitulos/capitulo4.tex]
+[item:capitulos/capitulo5.tex]
 archive=true
-column=0
+column=80
 encoding=UTF-8
 highlight=LaTeX
-line=421
+line=50
 mode=LaTeX
 open=true
 order=2
 
-[item:capitulos/capitulo5.tex]
+[item:capitulos/introducao.tex]
 archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=37
+line=0
 mode=LaTeX
-open=true
-order=3
-
-[item:capitulos/introducao.tex]
-archive=true
-column=95
-encoding=UTF-8
-highlight=LaTeX
-line=46
-mode=LaTeX
-open=true
+open=false
 order=6
 
 [item:folha_rosto.tex]
@@ -178,13 +178,13 @@ order=-1
 
 [item:tcc.bib]
 archive=true
-column=17
+column=23
 encoding=UTF-8
 highlight=BibTeX
-line=301
+line=311
 mode=BibTeX
 open=true
-order=5
+order=4
 
 [item:tcc.dvi]
 archive=true
@@ -213,7 +213,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=0
 mode=LaTeX
-open=false
+open=true
 order=5
 
 [view-settings,view=0,item:abstract.tex]
@@ -236,21 +236,21 @@ ViMarks=.,158,6,[,158,6,],158,6
 
 [view-settings,view=0,item:capitulos/capitulo3.tex]
 CursorColumn=0
-CursorLine=298
+CursorLine=299
 JumpList=
-ViMarks=.,41,1,[,41,1,],41,1
+ViMarks=.,299,0,[,299,0,],299,0
 
 [view-settings,view=0,item:capitulos/capitulo4.tex]
-CursorColumn=0
-CursorLine=421
+CursorColumn=15
+CursorLine=405
 JumpList=
-ViMarks=.,315,25,[,315,25,],315,25
+ViMarks=.,404,20,[,404,20,],404,20
 
 [view-settings,view=0,item:capitulos/capitulo5.tex]
-CursorColumn=0
-CursorLine=37
+CursorColumn=80
+CursorLine=50
 JumpList=
-ViMarks=.,36,36,[,37,0,],-1,-1
+ViMarks=.,35,39,[,35,39,],35,62
 
 [view-settings,view=0,item:capitulos/introducao.tex]
 CursorColumn=95
@@ -265,10 +265,10 @@ JumpList=
 ViMarks=.,30,163,[,30,159,],30,163
 
 [view-settings,view=0,item:tcc.bib]
-CursorColumn=17
-CursorLine=301
+CursorColumn=23
+CursorLine=311
 JumpList=
-ViMarks=.,298,43,[,298,29,],298,43
+ViMarks=.,311,23,[,311,23,],311,23
 
 [view-settings,view=0,item:tcc.tex]
 CursorColumn=0

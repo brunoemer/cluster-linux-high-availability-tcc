@@ -10,13 +10,13 @@ atendendo aproximadamente xx?? cidades. Essa empresa possui aproximadamente xx??
 A empresa oferece serviços pela internet aos seus clientes, que são: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
 \textit{e-mail marketing}, \textit{backup}, \textit{máquinas virtuais}, autenticação \ac{ADSL}, rádio \textit{online} e telefonia.
 Além disso, o provedor associado fornece aos seus clientes acesso à internet via rádio e acesso à internet por meio de fibra óptica.
-A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto, que executam sobre sistemas operacionais, normalmente 
-distribuições \textit{Linux}, e também são \textit{softwares} livre.
+A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto, onde executam em sistemas operacionais, normalmente 
+distribuições \textit{Linux}, que também são \textit{softwares} livre.
 
 Atualmente a empresa possui redundância de refrigeração e de energia (Figura \ref{fig:insteletrica}). A redundância de refrigeração é composta 
 por dois ares-condicionados. 
 A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles são utilizados para alimentação dos servidores e outros 
-equipamentos como por exemplo roteadores, de uma forma que caso um falhar o outro alimente todos os equipamentos. O terceiro \textit{nobreak} é 
+equipamentos como por exemplo roteadores, de forma que caso um falhe o outro alimente todos os equipamentos. O terceiro \textit{nobreak} é 
 utilizado para alimentar os computadores dos funcionários de dois setores. Além disso, dois geradores suprem a necessidade de consumo de 
 energia elétrica do ambiente.
 
@@ -35,8 +35,8 @@ críticos (Seção \ref{section:servcrit}).
 \label{section:ambiente}
 
 A estrutura atual da empresa é composta por quatorze servidores físicos montados em um \textit{rack} (Figura \ref{fig:servrack}). 
-A configuração de \textit{hardware} desses servidores encontradas na Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo do 
-servidor, a configuração dos processadores, quantidade de memória, número de discos e a capacidade unitária de cada disco.
+A configuração de \textit{hardware} desses servidores pode ser encontrada na Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, 
+o modelo do servidor, a configuração dos processadores, quantidade de memória, número de discos e a capacidade unitária de cada disco.
 
 \begin{figure}[h!]
  \centering
@@ -71,8 +71,8 @@ Venti & Dell PowerEdge R210 II & 1 x Intel Xeon CPU E3-1220 3.10 GHz & 16 GB DDR
 
 Todos os servidores estão ligados ao \textit{switch}, que provê aos servidores acesso à internet através do roteador. 
 Para os servidores mais importantes utiliza-se dois cabos de rede que estão ligados a um \textit{switch} \textit{gigabit}, assim possibilitando
-a configuração de \textit{link aggregation}, que possibilita configurar mais de uma interface de rede física em uma interface agregada, com isso 
-permitindo dobrar a capacidade de tráfego de dados e assim é caracterizado a redundância do cabeamento.
+a configuração de \textit{link aggregation}, que permite configurar mais de uma interface de rede física em uma interface agregada, com isso 
+pode-se dobrar a capacidade de tráfego de dados e assim é caracterizado a redundância do cabeamento.
 O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutura física dos servidores da empresa, com dois exemplos de cada 
 tipo de servidor. 
 
@@ -83,7 +83,7 @@ tipo de servidor.
  \label{fig:servfisicos}
 \end{figure}
 
-Existem sete servidores que possuem serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização. Eles são os sete 
+Existem sete servidores que possuem serviços que executam sobre o sistema operacional nativo, ou seja, sem virtualização. Eles são os sete 
 primeiros servidores da Tabela \ref{tab:servfisicos}:
 \begin{itemize}
  \item Bello: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Sua função é armazenar dados de \textit{backup}, ele 
@@ -111,9 +111,9 @@ primeiros servidores da Tabela \ref{tab:servfisicos}:
  (\textit{Trac 1.0.1}), mensagens instantâneas (\textit{Ejabberd 2.1.11});
  
  \item Sfrunhon: outro servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.3} e executa a aplicação
- \textit{Cacti 0.8.8a}. Esse servidor monitora atualmente o trafego dos clientes, tanto de internet via rádio, como de fibra óptica;
+ \textit{Cacti 0.8.8a}. Esse servidor monitora atualmente o tráfego dos clientes, tanto de internet via rádio, como de fibra óptica;
  
- \item Vigilante: esse servidor é responsável por capturar e armazenar \textit{streaming} de vídeo de câmeras do provedor. Esse servidor possui
+ \item Vigilante: esse servidor é responsável por capturar e armazenar \textit{streaming} de vídeo de câmeras do provedor. Ele possui
  o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. O servidor executa a aplicação \textit{ZoneMinder 1.29}, que também é uma ferramenta de 
  código aberto, para capturar e armazenar as imagens das câmeras do provedor.
 \end{itemize}
@@ -126,11 +126,11 @@ Os servidores de virtualização possuem suas respectivas \ac{VM}s, que executam
 com o objetivo de facilitar a manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional, esse sistema operacional é
 o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}}.
 Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através de um \ac{RAID}, 
-geralmente utilizando \ac{RAID} 5, em alguns casos, que possui apenas dois discos é utilizado \ac{RAID} 1 (espelhamento de discos). O ambiente 
-também possui uma redundância do cabeamento, como visto anteriormente.
+geralmente utilizando \ac{RAID} 5, em alguns casos, quando possuem apenas dois discos é utilizado \ac{RAID} 1 (espelhamento de discos). O 
+ambiente também possui uma redundância do cabeamento, como visto anteriormente.
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de internet. Atualmente sete servidores 
-são utilizados para virtualizar sistemas, esses servidores são os últimos sete servidores da Tabela \ref{tab:servfisicos}.
+são utilizados para virtualizar sistemas, que são os últimos sete servidores da Tabela \ref{tab:servfisicos}.
 Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidores de virtualização.
 Para melhor entender, a seguir será descrito esses servidores e suas respectivas máquinas virtuais.
 
@@ -169,9 +169,9 @@ O servidor chamado Fulmine executa onze \ac{VM}s (Figura \ref{fig:serv_fulmine})
  \item \ac{PRTG}: esse servidor possui 2 \textit{cores} para processamento, 4 GB de memória e 100 GB de disco. O servidor possui o sistema 
  operacional \textit{Windows 2008 Server R2}. Sua função é fazer o monitoramento de tráfego e equipamentos da rede \textit{core} do provedor;
  
- \item \textit{Passata}: esse servidor possui 2 \textit{cores} para processamento, 3 GB de memória e 20 GB de disco. Esse servidor possui o 
+ \item \textit{Passata}: esse servidor possui 2 \textit{cores} para processamento, 3 GB de memória e 20 GB de disco. O servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele fornece o serviço de \ac{DNS} recursivo, através do \textit{software} 
- \textit{Bind 9.9.5}, e sendo o servidor é o primário e o mais importante para navegação dos clientes de todo o provedor. A quantidade 
+ \textit{Bind 9.9.5}, e sendo o servidor primário é o mais importante para navegação dos clientes de todo o provedor. A quantidade 
  de requisições é ?? (Figura GRAFICO??);
  
  \item \textit{Roncon}: esse servidor possui 4 \textit{cores} para processamento, 6 GB de memória e 400 GB de disco. Ele possui o sistema
@@ -189,7 +189,7 @@ O servidor chamado Fulmine executa onze \ac{VM}s (Figura \ref{fig:serv_fulmine})
  
  \item \textit{SimplesIP}: esse servidor possui 2 \textit{cores} para processamento, 3 GB de memória e 80 GB de disco. O servidor possui 
  o sistema operacional \textit{CentOS 6.6}. Esse é o servidor de telefonia do provedor, que utiliza como base o \textit{software} livre 
- \textit{Asterisk 2.??}.
+ \textit{Asterisk 1.8.32}.
 \end{itemize}
 
 \begin{figure}[h!]
@@ -202,12 +202,12 @@ O servidor chamado Fulmine executa onze \ac{VM}s (Figura \ref{fig:serv_fulmine})
 O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:serv_piova}), que fornecem os seguintes serviços:
 \begin{itemize}
  \item \textit{ASP}: esse servidor possui 1 \textit{core} para processamento, 1 GB de memória e 50 GB de disco. O servidor possui o sistema 
- operacional \textit{Windows 2008 Server R2}. Esse servidor provê acesso a sites \textit{web} desenvolvidos com a linguagem \ac{ASP}, com
+ operacional \textit{Windows 2008 Server R2}. Esse servidor provê acesso a sites \textit{web} desenvolvidos com a linguagem \ac{ASP}, através do
  \textit{software} \textit{\ac{IIS} 7.5}. Sendo que possui aproximadamente dez sites hospedados;
  
  \item \textit{CactiBackbone}: esse servidor possui 1 \textit{core} para processamento, 1 GB de memória e 20 GB de disco. Ele é um servidor
  de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.3} e executa a aplicação \textit{Cacti 0.8.8a}. 
- Essa aplicação monitora atualmente a uma parte da rede \textit{backbone} do provedor;
+ Essa aplicação monitora atualmente uma parte da rede \textit{backbone} do provedor;
  
  \item \textit{Dio}: esse servidor possui 1 \textit{core} para processamento, 1 GB de memória e 17,8 GB de disco. O servidor possui o sistema 
  operacional \textit{Ubuntu 6.06 \ac{LTS}}. Esse servidor fornece serviço de hospedagens de sites desenvolvidos com a linguagem \ac{PHP} 
@@ -225,7 +225,7 @@ O servidor chamado Piova executa oito \ac{VM}s (Figura \ref{fig:serv_piova}), qu
  
  \item \textit{Postfix}: sua configuração é 1 \textit{core} para processamento, 768 MB de memória e 50 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor faz o envio de e-mails, através do \textit{software} \textit{Postfix 2.11}.
- Os e-mails enviados por ele são tem origem em uma ferramenta desenvolvida pela empresa, que é uma ferramenta de e-mail marketing, ou seja, 
+ Os e-mails enviados por ele tem origem em uma ferramenta desenvolvida pela empresa, que é uma ferramenta de e-mail marketing, ou seja, 
  faz o envio de e-mails em massa para divulgação de informações ou produtos;
  
  \item \textit{Servo6}: sua configuração é 1 \textit{core} para processamento, 1,5 GB de memória e 30 GB de disco. Esse servidor possui o 
@@ -289,12 +289,12 @@ O servidor chamado Tuono executa oito \ac{VM}s (Figura \ref{fig:serv_tuono}), qu
  autoritativo e é o servidor \ac{DNS} primário dos domínios hospedados pela empresa;
  
  \item \textit{Parla}: sua configuração é 1 \textit{core} de processamento, 1 GB de memória e 8 GB de disco. Ele possui o sistema
- operacional \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor provê um serviço de mensagens instantâneas, baseado no protocolo \ac{XMPP}, para
- o provedor, que facilita a comunicação entre funcionários da empresa e do provedor. O \textit{software} utilizado é o \textit{Ejabberd 2.1.11},
+ operacional \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor provê um serviço de mensagens instantâneas, baseado no protocolo \ac{XMPP}, o que 
+ facilita a comunicação entre funcionários da empresa e do provedor. O \textit{software} utilizado é o \textit{Ejabberd 2.1.11},
  que também é um \textit{software} livre;
  
  \item \textit{Rauco}: esse servidor possui 2 \textit{cores} para processamento, 6 GB de memória e 600 GB de disco. Ele possui o sistema
- operacional \textit{CentOS 6.8}. Esse servidor provê acesso a sites \textit{web} desenvolvidos com a linguagem \ac{PHP}. Nele esta instalado o 
+ operacional \textit{CentOS 6.8}. Esse servidor provê acesso a sites \textit{web} desenvolvidos com a linguagem \ac{PHP}. Nele está instalado o 
  \textit{software} \ac{WHM}, que faz a gerência dos serviços de hospedagens de sites e banco de dados. Além disso existe uma ferramenta que 
  faz parte do \ac{WHM} que é o \textit{cPanel}, sendo que ele fornece a gerência de cada hospedagem de site para seu respectivo desenvolvedor.
  Para fornecer essa hospedagem os seguintes \textit{softwares} estão instalados e configurados: \textit{Apache 2.4.18}, \textit{\ac{PHP} 5.6.21}, 
@@ -306,7 +306,7 @@ O servidor chamado Tuono executa oito \ac{VM}s (Figura \ref{fig:serv_tuono}), qu
  \textit{MySQL 5.5.49};
  
  \item \textit{Trapel}: sua configuração é 1 \textit{core} de processamento, 768 MB de memória e 8 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor fornece um serviço de teste de velocidade da conexão de internet, os 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Ele fornece um serviço de teste de velocidade da conexão de internet, os 
  usuários do provedor utilizam esse serviço para testar a velocidade da sua internet. Para isso ele executa as aplicações \textit{Apache 2.4.7} e
  \textit{\ac{PHP} 5.5.9}, e um \textit{software} desenvolvido pelo \textit{SpeedTest} \cite{speedtest};
 \end{itemize}
@@ -322,7 +322,7 @@ O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:serv_venti}), q
 \begin{itemize}
  \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 1 GB de memória e 15 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Nele é executado o serviço de \textit{backup} dos equipamentos do provedor, para isso 
- é utilizado \textit{scripts} que buscam e copiam os dados por \ac{FTP};
+ é utilizado \textit{scripts} que buscam e copiam os dados através do protoccolo \ac{FTP};
  
  \item \textit{Esibire}: sua configuração é 1 \textit{core} para processamento, 1 GB de memória e 50 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Esse servidor faz a hospedagem de vídeos e a reprodução de \textit{streaming} utilizando
@@ -338,9 +338,9 @@ O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:serv_venti}), q
  
  \item \textit{Quebei}: sua configuração é 1 \textit{core} de processamento, 3 GB de memória e 140 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}}. Sua função é gerenciar o \textit{backup} dos outros servidores, para isso ele utiliza a 
- ferramenta \textit{Bacula 5.2.6} (pacote \textit{bacula-director-common 5.2.6}). Além disso, esse servidor possui o sistema gerenciador de banco de dados 
- \textit{MySQL 5.5.49} instalado, que esta configurado como \textit{master-slave}, sendo que esse servidor é o \textit{slave} e o servidor 
- \textit{Dati} é o \textit{master};
+ ferramenta \textit{Bacula 5.2.6} (pacote \textit{bacula-director-common 5.2.6}). Além disso, esse servidor possui o sistema gerenciador de 
+ banco de dados \textit{MySQL 5.5.49} instalado, que esta configurado como \textit{master-slave}, sendo que esse servidor é o \textit{slave} e 
+ o servidor \textit{Dati} é o \textit{master};
 \end{itemize}
 
 \begin{figure}[h!]
@@ -358,17 +358,15 @@ O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:serv_venti}), q
 \label{section:servcrit}
 
 Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis na empresa, com isso nesta seção será feito a 
-idenficação dos serviços mais críticos para a empresa.
-
-Para selecionar os serviços críticos, anteriormente foram detalhados todos os serviços da empresa, sendo assim os seguintes critérios serão 
-utilizados para selecionar os serviços mais críticos, para possibilitar a implementação do ambiente de alta disponibilidade: 
+idenficação dos serviços mais críticos para a empresa. Sendo assim os seguintes critérios serão 
+utilizados para selecionar esses serviços críticos, para possibilitar a implementação do ambiente de alta disponibilidade: 
 \begin{itemize}
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. Por exemplo, se um cliente ficar sem acesso à internet, a sua mensalidade pode ser reduzida de acordo com o tempo que ele ficou
  sem acesso; 
  \item O número de requisições em um determinado tempo: esse número é importante, devido ao fato de indicar ações dos usuários. Sabe-se que
  quanto mais ações, mais usuários dependem do serviço. São exemplos dessa medida: quantidade de acessos por minuto em um servidor de hospedagens 
- de sites, ou quantidade de requisições \ac{DNS} a um servidor recursivo;
+ de sites, ou quantidade de requisições \ac{DNS} em um servidor recursivo;
  \item O volume de objetos do serviço: essa medida demonstra a abrangência do serviço, ou seja, qual a demanda que o serviço pode atingir.
  Por exemplo, a quantidade de equipamentos monitorados por um servidor de monitoramento.
 \end{itemize}
@@ -380,15 +378,14 @@ Os serviços mais críticos estão listados a seguir e ordenados de acordo com s
 \begin{itemize}
  \item \ac{DNS} recursivo primário: esse serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor, e 
  é o único serviço que todos os clientes utilizam, que totalizam aproximadamente 9000 clientes. Sendo um provedor de internet, sua prioridade é 
- fornecer uma navegação de qualidade aos seus clientes, sabendo que o \ac{DNS} é fundamental para essa navegação, assim caracterizando essa 
- importante classificação. Outro importante critério é o número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os 
- outros serviços;
+ fornecer uma navegação de qualidade aos seus clientes, sendo assim o \ac{DNS} é fundamental para essa navegação. Outro importante critério é o 
+ número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os outros serviços;
  
  \item \textit{Radius}: esse serviço também é importante para navegação dos clientes do provedor, pois, como visto anteriormente, ele faz a
- autenticação dos clientes de acesso a internet de todo o provedor, que chega aproximadamente da 9000 clientes. Caso esse serviço fique 
+ autenticação dos clientes de acesso a internet de todo o provedor, que chega aproximadamente a 9000 clientes. Caso esse serviço fique 
  indisponível os clientes não conseguirão estabelecer conexão para navegar, sabendo que atualmente esse serviço recebe x?? requisições de
- autenticação por x (Figura GRAFICO FREERADIUS??). Além disso, esse serviço armazena dados de clientes como: o endereço de \ac{IP} de cada 
- cliente utilizado em um determinado período, o trafego de dados da conexão, o tempo da conexão de cada cliente, entre outros. 
+ autenticação por segundo (Figura GRAFICO FREERADIUS??). Além disso, esse serviço armazena dados de clientes como: o endereço de \ac{IP} de cada 
+ cliente utilizado em um determinado período, o tráfego de dados da conexão, o tempo da conexão de cada cliente, entre outros. 
  Essas operações resultam em um número de requisições por segundo, que esta detalhado na Figura GRAFICO??;
  
  \item Sistemas: esse serviço não tem um grande impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e 
@@ -401,11 +398,11 @@ Os serviços mais críticos estão listados a seguir e ordenados de acordo com s
  \item Telefonia: esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre clientes e funcionários, 
  e também entre funcionários e outros funcionários, sendo essencial para qualquer empresa. Sabendo que possui uma média de x?? ligações por xx
  (Figura GRAFICO??), sendo que essas ligações são utilizadas por todos o setores do provedor e também da empresa. Exemplos práticos são: 
- atendimento a clientes para suporte técnico, comunicação interna entre funcionários, cobranças a clientes inadimplentes, ??... 
- Levando isso em consideração, se esse serviço ficar indisponível irá gerar prejuízos para a empresa.
+ atendimento a clientes para suporte técnico, comunicação interna entre funcionários, comunicação com técnicos externos, cobranças a clientes 
+ inadimplentes, vendas, entre outros. Levando isso em consideração, se esse serviço ficar indisponível irá gerar prejuízos para a empresa.
 \end{itemize}
 
-Tendo esses serviços pode-se identificar quais máquinas virtuais serão incluídas no ambiente de alta disponibilidade, que são:
+Tendo esses serviços, pode-se identificar quais máquinas virtuais serão incluídas no ambiente de alta disponibilidade, que são:
 \begin{itemize}
  \item \textit{Passata}
  \item \textit{Speedauth}
@@ -431,7 +428,7 @@ que serão utilizadas para essa implementação.
 %numero de usuarios\\
 %-Radius (impacto direto para clientes): \\
 %numero de usuarios autentidados em x tempo\\
-%quantidade de dados armazenados no db em x tempo, trafego utilizado, tempo conexao\\
+%quantidade de dados armazenados no db em x tempo, tráfego utilizado, tempo conexao\\
 %numero de usuarios\\
 %-Sistemas (impacto indireto para clientes): \\
 %gasto com funcionarios ociosos\\

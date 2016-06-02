@@ -4,8 +4,8 @@
 Neste capítulo será proposto uma solução de implementação de um ambiente de alta disponibilidade para os serviços críticos da empresa, que 
 foram selecionados no capítulo anterior. Com isso pretende-se atingir o objetivo deste trabalho.
 
-O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, para então liberar o 
-\textit{hardware} suficiente, assim possibilitando a implementação do ambiente de alta disponibilidade. 
+O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, liberando assim o 
+\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
 
 Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
@@ -33,7 +33,7 @@ A solução de replicação ideal para esta implementação é um espelhamento d
 máquina remota. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware}.
 
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
-aberto, e permite a replicação de dados em tempo real de um dispositivo local. 
+aberto, e permite a replicação de dados de um dispositivo local em tempo real. 
 APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
 
 % dispositivo primario e secundario zaminhani2008
@@ -51,7 +51,7 @@ Para ser possível implementar uma solução de alta disponibilidade é necessá
 recuperação do serviço utilizando mensagens entre os servidores \cite{perkov2011}.
 
 \textit{Pacemaker} é uma ferramenta de detecção e recuperação de falhas a nível de serviço \cite{perkov2011}. 
-\textit{Heartbeat} \cite{zaminhani2008}.
+Continuar ??? \textit{Heartbeat} \cite{zaminhani2008}.
 
 
 %reorganização de vms

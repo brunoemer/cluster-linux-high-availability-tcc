@@ -15,46 +15,45 @@ I was expecting a `,' or a `}'---line 282 of file tcc.bib
  :   isbn      = "9780124046412",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "perkov2011"
-You've used 32 entries,
+You've used 33 entries,
             2371 wiz_defined-function locations,
-            743 strings with 10007 characters,
-and the built_in function-call counts, 31051 in all, are:
-= -- 3781
-> -- 108
-< -- 340
-+ -- 2061
-- -- 40
-* -- 1091
-:= -- 2674
-add.period$ -- 115
-call.type$ -- 32
-change.case$ -- 246
-chr.to.int$ -- 3
-cite$ -- 32
-duplicate$ -- 4384
-empty$ -- 1165
-format.name$ -- 252
-if$ -- 6916
+            747 strings with 10161 characters,
+and the built_in function-call counts, 32541 in all, are:
+= -- 3949
+> -- 118
+< -- 361
++ -- 2154
+- -- 49
+* -- 1165
+:= -- 2797
+add.period$ -- 120
+call.type$ -- 33
+change.case$ -- 264
+chr.to.int$ -- 5
+cite$ -- 33
+duplicate$ -- 4585
+empty$ -- 1221
+format.name$ -- 273
+if$ -- 7223
 int.to.chr$ -- 3
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 67
-num.names$ -- 160
-pop$ -- 499
+newline$ -- 69
+num.names$ -- 165
+pop$ -- 534
 preamble$ -- 1
-purify$ -- 32
+purify$ -- 33
 quote$ -- 0
-skip$ -- 2113
+skip$ -- 2206
 stack$ -- 0
-substring$ -- 1875
-swap$ -- 2612
+substring$ -- 1970
+swap$ -- 2745
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 220
+type$ -- 225
 warning$ -- 0
-while$ -- 195
+while$ -- 205
 width$ -- 0
-write$ -- 34
+write$ -- 35
 (There was 1 error message)

@@ -84,6 +84,12 @@
   disponibilidade}. 2004. Dissertação para Mestrado em Ciência da
   Computação --- Universidade de São Paulo, São Paulo.
 
+\bibitem[PERKOV; PAVKOVIć; PETROVIć(2011)PERKOV; PAVKOVIć;
+  PETROVIć]{perkov2011} PERKOV, L.; PAVKOVIć, N.; PETROVIć, J\@.
+  High-Availability Using Open Source Software. In: MIPRO, 2011 PROCEEDINGS OF
+  THE 34TH INTERNATIONAL CONVENTION. \textbf{Anais{\ldots}} [S.l.:~s.n.], 2011.
+  p.167--170.
+
 \bibitem[{QEmu}(2016){QEmu}]{qemu} {QEmu}. \textbf{QEMU open source processor
   emulator}. $<$Disponível em: \url{http://wiki.qemu.org/Main_Page}$>$. Acesso
   em 22 de maio de 2016.

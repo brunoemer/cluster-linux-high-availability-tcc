@@ -38,7 +38,7 @@
   school    = "Apresentada ao Departamento de Ciência da Computação",
   year      = "2009",
   OPTkey    = "",
-  type      = "Monografia Pós-Graduação(Administração em Redes Linux)",
+  type      = "Monografia Pós-Graduação (Administração em Redes Linux)",
   address   = "Minas Gerais",
   OPTmonth  = "",
   OPTnote   = "",
@@ -123,7 +123,7 @@
   school    = "Universidade Federal de Lavras",
   year      = "2007",
   OPTkey    = "",
-  type      = "Pós-Graduação(Administração em Redes Linux)",
+  type      = "Pós-Graduação (Administração em Redes Linux)",
   address   = "Minas Gerais",
   OPTmonth  = "",
   OPTnote   = "",
@@ -174,4 +174,144 @@
   OPTannote = ""
 }
 
-Sistemas Operacionais: Conceitos e Mecanismos
+@MastersThesis{maziero2013,
+  author    = "Carlos Alberto Maziero",
+  title     = "Sistemas Operacionais: Conceitos e Mecanismos",
+  school    = "DAInf UTFPR",
+  year      = "2013",
+  OPTkey    = "",
+  type      = "",
+  address   = "Paraná",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
+
+@misc{vmware2016,
+  author    = "{WMware}",
+  title     = "VMware Workstation Pro",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://www.vmware.com/br/products/workstation}$>$. Acesso em 17 de maio de 2016."
+}
+
+@misc{andrade2011,
+  author    = "Lucas Andrade",
+  title     = "Visão geral sobre virtualização",
+  year      = "2011",
+  note      = "$<$Disponível em: \url{https://tecnologiasemsegredos.wordpress.com/category/virtualizacao/}$>$. Acesso em 21 de maio de 2016."
+}
+
+@misc{wine,
+  author    = "{WineHQ}",
+  title     = "WineHQ - Execute aplicativos Windows no Linux, BSD, Solaris e Mac OS X",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://www.winehq.org/}$>$. Acesso em 22 de maio de 2016."
+}
+
+@misc{ibm370,
+  author    = "{IBM}",
+  title     = "System/370 Model 145",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://www-03.ibm.com/ibm/history/exhibits/mainframe/mainframe_PP3145.html}$>$. Acesso em 22 de maio de 2016."
+}
+
+@misc{xen,
+  author    = "{Citrix}",
+  title     = "The Xen Project, the powerful open source industry standard for virtualization",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://www.xenproject.org/}$>$. Acesso em 22 de maio de 2016."
+}
+
+@misc{vmwareesxi,
+  author    = "{VMware}",
+  title     = "VMware ESXi",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://www.vmware.com/products/esxi-and-esx/overview.html}$>$. Acesso em 22 de maio de 2016."
+}
+
+@misc{virtualbox,
+  author    = "{Oracle}",
+  title     = "Oracle VM VirtualBox",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://www.virtualbox.org/}$>$. Acesso em 22 de maio de 2016."
+}
+
+@misc{vmwareplayer,
+  author    = "{VMware}",
+  title     = "VMware Workstation Player (formerly known as Player Pro)",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://www.vmware.com/products/player}$>$. Acesso em 22 de maio de 2016."
+}
+
+@misc{qemu,
+  author    = "{QEmu}",
+  title     = "QEMU open source processor emulator",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://wiki.qemu.org/Main_Page}$>$. Acesso em 22 de maio de 2016."
+}
+
+@misc{xendesktop,
+  author    = "{Citrix}",
+  title     = "XenApp and XenDesktop - Virtual Apps and Desktops",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://www.citrix.com/products/xenapp-xendesktop/}$>$. Acesso em 22 de maio de 2016."
+}
+
+@misc{vmwareview,
+  author    = "{VMware}",
+  title     = "VDI Virtual Desktop Infrastructure with Horizon",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://www.vmware.com/products/horizon-view}$>$. Acesso em 22 de maio de 2016."
+}
+
+@book{buyya2013,
+  author    = "Rajkumar Buyya and Christian Vecchiola and S.Thamarai Selvi",
+  title     = "Mastering Cloud Computing: Foundations and Applications Programming",
+  year      = "2013",
+  publisher = "Elsevier",
+  url       = "{https://books.google.com.br/books?id=wqKkqHJhPJQC}",
+  isbn      = "{9780124095397}",
+  lccn      = "{2013004823}",
+}
+
+@book{marinescu2013,
+  title     = "Cloud Computing: Theory and Practice",
+  author    = "Marinescu, D.C.",
+  year      = "2013",
+  publisher = "Elsevier Science"
+  isbn      = "9780124046412",
+  url       = "https://books.google.com.br/books?id=mpcBw1OnyIgC",
+}
+
+@misc{speedtest,
+  author    = "{Ookla}",
+  title     = "Speedtest.net by Ookla - The Global Broadband Speed Test",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://www.speedtest.net/}$>$. Acesso em 28 de maio de 2016."
+}
+
+@MastersThesis{zaminhani2008,
+  author    = "Daniel Zaminhani",
+  title     = "Cluster de alta disponibilidade através de espelhamento de dados em máquinas remotas",
+  school    = "Universidade Federal de Lavras",
+  year      = "2008",
+  OPTkey    = "",
+  type      = "Pós-Graduação apresentada ao Departamento de Ciência da Computação",
+  address   = "Minas Gerais",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
+
+@MastersThesis{perkov2011,
+  author    = "Yuri Franzoni da Silva",
+  title     = "High-Availability Using Open Source Software",
+  school    = "Universidade de Caxias do Sul",
+  year      = "2009",
+  OPTkey    = "",
+  type      = "Trabalho de Conclusão (Curso de Ciência da Computação)",
+  address   = "Caxias do Sul - Rio Grande do Sul",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
