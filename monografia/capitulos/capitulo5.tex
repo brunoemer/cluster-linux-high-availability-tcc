@@ -14,9 +14,6 @@ A configuração deverá ser: 11 \textit{cores} de processamento, 12 GB de memó
 calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas no capítulo
 anterior na Seção \ref{section:servcrit}.
 
-live migration:
-%http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/
-
 As ferramentas necessárias para essa implementação podem ser divididas em dois tipos: ferramenta de replicação de dados 
 (Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais em caso de falhas 
 (Seção \ref{section:toolcluster}).
@@ -53,8 +50,22 @@ APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
 Para ser possível implementar uma solução de alta disponibilidade é necessário uma ferramenta que monitora os recursos, fazendo a detecção e
 recuperação do serviço utilizando mensagens entre os servidores \cite{perkov2011}.
 
-\textit{Pacemaker} é uma ferramenta de detecção e recuperação de falhas a nível de serviço \cite{perkov2011}. 
-Continuar ??? \textit{Heartbeat} \cite{zaminhani2008}.
+\textit{Pacemaker} é uma ferramenta de detecção e recuperação de falhas a nível de serviço \cite{perkov2011}. Essa ferramenta é um projeto da
+xx, ele é classificado como um CRM...
+Continuar ??? \textit{Heartbeat} ou \textit{Corosync} \cite{zaminhani2008}.
+
+cluster resource manager (CRM) which has the task of starting and stopping the services (IP addresses, web servers, etc)
+ 
+live migration \ref{fig:vms_migration}
+%http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/vms_migration.eps}
+ \caption{Live migration}
+ Fonte: \citet{spaniol2015}
+ \label{fig:vms_migration}
+\end{figure}
 
 
 %reorganização de vms

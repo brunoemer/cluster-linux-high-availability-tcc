@@ -303,15 +303,18 @@
   OPTannote = ""
 }
 
-@MastersThesis{perkov2011,
-  author    = "Yuri Franzoni da Silva",
+@INPROCEEDINGS{perkov2011,
+  author    = "L. Perkov and N. Pavković and J. Petrović",
+  booktitle = "MIPRO, 2011 Proceedings of the 34th International Convention",
   title     = "High-Availability Using Open Source Software",
   school    = "Universidade de Caxias do Sul",
-  year      = "2009",
-  OPTkey    = "",
-  type      = "Trabalho de Conclusão (Curso de Ciência da Computação)",
-  address   = "Caxias do Sul - Rio Grande do Sul",
-  OPTmonth  = "",
-  OPTnote   = "",
-  OPTannote = ""
+  year      = "2011",
+  pages     = "167-170"
+}
+
+@misc{,
+  author    = "{Ookla}",
+  title     = "Quatro estratégias de proteção para seu ambiente virtual",
+  year      = "2015",
+  note      = "$<$Disponível em: \url{http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/}$>$. Acesso em 02 de junho de 2016."
 }

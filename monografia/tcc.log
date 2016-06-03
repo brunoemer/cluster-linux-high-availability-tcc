@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  1 JUN 2016 22:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  2 JUN 2016 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1592,7 +1592,24 @@ Overfull \hbox (6.28107pt too wide) in paragraph at lines 50--52
 R-KOV; PAV-KOVI^^Sc; PE-TROVI^^Sc,
  []
 
-) [37] (./tcc.bbl
+Package epstopdf Info: Source file: <img/vms_migration.eps>
+(epstopdf)                    date: 2016-06-02 21:44:45
+(epstopdf)                    size: 392709 bytes
+(epstopdf)             Output file: <img/vms_migration-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-06-02 21:49:09
+(epstopdf)                    size: 89385 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/vms_migration-eps-conv
+erted-to.pdf img/vms_migration.eps>
+(epstopdf)             \includegraphics on input line 64.
+Package epstopdf Info: Output file is already uptodate.
+<img/vms_migration-eps-converted-to.pdf, id=193, 372.39125pt x 373.395pt>
+File: img/vms_migration-eps-converted-to.pdf Graphic file (type pdf)
+
+<use img/vms_migration-eps-converted-to.pdf>
+Package pdftex.def Info: img/vms_migration-eps-converted-to.pdf used on input l
+ine 64.
+(pdftex.def)             Requested size: 301.1261pt x 301.94691pt.
+) [37 <./img/vms_migration-eps-converted-to.pdf>] (./tcc.bbl
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 38
  []
@@ -1639,10 +1656,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13827 strings out of 495004
- 267218 string characters out of 6180662
- 327555 words of memory out of 5000000
- 16744 multiletter control sequences out of 15000+600000
+ 13836 strings out of 495004
+ 267482 string characters out of 6180662
+ 327600 words of memory out of 5000000
+ 16752 multiletter control sequences out of 15000+600000
  10210 words of font info for 36 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10386b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1656,10 +1673,10 @@ e1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmtt12.pfb>
-Output written on tcc.pdf (41 pages, 1207161 bytes).
+Output written on tcc.pdf (41 pages, 1295148 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
+ 245 PDF objects out of 1000 (max. 8388607)
+ 157 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
