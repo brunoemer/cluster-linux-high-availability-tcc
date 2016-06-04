@@ -230,42 +230,39 @@ acessar a memória, o hipervisor precisará converter os endereços do sistema c
 o hipervisor informa ao sistema convidado a área de memória que ele pode utilizar, assim não sendo necessário nenhuma conversão de endereços.
 
 Apesar de apresentar um desempenho inferior, a virtualização total possui uma maior portabilidade, ou seja, permite que sistemas operacionais 
-executem como convidados sem a necessidade de serem modificados. ??? Assim permitindo, por exemplo, virtualizar um sistema operacional instalado 
-diretamente em uma máquina física apenas copiando seu disco rígido, sem a necessidade de reinstalá-lo e reconfigurar todas as aplicações.
-
-%A virtualização total obteve um grande ganho de performance com a incorporação da virtualização aos processadores, através das 
-%tecnologias \ac{IVT} da \textit{Intel} e \ac{AMD-V} da \textit{AMD}. Elas possuem dois modos, um para execuções normais e para hipervisor, 
-%e outro específico para máquinas virtuais. 
+executem como convidados sem a necessidade de serem modificados. Assim permitindo, por exemplo, um sistema operacional qualquer ser instalado 
+em um ambiente de virtualização total, além disso permite virtualizar um sistema operacional já instalado em uma máquina física nativamente 
+apenas copiando seu disco rígido, sem a necessidade de reinstalar esse sistema operacional e reconfigurar todas as suas aplicações.
 
 \section{Vantagens das máquinas virtuais}
 \label{section:virtvantag}
 
-De modo geral, a principal vantagem das máquinas virtuais de aplicação é a possibilidade de um mesmo código executável funcionar em diversos
-sistemas operacionais. Já para máquinas virtuais de sistema, destaca-se a possibilidade de executar mais de um sistema operacional sobre
-um mesmo \textit{hardware}. Nas próximas seções será descrito as principais utilizações e vantagens de máquinas virtuais de 
-\textit{desktops} e de servidores.
+De modo geral, a principal vantagem das máquinas virtuais de aplicação é a possibilidade de executar uma mesma aplicação em diversos sistemas 
+operacionais sem a necessidade de recompilar a mesma. Já para máquinas virtuais de sistema, destaca-se a possibilidade de executar mais de um 
+sistema operacional sobre um mesmo \textit{hardware}. Nas próximas seções serão descritas as principais utilizações e vantagens da virtualização 
+de \textit{desktops} e de servidores.
 
 \subsection{Virtualização de Desktop}
 \label{section:virtdesk}
 
-A portabilidade é uma das grandes vantagens da virtualização, que também pode ser aplicada em \textit{desktops}. Pode-se citar como exemplo 
+A portabilidade é uma das grandes vantagens da virtualização, que também pode ser aplicada em \textit{desktops}. Pode-se citar como exemplo, 
 o desenvolvimento de \textit{software} para diversos sistemas operacionais sem a necessidade de aquisição de um computador físico para cada 
-sistema operacional. Assim, máquinas virtuais em \textit{desktops} podem ser utilizadas em ambientes de desenvolvimento, pois possibilitam 
+sistema operacional. Assim, a virtualização de \textit{desktops} pode ser utilizada em ambientes de desenvolvimento, pois possibilitam 
 a execução de múltiplas plataformas sem comprometer o sistema operacional original \cite{carissimi2008}. Um exemplo é o 
 \textit{VMware Workstation}, que possibilita a virtualização em \ac{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
 
 Em empresas pode-se utilizar virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um servidor 
-para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops} e exige um \textit{hardware} de 
-menor valor, uma vez que esses executarão apenas um terminal remoto. Além disso essa técnica possibilita uma maior segurança dos dados, pois
-os dados serão armazenados em um local seguro, como um datacenter por exemplo. Exemplos desse tipo de virtualização são o \textit{Xen Desktop}
-\cite{xendesktop} e o \textit{VMware Horizon View} \cite{vmwareview}.
+para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops}, além disso, estes necessitam de um 
+\textit{hardware} de menor valor, uma vez que esses executarão apenas um terminal remoto. Por fim, essa técnica possibilita uma maior segurança 
+dos dados, pois os dados serão armazenados em um local seguro, como um \textit{datacenter} por exemplo. Exemplos desse tipo de virtualização 
+são o \textit{Xen Desktop} \cite{xendesktop} e o \textit{VMware Horizon View} \cite{vmwareview}.
 %Em empresas pode-se utilizar virtualização de \textit{desktops} para reduzir a subutilização dos \textit{desktops}, que pode ser feito através da
 %colaboração com projetos científicos de \textit{clusters} de computadores virtuais \cite{carissimi2008}. %exemplo seti@home
 
-Para usuários de computadores em geral a virtualização também é importante, algumas vezes precisa-se utilizar ou testar \textit{softwares}
-que não estão disponíveis para a plataforma utilizada, deste modo a virtualização possibilita executar qualquer sistema operacional no computador
-do usuário, sem a necessidade de reiniciá-lo. Por exemplo, para usuários \textit{Linux} é comum precisar executar aplicações que não existem 
-para sua plataforma, sendo assim necessário utilizar uma máquina virtual \textit{Windows} para isso.
+Para usuários de computadores em geral a virtualização também é importante, uma vez que esses podem necessitar de um \textit{software} que não
+está disponível para a plataforma utilizada. Deste modo, a virtualização possibilita executar qualquer sistema operacional simultaneamente no 
+computador do usuário. Por exemplo, para usuários \textit{MacOS} é comum a necessidade de executar aplicações que não existem para a sua 
+plataforma, sendo assim pode-se utilizar uma máquina virtual para executar outras plataformas.
 
 Pode-se também encontrar virtualização de \textit{desktops} em laboratórios de ensino, devido a necessidade de executar diferentes sistemas 
 operacionais para determinadas disciplinas. Isso é necessário quando pretende-se configurar e executar aplicações para fim de experimentos ou
@@ -277,32 +274,35 @@ ser restauradas de uma forma simples.
 \label{section:virtdesk}
 
 Em muitos casos as empresas utilizam serviços distribuídos entre diferentes servidores físicos, como, por exemplo, servidores de e-mail, 
-hospedagens e banco de dados, isso faz com que alguns recursos fiquem ociosos, pois muitas vezes um serviço utiliza mais um recurso do que outro,
-por exemplo um serviço pode fazer muitos acessos a disco, por outro lado utilizar pouca memória, assim nesse servidor a memória se torna ociosa. 
+hospedagens e banco de dados, isso faz com que alguns recursos fiquem ociosos, pois normalmente um determinado serviço necessita de menos
+recursos que o servidor físico fornece. Por exemplo, um serviço de transmissão de \textit{streaming} de áudio utiliza pouco acesso a disco,
+porém utiliza mais processamento e memória.
 Portanto, uma das grandes vantagens da virtualização é um melhor aproveitamento dos recursos. De fato, alocando vários serviços em um único 
-servidor físico tem-se um melhor aproveitamento do \textit{hardware} \cite{moreira2006}. E consequentemente tem-se uma redução de custos com a 
+servidor físico tem-se um melhor aproveitamento do \textit{hardware} \cite{moreira2006}, e consequentemente tem-se uma redução de custos com a 
 administração e a manutenção dos servidores físicos.
+
+FIGURA ??
 
 Em um ambiente heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um 
 único servidor. Esse tipo de virtualização favorece a implementação do conceito ``um servidor por serviço'', que consiste em ter um servidor 
 para cada serviço. Além disso, tem-se o isolamento de serviços, ou seja, caso ocorra uma falha de segurança em um serviço, essa falha não 
 comprometerá todo o sistema, pois cada serviço estará executando em seu próprio sistema operacional \cite{carissimi2008}.
 
-Outra motivação para a utilização de virtualização consiste na redução de custos em energia elétrica, espaço físico e equipe. Essa redução de
-custos pode ser obtida através da implantação de servidores mais robustos para substituir dezenas de servidores comuns. Outro fator como a
-refrigeração do ambiente também pode ser reduzido com a implantação de virtualização de servidores, que consequentemente reduz o 
-custo de energia.
+Outra motivação para a utilização de virtualização em servidores consiste na redução de custos com energia elétrica, espaço físico e equipe. 
+Essa redução de custos pode ser obtida através da implantação de servidores mais robustos para substituir dezenas de servidores comuns. 
+Além disso, pode-se obter uma redução de custos com refrigeração, pois esto é um benefício relacionado a redução de servidores e de espaço físico.
 
-A vantagem que fará parte da implementação deste trabalho é a migração em tempo real, mais conhecida como \textit{live migration}.
-Nessa técnica existe a possibilidade de uma máquina virtual, que esta executando em um \textit{hardware}, ser transferida através da rede 
-para outro \textit{hardware} sem ser reiniciada. Nesse processo a máquina fica no estado suspenso (por um período bem curto de tempo) até que
-o \textit{hardware} de destino receba os dados necessários para continuar a execução da máquina virtual \cite{silva2009}.
+Por fim, existe uma técnica chamada \textit{live migration}, ou migração em tempo real, sendo que essa técnica possibilita que uma máquina virtual, 
+que esta executando em um servidor físico, seja transferida através da rede para outro servidor sem ser reiniciada. Nesse processo a máquina 
+virtual fica no estado suspenso (por um período bem curto de tempo) até que o servidor de destino receba os dados necessários para continuar 
+a execução da máquina virtual \cite{silva2009}. Essa técnica é uma vantagem relacionada a virtualização de servidores que possibilita a redundância
+de \textit{software} e fará parte da implementação deste trabalho ??? falar mais.
 
 \section{Considerações finais}
 
 Neste capítulo foi apresentado um breve histórico da virtualização e os dois principais grupos de máquinas virtuais que são: máquinas virtuais 
 de aplicação e máquinas virtuais de sistema. Também foram apresentadas as vantagens e as estratégias de implementação de máquinas virtuais 
-de sistema, dando ênfase para as máquinas virtuais de sistema, uma vez que essas são o foco deste trabalho. De fato, essas serão o tipo de 
-redundância de \textit{software} que será utilizada neste trabalho. No próximo capítulo será feito o levantamento e análise dos serviços 
-fornecidos pela empresa, e posteriormente a seleção dos serviços mais críticos para possibilitar a implementação da solução de alta 
-disponibilidade.
+de sistema, dando ênfase para as máquinas virtuais de sistema, uma vez que essas são o foco deste trabalho. De fato, essas serão utilizadas para 
+a implementação da redundância de \textit{software}. No próximo capítulo será feito o levantamento e análise dos serviços fornecidos pela empresa
+que é o objetivo do estudo deste trabalho. Posteriormente, serão apresentados os serviços que são considerados críticos e a proposta de solução 
+de alta disponibilidade.
