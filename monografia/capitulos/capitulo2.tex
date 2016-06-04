@@ -1,21 +1,20 @@
 \chapter{Alta disponibilidade}
 \label{cap:altadisponibilidade}
 
-Alta disponibilidade é uma técnica conhecida, sendo cada vez mais empregada em ambientes computacionais. O objetivo de prover
+Alta disponibilidade é uma técnica conhecida sendo cada vez mais empregada em ambientes computacionais. O objetivo de prover
 alta disponibilidade resume-se em garantir que um serviço esteja sempre disponível quando o cliente solicitar ou acessar \cite{costa2009}.
-A alta disponibilidade geralmente é implementada com uma redundância de \textit{hardware} ou de \textit{software} para que o serviço 
-fique mais tempo disponível, sendo que quanto maior for a disponibilidade desejada maior deverá ser a redundância no ambiente, assim 
-reduzindo os pontos únicos de falha, que em inglês são chamados de \ac{SPOF}. A alta disponibilidade está diretamente relacionada aos 
-conceitos de: 
+A alta disponibilidade geralmente é implementada com uma redundância de \textit{hardware} ou de \textit{software}, sendo que quanto maior for 
+a disponibilidade desejada maior deverá ser a redundância no ambiente, assim reduzindo os pontos únicos de falha, que em inglês são chamados 
+de \ac{SPOF}. A alta disponibilidade está diretamente relacionada aos conceitos de: 
 \begin{itemize}
  \item Dependabilidade: indica a qualidade do serviço fornecido e a confiança depositada neste serviço. A dependabilidade envolve atributos 
- como segurança de funcionamento, segurança de acesso, manutenabilidade, testabilidade e comprometimento do desempenho \cite{weber2002};
+ como segurança de funcionamento, segurança de acesso, manutenabilidade, testabilidade e comprometimento com o desempenho \cite{weber2002};
  \item Confiabilidade: é o atributo mais importante, pois transmite a ideia de continuidade de serviço \cite{pankaj1994}. A confiabilidade 
  refere-se a probabilidade de um serviço estar funcionando corretamente durante um dado intervalo de tempo;
  \item Disponibilidade: é a probabilidade de um serviço estar operacional no instante em que for solicitado \cite{costa2009};
  \item Tolerância a falhas: procura garantir a disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar 
  falhas. O seu principal objetivo é alcançar a dependabilidade, indicando uma boa qualidade de serviço \cite{costa2009}. A tolerância a falhas é 
- um dos principais conceitos da alta disponibilidade, sendo desscrita na Seção \ref{section:toleranciafalhas}.
+ um dos principais conceitos da alta disponibilidade, sendo descrita na Seção \ref{section:toleranciafalhas}.
 \end{itemize}
 
 \section{Tolerância a falhas}
@@ -23,7 +22,7 @@ conceitos de:
 
 Sabe-se que o \textit{hardware} tende a falhar, principalmente devido a fatores físicos, por isso utiliza-se métodos para a prevenção 
 de falhas. A abordagem de prevenção de falhas é realizada na etapa de projeto, ou seja, consiste em definir mecanismos que impeçam que 
-que as falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, uma vez que essa 
+que as falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, uma vez que esta 
 tem como objetivo diminuir a possibilidade de falhas antes de colocar o sistema em uso.
 
 A prevenção de falhas não eliminará todas as possíveis falhas. Sendo assim, a tolerância a falhas procura fornecer a disponibilidade de 
@@ -34,18 +33,18 @@ O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, 
 fornecidos estão disponíveis aos usuários. Um sistema é dito tolerante a falhas se ele for capaz de mascarar a presença de falhas ou recuperar-se 
 de uma falha sem afetar o funcionamento do sistema.
 
-A tolerância a falhas é implementada utilizando redundância (Seção \ref{section:redundancia}). 
+A tolerância a falhas frequentemente é implementada utilizando redundância (Seção \ref{section:redundancia}). 
 Um exemplo muito utilizado para tornar um sistema tolerante a falhas é a virtualização. Nestes ambientes normalmente existem dois servidores 
 físicos onde máquinas virtuais são executadas, sendo que no caso de um dos servidores falhar, o \textit{software} de monitoramento fará a 
 transferência das máquinas virtuais para o outro servidor, de forma transparente aos usuários, evitando assim a indisponibilidade do serviço. 
 Os principais conceitos de virtualização, são apresentados no Capítulo \ref{cap:virtualizacao}.
 
 A tolerância a falhas pode ser dividida em dois tipos. O primeiro tipo, o mascaramento, não se manifesta na forma de erro ao sistema, 
-pois as falhas são tratadas na origem. O mascaramento é utilizado principalmente em sistemas de tempo real crítico. Um exemplo são os 
+pois as falhas são tratadas na origem. O mascaramento é utilizado principalmente em sistemas críticos e de tempo real. Um exemplo são os 
 códigos de correção de erros, em inglês \ac{ECC}, que são utilizados em memórias para detecção e correção de erros.
 
-O segundo tipo consiste em detectar, localizar a falha, e reconfigurar o \textit{software} ou \textit{hardware} de forma a corrigir a falha. 
-Esse tipo de tolerância a falha é dividido nas seguintes etapas \cite{weber2002}. 
+O segundo tipo de tolerância a falhas consiste em detectar, localizar a falha, e reconfigurar o \textit{software} ou \textit{hardware} de 
+forma a corrigir a falha. Esse tipo de tolerância a falha é dividido nas seguintes etapas \cite{weber2002}. 
 
 \begin{itemize}
  \item Detecção: realiza o monitoramento e aguarda uma falha se manifestar em forma de erro, para então passar para a próxima fase. 
@@ -56,7 +55,7 @@ Esse tipo de tolerância a falha é dividido nas seguintes etapas \cite{weber200
  \item Confinamento: responsável pela restrição de um erro para que dados inválidos não se propaguem para todo o sistema, pois entre a falha e a
  detecção do erro há um intervalo de tempo. Neste intervalo pode ocorrer a propagação do erro para outros componentes do sistema, sendo assim 
  antes de executar medidas corretivas é necessário definir os limites da propagação. Na fase de projeto essas restrições devem ser previstas
- e tratadas. Um exemplo de confinamento é o isolamento de alguns processos que estão em execução em um sistema operacional, sendo que esse 
+ e tratadas. Um exemplo de confinamento é o isolamento de alguns processos que estão em execução em um sistema operacional. Neste caso o 
  sistema faz o gerenciamento dos processos para isolar e impedir que as falhas de um processo gerem problemas em outros processos.
  \item Recuperação: após a detecção de um erro ocorre a recuperação, onde o estado de erro é alterado para estado livre de erros. A recuperação
  pode ser feita de duas formas, que são:
@@ -144,7 +143,7 @@ A porcentagem de disponibilidade (\textit{d}) pode ser calculada através da equ
 d = \frac{MTBF}{(MTBF + MTTR)}
 \label{disponibilidade}
 \end{equation}
-onde \ac{MTBF} corresponde ao tempo médio entre falhas, ou seja, corresponde ao tempo médio entre as paradas de um serviço. Já o \ac{MTTR} é o 
+onde o \ac{MTBF} corresponde ao tempo médio entre falhas, ou seja, corresponde ao tempo médio entre as paradas de um serviço. Já o \ac{MTTR} é o 
 tempo médio de recuperação, isto é, o tempo entre a queda e a recuperação de um serviço \cite{goncalves2009}.
 
 A alta disponibilidade é um dos principais fatores que fornece confiança aos clientes ou usuários de um serviço, sendo extremante importante 
@@ -156,7 +155,7 @@ Além disso, um \ac{SLA} deverá conter descrição do serviço, requerimentos, 
 
 \section{Considerações finais}
 
-Neste capítulo foram descritos os princípais conceitos de alta disponibilidade e conceitos relacionados. Como mencionado anteriormente, 
+Neste capítulo foram descritos os principais conceitos de alta disponibilidade e conceitos relacionados. Como mencionado anteriormente, 
 um dos principais recursos utilizados para a obtenção de alta disponibilidade é a virtualização, uma vez que essas são utilizadas para 
 implementar a redundância de \textit{software}. Desta forma, no próximo capítulo será feita uma breve definição de virtualização, 
 com as vantagens e as estratégias de implementação de máquinas virtuais.

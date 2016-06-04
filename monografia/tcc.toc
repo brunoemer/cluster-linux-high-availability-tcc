@@ -14,17 +14,17 @@
 \contentsline {chapter}{\numberline {3}Virtualiza\IeC {\c c}\IeC {\~a}o}{14}
 \contentsline {section}{\numberline {3.1}M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o}{16}
 \contentsline {section}{\numberline {3.2}M\IeC {\'a}quinas virtuais de sistema}{17}
-\contentsline {subsection}{\numberline {3.2.1}Arquiteturas de m\IeC {\'a}quinas virtuais de sistema}{17}
-\contentsline {subsection}{\numberline {3.2.2}Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema}{18}
+\contentsline {subsection}{\numberline {3.2.1}Arquiteturas de m\IeC {\'a}quinas virtuais de sistema}{18}
+\contentsline {subsection}{\numberline {3.2.2}Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema}{19}
 \contentsline {section}{\numberline {3.3}Vantagens das m\IeC {\'a}quinas virtuais}{20}
 \contentsline {subsection}{\numberline {3.3.1}Virtualiza\IeC {\c c}\IeC {\~a}o de Desktop}{20}
-\contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{20}
+\contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{21}
 \contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{21}
-\contentsline {chapter}{\numberline {4}Estudo de caso}{22}
-\contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico e virtual}{22}
-\contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{32}
-\contentsline {section}{\numberline {4.3}Considera\IeC {\c c}\IeC {\~o}es finais}{34}
-\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{36}
-\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{36}
-\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{37}
-\contentsline {chapter}{Refer{\^e}ncias}{38}
+\contentsline {chapter}{\numberline {4}Estudo de caso}{23}
+\contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico e virtual}{23}
+\contentsline {section}{\numberline {4.2}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{33}
+\contentsline {section}{\numberline {4.3}Considera\IeC {\c c}\IeC {\~o}es finais}{35}
+\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{37}
+\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{37}
+\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{38}
+\contentsline {chapter}{Refer{\^e}ncias}{39}
