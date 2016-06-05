@@ -281,6 +281,16 @@ Portanto, uma das grandes vantagens da virtualização é um melhor aproveitamen
 servidor físico tem-se um melhor aproveitamento do \textit{hardware} \cite{moreira2006}, e consequentemente tem-se uma redução de custos com a 
 administração e a manutenção dos servidores físicos.
 
+Figura \ref{}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=330px]{img/virtualizacao_servidores.eps}
+ \caption{Arquitetura tradicional e arquitetura de virtualização.}
+ \label{fig:virtualizacao_servidores}
+ Fonte: \citet{maziero2013}
+\end{figure}
+
 Em um ambiente heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um 
 único servidor. Esse tipo de virtualização favorece a implementação do conceito ``um servidor por serviço'', que consiste em ter um servidor 
 para cada serviço. Além disso, tem-se o isolamento de serviços, ou seja, caso ocorra uma falha de segurança em um serviço, essa falha não 
@@ -291,7 +301,7 @@ Essa redução de custos pode ser obtida através da implantação de servidores
 Além disso, pode-se obter uma redução de custos com refrigeração, pois esto é um benefício relacionado a redução de servidores e de espaço físico.
 
 Por fim, existe uma técnica chamada \textit{live migration}, ou migração em tempo real, sendo que essa técnica possibilita que uma máquina virtual, 
-que esta executando em um servidor físico, seja transferida através da rede para outro servidor sem ser reiniciada. Nesse processo a máquina 
+que está executando em um servidor físico, seja transferida através da rede para outro servidor sem ser reiniciada. Nesse processo a máquina 
 virtual fica no estado suspenso (por um período bem curto de tempo) até que o servidor de destino receba os dados necessários para continuar 
 a execução da máquina virtual \cite{silva2009}. Essa técnica é uma vantagem relacionada a virtualização de servidores que possibilita a redundância
 de \textit{software} e fará parte da implementação deste trabalho.
@@ -302,5 +312,5 @@ Neste capítulo foi apresentado um breve histórico da virtualização e os dois
 de aplicação e máquinas virtuais de sistema. Também foram apresentadas as vantagens e as estratégias de implementação de máquinas virtuais 
 de sistema, dando ênfase para as máquinas virtuais de sistema, uma vez que essas são o foco deste trabalho. De fato, essas serão utilizadas para 
 a implementação da redundância de \textit{software}. No próximo capítulo será feito o levantamento e análise dos serviços fornecidos pela empresa
-que é o objetivo do estudo deste trabalho. Posteriormente, a seleção dos serviços mais críticos para possibilitar a implementação da solução de alta 
-disponibilidade.
+que é o objetivo do estudo deste trabalho. Posteriormente, serão apresentados os serviços que são considerados críticos e a proposta de solução 
+de alta disponibilidade.

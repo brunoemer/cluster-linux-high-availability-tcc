@@ -13,6 +13,10 @@
   BUYYA, R.; VECCHIOLA, C.; SELVI, S\@. \textbf{Mastering Cloud Computing}:
   foundations and applications programming. [S.l.]: Elsevier, 2013.
 
+\bibitem[{Canonical}(2016){Canonical}]{ubuntu} {Canonical}. \textbf{Ubuntu
+  Server - for scale out workloads}. $<$Disponível em:
+  \url{http://www.ubuntu.com/server}$>$. Acesso em 05 de junho de 2016.
+
 \bibitem[CARISSIMI(2008)CARISSIMI]{carissimi2008} CARISSIMI, A\@.
   Virtualização: da teoria a soluções. In: \textbf{Minicursos do Simpósio
   Brasileiro de Redes de Computadores}. Porto Alegre: XXVI Simpósio Brasileiro
@@ -43,6 +47,11 @@
   $<$Disponível em:
   \url{https://www-03.ibm.com/ibm/history/exhibits/mainframe/mainframe_PP3145.html}$>$.
   Acesso em 22 de maio de 2016.
+
+\bibitem[INTERSPIRE(2016)INTERSPIRE]{interspire2016} INTERSPIRE. \textbf{Guia
+  de Virtualização - Elipse Software.} $<$Disponível em:
+  \url{http://kb.elipse.com.br/pt-br/questions/5019/}$>$. Acesso em 04 de junho
+  de 2016.
 
 \bibitem[LAUREANO; MAZIERO(2008)LAUREANO; MAZIERO]{laureano2008} LAUREANO, M.
   A.~P.; MAZIERO, C.~A\@. Virtualização: conceitos e aplicações em

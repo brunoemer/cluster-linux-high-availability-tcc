@@ -147,7 +147,7 @@ Existem basicamente duas arquiteturas de hipervisor de sistema, que são apresen
 \begin{figure}[vms_arquiteturas]
  \centering
  \includegraphics[width=320px]{img/vms_arquiteturas.eps}
- \caption{Arquiteturas de máquinas virtuais de sistema. COLOCAR host OS ABAIXO DO HIPERVISOR ???}
+ \caption{Arquiteturas de máquinas virtuais de sistema. COLOCAR host OS ABAIXO DO HIPERVISOR ??}
  \label{fig:vms_arquiteturas}
  Fonte: \citet{maziero2013}
 \end{figure}
@@ -281,7 +281,17 @@ Portanto, uma das grandes vantagens da virtualização é um melhor aproveitamen
 servidor físico tem-se um melhor aproveitamento do \textit{hardware} \cite{moreira2006}, e consequentemente tem-se uma redução de custos com a 
 administração e a manutenção dos servidores físicos.
 
-FIGURA ??
+A Figura \ref{fig:virtualizacao_servidores}, o servidor localizado à esquerda, apresenta um servidor tradicional com seu sistema operacional 
+(na cor azul) e suas aplicações (na cor laranja). E o servidor à direita é um servidor de virtualização, que possui o hipervisor 
+(na cor azul claro) e suas máquinas virtuais acima do hipervisor.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=250px]{img/virtualizacao_servidores.eps}
+ \caption{Servidor tradicional e servidor de virtualização.}
+ \label{fig:virtualizacao_servidores}
+ Fonte: \citet{interspire2016}
+\end{figure}
 
 Em um ambiente heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um 
 único servidor. Esse tipo de virtualização favorece a implementação do conceito ``um servidor por serviço'', que consiste em ter um servidor 
@@ -293,10 +303,10 @@ Essa redução de custos pode ser obtida através da implantação de servidores
 Além disso, pode-se obter uma redução de custos com refrigeração, pois esto é um benefício relacionado a redução de servidores e de espaço físico.
 
 Por fim, existe uma técnica chamada \textit{live migration}, ou migração em tempo real, sendo que essa técnica possibilita que uma máquina virtual, 
-que esta executando em um servidor físico, seja transferida através da rede para outro servidor sem ser reiniciada. Nesse processo a máquina 
+que está executando em um servidor físico, seja transferida através da rede para outro servidor sem ser reiniciada. Nesse processo a máquina 
 virtual fica no estado suspenso (por um período bem curto de tempo) até que o servidor de destino receba os dados necessários para continuar 
 a execução da máquina virtual \cite{silva2009}. Essa técnica é uma vantagem relacionada a virtualização de servidores que possibilita a redundância
-de \textit{software} e fará parte da implementação deste trabalho ??? falar mais.
+de \textit{software} e fará parte da implementação deste trabalho.
 
 \section{Considerações finais}
 

@@ -7,22 +7,23 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.1:}{\ignorespaces Interfaces de sistemas de computa\IeC {\c c}\IeC {\~a}o.}}{15}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.2:}{\ignorespaces M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o e de sistema.}}{16}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.3:}{\ignorespaces Componentes da virtualiza\IeC {\c c}\IeC {\~a}o.}}{17}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.4:}{\ignorespaces Arquiteturas de m\IeC {\'a}quinas virtuais de sistema. COLOCAR host OS ABAIXO DO HIPERVISOR ???}}{18}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.5:}{\ignorespaces Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema.}}{19}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.1:}{\ignorespaces Interfaces de sistemas de computa\IeC {\c c}\IeC {\~a}o.}}{16}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.2:}{\ignorespaces M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o e de sistema.}}{17}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.3:}{\ignorespaces Componentes da virtualiza\IeC {\c c}\IeC {\~a}o.}}{18}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.4:}{\ignorespaces Arquiteturas de m\IeC {\'a}quinas virtuais de sistema. COLOCAR host OS ABAIXO DO HIPERVISOR ??}}{19}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.5:}{\ignorespaces Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema.}}{20}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.6:}{\ignorespaces Servidor tradicional e servidor de virtualiza\IeC {\c c}\IeC {\~a}o.}}{22}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.1:}{\ignorespaces Diagrama de instala\IeC {\c c}\IeC {\~a}o el\IeC {\'e}trica.}}{24}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.2:}{\ignorespaces Imagem do \textit {rack} e dos servidores.}}{25}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.3:}{\ignorespaces Modelo de estrutura f\IeC {\'\i }sica.}}{26}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.4:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Brina.}}{27}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.5:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Fulmine.}}{29}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.6:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Piova.}}{30}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.7:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Raggio.}}{31}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.8:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Tempesta.}}{31}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.9:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Tuono.}}{33}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.10:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Venti.}}{34}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.1:}{\ignorespaces Diagrama de instala\IeC {\c c}\IeC {\~a}o el\IeC {\'e}trica.}}{25}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.2:}{\ignorespaces Modelo de estrutura f\IeC {\'\i }sica.}}{26}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.3:}{\ignorespaces Imagem do \textit {rack} e dos servidores.}}{26}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.4:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Brina.}}{28}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.5:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Fulmine.}}{30}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.6:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Piova.}}{31}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.7:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Raggio.}}{32}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.8:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Tempesta.}}{32}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.9:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Tuono.}}{34}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.10:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Venti.}}{35}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Live migration}}{38}
 \addvspace {10\p@ }
