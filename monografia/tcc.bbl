@@ -5,6 +5,24 @@
   \url{https://tecnologiasemsegredos.wordpress.com/category/virtualizacao/}$>$.
   Acesso em 21 de maio de 2016.
 
+\bibitem[{Apache Software Foundation}(2016a){Apache Software
+  Foundation}]{apache} {Apache Software Foundation}. \textbf{The Apache HTTP
+  Server Project}. $<$Disponível em: \url{http://httpd.apache.org/}$>$. Acesso
+  em 05 de junho de 2016.
+
+\bibitem[{Apache Software Foundation}(2016b){Apache Software Foundation}]{svn}
+  {Apache Software Foundation}. \textbf{Apache Subversion}. $<$Disponível em:
+  \url{https://subversion.apache.org/}$>$. Acesso em 05 de junho de 2016.
+
+\bibitem[{Apereo Foundation}(2016){Apereo Foundation}]{sakai} {Apereo
+  Foundation}. \textbf{Introducing Sakai 11}. $<$Disponível em:
+  \url{https://sakaiproject.org/}$>$. Acesso em 05 de junho de 2016.
+
+\bibitem[{Bacula}(2016){Bacula}]{bacula} {Bacula}. \textbf{Open Source Backup,
+  Enterprise ready, Network Backup Tool for Linux, Unix, Mac, and Windows}.
+  $<$Disponível em: \url{http://blog.bacula.org/}$>$. Acesso em 05 de junho de
+  2016.
+
 \bibitem[BATISTA(2007)BATISTA]{batista2007} BATISTA, A.~C\@. \textbf{Estudo
   teórico sobre cluster linux}. 2007. Pós-Graduação (Administração em
   Redes Linux) --- Universidade Federal de Lavras, Minas Gerais.
@@ -12,6 +30,10 @@
 \bibitem[BUYYA; VECCHIOLA; SELVI(2013)BUYYA; VECCHIOLA; SELVI]{buyya2013}
   BUYYA, R.; VECCHIOLA, C.; SELVI, S\@. \textbf{Mastering Cloud Computing}:
   foundations and applications programming. [S.l.]: Elsevier, 2013.
+
+\bibitem[{Cacti}(2016){Cacti}]{cacti} {Cacti}. \textbf{Cacti - The Complete
+  RRDTool-based Graphing Solution}. $<$Disponível em:
+  \url{http://www.cacti.net/}$>$. Acesso em 05 de junho de 2016.
 
 \bibitem[{Canonical}(2016){Canonical}]{ubuntu} {Canonical}. \textbf{Ubuntu
   Server - for scale out workloads}. $<$Disponível em:
@@ -21,6 +43,10 @@
   Virtualização: da teoria a soluções. In: \textbf{Minicursos do Simpósio
   Brasileiro de Redes de Computadores}. Porto Alegre: XXVI Simpósio Brasileiro
   de Redes de Computadores e Sistemas Distribuídos, 2008.
+
+\bibitem[{CentOS}(2016){CentOS}]{centos} {CentOS}. \textbf{The CentOS Project}.
+  $<$Disponível em: \url{https://www.centos.org/}$>$. Acesso em 05 de junho de
+  2016.
 
 \bibitem[{Citrix}(2016a){Citrix}]{xen} {Citrix}. \textbf{The Xen Project, the
   powerful open source industry standard for virtualization}. $<$Disponível
@@ -37,6 +63,22 @@
   Pós-Graduação em Ciência da Computação --- Universidade Federal de
   Viçosa, Minas Gerais.
 
+\bibitem[{cPanel and WHM}(2016){cPanel and WHM}]{whm} {cPanel and WHM}.
+  \textbf{The Hosting Platform of Choice}. $<$Disponível em:
+  \url{https://cpanel.com/}$>$. Acesso em 05 de junho de 2016.
+
+\bibitem[{Digium}(2016){Digium}]{asterisk} {Digium}. \textbf{Asterisk.org}.
+  $<$Disponível em: \url{http://www.asterisk.org/}$>$. Acesso em 05 de junho
+  de 2016.
+
+\bibitem[{Edgewall Software}(2016){Edgewall Software}]{trac} {Edgewall
+  Software}. \textbf{The Trac Project}. $<$Disponível em:
+  \url{https://trac.edgewall.org/}$>$. Acesso em 05 de junho de 2016.
+
+\bibitem[{FreeRADIUS}(2016){FreeRADIUS}]{freeradius} {FreeRADIUS}.
+  \textbf{FreeRADIUS}: the world's most popular radius server. $<$Disponível
+  em: \url{http://freeradius.org/}$>$. Acesso em 05 de junho de 2016.
+
 \bibitem[GONçALVES(2009)GONçALVES]{goncalves2009} GONçALVES, E.~M\@.
   \textbf{Implementação de Alta disponibilidade em máquinas virtuais
   utilizando Software Livre}. 2009. Trabalho de Conclusão (Curso de Engenharia
@@ -48,10 +90,18 @@
   \url{https://www-03.ibm.com/ibm/history/exhibits/mainframe/mainframe_PP3145.html}$>$.
   Acesso em 22 de maio de 2016.
 
+\bibitem[{Icewarp}(2016){Icewarp}]{icewarp} {Icewarp}. \textbf{IceWarp Server
+  para Windows e Linux}. $<$Disponível em:
+  \url{https://www.icewarp.com.br/}$>$. Acesso em 05 de junho de 2016.
+
 \bibitem[INTERSPIRE(2016)INTERSPIRE]{interspire2016} INTERSPIRE. \textbf{Guia
   de Virtualização - Elipse Software.} $<$Disponível em:
   \url{http://kb.elipse.com.br/pt-br/questions/5019/}$>$. Acesso em 04 de junho
   de 2016.
+
+\bibitem[{ISC}(2016){ISC}]{bind} {ISC}. \textbf{Internet Systems Consortium}.
+  $<$Disponível em: \url{https://www.isc.org/downloads/}$>$. Acesso em 05 de
+  junho de 2016.
 
 \bibitem[LAUREANO; MAZIERO(2008)LAUREANO; MAZIERO]{laureano2008} LAUREANO, M.
   A.~P.; MAZIERO, C.~A\@. Virtualização: conceitos e aplicações em
@@ -66,11 +116,26 @@
   Operacionais}: conceitos e mecanismos. 2013. Disserta{\c{c}}{\~a}o (Mestrado
   em Ci{\^e}ncia da Computa{\c{c}}{\~a}o) --- DAInf UTFPR, Paraná.
 
+\bibitem[{Microsoft}(2016a){Microsoft}]{asp} {Microsoft}. \textbf{ASP.NET}.
+  $<$Disponível em: \url{http://www.asp.net/}$>$. Acesso em 05 de junho de
+  2016.
+
+\bibitem[{Microsoft}(2016b){Microsoft}]{iis} {Microsoft}. \textbf{Home}: the
+  official microsoft iis site. $<$Disponível em: \url{http://www.iis.net/}$>$.
+  Acesso em 05 de junho de 2016.
+
 \bibitem[MOREIRA(2006)MOREIRA]{moreira2006} MOREIRA, D\@.
   \textbf{Virtualização}: rode vários sistemas operacionais na mesma
   máquina. $<$Disponível em:
   \url{http://idgnow.com.br/ti-corporativa/2006/08/01/idgnoticia.2006-07-31.7918579158/#&panel1-3}$>$.
   Acesso em 5 de abril de 2016.
+
+\bibitem[{Munin}(2016){Munin}]{munin} {Munin}. \textbf{Munin}. $<$Disponível
+  em: \url{http://munin-monitoring.org/}$>$. Acesso em 05 de junho de 2016.
+
+\bibitem[{Nagios}(2016){Nagios}]{nagios} {Nagios}. \textbf{Nagios - The
+  Industry Standard In IT Infrastructure Monitoring}. $<$Disponível em:
+  \url{https://www.nagios.org/}$>$. Acesso em 05 de junho de 2016.
 
 \bibitem[NøRVåG(2000)NøRVåG]{norvag2000} NøRVåG, K\@. \textbf{An
   Introduction to Fault-Tolerant Systems}. 2000. IDI Technical Report 6/99 ---
@@ -80,9 +145,13 @@
   Ookla - The Global Broadband Speed Test}. $<$Disponível em:
   \url{https://www.speedtest.net/}$>$. Acesso em 28 de maio de 2016.
 
-\bibitem[{Oracle}(2016){Oracle}]{virtualbox} {Oracle}. \textbf{Oracle VM
+\bibitem[{Oracle}(2016a){Oracle}]{virtualbox} {Oracle}. \textbf{Oracle VM
   VirtualBox}. $<$Disponível em: \url{https://www.virtualbox.org/}$>$. Acesso
   em 22 de maio de 2016.
+
+\bibitem[{Oracle}(2016b){Oracle}]{mysql} {Oracle}. \textbf{MySQL}.
+  $<$Disponível em: \url{https://www.mysql.com/}$>$. Acesso em 05 de junho de
+  2016.
 
 \bibitem[PANKAJ(1994)PANKAJ]{pankaj1994} PANKAJ, J\@. \textbf{Fault tolerance
   in distributed system}. Nova Jérsei, Estados Unidos: P T R Prentice Hall,
@@ -99,9 +168,32 @@
   THE 34TH INTERNATIONAL CONVENTION. \textbf{Anais{\ldots}} [S.l.:~s.n.], 2011.
   p.167--170.
 
+\bibitem[{PHP Group}(2016){PHP Group}]{php} {PHP Group}. \textbf{PHP}:
+  hypertext preprocessor. $<$Disponível em: \url{http://php.net/}$>$. Acesso
+  em 05 de junho de 2016.
+
+\bibitem[{Postfix}(2016){Postfix}]{postfix} {Postfix}. \textbf{The Postfix Home
+  Page}. $<$Disponível em: \url{http://www.postfix.org/}$>$. Acesso em 05 de
+  junho de 2016.
+
+\bibitem[{PostgreSQL Group}(2016){PostgreSQL Group}]{postgres} {PostgreSQL
+  Group}. \textbf{PostgreSQL}: the world's most advanced open source database.
+  $<$Disponível em: \url{https://www.postgresql.org/}$>$. Acesso em 05 de
+  junho de 2016.
+
+\bibitem[{ProcessOne}(2016){ProcessOne}]{ejabberd} {ProcessOne}.
+  \textbf{ejabberd | robust, massively scalable and extensible XMPP server}.
+  $<$Disponível em: \url{https://www.ejabberd.im/}$>$. Acesso em 05 de junho
+  de 2016.
+
 \bibitem[{QEmu}(2016){QEmu}]{qemu} {QEmu}. \textbf{QEMU open source processor
   emulator}. $<$Disponível em: \url{http://wiki.qemu.org/Main_Page}$>$. Acesso
   em 22 de maio de 2016.
+
+\bibitem[{Red Hat Inc}(2016){Red Hat Inc}]{redhat} {Red Hat Inc}.
+  \textbf{Plataforma corporativa Linux}. $<$Disponível em:
+  \url{https://www.redhat.com/pt-br/technologies/linux-platforms}$>$. Acesso em
+  05 de junho de 2016.
 
 \bibitem[REIS(2009)REIS]{reis2009} REIS, W.~S.~dos. \textbf{Virtualização de
   serviços baseado em contêineres}: uma proposta para alta disponibilidade de
@@ -113,6 +205,10 @@
   $<$Disponível em:
   \url{http://searchstorage.techtarget.com/definition/hot-spare}$>$. Acesso em
   12 de abril de 2016.
+
+\bibitem[{Samba Team}(2016){Samba Team}]{samba} {Samba Team}. \textbf{Samba -
+  Opening Windows to a Wider World}. $<$Disponível em:
+  \url{https://www.samba.org/}$>$. Acesso em 05 de junho de 2016.
 
 \bibitem[SILVA~VIANA(2015)SILVA~VIANA]{viana201} SILVA~VIANA, A.~L.~da.
   \textbf{MySQL}: replicação de dados. $<$Disponível em:
@@ -168,9 +264,17 @@
   \url{http://www.vmware.com/br/products/workstation}$>$. Acesso em 17 de maio
   de 2016.
 
+\bibitem[{Xiph.Org Foundation}(2016){Xiph.Org Foundation}]{icecast} {Xiph.Org
+  Foundation}. \textbf{Icecast}. $<$Disponível em:
+  \url{http://icecast.org/}$>$. Acesso em 05 de junho de 2016.
+
 \bibitem[ZAMINHANI(2008)ZAMINHANI]{zaminhani2008} ZAMINHANI, D\@.
   \textbf{Cluster de alta disponibilidade através de espelhamento de dados em
   máquinas remotas}. 2008. Pós-Graduação apresentada ao Departamento de
   Ciência da Computação --- Universidade Federal de Lavras, Minas Gerais.
+
+\bibitem[{ZoneMinder}(2016){ZoneMinder}]{zoneminder} {ZoneMinder}.
+  \textbf{ZoneMinder}. $<$Disponível em: \url{https://zoneminder.com/}$>$.
+  Acesso em 05 de junho de 2016.
 
 \end{thebibliography}

@@ -15,59 +15,45 @@ I was expecting a `,' or a `}'---line 282 of file tcc.bib
  :   isbn      = "9780124046412",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "bacula"
-Warning--I didn't find a database entry for "centos"
-Warning--I didn't find a database entry for "cacti"
-Warning--I didn't find a database entry for "mysql"
-Warning--I didn't find a database entry for "zoneminder"
-Warning--I didn't find a database entry for "nagios"
-Warning--I didn't find a database entry for "munin"
-Warning--I didn't find a database entry for "apache"
-Warning--I didn't find a database entry for "php"
-Warning--I didn't find a database entry for "postgres"
-Warning--I didn't find a database entry for "samba"
-Warning--I didn't find a database entry for "svn"
-Warning--I didn't find a database entry for "trac"
-Warning--I didn't find a database entry for "ejabberd"
-You've used 36 entries,
+You've used 61 entries,
             2371 wiz_defined-function locations,
-            773 strings with 10806 characters,
-and the built_in function-call counts, 35258 in all, are:
-= -- 4286
-> -- 127
-< -- 391
-+ -- 2339
-- -- 52
-* -- 1251
-:= -- 3039
-add.period$ -- 129
-call.type$ -- 36
-change.case$ -- 285
-chr.to.int$ -- 5
-cite$ -- 36
-duplicate$ -- 4970
-empty$ -- 1311
-format.name$ -- 294
-if$ -- 7829
-int.to.chr$ -- 3
+            856 strings with 14026 characters,
+and the built_in function-call counts, 51380 in all, are:
+= -- 6009
+> -- 202
+< -- 641
++ -- 3341
+- -- 77
+* -- 1951
+:= -- 4516
+add.period$ -- 204
+call.type$ -- 61
+change.case$ -- 460
+chr.to.int$ -- 8
+cite$ -- 61
+duplicate$ -- 7093
+empty$ -- 2061
+format.name$ -- 469
+if$ -- 11251
+int.to.chr$ -- 6
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 75
-num.names$ -- 180
-pop$ -- 576
+newline$ -- 125
+num.names$ -- 305
+pop$ -- 922
 preamble$ -- 1
-purify$ -- 36
+purify$ -- 61
 quote$ -- 0
-skip$ -- 2395
+skip$ -- 3445
 stack$ -- 0
-substring$ -- 2139
-swap$ -- 2972
+substring$ -- 2988
+swap$ -- 4321
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 240
+type$ -- 365
 warning$ -- 0
-while$ -- 223
+while$ -- 373
 width$ -- 0
-write$ -- 38
+write$ -- 63
 (There was 1 error message)

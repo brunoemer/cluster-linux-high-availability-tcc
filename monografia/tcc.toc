@@ -24,8 +24,14 @@
 \contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico}{25}
 \contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{27}
 \contentsline {section}{\numberline {4.3}Servidores com virtualiza\IeC {\c c}\IeC {\~a}o}{28}
-\contentsline {subsection}{\numberline {4.3.1}Servidor Venti}{33}
-\contentsline {section}{\numberline {4.4}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{34}
+\contentsline {subsection}{\numberline {4.3.1}Servidor Brina}{28}
+\contentsline {subsection}{\numberline {4.3.2}Servidor Fulmine}{28}
+\contentsline {subsection}{\numberline {4.3.3}Servidor Piova}{30}
+\contentsline {subsection}{\numberline {4.3.4}Servidor Raggio}{31}
+\contentsline {subsection}{\numberline {4.3.5}Servidor Tempesta}{31}
+\contentsline {subsection}{\numberline {4.3.6}Servidor Tuono}{32}
+\contentsline {subsection}{\numberline {4.3.7}Servidor Venti}{34}
+\contentsline {section}{\numberline {4.4}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{35}
 \contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{37}
 \contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{38}
 \contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{38}
