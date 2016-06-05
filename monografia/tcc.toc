@@ -24,9 +24,10 @@
 \contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico}{25}
 \contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{27}
 \contentsline {section}{\numberline {4.3}Servidores com virtualiza\IeC {\c c}\IeC {\~a}o}{28}
+\contentsline {subsection}{\numberline {4.3.1}Servidor Venti}{33}
 \contentsline {section}{\numberline {4.4}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{34}
-\contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{36}
-\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{37}
-\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{37}
-\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{38}
-\contentsline {chapter}{Refer{\^e}ncias}{39}
+\contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{37}
+\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{38}
+\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{38}
+\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{39}
+\contentsline {chapter}{Refer{\^e}ncias}{40}

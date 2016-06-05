@@ -99,7 +99,7 @@ Eles são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e são l
  \item Bello: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Sua função é armazenar dados de 
  \textit{backup}, para isso ele possui a ferramenta \textit{Bacula Storage 5.2.6} \cite{bacula} instalado, que o possibilita fazer esse 
  armazenamento. Sendo que a ferramenta que é responsável por fazer o \textit{backup} está instalada em um outro servidor que será detalhado na 
- Seção \ref{section:servvirt} ??;
+ Seção \ref{section:serv_venti};
  
  \item Cacti: um dos servidores de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.6} \cite{centos} e executa a 
  aplicação \textit{Cacti 0.8.8b} \cite{cacti}, que é uma ferramenta de código aberto desenvolvida para monitorar qualquer equipamento de rede que 
@@ -117,18 +117,20 @@ Eles são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e são l
  \textit{Nagios}. O segundo, \textit{Munin}, é responsável por gerar gráficos de monitoramento. Com ele pode-se criar, por exemplo, gráficos 
  com a utilização: do processador, memória, disco, temperatura e velocidade dos \textit{fans};
  
- \item Nino: esse é o servidor utilizado pelo setor de desenvolvimento de \textit{software}. Suas aplicações executam sobre o sistema 
- operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que serviços fornecidos pelo servidor são servidor \textit{web} 
- (\textit{Apache 2.4.7} \cite{apache} e \textit{\ac{PHP} 5.5.9} \cite{php}), sistema gerenciador de banco de dados (\textit{MySQL 5.5.49} e \textit{PostgreSQL} 9.3.13), 
- compartilhamento de arquivos (\textit{Samba 4.3.9}), controle de versões de \textit{software} (\textit{\ac{SVN} 1.8.8}), gerenciador de 
- \textit{bugs} (\textit{Trac 1.0.1}) e mensagens instantâneas (\textit{Ejabberd 2.1.11});
+ \item Nino: esse é o servidor utilizado pelo setor de desenvolvimento de \textit{software}. Suas aplicações executam sobre o sistema operacional 
+ \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que serviços fornecidos pelo servidor são servidor \textit{web} (\textit{Apache 2.4.7} 
+ \cite{apache} e \textit{\ac{PHP} 5.5.9} \cite{php}), sistema gerenciador de banco de dados (\textit{MySQL 5.5.49} \cite{mysql} e 
+ \textit{PostgreSQL 9.3.13} \cite{postgres}), compartilhamento de arquivos (\textit{Samba 4.3.9} \cite{samba}), controle de versões de 
+ \textit{software} (\textit{\ac{SVN} 1.8.8} \cite{svn}), gerenciador de \textit{bugs} (\textit{Trac 1.0.1} \cite{trac}) e mensagens instantâneas 
+ (\textit{Ejabberd 2.1.11} \cite{ejabberd});
  
- \item Sfrunhon: outro servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.3} e executa a aplicação
- \textit{Cacti 0.8.8a}. Esse servidor monitora atualmente o tráfego dos clientes, tanto de internet via rádio, como de fibra óptica;
+ \item Sfrunhon: outro servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.3} \cite{centos} e executa a 
+ aplicação \textit{Cacti 0.8.8a} \cite{cacti}. Esse servidor monitora atualmente o tráfego dos clientes, tanto de internet via rádio, como de 
+ fibra óptica;
  
- \item Vigilante: esse servidor é responsável por capturar e armazenar \textit{streaming} de vídeo das câmeras do provedor. Ele possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, e executa a aplicação \textit{ZoneMinder 1.29} \cite{zoneminder}, que também é uma ferramenta de 
- código aberto, para capturar e armazenar as imagens das câmeras do provedor.
+ \item Vigilante: esse servidor é responsável por capturar e armazenar \textit{streaming} de vídeo das câmeras do provedor. Ele possui o sistema 
+ operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, e executa a aplicação \textit{ZoneMinder 1.29} \cite{zoneminder}, que é o 
+ \textit{software} responsável pela captura e armazenamento das as imagens das câmeras do provedor.
 \end{itemize}
 
 \section{Servidores com virtualização}
@@ -136,18 +138,17 @@ Eles são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e são l
 
 Os servidores de virtualização possuem suas respectivas \ac{VM}s, que executam aplicações. Para virtualização utiliza-se o hipervisor 
 \ac{KVM} e a ferramenta \textit{QEmu}, sendo que ambos são projetos de \textit{software} livre. Procurou-se manter um ambiente homogêneo 
-com o objetivo de facilitar a manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional, esse sistema operacional é
-o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}.
-Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através de um \ac{RAID}, 
-geralmente utilizando \ac{RAID} 5, em alguns casos, quando possuem apenas dois discos é utilizado \ac{RAID} 1 (espelhamento de discos). O 
-ambiente também possui uma redundância do cabeamento, como visto anteriormente.
+com o objetivo de facilitar a manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional para os servidores hospedeiros. 
+Esse sistema operacional é o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}.
+Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação e discos configurados através de um \ac{RAID}. 
+Em seridores com mais de dois discos geralmente é utilizado \ac{RAID} 5. Já em servidores que possuem apenas dois discos é utilizado \ac{RAID} 1 
+(espelhamento de discos). O ambiente também possui uma redundância do cabeamento, como visto anteriormente.
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de internet. Atualmente sete servidores 
-são utilizados para virtualizar sistemas, que são os últimos sete servidores da Tabela \ref{tab:servfisicos}.
-Sendo que existem quarenta e seis \ac{VM}s distribuídas entre os sete servidores de virtualização.
-Para melhor entender, a seguir será descrito esses servidores e suas respectivas máquinas virtuais.
+são utilizados para virtualizar sistemas, que são os últimos sete servidores da Tabela \ref{tab:servfisicos}, sendo que existem quarenta e seis 
+\ac{VM}s distribuídas entre os sete servidores de virtualização. A seguir será descrito esses servidores e suas respectivas máquinas virtuais.
 
-O servidor Brina possui uma \ac{VM}, que executam os serviços (Figura \ref{fig:serv_brina}):
+O servidor Brina possui X?? \ac{VM}s, sendo que na Figura \ref{fig:serv_brina}, que executam os serviços:
 \begin{itemize}
  \item \textit{Speedauth}: sua configuração é 2 \textit{cores} para processamento, 1,5 GB de memória e 8 GB de disco. O sistema operacional é o 
  \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Esse é o servidor que fornece o serviço de autenticação \ac{PPPoE} para maior parte dos clientes do provedor 
@@ -330,6 +331,9 @@ O servidor chamado Tuono executa oito \ac{VM}s (Figura \ref{fig:serv_tuono}), qu
  \caption{Servidor de virtualização Tuono.}
  \label{fig:serv_tuono}
 \end{figure}
+
+\subsection{Servidor Venti}
+\label{section:serv_venti}
 
 O servidor chamado Venti executa cinco \ac{VM}s (Figura \ref{fig:serv_venti}), que fornecem os seguintes serviços:
 \begin{itemize}
