@@ -15,45 +15,45 @@ I was expecting a `,' or a `}'---line 282 of file tcc.bib
  :   isbn      = "9780124046412",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You've used 61 entries,
+You've used 62 entries,
             2371 wiz_defined-function locations,
-            856 strings with 14026 characters,
-and the built_in function-call counts, 51380 in all, are:
-= -- 6009
-> -- 202
-< -- 641
-+ -- 3341
-- -- 77
-* -- 1951
-:= -- 4516
-add.period$ -- 204
-call.type$ -- 61
-change.case$ -- 460
+            860 strings with 14292 characters,
+and the built_in function-call counts, 51968 in all, are:
+= -- 6056
+> -- 208
+< -- 656
++ -- 3376
+- -- 78
+* -- 1993
+:= -- 4570
+add.period$ -- 207
+call.type$ -- 62
+change.case$ -- 472
 chr.to.int$ -- 8
-cite$ -- 61
-duplicate$ -- 7093
-empty$ -- 2061
-format.name$ -- 469
-if$ -- 11251
+cite$ -- 62
+duplicate$ -- 7165
+empty$ -- 2096
+format.name$ -- 483
+if$ -- 11359
 int.to.chr$ -- 6
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 125
-num.names$ -- 305
-pop$ -- 922
+newline$ -- 127
+num.names$ -- 310
+pop$ -- 935
 preamble$ -- 1
-purify$ -- 61
+purify$ -- 62
 quote$ -- 0
-skip$ -- 3445
+skip$ -- 3477
 stack$ -- 0
-substring$ -- 2988
-swap$ -- 4321
+substring$ -- 3009
+swap$ -- 4377
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 365
+type$ -- 370
 warning$ -- 0
-while$ -- 373
+while$ -- 379
 width$ -- 0
-write$ -- 63
+write$ -- 64
 (There was 1 error message)
