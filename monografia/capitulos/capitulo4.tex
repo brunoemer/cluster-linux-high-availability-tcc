@@ -2,7 +2,7 @@
 \label{cap:estudodecaso}
 
 Este capítulo apresentará a estrutura da empresa que será objetivo de estudo neste trabalho. Esta é uma empresa que fornece serviços de 
-hospedagens e também está associada a um provedor de Internet\footnote{É importante salientar que esse provedor utiliza a maior parte dos 
+hospedagens e também está associada a um provedor de Internet\footnote[1]{É importante salientar que esse provedor utiliza a maior parte dos 
 serviços da empresa, pois possui maior número de clientes.}. A empresa possui grande parte de seus clientes localizados na serra do 
 Rio Grande do Sul, sendo que atualmente essa empresa possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de 
 Garibaldi, além disso possui quatro filiais no estado, atendendo aproximadamente xx?? cidades.
@@ -13,21 +13,24 @@ Além disso, o provedor associado fornece aos seus clientes acesso à internet v
 A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto.
 
 Atualmente a empresa possui redundância de refrigeração e de energia, como pode ser observado na Figura \ref{fig:insteletrica}. 
-A redundância de refrigeração é composta por dois ares-condicionados (identificar na figura ??). 
-A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles (identificar na fig ??) são utilizados para alimentação 
-dos servidores e outros equipamentos como por exemplo roteadores, de forma que caso um falhe o outro alimente todos os equipamentos. O terceiro 
-\textit{nobreak} (identificar na fig ??) é utilizado para alimentar os computadores dos funcionários de dois setores. 
-Além disso, dois geradores (identificar nag fig ??) suprem a necessidade de consumo de energia elétrica do ambiente.
-Na imagem também pode-se observar a entrada de energia, com três fases (RGE fase 1, RGE fase 2 e RGE fase 3). Ligado aos \textit{nobreaks} estão 
-ligados seis \textit{totens} (são torres que possuem tomadas para plugar os equipamentos). E por fim os \textit{racks} onde ficam os servidores
-e o restante dos equipamentos.
+A redundância de refrigeração é composta por dois ares-condicionados (destacados com a cor azul). 
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=380px]{img/insteletrica.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=320px]{img/insteletrica.eps}
+ }
  \caption{Diagrama de instalação elétrica.}
  \label{fig:insteletrica}
 \end{figure}
+
+A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles (identificados como NB 1 e NB 2) são utilizados para 
+alimentação dos servidores e outros equipamentos como por exemplo roteadores, de forma que caso um falhe o outro alimente todos os equipamentos. 
+O terceiro \textit{nobreak} (identificado como NB Sala) é utilizado para alimentar os computadores dos funcionários de dois setores. 
+Ligado aos \textit{nobreaks} estão seis \textit{totens}\footnote[1]{Totens são torres que possuem tomadas para plugar os equipamentos}. 
+Os \textit{racks} onde ficam os servidores e o restante dos equipamentos, sendo que esses estão ligados aos \textit{totens}. 
+Além disso, existem a entrada de energia, com três fases (destacadas na cor vermelho), e dois geradores (destacados na cor verde) que suprem a 
+necessidade de consumo de energia elétrica do ambiente.
 
 Nas próximas seções será feita uma descrição da estrutura da empresa. Na Seção \ref{section:ambiente} será descrito o ambiente físico dos 
 servidores, com suas estruturas e suas configurações. Na Seção \ref{section:servsemvirt} será descrito os servidores que possuem os seus
@@ -76,7 +79,9 @@ O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutu
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=380px]{img/servfisicos.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=380px]{img/servfisicos.eps}
+ }
  \caption{Modelo de estrutura física. BORDA ??}
  \label{fig:servfisicos}
 \end{figure}
@@ -129,7 +134,7 @@ Eles são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e são l
  fibra óptica;
  
  \item Vigilante: esse servidor é responsável por capturar e armazenar \textit{streaming} de vídeo das câmeras do provedor. Ele possui o sistema 
- operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, e executa a aplicação \textit{ZoneMinder 1.29} \cite{zoneminder}, que é o 
+ operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e executa a aplicação \textit{ZoneMinder 1.29} \cite{zoneminder}, que é o 
  \textit{software} responsável pela captura e armazenamento das as imagens das câmeras do provedor.
 \end{itemize}
 
@@ -152,12 +157,22 @@ máquinas virtuais e serviços.
 \subsection{Servidor Brina}
 \label{section:serv_brina}
 
-O servidor Brina possui duas \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_brina} juntamente com seus respectivos serviços. 
+O servidor Brina possui duas \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_brina} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
+
+\begin{figure}[h!]
+ \centering
+ \fcolorbox{black}{white}{
+  \includegraphics[width=180px]{img/servidor_brina.eps}
+ }
+ \caption{Servidor de virtualização Brina.}
+ \label{fig:servidor_brina}
+\end{figure}
+
 \begin{itemize}
  \item \textit{Masterauth}: sua configuração é 1 \textit{core} para processamento, 1,5 GB de memória e 8 GB de disco. O sistema operacional é o 
- \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Speedauth} 
- (Seção \ref{section:serv_tuono}), porém para apenas uma parte dos clientes;
+ \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o serviço de autenticação \ac{PPPoE} para apenas uma parte dos 
+ clientes do provedor utilizando \textit{Radius} (\textit{Freeradius 2.1.12} \cite{freeradius});
  
  \item \textit{Monete}: sua configuração é 1 \textit{core} de processamento, 3 GB de memória e 50 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo um servidor \textit{web} dedicado para o site do provedor, com 
@@ -165,18 +180,21 @@ Esses serviços são listados a seguir:
  (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql}.
 \end{itemize}
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=200px]{img/servidor_brina.eps}
- \caption{Servidor de virtualização Brina.}
- \label{fig:servidor_brina}
-\end{figure}
-
 \subsection{Servidor Fulmine}
 \label{section:serv_fulmine}
 
-O servidor Fulmine possui dez \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_fulmine} juntamente com seus respectivos serviços. 
+O servidor Fulmine possui dez \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_fulmine} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
+
+\begin{figure}[h!]
+ \centering
+ \fcolorbox{black}{white}{
+  \includegraphics[width=310px]{img/servidor_fulmine.eps}
+ }
+ \caption{Servidor de virtualização Fulmine.}
+ \label{fig:servidor_fulmine}
+\end{figure}
+
 \begin{itemize}
  \item \textit{Hotspot}: sua configuração é 1 \textit{core} para processamento, 1,5 GB de memória e 8 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse é o servidor de gerência de equipamentos da \textit{Ubiquiti} 
@@ -216,18 +234,21 @@ Esses serviços são listados a seguir:
  livre \textit{Asterisk 1.8.32} \cite{asterisk}.
 \end{itemize}
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=330px]{img/servidor_fulmine.eps}
- \caption{Servidor de virtualização Fulmine.}
- \label{fig:servidor_fulmine}
-\end{figure}
-
 \subsection{Servidor Piova}
 \label{section:serv_piova}
 
-O servidor Piova possui nove \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_piova} juntamente com seus respectivos serviços. 
+O servidor Piova possui nove \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_piova} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
+
+\begin{figure}[h!]
+ \centering
+ \fcolorbox{black}{white}{
+  \includegraphics[width=320px]{img/servidor_piova.eps}
+ }
+ \caption{Servidor de virtualização Piova.}
+ \label{fig:servidor_piova}
+\end{figure}
+
 \begin{itemize}
  \item \textit{ASP}: esse servidor possui 1 \textit{core} para processamento, 1 GB de memória e 50 GB de disco. O servidor possui o sistema 
  operacional \textit{Windows 2008 Server R2} e provê acesso a sites \textit{web} desenvolvidos com a linguagem \ac{ASP} \cite{asp}, através do
@@ -268,13 +289,6 @@ Esses serviços são listados a seguir:
  autoritativo, sendo o servidor de \ac{DNS} terciário dos domínios hospedados pela empresa.
 \end{itemize}
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=350px]{img/servidor_piova.eps}
- \caption{Servidor de virtualização Piova.}
- \label{fig:servidor_piova}
-\end{figure}
-
 \subsection{Servidor Raggio}
 \label{section:serv_raggio}
 
@@ -284,7 +298,9 @@ de acesso remoto, como por exemplo, através de \ac{SSH}.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=250px]{img/servidor_raggio.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=220px]{img/servidor_raggio.eps}
+ }
  \caption{Servidor de virtualização Raggio.}
  \label{fig:servidor_raggio}
 \end{figure}
@@ -292,8 +308,18 @@ de acesso remoto, como por exemplo, através de \ac{SSH}.
 \subsection{Servidor Tempesta}
 \label{section:serv_tempesta}
 
-O servidor Tempesta possui quatro \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_tempesta} juntamente com seus respectivos serviços. 
+O servidor Tempesta possui quatro \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_tempesta} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
+
+\begin{figure}[h!]
+ \centering
+ \fcolorbox{black}{white}{
+  \includegraphics[width=350px]{img/servidor_tempesta.eps}
+ }
+ \caption{Servidor de virtualização Tempesta.}
+ \label{fig:servidor_tempesta}
+\end{figure}
+
 \begin{itemize}
  \item \textit{Ledriovardar}: esse servidor possui 2 \textit{cores} para processamento, 2 GB de memória e 80 GB de disco. O servidor possui 
  o sistema operacional \textit{Windows 2008 Server R2} e possui o serviço de \textit{terminal service} para suporte e gerência de fibra 
@@ -317,18 +343,21 @@ Esses serviços são listados a seguir:
  Seção \ref{section:serv_fulmine}), que é acesso a sites \textit{web} desenvolvidos com a linguagem \ac{PHP}.
 \end{itemize}
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=350px]{img/servidor_tempesta.eps}
- \caption{Servidor de virtualização Tempesta.}
- \label{fig:servidor_tempesta}
-\end{figure}
-
 \subsection{Servidor Tuono}
 \label{section:serv_tuono}
 
-O servidor Tuono possui quatro \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_tuono} juntamente com seus respectivos serviços. 
+O servidor Tuono possui quatro \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_tuono} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
+
+\begin{figure}[h!]
+ \centering
+ \fcolorbox{black}{white}{
+  \includegraphics[width=300px]{img/servidor_tuono.eps}
+ }
+ \caption{Servidor de virtualização Tuono.}
+ \label{fig:servidor_tuono}
+\end{figure}
+
 \begin{itemize}
  \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de processamento, 512 MB de memória e 8 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para web rádio, esse serviço é feito
@@ -344,22 +373,25 @@ Esses serviços são listados a seguir:
  (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql};
 
  \item \textit{Speedauth}: sua configuração é 2 \textit{cores} para processamento, 1,5 GB de memória e 8 GB de disco. O sistema operacional é o 
- \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o serviço de autenticação \ac{PPPoE} para maior parte dos clientes 
- do provedor utilizando \textit{Radius} (\textit{Freeradius 2.1.12} \cite{freeradius}).
+ \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Masterauth} 
+ (Seção \ref{section:serv_brina}), porém esse servidor possui a maior parte dos clientes.
 \end{itemize}
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=300px]{img/servidor_tuono.eps}
- \caption{Servidor de virtualização Tuono.}
- \label{fig:servidor_tuono}
-\end{figure}
 
 \subsection{Servidor Venti}
 \label{section:serv_venti}
 
-O servidor Venti possui cinco \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_venti} juntamente com seus respectivos serviços. 
+O servidor Venti possui cinco \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_venti} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
+
+\begin{figure}[h!]
+ \centering
+ \fcolorbox{black}{white}{
+  \includegraphics[width=340px]{img/servidor_venti.eps}
+ }
+ \caption{Servidor de virtualização Venti.}
+ \label{fig:servidor_venti}
+\end{figure}
+
 \begin{itemize}
  \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 1 GB de memória e 15 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e executa o serviço de \textit{backup} dos equipamentos do provedor. Esse
@@ -383,14 +415,7 @@ Esses serviços são listados a seguir:
  e \textit{\ac{PHP} 5.5.9} \cite{php}, e um \textit{software} chamado \textit{SpeedTest} \cite{speedtest}.
 \end{itemize}
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=340px]{img/servidor_venti.eps}
- \caption{Servidor de virtualização Venti.}
- \label{fig:servidor_venti}
-\end{figure}
-
--graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao??
+%-graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao??
 
 \section{Serviços críticos}
 \label{section:servcrit}
@@ -413,8 +438,15 @@ Considerando esses critérios, foram definidos que os serviços mais críticos s
  \item \ac{DNS} recursivo primário: esse serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor. Esse 
  é o único serviço que todos os clientes utilizam, que totalizam aproximadamente 9000 clientes. O objetivo de um provedor é fornecer uma 
  navegação de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. Outro importante critério é o 
- número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os outros serviços;
+ número de requisições por segundo (Figura \ref{fig:passata_day}), que é o maior entre todos os outros serviços;
  
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/passata_day.eps}
+ \caption{Gráfico de requisições DNS.}
+ \label{fig:passata_day}
+\end{figure}
+
  \item \textit{Radius}: esse serviço também é importante para a navegação dos clientes do provedor, pois, ele faz a autenticação de todos os 
  clientes do provedor. Caso esse serviço fique indisponível os clientes não conseguirão estabelecer conexão para navegação. Esses servidores 
  recebem aproximadamente x?? requisições de autenticação por segundo (Figura GRAFICO FREERADIUS?? 1 e 2). Além disso, esse serviço armazena dados dos 

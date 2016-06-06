@@ -13,18 +13,20 @@ Além disso, o provedor associado fornece aos seus clientes acesso à internet v
 A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto.
 
 Atualmente a empresa possui redundância de refrigeração e de energia, como pode ser observado na Figura \ref{fig:insteletrica}. 
-A redundância de refrigeração é composta por dois ares-condicionados (identificar na figura ??). 
-A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles (identificar na fig ??) são utilizados para alimentação 
-dos servidores e outros equipamentos como por exemplo roteadores, de forma que caso um falhe o outro alimente todos os equipamentos. O terceiro 
-\textit{nobreak} (identificar na fig ??) é utilizado para alimentar os computadores dos funcionários de dois setores. 
+A redundância de refrigeração é composta por dois ares-condicionados (destacados com a cor azul). A redundância de energia é feita através de 
+três \textit{nobreaks}, sendo que dois deles (identificados como NB 1 e NB 2) são utilizados para alimentação dos servidores e outros equipamentos 
+como por exemplo roteadores, de forma que caso um falhe o outro alimente todos os equipamentos. 
+O terceiro \textit{nobreak} (identificado como NB Sala) é utilizado para alimentar os computadores dos funcionários de dois setores. 
+Ligado aos \textit{nobreaks} estão ligados seis \textit{totens} (são torres que possuem tomadas para plugar os equipamentos). 
+E por fim os \textit{racks} onde ficam os servidores e o restante dos equipamentos. 
 Além disso, dois geradores (identificar nag fig ??) suprem a necessidade de consumo de energia elétrica do ambiente.
-Na imagem também pode-se observar a entrada de energia, com três fases (RGE fase 1, RGE fase 2 e RGE fase 3). Ligado aos \textit{nobreaks} estão 
-ligados seis \textit{totens} (são torres que possuem tomadas para plugar os equipamentos). E por fim os \textit{racks} onde ficam os servidores
-e o restante dos equipamentos.
+Na imagem também pode-se observar a entrada de energia, com três fases (RGE fase 1, RGE fase 2 e RGE fase 3). 
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=380px]{img/insteletrica.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=380px]{img/insteletrica.eps}
+ }
  \caption{Diagrama de instalação elétrica.}
  \label{fig:insteletrica}
 \end{figure}
@@ -76,8 +78,10 @@ O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutu
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=380px]{img/servfisicos.eps}
- \caption{Modelo de estrutura física.}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=380px]{img/servfisicos.eps}
+ }
+ \caption{Modelo de estrutura física. BORDA ??}
  \label{fig:servfisicos}
 \end{figure}
 
@@ -152,25 +156,32 @@ máquinas virtuais e serviços.
 \subsection{Servidor Brina}
 \label{section:serv_brina}
 
-O servidor Brina possui X?? \ac{VM}s como pode ser visto na Figura \ref{fig:serv_brina} juntamente com seus respectivos serviços. 
+O servidor Brina possui duas \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_brina} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
 \begin{itemize}
- \item \textit{Speedauth}: sua configuração é 2 \textit{cores} para processamento, 1,5 GB de memória e 8 GB de disco. O sistema operacional é o 
- \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o serviço de autenticação \ac{PPPoE} para maior parte dos clientes 
- do provedor utilizando \textit{Radius} (\textit{Freeradius 2.1.12} \cite{freeradius});
+ \item \textit{Masterauth}: sua configuração é 1 \textit{core} para processamento, 1,5 GB de memória e 8 GB de disco. O sistema operacional é o 
+ \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Speedauth} 
+ (Seção \ref{section:serv_tuono}), porém para apenas uma parte dos clientes;
+ 
+ \item \textit{Monete}: sua configuração é 1 \textit{core} de processamento, 3 GB de memória e 50 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo um servidor \textit{web} dedicado para o site do provedor, com 
+ configurações personalizadas. Para isso ele utiliza os \textit{softwares} \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} 
+ (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql}.
 \end{itemize}
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=230px]{img/serv_brina.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=200px]{img/servidor_brina.eps}
+ }
  \caption{Servidor de virtualização Brina.}
- \label{fig:serv_brina}
+ \label{fig:servidor_brina}
 \end{figure}
 
 \subsection{Servidor Fulmine}
 \label{section:serv_fulmine}
 
-O servidor Brina possui onze \ac{VM}s como pode ser visto na Figura \ref{fig:serv_fulmine} juntamente com seus respectivos serviços. 
+O servidor Fulmine possui dez \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_fulmine} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
 \begin{itemize}
  \item \textit{Hotspot}: sua configuração é 1 \textit{core} para processamento, 1,5 GB de memória e 8 GB de disco. Esse servidor possui o 
@@ -181,10 +192,6 @@ Esses serviços são listados a seguir:
  \item \textit{IPv6Dns}, \textit{IPv6Dns64} e \textit{IPv6Nat64}: suas configurações são 1 \textit{core} para processamento, 1 GB de memória e 
  8 GB de disco. O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esses servidores fornecem o serviço de \ac{DNS} 
  e \ac{NAT} para navegação \ac{IPv6} do provedor;
- 
- \item \textit{Masterauth}: sua configuração é 1 \textit{core} para processamento, 1,5 GB de memória e 8 GB de disco. O sistema operacional é o 
- \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Speedauth} 
- (Seção \ref{section:serv_tuono}), porém para apenas uma parte dos clientes;
  
  \item \textit{Ottico}: esse servidor possui 2 \textit{cores} para processamento, 4 GB de memória e 50 GB de disco. O servidor possui o sistema 
  operacional \textit{Windows 2007 Server Standard} e possui o serviço de \textit{terminal service} para suporte e gerência de fibra óptica do 
@@ -217,15 +224,17 @@ Esses serviços são listados a seguir:
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=420px]{img/serv_fulmine.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=330px]{img/servidor_fulmine.eps}
+ }
  \caption{Servidor de virtualização Fulmine.}
- \label{fig:serv_fulmine}
+ \label{fig:servidor_fulmine}
 \end{figure}
 
 \subsection{Servidor Piova}
 \label{section:serv_piova}
 
-O servidor Piova possui oito \ac{VM}s como pode ser visto na Figura \ref{fig:serv_piova} juntamente com seus respectivos serviços. 
+O servidor Piova possui nove \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_piova} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
 \begin{itemize}
  \item \textit{ASP}: esse servidor possui 1 \textit{core} para processamento, 1 GB de memória e 50 GB de disco. O servidor possui o sistema 
@@ -248,6 +257,11 @@ Esses serviços são listados a seguir:
  \item \textit{FiberHome}: sua configuração é 2 \textit{cores} para processamento, 2 GB de memória e 60 GB de disco. Esse servidor possui o sistema 
  operacional \textit{Windows XP} e possui o \textit{software} \textit{ANM 2000} instalado, para fazer a gerência da fibra óptica do provedor;
  
+ \item \textit{Parla}: sua configuração é 1 \textit{core} de processamento, 1 GB de memória e 8 GB de disco. Ele possui o sistema
+ operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e provê um serviço de mensagens instantâneas, baseado no protocolo \ac{XMPP}. Esse 
+ serviço é utilizado para comunicação entre funcionários da empresa e do provedor. O \textit{software} utilizado é o \textit{Ejabberd 2.1.11}
+ \cite{ejabberd}, que também é um \textit{software} livre;
+
  \item \textit{Passata2}: esse servidor possui 1 \textit{core} para processamento, 2 GB de memória e 20 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece o serviço de \ac{DNS} recursivo, através do \textit{software} 
  \textit{Bind 9.9.5} \cite{bind}. Esse é o servidor secundário de \ac{DNS} do provedor;
@@ -259,106 +273,108 @@ Esses serviços são listados a seguir:
  
  \item \textit{Servo6}: sua configuração é 1 \textit{core} para processamento, 1,5 GB de memória e 30 GB de disco. Esse servidor possui o 
  sistema operacional \textit{CentOS 6.8} e fornece, através do \textit{software} \textit{Bind 9.8.2} \cite{bind}, o serviço de \ac{DNS} 
- autoritativo, sendo o servidor de \ac{DNS} terciário dos domínios hospedados pela empresa;
+ autoritativo, sendo o servidor de \ac{DNS} terciário dos domínios hospedados pela empresa.
 \end{itemize}
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=430px]{img/serv_piova.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=350px]{img/servidor_piova.eps}
+ }
  \caption{Servidor de virtualização Piova.}
- \label{fig:serv_piova}
+ \label{fig:servidor_piova}
 \end{figure}
 
 \subsection{Servidor Raggio}
 \label{section:serv_raggio}
 
-O servidor chamado Raggio executa doze \ac{VM}s (Figura \ref{fig:serv_raggio}), que fornecem os serviços de virtualização para algumas empresas,
+O servidor chamado Raggio executa doze \ac{VM}s (Figura \ref{fig:servidor_raggio}), que fornecem os serviços de virtualização para algumas empresas,
 sendo que as máquinas virtuais são instaladas com o sistema operacional da preferência do cliente, e são disponibilizadas através de um serviço 
 de acesso remoto, como por exemplo, através de \ac{SSH}.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/serv_raggio.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=250px]{img/servidor_raggio.eps}
+ }
  \caption{Servidor de virtualização Raggio.}
- \label{fig:serv_raggio}
+ \label{fig:servidor_raggio}
 \end{figure}
 
 \subsection{Servidor Tempesta}
 \label{section:serv_tempesta}
 
-O servidor Tempesta possui X?? \ac{VM}s como pode ser visto na Figura \ref{fig:serv_tempesta} juntamente com seus respectivos serviços. 
-Esses serviços são listados a seguir:
-\begin{itemize}
-  \item \textit{Merak}: esse servidor fornece serviço de \textit{e-mail}. Ele possui uma configuração de 6 \textit{cores} para processamento, 
- 10 GB de memória e 1000 GB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e executa o \textit{software} 
- \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços de envios de \textit{e-mails} (\ac{SMTP}), recebimentos 
- de \textit{e-mails} (\ac{POP} e \ac{IMAP}), Webmail (\ac{PHP}) e Anti-spam;
- %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
- %Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor.
-
-\end{itemize}
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=260px]{img/serv_tempesta.eps}
- \caption{Servidor de virtualização Tempesta.}
- \label{fig:serv_tempesta}
-\end{figure}
-
-\subsection{Servidor Tuono}
-\label{section:serv_tuono}
-
-O servidor Tuono possui oito \ac{VM}s como pode ser visto na Figura \ref{fig:serv_tuono} juntamente com seus respectivos serviços. 
+O servidor Tempesta possui quatro \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_tempesta} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
 \begin{itemize}
  \item \textit{Ledriovardar}: esse servidor possui 2 \textit{cores} para processamento, 2 GB de memória e 80 GB de disco. O servidor possui 
  o sistema operacional \textit{Windows 2008 Server R2} e possui o serviço de \textit{terminal service} para suporte e gerência de fibra 
  óptica do provedor;
  
- \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de processamento, 512 MB de memória e 8 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para web rádio, esse serviço é feito
- através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
- 
- \item \textit{Monete}: sua configuração é 1 \textit{core} de processamento, 3 GB de memória e 50 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo um servidor \textit{web} dedicado para o site do provedor, com 
- configurações personalizadas. Para isso ele utiliza os \textit{softwares} \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} 
- (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql};
- 
- \item \textit{Ns}: esse servidor possui 1 \textit{core} para processamento, 2 GB de memória e 30 GB de disco. O servidor possui o sistema 
- operacional \textit{CentOS 6.8} \cite{centos} e fornece, através do \textit{software} \textit{Bind 9.9.3} \cite{bind}, o serviço de \ac{DNS} 
- autoritativo e é o servidor de \ac{DNS} primário dos domínios hospedados pela empresa;
- 
- \item \textit{Parla}: sua configuração é 1 \textit{core} de processamento, 1 GB de memória e 8 GB de disco. Ele possui o sistema
- operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e provê um serviço de mensagens instantâneas, baseado no protocolo \ac{XMPP}. Esse 
- serviço é utilizado para comunicação entre funcionários da empresa e do provedor. O \textit{software} utilizado é o \textit{Ejabberd 2.1.11}
- \cite{ejabberd}, que também é um \textit{software} livre;
+ \item \textit{Merak}: esse servidor fornece serviço de \textit{e-mail}. Ele possui uma configuração de 6 \textit{cores} para processamento, 
+ 10 GB de memória e 1000 GB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e executa o \textit{software} 
+ \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços de envios de \textit{e-mails} (\ac{SMTP}), recebimentos 
+ de \textit{e-mails} (\ac{POP} e \ac{IMAP}), Webmail (\ac{PHP}) e Anti-spam;
+ %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
+ %Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor.
+
+ \item \textit{Quebei}: sua configuração é 1 \textit{core} de processamento, 3 GB de memória e 140 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e sua função é gerenciar o \textit{backup} dos outros servidores. Para isso 
+ ele utiliza a ferramenta \textit{Bacula 5.2.6} \cite{bacula} (pacote \textit{bacula-director-common 5.2.6}). Além disso, esse servidor possui 
+ o sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql} instalado, que esta configurado como \textit{master-slave}, sendo 
+ que esse servidor é o \textit{slave} e o servidor \textit{Dati} (Seção \ref{section:servvirt}) é o \textit{master};
  
  \item \textit{Rauco}: esse servidor possui 2 \textit{cores} para processamento, 6 GB de memória e 600 GB de disco. Ele possui o sistema 
  operacional \textit{CentOS 6.8} \cite{centos}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Roncon} visto na 
- Seção \ref{section:serv_fulmine}), que é acesso a sites \textit{web} desenvolvidos com a linguagem \ac{PHP};
- 
- \item \textit{Soldi}: sua configuração é 4 \textit{cores} de processamento, 4 GB de memória e 40 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{web} exclusivo para \textit{softwares} de gestão 
- desenvolvidos pela empresa. Os seguintes \textit{softwares} são utilizados: \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} 
- (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql};
- 
- \item \textit{Trapel}: sua configuração é 1 \textit{core} de processamento, 768 MB de memória e 8 GB de disco. Esse servidor possui o sistema 
- operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece um serviço de teste de velocidade da conexão de internet. Os usuários do 
- provedor utilizam esse serviço para testar a velocidade da sua internet. Para isso ele executa as aplicações \textit{Apache 2.4.7} \cite{apache} 
- e \textit{\ac{PHP} 5.5.9} \cite{php}, e um \textit{software} chamado \textit{SpeedTest} \cite{speedtest};
+ Seção \ref{section:serv_fulmine}), que é acesso a sites \textit{web} desenvolvidos com a linguagem \ac{PHP}.
 \end{itemize}
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=360px]{img/serv_tuono.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=350px]{img/servidor_tempesta.eps}
+ }
+ \caption{Servidor de virtualização Tempesta.}
+ \label{fig:servidor_tempesta}
+\end{figure}
+
+\subsection{Servidor Tuono}
+\label{section:serv_tuono}
+
+O servidor Tuono possui quatro \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_tuono} juntamente com seus respectivos serviços. 
+Esses serviços são listados a seguir:
+\begin{itemize}
+ \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de processamento, 512 MB de memória e 8 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para web rádio, esse serviço é feito
+ através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
+ 
+ \item \textit{Ns}: esse servidor possui 1 \textit{core} para processamento, 2 GB de memória e 30 GB de disco. O servidor possui o sistema 
+ operacional \textit{CentOS 6.8} \cite{centos} e fornece, através do \textit{software} \textit{Bind 9.9.3} \cite{bind}, o serviço de \ac{DNS} 
+ autoritativo e é o servidor de \ac{DNS} primário dos domínios hospedados pela empresa;
+
+ \item \textit{Soldi}: sua configuração é 4 \textit{cores} de processamento, 4 GB de memória e 40 GB de disco. Esse servidor possui o 
+ sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{web} exclusivo para \textit{softwares} de gestão 
+ desenvolvidos pela empresa. Os seguintes \textit{softwares} são utilizados: \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} 
+ (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql};
+
+ \item \textit{Speedauth}: sua configuração é 2 \textit{cores} para processamento, 1,5 GB de memória e 8 GB de disco. O sistema operacional é o 
+ \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o serviço de autenticação \ac{PPPoE} para maior parte dos clientes 
+ do provedor utilizando \textit{Radius} (\textit{Freeradius 2.1.12} \cite{freeradius}).
+\end{itemize}
+
+\begin{figure}[h!]
+ \centering
+ \fcolorbox{black}{white}{
+  \includegraphics[width=300px]{img/servidor_tuono.eps}
+ }
  \caption{Servidor de virtualização Tuono.}
- \label{fig:serv_tuono}
+ \label{fig:servidor_tuono}
 \end{figure}
 
 \subsection{Servidor Venti}
 \label{section:serv_venti}
 
-O servidor Venti possui cinco \ac{VM}s como pode ser visto na Figura \ref{fig:serv_venti} juntamente com seus respectivos serviços. 
+O servidor Venti possui cinco \ac{VM}s como pode ser visto na Figura \ref{fig:servidor_venti} juntamente com seus respectivos serviços. 
 Esses serviços são listados a seguir:
 \begin{itemize}
  \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 1 GB de memória e 15 GB de disco. Esse servidor possui o 
@@ -377,18 +393,19 @@ Esses serviços são listados a seguir:
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e armazena a documentação dos equipamentos do provedor, utilizando a aplicação
  de código aberto \textit{Sakai 2.9} \cite{sakai};
  
- \item \textit{Quebei}: sua configuração é 1 \textit{core} de processamento, 3 GB de memória e 140 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e sua função é gerenciar o \textit{backup} dos outros servidores. Para isso 
- ele utiliza a ferramenta \textit{Bacula 5.2.6} \cite{bacula} (pacote \textit{bacula-director-common 5.2.6}). Além disso, esse servidor possui 
- o sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql} instalado, que esta configurado como \textit{master-slave}, sendo 
- que esse servidor é o \textit{slave} e o servidor \textit{Dati} (Seção \ref{section:servvirt}) é o \textit{master};
+ \item \textit{Trapel}: sua configuração é 1 \textit{core} de processamento, 768 MB de memória e 8 GB de disco. Esse servidor possui o sistema 
+ operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece um serviço de teste de velocidade da conexão de internet. Os usuários do 
+ provedor utilizam esse serviço para testar a velocidade da sua internet. Para isso ele executa as aplicações \textit{Apache 2.4.7} \cite{apache} 
+ e \textit{\ac{PHP} 5.5.9} \cite{php}, e um \textit{software} chamado \textit{SpeedTest} \cite{speedtest}.
 \end{itemize}
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=430px]{img/serv_venti.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=340px]{img/servidor_venti.eps}
+ }
  \caption{Servidor de virtualização Venti.}
- \label{fig:serv_venti}
+ \label{fig:servidor_venti}
 \end{figure}
 
 -graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao??
@@ -416,15 +433,14 @@ Considerando esses critérios, foram definidos que os serviços mais críticos s
  navegação de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. Outro importante critério é o 
  número de requisições por segundo (Figura GRAFICO??), que é o maior entre todos os outros serviços;
  
- \item \textit{Radius}: esse serviço também é importante para a navegação dos clientes do provedor, pois, ele faz a autenticação dos clientes 
- de acesso à internet de todo o provedor, que chega aproximadamente a 9000 clientes. Caso esse serviço fique 
- indisponível os clientes não conseguirão estabelecer conexão para navegar, sabendo que atualmente esse serviço recebe x?? requisições de
- autenticação por segundo (Figura GRAFICO FREERADIUS??). Além disso, esse serviço armazena dados de clientes como: o endereço de \ac{IP} de cada 
- cliente utilizado em um determinado período, o tráfego de dados da conexão, o tempo da conexão de cada cliente, entre outros. 
- Essas operações resultam em um número de requisições por segundo, que esta detalhado na Figura GRAFICO??;
+ \item \textit{Radius}: esse serviço também é importante para a navegação dos clientes do provedor, pois, ele faz a autenticação de todos os 
+ clientes do provedor. Caso esse serviço fique indisponível os clientes não conseguirão estabelecer conexão para navegação. Esses servidores 
+ recebem aproximadamente x?? requisições de autenticação por segundo (Figura GRAFICO FREERADIUS?? 1 e 2). Além disso, esse serviço armazena dados dos 
+ clientes: o endereço de \ac{IP} de cada cliente utilizado em um determinado período, o tráfego de dados da conexão, o tempo da conexão de cada 
+ cliente, entre outros. Essas operações resultam em um número de requisições por segundo, que esta detalhado nas Figura GRAFICO?? e Figura ;
  
- \item Sistemas: esse serviço não tem um grande impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e 
- do provedor. Totalizando x?? funcionários, caso houver uma indisponibilidade dos sistemas a maior parte desses funcionários ficarão 
+ \item Sistemas da empresa e do provedor: esse serviço não tem um grande impacto direto para os clientes, porém tem um grande impacto para os 
+ funcionários da empresa e do provedor. Caso haja uma indisponibilidade dos sistemas a maior parte desses funcionários ficarão 
  impossibilitados de trabalhar (aproximadamente x?? funcionários simultâneos de acordo com a Figura GRAFICO??), isso poderia gerar um prejuizo 
  elevado para a empresa e o provedor. Sendo que o sistema do provedor é responsável pela maior parte das operações do provedor, 
  como por exemplo, emissão de boletos e envio para clientes, atendimento de clientes, comunicação interna da empresa, vendas, 
@@ -446,7 +462,8 @@ Tendo esses serviços, pode-se identificar quais máquinas virtuais serão inclu
  \item \textit{SimplesIP}
 \end{itemize}
 
-Sendo assim, os recursos das máquinas virtuais, citadas anteriormente, somados são 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco.
+Sendo assim, os recursos das máquinas virtuais, citadas anteriormente, somados são 11 \textit{cores} de processamento, 12 GB de memória e 
+156 GB de disco.
 
 -Exibir disponibilidade média atual dos serviços, com gráficos??
 

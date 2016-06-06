@@ -34,7 +34,7 @@ nos sistemas de computação \cite{maziero2013}:
   \cite{buyya2013};
   \item Instruções de sistema ou \textit{System \ac{ISA}}: essas instruções geralmente são disponibilizadas para o núcleo do sistema operacional. 
   Elas são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo 
-  supervisor (ou modo \textit{kernel}), que permitem realizar operações sensíveis\footnote{Operações sensíveis são instruções que podem alterar o 
+  supervisor (ou modo \textit{kernel}), que permitem realizar operações sensíveis\footnote[1]{Operações sensíveis são instruções que podem alterar o 
   estado do processador.} no \textit{hardware} \cite{buyya2013}. Como exemplo de instruções de sistema pode-se citar as instruções que alteram 
   o estado dos registradores do processador; % entrada e saida (E/S)
  \end{itemize}
@@ -146,7 +146,7 @@ Existem basicamente duas arquiteturas de hipervisor de sistema, que são apresen
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=450px]{img/vms_arquiteturas.eps}
+ \includegraphics[width=430px]{img/vms_arquiteturas.eps}
  \caption{Arquiteturas de máquinas virtuais de sistema.}
  \label{fig:vms_arquiteturas}
  Fonte: \citet{macedo2016}
@@ -208,7 +208,7 @@ são a virtualização total e a paravirtualização (Figura \ref{fig:vms_implem
 \begin{itemize}
  \item Virtualização total: nesta estratégia todas as interfaces de acesso ao \textit{hardware} são virtualizadas. Desta forma, possibilita-se 
  que os sistemas operacionais convidados executem como se estivessem diretamente sobre o \textit{hardware}. Na virtualização total o conjunto de 
- instruções do processador é acessível somente ao hipervisor, sendo que essa estratégia utiliza tradução dinâmica\footnote{A tradução dinâmica 
+ instruções do processador é acessível somente ao hipervisor, sendo que essa estratégia utiliza tradução dinâmica\footnote[1]{A tradução dinâmica 
  analisa e reorganiza as instruções de um sistema convidado para melhorar o desempenho da execução, além disso a tradução dinâmica adapta as 
  instruções do sistema convidado para o sistema real.} para computar as instruções do sistema convidado. A grande vantagem dessa estratégia é a 
  possibilidade de um sistema convidado ser executado sem a necessidade de ser modificado. Porém, essa estratégia possui um desempenho inferior 
