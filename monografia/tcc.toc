@@ -1,39 +1,39 @@
 \select@language {brazilian}
 \contentsline {chapter}{Lista de siglas}{4}
-\contentsline {chapter}{Lista de Figuras}{5}
-\contentsline {chapter}{Lista de Tabelas}{6}
-\contentsline {chapter}{Resumo}{7}
-\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{8}
-\contentsline {section}{\numberline {1.1}Objetivos}{9}
-\contentsline {section}{\numberline {1.2}Estrutura do trabalho}{9}
-\contentsline {chapter}{\numberline {2}Alta disponibilidade}{10}
-\contentsline {section}{\numberline {2.1}Toler\IeC {\^a}ncia a falhas}{10}
-\contentsline {section}{\numberline {2.2}Redund\IeC {\^a}ncia}{12}
-\contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo da alta disponibilidade}{13}
-\contentsline {section}{\numberline {2.4}Considera\IeC {\c c}\IeC {\~o}es finais}{14}
-\contentsline {chapter}{\numberline {3}Virtualiza\IeC {\c c}\IeC {\~a}o}{15}
-\contentsline {section}{\numberline {3.1}M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o}{17}
-\contentsline {section}{\numberline {3.2}M\IeC {\'a}quinas virtuais de sistema}{18}
-\contentsline {subsection}{\numberline {3.2.1}Arquiteturas de m\IeC {\'a}quinas virtuais de sistema}{19}
-\contentsline {subsection}{\numberline {3.2.2}Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema}{20}
-\contentsline {section}{\numberline {3.3}Vantagens das m\IeC {\'a}quinas virtuais}{21}
-\contentsline {subsection}{\numberline {3.3.1}Virtualiza\IeC {\c c}\IeC {\~a}o de Desktop}{21}
-\contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{22}
-\contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{23}
-\contentsline {chapter}{\numberline {4}Estudo de caso}{24}
-\contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico}{25}
-\contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{27}
-\contentsline {section}{\numberline {4.3}Servidores com virtualiza\IeC {\c c}\IeC {\~a}o}{28}
-\contentsline {subsection}{\numberline {4.3.1}Servidor Brina}{28}
-\contentsline {subsection}{\numberline {4.3.2}Servidor Fulmine}{29}
-\contentsline {subsection}{\numberline {4.3.3}Servidor Piova}{30}
-\contentsline {subsection}{\numberline {4.3.4}Servidor Raggio}{32}
-\contentsline {subsection}{\numberline {4.3.5}Servidor Tempesta}{32}
-\contentsline {subsection}{\numberline {4.3.6}Servidor Tuono}{33}
-\contentsline {subsection}{\numberline {4.3.7}Servidor Venti}{34}
-\contentsline {section}{\numberline {4.4}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{35}
-\contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{37}
-\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{38}
-\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{38}
-\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{39}
-\contentsline {chapter}{Refer{\^e}ncias}{40}
+\contentsline {chapter}{Lista de Figuras}{6}
+\contentsline {chapter}{Lista de Tabelas}{7}
+\contentsline {chapter}{Resumo}{8}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{9}
+\contentsline {section}{\numberline {1.1}Objetivos}{10}
+\contentsline {section}{\numberline {1.2}Estrutura do trabalho}{10}
+\contentsline {chapter}{\numberline {2}Alta disponibilidade}{11}
+\contentsline {section}{\numberline {2.1}Toler\IeC {\^a}ncia a falhas}{11}
+\contentsline {section}{\numberline {2.2}Redund\IeC {\^a}ncia}{13}
+\contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo da alta disponibilidade}{14}
+\contentsline {section}{\numberline {2.4}Considera\IeC {\c c}\IeC {\~o}es finais}{15}
+\contentsline {chapter}{\numberline {3}Virtualiza\IeC {\c c}\IeC {\~a}o}{16}
+\contentsline {section}{\numberline {3.1}M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o}{18}
+\contentsline {section}{\numberline {3.2}M\IeC {\'a}quinas virtuais de sistema}{19}
+\contentsline {subsection}{\numberline {3.2.1}Arquiteturas de m\IeC {\'a}quinas virtuais de sistema}{20}
+\contentsline {subsection}{\numberline {3.2.2}Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema}{21}
+\contentsline {section}{\numberline {3.3}Vantagens das m\IeC {\'a}quinas virtuais}{22}
+\contentsline {subsection}{\numberline {3.3.1}Virtualiza\IeC {\c c}\IeC {\~a}o de Desktop}{22}
+\contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{23}
+\contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{24}
+\contentsline {chapter}{\numberline {4}Estudo de caso}{25}
+\contentsline {section}{\numberline {4.1}Ambiente f\IeC {\'\i }sico}{26}
+\contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{28}
+\contentsline {section}{\numberline {4.3}Servidores com virtualiza\IeC {\c c}\IeC {\~a}o}{29}
+\contentsline {subsection}{\numberline {4.3.1}Servidor Brina}{29}
+\contentsline {subsection}{\numberline {4.3.2}Servidor Fulmine}{30}
+\contentsline {subsection}{\numberline {4.3.3}Servidor Piova}{31}
+\contentsline {subsection}{\numberline {4.3.4}Servidor Raggio}{33}
+\contentsline {subsection}{\numberline {4.3.5}Servidor Tempesta}{33}
+\contentsline {subsection}{\numberline {4.3.6}Servidor Tuono}{34}
+\contentsline {subsection}{\numberline {4.3.7}Servidor Venti}{35}
+\contentsline {section}{\numberline {4.4}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{36}
+\contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{40}
+\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{41}
+\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{41}
+\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{42}
+\contentsline {chapter}{Refer{\^e}ncias}{43}

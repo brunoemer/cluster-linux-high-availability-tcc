@@ -420,52 +420,116 @@ Esses serviços são listados a seguir:
 \section{Serviços críticos}
 \label{section:servcrit}
 
-Na seção anterior foram detalhados todos os serviços que estão atualmente disponíveis na empresa. Nesta seção serão descritos os serviços críticos 
-para a empresa. Os seguintes critérios serão utilizados para definir os serviços críticos: 
+Nas seções anteriores foram detalhados todos os serviços que estão atualmente disponíveis na empresa. Nesta seção serão descritos os serviços 
+críticos para a empresa. 
+
+Para selecionar os serviços mais utilizados pode-se compará-los utilizando um valor em comum entre todos os servidores, que é o número de 
+conexões \ac{TCP} e transmissões \ac{UDP}. Além disso, será utilizado o número de elementos de cada serviço, como por exemplo a quantidade de 
+contas de \textit{e-mail} em um servidor de \textit{e-mail} e a quantidade de equipamentos monitorados por um servidor de monitoramento. 
+Abaixo está a Tabela X??
+
+
+
+Os seguintes critérios serão utilizados para definir esses serviços críticos: 
 \begin{itemize}
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
- da empresa. De fato, se um cliente ficar sem acesso à internet, a sua mensalidade é reduzida de acordo com o tempo que ele ficou sem acesso; 
+ da empresa. De fato, se um cliente ficar sem acesso à internet, o cliente terá um desconto proporcional ao tempo que ficou sem acesso; 
  \item O número de requisições em um determinado tempo: esse número é importante, uma vez que indicam a quantidade de usuários que dependem do 
- serviço. São exemplos dessa medida a quantidade de acessos por minuto em um servidor de hospedagens de sites, ou quantidade de requisições 
+ serviço. São exemplos dessa medida a quantidade de acessos por minuto em um servidor de hospedagens de sites e a quantidade de requisições 
  \ac{DNS} em um servidor recursivo;
- \item O volume de objetos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos elementos existem em um serviço.
- Como exemplo pode-se citar a quantidade de sites em um servidor de hospedagem, e a quantidade de equipamentos monitorados por um servidor 
- de monitoramento.
+ %\item O volume de elementos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos objetos existem em um serviço.
+ %Como por exemplo a quantidade de contas de \textit{e-mail} em um servidor de \textit{e-mail} e a quantidade de equipamentos monitorados por um 
+ %servidor de monitoramento.
 \end{itemize}
 
 Considerando esses critérios, foram definidos que os serviços mais críticos são:
 \begin{itemize}
- \item \ac{DNS} recursivo primário: esse serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor. Esse 
- é o único serviço que todos os clientes utilizam, que totalizam aproximadamente 9000 clientes. O objetivo de um provedor é fornecer uma 
- navegação de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. Outro importante critério é o 
- número de requisições por segundo (Figura \ref{fig:passata_day}), que é o maior entre todos os outros serviços;
+ \item \ac{DNS} recursivo primário: esse serviço foi classificado como mais importante pois possui um impacto direto nos clientes do provedor. 
+ Esse é o único serviço que todos os clientes e funcionários utilizam, sendo que os clientes são aproximadamente 9000. O objetivo de um provedor 
+ é fornecer uma navegação de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. Outro importante critério
+ que pode ser aplicado ao \ac{DNS} recursivo é o número de requisições por segundo, que chega aproximadamente a 1150 (Figura \ref{fig:passata_day}),
+ e assim esse serviço se torna o maior entre todos os outros;
  
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/passata_day.eps}
+ \includegraphics[width=310px]{img/passata_day.eps}
  \caption{Gráfico de requisições DNS.}
  \label{fig:passata_day}
 \end{figure}
 
  \item \textit{Radius}: esse serviço também é importante para a navegação dos clientes do provedor, pois, ele faz a autenticação de todos os 
  clientes do provedor. Caso esse serviço fique indisponível os clientes não conseguirão estabelecer conexão para navegação. Esses servidores 
- recebem aproximadamente x?? requisições de autenticação por segundo (Figura GRAFICO FREERADIUS?? 1 e 2). Além disso, esse serviço armazena dados dos 
- clientes: o endereço de \ac{IP} de cada cliente utilizado em um determinado período, o tráfego de dados da conexão, o tempo da conexão de cada 
- cliente, entre outros. Essas operações resultam em um número de requisições por segundo, que esta detalhado nas Figura GRAFICO?? e Figura ;
+ recebem uma média de 1,6 requisições de autenticação por segundo (Figura \ref{fig:speedauth_auth_week} e \ref{fig:masterauth_auth_week}). 
+ Além disso, esse serviço armazena os seguintes dados dos clientes: o endereço de \ac{IP} de cada cliente utilizado em um determinado período, 
+ o tráfego de dados da conexão, o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. 
+ Essas operações resultam em um número de requisições por segundo, em média 23 requisições, que está detalhado na 
+ Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
  
- \item Sistemas da empresa e do provedor: esse serviço não tem um grande impacto direto para os clientes, porém tem um grande impacto para os 
- funcionários da empresa e do provedor. Caso haja uma indisponibilidade dos sistemas a maior parte desses funcionários ficarão 
- impossibilitados de trabalhar (aproximadamente x?? funcionários simultâneos de acordo com a Figura GRAFICO??), isso poderia gerar um prejuizo 
- elevado para a empresa e o provedor. Sendo que o sistema do provedor é responsável pela maior parte das operações do provedor, 
- como por exemplo, emissão de boletos e envio para clientes, atendimento de clientes, comunicação interna da empresa, vendas, 
- ativações de novos clientes, entre outros;
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=310px]{img/speedauth_auth_week.eps}
+ \caption{Gráfico de requisições de autenticação do servidor Speedauth.}
+ \label{fig:speedauth_auth_week}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=310px]{img/masterauth_auth_week.eps}
+ \caption{Gráfico de requisições de autenticação do servidor Masterauth.}
+ \label{fig:masterauth_auth_week}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=310px]{img/speedauth_acct_week.eps}
+ \caption{Gráfico de requisições de armazenamento do servidor Speedauth.}
+ \label{fig:speedauth_acct_week}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=310px]{img/masterauth_acct_week.eps}
+ \caption{Gráfico de requisições de armazenamento do servidor Masterauth.}
+ \label{fig:masterauth_acct_week}
+\end{figure}
+
+ \item Sistemas da empresa e do provedor: o sistema do provedor é responsável pela maior parte das operações do provedor, como por exemplo, 
+ emissão de boletos e envio para clientes, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre 
+ outros. Esse serviço não tem um impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e do provedor. 
+ Caso haja uma indisponibilidade dos sistemas a maior parte desses funcionários ficarão impossibilitados de trabalhar, sendo que são 
+ aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a 
+ empresa e o provedor. Outro critério que pode ser utilizando para esse serviço são as requisições por segundo, que são recebidas pelo sistema 
+ principal do provedor e ficam aproximadamente entre 3 e 4 por segundo, conforme Figura \ref{fig:soldi_week};
  
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=310px]{img/ejabberd_week.eps}
+ \caption{Gráfico usuários simultâneos de sistema.}
+ \label{fig:ejabberd_week}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=310px]{img/soldi_week.eps}
+ \caption{Gráfico de requisições por segundo do maior sistema.}
+ \label{fig:soldi_week}
+\end{figure}
+
  \item Telefonia: esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre clientes e funcionários, 
- e também entre funcionários e outros funcionários, sendo essencial para qualquer empresa. Sabendo que possui uma média de x?? ligações por xx
- (Figura GRAFICO??), sendo que essas ligações são utilizadas por todos o setores do provedor e também da empresa. Exemplos práticos são: 
- atendimento a clientes para suporte técnico, comunicação interna entre funcionários, comunicação com técnicos externos, cobranças a clientes 
- inadimplentes, vendas, entre outros. Levando isso em consideração, se esse serviço ficar indisponível irá gerar prejuízos para a empresa.
+ e também entre funcionários e outros funcionários, sendo essencial para qualquer empresa. Exemplos desse serviço são: atendimento a clientes 
+ para fins de suporte técnico, comunicação interna entre funcionários, comunicação com técnicos externos, cobranças a clientes inadimplentes, 
+ vendas, entre outros. Levando isso em consideração, se esse serviço ficar indisponível irá gerar prejuízos para a empresa. 
+ No mês de maio de 2016 o serviço recebeu xx ligações no total (Tabela xx??), sendo que essas ligações são utilizadas por todos o setores do 
+ provedor e também da empresa. O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos simultaneamente no servidor 
+ de telefonia, com isso pode-se perceber que existem de 20 e 30 ligações que são feitas durante o horário comercial.
 \end{itemize}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=310px]{img/simplesip_week.eps}
+ \caption{Gráfico de requisições por segundo do maior sistema.}
+ \label{fig:simplesip_week}
+\end{figure}
 
 Tendo esses serviços, pode-se identificar quais máquinas virtuais serão incluídas no ambiente de alta disponibilidade, que são:
 \begin{itemize}
@@ -479,7 +543,7 @@ Tendo esses serviços, pode-se identificar quais máquinas virtuais serão inclu
 Sendo assim, os recursos das máquinas virtuais, citadas anteriormente, somados são 11 \textit{cores} de processamento, 12 GB de memória e 
 156 GB de disco.
 
--Exibir disponibilidade média atual dos serviços, com gráficos??
+-Exibir disponibilidade média atual dos serviços, com gráficos?? ou na implementação?
 
 \section{Considerações finais}
 
@@ -497,14 +561,14 @@ que serão utilizadas para essa implementação.
 %quantidade de dados armazenados no db em x tempo, tráfego utilizado, tempo conexao\\
 %numero de usuarios\\
 %-Sistemas (impacto indireto para clientes): \\
-%gasto com funcionarios ociosos\\
+%gasto com funcionários ociosos\\
 %quantidade de atendimento a clientes\\
 %numero de cobrancas enviadas para clientes efetuar pagamento\\
-%comunicacao entre setores e funcionarios\\
+%comunicacao entre setores e funcionários\\
 %numero de usuarios\\
 %-Telefonia (impacto indireto para clientes): \\
 %quantidade de atendimento a clientes\\
-%comunicacao entre setores e funcionarios\\
+%comunicacao entre setores e funcionários\\
 %ligacoes saintes, atendimento, cobranca, tecnicos instalacoes internet\\
 %numero de usuarios\\
 
