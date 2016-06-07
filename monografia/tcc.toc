@@ -32,8 +32,8 @@
 \contentsline {subsection}{\numberline {4.3.6}Servidor Tuono}{34}
 \contentsline {subsection}{\numberline {4.3.7}Servidor Venti}{35}
 \contentsline {section}{\numberline {4.4}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{36}
-\contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{40}
-\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{41}
-\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{41}
-\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{42}
-\contentsline {chapter}{Refer{\^e}ncias}{43}
+\contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{41}
+\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{42}
+\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{42}
+\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{43}
+\contentsline {chapter}{Refer{\^e}ncias}{44}

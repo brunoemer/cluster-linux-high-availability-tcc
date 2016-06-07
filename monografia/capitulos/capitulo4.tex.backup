@@ -82,7 +82,7 @@ O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutu
  \fcolorbox{black}{white}{
   \includegraphics[width=380px]{img/servfisicos.eps}
  }
- \caption{Modelo de estrutura física. BORDA ??}
+ \caption{Modelo de estrutura física.}
  \label{fig:servfisicos}
 \end{figure}
 
@@ -328,10 +328,10 @@ Esses serviços são listados a seguir:
  \item \textit{Merak}: esse servidor fornece serviço de \textit{e-mail}. Ele possui uma configuração de 6 \textit{cores} para processamento, 
  10 GB de memória e 1000 GB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e executa o \textit{software} 
  \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços de envios de \textit{e-mails} (\ac{SMTP}), recebimentos 
- de \textit{e-mails} (\ac{POP} e \ac{IMAP}), Webmail (\ac{PHP}) e Anti-spam;
+ de \textit{e-mails} (\ac{POP} e \ac{IMAP}), Webmail (\ac{PHP}) e Anti-spam.
+ Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor;
  %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
- %Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor.
-
+ 
  \item \textit{Quebei}: sua configuração é 1 \textit{core} de processamento, 3 GB de memória e 140 GB de disco. Esse servidor possui o 
  sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e sua função é gerenciar o \textit{backup} dos outros servidores. Para isso 
  ele utiliza a ferramenta \textit{Bacula 5.2.6} \cite{bacula} (pacote \textit{bacula-director-common 5.2.6}). Além disso, esse servidor possui 
@@ -423,9 +423,32 @@ Esses serviços são listados a seguir:
 Nas seções anteriores foram detalhados todos os serviços que estão atualmente disponíveis na empresa. Nesta seção serão descritos os serviços 
 críticos para a empresa. 
 
+Para selecionar os serviços mais utilizados pode-se compará-los utilizando algumas variáveis em comum para todos os servidores, que são o número 
+de conexões \ac{TCP} e transmissões \ac{UDP} e o número de elementos de cada serviço, esses elementos são por exemplo a quantidade de 
+contas de \textit{e-mail} em um servidor de \textit{e-mail} ou a quantidade de equipamentos monitorados por um servidor de monitoramento. 
+Abaixo está a Tabela \ref{tab:servicoscompara} que possui os principais servidores e as variáveis:
 
-Tabela conexões e objetos.??
-
+%graficos fw_contrack e netstat
+\begin{table}[h!]
+\caption{Principais servidores comparados.}
+\label{tab:servicoscompara}
+\begin{center}
+%\def\arraystretch{1}
+%\setlength{\tabcolsep}{0.15cm}
+\begin{tabular}{|p{2cm}|l|l|l|}\hline
+Servidor & Elementos & Conexões TCP & Transmissões UDP\\\hline
+Masterauth & 966 & 101 & 80\\\hline
+Merak & 1727 & 107 & 0\\\hline
+Ns & 358 & 1,02 & 1023?\\\hline
+Passata & 0 & 1,19 & 23430\\\hline
+Rauco & 109 & 12,87 & 0\\\hline
+Roncon & 122 & 5,78 & 0\\\hline
+SimplesIP & 36 & 41,11 & ?\\\hline
+Soldi & 27 & 36,16 & 278,66\\\hline
+Speedauth & 7878 & 51,02 & 653,36\\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 Os seguintes critérios serão utilizados para definir esses serviços críticos: 
 \begin{itemize}
@@ -434,9 +457,9 @@ Os seguintes critérios serão utilizados para definir esses serviços críticos
  \item O número de requisições em um determinado tempo: esse número é importante, uma vez que indicam a quantidade de usuários que dependem do 
  serviço. São exemplos dessa medida a quantidade de acessos por minuto em um servidor de hospedagens de sites e a quantidade de requisições 
  \ac{DNS} em um servidor recursivo;
- \item O volume de objetos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos elementos existem em um serviço.
- Como por exemplo a quantidade de contas de \textit{e-mail} em um servidor de \textit{e-mail} e a quantidade de equipamentos monitorados por um 
- servidor de monitoramento.
+ %\item O volume de elementos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos objetos existem em um serviço.
+ %Como por exemplo a quantidade de contas de \textit{e-mail} em um servidor de \textit{e-mail} e a quantidade de equipamentos monitorados por um 
+ %servidor de monitoramento.
 \end{itemize}
 
 Considerando esses critérios, foram definidos que os serviços mais críticos são:
@@ -492,11 +515,12 @@ Considerando esses critérios, foram definidos que os serviços mais críticos s
 
  \item Sistemas da empresa e do provedor: o sistema do provedor é responsável pela maior parte das operações do provedor, como por exemplo, 
  emissão de boletos e envio para clientes, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre 
- outros. Esse serviço não tem um impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e do provedor. 
+ outros. Esse sistema não tem um impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e do provedor. 
  Caso haja uma indisponibilidade dos sistemas a maior parte desses funcionários ficarão impossibilitados de trabalhar, sendo que são 
  aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a 
  empresa e o provedor. Outro critério que pode ser utilizando para esse serviço são as requisições por segundo, que são recebidas pelo sistema 
- principal do provedor e ficam aproximadamente entre 3 e 4 por segundo, conforme Figura \ref{fig:soldi_week};
+ principal do provedor e ficam aproximadamente entre 3 e 4 por segundo, conforme Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros
+ 27 sistemas, de outros clientes, nesse mesmo servidor;
  
 \begin{figure}[h!]
  \centering
@@ -516,7 +540,7 @@ Considerando esses critérios, foram definidos que os serviços mais críticos s
  e também entre funcionários e outros funcionários, sendo essencial para qualquer empresa. Exemplos desse serviço são: atendimento a clientes 
  para fins de suporte técnico, comunicação interna entre funcionários, comunicação com técnicos externos, cobranças a clientes inadimplentes, 
  vendas, entre outros. Levando isso em consideração, se esse serviço ficar indisponível irá gerar prejuízos para a empresa. 
- No mês de maio de 2016 o serviço recebeu xx ligações no total (Tabela xx??), sendo que essas ligações são utilizadas por todos o setores do 
+ No mês de maio de 2016 a empresa recebeu 15922 ligações no total, com duração total de 67:40:14, sendo que essas ligações são utilizadas por todos o setores do 
  provedor e também da empresa. O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos simultaneamente no servidor 
  de telefonia, com isso pode-se perceber que existem de 20 e 30 ligações que são feitas durante o horário comercial.
 \end{itemize}
