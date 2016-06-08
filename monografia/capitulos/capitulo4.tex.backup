@@ -424,33 +424,61 @@ Nas seções anteriores foram detalhados todos os serviços que estão atualment
 críticos para a empresa. 
 
 Para selecionar os serviços mais utilizados pode-se compará-los utilizando algumas variáveis em comum para todos os servidores, que são o número 
-de conexões \ac{TCP} e transmissões \ac{UDP} e o número de elementos de cada serviço, esses elementos são por exemplo a quantidade de 
+de conexões \ac{TCP}, as transmissões \ac{UDP} e o número de elementos de cada serviço, esses elementos são por exemplo a quantidade de 
 contas de \textit{e-mail} em um servidor de \textit{e-mail} ou a quantidade de equipamentos monitorados por um servidor de monitoramento. 
-Abaixo está a Tabela \ref{tab:servicoscompara} que possui os principais servidores e as variáveis:
+% Abaixo está a Tabela \ref{tab:servicoscompara} que possui os principais servidores e as variáveis:
+% 
+% %graficos fw_contrack e netstat
+% \begin{table}[h!]
+% \caption{Principais servidores comparados.}
+% \label{tab:servicoscompara}
+% \begin{center}
+% \begin{tabular}{|p{2cm}|l|l|l|}\hline
+% Servidor & Elementos & Conexões TCP & Transmissões UDP\\\hline
+% Masterauth & 966 & 101 & 80\\\hline
+% Merak & 1727 & 50,7 & 0\\\hline
+% Ns & 358 & 1,02 & 1940?\\\hline
+% Passata & 0 & 1,19 & 23430\\\hline
+% Rauco & 109 & 12,87 & 0\\\hline
+% Roncon & 122 & 5,78 & 0\\\hline
+% SimplesIP & 36 & 41,11 & ?\\\hline
+% Soldi & 27 & 36,16 & 278,66\\\hline
+% Speedauth & 7878 & 51,02 & 653,36\\\hline
+% \end{tabular}
+% \end{center}
+% \end{table}
 
-%graficos fw_contrack e netstat
-\begin{table}[h!]
-\caption{Principais servidores comparados.}
-\label{tab:servicoscompara}
-\begin{center}
-%\def\arraystretch{1}
-%\setlength{\tabcolsep}{0.15cm}
-\begin{tabular}{|p{2cm}|l|l|l|}\hline
-Servidor & Elementos & Conexões TCP & Transmissões UDP\\\hline
-Masterauth & 966 & 101 & 80\\\hline
-Merak & 1727 & 107 & 0\\\hline
-Ns & 358 & 1,02 & 1023?\\\hline
-Passata & 0 & 1,19 & 23430\\\hline
-Rauco & 109 & 12,87 & 0\\\hline
-Roncon & 122 & 5,78 & 0\\\hline
-SimplesIP & 36 & 41,11 & ?\\\hline
-Soldi & 27 & 36,16 & 278,66\\\hline
-Speedauth & 7878 & 51,02 & 653,36\\\hline
-\end{tabular}
-\end{center}
-\end{table}
+O gráfico da Figura \ref{fig:servico_tcp} demonstra que os servidores que estabelecem mais conexões \ac{TCP} são o \textit{Speedauth} e o 
+\textit{Masterauth}, também pode-se perceber que os servidores \textit{Merak}, \textit{SimplesIP} e \textit{Soldi} possuem um número considerável 
+de conexões. Por outro lado, com o gráfico da Figura \ref{fig:servico_udp} pode-se perceber que o servidor \textit{Passata} possui um
+número elevado de transmissões \ac{UDP} comparado aos outros, entretanto, o servidor \textit{SimplesIP} possui o segundo maior número. Já a Figura 
+\ref{fig:servico_elemento} demonstra que o servidor \textit{Speedauth} possui um número alto de elementos, assim o destacando dos outros servidores.
+Sendo assim, pode-se fazer uma análise dos três gráficos anteriores e concluir que os servidores \textit{Passata}, \textit{Speedauth}, 
+\textit{Masterauth}, \textit{Soldi} e \textit{SimplesIP} são os servidores mais utilizados por clientes e funcionários.
 
-Os seguintes critérios serão utilizados para definir esses serviços críticos: 
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=280px]{img/servico_tcp.eps}
+ \caption{Gráfico de comparação de conexões TCP entre os principais servidores.}
+ \label{fig:servico_tcp}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=280px]{img/servico_udp.eps}
+ \caption{Gráfico de comparação de transmissões UDP entre os principais servidores.}
+ \label{fig:servico_udp}
+\end{figure}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=280px]{img/servico_elemento.eps}
+ \caption{Gráfico de comparação de elementos entre os principais servidores.}
+ \label{fig:servico_elemento}
+\end{figure}
+
+Além dos serviços mais utilizados será definido alguns critérios para ajudar com a definição dos serviços críticos. 
+Esses critérios são: 
 \begin{itemize}
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à internet, o cliente terá um desconto proporcional ao tempo que ficou sem acesso; 
@@ -480,10 +508,10 @@ Considerando esses critérios, foram definidos que os serviços mais críticos s
  \item \textit{Radius}: esse serviço também é importante para a navegação dos clientes do provedor, pois, ele faz a autenticação de todos os 
  clientes do provedor. Caso esse serviço fique indisponível os clientes não conseguirão estabelecer conexão para navegação. Esses servidores 
  recebem uma média de 1,6 requisições de autenticação por segundo (Figura \ref{fig:speedauth_auth_week} e \ref{fig:masterauth_auth_week}). 
- Além disso, esse serviço armazena os seguintes dados dos clientes: o endereço de \ac{IP} de cada cliente utilizado em um determinado período, 
- o tráfego de dados da conexão, o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. 
- Essas operações resultam em um número de requisições por segundo, em média 23 requisições, que está detalhado na 
- Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
+ Além disso, esse serviço armazena dados importantes dos clientes para um provedor, que são os seguintes dados: o endereço de \ac{IP} de cada 
+ cliente utilizado em um determinado período, o tráfego de dados da conexão, o tempo da conexão de cada cliente, o endereço \ac{MAC} dos 
+ equipamentos dos clientes, entre outros. Essas operações resultam em um número de requisições por segundo, em média 23 requisições, que está 
+ detalhado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
  
 \begin{figure}[h!]
  \centering
@@ -515,11 +543,11 @@ Considerando esses critérios, foram definidos que os serviços mais críticos s
 
  \item Sistemas da empresa e do provedor: o sistema do provedor é responsável pela maior parte das operações do provedor, como por exemplo, 
  emissão de boletos e envio para clientes, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre 
- outros. Esse sistema não tem um impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e do provedor. 
+ outros. Esse sistema não tem um grande impacto direto para os clientes, porém tem um grande impacto para os funcionários da empresa e do provedor. 
  Caso haja uma indisponibilidade dos sistemas a maior parte desses funcionários ficarão impossibilitados de trabalhar, sendo que são 
  aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a 
- empresa e o provedor. Outro critério que pode ser utilizando para esse serviço são as requisições por segundo, que são recebidas pelo sistema 
- principal do provedor e ficam aproximadamente entre 3 e 4 por segundo, conforme Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros
+ empresa e o provedor. Outro critério que pode ser utilizando para esse serviço são as requisições por segundo recebidas pelo principal sistema 
+ do provedor, essas chegam a aproximadamente 3 e 4 por segundo, conforme a Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros
  27 sistemas, de outros clientes, nesse mesmo servidor;
  
 \begin{figure}[h!]
@@ -540,9 +568,10 @@ Considerando esses critérios, foram definidos que os serviços mais críticos s
  e também entre funcionários e outros funcionários, sendo essencial para qualquer empresa. Exemplos desse serviço são: atendimento a clientes 
  para fins de suporte técnico, comunicação interna entre funcionários, comunicação com técnicos externos, cobranças a clientes inadimplentes, 
  vendas, entre outros. Levando isso em consideração, se esse serviço ficar indisponível irá gerar prejuízos para a empresa. 
- No mês de maio de 2016 a empresa recebeu 15922 ligações no total, com duração total de 67:40:14, sendo que essas ligações são utilizadas por todos o setores do 
- provedor e também da empresa. O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos simultaneamente no servidor 
- de telefonia, com isso pode-se perceber que existem de 20 e 30 ligações que são feitas durante o horário comercial.
+ Para quantificar, no mês de maio de 2016 a empresa recebeu 15922 ligações, com duração total de 67 horas e 40 minutos, sendo que essas ligações 
+ são feitas por todos os setores do provedor e também da empresa, além disso no mesmo mês foram efetuadas 674 ligações entre funcionários. 
+ O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos simultaneamente no servidor de telefonia, com isso pode-se 
+ perceber que existem de 20 e 30 ligações que são feitas durante o horário comercial.
 \end{itemize}
 
 \begin{figure}[h!]

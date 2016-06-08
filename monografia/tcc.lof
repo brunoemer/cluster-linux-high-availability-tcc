@@ -24,14 +24,17 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 4.8:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Tempesta.}}{33}
 \contentsline {figure}{\numberline {Figura\nobreakspace 4.9:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Tuono.}}{34}
 \contentsline {figure}{\numberline {Figura\nobreakspace 4.10:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Venti.}}{35}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.11:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es DNS.}}{37}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.12:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Speedauth.}}{38}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.13:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Masterauth.}}{38}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.14:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de armazenamento do servidor Speedauth.}}{39}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.15:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de armazenamento do servidor Masterauth.}}{39}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.16:}{\ignorespaces Gr\IeC {\'a}fico usu\IeC {\'a}rios simult\IeC {\^a}neos de sistema.}}{40}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.17:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{40}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.18:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{40}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.11:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de conex\IeC {\~o}es TCP entre os principais servidores.}}{36}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.12:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de transmiss\IeC {\~o}es UDP entre os principais servidores.}}{37}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.13:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de elementos entre os principais servidores.}}{37}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.14:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es DNS.}}{38}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.15:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Speedauth.}}{39}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.16:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Masterauth.}}{39}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.17:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de armazenamento do servidor Speedauth.}}{40}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.18:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de armazenamento do servidor Masterauth.}}{40}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.19:}{\ignorespaces Gr\IeC {\'a}fico usu\IeC {\'a}rios simult\IeC {\^a}neos de sistema.}}{41}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.20:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{41}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.21:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{41}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Live migration}}{43}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Live migration}}{44}
 \addvspace {10\p@ }
