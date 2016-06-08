@@ -144,14 +144,6 @@ Nesse modelo, o ambiente de virtualização de sistema é composto basicamente p
 
 Existem basicamente duas arquiteturas de hipervisor de sistema, que são apresentadas na Figura \ref{fig:vms_arquiteturas} \cite{maziero2013}:
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=430px]{img/vms_arquiteturas.eps}
- \caption{Arquiteturas de máquinas virtuais de sistema.}
- \label{fig:vms_arquiteturas}
- Fonte: \citet{macedo2016}
-\end{figure}
-
 \begin{itemize}
  \item Hipervisores nativos: esse hipervisor executa diretamente sobre o \textit{hardware}, ou seja, sem um sistema operacional
  hospedeiro. Neste caso, o hipervisor nativo faz a multiplexação dos recursos do \textit{hardware} (memória, disco rígido, interface de rede, 
@@ -162,6 +154,14 @@ Existem basicamente duas arquiteturas de hipervisor de sistema, que são apresen
  hipervisor. Exemplos de \textit{softwares} que possuem esse tipo de arquitetura são o \textit{VirtualBox} \cite{virtualbox}, 
  o \textit{VMware Player} \cite{vmwareplayer} e o \textit{QEmu} \cite{qemu}.
 \end{itemize}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=430px]{img/vms_arquiteturas.eps}
+ \caption{Arquiteturas de máquinas virtuais de sistema.}
+ \label{fig:vms_arquiteturas}
+ Fonte: \citet{macedo2016}
+\end{figure}
 
 Conclui-se que hipervisores convidados são mais flexíveis que os nativos, pois podem ser facilmente instalados ou removidos de um sistema
 operacional existente. Já os hipervisores nativos possuem melhor desempenho pois acessam o \textit{hardware} diretamente.

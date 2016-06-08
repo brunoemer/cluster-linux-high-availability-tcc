@@ -35,5 +35,6 @@
 \contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{42}
 \contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{43}
 \contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{43}
-\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster?}{44}
-\contentsline {chapter}{Refer{\^e}ncias}{45}
+\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster}{44}
+\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{45}
+\contentsline {chapter}{Refer{\^e}ncias}{46}
