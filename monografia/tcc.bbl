@@ -57,6 +57,15 @@
   \url{https://www.citrix.com/products/xenapp-xendesktop/}$>$. Acesso em 22 de
   maio de 2016.
 
+\bibitem[{ClusterLabs}(2016a){ClusterLabs}]{pacemaker} {ClusterLabs}.
+  \textbf{Pacemaker - ClusterLabs}. $<$Disponível em:
+  \url{http://clusterlabs.org/wiki/Pacemaker}$>$. Acesso em 08 de junho de
+  2016.
+
+\bibitem[{ClusterLabs}(2016b){ClusterLabs}]{clusterlabs} {ClusterLabs}.
+  \textbf{Cluster Labs - The Home of Linux Clustering}. $<$Disponível em:
+  \url{http://clusterlabs.org/}$>$. Acesso em 08 de junho de 2016.
+
 \bibitem[COSTA(2009)COSTA]{costa2009} COSTA, H. L.~A\@. \textbf{Alta
   disponibilidade e balanceamento de carga para melhoria de sistemas
   computacionais críticos usando software livre}: um estudo de caso. 2009.
@@ -102,6 +111,11 @@
 \bibitem[{ISC}(2016){ISC}]{bind} {ISC}. \textbf{Internet Systems Consortium}.
   $<$Disponível em: \url{https://www.isc.org/downloads/}$>$. Acesso em 05 de
   junho de 2016.
+
+\bibitem[JUNIOR; FREITAS(2005)JUNIOR; FREITAS]{freitas2005} JUNIOR, E. P.~F.;
+  FREITAS, R.~B.~de. \textbf{Construindo Supercomputadores com Linux - Cluster
+  Beowulf}. 2005. Trabalho de Conclusão (Curso de Redes de Comunicação) ---
+  Centro Federal de Educação Tecnológica de Goiás, Goiânia - Goiás.
 
 \bibitem[LAUREANO; MAZIERO(2008)LAUREANO; MAZIERO]{laureano2008} LAUREANO, M.
   A.~P.; MAZIERO, C.~A\@. Virtualização: conceitos e aplicações em

@@ -48,16 +48,33 @@ APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário uma ferramenta que monitora os recursos, fazendo a detecção e
-recuperação do serviço utilizando mensagens entre os servidores \cite{perkov2011}.
+recuperação do serviço utilizando mensagens entre os servidores \cite{perkov2011}. 
+Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
+de um serviço \cite{freitas2005}.
 
-Definir clusteer...
+\textit{Pacemaker} \cite{pacemaker} é uma ferramenta de detecção e recuperação de falhas a nível de serviço \cite{perkov2011}. 
+Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, sendo que ele é classificado como um \ac{CRM}, ou seja,
+faz a gerencia de recursos de um \texit{cluster}, e teve origem com a necessidade de criar um gerenciador de recursos para a ferramenta 
+\textit{Heartbeat}.
 
-\textit{Pacemaker} é uma ferramenta de detecção e recuperação de falhas a nível de serviço \cite{perkov2011}. Essa ferramenta é um projeto da
-xx, ele é classificado como um CRM...
-Continuar ??? \textit{Heartbeat} ou \textit{Corosync} \cite{zaminhani2008}.
+O \textit{Corosync} faz o sincronismo das configurações do cluster...
+
+Continuar ??? \textit{Heartbeat} ou  \cite{zaminhani2008}.
 
 cluster resource manager (CRM) which has the task of starting and stopping the services (IP addresses, web servers, etc)
 
+\cite{clusterlabs}:
+Corosync provides pacemaker:
+a mechanism to reliably send messages between nodes,
+notifications when machines appear and disappear
+a list of machines that are up that is consistent throughout the cluster 
+
+Heartbeat provides:
+a mechanism to reliably send messages between nodes,
+notifications when machines appear and disappear
+a list of machines that are up that is consistent throughout the cluster 
+
+Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
 Explicar live migration \ref{fig:vms_migration}
 %http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/

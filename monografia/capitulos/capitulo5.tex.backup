@@ -4,12 +4,19 @@
 Neste capítulo será proposto uma solução de implementação de um ambiente de alta disponibilidade para os serviços críticos da empresa, que 
 foram selecionados no capítulo anterior. Com isso pretende-se atingir o objetivo deste trabalho.
 
-O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, para então liberar o 
-\textit{hardware} suficiente, assim possibilitando a implementação do ambiente de alta disponibilidade. 
+O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, liberando assim o 
+\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
 
-Após ter sido feito a reorganização das máquinas será montado um ambiente com dois servidores e configurá-los 
-As ferramentas necessárias para a implementação podem ser divididas em dois tipos: ferramenta de replicação de dados (Seção \ref{section:toolrepl}) 
-e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais em caso de falhas (Seção \ref{section:toolcluster}).
+Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
+configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
+tranferidas para o outro servidor físico. 
+A configuração deverá ser: 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco para cada servidor. Essa configuração foi 
+calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas no capítulo
+anterior na Seção \ref{section:servcrit}.
+
+As ferramentas necessárias para essa implementação podem ser divididas em dois tipos: ferramenta de replicação de dados 
+(Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais em caso de falhas 
+(Seção \ref{section:toolcluster}).
 
 \section{Ferramentas de replicação de dados}
 \label{section:toolrepl}
@@ -26,8 +33,9 @@ A solução de replicação ideal para esta implementação é um espelhamento d
 máquina remota. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware}.
 
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
-aberto, e permite a replicação de dados em tempo real de um dispositivo local. 
+aberto, e permite a replicação de dados de um dispositivo local em tempo real. 
 APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
+
 % dispositivo primario e secundario zaminhani2008
 % Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
 %dependendo da aplicação, a execução ocorra em todos os nós do cluster
@@ -36,12 +44,34 @@ APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
 %GFS 7 por exemplo. Como a abordagem deste trabalho é cluster de alta
 %disponibilidade, a utilização do DRBD no modo Ativo/Ativo não será discutida.
 
-\section{Ferramentas de gerenciamento de cluster?}
+\section{Ferramentas de gerenciamento de cluster}
 \label{section:toolcluster}
 
-Para ser possível implementar uma solução 
-\textit{Pacemaker}
-\textit{Heartbeat} \cite{zaminhani2008}.
+Para ser possível implementar uma solução de alta disponibilidade é necessário uma ferramenta que monitora os recursos, fazendo a detecção e
+recuperação do serviço utilizando mensagens entre os servidores \cite{perkov2011}. 
+Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
+de um serviço \cite{freitas2005}.
+
+\textit{Pacemaker} \cite{pacemaker} é uma ferramenta de detecção e recuperação de falhas a nível de serviço \cite{perkov2011}. Essa ferramenta é um projeto de 
+código aberto mantido pela \cite{clusterlabs}, ele é classificado como um \ac{CRM}...
+
+O \textit{Corosync} faz o sincronismo das configurações do cluster...
+
+Continuar ??? \textit{Heartbeat} ou  \cite{zaminhani2008}.
+
+cluster resource manager (CRM) which has the task of starting and stopping the services (IP addresses, web servers, etc)
+
+
+Explicar live migration \ref{fig:vms_migration}
+%http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/vms_migration.eps}
+ \caption{Live migration}
+ Fonte: \citet{spaniol2015}
+ \label{fig:vms_migration}
+\end{figure}
 
 
 %reorganização de vms
