@@ -10,12 +10,12 @@ O primeiro passo desta implementação é fazer uma reorganização das máquina
 Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
 tranferidas para o outro servidor físico. 
-A configuração deverá ser: 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco para cada servidor. Essa configuração foi 
-calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas no capítulo
+A configuração dos servidores deverá ser de 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco, sendo que essa configuração 
+foi calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas no capítulo
 anterior na Seção \ref{section:servcrit}.
 
-As ferramentas necessárias para essa implementação podem ser divididas em dois tipos: ferramenta de replicação de dados 
-(Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais em caso de falhas 
+As ferramentas necessárias para essa implementação podem ser divididas em dois grupos: ferramenta de replicação de dados 
+(Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais no caso de alguma falha 
 (Seção \ref{section:toolcluster}).
 
 \section{Ferramentas de replicação de dados}
@@ -24,17 +24,19 @@ As ferramentas necessárias para essa implementação podem ser divididas em doi
 Replicação de dados pode ser feita de diversas maneiras, pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
 Dependendo do objetivo e da aplicação pode-se usar ferramentas como por exemplo o \textit{rsync}, que faz o sincronismo de dados de uma origem
 para um destino. Sendo assim, não é possível utilizar essa ferramenta, pois ela não faz a replicação em tempo real, ou seja, se for necessário
-utilizar os dados de destino ocorrerá perda de dados. Outra forma de replicação é a de discos com \ac{RAID} por exemplo, essa solução é eficaz
-para garantir que o sistema não fique indisponível em caso de falha de discos\footnote{Lembrando que essa solução é utilizada no ambiente atual
-para aumentar a disponibilidade dos servidores}, porém não garante a disponibilidade quando algum componente de \textit{hardware} falhar 
-\cite{zaminhani2008}.
+utilizar os dados de destino ocorrerá perda de dados devido ao tempo de sincronismo. Outra forma de replicação é a de discos com \ac{RAID} 
+por exemplo, essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote{Lembrando que essa 
+solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores}, porém não garante a disponibilidade quando \textit{software}
+ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
 
-A solução de replicação ideal para esta implementação é um espelhamento de dados através da redes, assim permitindo a cópia dos dados para uma
-máquina remota. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware}.
+A solução de replicação ideal para esta implementação é um espelhamento de dados através da redes, sendo que essa solução permite a cópia dos 
+dados para uma máquina remota em tempo real. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware}.
 
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
 aberto, e permite a replicação de dados de um dispositivo local em tempo real. 
 APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
+
+figura??
 
 % dispositivo primario e secundario zaminhani2008
 % Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
@@ -48,33 +50,88 @@ APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO?
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário uma ferramenta que monitora os recursos, fazendo a detecção e
-recuperação do serviço utilizando mensagens entre os servidores \cite{perkov2011}. 
+recuperação do serviço utilizando mensagens entre os servidores, que é denominada como um \textit{cluster} \cite{perkov2011}. 
 Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
 de um serviço \cite{freitas2005}.
 
-\textit{Pacemaker} \cite{pacemaker} é uma ferramenta de detecção e recuperação de falhas a nível de serviço \cite{perkov2011}. 
-Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, sendo que ele é classificado como um \ac{CRM}, ou seja,
-faz a gerencia de recursos de um \texit{cluster}, e teve origem com a necessidade de criar um gerenciador de recursos para a ferramenta 
-\textit{Heartbeat}.
+Essas ferramentas de gerenciamento de \textit{cluster} permitem detecção de falhas a nível de nó e a nível de recursos, ou seja, pode detectar
+falhas de \textit{hardware} e falhas de serviços (recursos).
+Elas são conhecidas como \ac{CRM}, cujo sua função é fazer a gerência de recursos de um \textit{cluster}.
 
-O \textit{Corosync} faz o sincronismo das configurações do cluster...
+O \ac{CRM} escolhido para gerenciar o ambiente foi o \textit{Pacemaker} ...
+Outras ferramentas CRM:
+Microsoft com+ cluster ???
+ZS3-2 Clustering ???
 
-Continuar ??? \textit{Heartbeat} ou  \cite{zaminhani2008}.
+O \textit{Pacemaker} \cite{pacemaker}, que pode ser definido como uma ferramenta de detecção e recuperação de falhas a nível de 
+serviço \cite{perkov2011}. Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de 
+criar um gerenciador de recursos para a ferramenta \textit{Heartbeat} \cite{heartbeat}. 
 
-cluster resource manager (CRM) which has the task of starting and stopping the services (IP addresses, web servers, etc)
+O \ac{CRM} \textit{Pacemaker} possui algumas características que estão listadas abaixo:
+\begin{itemize}
+ \item Inicia e para serviços;
+ \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} pode ser feita em qualquer nó;
+ \item ...
+\end{itemize}
+
+A arquitetura do \textit{Pacemaker} pode ser dividida em três partes:
+\begin{itemize}
+ \item 
+\end{itemize}
+
+Esse \ac{CRM} funciona em conjunto com ferramentas de troca de mensagens ...
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/pacemaker_tools.eps}
+ \caption{Pacemaker estrutura}
+ Fonte: \citet{pacemaker}
+ \label{fig:pacemaker_tools}
+\end{figure}
+
+O \textit{Heartbeat} é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
+\textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós \cite{clusterlabs}. O \textit{Heartbeat} é um subprojeto do
+\textit{Linux-HA} \cite{linuxha}.
+
+As ferramentas \textit{OpenAIS} e \textit{Corosync} ...
 
 \cite{clusterlabs}:
 Corosync provides pacemaker:
 a mechanism to reliably send messages between nodes,
 notifications when machines appear and disappear
 a list of machines that are up that is consistent throughout the cluster 
-
 Heartbeat provides:
 a mechanism to reliably send messages between nodes,
 notifications when machines appear and disappear
 a list of machines that are up that is consistent throughout the cluster 
+--
+http://serverfault.com/questions/269831/relation-between-heartbeat-openais-corosync
+well i reached answer on myself! clustering include two part:
+1.cluster resource management
+2.infrastructure with massaging layer
+legacy heartbeat is broken into heartbeat message layer and pacemaker so pacemaker is CRM.
+and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.highavailability.user/32355
+There are, however, features in Pacemaker that require OpenAIS which will work only with Corosync, not Heartbeat. Those features are concerned 
+with the distributed lock managers used by cLVM (but not regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you must select 
+OpenAIS/Corosync. If you do not, you're free to choose.
+as: http://www.clusterlabs.org/wiki/FAQ
+Originally Corosync and OpenAIS were the same thing. Then they split into two parts... the core messaging and membership capabilities are now 
+called Corosync, and OpenAIS retained the layer containing the implementation of the AIS standard.
+Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) 
+require the OpenAIS layer as well.
+so i went to openais/corosync and integrate it with pacemaker.
+--
+There are, however, features in Pacemaker that require OpenAIS which
+will work only with Corosync, not Heartbeat. Those features are
+concerned with the distributed lock managers used by cLVM (but not
+regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you
+must select OpenAIS/Corosync.
 
-Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
+Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
+(such as OCFS2 and GFS2) require the OpenAIS layer as well. 
+
+cluster resource manager (CRM) which has the task of starting and stopping the services (IP addresses, web servers, etc)
+
 
 Explicar live migration \ref{fig:vms_migration}
 %http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/
