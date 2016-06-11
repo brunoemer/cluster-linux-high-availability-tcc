@@ -154,7 +154,7 @@ ambiente de alta disponibilidade, sendo elas:
 \section{Proposta de solução}
 
 O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, liberando assim o 
-\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
+\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. (COMO??)
 
 Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
@@ -208,18 +208,19 @@ falhas de \textit{hardware} e falhas de serviços (recursos).
 Elas são conhecidas como \ac{CRM}, cujo sua função é fazer a gerência de recursos de um \textit{cluster}.
 
 O \ac{CRM} escolhido para gerenciar o ambiente foi o \textit{Pacemaker} ...
-Outras ferramentas CRM:
+Outras ferramentas CRM (nao tenho certeza?):
 Microsoft com+ cluster ???
 ZS3-2 Clustering ???
 
 O \textit{Pacemaker} \cite{pacemaker}, que pode ser definido como uma ferramenta de detecção e recuperação de falhas a nível de 
-serviço \cite{perkov2011}. Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de 
-criar um gerenciador de recursos para a ferramenta \textit{Heartbeat} \cite{heartbeat}. 
+serviço \cite{perkov2011}. Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, 
+e teve origem com a necessidade de criar um gerenciador de recursos para a ferramenta \textit{Heartbeat} \cite{heartbeat}. 
 
 O \ac{CRM} \textit{Pacemaker} possui algumas características que estão listadas abaixo:
 \begin{itemize}
- \item Inicia e para serviços;
- \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} pode ser feita em qualquer nó;
+ \item Inicia e para serviços, como, por exemplo, servidor \textit{web}, interface de rede, entre outros;
+ \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} 
+ pode ser feita em qualquer nó;
  \item ...
 \end{itemize}
 
@@ -278,8 +279,6 @@ must select OpenAIS/Corosync.
 
 Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
 (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
-
-cluster resource manager (CRM) which has the task of starting and stopping the services (IP addresses, web servers, etc)
 
 
 Explicar live migration \ref{fig:vms_migration}
