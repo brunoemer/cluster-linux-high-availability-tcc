@@ -26,17 +26,14 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 4.10:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Venti.}}{35}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es DNS.}}{38}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.2:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Speedauth.}}{38}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Masterauth.}}{39}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de armazenamento do servidor Speedauth.}}{39}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.5:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de armazenamento do servidor Masterauth.}}{40}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.6:}{\ignorespaces Gr\IeC {\'a}fico usu\IeC {\'a}rios simult\IeC {\^a}neos de sistema.}}{40}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.2:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de transmiss\IeC {\~o}es UDP entre os principais servidores.}}{39}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Speedauth.}}{39}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Masterauth.}}{40}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.5:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de elementos entre os principais servidores.}}{40}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.6:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de conex\IeC {\~o}es TCP entre os principais servidores.}}{41}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.7:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{41}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.8:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{41}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.9:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de conex\IeC {\~o}es TCP entre os principais servidores.}}{42}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.10:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de transmiss\IeC {\~o}es UDP entre os principais servidores.}}{43}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.11:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de elementos entre os principais servidores.}}{43}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.12:}{\ignorespaces Pacemaker estrutura}}{45}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.13:}{\ignorespaces Live migration}}{46}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.8:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{42}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.9:}{\ignorespaces Pacemaker estrutura}}{44}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.10:}{\ignorespaces Live migration}}{45}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
