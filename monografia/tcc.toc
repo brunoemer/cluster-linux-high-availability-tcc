@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {3.3.1}Virtualiza\IeC {\c c}\IeC {\~a}o de Desktop}{22}
 \contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{23}
 \contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{24}
-\contentsline {chapter}{\numberline {4}Estudo de caso}{25}
+\contentsline {chapter}{\numberline {4}Estudo do ambiente da empresa}{25}
 \contentsline {section}{\numberline {4.1}Instala\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica}{26}
 \contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{28}
 \contentsline {section}{\numberline {4.3}Servidores com virtualiza\IeC {\c c}\IeC {\~a}o}{29}
@@ -31,10 +31,11 @@
 \contentsline {subsection}{\numberline {4.3.5}Servidor Tempesta}{33}
 \contentsline {subsection}{\numberline {4.3.6}Servidor Tuono}{34}
 \contentsline {subsection}{\numberline {4.3.7}Servidor Venti}{35}
-\contentsline {section}{\numberline {4.4}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{36}
-\contentsline {section}{\numberline {4.5}Considera\IeC {\c c}\IeC {\~o}es finais}{42}
-\contentsline {chapter}{\numberline {5}Proposta de solu\IeC {\c c}\IeC {\~a}o}{43}
-\contentsline {section}{\numberline {5.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{43}
-\contentsline {section}{\numberline {5.2}Ferramentas de gerenciamento de cluster}{44}
+\contentsline {section}{\numberline {4.4}Considera\IeC {\c c}\IeC {\~o}es finais}{36}
+\contentsline {chapter}{\numberline {5}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{37}
+\contentsline {section}{\numberline {5.1}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{37}
+\contentsline {section}{\numberline {5.2}Proposta de solu\IeC {\c c}\IeC {\~a}o}{42}
+\contentsline {section}{\numberline {5.3}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{43}
+\contentsline {section}{\numberline {5.4}Ferramentas de gerenciamento de cluster}{44}
 \contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{47}
 \contentsline {chapter}{Refer{\^e}ncias}{48}
