@@ -35,21 +35,21 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
  Esse é o único serviço que todos os clientes e funcionários utilizam. O objetivo de um provedor é fornecer uma navegação de qualidade aos seus 
  clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. O primeiro critério desse serviço é a quantidade de clientes
  que ele possui, que é aproximadamente 9000. Outro importante critério que pode ser aplicado ao \ac{DNS} recursivo é o número de 
- requisições por segundo, que chega aproximadamente a 1150 (Figura \ref{fig:passata_day}). De acordo com a Figura \ref{fig:servico_udp}, que 
+ requisições por segundo, que chega aproximadamente a 1150 (Figura \ref{fig:passata_week}). De acordo com a Figura \ref{fig:servico_udp}, que 
  compara os principais servidores da empresa através de transmissões \ac{UDP}, onde pode-se claramente perceber que o servidor \textit{Passata}
  possui um grande número de transmissões \ac{UDP}, o qual fornece o serviço de \ac{DNS} recursivo primário. 
  Assim, esse serviço se torna o maior entre todos os outros;
  
 \begin{figure}[h!]
  \centering
- \includegraphics[width=310px]{img/passata_day.eps}
+ \includegraphics[width=310px]{img/passata_week.eps}
  \caption{Gráfico de requisições DNS.}
- \label{fig:passata_day}
+ \label{fig:passata_week}
 \end{figure}
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=420px]{img/servico_udp.eps}
+ \includegraphics[width=430px]{img/servico_udp.eps}
  \caption{Gráfico de comparação de transmissões UDP entre os principais servidores.}
  \label{fig:servico_udp}
 \end{figure}
@@ -85,7 +85,7 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=420px]{img/servico_elemento.eps}
+ \includegraphics[width=430px]{img/servico_elemento.eps}
  \caption{Gráfico de comparação de elementos entre os principais servidores.}
  \label{fig:servico_elemento}
 \end{figure}
@@ -104,7 +104,7 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
  
 \begin{figure}[h!]
  \centering
- \includegraphics[width=420px]{img/servico_tcp.eps}
+ \includegraphics[width=430px]{img/servico_tcp.eps}
  \caption{Gráfico de comparação de conexões TCP entre os principais servidores.}
  \label{fig:servico_tcp}
 \end{figure}
@@ -160,8 +160,8 @@ Após ter sido feito a reorganização das máquinas virtuais será iniciado a i
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
 tranferidas para o outro servidor físico. 
 A configuração dos servidores deverá ser de 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco, sendo que essa configuração 
-foi calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas no capítulo
-anterior na Seção \ref{section:servcrit}.
+foi calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas na Seção 
+\ref{section:servcrit}.
 
 As ferramentas necessárias para essa implementação podem ser divididas em dois grupos: ferramenta de replicação de dados 
 (Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais no caso de alguma falha 
