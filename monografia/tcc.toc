@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {3.3}Vantagens das m\IeC {\'a}quinas virtuais}{22}
 \contentsline {subsection}{\numberline {3.3.1}Virtualiza\IeC {\c c}\IeC {\~a}o de Desktop}{22}
 \contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{23}
-\contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{24}
+\contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{23}
 \contentsline {chapter}{\numberline {4}Estudo do ambiente da empresa}{25}
 \contentsline {section}{\numberline {4.1}Instala\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica}{26}
 \contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{28}
