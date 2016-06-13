@@ -32,7 +32,8 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.6:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de conex\IeC {\~o}es TCP entre os principais servidores.}}{41}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.7:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{41}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.8:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{42}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.9:}{\ignorespaces Pacemaker estrutura}}{44}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.10:}{\ignorespaces Live migration}}{45}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.9:}{\ignorespaces Modelo DRBD}}{43}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.10:}{\ignorespaces Pacemaker estrutura}}{44}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.11:}{\ignorespaces Live migration}}{45}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

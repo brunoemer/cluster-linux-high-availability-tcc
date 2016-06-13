@@ -35,21 +35,21 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
  Esse é o único serviço que todos os clientes e funcionários utilizam. O objetivo de um provedor é fornecer uma navegação de qualidade aos seus 
  clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. O primeiro critério desse serviço é a quantidade de clientes
  que ele possui, que é aproximadamente 9000. Outro importante critério que pode ser aplicado ao \ac{DNS} recursivo é o número de 
- requisições por segundo, que chega aproximadamente a 1150 (Figura \ref{fig:passata_day}). De acordo com a Figura \ref{fig:servico_udp}, que 
+ requisições por segundo, que chega aproximadamente a 1150 (Figura \ref{fig:passata_week}). De acordo com a Figura \ref{fig:servico_udp}, que 
  compara os principais servidores da empresa através de transmissões \ac{UDP}, onde pode-se claramente perceber que o servidor \textit{Passata}
  possui um grande número de transmissões \ac{UDP}, o qual fornece o serviço de \ac{DNS} recursivo primário. 
  Assim, esse serviço se torna o maior entre todos os outros;
  
 \begin{figure}[h!]
  \centering
- \includegraphics[width=310px]{img/passata_day.eps}
+ \includegraphics[width=310px]{img/passata_week.eps}
  \caption{Gráfico de requisições DNS.}
- \label{fig:passata_day}
+ \label{fig:passata_week}
 \end{figure}
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=420px]{img/servico_udp.eps}
+ \includegraphics[width=430px]{img/servico_udp.eps}
  \caption{Gráfico de comparação de transmissões UDP entre os principais servidores.}
  \label{fig:servico_udp}
 \end{figure}
@@ -85,7 +85,7 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=420px]{img/servico_elemento.eps}
+ \includegraphics[width=430px]{img/servico_elemento.eps}
  \caption{Gráfico de comparação de elementos entre os principais servidores.}
  \label{fig:servico_elemento}
 \end{figure}
@@ -104,7 +104,7 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
  
 \begin{figure}[h!]
  \centering
- \includegraphics[width=420px]{img/servico_tcp.eps}
+ \includegraphics[width=430px]{img/servico_tcp.eps}
  \caption{Gráfico de comparação de conexões TCP entre os principais servidores.}
  \label{fig:servico_tcp}
 \end{figure}
@@ -141,8 +141,8 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
  \label{fig:simplesip_week}
 \end{figure}
 
-Tendo esses serviços, visto anteriormente, pode-se identificar quais máquinas virtuais deverão ser incluídas no 
-ambiente de alta disponibilidade:
+Sobre os serviços descritos anteriormente, pode-se identificar quais máquinas virtuais deverão ser incluídas no 
+ambiente de alta disponibilidade, sendo elas:
 \begin{itemize}
  \item \textit{Passata}
  \item \textit{Speedauth}
@@ -154,14 +154,14 @@ ambiente de alta disponibilidade:
 \section{Proposta de solução}
 
 O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, liberando assim o 
-\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
+\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. (COMO??)
 
 Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
 tranferidas para o outro servidor físico. 
 A configuração dos servidores deverá ser de 11 \textit{cores} de processamento, 12 GB de memória e 156 GB de disco, sendo que essa configuração 
-foi calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas no capítulo
-anterior na Seção \ref{section:servcrit}.
+foi calculada a partir da soma dos recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas na Seção 
+\ref{section:servcrit}.
 
 As ferramentas necessárias para essa implementação podem ser divididas em dois grupos: ferramenta de replicação de dados 
 (Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais no caso de alguma falha 
@@ -182,12 +182,20 @@ A solução de replicação ideal para esta implementação é um espelhamento d
 dados para uma máquina remota em tempo real. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware}.
 
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
-aberto, e permite a replicação de dados de um dispositivo local em tempo real. 
-APROFUNDAR AQUI OU NA IMPLEMENTAÇÂO? AQUI
+aberto, e permite a replicação de dados de um dispositivo local em tempo real. Os dispositivos \ac{DRBD}, que geralmente ficam em 
+\textit{/dev/drbd0}, possuem os estados primário e secundário. Entretanto, apenas um nó do \textit{cluster} pode ser o nó primário, sendo que
+esse nó é o único que terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita.
+Na Figura \ref{fig:drbd_basic} 
 
-figura??
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/drbd_basic.eps}
+ \caption{Modelo DRBD}
+ Fonte: \citet{jones2010}
+ \label{fig:drbd_basic}
+\end{figure}
 
-% dispositivo primario e secundario zaminhani2008
+% dispositivo primário e secundário zaminhani2008
 % Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
 %dependendo da aplicação, a execução ocorra em todos os nós do cluster
 %simultaneamente (Ativo/Ativo). Para tornar isso possível é necessária a
@@ -203,32 +211,37 @@ recuperação do serviço utilizando mensagens entre os servidores, que é denom
 Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
 de um serviço \cite{freitas2005}.
 
-Essas ferramentas de gerenciamento de \textit{cluster} permitem detecção de falhas a nível de nó e a nível de recursos, ou seja, pode detectar
-falhas de \textit{hardware} e falhas de serviços (recursos).
+Essas ferramentas de gerenciamento de \textit{cluster} permitem detecção de falhas a nível de nó ou a nível de recursos, ou seja, pode detectar
+falhas de \textit{hardware} e falhas de serviços.
 Elas são conhecidas como \ac{CRM}, cujo sua função é fazer a gerência de recursos de um \textit{cluster}.
 
-O \ac{CRM} escolhido para gerenciar o ambiente foi o \textit{Pacemaker} ...
-Outras ferramentas CRM:
-Microsoft com+ cluster ???
-ZS3-2 Clustering ???
+O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta de código aberto
+mais completa e flexível que foi encontrada. Contudo, foi encontrada outra forma para implementar este ambiente, que seria utilizando apenas a 
+ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} para fazer a migração das máquinas 
+virtuais, o que dificultaria a implementação.
+O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
+Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
+informar se ele está ativo \cite{reis2009}.
+%Outras ferramentas CRM (nao tenho certeza?):
+%Microsoft com+ cluster ???
+%ZS3-2 Clustering ???
 
-O \textit{Pacemaker} \cite{pacemaker}, que pode ser definido como uma ferramenta de detecção e recuperação de falhas a nível de 
-serviço \cite{perkov2011}. Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de 
-criar um gerenciador de recursos para a ferramenta \textit{Heartbeat} \cite{heartbeat}. 
+O \textit{Pacemaker} \cite{pacemaker}, que pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
+Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
+de recursos, que possuía algumas limitações, da ferramenta \textit{Heartbeat} \cite{heartbeat}. Esse \ac{CRM} funciona juntamente com ferramentas
+que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que fazem a afiliação, ou seja, fazem o processo de registro dos
+nós, de \textit{failover} e de bloqueios distribuídos quando utilizado sistema de arquivos distribuídos. Essas ferramentas são:
 
-O \ac{CRM} \textit{Pacemaker} possui algumas características que estão listadas abaixo:
 \begin{itemize}
- \item Inicia e para serviços;
- \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} pode ser feita em qualquer nó;
- \item ...
+ \item \textit{Corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos (utilizados para 
+ implementar cLVM, GFS/GFS2, e OCFS2), entre outros. Este projeto derivou do projeto \textit{OpenAIS};
+ \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
+ \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós \cite{clusterlabs}.
 \end{itemize}
+%ver ferramentas cMAN e Apache Qpid??
 
-A arquitetura do \textit{Pacemaker} pode ser dividida em três partes:
-\begin{itemize}
- \item 
-\end{itemize}
-
-Esse \ac{CRM} funciona em conjunto com ferramentas de troca de mensagens ...
+Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
+mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
 
 \begin{figure}[h!]
  \centering
@@ -238,51 +251,29 @@ Esse \ac{CRM} funciona em conjunto com ferramentas de troca de mensagens ...
  \label{fig:pacemaker_tools}
 \end{figure}
 
-O \textit{Heartbeat} é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
-\textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós \cite{clusterlabs}. O \textit{Heartbeat} é um subprojeto do
-\textit{Linux-HA} \cite{linuxha}.
+% Como citado anteriormente, o \textit{Pacemaker} funciona juntamente com outras ferramentas. Sendo assim, a sua arquitetura pode ser 
+% dividida em três partes:
+% \begin{itemize}
+%  \item Componentes não-cluster:
+%  \item Gerência de recursos: 
+%  \item Camada de troca de mensagens:
+% \end{itemize}
 
-As ferramentas \textit{OpenAIS} e \textit{Corosync} ...
+O \ac{CRM} \textit{Pacemaker} possui algumas funções principais que estão listadas abaixo:
+\begin{itemize}
+ \item Inicia e para serviços dos nós do \textit{cluster}, esses serviços podem ser desde um servidor \textit{web} até uma interface de rede, 
+ por exemplo;
+ \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} 
+ pode ser feita em qualquer nó;
+ \item Elege um nó como primário para centralizar todas as decisões, sendo que esse nó falhar outro será eleito primário.
+\end{itemize}
 
-\cite{clusterlabs}:
-Corosync provides pacemaker:
-a mechanism to reliably send messages between nodes,
-notifications when machines appear and disappear
-a list of machines that are up that is consistent throughout the cluster 
-Heartbeat provides:
-a mechanism to reliably send messages between nodes,
-notifications when machines appear and disappear
-a list of machines that are up that is consistent throughout the cluster 
---
-http://serverfault.com/questions/269831/relation-between-heartbeat-openais-corosync
-well i reached answer on myself! clustering include two part:
-1.cluster resource management
-2.infrastructure with massaging layer
-legacy heartbeat is broken into heartbeat message layer and pacemaker so pacemaker is CRM.
-and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.highavailability.user/32355
-There are, however, features in Pacemaker that require OpenAIS which will work only with Corosync, not Heartbeat. Those features are concerned 
-with the distributed lock managers used by cLVM (but not regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you must select 
-OpenAIS/Corosync. If you do not, you're free to choose.
-as: http://www.clusterlabs.org/wiki/FAQ
-Originally Corosync and OpenAIS were the same thing. Then they split into two parts... the core messaging and membership capabilities are now 
-called Corosync, and OpenAIS retained the layer containing the implementation of the AIS standard.
-Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) 
-require the OpenAIS layer as well.
-so i went to openais/corosync and integrate it with pacemaker.
---
-There are, however, features in Pacemaker that require OpenAIS which
-will work only with Corosync, not Heartbeat. Those features are
-concerned with the distributed lock managers used by cLVM (but not
-regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you
-must select OpenAIS/Corosync.
+Após ter os dados replicados e o \ac{CRM} funcionando deve-se configurar o recurso para cada máquina virtual no \ac{CRM} para possibilitar que as
+máquinas virtuais migrem de um nó para outro de forma automática e transparente quando houver falhas. Para isso será necessário utilizar a 
+opção de migração em tempo real, mais conhecida como \textit{live migration}.
+A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando, sendo que elas inicialmente estão 
+executando sobre o primeiro servidor, então a \ac{VM}1 está sendo migrada para o segundo servidor.
 
-Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
-(such as OCFS2 and GFS2) require the OpenAIS layer as well. 
-
-cluster resource manager (CRM) which has the task of starting and stopping the services (IP addresses, web servers, etc)
-
-
-Explicar live migration \ref{fig:vms_migration}
 %http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/
 
 \begin{figure}[h!]
@@ -293,6 +284,43 @@ Explicar live migration \ref{fig:vms_migration}
  \label{fig:vms_migration}
 \end{figure}
 
+Fazendo testes e valiando...
+
+
+% \cite{clusterlabs}:
+% Corosync provides pacemaker:
+% a mechanism to reliably send messages between nodes,
+% notifications when machines appear and disappear
+% a list of machines that are up that is consistent throughout the cluster 
+% Heartbeat provides:
+% a mechanism to reliably send messages between nodes,
+% notifications when machines appear and disappear
+% a list of machines that are up that is consistent throughout the cluster 
+% --
+% http://serverfault.com/questions/269831/relation-between-heartbeat-openais-corosync
+% well i reached answer on myself! clustering include two part:
+% 1.cluster resource management
+% 2.infrastructure with massaging layer
+% legacy heartbeat is broken into heartbeat message layer and pacemaker so pacemaker is CRM.
+% and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.highavailability.user/32355
+% There are, however, features in Pacemaker that require OpenAIS which will work only with Corosync, not Heartbeat. Those features are concerned 
+% with the distributed lock managers used by cLVM (but not regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you must select 
+% OpenAIS/Corosync. If you do not, you're free to choose.
+% as: http://www.clusterlabs.org/wiki/FAQ
+% Originally Corosync and OpenAIS were the same thing. Then they split into two parts... the core messaging and membership capabilities are now 
+% called Corosync, and OpenAIS retained the layer containing the implementation of the AIS standard.
+% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) 
+% require the OpenAIS layer as well.
+% so i went to openais/corosync and integrate it with pacemaker.
+% --
+% There are, however, features in Pacemaker that require OpenAIS which
+% will work only with Corosync, not Heartbeat. Those features are
+% concerned with the distributed lock managers used by cLVM (but not
+% regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you
+% must select OpenAIS/Corosync.
+% 
+% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
+% (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
 %reorganização de vms
 %ferramentas selecionadas, colocar motivo para escolher e citar ferramentas parecidas
