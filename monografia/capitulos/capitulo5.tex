@@ -1,9 +1,10 @@
 \chapter{Projeto de implementação}
 \label{cap:projetoimplementacao}
 
-Neste capítulo será feito a identificação dos serviços mais críticos da empresa para posteriormente ser possível propor uma solução de 
-implementação de alta disponibilidade desses serviços que são fornecidos pela empresa, sendo que eles foram detalhados no Capítulo 
-\ref{cap:estudodecaso}. Com isso pretende-se atingir o objetivo deste trabalho.
+Neste capítulo será feito a identificação dos serviços mais críticos da empresa (Seção \ref{section:servcrit}) para posteriormente ser possível 
+propor uma solução de implementação de alta disponibilidade desses serviços que são fornecidos pela empresa, sendo que eles foram detalhados no 
+Capítulo \ref{cap:estudodecaso}. Essa solução será detalhada na Seção \ref{section:propostasolucao}. Com isso pretende-se atingir o objetivo 
+deste trabalho.
 
 \section{Levantamento dos serviços críticos}
 \label{section:servcrit}
@@ -152,9 +153,17 @@ ambiente de alta disponibilidade, sendo elas:
 \end{itemize}
 
 \section{Proposta de solução}
+\label{section:propostasolucao}
 
 O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, liberando assim o 
-\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. (COMO??)
+\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
+Para isso será feito as seguintes mudanças:
+\begin{itemize}
+ \item \textit{Passata} e \textit{SimplesIP}: movida do \textit{Fulmine} para \textit{Tuono};
+ \item \textit{Monete}: movida do \textit{Brina} para o \textit{Piova};
+ \item \textit{Ns}: movido do \textit{Tuono} para o \textit{Tempesta};
+ \item \textit{Mondoperso}: movido do \textit{Tuono} para o \textit{Venti}.
+\end{itemize}
 
 Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
@@ -197,6 +206,9 @@ o disco do nó secundário através do sincronismo por rede \cite{zaminhani2008}
  \label{fig:drbd_basic}
 \end{figure}
 
+Neste projeto será utilizado o \ac{DRBD} para replicar os discos das máquinas virtuais, para possibilitar a alta disponibilidade caso um 
+dos servidores falhar.
+
 % dispositivo primário e secundário zaminhani2008
 % Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
 %dependendo da aplicação, a execução ocorra em todos os nós do cluster
@@ -232,22 +244,24 @@ O \textit{Pacemaker} \cite{pacemaker}, que pode ser definido como uma ferramenta
 Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
 de recursos, que possuía algumas limitações, da ferramenta \textit{Heartbeat} \cite{heartbeat}. Esse \ac{CRM} funciona juntamente com ferramentas
 que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que fazem a afiliação, ou seja, fazem o processo de registro dos
-nós, de \textit{failover} e de bloqueios distribuídos quando utilizado sistema de arquivos distribuídos. Essas ferramentas são:
+nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistema de arquivos distribuídos. 
+As ferramentas encontradas para integrar com o \textit{Pacemaker} são:
 
 \begin{itemize}
  \item \textit{Corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos (utilizados para 
- implementar cLVM, GFS/GFS2, e OCFS2), entre outros. Este projeto derivou do projeto \textit{OpenAIS};
+ implementar cLVM, GFS/GFS2, e OCFS2), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
  \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
  \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós \cite{clusterlabs}.
 \end{itemize}
 %ver ferramentas cMAN e Apache Qpid??
 
+\newpage
 Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
 mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/pacemaker_tools.eps}
+ \includegraphics[width=280px]{img/pacemaker_tools.eps}
  \caption{Pacemaker estrutura}
  Fonte: \citet{pacemaker}
  \label{fig:pacemaker_tools}
@@ -270,9 +284,15 @@ O \ac{CRM} \textit{Pacemaker} possui algumas funções principais que estão lis
  \item Elege um nó como primário para centralizar todas as decisões, sendo que esse nó falhar outro será eleito primário.
 \end{itemize}
 
-Após ter os dados replicados e o \ac{CRM} funcionando deve-se configurar o recurso para cada máquina virtual no \ac{CRM} para possibilitar que as
+Após ter os dados replicados, como foi descrito na seção anterior, deve-se criar o recurso do \ac{DRBD} no \textit{Pacemaker}, esse recurso fará o
+monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
+Também será necessário criar um recurso para montar o sistema de arquivos do dispositivo \ac{DRBD} no local onde ficarão os discos das máquinas
+virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário o sistema de
+arquivos será montado automaticamente.
+
+E por fim deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
 máquinas virtuais migrem de um nó para outro de forma automática e transparente quando houver falhas. Para isso será necessário utilizar a 
-opção de migração em tempo real, mais conhecida como \textit{live migration}.
+opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo hipervisor \ac{KVM}.
 A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando, sendo que elas inicialmente estão 
 executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada para o segundo servidor.
 
@@ -287,8 +307,7 @@ executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada par
  \label{fig:vms_migration}
 \end{figure}
 
-
-Fazendo testes e valiando...
+CONTINUAR COM ... Fazendo testes e avaliando...
 
 
 % \cite{clusterlabs}:

@@ -4,14 +4,19 @@
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{setspace}
-\usepackage{acro}
+\usepackage[list-style=extra-tabular]{acro}
 \usepackage{graphicx}
-
 %\usepackage[brazilian]{babel}
-
+\usepackage{floatrow}
+  
 \setdescription{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
 \setitemize{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
 \setenumerate{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
+%tamanho das tabelas
+\DeclareFloatFont{scriptsize}{\scriptsize}% "scriptsize" is defined by floatrow, "scriptsize" not
+\floatsetup[table]{font=scriptsize}
+%para notas de rodape nao quebrar com mais de 2 linhas
+\interfootnotelinepenalty=10000
 
 %capa
 \course{\cgcc}
@@ -21,6 +26,7 @@
 \location{Caxias do Sul}{}
 \bibpunct{(}{)}{;}{a}{,}{,}
 
+%declaracoes siglas
 \include{acronym}
 
 \begin{document}
@@ -31,22 +37,26 @@
 
 \tableofcontents
 
+\chapter*{Lista de siglas}
+\printacronyms[include-classes=abbrev,name=]
 
-\printacronyms[include-classes=abbrev,name=SIGLAS]
+%\chapter*{Lista de acrônimos}
+%\begin{acronym}[XXXXXXXXXX]
+%\acro{API}[\textit{API}]{\textit{Application Programming Interface}}
+%\end{acronym}
 
 \listoffigures
 \listoftables
 
-\begin{abstract}
-
-\end{abstract}
+\include{abstract}
 
 %includes
 \include{capitulos/introducao}
 \include{capitulos/capitulo2}
 \include{capitulos/capitulo3}
-%\include{capitulos/capitulo4}
-%\include{capitulos/capitulo5}
+\include{capitulos/capitulo4}
+\include{capitulos/capitulo5}
+\include{capitulos/capitulo6}
 
 \bibliography{tcc}
 \bibliographystyle{abnt}

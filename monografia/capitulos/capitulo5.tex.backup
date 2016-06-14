@@ -1,9 +1,10 @@
 \chapter{Projeto de implementação}
 \label{cap:projetoimplementacao}
 
-Neste capítulo será feito a identificação dos serviços mais críticos da empresa para posteriormente ser possível propor uma solução de 
-implementação de alta disponibilidade desses serviços que são fornecidos pela empresa, sendo que eles foram detalhados no Capítulo 
-\ref{cap:estudodecaso}. Com isso pretende-se atingir o objetivo deste trabalho.
+Neste capítulo será feito a identificação dos serviços mais críticos da empresa (Seção \ref{section:servcrit}) para posteriormente ser possível 
+propor uma solução de implementação de alta disponibilidade desses serviços que são fornecidos pela empresa, sendo que eles foram detalhados no 
+Capítulo \ref{cap:estudodecaso}. Essa solução será detalhada na Seção \ref{section:propostasolucao}. Com isso pretende-se atingir o objetivo 
+deste trabalho.
 
 \section{Levantamento dos serviços críticos}
 \label{section:servcrit}
@@ -152,9 +153,11 @@ ambiente de alta disponibilidade, sendo elas:
 \end{itemize}
 
 \section{Proposta de solução}
+\label{section:propostasolucao}
 
 O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, liberando assim o 
-\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. (COMO??)
+\textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
+DETALHAR QUAIS SERAO MOVIDAS??
 
 Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
@@ -185,7 +188,9 @@ A ferramenta escolhida para replicação de dados na solução de alta disponibi
 aberto, e permite a replicação de dados de um dispositivo local em tempo real. Os dispositivos \ac{DRBD}, que geralmente ficam em 
 \textit{/dev/drbd0}, possuem os estados primário e secundário. Entretanto, apenas um nó do \textit{cluster} pode ser o nó primário, sendo que
 esse nó é o único que terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita.
-Na Figura \ref{fig:drbd_basic} 
+Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos, \textit{hda1} e \textit{hda3}, formando um \textit{cluster}, 
+sendo que esses discos estão sincronizados através da rede. Com isso, todas operações de escritas feitas no nó primário serão replicadas para 
+o disco do nó secundário através do sincronismo por rede \cite{zaminhani2008}.
 
 \begin{figure}[h!]
  \centering
@@ -194,6 +199,9 @@ Na Figura \ref{fig:drbd_basic}
  Fonte: \citet{jones2010}
  \label{fig:drbd_basic}
 \end{figure}
+
+Neste projeto será utilizado o \ac{DRBD} para replicar os discos das máquinas virtuais, para possibilitar a alta disponibilidade caso um 
+dos servidores falhar.
 
 % dispositivo primário e secundário zaminhani2008
 % Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
@@ -240,16 +248,16 @@ nós, de \textit{failover} e de bloqueios distribuídos quando utilizado sistema
 \end{itemize}
 %ver ferramentas cMAN e Apache Qpid??
 
-Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
-mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
-
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/pacemaker_tools.eps}
+ \includegraphics[width=280px]{img/pacemaker_tools.eps}
  \caption{Pacemaker estrutura}
  Fonte: \citet{pacemaker}
  \label{fig:pacemaker_tools}
 \end{figure}
+
+Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
+mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
 
 % Como citado anteriormente, o \textit{Pacemaker} funciona juntamente com outras ferramentas. Sendo assim, a sua arquitetura pode ser 
 % dividida em três partes:
@@ -268,12 +276,19 @@ O \ac{CRM} \textit{Pacemaker} possui algumas funções principais que estão lis
  \item Elege um nó como primário para centralizar todas as decisões, sendo que esse nó falhar outro será eleito primário.
 \end{itemize}
 
-Após ter os dados replicados e o \ac{CRM} funcionando deve-se configurar o recurso para cada máquina virtual no \ac{CRM} para possibilitar que as
-máquinas virtuais migrem de um nó para outro de forma automática e transparente quando houver falhas. Para isso será necessário utilizar a 
-opção de migração em tempo real, mais conhecida como \textit{live migration}.
-A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando, sendo que elas inicialmente estão 
-executando sobre o primeiro servidor, então a \ac{VM}1 está sendo migrada para o segundo servidor.
+Após ter os dados replicados, como foi descrito na seção anterior, deve-se criar o recurso do \ac{DRBD} no \textit{Pacemaker}, esse recurso fará o
+monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
+Também será necessário criar um recurso para montar o sistema de arquivos do dispositivo \ac{DRBD} no local onde ficarão os discos das máquinas
+virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário o sistema de
+arquivos será montado automaticamente.
 
+ e o \ac{CRM} funcionando deve-se configurar um recurso para cada máquina virtual no \ac{CRM} para possibilitar que as
+máquinas virtuais migrem de um nó para outro de forma automática e transparente quando houver falhas. Para isso será necessário utilizar a 
+opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo hipervisor \ac{KVM}.
+A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando, sendo que elas inicialmente estão 
+executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada para o segundo servidor.
+
+%http://www.linux-kvm.org/page/Migration
 %http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/
 
 \begin{figure}[h!]
@@ -283,6 +298,7 @@ executando sobre o primeiro servidor, então a \ac{VM}1 está sendo migrada para
  Fonte: \citet{spaniol2015}
  \label{fig:vms_migration}
 \end{figure}
+
 
 Fazendo testes e valiando...
 
@@ -324,7 +340,3 @@ Fazendo testes e valiando...
 
 %reorganização de vms
 %ferramentas selecionadas, colocar motivo para escolher e citar ferramentas parecidas
-%muitos servicos, melhor solucao utilizar 2 servidores para fazer redundancia
-%em caso de falha de um servidor fisico...
-%ferramentas open source...
-%colocar a disponibilidade do nagios do ano passado?

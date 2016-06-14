@@ -35,15 +35,14 @@ necessidade de consumo de energia elétrica do ambiente.
 Nas próximas seções será feita uma descrição da estrutura da empresa. Na Seção \ref{section:fisico} será descrito a instalação física dos 
 servidores, com suas estruturas e suas configurações. Na Seção \ref{section:servsemvirt} será descrito os servidores que não utilizam virtualização,
 ou seja, possuem os seus serviços instalados diretamente sobre o sistema operacional. Na Seção \ref{section:servvirt} será descrito a estrutura 
-dos servidores que utilizam de virtualização e todos os serviços fornecidos por esses servidores. Por fim, na Seção \ref{section:servcrit} será 
-apresentados os serviços críticos e os critérios utilizados para a definição desses.
+dos servidores que utilizam de virtualização e todos os serviços fornecidos por esses servidores.
 
 \section{Instalação física}
 \label{section:fisico}
 
 A estrutura atual da empresa é composta por quatorze servidores físicos. A configuração de \textit{hardware} desses servidores pode ser 
-encontrada na Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo, a configuração dos processadores, quantidade de memória, 
-número de discos e a capacidade unitária de cada disco.
+encontrada na Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo, a configuração dos processadores, quantidade de memória
+\ac{RAM}, número de discos rígidos e a capacidade unitária de cada disco.
 
 \begin{table}[h!]
 \caption{Configuração dos servidores físicos.}
@@ -52,7 +51,7 @@ número de discos e a capacidade unitária de cada disco.
 \def\arraystretch{1}
 \setlength{\tabcolsep}{0.15cm}
 \begin{tabular}{|l|l|p{5.1cm}|l|p{2.1cm}|}\hline
-Servidor & Modelo & Processador & Memória & Disco\\\hline
+Servidor & Modelo & Processador & Memória RAM & Disco\\\hline
 Bello & & 1 x Intel Core 2 Duo E6750 2.66 GHz & 2 GB DDR2 & 5,5 TB SATA\\\hline
 Cacti & Dell PowerEdge 2950 & 2 x Intel Xeon E5310 1.60 GHz & 12 GB DDR2 & 2 x 73 GB SAS\\\hline
 Dati & Dell PowerEdge 1850 & 2 x Intel Xeon 3.20 GHz & 4 GB DDR2 & 2 x 146 GB SCSI\\\hline
@@ -72,7 +71,7 @@ Venti & Dell PowerEdge R210 II & 1 x Intel Xeon E3-1220 3.10 GHz & 16 GB DDR3 & 
 \end{table}
 
 Todos os servidores estão ligados ao \textit{switch}, que provê aos servidores acesso à internet através de um roteador. Para os servidores 
-mais importantes são utilizados dois cabos de rede que estão ligados a um \textit{switch} \textit{gigabit}, assim possibilitandoa configuração 
+mais importantes são utilizados dois cabos de rede que estão ligados a um \textit{switch} \textit{gigabit}, assim possibilitando a configuração 
 de um \textit{link aggregation}, que permite configurar mais de uma interface de rede física em uma interface agregada. Através deste 
 \textit{link aggregation} pode-se dobrar a capacidade de tráfego de dados e obter redundância de interfaces. 
 O diagrama da Figura \ref{fig:servfisicos} demonstra uma visão geral da estrutura física dos servidores da empresa. 
@@ -101,7 +100,7 @@ A Figura \ref{fig:servrack} demonstra, através de uma foto, o \textit{rack} e t
 Atualmente existem sete servidores que possuem serviços que são executados sobre o sistema operacional nativo, ou seja, sem virtualização. 
 Eles são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estão descritos abaixo:
 \begin{itemize}
- \item Bello: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Sua função é apenas armazenar todos os 
+ \item Bello: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Sua função é armazenar todos os 
  dados de \textit{backup}, para isso ele possui instalado a ferramenta \textit{Bacula Storage 5.2.6} \cite{bacula}. Destaca-se que a ferramenta 
  \textit{Bacula director} é o \textit{software} que faz a gerência e controle do \textit{backup} e encontra-se instalado no servidor 
  \textit{Quebei}, que será detalhado na Seção \ref{section:serv_venti};
@@ -113,8 +112,8 @@ Eles são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estão
  
  \item Dati: é o servidor de banco de dados principal, sendo que esse possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. 
  O serviço que executa sobre esse servidor é um sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql}, que armazena os dados 
- das aplicações \textit{ZoneMinder} \cite{zoneminder} (servidor de câmeras) e \textit{Icewarp Server} \cite{icewarp} (servidor de \textit{e-mail}), 
- que serão detalhados na Seção \ref{section:servvirt};
+ das aplicações \textit{ZoneMinder} \cite{zoneminder} (servidor de câmeras), \textit{Icewarp Server} \cite{icewarp} (servidor de \textit{e-mail})
+ e \textit{Ejabberd} \cite{ejabberd} (servidor de mensagens instantâneas), que serão detalhados na Seção \ref{section:servvirt};
  
  \item Monit: esse servidor faz o monitoramento dos demais servidores. Ele possui o sistema operacional \textit{Ubuntu 12.04 \ac{LTS}} 
  \cite{ubuntu}, e executa as aplicações \textit{Nagios 3.2.3} \cite{nagios} e \textit{Munin 1.4.6} \cite{munin}, ambos \textit{softwares} livres. 
@@ -127,7 +126,7 @@ Eles são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estão
  \cite{apache}; \textit{\ac{PHP} 5.5.9} \cite{php}; sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql} e 
  \textit{PostgreSQL 9.3.13} \cite{postgres}; compartilhamento de arquivos \textit{Samba 4.3.9} \cite{samba}; controle de versões de 
  \textit{software} \textit{\ac{SVN} 1.8.8} \cite{svn}; gerenciador de \textit{bugs} \textit{Trac 1.0.1} \cite{trac}; e o gerenciador de 
- mensagens instantâneas \textit{Ejabberd 2.1.11} \cite{ejabberd};
+ mensagens instantâneas para ambiente de testes \textit{Ejabberd 2.1.11} \cite{ejabberd};
  
  \item Sfrunhon: é um outro servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.3} \cite{centos} e executa 
  a aplicação \textit{Cacti 0.8.8a} \cite{cacti}. Esse servidor monitora o tráfego dos clientes, tanto de internet via rádio, como de 
@@ -145,8 +144,8 @@ Os servidores de virtualização possuem suas respectivas \ac{VM}s, sendo que pa
 ferramenta \textit{QEmu}, que são projetos de \textit{software} livre. Procurou-se manter um ambiente homogêneo com o objetivo de facilitar a 
 manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional para os servidores de virtualização (hospedeiros). 
 Esse sistema operacional é o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}.
-Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação duplicada e discos configurados através de um 
-\ac{RAID}. Em servidores com mais de dois discos é utilizado \ac{RAID} 5. Já em servidores que possuem apenas dois discos é utilizado \ac{RAID} 1 
+Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação duplicada e discos rígidos configurados através de 
+um \ac{RAID}. Em servidores com mais de dois discos é utilizado \ac{RAID} 5. Já em servidores que possuem apenas dois discos é utilizado \ac{RAID} 1 
 (espelhamento de discos). O ambiente também possui uma redundância do cabeamento, como visto anteriormente.
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de internet. Atualmente sete servidores 
@@ -175,7 +174,7 @@ são os seguintes:
  uma parte dos clientes do provedor. Para essa autenticação é utilizada o \textit{software} \textit{Freeradius 2.1.12} \cite{freeradius};
  
  \item \textit{Monete}: sua configuração é 1 \textit{core} de \textit{2.33 GHz} para processamento, 3 GB de memória RAM e 50 GB de disco. 
- Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo um servidor \textit{Web} dedicado para o site do 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, e é um servidor \textit{Web} dedicado para o site do 
  provedor, ou seja, armazena o \textit{Web} site do provedor. Para isso ele utiliza os \textit{softwares} \textit{Apache 2.4.7} \cite{apache}, 
  \textit{\ac{PHP} 5.5.9} \cite{php} (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql}.
 \end{itemize}
@@ -332,19 +331,22 @@ O servidor Tempesta possui quatro \ac{VM}s, como pode ser visto na Figura \ref{f
  \item \textit{Merak}: esse servidor fornece serviço de \textit{e-mail} para envio e recebimento de \textit{e-mails}. Ele possui uma configuração 
  de 6 \textit{cores} de \textit{2.00 GHz} para processamento, 10 GB de memória RAM e 1 TB de disco. O servidor possui o sistema operacional 
  \textit{Windows 2008 Server R2} e executa o \textit{software} \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços 
- de envios de \textit{e-mails} (\ac{SMTP}), recebimentos de \textit{e-mails} (\ac{POP} e \ac{IMAP}), Webmail (\ac{PHP}) e Anti-spam.
- Grande parte das contas estão ociosas pois são oferecidas juntamente com a internet vendida pelo provedor;
+ de envios de \textit{e-mails} através do protocolo \ac{SMTP}, recebimentos de \textit{e-mails} através dos protocolos \ac{POP} e \ac{IMAP}, 
+ Webmail (\ac{PHP}) e Anti-spam. Destaca-se que grande parte das contas de \textit{e-mail} estão ociosas pois são oferecidas juntamente com a 
+ internet vendida pelo provedor;
  %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
  
- \item \textit{Quebei}: sua configuração é 1 \textit{core} de \textit{2.00 GHz} para processamento, 3 GB de memória RAM e 140 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e sua função é gerenciar o \textit{backup} dos outros servidores. Para isso 
- ele utiliza a ferramenta \textit{Bacula 5.2.6} \cite{bacula} (pacote \textit{bacula-director-common 5.2.6}). Além disso, esse servidor possui 
- o sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql} instalado, que esta configurado como \textit{master-slave}, sendo 
- que esse servidor é o \textit{slave} e o servidor \textit{Dati} (Seção \ref{section:servsemvirt}) é o \textit{master};
+ \item \textit{Quebei}: sua configuração é 1 \textit{core} de \textit{2.00 GHz} para processamento, 3 GB de memória RAM e 140 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e sua função é gerenciar o \textit{backup} dos outros 
+ servidores. Para isso ele utiliza a ferramenta \textit{Bacula 5.2.6} \cite{bacula} (pacote \textit{bacula-director-common 5.2.6}). Destaca-se
+ que esse \textit{backup} é armazenado no servidor físico \textit{Bello} detalhado na Seção \ref{section:servsemvirt}. Além disso, 
+ esse servidor possui o sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql} instalado, que esta configurado no modelo 
+ \textit{master-slave}, sendo que esse servidor é o \textit{slave} e o servidor \textit{Dati} (Seção \ref{section:servsemvirt}) é o \textit{master};
  
- \item \textit{Rauco}: esse servidor possui 2 \textit{cores} para processamento, 6 GB de memória RAM e 600 GB de disco. Ele possui o sistema 
- operacional \textit{CentOS 6.8} \cite{centos}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Roncon} visto na 
- Seção \ref{section:serv_fulmine}), que é acesso a sites \textit{Web} desenvolvidos com a linguagem \ac{PHP}.
+ \item \textit{Rauco}: esse servidor possui 2 \textit{cores} de \textit{2.00 GHz} para processamento, 6 GB de memória RAM e 600 GB de disco. 
+ Ele possui o sistema operacional \textit{CentOS 6.8} \cite{centos}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Roncon} 
+ visto na Seção \ref{section:serv_fulmine}), que é acesso a sites \textit{Web} desenvolvidos com a linguagem \ac{PHP}. Para suportar um número 
+ maior de hospedagens existem esses dois servidores que possuem os mesmos serviços.
 \end{itemize}
 
 \subsection{Servidor Tuono}
@@ -363,22 +365,23 @@ são os seguintes:
 \end{figure}
 
 \begin{itemize}
- \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de processamento, 512 MB de memória RAM e 8 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para \textit{Web} rádio, esse serviço é feito
- através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
+ \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de \textit{2.53 GHz} para processamento, 512 MB de memória RAM e 8 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para \textit{Web} 
+ rádio. Esse serviço é feito através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
  
- \item \textit{Ns}: esse servidor possui 1 \textit{core} para processamento, 2 GB de memória RAM e 30 GB de disco. O servidor possui o sistema 
+ \item \textit{Ns}: esse servidor possui 1 \textit{core} de \textit{2.53 GHz} para processamento, 2 GB de memória RAM e 30 GB de disco. O servidor possui o sistema 
  operacional \textit{CentOS 6.8} \cite{centos} e fornece, através do \textit{software} \textit{Bind 9.9.3} \cite{bind}, o serviço de \ac{DNS} 
- autoritativo e é o servidor de \ac{DNS} primário dos domínios hospedados pela empresa;
+ autoritativo. Esse é o servidor de \ac{DNS} primário dos domínios hospedados pela empresa;
 
- \item \textit{Soldi}: sua configuração é 4 \textit{cores} de processamento, 4 GB de memória RAM e 40 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{Web} exclusivo para \textit{softwares} de gestão 
- desenvolvidos pela empresa. Os seguintes \textit{softwares} são utilizados: \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} 
- (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql};
+ \item \textit{Soldi}: sua configuração é 4 \textit{cores} de \textit{2.53 GHz} para processamento, 4 GB de memória RAM e 40 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{Web} exclusivo para 
+ \textit{softwares} de gestão que são desenvolvidos pela empresa. Os seguintes \textit{softwares} são utilizados: \textit{Apache 2.4.7} 
+ \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql};
 
- \item \textit{Speedauth}: sua configuração é 2 \textit{cores} para processamento, 1,5 GB de memória RAM e 8 GB de disco. O sistema operacional é o 
- \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Masterauth} 
- (Seção \ref{section:serv_brina}), porém esse servidor possui a maior parte dos clientes.
+ \item \textit{Speedauth}: sua configuração é 2 \textit{cores} de \textit{2.53 GHz} para processamento, 1,5 GB de memória RAM e 8 GB de disco. 
+ O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor 
+ \textit{Masterauth} (Seção \ref{section:serv_brina}), que é autenticação \ac{PPPoE} dos clientes do provedor. Esse servidor armazena os usuarios 
+ de autenticação da maior parte dos clientes.
 \end{itemize}
 
 \subsection{Servidor Venti}
@@ -397,26 +400,26 @@ são os seguintes:
 \end{figure}
 
 \begin{itemize}
- \item \textit{Backup}: sua configuração é 1 \textit{core} para processamento, 1 GB de memória RAM e 15 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e executa o serviço de \textit{backup} dos equipamentos do provedor. Esse
- utiliza \textit{scripts} que foram desenvolvidos internamente e que buscam e copiam os dados através do protoccolo \ac{FTP};
+ \item \textit{Backup}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} para processamento, 1 GB de memória RAM e 15 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e executa o serviço de \textit{backup} dos equipamentos 
+ do provedor. Esse utiliza \textit{scripts} que foram desenvolvidos internamente e que buscam e copiam os dados através do protocolo \ac{FTP};
  
- \item \textit{Esibire}: sua configuração é 1 \textit{core} para processamento, 1 GB de memória RAM e 50 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e faz a hospedagem de vídeos e a reprodução de \textit{streaming} utilizando
- \ac{FTP} e um servidor \textit{Web} \textit{Apache 2.4.7};
+ \item \textit{Esibire}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} para processamento, 1 GB de memória RAM e 50 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e faz a hospedagem de vídeos e a reprodução de 
+ \textit{streaming} utilizando o protocolo \ac{FTP} e um servidor \textit{Web} \textit{Apache 2.4.7};
  
- \item \textit{Miatanto}: sua configuração é 1 \textit{core} de processamento, 1 GB de memória RAM e 8 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para uma \textit{Web} rádio, esse serviço 
- é feito através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
+ \item \textit{Miatanto}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} de processamento, 1 GB de memória RAM e 8 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para uma \textit{Web} 
+ rádio. Esse serviço é feito através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
  
- \item \textit{Pomodoro}: sua configuração é 1 \textit{core} de processamento, 2 GB de memória RAM e 28 GB de disco. Esse servidor possui o 
- sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e armazena a documentação dos equipamentos do provedor, utilizando a aplicação
- de código aberto \textit{Sakai 2.9} \cite{sakai};
+ \item \textit{Pomodoro}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} para processamento, 2 GB de memória RAM e 28 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e armazena a documentação dos equipamentos do provedor. 
+ Para esse armazenamento ele utiliza o \textit{software} de código aberto \textit{Sakai 2.9} \cite{sakai};
  
- \item \textit{Trapel}: sua configuração é 1 \textit{core} de processamento, 768 MB de memória RAM e 8 GB de disco. Esse servidor possui o sistema 
- operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece um serviço de teste de velocidade da conexão de internet. Os usuários do 
- provedor utilizam esse serviço para testar a velocidade da sua internet. Para isso ele executa as aplicações \textit{Apache 2.4.7} \cite{apache} 
- e \textit{\ac{PHP} 5.5.9} \cite{php}, e um \textit{software} chamado \textit{SpeedTest} \cite{speedtest}.
+ \item \textit{Trapel}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} para processamento, 768 MB de memória RAM e 8 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece um serviço de teste de velocidade da conexão 
+ de internet. Ou seja, os usuários do provedor utilizam esse serviço para testar a velocidade da sua internet. Para isso ele executa as aplicações 
+ \textit{Apache 2.4.7} \cite{apache} e \textit{\ac{PHP} 5.5.9} \cite{php}, e um \textit{software} chamado \textit{SpeedTest} \cite{speedtest}.
 \end{itemize}
 
 %-graficos cpu memoria disco cada servidor de virtualizacao?? colocar aqui ou na implementacao??
