@@ -35,7 +35,8 @@
 \contentsline {chapter}{\numberline {5}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{37}
 \contentsline {section}{\numberline {5.1}Levantamento dos servi\IeC {\c c}os cr\IeC {\'\i }ticos}{37}
 \contentsline {section}{\numberline {5.2}Proposta de solu\IeC {\c c}\IeC {\~a}o}{42}
-\contentsline {section}{\numberline {5.3}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{43}
-\contentsline {section}{\numberline {5.4}Ferramentas de gerenciamento de cluster}{44}
+\contentsline {subsection}{\numberline {5.2.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{43}
+\contentsline {subsection}{\numberline {5.2.2}Ferramentas de gerenciamento de cluster}{44}
 \contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{47}
+\contentsline {section}{\numberline {6.1}Cronograma}{47}
 \contentsline {chapter}{Refer{\^e}ncias}{48}

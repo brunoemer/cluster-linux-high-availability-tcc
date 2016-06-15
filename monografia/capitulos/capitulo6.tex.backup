@@ -10,20 +10,14 @@ empresa.
 Para atingir tal objetivo, estudou-se os conceitos básicos de alta disponibilidade, bem como os conceitos de tolerância a falhas, redundância de
 \textit{hardware} e \textit{software}. Como o ambiente atual da empresa possui grande parte dos serviços em máquinas virtuais, foi estudado
 os principais conceitos sobre virtualização. Sendo que na virtualização, foi estudado os dois grupos de máquinas virtuais que inclui máquinas 
-virtuais de aplicação e máquinas virtuais de sistema, além das arquiteturas e estratégias de implementação de máquinas virtuais. E enfatizou-se
-as vantagens do uso da virtualização em alguns cenários distintos.
+virtuais de aplicação e máquinas virtuais de sistema
 
-E por fim pesquisou-se ferramentas para possibilitar a implementação de um ambiente tolerante a falhas com o uso de máquinas virtuais.
-Sendo que, deu-se foco na busca por ferramentas de código aberto, para redução de custos, e ...
-Para enfim propor um solução de alta disponibilidade compatível com o ambiente da empresa.
+E por fim pesquisou-se ferramentas para possibilitar a implementação de um ambiente com máquinas virtuais e principalmente tolerante a falhas.
+Deu-se foco na busca por ferramentas de código aberto, para redução de custos, e ...
+Para enfim propor um solução de alta disponibilidade...
 
 Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, e além disso 
-pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e simples de fazer 
-manutenção.
-
-
-\section{Cronograma}
-\label{section:cronograma}
+pode-se utilizar virtualização em conjunto com essas ferramentas.
 
 CRONOGRAMA:
 6 - Redação TCC II

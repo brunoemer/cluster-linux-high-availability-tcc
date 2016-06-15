@@ -176,7 +176,7 @@ As ferramentas necessárias para essa implementação podem ser divididas em doi
 (Seção \ref{section:toolrepl}) e ferramenta que faz o monitoramento e a tranferências das máquinas virtuais no caso de alguma falha 
 (Seção \ref{section:toolcluster}).
 
-\section{Ferramentas de replicação de dados}
+\subsection{Ferramentas de replicação de dados}
 \label{section:toolrepl}
 
 Replicação de dados pode ser feita de diversas maneiras, pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
@@ -217,7 +217,7 @@ dos servidores falhar.
 %GFS 7 por exemplo. Como a abordagem deste trabalho é cluster de alta
 %disponibilidade, a utilização do DRBD no modo Ativo/Ativo não será discutida.
 
-\section{Ferramentas de gerenciamento de cluster}
+\subsection{Ferramentas de gerenciamento de cluster}
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário uma ferramenta que monitora os recursos, fazendo a detecção e
@@ -307,10 +307,11 @@ executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada par
  \label{fig:vms_migration}
 \end{figure}
 
-CONTINUAR COM ... Fazendo testes e avaliando...
+Neste capítulo foi efetuado testes experimentais para avaliar as ferramentas e possibilitar a melhor escolha.
+Sendo que esses testes foram apenas para entendimento e escolha das ferramentas.
 
+%colocar a disponibilidade do nagios do ano passado?
 
-% \cite{clusterlabs}:
 % Corosync provides pacemaker:
 % a mechanism to reliably send messages between nodes,
 % notifications when machines appear and disappear
@@ -344,6 +345,3 @@ CONTINUAR COM ... Fazendo testes e avaliando...
 % 
 % Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
 % (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
-
-%reorganização de vms
-%ferramentas selecionadas, colocar motivo para escolher e citar ferramentas parecidas
