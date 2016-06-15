@@ -155,10 +155,10 @@ order=2
 
 [item:capitulos/capitulo6.tex]
 archive=true
-column=95
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=16
+line=22
 mode=LaTeX
 open=true
 order=3
@@ -270,8 +270,8 @@ JumpList=
 ViMarks=.,310,79,[,310,63,],310,79
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
-CursorColumn=95
-CursorLine=16
+CursorColumn=0
+CursorLine=22
 JumpList=
 ViMarks=.,25,24,[,25,7,],25,24
 
