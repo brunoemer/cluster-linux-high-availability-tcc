@@ -15,8 +15,7 @@ O principal objetivo deste trabalho é aumentar a disponibilidade de uma empresa
 de código aberto, de forma a garantir que seus serviços mais críticos fiquem o menor tempo indisponível. Para isso, será feito uma análise
 dos serviços ofereciados pela empresa bom como um levantamento do ambiente de servidores da mesma.
 
-Além disso será pesquisado e testado ferramentas para possibilitar a criação de uma proposta e de uma implementação de alta disponibilidade 
-no ambiente atual da empresa.
+Além disso será pesquisado e testado ferramentas para possibilitar a criação de uma proposta
 
 \end{abstract}
 

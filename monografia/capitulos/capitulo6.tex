@@ -9,26 +9,59 @@ empresa.
 
 Para atingir tal objetivo, estudou-se os conceitos básicos de alta disponibilidade, bem como os conceitos de tolerância a falhas, redundância de
 \textit{hardware} e \textit{software}. Como o ambiente atual da empresa possui grande parte dos serviços em máquinas virtuais, foi estudado
-os principais conceitos sobre virtualização. Sendo que na virtualização, foi estudado os dois grupos de máquinas virtuais que inclui máquinas 
-virtuais de aplicação e máquinas virtuais de sistema, além das arquiteturas e estratégias de implementação de máquinas virtuais. E enfatizou-se
-as vantagens do uso da virtualização em alguns cenários distintos.
+os principais conceitos sobre virtualização. Sendo que na virtualização, foi estudado os dois grupos de máquinas virtuais o qual inclui máquinas 
+virtuais de aplicação e máquinas virtuais de sistema, além das arquiteturas e estratégias de implementação de máquinas virtuais. Também foram 
+descritas as vantagens do uso da virtualização em alguns cenários distintos.
 
 E por fim pesquisou-se ferramentas para possibilitar a implementação de um ambiente tolerante a falhas com o uso de máquinas virtuais.
-Sendo que, deu-se foco na busca por ferramentas de código aberto, para redução de custos, e ...
-Para enfim propor um solução de alta disponibilidade compatível com o ambiente da empresa.
+Sendo que, deu-se foco na busca por ferramentas de código aberto, para redução de custos, e para ser compatível com o ambiente atual da empresa,
+que, em sua maioria utiliza ferramentas de código aberto. Para enfim propor-se um solução de alta disponibilidade compatível com o ambiente 
+da empresa.
 
 Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, e além disso 
-pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e simples de fazer 
-manutenção.
+pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 
 
+Entretanto, como neste trabalho ainda será feito a implementação em si, não pode-se afirmar que a solução irá funcionar corretamente
+na empresa, devido a fatores como versão do sistema operacional, versão dos \textit{softwares} de virtualização, entre outros.
 
+\newpage
 \section{Cronograma}
 \label{section:cronograma}
 
-CRONOGRAMA:
-6 - Redação TCC II
-7 - Elaboração da solução
-8 - Realização de testes
-Implementação
-9 - Análise dos resultados
-10 - Apresentação TCC II
+A implementação fará parte da segunda etapa deste trabalho, bem como a elaboração da solução definitiva para o ambiente de alta disponibilidade. 
+Além disso, as tarefas da segunda etapa deste trabalho estão detalhadas na Tabela \ref{tab:impltarefas}. Para uma melhor organização, foi criado
+um cronograma com a distribuição das tarefas ao longo do próximo semestre, esse cronograma está presente na Tabela \ref{tab:implcronograma}.
+
+\begin{table}[h!]\normalsize
+\caption {Tarefas do trabalho de conclusão II}
+\label{tab:impltarefas}
+\begin{center}
+\begin{tabular}{|l|l|}\hline
+ & Descrição \\\hline
+1 & Redação do TCC II \\\hline
+2 & Elaboração da solução \\\hline
+3 & Reorganização do ambiente de virtualização \\\hline
+4 & Realização de testes \\\hline
+5 & Implementação da solução \\\hline
+6 & Análise dos resultados e medições \\\hline
+7 & Apresentação do TCC II \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[h!]\normalsize
+\caption {Cronograma do trabalho de conclusão II}
+\label{tab:implcronograma}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}\hline
+ & Jul & Ago & Set & Out & Nov & Dez \\\hline
+1 & X & X & X & X & X & X \\\hline
+2 & X & X & & & & \\\hline
+3 & X & X & & & & \\\hline
+4 & & X & X & X & & \\\hline
+5 & & & X & X & & \\\hline
+6 & & & & X & X & \\\hline
+7 & & & & & & X \\\hline
+\end{tabular}
+\end{center}
+\end{table}
