@@ -16,7 +16,7 @@ O principal objetivo da empresa sempre foi priorizar a estabilidade e qualidade 
 alguns critérios para possibilitar a identificação dos serviços mais críticos para a empresa. Esses critérios são:
 \begin{itemize}
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
- da empresa. De fato, se um cliente ficar sem acesso à internet, o cliente terá um desconto proporcional, na sua fatura, ao tempo que ficou sem 
+ da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional, na sua fatura, ao tempo que ficou sem 
  acesso; 
  \item O número de requisições em um determinado tempo: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do 
  serviço. São exemplos dessa medida a quantidade de acessos por minuto em um servidor de hospedagens de sites e a quantidade de requisições 
@@ -56,7 +56,7 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
 \end{figure}
 
  \item \textit{Radius}: esse serviço é importante para a navegação dos clientes do provedor, pois esse é o responsável pela autenticação de 
- todos os clientes. Caso esse serviço fique indisponível os clientes não conseguirão estabelecer conexão para navegação. Os servidores
+ todos os clientes. Caso esse serviço fique indisponível, os clientes não conseguirão estabelecer conexão para sua navegação. Os servidores
  \textit{Speedauth} e \textit{Masterauth} recebem uma média de 1,6 requisições de autenticação por segundo como pode ser visto na Figura 
  \ref{fig:speedauth_auth_week} e na \ref{fig:masterauth_auth_week}, esse número se torna expressivo pois demonstra que a cada um segundo 
  aproximadamente um cliente requisita a autenticação para iniciar a sua navegação. Além disso, esse serviço armazena alguns dados relacionados 
@@ -65,7 +65,7 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
  resultam em um número de requisições por segundo (em média 23 requisições).
  %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
  Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de \textit{logins} 
- de autenticação dos clientes de acesso a internet do provedor. De acordo com a Figura \ref{fig:servico_elemento}, os servidores \textit{Speedauth} 
+ de autenticação dos clientes de acesso a Internet do provedor. De acordo com a Figura \ref{fig:servico_elemento}, os servidores \textit{Speedauth} 
  e \textit{Masterauth} estão entre os maiores, sendo que essa figura compara os principais servidores da empresa através do volume de elementos
  que foi descrito no terceiro critério. Além disso, existe um destaque desses servidores no número de conexões \ac{TCP}, como pode ser observado 
  na Figura \ref{fig:servico_tcp};
@@ -97,11 +97,11 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
  Caso haja uma indisponibilidade desses sistemas a maior parte dos funcionários ficarão impossibilitados de trabalhar.
  %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a empresa e o provedor. 
  Pode-se aplicar o critério de número de requisições por segundo nesse serviço, sendo que o principal sistema do provedor, que está 
- executando sobre o servidor \textit{Soldi}, que recebe aproximadamente 3 requisições por segundo (Figura \ref{fig:soldi_week}). Além disso, a empresa 
- mantém outros 27 sistemas, de outros clientes, nesse mesmo servidor. Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, 
- onde pode-se observar que o servidor \textit{Soldi} está entre os mais relevantes, como pode ser observado na Figura \ref{fig:servico_tcp}.
- Sendo que essa figura compara os principais servidores da empresa através do critério de conexões \ac{TCP} que foi descrito anteriormente no 
- quarto critério;
+ executando sobre o servidor \textit{Soldi}, que recebe aproximadamente 3 requisições por segundo (Figura \ref{fig:soldi_week}). Além disso, a 
+ empresa mantém outros 27 sistemas, de outros clientes, nesse mesmo servidor. Outro critério que aplica-se a esse serviço é o número de conexões 
+ \ac{TCP}, onde pode-se observar que o servidor \textit{Soldi} está entre os mais relevantes, como pode ser observado na Figura 
+ \ref{fig:servico_tcp}. Sendo que nesta figura há uma comparação entre os principais servidores da empresa através do critério de conexões 
+ \ac{TCP} que foi descrito anteriormente no quarto critério;
  
 \begin{figure}[h!]
  \centering
@@ -125,7 +125,7 @@ Considerando esses critérios, pode-se identificar os seguintes serviços:
 \end{figure}
 
  \item Telefonia: esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre os clientes e os funcionários, 
- ou seja, o servidor \textit{SimplesIP} é responsável por permitor o atendimento a clientes para fins de suporte técnico, comunicação interna entre 
+ ou seja, o servidor \textit{SimplesIP} é responsável por permitir o atendimento a clientes para fins de suporte técnico, comunicação interna entre 
  funcionários, comunicação com técnicos externos, vendas, cobranças a clientes, entre outros. Para quantificar, no mês de maio de 2016 a empresa 
  recebeu 15922 ligações, com duração total de 67 horas e 40 minutos, sendo que essas ligações foram recebidas por todos os setores do provedor e 
  também da empresa. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. O gráfico da Figura \ref{fig:simplesip_week} mostra 
@@ -159,7 +159,7 @@ O primeiro passo desta implementação é fazer uma reorganização das máquina
 \textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
 Para isso será feito as seguintes mudanças:
 \begin{itemize}
- \item \textit{Passata} e \textit{SimplesIP}: movida do \textit{Fulmine} para \textit{Tuono};
+ \item \textit{Passata} e \textit{SimplesIP}: movidas do \textit{Fulmine} para \textit{Tuono};
  \item \textit{Monete}: movida do \textit{Brina} para o \textit{Piova};
  \item \textit{Ns}: movido do \textit{Tuono} para o \textit{Tempesta};
  \item \textit{Mondoperso}: movido do \textit{Tuono} para o \textit{Venti}.
@@ -187,7 +187,7 @@ por exemplo, essa solução é eficaz para garantir que o sistema não fique ind
 solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores}, porém não garante a disponibilidade quando \textit{software}
 ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
 
-A solução de replicação ideal para esta implementação é um espelhamento de dados através da redes, sendo que essa solução permite a cópia dos 
+A solução de replicação ideal para esta implementação é um espelhamento de dados através da rede, sendo que essa solução permite a cópia dos 
 dados para uma máquina remota em tempo real. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware}.
 
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
@@ -195,7 +195,7 @@ aberto, e permite a replicação de dados de um dispositivo local em tempo real.
 \textit{/dev/drbd0}, possuem os estados primário e secundário. Entretanto, apenas um nó do \textit{cluster} pode ser o nó primário, sendo que
 esse nó é o único que terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita.
 Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos, \textit{hda1} e \textit{hda3}, formando um \textit{cluster}, 
-sendo que esses discos estão sincronizados através da rede. Com isso, todas operações de escritas feitas no nó primário serão replicadas para 
+sendo que esses discos estão sincronizados através da rede. Com isso, todas as operações de escritas feitas no nó primário serão replicadas para 
 o disco do nó secundário através do sincronismo por rede \cite{zaminhani2008}.
 
 \begin{figure}[h!]
@@ -226,11 +226,11 @@ Pode-se definir \textit{cluster} como um grupo de computadores interligador por 
 de um serviço \cite{freitas2005}.
 
 Essas ferramentas de gerenciamento de \textit{cluster} permitem detecção de falhas a nível de nó ou a nível de recursos, ou seja, pode detectar
-falhas de \textit{hardware} e falhas de serviços.
-Elas são conhecidas como \ac{CRM}, cujo sua função é fazer a gerência de recursos de um \textit{cluster}.
+falhas de \textit{hardware} e falhas de serviços. Elas são conhecidas como \ac{CRM}, cuja função é fazer a gerência de recursos de um 
+\textit{cluster}.
 
 O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta de código aberto
-mais completa e flexível que foi encontrada. Contudo, foi encontrada outra forma para implementar este ambiente, que seria utilizando apenas a 
+mais completa e flexível encontrada. Contudo, foi encontrada outra forma para implementar este ambiente, que seria utilizando apenas a 
 ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} para fazer a migração das máquinas 
 virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
@@ -240,7 +240,7 @@ informar se ele está ativo \cite{reis2009}.
 %Microsoft com+ cluster ???
 %ZS3-2 Clustering ???
 
-O \textit{Pacemaker} \cite{pacemaker}, que pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
+O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
 de recursos, que possuía algumas limitações, da ferramenta \textit{Heartbeat} \cite{heartbeat}. Esse \ac{CRM} funciona juntamente com ferramentas
 que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que fazem a afiliação, ou seja, fazem o processo de registro dos
@@ -281,7 +281,7 @@ O \ac{CRM} \textit{Pacemaker} possui algumas funções principais que estão lis
  por exemplo;
  \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} 
  pode ser feita em qualquer nó;
- \item Elege um nó como primário para centralizar todas as decisões, sendo que esse nó falhar outro será eleito primário.
+ \item Elege um nó como primário para centralizar todas as decisões, sendo que, se esse nó falhar outro será eleito primário.
 \end{itemize}
 
 Após ter os dados replicados, como foi descrito na seção anterior, deve-se criar o recurso do \ac{DRBD} no \textit{Pacemaker}, esse recurso fará o
@@ -290,7 +290,7 @@ Também será necessário criar um recurso para montar o sistema de arquivos do 
 virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário o sistema de
 arquivos será montado automaticamente.
 
-E por fim deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
+E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
 máquinas virtuais migrem de um nó para outro de forma automática e transparente quando houver falhas. Para isso será necessário utilizar a 
 opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo hipervisor \ac{KVM}.
 A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando, sendo que elas inicialmente estão 

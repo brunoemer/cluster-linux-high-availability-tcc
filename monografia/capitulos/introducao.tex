@@ -1,5 +1,5 @@
 \chapter{Introdução}
-O crescente avanço tecnológico e o desenvolvimento da internet, provocou um aumento no número de aplicações ou serviços que dependem da 
+O crescente avanço tecnológico e o desenvolvimento da Internet, provocou um aumento no número de aplicações ou serviços que dependem da 
 infraestrutura de \ac{TI}. Além disso, percebe-se um aumento significativo no número de operações \textit{on-line} que são realizados, 
 tanto por organizações públicas ou privadas, quanto por grande parte da população.
 
@@ -9,14 +9,14 @@ sistemas apresenta um grande impacto em nosso dia-a-dia, pois um grande número 
 
 Uma interrupção imprevista em um ambiente computacional poderá causar um prejuízo financeiro para a empresa que fornece o serviço, 
 além de interferir na vida das pessoas que dependem de forma direta ou indireta deste serviço. 
-Essa interrupção terá maior relevância para as corporações cujo o serviço ou produto final é fornecido através da internet, 
+Essa interrupção terá maior relevância para as corporações cujo o serviço ou produto final é fornecido através da Internet, 
 como por exemplo, o comércio eletrônico, \textit{web sites}, sistemas corporativos, entre outros. 
 Em um ambiente extremo, pode-se imaginar o caos e o possível risco de perda de vidas que ocorreria em caso de uma falha 
 em um sistema de controle aéreo \cite{costa2009}.
 
 Para essas empresas um plano de contingência é fundamental para garantir uma boa qualidade de serviço, além de otimizar o desempenho 
 das atividades, e também para fazer uma prevenção de falhas e uma recuperação rápida caso essas ocorram \cite{costa2009}.
-De fato, hoje em dia a confiança em um serviço é um grande diferencial para a empresa fornecedora deste serviço, 
+De fato, hoje em dia a confiança em um serviço é um grande diferencial para a empresa fornecedora deste, 
 sendo que a alta disponibilidade é fundamental para atingir este objetivo.
 
 A alta disponibilidade consiste em manter um sistema disponível por meio da tolerância a falhas, isto é, utilizando mecanismos que fazem a 
@@ -26,11 +26,11 @@ a falhas é frequentemente implementada utilizando redundância. No caso de uma 
 uma vez que o sistema poderá continuar funcionando utilizando o outro componente \cite{batista2007}.
 
 Neste trabalho será realizado um estudo sobre a implementação de um sistema de alta disponibilidade em uma empresa de hospedagens. 
-Essa empresa oferece serviços pela internet, como por exemplo hospedagens de sites, \textit{e-mail}, sistemas de gestão, \textit{e-mail marketing}, 
+Essa empresa oferece serviços pela Internet, como por exemplo hospedagens de sites, \textit{e-mail}, sistemas de gestão, \textit{e-mail marketing}, 
 entre outros. A empresa possui aproximadamente 60 servidores físicos e virtuais, e aproximadamente 9000 clientes, 
 sendo que em períodos de pico atende em torno de 1000 requisições por segundo. 
 
-Atualmente, a empresa possui redundância de conexões de acesso a internet, refrigeração e energia, com \textit{nobreaks} e geradores. 
+Atualmente, a empresa possui redundância de conexões de acesso à Internet, refrigeração e energia, com \textit{nobreaks} e geradores. 
 Porém, essa empresa não possui nenhuma redundância nos serviços que estão sendo executados nos servidores. Desta forma, caso ocorra 
 uma falha de \textit{software} ou de \textit{hardware}, os serviços ficarão indisponíveis. Neste trabalho será realizada uma análise dos 
 serviços oferecidos pela empresa, sendo que mecanismos de alta disponibilidade serão desenvolvidos para os serviços mais críticos. 
@@ -56,6 +56,6 @@ O trabalho foi estruturado em cinco capítulos, que são:
  e também as suas classificações e estratégias de implementação;
  \item Capítulo \ref{cap:estudodecaso}: descreve o ambiente atual da empresa com os serviços que são fornecidos;
  \item Capítulo \ref{cap:projetoimplementacao}: é feito a identificação dos serviços críticos e apresenta a solução de alta disponibilidade 
- utilizando virtualização no cenário da empresa.
+ utilizando virtualização no cenário da empresa;
  \item Capítulo \ref{cap:conclusao}: apresenta a conclusão e o cronograma para a implementação da solução proposta.
 \end{itemize}
