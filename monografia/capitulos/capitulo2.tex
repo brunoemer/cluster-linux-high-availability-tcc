@@ -31,7 +31,7 @@ tolerância a falhas apresenta como foco a utilização de componentes replicado
 
 O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, ou seja, aumentar o intervalo de tempo em que os serviços 
 fornecidos estão disponíveis aos usuários. Um sistema é dito tolerante a falhas se ele for capaz de mascarar a presença de falhas ou recuperar-se 
-de uma sem afetar o funcionamento do sistema.
+de uma sem afetar o funcionamento do sistema \cite{pankaj1994}. %{pereirafilho2004}
 
 A tolerância a falhas frequentemente é implementada utilizando redundância (Seção \ref{section:redundancia}). 
 Um exemplo muito utilizado para tornar um sistema tolerante a falhas é a virtualização. Nestes ambientes normalmente existem dois servidores 
@@ -41,7 +41,7 @@ Os principais conceitos de virtualização, são apresentados no Capítulo \ref{
 
 A tolerância a falhas pode ser dividida em dois tipos. O primeiro tipo, o mascaramento, não se manifesta na forma de erro ao sistema, 
 pois as falhas são tratadas na origem. O mascaramento é utilizado principalmente em sistemas críticos e de tempo real. Um exemplo são os 
-códigos de correção de erros, em inglês \ac{ECC}, que são utilizados em memórias para detecção e correção de erros.
+códigos de correção de erros, em inglês \ac{ECC}, que são utilizados em memórias para a detecção e a correção de erros.
 
 O segundo tipo de tolerância a falhas consiste em detectar, localizar a falha, e reconfigurar o \textit{software} ou \textit{hardware} de 
 forma a corrigi-la. Esse tipo de tolerância a falha é dividido nas seguintes etapas \cite{weber2002}. 
@@ -55,7 +55,7 @@ forma a corrigi-la. Esse tipo de tolerância a falha é dividido nas seguintes e
  \item Confinamento: responsável pela restrição de um erro para que dados inválidos não se propaguem para todo o sistema, pois entre a falha e a
  detecção do erro há um intervalo de tempo. Neste intervalo pode ocorrer a propagação do erro para outros componentes do sistema, sendo assim, 
  antes de executar medidas corretivas é necessário definir os limites da propagação. Na fase de projeto essas restrições devem ser previstas
- e tratadas. Um exemplo de confinamento é o isolamento de alguns processos que estão em execução em um sistema operacional. Neste caso o 
+ e tratadas. Um exemplo de confinamento é o isolamento de alguns processos que estão em execução em um sistema operacional. Neste caso, o 
  sistema faz o gerenciamento dos processos para isolar e impedir que as falhas de um processo gerem problemas em outros processos.
  \item Recuperação: após a detecção de um erro ocorre a recuperação, onde o estado de erro é alterado para estado livre de erros. A recuperação
  pode ser feita de duas formas, que são:
@@ -75,11 +75,6 @@ forma a corrigi-la. Esse tipo de tolerância a falha é dividido nas seguintes e
  através de um \ac{RAID} \cite{rouse2013}.
 \end{itemize}
 
-Definir failover ??
-\cite{bassan2008} pag 20
-%\cite{borne} pag 11
-%\cite{costa2009} pag 39
-
 \section{Redundância}
 \label{section:redundancia}
 
@@ -98,18 +93,18 @@ de redundância que são:
  e recalculados ao recebê-los ou recuperá-los, assim sendo possível verificar a integridade dos dados. Outro exemplo bastante comum são os 
  \textit{bits} de paridade que são utilizados para detectar falhas que afetam apenas um \textit{bit} \cite{weber2002};
  \item \textit{Software}: pode-se definir redundância de \textit{software} como a configuração de um serviço ou \textit{software} em
- dois ou mais locais diferentes. Pode-se citar como exemplo um sistema gerenciador de banco de dados \textit{MySQL}, que pode ser configurado 
+ dois ou mais locais. Pode-se citar como exemplo um sistema gerenciador de banco de dados \textit{MySQL}, que pode ser configurado 
  com um modelo de replicação do tipo \textit{master-slave}, onde um servidor principal (\textit{master}) grava as operações em um arquivo, 
  para que então os servidores \textit{slaves}, possam recuperar e executar essas operações, com isso mantendo os dados sincronizados. Neste caso, 
  tanto o servidor \textit{master} quanto os \textit{slaves} executam o serviço \textit{MySQL}, caracterizando uma redundância \cite{viana201}. 
  A redundância de \textit{software} também pode ser implementada com o objetivo de tolerar falhas e \textit{bugs} em um \textit{software} 
  crítico. Existem algumas técnicas que podem ser utilizadas para isso, como por exemplo, a programação de \textit{n}-versões, que consiste 
- no desenvolvimento de \textit{n} versões de um mesmo \textit{software}, desta forma, possibilita-se o aumento da disponibilidade, uma vez que 
- elas provavelmente não apresentarão os mesmos erros. A programação de \textit{n}-versões possui um custo muito elevado, não sendo muito 
+ no desenvolvimento de \textit{n} versões de um mesmo \textit{software}. Desta forma, possibilita-se o aumento da disponibilidade, uma vez que 
+ essas versões provavelmente não apresentarão os mesmos erros. A programação de \textit{n}-versões possui um custo muito elevado, não sendo muito 
  utilizada.
  \item Tempo: este é feito através da repetição de um conjunto de instruções em um mesmo componente, assim detectando uma falha caso ocorra. 
- Essa técnica necessita tempo adicional, e é utilizada em sistemas onde o tempo não é crítico. Por exemplo, um \textit{software} de 
- monitoramento de serviços que faz um teste em cada serviço. No caso de ocorrência de uma falha em um serviço, uma ação corretiva 
+ Essa técnica necessita tempo adicional, e é utilizada em sistemas onde o tempo não é crítico. Como exemplo pode-se citar um \textit{software} 
+ de monitoramento de serviços que faz um teste em cada serviço. No caso de ocorrência de uma falha em um serviço, uma ação corretiva 
  será executada para reestabelecer este serviço. Essa técnica, diferentemente da redundância de \textit{hardware}, não requer um 
  \textit{hardware} extra para sua implementação \cite{costa2009}.
 \end{itemize}
@@ -131,19 +126,20 @@ como por exemplo, sistemas bancários ou sistemas militares é necessário um al
 \begin{center}
 \begin{tabular}{|l|l|l|l|}\hline
 Nível & Uptime & Downtime por ano & Exemplos\\\hline
-1 & 90\% & 36.5 dias & computadores pessoais\\\hline
-2 & 98\% & 7.3 dias & \\\hline
-3 & 99\% & 3.65 dias & sistemas de acesso\\\hline
-4 & 99.8\% & 17 horas e 30 minutos & \\\hline
-5 & 99.9\% & 8 horas e 45 minutos & provedores de acesso\\\hline
-6 & 99.99\% & 52.5 minutos & CPD, sistemas de negócios\\\hline
-7 & 99.999\% & 5.25 minutos & sistemas de telefonia ou bancários\\\hline
-8 & 99.9999\% & 31.5 minutos & sistemas de defesa militar\\\hline
+1 & 90\% & 36,5 dias & computadores pessoais\\\hline
+2 & 98\% & 7,3 dias & \\\hline
+3 & 99\% & 3,65 dias & sistemas de acesso\\\hline
+4 & 99,8\% & 17 horas e 30 minutos & \\\hline
+5 & 99,9\% & 8 horas e 45 minutos & provedores de acesso\\\hline
+6 & 99,99\% & 52,5 minutos & CPD, sistemas de negócios\\\hline
+7 & 99,999\% & 5,25 minutos & sistemas de telefonia ou bancários\\\hline
+8 & 99,9999\% & 31,5 minutos & sistemas de defesa militar\\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 A porcentagem de disponibilidade (\textit{d}) pode ser calculada através da equação
+%OBS: aumenta a disponibilidade caso o tempo entre as paradas for maior
 \begin{equation}
 d = \frac{MTBF}{(MTBF + MTTR)}
 \label{disponibilidade}
@@ -154,7 +150,7 @@ tempo médio de recuperação, isto é, o tempo entre a queda e a recuperação 
 A alta disponibilidade é um dos principais fatores que fornece confiança aos clientes ou usuários de um serviço, sendo extremante importante 
 em empresas que fornecem serviços \textit{on-line}. Por isso, as empresas desenvolveram o \ac{SLA}, que é um acordo de nível de serviço, 
 o qual garante que o serviço fornecido atenda as expectativas dos clientes. Um \ac{SLA} é um documento contendo uma descrição e uma definição 
-das características mais importantes do serviço que será fornecido. Esse acordo apresenta também o percentual de disponibilidade do serviço.
+das características mais importantes do serviço que será fornecido. Esse acordo apresenta ainda o percentual de disponibilidade do serviço.
 Além disso, um \ac{SLA} deverá conter descrição do serviço, requerimentos, horário de funcionamento, \textit{uptime} do serviço, 
 \textit{downtime} máximo do serviço, entre outros \cite{smith2010}.
 
