@@ -141,24 +141,25 @@ Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estã
 \section{Servidores com virtualização}
 \label{section:servvirt}
 
-Os servidores de virtualização possuem suas respectivas \ac{VM}s, sendo que, para a virtualização utiliza-se o hipervisor \ac{KVM} e a 
+Os servidores de virtualização possuem suas respectivas \ac{VM}s, sendo que, para a criação dessas \ac{VM}s utiliza-se o hipervisor \ac{KVM} e a 
 ferramenta \textit{QEmu}, que são projetos de \textit{software} livre. Procurou-se manter um ambiente homogêneo com o objetivo de facilitar a 
 manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional para os servidores de virtualização (hospedeiros). 
 Esse sistema operacional é o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}.
 Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação duplicada e discos rígidos configurados através de 
-um \ac{RAID}. Em servidores com mais de dois discos é utilizado \ac{RAID} 5. Já em servidores que possuem apenas dois discos é utilizado \ac{RAID} 1 
-(espelhamento de discos). O ambiente também possui uma redundância do cabeamento, como visto anteriormente.
+um \ac{RAID} \cite{??}. Em servidores com mais de dois discos é utilizado \ac{RAID} 5 \cite{??}. Já em servidores que possuem apenas dois 
+discos é utilizado \ac{RAID} 1 (espelhamento de discos) \cite{??}. O ambiente também possui uma redundância do cabeamento de rede, 
+como visto anteriormente.
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de Internet. Atualmente sete servidores 
 são utilizados com virtualização (os últimos sete servidores da Tabela \ref{tab:servfisicos}), sendo que existem quarenta e seis \ac{VM}s 
-distribuídas entre os sete servidores de virtualização. Nas próximas seções serão descritos esses servidores, suas respectivas máquinas virtuais 
+distribuídas entre esses sete servidores. Nas próximas seções serão descritos esses servidores, suas respectivas máquinas virtuais 
 e serviços.
 
 \subsection{Servidor Brina}
 \label{section:serv_brina}
 
 O servidor Brina possui duas \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_brina}, sendo que os serviços executados nessas \ac{VM}s
-são os seguintes:
+são:
 
 \begin{figure}[h!]
  \centering
@@ -170,21 +171,22 @@ são os seguintes:
 \end{figure}
 
 \begin{itemize}
- \item \textit{Masterauth}: sua configuração é 1 \textit{core} de \textit{2.33 GHz} para processamento, 1,5 GB de memória RAM e 8 GB de disco. 
- O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece um serviço de autenticação \ac{PPPoE} para 
- uma parte dos clientes do provedor. Para essa autenticação é utilizada o \textit{software} \textit{Freeradius 2.1.12} \cite{freeradius};
+ \item \textit{Masterauth}: sua configuração é 1 \textit{core} de \textit{2.33 GHz}, 1,5 GB de memória RAM e 8 GB de disco. 
+ O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece um serviço de autenticação 
+ \ac{PPPoE} \cite{??} para uma parte dos clientes do provedor. Para essa autenticação é utilizada o \textit{software} 
+ \textit{Freeradius 2.1.12} \cite{freeradius};
  
- \item \textit{Monete}: sua configuração é 1 \textit{core} de \textit{2.33 GHz} para processamento, 3 GB de memória RAM e 50 GB de disco. 
- Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, e é um servidor \textit{Web} dedicado para o site do 
- provedor, ou seja, armazena o \textit{Web} site do provedor. Para isso ele utiliza os \textit{softwares} \textit{Apache 2.4.7} \cite{apache}, 
- \textit{\ac{PHP} 5.5.9} \cite{php} (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql}.
+ \item \textit{Monete}: sua configuração é 1 \textit{core} de \textit{2.33 GHz}, 3 GB de memória RAM e 50 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{Web} dedicado para o site do 
+ provedor, ou seja, esse servidor armazena o \textit{Web} site do provedor. Para isso ele utiliza os \textit{softwares} 
+ \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} e \textit{MySQL 5.5.49} \cite{mysql}.
 \end{itemize}
 
 \subsection{Servidor Fulmine}
 \label{section:serv_fulmine}
 
 O servidor Fulmine possui dez \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_fulmine}, sendo que os serviços executados nessas \ac{VM}s
-são os seguintes:
+são:
 
 \begin{figure}[h!]
  \centering
@@ -196,42 +198,42 @@ são os seguintes:
 \end{figure}
 
 \begin{itemize}
- \item \textit{Hotspot}: sua configuração é 1 \textit{core} de \textit{2.0 GHz} para processamento, 1,5 GB de memória RAM e 8 GB de disco. 
+ \item \textit{Hotspot}: sua configuração é 1 \textit{core} de \textit{2.0 GHz}, 1,5 GB de memória RAM e 8 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor faz a gerência de equipamentos 
- da \textit{Ubiquiti} que fazem \textit{hotspot}. Esses equipamentos disponibilizam a tecnologia \textit{Wi-fi} para prover acesso à Internet em 
- ambientes públicos e são utilizados pelo provedor;
+ da \textit{Ubiquiti} que fazem \textit{hotspot}\footnote[1]{Hotspot é ...}. Ou seja, esses equipamentos disponibilizam a tecnologia 
+ \textit{Wi-fi} para prover acesso à Internet em ambientes públicos e são utilizados pelo provedor;
  
- \item \textit{IPv6Dns}, \textit{IPv6Dns64} e \textit{IPv6Nat64}: suas configurações são 1 \textit{core} de \textit{2.0 GHz} para processamento, 
+ \item \textit{IPv6Dns}, \textit{IPv6Dns64} e \textit{IPv6Nat64}: suas configurações são 1 \textit{core} de \textit{2.0 GHz}, 
  1 GB de memória RAM e 8 GB de disco. O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esses servidores fornecem 
  o serviço de \ac{DNS} e \ac{NAT} para navegação \ac{IPv6} do provedor;
  
- \item \textit{Ottico}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz} para processamento, 4 GB de memória RAM e 50 GB de disco. 
+ \item \textit{Ottico}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz}, 4 GB de memória RAM e 50 GB de disco. 
  O servidor possui o sistema operacional \textit{Windows 2007 Server Standard} e possui o serviço de \textit{terminal service} para suporte e 
  gerência da infraestrutura de fibra óptica do provedor;
  
- \item \ac{PRTG}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz} para processamento, 4 GB de memória RAM e 100 GB de disco. 
- O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e sua função é fazer o monitoramento de tráfego dos equipamentos da 
+ \item \ac{PRTG}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz}, 4 GB de memória RAM e 100 GB de disco. 
+ O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e sua função é monitorar o tráfego de rede dos equipamentos da 
  rede \textit{core} do provedor;
  
- \item \textit{Passata}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz} para processamento, 3 GB de memória RAM e 20 GB de disco. 
+ \item \textit{Passata}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz}, 3 GB de memória RAM e 20 GB de disco. 
  O servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece o serviço de \ac{DNS} recursivo, através do 
  \textit{software} \textit{Bind 9.9.5} \cite{bind}. Esse é o servidor primário de \ac{DNS}, sendo o mais importante para navegação dos clientes 
- de todo o provedor;
+ do provedor;
  
- \item \textit{Roncon}: esse servidor possui 4 \textit{cores} de \textit{2.0 GHz} para processamento, 6 GB de memória RAM e 400 GB de disco. 
+ \item \textit{Roncon}: esse servidor possui 4 \textit{cores} de \textit{2.0 GHz}, 6 GB de memória RAM e 400 GB de disco. 
  Ele possui o sistema operacional \textit{Red Hat 5.11} \cite{redhat} e provê hospedagem de sites \textit{Web} desenvolvidos com a linguagem 
  \ac{PHP}. Nele está instalado o \textit{software} \ac{WHM} \cite{whm}, que faz a gerência dos serviços de hospedagens desses sites e banco de 
  dados. Além disso, encontra-se disponível a ferramenta \textit{cPanel}, que faz parte do \ac{WHM} e fornece acesso aos desenvolvedores desses
  sites. Para fornecer essa hospedagem os seguintes \textit{softwares} estão instalados: \textit{Apache 2.2.26} \cite{apache}, 
  \textit{\ac{PHP} 5.3.27} \cite{php}, \textit{MySQL 5.1.73} \cite{mysql} e \textit{PostgreSQL 8.4.20} \cite{postgres}.
- Além da hospedagem, esse servidor fornece o serviço de autenticação \ac{ADSL} de terceiros utilizando o \textit{software} 
+ Além da hospedagem, esse servidor fornece o serviço de autenticação \ac{ADSL} \cite{??} de terceiros utilizando o \textit{software} 
  \textit{Freeradius 1.1.3} \cite{freeradius};
  
- \item \textit{Servo}: sua configuração é 1 \textit{core} de \textit{2.0 GHz} para processamento, 2 GB de memória RAM e 30 GB de disco. 
+ \item \textit{Servo}: sua configuração é 1 \textit{core} de \textit{2.0 GHz}, 2 GB de memória RAM e 30 GB de disco. 
  Esse servidor possui o sistema operacional \textit{CentOS 6.8} \cite{centos}, sendo que esse servidor fornece, através do \textit{software} 
- \textit{Bind 9.8.2} \cite{bind}, o serviço de \ac{DNS} autoritativo. Esse é o servidor \ac{DNS} secundário dos domínios hospedados pela empresa;
+ \textit{Bind 9.8.2} \cite{bind}, o serviço de \ac{DNS} autoritativo. Esse é o servidor de \ac{DNS} secundário dos domínios hospedados pela empresa;
  
- \item \textit{SimplesIP}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz} para processamento, 3 GB de memória RAM e 80 GB de disco. 
+ \item \textit{SimplesIP}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz}, 3 GB de memória RAM e 80 GB de disco. 
  O servidor possui o sistema operacional \textit{CentOS 6.6} \cite{centos} e é o servidor de telefonia sobre \ac{IP} do provedor. Esse utiliza 
  como base o \textit{software} livre \textit{Asterisk 1.8.32} \cite{asterisk}.
 \end{itemize}
@@ -240,7 +242,7 @@ são os seguintes:
 \label{section:serv_piova}
 
 O servidor Piova possui nove \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_piova}, sendo que os serviços executados nessas \ac{VM}s
-são os seguintes:
+são:
 
 \begin{figure}[h!]
  \centering
@@ -252,43 +254,43 @@ são os seguintes:
 \end{figure}
 
 \begin{itemize}
- \item \textit{ASP}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz} para processamento, 1 GB de memória RAM e 50 GB de disco. 
+ \item \textit{ASP}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória RAM e 50 GB de disco. 
  O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e provê acesso a sites \textit{Web} desenvolvidos com a linguagem 
  \ac{ASP} \cite{asp}, através do \textit{software} \textit{\ac{IIS} 7.5} \cite{iis}. Destaca-se que esse servidor hospeda um número baixo de sites;
  
- \item \textit{CactiBackbone}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz} para processamento, 1 GB de memória RAM e 20 GB de disco. 
+ \item \textit{CactiBackbone}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória RAM e 20 GB de disco. 
  Ele é um servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.3} \cite{centos} e executa a aplicação 
  \textit{Cacti 0.8.8a} \cite{cacti}. Essa aplicação monitora atualmente uma parte da rede \textit{backbone} do provedor;
  
- \item \textit{Dio}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz} para processamento, 1 GB de memória RAM e 17,8 GB de disco. 
+ \item \textit{Dio}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória RAM e 17,8 GB de disco. 
  O servidor possui o sistema operacional \textit{Ubuntu 6.06 \ac{LTS}} \cite{ubuntu} e fornece serviço de hospedagens de sites desenvolvidos com 
  a linguagem \ac{PHP} versão 4.4.2. Esses sites são mantidos em um servidor separado devido a incompatibilidade com a versão 5. Esse servidor 
  armazena aproximadamente 10 sites;
  
- \item \textit{FateFurbo}: sua configuração é 2 \textit{cores} de \textit{2.40 GHz} para processamento, 4 GB de memória RAM e 80 GB de disco. 
- O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e esse possui um \textit{software} proprietário da empresa \textit{Padtec}, 
- que faz a gerência de uma parte da rede de fibra óptica do provedor;
+ \item \textit{FateFurbo}: sua configuração é 2 \textit{cores} de \textit{2.40 GHz}, 4 GB de memória RAM e 80 GB de disco. 
+ O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Esse servidor possui um \textit{software} proprietário da empresa 
+ \textit{Padtec}, que faz a gerência de uma parte da rede de fibra óptica do provedor;
  
- \item \textit{FiberHome}: sua configuração é 2 \textit{cores} de \textit{2.40 GHz} para processamento, 2 GB de memória RAM e 60 GB de disco. 
+ \item \textit{FiberHome}: sua configuração é 2 \textit{cores} de \textit{2.40 GHz}, 2 GB de memória RAM e 60 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Windows XP} e possui o \textit{software} \textit{ANM 2000} instalado. Esse \textit{software} 
  é utilizado a gerência da fibra óptica do provedor;
  
- \item \textit{Parla}: sua configuração é 1 \textit{core} de \textit{2.40 GHz} para processamento, 1 GB de memória RAM e 8 GB de disco. 
+ \item \textit{Parla}: sua configuração é 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória RAM e 8 GB de disco. 
  Ele possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e provê um serviço de mensagens instantâneas, baseado no protocolo 
- \ac{XMPP}. Esse serviço é utilizado para comunicação entre funcionários da empresa e do provedor, e também entre clientes e os funcionários. 
- O \textit{software} utilizado é o \textit{Ejabberd 2.1.11} \cite{ejabberd}, que também é um \textit{software} de código aberto;
+ \ac{XMPP} \cite{??}. Esse serviço é utilizado para comunicação entre funcionários da empresa e do provedor, e também entre clientes e 
+ os funcionários. O \textit{software} utilizado é o \textit{Ejabberd 2.1.11} \cite{ejabberd}, que também é um \textit{software} de código aberto;
 
- \item \textit{Passata2}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz} para processamento, 2 GB de memória RAM e 20 GB de disco. 
+ \item \textit{Passata2}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 2 GB de memória RAM e 20 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece o serviço de \ac{DNS} recursivo, através do 
  \textit{software} \textit{Bind 9.9.5} \cite{bind}. Esse é o servidor secundário de \ac{DNS} do provedor;
  
- \item \textit{Postfix}: sua configuração é 1 \textit{core} de \textit{2.40 GHz} para processamento, 768 MB de memória RAM e 50 GB de disco. 
+ \item \textit{Postfix}: sua configuração é 1 \textit{core} de \textit{2.40 GHz}, 768 MB de memória RAM e 50 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é responsável pelo envio de \textit{e-mails}, 
  através do \textit{software} \textit{Postfix 2.11} \cite{postfix}. Os \textit{e-mails} enviados por esse servidor são gerados por uma 
- ferramenta de \textit{e-mail marketing}, que foi desenvolvida pela empresa. É esse servidor que faz o envio de \textit{e-mails} em massa para 
- divulgação de informações ou produtos;
+ ferramenta de \textit{e-mail marketing}, que foi desenvolvida pela empresa. Ou seja, esse servidor faz o envio de \textit{e-mails} em massa 
+ para divulgação de informações ou produtos;
  
- \item \textit{Servo6}: sua configuração é 1 \textit{core} de \textit{2.40 GHz} para processamento, 1,5 GB de memória RAM e 30 GB de disco. 
+ \item \textit{Servo6}: sua configuração é 1 \textit{core} de \textit{2.40 GHz}, 1,5 GB de memória RAM e 30 GB de disco. 
  Esse servidor possui o sistema operacional \textit{CentOS 6.8} e fornece, através do \textit{software} \textit{Bind 9.8.2} \cite{bind}, o 
  serviço de \ac{DNS} autoritativo. Essa máquina virtual é o servidor de \ac{DNS} terciário dos domínios hospedados pela empresa.
 \end{itemize}
@@ -297,8 +299,8 @@ são os seguintes:
 \label{section:serv_raggio}
 
 O servidor chamado Raggio executa doze \ac{VM}s (Figura \ref{fig:servidor_raggio}), que fornecem os serviços de virtualização para algumas empresas,
-sendo que as máquinas virtuais são instaladas com o sistema operacional de preferência do cliente, e são disponibilizadas através de um serviço 
-de acesso remoto, como por exemplo, através de \ac{SSH}.
+sendo que as máquinas virtuais são instaladas com o sistema operacional de preferência do cliente. O acesso a essas máquinas virtuais é realizado
+através de um serviço de acesso remoto, como por exemplo, através de \ac{SSH} \cite{??}.
 
 \begin{figure}[h!]
  \centering
@@ -313,7 +315,7 @@ de acesso remoto, como por exemplo, através de \ac{SSH}.
 \label{section:serv_tempesta}
 
 O servidor Tempesta possui quatro \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_tempesta}, sendo que os serviços executados nessas 
-\ac{VM}s são os seguintes:
+\ac{VM}s são:
 
 \begin{figure}[h!]
  \centering
@@ -325,36 +327,36 @@ O servidor Tempesta possui quatro \ac{VM}s, como pode ser visto na Figura \ref{f
 \end{figure}
 
 \begin{itemize}
- \item \textit{Ledriovardar}: esse servidor possui 2 \textit{cores} de \textit{2.40 GHz} para processamento, 2 GB de memória RAM e 80 GB de disco. 
+ \item \textit{Ledriovardar}: esse servidor possui 2 \textit{cores} de \textit{2.40 GHz}, 2 GB de memória RAM e 80 GB de disco. 
  O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e possui o serviço de \textit{terminal service} para suporte e gerência 
  da rede do provedor;
  
- \item \textit{Merak}: esse servidor fornece serviço de \textit{e-mail} para envio e recebimento de \textit{e-mails}. Ele possui uma configuração 
- de 6 \textit{cores} de \textit{2.00 GHz} para processamento, 10 GB de memória RAM e 1 TB de disco. O servidor possui o sistema operacional 
- \textit{Windows 2008 Server R2} e executa o \textit{software} \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços 
- de envios de \textit{e-mails} através do protocolo \ac{SMTP}, recebimentos de \textit{e-mails} através dos protocolos \ac{POP} e \ac{IMAP}, 
+ \item \textit{Merak}: esse servidor fornece serviço de \textit{e-mail}. Ele possui uma configuração de 6 \textit{cores} de \textit{2.00 GHz}, 
+ 10 GB de memória RAM e 1 TB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e executa o \textit{software} 
+ \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços de envios de \textit{e-mails} através do protocolo 
+ \ac{SMTP} \cite{??}, recebimentos de \textit{e-mails} através dos protocolos \ac{POP} \cite{??} e \ac{IMAP} \cite{??}, 
  o serviço de \textit{Webmail} (\ac{PHP}) e Anti-spam. Destaca-se que grande parte das contas de \textit{e-mail} estão ociosas pois são oferecidas 
  juntamente com a Internet vendida pelo provedor;
  %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
  
- \item \textit{Quebei}: sua configuração é 1 \textit{core} de \textit{2.00 GHz} para processamento, 3 GB de memória RAM e 140 GB de disco. 
+ \item \textit{Quebei}: sua configuração é 1 \textit{core} de \textit{2.00 GHz}, 3 GB de memória RAM e 140 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e sua função é gerenciar o \textit{backup} dos outros 
  servidores. Para isso ele utiliza a ferramenta \textit{Bacula 5.2.6} \cite{bacula} (pacote \textit{bacula-director-common 5.2.6}). Destaca-se
- que esse \textit{backup} é armazenado no servidor físico \textit{Bello} detalhado na Seção \ref{section:servsemvirt}. Além disso, 
+ que esse \textit{backup} é armazenado no servidor físico \textit{Bello} que foi detalhado na Seção \ref{section:servsemvirt}. Além disso, 
  esse servidor possui o sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql} instalado, que está configurado no modelo 
  \textit{master-slave}, sendo que esse servidor é o \textit{slave} e o servidor \textit{Dati} (Seção \ref{section:servsemvirt}) é o \textit{master};
  
  \item \textit{Rauco}: esse servidor possui 2 \textit{cores} de \textit{2.00 GHz} para processamento, 6 GB de memória RAM e 600 GB de disco. 
- Ele possui o sistema operacional \textit{CentOS 6.8} \cite{centos}, sendo que esse servidor fornece o mesmo serviço do servidor \textit{Roncon}, 
- que foi descrito na Seção \ref{section:serv_fulmine}). Esse servidor fornece acesso a sites \textit{Web} desenvolvidos com a linguagem \ac{PHP}. 
- Para suportar um número maior de hospedagens foram criados esses dois servidores, que possuem os mesmos \textit{softwares}.
+ Ele possui o sistema operacional \textit{CentOS 6.8} \cite{centos}. Esse servidor fornece o mesmo serviço do servidor \textit{Roncon}, 
+ que foi descrito na Seção \ref{section:serv_fulmine}. Esse servidor fornece acesso a sites \textit{Web} desenvolvidos com a linguagem \ac{PHP}. 
+ Foram criados dois servidores para a hospedagem de forma a suportar um número maior de sites.
 \end{itemize}
 
 \subsection{Servidor Tuono}
 \label{section:serv_tuono}
 
 O servidor Tuono possui quatro \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_tuono}, sendo que os serviços executados nessas \ac{VM}s
-são os seguintes:
+são:
 
 \begin{figure}[h!]
  \centering
@@ -366,30 +368,30 @@ são os seguintes:
 \end{figure}
 
 \begin{itemize}
- \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de \textit{2.53 GHz} para processamento, 512 MB de memória RAM e 8 GB de disco. 
+ \item \textit{Mondoperso}: sua configuração é 1 \textit{core} de \textit{2.53 GHz}, 512 MB de memória RAM e 8 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para \textit{Web} 
  rádio. Esse serviço é feito através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
  
- \item \textit{Ns}: esse servidor possui 1 \textit{core} de \textit{2.53 GHz} para processamento, 2 GB de memória RAM e 30 GB de disco. O servidor possui o sistema 
+ \item \textit{Ns}: esse servidor possui 1 \textit{core} de \textit{2.53 GHz}, 2 GB de memória RAM e 30 GB de disco. O servidor possui o sistema 
  operacional \textit{CentOS 6.8} \cite{centos} e fornece, através do \textit{software} \textit{Bind 9.9.3} \cite{bind}, o serviço de \ac{DNS} 
  autoritativo. Esse é o servidor de \ac{DNS} primário dos domínios hospedados pela empresa;
 
- \item \textit{Soldi}: sua configuração é 4 \textit{cores} de \textit{2.53 GHz} para processamento, 4 GB de memória RAM e 40 GB de disco. 
- Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{Web} exclusivo para 
+ \item \textit{Soldi}: sua configuração é 4 \textit{cores} de \textit{2.53 GHz}, 4 GB de memória RAM e 40 GB de disco. 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{Web} exclusivo para os
  \textit{softwares} de gestão que são desenvolvidos pela empresa. Os seguintes \textit{softwares} são utilizados: \textit{Apache 2.4.7} 
- \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} (com \textit{PHP-FPM 5.59}) e \textit{MySQL 5.5.49} \cite{mysql};
+ \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} e \textit{MySQL 5.5.49} \cite{mysql};
 
- \item \textit{Speedauth}: sua configuração é 2 \textit{cores} de \textit{2.53 GHz} para processamento, 1,5 GB de memória RAM e 8 GB de disco. 
+ \item \textit{Speedauth}: sua configuração é 2 \textit{cores} de \textit{2.53 GHz}, 1,5 GB de memória RAM e 8 GB de disco. 
  O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor 
- \textit{Masterauth} (Seção \ref{section:serv_brina}), que é autenticação \ac{PPPoE} dos clientes do provedor. Esse servidor armazena os usuarios 
- de autenticação da maior parte dos clientes.
+ \textit{Masterauth} (Seção \ref{section:serv_brina}), que é autenticação \ac{PPPoE} dos clientes do provedor. Esse servidor é responsável pela 
+ as autenticações da maior parte dos usuários do provedor.
 \end{itemize}
 
 \subsection{Servidor Venti}
 \label{section:serv_venti}
 
 O servidor Venti possui cinco \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_venti}, sendo que os serviços executados nessas \ac{VM}s
-são os seguintes:
+são:
 
 \begin{figure}[h!]
  \centering
@@ -401,23 +403,24 @@ são os seguintes:
 \end{figure}
 
 \begin{itemize}
- \item \textit{Backup}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} para processamento, 1 GB de memória RAM e 15 GB de disco. 
+ \item \textit{Backup}: sua configuração é 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória RAM e 15 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e executa o serviço de \textit{backup} dos equipamentos 
- do provedor. Esse utiliza \textit{scripts} que foram desenvolvidos internamente e que buscam e copiam os dados através do protocolo \ac{FTP};
+ do provedor. Esse servidor utiliza \textit{scripts} que foram desenvolvidos internamente e que efetuam a cópia de dados através do protocolo 
+ \ac{FTP} \cite{??};
  
- \item \textit{Esibire}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} para processamento, 1 GB de memória RAM e 50 GB de disco. 
+ \item \textit{Esibire}: sua configuração é 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória RAM e 50 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e faz a hospedagem de vídeos e a reprodução de 
- \textit{streaming} utilizando o protocolo \ac{FTP} e um servidor \textit{Web} \textit{Apache 2.4.7};
+ \textit{streaming} utilizando o protocolo \ac{FTP}. Além disso, ele possui um servidor \textit{Web} \textit{Apache 2.4.7} instalado;
  
- \item \textit{Miatanto}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} de processamento, 1 GB de memória RAM e 8 GB de disco. 
+ \item \textit{Miatanto}: sua configuração é 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória RAM e 8 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para uma \textit{Web} 
  rádio. Esse serviço é feito através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
  
- \item \textit{Pomodoro}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} para processamento, 2 GB de memória RAM e 28 GB de disco. 
+ \item \textit{Pomodoro}: sua configuração é 1 \textit{core} de \textit{3.10 GHz}, 2 GB de memória RAM e 28 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e armazena a documentação dos equipamentos do provedor. 
  Para esse armazenamento ele utiliza o \textit{software} de código aberto \textit{Sakai 2.9} \cite{sakai};
  
- \item \textit{Trapel}: sua configuração é 1 \textit{core} de \textit{3.10 GHz} para processamento, 768 MB de memória RAM e 8 GB de disco. 
+ \item \textit{Trapel}: sua configuração é 1 \textit{core} de \textit{3.10 GHz}, 768 MB de memória RAM e 8 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece um serviço de teste de velocidade da conexão 
  à Internet. Ou seja, os usuários do provedor utilizam esse serviço para testar a velocidade da sua Internet. Para isso ele executa as aplicações 
  \textit{Apache 2.4.7} \cite{apache} e \textit{\ac{PHP} 5.5.9} \cite{php}, e um \textit{software} chamado \textit{SpeedTest} \cite{speedtest}.
@@ -427,9 +430,9 @@ são os seguintes:
 
 \section{Considerações finais}
 
-Neste capítulo foi apresentado a empresa e feito uma análise de seus serviços. Com isso, no próximo capítulo será feito a identificação dos 
-serviços mais críticos para a empresa e desenvolvido uma proposta para implementação de um ambiente de alta disponibilidade nos servidores 
-de virtualização, além de identificar as ferramentas que serão utilizadas para essa implementação.
+Neste capítulo foi apresentada a infraestrutura de \ac{TI} da empresa. No no próximo capítulo será feito a identificação dos serviços mais 
+críticos para a empresa e desenvolvido uma proposta de um ambiente de alta disponibilidade para os mesmos. Nesta proposta, serão apresentados os 
+\textit{softwares} que serão utilizados para implementar a alta disponibilidade.
 
 
 %Esboço: \\
