@@ -1,19 +1,19 @@
-\chapter{Estudo do ambiente da empresa}
-\label{cap:estudodecaso}
+\chapter{Infraestrutura atual da Empresa}
+\label{cap:infraempresa}
 
-Este capítulo apresentará a estrutura da empresa que será objetivo de estudo neste trabalho. Esta é uma empresa que fornece serviços de 
-hospedagens e também está associada a um provedor de Internet\footnote[1]{É importante salientar que esse provedor utiliza a maior parte dos 
-serviços da empresa, pois possui um número de clientes maior que a empresa.}. A empresa possui grande parte de seus clientes localizados na 
-serra do Rio Grande do Sul, sendo que atualmente possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de 
-Garibaldi, além disso possui quatro filiais no estado, atendendo aproximadamente 30 cidades.
+Este capítulo apresentará a infraestrutura de \ac{TI} da empresa que será objetivo de estudo neste trabalho. Esta é uma empresa que fornece 
+serviços de hospedagens e também está associada a um provedor de Internet\footnote[1]{É importante salientar que esse provedor utiliza a maior 
+parte dos serviços da empresa.}. A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, sendo que atualmente 
+possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de Garibaldi, além disso possui quatro filiais no estado, 
+atendendo aproximadamente 30 cidades.
 
 A empresa oferece serviços pela Internet aos seus clientes, sendo eles: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
-\textit{e-mail marketing}, \textit{backup}, \textit{máquinas virtuais}, autenticação via \ac{ADSL}, rádio \textit{online} e telefonia.
+\textit{e-mail marketing}, \textit{backup}, máquinas virtuais, autenticação via \ac{ADSL}, rádio \textit{online} e telefonia.
 Além disso, o provedor associado fornece aos seus clientes acesso à Internet via rádio e acesso à Internet por meio de fibra óptica.
 A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto.
 
 Atualmente, a empresa possui redundância de refrigeração e de energia, como pode ser observado na Figura \ref{fig:insteletrica}. 
-A redundância de refrigeração é composta por dois ares-condicionados (destacados com a cor azul). 
+A redundância de refrigeração é composta por dois ares-condicionados (Ar 1 (Inverter) e Ar 2 que estão destacados na cor azul). 
 
 \begin{figure}[h!]
  \centering
@@ -24,24 +24,24 @@ A redundância de refrigeração é composta por dois ares-condicionados (destac
  \label{fig:insteletrica}
 \end{figure}
 
-A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles (identificados como NB 1 e NB 2) são utilizados para 
-alimentação dos servidores e outros equipamentos, como por exemplo, roteadores. Assim, se um \textit{nobreak} falhar o outro assume a alimentação
-de todos os equipamentos. O terceiro \textit{nobreak} (identificado como NB Sala) é utilizado para alimentar os computadores dos funcionários de 
-dois setores da empresa. Conectado aos \textit{nobreaks} estão seis \textit{totens}\footnote[1]{\textit{Totens} são torres que possuem tomadas para plugar 
-os equipamentos}, sendo que nesses \textit{totens} são ligados os equipamentos e servidores que estão montados nos \textit{racks}. 
-Além disso, existe a entrada de energia, com três fases (destacadas na cor vermelho), e dois geradores (destacados na cor verde) que suprem a 
-necessidade de consumo de energia elétrica do ambiente.
+A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles (identificados como NB 1 e NB 2 na Figura 
+\ref{fig:insteletrica}) são utilizados para alimentação dos servidores e outros equipamentos, como por exemplo, roteadores. Assim, se um 
+\textit{nobreak} falhar o outro assume a alimentação de todos os equipamentos. O terceiro \textit{nobreak} (identificado como NB Sala na Figura 
+\ref{fig:insteletrica}) é utilizado para alimentar os computadores dos funcionários de dois setores da empresa. Conectado aos \textit{nobreaks} 
+estão seis \textit{totens}\footnote[1]{\textit{Totens} são torres que possuem tomadas para plugar os equipamentos}, sendo que nestes \textit{totens} 
+são ligados os equipamentos e os servidores que estão localizados nos \textit{racks}. Além disso, existe a entrada de energia, com três fases 
+(destacadas na cor vermelho), e dois geradores (destacados na cor verde) que suprem a necessidade de consumo de energia elétrica do ambiente.
 
-Nas próximas seções será feita uma descrição da estrutura da empresa. Na Seção \ref{section:fisico} será descrito a instalação física dos 
-servidores, com suas estruturas e suas configurações. Na Seção \ref{section:servsemvirt} será descrito os servidores que não utilizam virtualização,
-ou seja, possuem os seus serviços instalados diretamente sobre o sistema operacional. Na Seção \ref{section:servvirt} será descrito a estrutura 
-dos servidores que utilizam de virtualização e todos os serviços fornecidos por esses servidores.
+Nas próximas seções será feita uma descrição da estrutura da empresa. Na Seção \ref{section:fisico} será descrito a os servidores físicos, com 
+suas estruturas e suas configurações. Na Seção \ref{section:servsemvirt} será descrito os servidores que não utilizam virtualização, ou seja, 
+os servidores que possuem os seus serviços instalados diretamente sobre o sistema operacional. Na Seção \ref{section:servvirt} será descrito a 
+estrutura dos servidores que utilizam de virtualização e todos os serviços fornecidos por esses servidores.
 
 \section{Instalação física}
 \label{section:fisico}
 
 A estrutura atual da empresa é composta por quatorze servidores físicos. A configuração de \textit{hardware} desses servidores pode ser 
-encontrada na Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo, a configuração dos processadores, quantidade de memória
+observada na Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo, a configuração dos processadores, quantidade de memória
 \ac{RAM}, número de discos rígidos e a capacidade unitária de cada disco.
 
 \begin{table}[h!]
@@ -98,28 +98,29 @@ A Figura \ref{fig:servrack} demonstra, através de uma foto, o \textit{rack} e t
 \label{section:servsemvirt}
 
 Atualmente existem sete servidores que possuem serviços que são executados sobre o sistema operacional nativo, ou seja, sem virtualização. 
-Eles são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estão descritos abaixo:
+Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estão descritos abaixo:
 \begin{itemize}
  \item Bello: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Sua função é armazenar todos os 
  dados de \textit{backup}, para isso ele possui instalado a ferramenta \textit{Bacula Storage 5.2.6} \cite{bacula}. Destaca-se que a ferramenta 
- \textit{Bacula director} é o \textit{software} que faz a gerência e controle do \textit{backup} e encontra-se instalado no servidor 
+ \textit{Bacula Director} é o \textit{software} que faz a gerência e controle do \textit{backup} e encontra-se instalado no servidor 
  \textit{Quebei}, que será detalhado na Seção \ref{section:serv_venti};
  
  \item Cacti: um dos servidores de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.6} \cite{centos} e executa a 
  aplicação \textit{Cacti 0.8.8b} \cite{cacti}, que é uma ferramenta de código aberto desenvolvida para monitorar equipamentos de rede que 
- suportem o protocolo \ac{SNMP}. Essa ferramenta monitora a maior parte da rede \textit{core} e da rede \textit{backbone}, tanto dos clientes de 
+ suportem o protocolo \ac{SNMP} \cite{??}. Essa ferramenta monitora a maior parte da rede \textit{core} e da rede \textit{backbone}, tanto dos clientes de 
  Internet via rádio, como de fibra óptica;
  
  \item Dati: é o servidor de banco de dados principal, sendo que esse possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. 
  O serviço que executa sobre esse servidor é um sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql}, que armazena os dados 
- das aplicações \textit{ZoneMinder} \cite{zoneminder} (servidor de câmeras), \textit{Icewarp Server} \cite{icewarp} (servidor de \textit{e-mail})
- e \textit{Ejabberd} \cite{ejabberd} (servidor de mensagens instantâneas), que serão detalhados na Seção \ref{section:servvirt};
+ das aplicações \textit{ZoneMinder} \cite{zoneminder}, \textit{Icewarp Server} \cite{icewarp} e \textit{Ejabberd} \cite{ejabberd}. Essas aplicações
+ estão executando respectivamente nos servidores \textit{Vigilante} (servidor de câmeras), \textit{Merak} (servidor de \textit{e-mail}) e 
+ \textit{Parla} (servidor de mensagens instantâneas), sendo que esses servidores serão detalhados na Seção \ref{section:servvirt};
  
  \item Monit: esse servidor faz o monitoramento dos demais servidores. Ele possui o sistema operacional \textit{Ubuntu 12.04 \ac{LTS}} 
  \cite{ubuntu}, e executa as aplicações \textit{Nagios 3.2.3} \cite{nagios} e \textit{Munin 1.4.6} \cite{munin}, ambos \textit{softwares} livres. 
  O \textit{Nagios} monitora o \textit{hardware} e os serviços que estão executando em cada servidor. O segundo, \textit{Munin}, é responsável por 
- gerar gráficos de monitoramento. Com ele pode-se criar, por exemplo, gráficos com a utilização do processador, da memória RAM, do disco, da 
- temperatura e da velocidade dos \textit{fans};
+ gerar gráficos de monitoramento. Com o \textit{Munin} pode-se criar, por exemplo, gráficos com a utilização do processador, da memória \ac{RAM}, 
+ do disco rígido, da temperatura e da velocidade dos \textit{fans}\footnote[1]{Os \textit{fans} ... ?? };
  
  \item Nino: esse é o servidor utilizado pelo setor de desenvolvimento de \textit{software}. Suas aplicações executam sobre o sistema operacional 
  \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que os serviços fornecidos pelo servidor são: um servidor \textit{Web} \textit{Apache 2.4.7} 

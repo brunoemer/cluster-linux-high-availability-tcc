@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  19 JUN 2016 11:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  19 JUN 2016 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1413,7 +1413,6 @@ Overfull \hbox (2.67102pt too wide) in paragraph at lines 53--70
  [] 
  []
 
-[27]
 Package epstopdf Info: Source file: <img/servfisicos.eps>
 (epstopdf)                    date: 2016-05-22 18:27:40
 (epstopdf)                    size: 107713 bytes
@@ -1424,13 +1423,14 @@ Package epstopdf Info: Source file: <img/servfisicos.eps>
 ted-to.pdf img/servfisicos.eps>
 (epstopdf)             \includegraphics on input line 83.
 Package epstopdf Info: Output file is already uptodate.
- <img/servfisicos-eps-converted-to.pdf, id=128, 657.45625pt x 336.25626pt>
+<img/servfisicos-eps-converted-to.pdf, id=124, 657.45625pt x 336.25626pt>
 File: img/servfisicos-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servfisicos-eps-converted-to.pdf>
 Package pdftex.def Info: img/servfisicos-eps-converted-to.pdf used on input lin
 e 83.
 (pdftex.def)             Requested size: 381.42639pt x 195.0852pt.
+ [27]
 Package epstopdf Info: Source file: <img/servrack.eps>
 (epstopdf)                    date: 2016-06-05 10:35:03
 (epstopdf)                    size: 4764668 bytes
@@ -1455,7 +1455,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [28 <./img/servfisicos-eps-converted-to.pdf> <./img/servrack-eps-converted-to.p
-df>] [29]
+df>]
+
+Package natbib Warning: Citation `??' on page 29 undefined on input line 110.
+
+[29]
 Package epstopdf Info: Source file: <img/servidor_brina.eps>
 (epstopdf)                    date: 2016-06-05 21:49:57
 (epstopdf)                    size: 45011 bytes
@@ -1464,15 +1468,14 @@ Package epstopdf Info: Source file: <img/servidor_brina.eps>
 (epstopdf)                    size: 22658 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_brina-eps-con
 verted-to.pdf img/servidor_brina.eps>
-(epstopdf)             \includegraphics on input line 166.
+(epstopdf)             \includegraphics on input line 167.
 Package epstopdf Info: Output file is already uptodate.
-
-<img/servidor_brina-eps-converted-to.pdf, id=142, 345.29pt x 203.76125pt>
+ <img/servidor_brina-eps-converted-to.pdf, id=142, 345.29pt x 203.76125pt>
 File: img/servidor_brina-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servidor_brina-eps-converted-to.pdf>
 Package pdftex.def Info: img/servidor_brina-eps-converted-to.pdf used on input 
-line 166.
+line 167.
 (pdftex.def)             Requested size: 180.67566pt x 106.62181pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1489,7 +1492,7 @@ Package epstopdf Info: Source file: <img/servidor_fulmine.eps>
 (epstopdf)                    size: 93008 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_fulmine-eps-c
 onverted-to.pdf img/servidor_fulmine.eps>
-(epstopdf)             \includegraphics on input line 192.
+(epstopdf)             \includegraphics on input line 193.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/servidor_fulmine-eps-converted-to.pdf, id=150, 528.97626pt x 461.725pt>
@@ -1497,7 +1500,7 @@ File: img/servidor_fulmine-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servidor_fulmine-eps-converted-to.pdf>
 Package pdftex.def Info: img/servidor_fulmine-eps-converted-to.pdf used on inpu
-t line 192.
+t line 193.
 (pdftex.def)             Requested size: 311.16364pt x 271.60518pt.
  [31 <./img/servidor_fulmine-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/servidor_piova.eps>
@@ -1508,7 +1511,7 @@ Package epstopdf Info: Source file: <img/servidor_piova.eps>
 (epstopdf)                    size: 64394 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_piova-eps-con
 verted-to.pdf img/servidor_piova.eps>
-(epstopdf)             \includegraphics on input line 248.
+(epstopdf)             \includegraphics on input line 249.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/servidor_piova-eps-converted-to.pdf, id=157, 542.025pt x 444.66125pt>
@@ -1516,7 +1519,7 @@ File: img/servidor_piova-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servidor_piova-eps-converted-to.pdf>
 Package pdftex.def Info: img/servidor_piova-eps-converted-to.pdf used on input 
-line 248.
+line 249.
 (pdftex.def)             Requested size: 321.20117pt x 263.51488pt.
 
 
@@ -1539,7 +1542,7 @@ Package epstopdf Info: Source file: <img/servidor_raggio.eps>
 (epstopdf)                    size: 31508 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_raggio-eps-co
 nverted-to.pdf img/servidor_raggio.eps>
-(epstopdf)             \includegraphics on input line 306.
+(epstopdf)             \includegraphics on input line 307.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/servidor_raggio-eps-converted-to.pdf, id=167, 372.39125pt x 323.2075pt>
@@ -1547,7 +1550,7 @@ File: img/servidor_raggio-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servidor_raggio-eps-converted-to.pdf>
 Package pdftex.def Info: img/servidor_raggio-eps-converted-to.pdf used on input
- line 306.
+ line 307.
 (pdftex.def)             Requested size: 220.8258pt x 191.66725pt.
 Package epstopdf Info: Source file: <img/servidor_tempesta.eps>
 (epstopdf)                    date: 2016-06-05 21:48:38
@@ -1558,14 +1561,14 @@ Package epstopdf Info: Source file: <img/servidor_tempesta.eps>
 (epstopdf)                    size: 30336 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_tempesta-eps-
 converted-to.pdf img/servidor_tempesta.eps>
-(epstopdf)             \includegraphics on input line 321.
+(epstopdf)             \includegraphics on input line 322.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/servidor_tempesta-eps-converted-to.pdf, id=168, 559.08875pt x 165.61874pt>
 File: img/servidor_tempesta-eps-converted-to.pdf Graphic file (type pdf)
 <use img/servidor_tempesta-eps-converted-to.pdf>
 Package pdftex.def Info: img/servidor_tempesta-eps-converted-to.pdf used on inp
-ut line 321.
+ut line 322.
 (pdftex.def)             Requested size: 351.31378pt x 104.07248pt.
 
 
@@ -1585,7 +1588,7 @@ Package epstopdf Info: Source file: <img/servidor_tuono.eps>
 (epstopdf)                    size: 30359 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_tuono-eps-con
 verted-to.pdf img/servidor_tuono.eps>
-(epstopdf)             \includegraphics on input line 362.
+(epstopdf)             \includegraphics on input line 363.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/servidor_tuono-eps-converted-to.pdf, id=175, 497.86pt x 208.78pt>
@@ -1593,7 +1596,7 @@ File: img/servidor_tuono-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servidor_tuono-eps-converted-to.pdf>
 Package pdftex.def Info: img/servidor_tuono-eps-converted-to.pdf used on input 
-line 362.
+line 363.
 (pdftex.def)             Requested size: 301.1261pt x 126.282pt.
 
 
@@ -1608,7 +1611,7 @@ Package epstopdf Info: Source file: <img/servidor_venti.eps>
 (epstopdf)                    size: 37276 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_venti-eps-con
 verted-to.pdf img/servidor_venti.eps>
-(epstopdf)             \includegraphics on input line 397.
+(epstopdf)             \includegraphics on input line 398.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/servidor_venti-eps-converted-to.pdf, id=182, 547.04375pt x 279.0425pt>
@@ -1616,7 +1619,7 @@ File: img/servidor_venti-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/servidor_venti-eps-converted-to.pdf>
 Package pdftex.def Info: img/servidor_venti-eps-converted-to.pdf used on input 
-line 397.
+line 398.
 (pdftex.def)             Requested size: 341.27625pt x 174.08179pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1980,10 +1983,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 54
  []
 
-[54] (./tcc.aux (./folha_rosto.aux) (./abstract.aux)
-(./capitulos/introducao.aux) (./capitulos/capitulo2.aux)
-(./capitulos/capitulo3.aux) (./capitulos/capitulo4.aux)
-(./capitulos/capitulo5.aux) (./capitulos/capitulo6.aux))
+[54]
+
+Package natbib Warning: There were undefined citations.
+
+(./tcc.aux (./folha_rosto.aux) (./abstract.aux) (./capitulos/introducao.aux)
+(./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux)
+(./capitulos/capitulo4.aux) (./capitulos/capitulo5.aux)
+(./capitulos/capitulo6.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -1993,10 +2000,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14216 strings out of 495004
- 275195 string characters out of 6180662
- 332637 words of memory out of 5000000
- 17108 multiletter control sequences out of 15000+600000
+ 14219 strings out of 495004
+ 275226 string characters out of 6180662
+ 332676 words of memory out of 5000000
+ 17111 multiletter control sequences out of 15000+600000
  10556 words of font info for 37 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10374b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2011,7 +2018,7 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt12.pfb>
-Output written on tcc.pdf (55 pages, 1701194 bytes).
+Output written on tcc.pdf (55 pages, 1702210 bytes).
 PDF statistics:
  335 PDF objects out of 1000 (max. 8388607)
  211 compressed objects within 3 object streams
