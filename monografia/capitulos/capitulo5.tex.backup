@@ -33,13 +33,12 @@ Nas próximas seções serão descritos os serviços considerados críticos.
 \label{section:dnsrecprim}
 
 Esse serviço foi classificado como o mais importante pois possui um impacto direto nos clientes do provedor. Esse é o único serviço que todos 
-os clientes e funcionários utilizam. O objetivo de um provedor é fornecer uma navegação de qualidade aos seus clientes, sendo assim, o 
-\ac{DNS} é fundamental para essa navegação. O primeiro critério desse serviço é a quantidade de clientes que ele possui, que é 
-aproximadamente 9000, além disso possui 65 funcionários. Outro importante critério que pode ser aplicado ao \ac{DNS} recursivo é o número de 
-requisições por segundo, que chega aproximadamente a 1150 (Figura \ref{fig:passata_week}). De acordo com a Figura \ref{fig:servico_udp}, que 
-compara os principais servidores da empresa através de requisições \ac{UDP}, onde pode-se claramente perceber que o servidor \textit{Passata}
-possui um grande número de requisições \ac{UDP}, o qual fornece o serviço de \ac{DNS} recursivo primário. Assim, esse serviço se torna o 
-maior entre todos os outros.
+os clientes e funcionários utilizam. O objetivo de um provedor é fornecer uma navegação de qualidade aos seus clientes, sendo assim, o \ac{DNS} 
+é fundamental para essa navegação, uma vez que é usado por todos os clientes, que é aproximadamente 9000. Outro importante critério que pode ser 
+aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura \ref{fig:passata_week} (a) esse serviço
+possui aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:servico_udp} (b), que compara os principais servidores da 
+empresa através de requisições \ac{UDP}, onde pode-se observar que o servidor \textit{Passata} possui um grande número de requisições 
+\ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} são elevadas devido ao fato do serviço \ac{DNS} gerá-las.}.
 
 \begin{figure}[h!]
  \centering
@@ -58,20 +57,18 @@ maior entre todos os outros.
 \subsection{Radius}
 \label{section:radius}
 
-Esse serviço é importante para a navegação dos clientes do provedor, pois esse é o responsável pela autenticação de 
-todos os clientes. Caso esse serviço fique indisponível, os clientes não conseguirão estabelecer conexão para sua navegação. Os servidores
-\textit{Speedauth} e \textit{Masterauth} recebem uma média de 1,6 requisições de autenticação por segundo como pode ser visto na Figura 
-\ref{fig:speedauth_auth_week} e na \ref{fig:masterauth_auth_week}, esse número se torna expressivo pois demonstra que a cada um segundo 
-aproximadamente um cliente requisita a autenticação para iniciar a sua navegação. Além disso, esse serviço armazena alguns dados relacionados 
-à conexão dos clientes, que são os seguintes dados: o endereço de \ac{IP} que é utilizado por um cliente em um determinado período, o tráfego 
-de dados da conexão, o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. Essas operações 
-resultam em um número de requisições por segundo (em média 23 requisições).
-%, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
+Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
+os clientes não conseguirão estabelecer conexão para sua navegação. Os servidores \textit{Speedauth} e \textit{Masterauth} fornecem o serviço de
+\textit{Radius}, sendo que recebem, em média, 1,6 requisições de autenticação por segundo, como pode ser observado na Figura 
+\ref{fig:radius_auth_week} (a) e na \ref{fig:radius_auth_week} (b). Caso esses servidores ficarem indisponíveis aproximadamente 1,6 clientes 
+não conseguirão efetuar a autenticação para iniciar a sua navegação. Além disso, esses servidores armazenam alguns dados relacionados à conexão 
+dos clientes, como por exemplo o endereço de \ac{IP} que é utilizado por um cliente em um determinado período, o tráfego de dados da conexão, 
+o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 
+requisições por segundo. %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de \textit{logins} 
-de autenticação dos clientes de acesso a Internet do provedor. De acordo com a Figura \ref{fig:servico_elemento}, os servidores \textit{Speedauth} 
-e \textit{Masterauth} estão entre os maiores, sendo que essa figura compara os principais servidores da empresa através do volume de elementos
-que foi descrito no terceiro critério. Além disso, existe um destaque desses servidores no número de conexões \ac{TCP}, como pode ser observado 
-na Figura \ref{fig:servico_tcp};
+de autenticação dos clientes. Como pode ser obervado na Figura \ref{fig:servico_elemento}, os servidores \textit{Speedauth} e \textit{Masterauth} 
+estão entre os que apresentam o maior número de elementos. Além disso, existe um destaque desses servidores no número de conexões \ac{TCP}, como 
+pode ser observado na Figura \ref{fig:servico_tcp}.
 
 \begin{figure}[h!]
  \centering
@@ -97,18 +94,15 @@ na Figura \ref{fig:servico_tcp};
 \subsection{Sistemas da empresa e do provedor}
 \label{section:sistemas}
 
-O sistema do provedor é responsável pela maior parte das operações do provedor. De fato, esse sistema é
-responsável pela emissão de boletos e envio para clientes, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos 
-clientes, entre outros. Esse sistema não tem um impacto direto para os clientes, porém é fundamental para os funcionários da empresa e do provedor. 
-Caso haja uma indisponibilidade desses sistemas a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui 
-no total 65 funcionários.
+O sistema do provedor é responsável pela maior parte das operações do provedor. De fato, esse sistema é responsável pela emissão de boletos, 
+atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros. Esse sistema não tem um impacto 
+direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
+a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui no total 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a empresa e o provedor. 
-Pode-se aplicar o critério de número de requisições por segundo nesse serviço, sendo que o principal sistema do provedor, que está 
-executando sobre o servidor \textit{Soldi}, que recebe aproximadamente 3 requisições por segundo (Figura \ref{fig:soldi_week}). Além disso, a 
-empresa mantém outros 27 sistemas, de outros clientes, nesse mesmo servidor. Outro critério que aplica-se a esse serviço é o número de conexões 
-\ac{TCP}, onde pode-se observar que o servidor \textit{Soldi} está entre os mais relevantes, como pode ser observado na Figura 
-\ref{fig:servico_tcp}. Sendo que nesta figura há uma comparação entre os principais servidores da empresa através do critério de conexões 
-\ac{TCP} que foi descrito anteriormente no quarto critério;
+Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{??} por segundo número de 
+requisições por segundo, como pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, de outros 
+clientes, nesse mesmo servidor. 
+%Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar que o servidor \textit{Soldi} está entre os mais relevantes, como pode ser observado na Figura \ref{fig:servico_tcp}. 
 
 \begin{figure}[h!]
  \centering
@@ -131,17 +125,17 @@ empresa mantém outros 27 sistemas, de outros clientes, nesse mesmo servidor. Ou
  \label{fig:soldi_week}
 \end{figure}
 
-\subsection{Telfonia}
+\subsection{Telefonia}
 \label{section:telefonia}
-Esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre os clientes e os funcionários, 
-ou seja, o servidor \textit{SimplesIP} é responsável por permitir o atendimento a clientes para fins de suporte técnico, comunicação interna entre 
+
+Esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre os clientes e os funcionários, ou seja, o 
+servidor \textit{SimplesIP} é responsável por garantir o atendimento a clientes para fins de suporte técnico, comunicação interna entre 
 funcionários, comunicação com técnicos externos, vendas, cobranças a clientes, entre outros. Para quantificar, no mês de maio de 2016 a empresa 
-recebeu 15922 ligações, com duração total de 67 horas e 40 minutos, sendo que essas ligações foram recebidas por todos os setores do provedor e 
-também da empresa. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. O gráfico da Figura \ref{fig:simplesip_week} mostra 
-a quantidade de canais ativos no servidor de telefonia. Observa-se na Figura que são realizadas de 20 a 30 ligações durante o horário comercial, 
-das 08:00 às 12:00 e das 13:00 às 18:00. Outro critério que é relevante para este serviço é o número de conexões \ac{TCP} e o número de 
-requisições \ac{UDP}, pois esse servidor também encontra-se entre os maiores. Ele pode ser observado na Figura \ref{fig:servico_tcp} e na Figura 
-\ref{fig:servico_udp}.
+recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
+O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se nesta figura que ocorre 
+de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Além disso, na Figura 
+\ref{fig:servico_udp} observa-se o número de requisições \ac{UDP} recebidas\footnote[1]{Esse número de requisições \ac{UDP} deve-se ao fato
+da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}.
 
 \begin{figure}[h!]
  \centering
@@ -150,8 +144,10 @@ requisições \ac{UDP}, pois esse servidor também encontra-se entre os maiores.
  \label{fig:simplesip_week}
 \end{figure}
 
-Sobre os serviços descritos anteriormente, pode-se identificar quais máquinas virtuais deverão ser incluídas no 
-ambiente de alta disponibilidade, sendo elas:
+\subsection{Máquinas com serviços críticos}
+\label{section:maqservcrit}
+
+Desta forma, verifica-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
 \begin{itemize}
  \item \textit{Passata}
  \item \textit{Speedauth}
@@ -159,6 +155,8 @@ ambiente de alta disponibilidade, sendo elas:
  \item \textit{Soldi}
  \item \textit{SimplesIP}
 \end{itemize}
+
+Incluir tabela com disponibilidade atual ??
 
 \section{Proposta de solução}
 \label{section:propostasolucao}
@@ -192,7 +190,7 @@ Dependendo do objetivo e da aplicação pode-se usar ferramentas como por exempl
 para um destino. Sendo assim, não é possível utilizar essa ferramenta, pois ela não faz a replicação em tempo real, ou seja, se for necessário
 utilizar os dados de destino ocorrerá perda de dados devido ao tempo de sincronismo. Outra forma de replicação é a de discos com \ac{RAID} 
 por exemplo, essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote{Lembrando que essa 
-solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores}, porém não garante a disponibilidade quando \textit{software}
+solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando \textit{software}
 ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
 
 A solução de replicação ideal para esta implementação é um espelhamento de dados através da rede, sendo que essa solução permite a cópia dos 

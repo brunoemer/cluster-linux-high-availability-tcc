@@ -38,13 +38,13 @@
 \contentsline {chapter}{\numberline {5}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{38}
 \contentsline {section}{\numberline {5.1}Levantamento dos servi\IeC {\c c}os cr\IeC {\'\i }ticos}{38}
 \contentsline {subsection}{\numberline {5.1.1}\ac {DNS} recursivo prim\IeC {\'a}rio}{38}
-\contentsline {subsection}{\numberline {5.1.2}Radius}{40}
-\contentsline {subsection}{\numberline {5.1.3}Sistemas da empresa e do provedor}{40}
-\contentsline {subsection}{\numberline {5.1.4}Telfonia}{42}
+\contentsline {subsection}{\numberline {5.1.2}Radius}{39}
+\contentsline {subsection}{\numberline {5.1.3}Sistemas da empresa e do provedor}{41}
+\contentsline {subsection}{\numberline {5.1.4}Telefonia}{42}
 \contentsline {subsection}{\numberline {5.1.5}M\IeC {\'a}quinas com servi\IeC {\c c}os cr\IeC {\'\i }ticos}{43}
 \contentsline {section}{\numberline {5.2}Proposta de solu\IeC {\c c}\IeC {\~a}o}{43}
-\contentsline {subsection}{\numberline {5.2.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{44}
-\contentsline {subsection}{\numberline {5.2.2}Ferramentas de gerenciamento de cluster}{45}
+\contentsline {subsection}{\numberline {5.2.1}Ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados}{43}
+\contentsline {subsection}{\numberline {5.2.2}Ferramentas de gerenciamento de cluster}{44}
 \contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{48}
 \contentsline {section}{\numberline {6.1}Cronograma}{49}
 \contentsline {chapter}{Refer{\^e}ncias}{50}
