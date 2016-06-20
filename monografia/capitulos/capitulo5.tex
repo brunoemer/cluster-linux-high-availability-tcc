@@ -138,18 +138,12 @@ Desta forma, verifica-se que os servidores a serem incluídos no ambiente de alt
 
 Incluir tabela com disponibilidade atual ??
 
+
 \section{Proposta de solução}
 \label{section:propostasolucao}
 
 O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, liberando assim o 
 \textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
-Para isso será feito as seguintes mudanças:
-\begin{itemize}
- \item \textit{Passata} e \textit{SimplesIP}: movidas do \textit{Fulmine} para \textit{Tuono};
- \item \textit{Monete}: movida do \textit{Brina} para o \textit{Piova};
- \item \textit{Ns}: movido do \textit{Tuono} para o \textit{Tempesta};
- \item \textit{Mondoperso}: movido do \textit{Tuono} para o \textit{Venti}.
-\end{itemize}
 
 Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
@@ -166,15 +160,41 @@ As ferramentas necessárias para essa implementação podem ser divididas em doi
 \label{section:toolrepl}
 
 Replicação de dados pode ser feita de diversas maneiras, pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
-Dependendo do objetivo e da aplicação pode-se usar ferramentas como por exemplo o \textit{rsync}, que faz o sincronismo de dados de uma origem
-para um destino. Sendo assim, não é possível utilizar essa ferramenta, pois ela não faz a replicação em tempo real, ou seja, se for necessário
-utilizar os dados de destino ocorrerá perda de dados devido ao tempo de sincronismo. Outra forma de replicação é a de discos com \ac{RAID} 
-por exemplo, essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote{Lembrando que essa 
-solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando \textit{software}
-ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
+Dependendo do objetivo e da aplicação pode-se usar ferramentas como por exemplo o \textit{rsync} \cite{rsync}, que faz o sincronismo de dados de 
+uma origem para um destino. Sendo assim, não é possível utilizar essa ferramenta, pois ela não faz a replicação em tempo real, ou seja, se for 
+necessário utilizar os dados de destino ocorrerá perda de dados devido ao tempo de sincronismo. Outra forma de replicação é a de discos com 
+\ac{RAID} por exemplo, essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote{Lembrando que 
+essa solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando 
+\textit{software} ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
 
 A solução de replicação ideal para esta implementação é um espelhamento de dados através da rede, sendo que essa solução permite a cópia dos 
-dados para uma máquina remota em tempo real. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware}.
+dados para uma máquina remota em tempo real. A seguintes ferramentas de replicação de dados foram encontradas:
+\begin{itemize}
+ \item \ac{DRBD} \cite{drbd}
+ \item \textit{GlusterFS} \cite{glusterfs}
+ \item \ac{HAST} \cite{hast}
+ \item \textit{Rsync} \cite{rsync}
+\end{itemize}
+
+https://wiki.freebsd.org/HAST
+A Tabela....
+
+\begin{table}[h!]
+\caption{Comparação ferramentas de replicação de dados.}
+\label{tab:replicacao}
+\begin{center}
+\def\arraystretch{1}
+\setlength{\tabcolsep}{0.15cm}
+\begin{tabular}{|l|l|l|l|l|}\hline
+Características & DRBD & GlusterFS & HAST & Rsync\\\hline
+Master/Slave & Sim & Sim & Sim & Não \\\hline
+Replicação em tempo real & Sim & Sim & Sim & Não \\\hline
+Número máximo de nós & Ilimitado & Ilimitado & 2 & Ilimitado \\\hline
+Plataformas & ? & ? & FreeBSD & ? \\\hline
+Virtualização & & & & \\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
 aberto, e permite a replicação de dados de um dispositivo local em tempo real. Os dispositivos \ac{DRBD}, que geralmente ficam em 

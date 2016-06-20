@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  20 JUN 2016 10:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  20 JUN 2016 11:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1786,6 +1786,27 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [42 <./img/simplesip_week-eps-converted-to.pdf>]
+
+Package natbib Warning: Citation `rsync' on page 43 undefined on input line 163
+.
+
+
+Package natbib Warning: Citation `drbd' on page 43 undefined on input line 173.
+
+
+
+Package natbib Warning: Citation `glusterfs' on page 43 undefined on input line
+ 174.
+
+
+Package natbib Warning: Citation `hast' on page 43 undefined on input line 175.
+
+
+
+Package natbib Warning: Citation `rsync' on page 43 undefined on input line 176
+.
+
+[43]
 Package epstopdf Info: Source file: <img/drbd_basic.eps>
 (epstopdf)                    date: 2016-06-12 22:48:51
 (epstopdf)                    size: 44255 bytes
@@ -1794,21 +1815,16 @@ Package epstopdf Info: Source file: <img/drbd_basic.eps>
 (epstopdf)                    size: 10219 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/drbd_basic-eps-convert
 ed-to.pdf img/drbd_basic.eps>
-(epstopdf)             \includegraphics on input line 189.
+(epstopdf)             \includegraphics on input line 209.
 Package epstopdf Info: Output file is already uptodate.
-
-<img/drbd_basic-eps-converted-to.pdf, id=234, 480.79625pt x 196.735pt>
+ <img/drbd_basic-eps-converted-to.pdf, id=237, 480.79625pt x 196.735pt>
 File: img/drbd_basic-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/drbd_basic-eps-converted-to.pdf>
 Package pdftex.def Info: img/drbd_basic-eps-converted-to.pdf used on input line
- 189.
+ 209.
 (pdftex.def)             Requested size: 301.1261pt x 123.21722pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[43]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 44
  []
@@ -1822,7 +1838,7 @@ Package epstopdf Info: Source file: <img/pacemaker_tools.eps>
 (epstopdf)                    size: 72029 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/pacemaker_tools-eps-co
 nverted-to.pdf img/pacemaker_tools.eps>
-(epstopdf)             \includegraphics on input line 255.
+(epstopdf)             \includegraphics on input line 275.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/pacemaker_tools-eps-converted-to.pdf, id=247, 603.25375pt x 452.69125pt>
@@ -1830,7 +1846,7 @@ File: img/pacemaker_tools-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/pacemaker_tools-eps-converted-to.pdf>
 Package pdftex.def Info: img/pacemaker_tools-eps-converted-to.pdf used on input
- line 255.
+ line 275.
 (pdftex.def)             Requested size: 281.05103pt x 210.89989pt.
 Package epstopdf Info: Source file: <img/vms_migration.eps>
 (epstopdf)                    date: 2016-06-02 21:44:45
@@ -1840,7 +1856,7 @@ Package epstopdf Info: Source file: <img/vms_migration.eps>
 (epstopdf)                    size: 89385 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_migration-eps-conv
 erted-to.pdf img/vms_migration.eps>
-(epstopdf)             \includegraphics on input line 295.
+(epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/vms_migration-eps-converted-to.pdf, id=248, 372.39125pt x 373.395pt>
@@ -1848,7 +1864,7 @@ File: img/vms_migration-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/vms_migration-eps-converted-to.pdf>
 Package pdftex.def Info: img/vms_migration-eps-converted-to.pdf used on input l
-ine 295.
+ine 315.
 (pdftex.def)             Requested size: 301.1261pt x 301.94691pt.
 
 
@@ -1961,10 +1977,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14209 strings out of 495004
- 274639 string characters out of 6180662
- 332762 words of memory out of 5000000
- 17103 multiletter control sequences out of 15000+600000
+ 14225 strings out of 495004
+ 274961 string characters out of 6180662
+ 332990 words of memory out of 5000000
+ 17119 multiletter control sequences out of 15000+600000
  10864 words of font info for 38 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10374b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1980,7 +1996,7 @@ amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on tcc.pdf (55 pages, 1801135 bytes).
+Output written on tcc.pdf (55 pages, 1802347 bytes).
 PDF statistics:
  327 PDF objects out of 1000 (max. 8388607)
  208 compressed objects within 3 object streams
