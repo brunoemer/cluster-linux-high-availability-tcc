@@ -178,7 +178,7 @@ A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Nest
 utilizado pois não faz replicação em tempo real. Já o \textit{GlusterFS} pode ser utilizado neste trabalho, porém sua principal característica, 
 que é a escalabilidade, ou seja, facilidade em aumentar os nós do \textit{cluster}, não será útil para esta implementação.
 Além disso ele faz a replicação a nível de arquivo, assim pode-se obter um desempenho inferior.
-E por fim, o \textit{Ceph DRBD} ?? ...
+E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para monitorar ... ??
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -236,14 +236,14 @@ Com isso, todas as operações de escritas feitas no nó primário serão replic
 \subsection{Ferramentas de gerenciamento de cluster}
 \label{section:toolcluster}
 
-Para ser possível implementar uma solução de alta disponibilidade é necessário uma ferramenta que monitora os recursos, fazendo a detecção e
-recuperação do serviço utilizando mensagens entre os servidores, que é denominada como um \textit{cluster} \cite{perkov2011}. 
+Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster}.
+%uma ferramenta que monitora os recursos, fazendo a detecção e recuperação do serviço utilizando mensagens entre os servidores, que é denominada como um \textit{cluster} \cite{perkov2011}. 
 Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
 de um serviço \cite{freitas2005}.
 
-Essas ferramentas de gerenciamento de \textit{cluster} permitem detecção de falhas a nível de nó ou a nível de recursos, ou seja, pode detectar
-falhas de \textit{hardware} e falhas de serviços. Elas são conhecidas como \ac{CRM}, cuja função é fazer a gerência de recursos de um 
-\textit{cluster}.
+Além disso, é interessante a utilização de ferramentas para facilitar o gerenciamento desse \textit{cluster}. Essas permitem detectar falhas em um 
+nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. Essas ferramentas são conhecidas 
+como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}.
 
 O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta de código aberto
 mais completa e flexível encontrada. Contudo, foi encontrada outra forma para implementar este ambiente, que seria utilizando apenas a 
@@ -277,7 +277,6 @@ Definir failover ??
 \end{itemize}
 %ver ferramentas cMAN e Apache Qpid??
 
-\newpage
 Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
 mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
 
