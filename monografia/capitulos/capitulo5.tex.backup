@@ -35,15 +35,15 @@ Nas próximas seções serão descritos os serviços considerados críticos.
 Esse serviço foi classificado como o mais importante pois possui um impacto direto nos clientes do provedor. Esse é o único serviço que todos 
 os clientes e funcionários utilizam. O objetivo de um provedor é fornecer uma navegação de qualidade aos seus clientes, sendo assim, o \ac{DNS} 
 é fundamental para essa navegação, uma vez que é usado por todos os clientes, que é aproximadamente 9000. Outro importante critério que pode ser 
-aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura \ref{fig:dns_udp} (b) esse serviço
-possui aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:dns_udp} (a), que compara os principais servidores da 
+aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura \ref{fig:dns_udp} (a) esse serviço
+possui aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:dns_udp} (b), que compara os principais servidores da 
 empresa através de requisições \ac{UDP}, onde pode-se observar que o servidor \textit{Passata} possui um grande número de requisições 
 \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} são elevadas devido ao fato do serviço \ac{DNS} gerá-las.}.
 
 \begin{figure}[h!]
  \centering
  \includegraphics[width=400px]{img/dns_udp.eps}
- \caption{Gráfico de comparação de requisições UDP entre os principais servidores (a) e requisições DNS (a).}
+ \caption{Gráfico de requisições DNS (a) e comparação de requisições UDP entre os principais servidores (b).}
  \label{fig:dns_udp}
 \end{figure}
 
@@ -51,7 +51,7 @@ empresa através de requisições \ac{UDP}, onde pode-se observar que o servidor
 \label{section:radius}
 
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
-os clientes não conseguirão estabelecer conexão para sua navegação. Os servidores \textit{Speedauth} e \textit{Masterauth} fornecem o serviço de
+os clientes não conseguirão estabelecer conexão para sua navegação. Os servidores \textit{Masterauth} e \textit{Speedauth} fornecem o serviço de
 \textit{Radius}, sendo que recebem, em média, 1,6 requisições de autenticação por segundo, como pode ser observado na Figura 
 \ref{fig:freeradius_auth} (a) e na \ref{fig:freeradius_auth} (b). Caso esses servidores ficarem indisponíveis aproximadamente 1,6 clientes 
 não conseguirão efetuar a autenticação para iniciar a sua navegação. Além disso, esses servidores armazenam alguns dados relacionados à conexão 
@@ -59,7 +59,7 @@ dos clientes, como por exemplo o endereço de \ac{IP} que é utilizado por um cl
 o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 
 requisições por segundo. %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de \textit{logins} 
-de autenticação dos clientes. Como pode ser obervado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Speedauth} e \textit{Masterauth} 
+de autenticação dos clientes. Como pode ser obervado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e \textit{Speedauth}
 estão entre os que apresentam o maior número de elementos. Além disso, existe um destaque desses servidores no número de conexões \ac{TCP}, como 
 pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
@@ -114,7 +114,7 @@ funcionários, comunicação com técnicos externos, vendas, cobranças a client
 recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
 O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se nesta figura que ocorre 
 de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Além disso, na Figura 
-\ref{fig:dns_udp} (a) observa-se o número de requisições \ac{UDP} recebidas\footnote[1]{Esse número de requisições \ac{UDP} deve-se ao fato
+\ref{fig:dns_udp} (b) observa-se o número de requisições \ac{UDP} recebidas\footnote[1]{Esse número de requisições \ac{UDP} deve-se ao fato
 da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}.
 
 \begin{figure}[h!]
@@ -138,18 +138,13 @@ Desta forma, verifica-se que os servidores a serem incluídos no ambiente de alt
 
 Incluir tabela com disponibilidade atual ??
 
+
 \section{Proposta de solução}
 \label{section:propostasolucao}
 
+
 O primeiro passo desta implementação é fazer uma reorganização das máquinas virtuais entre os servidores atuais, liberando assim o 
 \textit{hardware} suficiente para possibilitar a implementação do ambiente de alta disponibilidade. 
-Para isso será feito as seguintes mudanças:
-\begin{itemize}
- \item \textit{Passata} e \textit{SimplesIP}: movidas do \textit{Fulmine} para \textit{Tuono};
- \item \textit{Monete}: movida do \textit{Brina} para o \textit{Piova};
- \item \textit{Ns}: movido do \textit{Tuono} para o \textit{Tempesta};
- \item \textit{Mondoperso}: movido do \textit{Tuono} para o \textit{Venti}.
-\end{itemize}
 
 Após ter sido feito a reorganização das máquinas virtuais será iniciado a implementação, montando um ambiente com dois servidores e os 
 configurando de uma forma que caso houver alguma falha, em um servidor físico ou no seu sistema operacional hospedeiro, as máquinas serão 
@@ -166,15 +161,44 @@ As ferramentas necessárias para essa implementação podem ser divididas em doi
 \label{section:toolrepl}
 
 Replicação de dados pode ser feita de diversas maneiras, pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
-Dependendo do objetivo e da aplicação pode-se usar ferramentas como por exemplo o \textit{rsync}, que faz o sincronismo de dados de uma origem
-para um destino. Sendo assim, não é possível utilizar essa ferramenta, pois ela não faz a replicação em tempo real, ou seja, se for necessário
-utilizar os dados de destino ocorrerá perda de dados devido ao tempo de sincronismo. Outra forma de replicação é a de discos com \ac{RAID} 
-por exemplo, essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote{Lembrando que essa 
-solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando \textit{software}
-ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
+Dependendo do objetivo e da aplicação pode-se usar ferramentas como por exemplo o \textit{rsync} \cite{rsync}, que faz o sincronismo de dados de 
+uma origem para um destino. Sendo assim, não é possível utilizar essa ferramenta, pois ela não faz a replicação em tempo real, ou seja, se for 
+necessário utilizar os dados de destino ocorrerá perda de dados devido ao tempo de sincronismo. Outra forma de replicação é a de discos com 
+\ac{RAID} por exemplo, essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote{Lembrando que 
+essa solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando 
+\textit{software} ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
 
 A solução de replicação ideal para esta implementação é um espelhamento de dados através da rede, sendo que essa solução permite a cópia dos 
-dados para uma máquina remota em tempo real. Essa solução além de fazer a replicação dos dados, faz a redundância de todo \textit{hardware}.
+dados para uma máquina remota em tempo real. A seguintes ferramentas de replicação de dados foram encontradas:
+\begin{itemize}
+ \item \ac{DRBD} \cite{drbd}
+ \item \textit{GlusterFS} \cite{glusterfs}
+ \item \ac{HAST} \cite{hast}
+ \item \textit{Rsync} \cite{rsync}
+\end{itemize}
+
+https://wiki.freebsd.org/HAST
+A Tabela....
+
+\begin{table}[h!]
+\caption{Comparação ferramentas de replicação de dados.}
+\label{tab:replicacao}
+\begin{center}
+\def\arraystretch{1}
+\setlength{\tabcolsep}{0.15cm}
+\begin{tabular}{|l|l|l|l|l|}\hline
+Características & DRBD & GlusterFS & Ceph & Rsync\\\hline
+Master/Slave & Sim & Sim & ? & Não \\\hline
+Replicação em tempo real & Sim & Sim  & ? & Não \\\hline
+Nível de replicação & Bloco & ? & ? & Arquivo \\\hline
+Número máximo de nós & Ilimitado & Ilimitado & ? & Ilimitado \\\hline
+Plataformas & ? & ? & ? & ? \\\hline
+Virtualização & Sim & ? & Sim & Não \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+A principal característica do \textit{GlusterFS} é a um sistema de arquivos distribuídos
 
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}. Essa ferramenta é de código
 aberto, e permite a replicação de dados de um dispositivo local em tempo real. Os dispositivos \ac{DRBD}, que geralmente ficam em 
@@ -222,7 +246,7 @@ virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
 informar se ele está ativo \cite{reis2009}.
-%Outras ferramentas CRM (nao tenho certeza?):
+%http://docs.ganeti.org/ganeti/2.15/html/
 %Microsoft com+ cluster ???
 %ZS3-2 Clustering ???
 
