@@ -35,23 +35,16 @@ Nas próximas seções serão descritos os serviços considerados críticos.
 Esse serviço foi classificado como o mais importante pois possui um impacto direto nos clientes do provedor. Esse é o único serviço que todos 
 os clientes e funcionários utilizam. O objetivo de um provedor é fornecer uma navegação de qualidade aos seus clientes, sendo assim, o \ac{DNS} 
 é fundamental para essa navegação, uma vez que é usado por todos os clientes, que é aproximadamente 9000. Outro importante critério que pode ser 
-aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura \ref{fig:passata_week} (a) esse serviço
-possui aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:servico_udp} (b), que compara os principais servidores da 
+aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura \ref{fig:dns_udp} (b) esse serviço
+possui aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:dns_udp} (a), que compara os principais servidores da 
 empresa através de requisições \ac{UDP}, onde pode-se observar que o servidor \textit{Passata} possui um grande número de requisições 
 \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} são elevadas devido ao fato do serviço \ac{DNS} gerá-las.}.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=310px]{img/passata_week.eps}
- \caption{Gráfico de requisições DNS.}
- \label{fig:passata_week}
-\end{figure}
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=430px]{img/servico_udp.eps}
- \caption{Gráfico de comparação de requisições UDP entre os principais servidores.}
- \label{fig:servico_udp}
+ \includegraphics[width=400px]{img/dns_udp.eps}
+ \caption{Gráfico de comparação de requisições UDP entre os principais servidores (a) e requisições DNS (a).}
+ \label{fig:dns_udp}
 \end{figure}
 
 \subsection{Radius}
@@ -60,35 +53,28 @@ empresa através de requisições \ac{UDP}, onde pode-se observar que o servidor
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
 os clientes não conseguirão estabelecer conexão para sua navegação. Os servidores \textit{Speedauth} e \textit{Masterauth} fornecem o serviço de
 \textit{Radius}, sendo que recebem, em média, 1,6 requisições de autenticação por segundo, como pode ser observado na Figura 
-\ref{fig:radius_auth_week} (a) e na \ref{fig:radius_auth_week} (b). Caso esses servidores ficarem indisponíveis aproximadamente 1,6 clientes 
+\ref{fig:freeradius_auth} (a) e na \ref{fig:freeradius_auth} (b). Caso esses servidores ficarem indisponíveis aproximadamente 1,6 clientes 
 não conseguirão efetuar a autenticação para iniciar a sua navegação. Além disso, esses servidores armazenam alguns dados relacionados à conexão 
 dos clientes, como por exemplo o endereço de \ac{IP} que é utilizado por um cliente em um determinado período, o tráfego de dados da conexão, 
 o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 
 requisições por segundo. %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de \textit{logins} 
-de autenticação dos clientes. Como pode ser obervado na Figura \ref{fig:servico_elemento}, os servidores \textit{Speedauth} e \textit{Masterauth} 
+de autenticação dos clientes. Como pode ser obervado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Speedauth} e \textit{Masterauth} 
 estão entre os que apresentam o maior número de elementos. Além disso, existe um destaque desses servidores no número de conexões \ac{TCP}, como 
-pode ser observado na Figura \ref{fig:servico_tcp}.
+pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=310px]{img/speedauth_auth_week.eps}
- \caption{Gráfico de requisições de autenticação do servidor Speedauth.}
- \label{fig:speedauth_auth_week}
+ \includegraphics[width=350px]{img/freeradius_auth.eps}
+ \caption{Gráfico de requisições de autenticação do servidor Masterauth (a) e Speedauth (b).}
+ \label{fig:freeradius_auth}
 \end{figure}
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=310px]{img/masterauth_auth_week.eps}
- \caption{Gráfico de requisições de autenticação do servidor Masterauth.}
- \label{fig:masterauth_auth_week}
-\end{figure}
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=430px]{img/servico_elemento.eps}
- \caption{Gráfico de comparação de elementos entre os principais servidores.}
- \label{fig:servico_elemento}
+ \includegraphics[width=400px]{img/elementos_tcp.eps}
+ \caption{Gráfico de comparação de elementos (a) e de conexões TCP (b) entre os principais servidores.}
+ \label{fig:elementos_tcp}
 \end{figure}
 
 \subsection{Sistemas da empresa e do provedor}
@@ -102,14 +88,8 @@ a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo qu
 Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{??} por segundo número de 
 requisições por segundo, como pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, de outros 
 clientes, nesse mesmo servidor. 
-%Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar que o servidor \textit{Soldi} está entre os mais relevantes, como pode ser observado na Figura \ref{fig:servico_tcp}. 
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=430px]{img/servico_tcp.eps}
- \caption{Gráfico de comparação de conexões TCP entre os principais servidores.}
- \label{fig:servico_tcp}
-\end{figure}
+Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar que o servidor \textit{Soldi} está 
+entre os mais relevantes, como pode ser observado na Figura \ref{fig:elementos_tcp} (b). 
 
 %\begin{figure}[h!]
 % \centering
@@ -134,7 +114,7 @@ funcionários, comunicação com técnicos externos, vendas, cobranças a client
 recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
 O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se nesta figura que ocorre 
 de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Além disso, na Figura 
-\ref{fig:servico_udp} observa-se o número de requisições \ac{UDP} recebidas\footnote[1]{Esse número de requisições \ac{UDP} deve-se ao fato
+\ref{fig:dns_udp} (a) observa-se o número de requisições \ac{UDP} recebidas\footnote[1]{Esse número de requisições \ac{UDP} deve-se ao fato
 da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}.
 
 \begin{figure}[h!]

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  19 JUN 2016 20:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  20 JUN 2016 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1676,20 +1676,15 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 ]
 Package epstopdf Info: Source file: <img/dns_udp.eps>
-(epstopdf)                    date: 2016-06-19 20:08:28
-(epstopdf)                    size: 211290 bytes
+(epstopdf)                    date: 2016-06-20 10:03:19
+(epstopdf)                    size: 214668 bytes
 (epstopdf)             Output file: <img/dns_udp-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-19 19:58:23
-(epstopdf)                    size: 188347 bytes
+(epstopdf)                    date: 2016-06-20 10:03:24
+(epstopdf)                    size: 54822 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/dns_udp-eps-converted-
 to.pdf img/dns_udp.eps>
 (epstopdf)             \includegraphics on input line 45.
-runsystem(repstopdf --outfile=img/dns_udp-eps-converted-to.pdf img/dns_udp.eps)
-...executed safely (allowed).
-
-Package epstopdf Info: Result file: <img/dns_udp-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-19 20:08:32
-(epstopdf)                    size: 52255 bytes.
+Package epstopdf Info: Output file is already uptodate.
  <img/dns_udp-eps-converted-to.pdf, id=201, 647.41875pt x 550.055pt>
 File: img/dns_udp-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -1697,113 +1692,48 @@ File: img/dns_udp-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: img/dns_udp-eps-converted-to.pdf used on input line 45
 .
 (pdftex.def)             Requested size: 401.50146pt x 341.1229pt.
-
-
-LaTeX Warning: Reference `fig:radius_auth_week' on page 39 undefined on input l
-ine 56.
-
-
-LaTeX Warning: Reference `fig:radius_auth_week' on page 39 undefined on input l
-ine 56.
-
-[39 <./img/dns_udp-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <img/speedauth_auth_week.eps>
-(epstopdf)                    date: 2016-06-06 20:35:13
-(epstopdf)                    size: 186841 bytes
-(epstopdf)             Output file: <img/speedauth_auth_week-eps-converted-to.p
-df>
-(epstopdf)                    date: 2016-06-06 20:37:33
-(epstopdf)                    size: 30480 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/speedauth_auth_week-ep
-s-converted-to.pdf img/speedauth_auth_week.eps>
+ [39 <./img/dns_udp-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <img/freeradius_auth.eps>
+(epstopdf)                    date: 2016-06-20 09:27:08
+(epstopdf)                    size: 254402 bytes
+(epstopdf)             Output file: <img/freeradius_auth-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-06-20 09:27:15
+(epstopdf)                    size: 144784 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/freeradius_auth-eps-co
+nverted-to.pdf img/freeradius_auth.eps>
 (epstopdf)             \includegraphics on input line 68.
 Package epstopdf Info: Output file is already uptodate.
+ <img/freeradius_auth-eps-converted-to.pdf, id=208, 493.845pt x 497.86pt>
+File: img/freeradius_auth-eps-converted-to.pdf Graphic file (type pdf)
 
-<img/speedauth_auth_week-eps-converted-to.pdf, id=208, 499.8675pt x 402.50375pt
->
-File: img/speedauth_auth_week-eps-converted-to.pdf Graphic file (type pdf)
- <use img/speedauth_auth_week-eps-converted-to.pdf>
-Package pdftex.def Info: img/speedauth_auth_week-eps-converted-to.pdf used on i
-nput line 68.
-(pdftex.def)             Requested size: 311.16364pt x 250.56313pt.
-Package epstopdf Info: Source file: <img/masterauth_auth_week.eps>
-(epstopdf)                    date: 2016-06-06 20:35:29
-(epstopdf)                    size: 197924 bytes
-(epstopdf)             Output file: <img/masterauth_auth_week-eps-converted-to.
-pdf>
-(epstopdf)                    date: 2016-06-06 20:37:33
-(epstopdf)                    size: 29997 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/masterauth_auth_week-e
-ps-converted-to.pdf img/masterauth_auth_week.eps>
+<use img/freeradius_auth-eps-converted-to.pdf>
+Package pdftex.def Info: img/freeradius_auth-eps-converted-to.pdf used on input
+ line 68.
+(pdftex.def)             Requested size: 351.31378pt x 354.16678pt.
+Package epstopdf Info: Source file: <img/elementos_tcp.eps>
+(epstopdf)                    date: 2016-06-20 09:50:56
+(epstopdf)                    size: 109551 bytes
+(epstopdf)             Output file: <img/elementos_tcp-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-06-20 09:56:42
+(epstopdf)                    size: 32057 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/elementos_tcp-eps-conv
+erted-to.pdf img/elementos_tcp.eps>
 (epstopdf)             \includegraphics on input line 75.
 Package epstopdf Info: Output file is already uptodate.
 
-<img/masterauth_auth_week-eps-converted-to.pdf, id=209, 499.8675pt x 402.50375p
-t>
-File: img/masterauth_auth_week-eps-converted-to.pdf Graphic file (type pdf)
- <use img/masterauth_auth_week-eps-converted-to.pdf>
-Package pdftex.def Info: img/masterauth_auth_week-eps-converted-to.pdf used on 
-input line 75.
-(pdftex.def)             Requested size: 311.16364pt x 250.56313pt.
-Package epstopdf Info: Source file: <img/servico_elemento.eps>
-(epstopdf)                    date: 2016-06-11 17:18:09
-(epstopdf)                    size: 52784 bytes
-(epstopdf)             Output file: <img/servico_elemento-eps-converted-to.pdf>
+<img/elementos_tcp-eps-converted-to.pdf, id=209, 755.82375pt x 653.44125pt>
+File: img/elementos_tcp-eps-converted-to.pdf Graphic file (type pdf)
 
-(epstopdf)                    date: 2016-06-11 17:19:00
-(epstopdf)                    size: 15372 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/servico_elemento-eps-c
-onverted-to.pdf img/servico_elemento.eps>
-(epstopdf)             \includegraphics on input line 82.
-Package epstopdf Info: Output file is already uptodate.
-
-<img/servico_elemento-eps-converted-to.pdf, id=210, 747.79375pt x 339.2675pt>
-File: img/servico_elemento-eps-converted-to.pdf Graphic file (type pdf)
-
-<use img/servico_elemento-eps-converted-to.pdf>
-Package pdftex.def Info: img/servico_elemento-eps-converted-to.pdf used on inpu
-t line 82.
-(pdftex.def)             Requested size: 431.61407pt x 195.81757pt.
-
-Overfull \hbox (4.82272pt too wide) in paragraph at lines 82--83
- [][] 
- []
+<use img/elementos_tcp-eps-converted-to.pdf>
+Package pdftex.def Info: img/elementos_tcp-eps-converted-to.pdf used on input l
+ine 75.
+(pdftex.def)             Requested size: 401.50146pt x 347.1099pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Package natbib Warning: Citation `??' on page 40 undefined on input line 95.
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 40
- []
-
-[40 <./img/speedauth_auth_week-eps-converted-to.pdf> <./img/masterauth_auth_wee
-k-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <img/servico_tcp.eps>
-(epstopdf)                    date: 2016-06-11 17:20:25
-(epstopdf)                    size: 56403 bytes
-(epstopdf)             Output file: <img/servico_tcp-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-11 17:22:07
-(epstopdf)                    size: 18206 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/servico_tcp-eps-conver
-ted-to.pdf img/servico_tcp.eps>
-(epstopdf)             \includegraphics on input line 102.
-Package epstopdf Info: Output file is already uptodate.
-
-<img/servico_tcp-eps-converted-to.pdf, id=220, 730.73pt x 341.275pt>
-File: img/servico_tcp-eps-converted-to.pdf Graphic file (type pdf)
-
-<use img/servico_tcp-eps-converted-to.pdf>
-Package pdftex.def Info: img/servico_tcp-eps-converted-to.pdf used on input lin
-e 102.
-(pdftex.def)             Requested size: 431.61407pt x 201.57962pt.
-
-Overfull \hbox (4.82272pt too wide) in paragraph at lines 102--103
- [][] 
- []
+Package natbib Warning: Citation `??' on page 40 undefined on input line 88.
 
 Package epstopdf Info: Source file: <img/soldi_week.eps>
 (epstopdf)                    date: 2016-06-06 20:44:08
@@ -1813,24 +1743,25 @@ Package epstopdf Info: Source file: <img/soldi_week.eps>
 (epstopdf)                    size: 20517 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/soldi_week-eps-convert
 ed-to.pdf img/soldi_week.eps>
-(epstopdf)             \includegraphics on input line 116.
+(epstopdf)             \includegraphics on input line 103.
 Package epstopdf Info: Output file is already uptodate.
-<img/soldi_week-eps-converted-to.pdf, id=221, 483.8075pt x 282.05376pt>
+<img/soldi_week-eps-converted-to.pdf, id=210, 483.8075pt x 282.05376pt>
 File: img/soldi_week-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/soldi_week-eps-converted-to.pdf>
 Package pdftex.def Info: img/soldi_week-eps-converted-to.pdf used on input line
- 116.
+ 103.
 (pdftex.def)             Requested size: 311.16364pt x 181.41327pt.
 
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 40
+ []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
+[40 <./img/freeradius_auth-eps-converted-to.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [41 <./img/servico_elemento-eps-converted-to.pdf> <./img/servico_tcp-eps-conve
-rted-to.pdf>]
+ [41 <./img/elementos_tcp-eps-converted-to.pdf> <./img/soldi_week-eps-converted
+-to.pdf>]
 Package epstopdf Info: Source file: <img/simplesip_week.eps>
 (epstopdf)                    date: 2016-06-06 20:44:20
 (epstopdf)                    size: 143615 bytes
@@ -1839,25 +1770,22 @@ Package epstopdf Info: Source file: <img/simplesip_week.eps>
 (epstopdf)                    size: 19552 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/simplesip_week-eps-con
 verted-to.pdf img/simplesip_week.eps>
-(epstopdf)             \includegraphics on input line 135.
+(epstopdf)             \includegraphics on input line 122.
 Package epstopdf Info: Output file is already uptodate.
- <img/simplesip_week-eps-converted-to.pdf, id=231, 499.8675pt x 282.05376pt>
+
+<img/simplesip_week-eps-converted-to.pdf, id=226, 499.8675pt x 282.05376pt>
 File: img/simplesip_week-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/simplesip_week-eps-converted-to.pdf>
 Package pdftex.def Info: img/simplesip_week-eps-converted-to.pdf used on input 
-line 135.
+line 122.
 (pdftex.def)             Requested size: 311.16364pt x 175.58163pt.
-
-Underfull \vbox (badness 3407) has occurred while \output is active []
-
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 42
  []
 
-[42 <./img/soldi_week-eps-converted-to.pdf> <./img/simplesip_week-eps-converted
--to.pdf>] [43]
+[42 <./img/simplesip_week-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/drbd_basic.eps>
 (epstopdf)                    date: 2016-06-12 22:48:51
 (epstopdf)                    size: 44255 bytes
@@ -1866,17 +1794,21 @@ Package epstopdf Info: Source file: <img/drbd_basic.eps>
 (epstopdf)                    size: 10219 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/drbd_basic-eps-convert
 ed-to.pdf img/drbd_basic.eps>
-(epstopdf)             \includegraphics on input line 202.
+(epstopdf)             \includegraphics on input line 189.
 Package epstopdf Info: Output file is already uptodate.
 
-<img/drbd_basic-eps-converted-to.pdf, id=245, 480.79625pt x 196.735pt>
+<img/drbd_basic-eps-converted-to.pdf, id=234, 480.79625pt x 196.735pt>
 File: img/drbd_basic-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/drbd_basic-eps-converted-to.pdf>
 Package pdftex.def Info: img/drbd_basic-eps-converted-to.pdf used on input line
- 202.
+ 189.
 (pdftex.def)             Requested size: 301.1261pt x 123.21722pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[43]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 44
  []
@@ -1890,15 +1822,15 @@ Package epstopdf Info: Source file: <img/pacemaker_tools.eps>
 (epstopdf)                    size: 72029 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/pacemaker_tools-eps-co
 nverted-to.pdf img/pacemaker_tools.eps>
-(epstopdf)             \includegraphics on input line 268.
+(epstopdf)             \includegraphics on input line 255.
 Package epstopdf Info: Output file is already uptodate.
 
-<img/pacemaker_tools-eps-converted-to.pdf, id=255, 603.25375pt x 452.69125pt>
+<img/pacemaker_tools-eps-converted-to.pdf, id=247, 603.25375pt x 452.69125pt>
 File: img/pacemaker_tools-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/pacemaker_tools-eps-converted-to.pdf>
 Package pdftex.def Info: img/pacemaker_tools-eps-converted-to.pdf used on input
- line 268.
+ line 255.
 (pdftex.def)             Requested size: 281.05103pt x 210.89989pt.
 Package epstopdf Info: Source file: <img/vms_migration.eps>
 (epstopdf)                    date: 2016-06-02 21:44:45
@@ -1908,15 +1840,15 @@ Package epstopdf Info: Source file: <img/vms_migration.eps>
 (epstopdf)                    size: 89385 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_migration-eps-conv
 erted-to.pdf img/vms_migration.eps>
-(epstopdf)             \includegraphics on input line 308.
+(epstopdf)             \includegraphics on input line 295.
 Package epstopdf Info: Output file is already uptodate.
 
-<img/vms_migration-eps-converted-to.pdf, id=256, 372.39125pt x 373.395pt>
+<img/vms_migration-eps-converted-to.pdf, id=248, 372.39125pt x 373.395pt>
 File: img/vms_migration-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/vms_migration-eps-converted-to.pdf>
 Package pdftex.def Info: img/vms_migration-eps-converted-to.pdf used on input l
-ine 308.
+ine 295.
 (pdftex.def)             Requested size: 301.1261pt x 301.94691pt.
 
 
@@ -2025,17 +1957,14 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14222 strings out of 495004
- 275147 string characters out of 6180662
- 332771 words of memory out of 5000000
- 17114 multiletter control sequences out of 15000+600000
+ 14209 strings out of 495004
+ 274639 string characters out of 6180662
+ 332762 words of memory out of 5000000
+ 17103 multiletter control sequences out of 15000+600000
  10864 words of font info for 38 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,10n,57p,10374b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2051,10 +1980,10 @@ amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb>
-Output written on tcc.pdf (55 pages, 1711352 bytes).
+Output written on tcc.pdf (55 pages, 1801135 bytes).
 PDF statistics:
- 335 PDF objects out of 1000 (max. 8388607)
- 212 compressed objects within 3 object streams
+ 327 PDF objects out of 1000 (max. 8388607)
+ 208 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
