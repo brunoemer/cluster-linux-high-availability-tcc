@@ -22,8 +22,8 @@ critérios:
  Como exemplo de elementos pode-se citar a quantidade de contas de \textit{e-mail} em um servidor de \textit{e-mail} e a quantidade de 
  equipamentos monitorados por um servidor de monitoramento. 
  %Esse critério é importante pois com ele pode-se comparar diferentes serviços possibilitando perceber o grau de relevância que cada um possui;
- \item O número de conexões \ac{TCP} ou o número de requisições \ac{UDP}: essa medida demonstra a quantidade de acessos simultâneos que um
- serviço possui. 
+ \item O número de conexões \ac{TCP} \cite{tanenbaum2011} ou o número de requisições \ac{UDP} \cite{tanenbaum2011}: essa medida demonstra a 
+ quantidade de acessos simultâneos que um serviço possui. 
  %Esse critério, como o anterior, também permite comparar diferentes serviços para ter a possibilidade de ordená-los de acordo com sua relevância, por isso o torna importante para esta análise.
 \end{itemize}
 
@@ -85,9 +85,9 @@ atendimento de clientes, comunicação interna da empresa, vendas, ativações d
 direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui no total 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a empresa e o provedor. 
-Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{??} por segundo número de 
-requisições por segundo, como pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, de outros 
-clientes, nesse mesmo servidor. 
+Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{tanenbaum2011} por segundo 
+número de requisições por segundo, como pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, 
+de outros clientes, nesse mesmo servidor. 
 Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar que o servidor \textit{Soldi} está 
 entre os mais relevantes, como pode ser observado na Figura \ref{fig:elementos_tcp} (b). 
 
@@ -178,7 +178,8 @@ A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Nest
 utilizado pois não faz replicação em tempo real. Já o \textit{GlusterFS} pode ser utilizado neste trabalho, porém sua principal característica, 
 que é a escalabilidade, ou seja, facilidade em aumentar os nós do \textit{cluster}, não será útil para esta implementação.
 Além disso ele faz a replicação a nível de arquivo, assim pode-se obter um desempenho inferior.
-E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para monitorar.
+E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para monitorar e administrar, além disso, ele executa o 
+\textit{storage} (Ceph ODS) em um \textit{hardware} separado dos nós que fazem o processamento (clientes MDS).
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -190,8 +191,8 @@ Master/Slave & Sim & Sim & Não & Não \\\hline
 Replicação em tempo real & Sim & Sim & Sim & Não \\\hline
 Nível de replicação & Bloco & Arquivo & Bloco & Arquivo \\\hline
 Número máximo de nós & 16 & 64 & Ilimitado & Ilimitado \\\hline
-Plataformas & Suse, Debian, CentOS, Ubuntu & Debian, CentOS, Fedora, Ubuntu & CentOS, Debian, Fedora, Ubuntu & Linux \\\hline
-Replicação para virtualização & Sim & Sim & Sim & Não \\\hline
+Plataformas & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, Red Hat, Fedora, Ubuntu & CentOS, Red Hat, Debian, Fedora, Ubuntu & Linux \\\hline
+Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -241,41 +242,55 @@ Para ser possível implementar uma solução de alta disponibilidade é necessá
 Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
 de um serviço \cite{freitas2005}.
 
-Além disso, é interessante a utilização de ferramentas para facilitar o gerenciamento desse \textit{cluster}. Essas permitem detectar falhas em um 
+Além disso, é necessário a utilização de ferramentas para facilitar o gerenciamento desse \textit{cluster}. Essas permitem detectar falhas em um 
 nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. Essas ferramentas são conhecidas 
 como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}.
 
-O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta de código aberto
-mais completa e flexível encontrada. Contudo, foi encontrada outra forma para implementar este ambiente, que seria utilizando apenas a 
-ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} para fazer a migração das máquinas 
-virtuais, o que dificultaria a implementação.
+A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. Pode-se observar que a ferramenta \textit{Pacemaker}
+...
+O \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, ...
+É possível implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} 
+para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
 informar se ele está ativo \cite{reis2009}.
-%ganeti http://docs.ganeti.org/ganeti/2.15/html/
-%ceph
-%Microsoft com+ cluster ???
-%ZS3-2 Clustering ???
+
+\begin{table}[h!]
+\caption{Comparação ferramentas de gerenciamento de cluster.}
+\label{tab:clusterger}
+\begin{center}
+\begin{tabular}{|l|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
+Características & Pacemaker & Ceph & Ganeti & Heartbeat \\\hline
+Sincronismo de configuração entre os nós & Sim &  &  & Não \\\hline
+Failover e failback & Sim &  & Sim & Não \\\hline
+Nível de detecção e recuperação & Nó e recurso &  & Nó e máquina virtual & Nó \\\hline
+Plataformas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu &  & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
+Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta ... 
+e de código aberto mais completa e flexível encontrada. 
 
 O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
 de recursos, que possuía algumas limitações, da ferramenta \textit{Heartbeat} \cite{heartbeat}. Esse \ac{CRM} funciona juntamente com ferramentas
 que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que fazem a afiliação, ou seja, fazem o processo de registro dos
 nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistema de arquivos distribuídos. 
-As ferramentas encontradas para integrar com o \textit{Pacemaker} são:
-
 Definir failover ??
 \cite{bassan2008} pag 20
 %\cite{borne} pag 11
 %\cite{costa2009} pag 39
 
+As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
 \begin{itemize}
  \item \textit{Corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos (utilizados para 
  implementar cLVM, GFS/GFS2, e OCFS2), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
  \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
  \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós \cite{clusterlabs}.
 \end{itemize}
-%ver ferramentas cMAN e Apache Qpid??
+% outras ferramentas cMAN e Apache Qpid
 
 Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
 mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
@@ -328,10 +343,8 @@ executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada par
  \label{fig:vms_migration}
 \end{figure}
 
-Neste capítulo, durante a escolha das ferramentas, foi efetuado alguns testes experimentais para melhor entender e avaliar as ferramentas 
-e assim possibilitando escolha mais adequada para o ambiente da empresa. Sendo que esses testes foram apenas para entendimento.
-
-%colocar a disponibilidade do nagios do ano passado?
+Neste capítulo, durante a escolha das ferramentas, foi efetuado alguns testes experimentais para melhor entender e avaliar as ferramentas, 
+sendo que esses testes foram apenas para entendimento. Assim possibilitando escolha mais adequada para o ambiente da empresa.
 
 % Corosync provides pacemaker:
 % a mechanism to reliably send messages between nodes,

@@ -191,7 +191,7 @@ Master/Slave & Sim & Sim & Não & Não \\\hline
 Replicação em tempo real & Sim & Sim & Sim & Não \\\hline
 Nível de replicação & Bloco & Arquivo & Bloco & Arquivo \\\hline
 Número máximo de nós & 16 & 64 & Ilimitado & Ilimitado \\\hline
-Plataformas & Suse, Debian, CentOS, Ubuntu & Debian, CentOS, Fedora, Ubuntu & CentOS, Debian, Fedora, Ubuntu & Linux \\\hline
+Plataformas & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, Red Hat, Fedora, Ubuntu & CentOS, Red Hat, Debian, Fedora, Ubuntu & Linux \\\hline
 Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 \end{tabular}
 \end{center}
@@ -247,8 +247,10 @@ nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{har
 como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}.
 
 A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. Pode-se observar que a ferramenta \textit{Pacemaker}
-...
-É possível implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} 
+pode ser configurada para fazer monitoramento e recuperação tanto a nível de nó quanto a nível de recurso.
+O \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, ...
+O \textit{Ceph} é uma ferramenta unificada de armazenamento de dados distribuída, ...
+É possível também implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} 
 para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
@@ -258,19 +260,21 @@ informar se ele está ativo \cite{reis2009}.
 \caption{Comparação ferramentas de gerenciamento de cluster.}
 \label{tab:clusterger}
 \begin{center}
-\begin{tabular}{|l|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
+\begin{tabular}{|p{3.5cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
 Características & Pacemaker & Ceph & Ganeti & Heartbeat \\\hline
-Sincronismo de configuração dos nós & Sim & & & Não \\\hline
-Failover e failback & Sim & & & Não \\\hline
-Nível de detecção e recuperação & Nó e recurso & & & Nó \\\hline
-Plataformas & & & & \\\hline
+Sincronismo de configuração entre os nós & Sim &  & Não & Não \\\hline
+Failover e failback & Sim & Sim & Sim & Não \\\hline
+Nível de detecção e recuperação & Nó e recurso &  & Nó e máquina virtual & Nó \\\hline
+Plataformas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & CentOS, Debian, Fedora, Red Hat, Ubuntu & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
 Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta ... 
-e de código aberto mais completa e flexível encontrada. 
+% ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd
+
+O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois é uma ferramenta flexível ... 
+e de código aberto. 
 
 O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
@@ -283,14 +287,13 @@ Definir failover ??
 %\cite{costa2009} pag 39
 
 As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
-
 \begin{itemize}
  \item \textit{Corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos (utilizados para 
  implementar cLVM, GFS/GFS2, e OCFS2), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
  \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
  \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós \cite{clusterlabs}.
 \end{itemize}
-%ver ferramentas cMAN e Apache Qpid??
+% outras ferramentas cMAN e Apache Qpid
 
 Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
 mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
@@ -343,10 +346,8 @@ executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada par
  \label{fig:vms_migration}
 \end{figure}
 
-Neste capítulo, durante a escolha das ferramentas, foi efetuado alguns testes experimentais para melhor entender e avaliar as ferramentas 
-e assim possibilitando escolha mais adequada para o ambiente da empresa. Sendo que esses testes foram apenas para entendimento.
-
-%colocar a disponibilidade do nagios do ano passado?
+Neste capítulo, durante a escolha das ferramentas, foi efetuado alguns testes experimentais para melhor entender e avaliar as ferramentas, 
+sendo que esses testes foram apenas para entendimento. Assim possibilitando escolha mais adequada para o ambiente da empresa.
 
 % Corosync provides pacemaker:
 % a mechanism to reliably send messages between nodes,
