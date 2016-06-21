@@ -192,7 +192,7 @@ Replicação em tempo real & Sim & Sim & Sim & Não \\\hline
 Nível de replicação & Bloco & Arquivo & Bloco & Arquivo \\\hline
 Número máximo de nós & 16 & 64 & Ilimitado & Ilimitado \\\hline
 Plataformas & Suse, Debian, CentOS, Ubuntu & Debian, CentOS, Fedora, Ubuntu & CentOS, Debian, Fedora, Ubuntu & Linux \\\hline
-Replicação para virtualização & Sim & Sim & Sim & Não \\\hline
+Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -246,45 +246,43 @@ Além disso, é necessário a utilização de ferramentas para facilitar o geren
 nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. Essas ferramentas são conhecidas 
 como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}.
 
-A Tabela \ref{tab:clusterger} ...
+A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. Pode-se observar que a ferramenta \textit{Pacemaker}
+...
+É possível implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} 
+para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
+O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
+Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
+informar se ele está ativo \cite{reis2009}.
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de gerenciamento de cluster.}
 \label{tab:clusterger}
 \begin{center}
 \begin{tabular}{|l|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
-Características & Pacemaker & Heartbeat & Ceph \\\hline
- & & & \\\hline
- & & & \\\hline
- & & & \\\hline
- & & & \\\hline
+Características & Pacemaker & Ceph & Ganeti & Heartbeat \\\hline
+Sincronismo de configuração dos nós & Sim & & & Não \\\hline
+Failover e failback & Sim & & & Não \\\hline
+Nível de detecção e recuperação & Nó e recurso & & & Nó \\\hline
+Plataformas & & & & \\\hline
+Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta ... 
-e de código aberto mais completa e flexível encontrada. Contudo, foi encontrada outra forma para implementar este ambiente, que seria utilizando 
-apenas a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} para fazer a migração das 
-máquinas virtuais, o que dificultaria a implementação.
-O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
-Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
-informar se ele está ativo \cite{reis2009}.
-%ceph
-%ganeti http://docs.ganeti.org/ganeti/2.15/html/
-%Microsoft com+ cluster ???
-%ZS3-2 Clustering ???
+e de código aberto mais completa e flexível encontrada. 
 
 O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
 de recursos, que possuía algumas limitações, da ferramenta \textit{Heartbeat} \cite{heartbeat}. Esse \ac{CRM} funciona juntamente com ferramentas
 que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que fazem a afiliação, ou seja, fazem o processo de registro dos
 nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistema de arquivos distribuídos. 
-As ferramentas encontradas para integrar com o \textit{Pacemaker} são:
-
 Definir failover ??
 \cite{bassan2008} pag 20
 %\cite{borne} pag 11
 %\cite{costa2009} pag 39
+
+As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
 
 \begin{itemize}
  \item \textit{Corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos (utilizados para 
