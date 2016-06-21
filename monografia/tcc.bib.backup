@@ -494,10 +494,168 @@
   note      = "$<$Disponível em: \url{https://www.icewarp.com.br/}$>$. Acesso em 05 de junho de 2016."
 }
 
-@misc{,
-  author    = "{}",
-  title     = "",
+@misc{icecast,
+  author    = "{Xiph.Org Foundation}",
+  title     = "Icecast",
   year      = "2016",
-  note      = "$<$Disponível em: \url{}$>$. Acesso em 05 de junho de 2016."
+  note      = "$<$Disponível em: \url{http://icecast.org/}$>$. Acesso em 05 de junho de 2016."
+}
+
+@misc{sakai,
+  author    = "{Apereo Foundation}",
+  title     = "Introducing Sakai 11",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://sakaiproject.org/}$>$. Acesso em 05 de junho de 2016."
+}
+
+@misc{macedo2016,
+  author    = "Arthur dos Santos Macedo and Christian Conceição Guerreiro Santos",
+  title     = "Hypervisor: Segurança em ambientes virtualizados",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://www.devmedia.com.br/hypervisor-seguranca-em-ambientes-virtualizados/30993}$>$. Acesso em 05 de junho de 2016."
+}
+
+@MastersThesis{freitas2005,
+  author    = "Esli Pereira Faustino Junior and Reinaldo Borges de Freitas",
+  title     = "Construindo Supercomputadores com Linux - Cluster Beowulf",
+  school    = "Centro Federal de Educação Tecnológica de Goiás",
+  year      = "2005",
+  OPTkey    = "",
+  type      = "Trabalho de Conclusão (Curso de Redes de Comunicação)",
+  address   = "Goiânia - Goiás",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
+
+@misc{clusterlabs,
+  author    = "{ClusterLabs}",
+  title     = "Cluster Labs - The Home of Linux Clustering",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://clusterlabs.org/}$>$. Acesso em 08 de junho de 2016."
+}
+
+@misc{pacemaker,
+  author    = "{ClusterLabs}",
+  title     = "Pacemaker - ClusterLabs",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://clusterlabs.org/wiki/Pacemaker}$>$. Acesso em 08 de junho de 2016."
+}
+
+@misc{heartbeat,
+  author    = "{Linux-HA}",
+  title     = "Heartbeat - Linux-HA",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://www.linux-ha.org/wiki/Heartbeat}$>$. Acesso em 08 de junho de 2016."
+}
+
+@misc{linuxha,
+  author    = "{Linux-HA}",
+  title     = "Linux-HA",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://www.linux-ha.org/wiki/Main_Page}$>$. Acesso em 08 de junho de 2016."
+}
+
+@misc{jones2010,
+  author    = "{M. Tim Jones}",
+  title     = "High availability with the Distributed Replicated Block Device",
+  year      = "2010",
+  note      = "$<$Disponível em: \url{http://www.ibm.com/developerworks/library/l-drbd/}$>$. Acesso em 12 de junho de 2016."
+}
+
+@MastersThesis{bassan2008,
+  author    = "Ramon Bassan",
+  title     = "Avaliação de cluster de alta disponibilidade baseado em software livre",
+  school    = "Faculdade de Jaguariúna",
+  year      = "2008",
+  OPTkey    = "",
+  type      = "Trabalho de Conclusão (Curso de Ciência da Computação)",
+  address   = "Jaguariúna - São Paulo",
+  OPTmonth  = "",
+  OPTnote   = "",
+  OPTannote = ""
+}
+
+@misc{ats2012,
+  author    = "{Gustavo Ats}",
+  title     = "Entenda o que são coolers e fans",
+  year      = "2012",
+  note      = "$<$Disponível em: \url{http://www.techtudo.com.br/artigos/noticia/2012/01/entenda-o-que-sao-coolers-e-fans.html}$>$. Acesso em 19 de junho de 2016."
+}
+
+@misc{rsync,
+  author    = "{Wayne Davison}",
+  title     = "rsync",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://rsync.samba.org/}$>$. Acesso em 20 de junho de 2016."
+}
+
+@book{tanenbaum2011,
+  author    = "Andrew S. Tanenbaum and David Wetherall",
+  title     = "Redes de computadores",
+  year      = "2011",
+  publisher = "Pearson Prentice Hall",
+  edition   = "5",
+  address   = "São Paulo"
+  isbn      = "{9788576059240}",
+  url       = "http://ucs.bv3.digitalpages.com.br/users/publications/9788576059240/pages/-18"
+}
+
+@book{kurose2006,
+  author    = "James F. Kurose and Keith W. Ross",
+  title     = "Redes de computadores e a Internet",
+  year      = "2006",
+  publisher = "Pearson Addison Wesley",
+  edition   = "3",
+  address   = "São Paulo"
+  isbn      = "{9788588639188}",
+  url       = "http://ucs.bv3.digitalpages.com.br/users/publications/9788588639188/pages/-20"
+}
+
+@misc{ipv6,
+  author    = "{NIC.br}",
+  title     = "IPv6.br",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://ipv6.br/}$>$. Acesso em 21 de junho de 2016."
+}
+
+@misc{xmpp,
+  author    = "{XSF}",
+  title     = "XMPP",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{https://xmpp.org/}$>$. Acesso em 21 de junho de 2016."
+}
+
+@book{barrett2005,
+  title     = "SSH, The Secure Shell: The Definitive Guide",
+  author    = "Daniel Barrett and Richard Silverman and Robert Byrnes",
+  isbn      = "9780596008956",
+  lccn      = "2005283598",
+  url       = "https://books.google.com.br/books?id=3XzIFG3w8-YC",
+  year      = "2005",
+  publisher = "O'Reilly Media"
+}
+
+@book{javvin2005,
+  title     = "Network Protocols Handbook",
+  author    = "Javvin Technologies",
+  isbn      = "9780974094526",
+  url       = "https://books.google.com.br/books?id=D\_GrQa2ZcLwC",
+  year      = "2005",
+  publisher = "Javvin Technologies"
+}
+
+@misc{raid,
+  author    = "{Intel}",
+  title     = "RAID 0, 1, 5, 10, RAID em matriz, Pronto para RAID para a tecnologia de armazenamento",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://www.intel.com.br/content/www/br/pt/support/boards-and-kits/000005867.html}$>$. Acesso em 21 de junho de 2016."
+}
+
+@misc{raid,
+  author    = "{Intel}",
+  title     = "RAID 0, 1, 5, 10, RAID em matriz, Pronto para RAID para a tecnologia de armazenamento",
+  year      = "2016",
+  note      = "$<$Disponível em: \url{http://www.drbd.org/}$>$. Acesso em 21 de junho de 2016."
 }
 

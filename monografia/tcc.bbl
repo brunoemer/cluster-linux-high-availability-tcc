@@ -23,6 +23,10 @@
   $<$Disponível em: \url{http://blog.bacula.org/}$>$. Acesso em 05 de junho de
   2016.
 
+\bibitem[BARRETT; SILVERMAN; BYRNES(2005)BARRETT; SILVERMAN;
+  BYRNES]{barrett2005} BARRETT, D.; SILVERMAN, R.; BYRNES, R\@. \textbf{SSH,
+  The Secure Shell}: the definitive guide. [S.l.]: O'Reilly Media, 2005.
+
 \bibitem[BASSAN(2008)BASSAN]{bassan2008} BASSAN, R\@. \textbf{Avaliação de
   cluster de alta disponibilidade baseado em software livre}. 2008. Trabalho de
   Conclusão (Curso de Ciência da Computação) --- Faculdade de Jaguariúna,
@@ -99,6 +103,11 @@
   da Computação) --- Faculdade de Tecnologia e Ciências Sociais Aplicadas,
   Brasilia.
 
+\bibitem[{Gustavo Ats}(2012){Gustavo Ats}]{ats2012} {Gustavo Ats}.
+  \textbf{Entenda o que são coolers e fans}. $<$Disponível em:
+  \url{http://www.techtudo.com.br/artigos/noticia/2012/01/entenda-o-que-sao-coolers-e-fans.html}$>$.
+  Acesso em 19 de junho de 2016.
+
 \bibitem[{IBM}(2016){IBM}]{ibm370} {IBM}. \textbf{System/370 Model 145}.
   $<$Disponível em:
   \url{https://www-03.ibm.com/ibm/history/exhibits/mainframe/mainframe_PP3145.html}$>$.
@@ -107,6 +116,12 @@
 \bibitem[{Icewarp}(2016){Icewarp}]{icewarp} {Icewarp}. \textbf{IceWarp Server
   para Windows e Linux}. $<$Disponível em:
   \url{https://www.icewarp.com.br/}$>$. Acesso em 05 de junho de 2016.
+
+\bibitem[{Intel}(2016){Intel}]{raid} {Intel}. \textbf{RAID 0, 1, 5, 10, RAID em
+  matriz, Pronto para RAID para a tecnologia de armazenamento}. $<$Disponível
+  em:
+  \url{http://www.intel.com.br/content/www/br/pt/support/boards-and-kits/000005867.html}$>$.
+  Acesso em 21 de junho de 2016.
 
 \bibitem[{ISC}(2016){ISC}]{bind} {ISC}. \textbf{Internet Systems Consortium}.
   $<$Disponível em: \url{https://www.isc.org/downloads/}$>$. Acesso em 05 de
@@ -117,11 +132,19 @@
   Beowulf}. 2005. Trabalho de Conclusão (Curso de Redes de Comunicação) ---
   Centro Federal de Educação Tecnológica de Goiás, Goiânia - Goiás.
 
+\bibitem[KUROSE; ROSS(2006)KUROSE; ROSS]{kurose2006} KUROSE, J.~F.; ROSS,
+  K.~W\@. \textbf{Redes de computadores e a Internet}. 3.ed. São Paulo:
+  Pearson Addison Wesley, 2006.
+
 \bibitem[LAUREANO; MAZIERO(2008)LAUREANO; MAZIERO]{laureano2008} LAUREANO, M.
   A.~P.; MAZIERO, C.~A\@. Virtualização: conceitos e aplicações em
   segurança. In: \textbf{Simpósio Brasileiro em Segurança da Informação e
   de Sistemas Computacionais}. Gramado - Rio Grande do Sul: VIII Simpósio
   Brasileiro em Segurança da Informação e de Sistemas Computacionais, 2008.
+
+\bibitem[{LINBIT}(2016){LINBIT}]{drbd} {LINBIT}. \textbf{DRBD brings you High
+  Availability and Disaster Recovery}. $<$Disponível em:
+  \url{http://www.drbd.org/}$>$. Acesso em 21 de junho de 2016.
 
 \bibitem[{Linux-HA}(2016a){Linux-HA}]{linuxha} {Linux-HA}. \textbf{Linux-HA}.
   $<$Disponível em: \url{http://www.linux-ha.org/wiki/Main_Page}$>$. Acesso em
@@ -165,6 +188,9 @@
 \bibitem[{Nagios}(2016){Nagios}]{nagios} {Nagios}. \textbf{Nagios - The
   Industry Standard In IT Infrastructure Monitoring}. $<$Disponível em:
   \url{https://www.nagios.org/}$>$. Acesso em 05 de junho de 2016.
+
+\bibitem[{NIC.br}(2016){NIC.br}]{ipv6} {NIC.br}. \textbf{IPv6.br}.
+  $<$Disponível em: \url{http://ipv6.br/}$>$. Acesso em 21 de junho de 2016.
 
 \bibitem[NøRVåG(2000)NøRVåG]{norvag2000} NøRVåG, K\@. \textbf{An
   Introduction to Fault-Tolerant Systems}. 2000. IDI Technical Report 6/99 ---
@@ -219,6 +245,14 @@
   emulator}. $<$Disponível em: \url{http://wiki.qemu.org/Main_Page}$>$. Acesso
   em 22 de maio de 2016.
 
+\bibitem[{Red Hat}(2016a){Red Hat}]{glusterfs} {Red Hat}. \textbf{Storage for
+  your Cloud - Gluster}. $<$Disponível em: \url{https://www.gluster.org/}$>$.
+  Acesso em 21 de junho de 2016.
+
+\bibitem[{Red Hat}(2016b){Red Hat}]{cephrbd} {Red Hat}. \textbf{Block Storage}.
+  $<$Disponível em: \url{http://ceph.com/ceph-storage/block-storage/}$>$.
+  Acesso em 21 de junho de 2016.
+
 \bibitem[{Red Hat Inc}(2016){Red Hat Inc}]{redhat} {Red Hat Inc}.
   \textbf{Plataforma corporativa Linux}. $<$Disponível em:
   \url{https://www.redhat.com/pt-br/technologies/linux-platforms}$>$. Acesso em
@@ -270,6 +304,13 @@
   \url{http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/}$>$.
   Acesso em 02 de junho de 2016.
 
+\bibitem[TANENBAUM; WETHERALL(2011)TANENBAUM; WETHERALL]{tanenbaum2011}
+  TANENBAUM, A.~S.; WETHERALL, D\@. \textbf{Redes de computadores}. 5.ed. São
+  Paulo: Pearson Prentice Hall, 2011.
+
+\bibitem[TECHNOLOGIES(2005)TECHNOLOGIES]{javvin2005} TECHNOLOGIES, J\@.
+  \textbf{Network Protocols Handbook}. [S.l.]: Javvin Technologies, 2005.
+
 \bibitem[{VMware}(2016a){VMware}]{vmwareesxi} {VMware}. \textbf{VMware ESXi}.
   $<$Disponível em:
   \url{http://www.vmware.com/products/esxi-and-esx/overview.html}$>$. Acesso em
@@ -284,6 +325,10 @@
   Desktop Infrastructure with Horizon}. $<$Disponível em:
   \url{https://www.vmware.com/products/horizon-view}$>$. Acesso em 22 de maio
   de 2016.
+
+\bibitem[{Wayne Davison}(2016){Wayne Davison}]{rsync} {Wayne Davison}.
+  \textbf{rsync}. $<$Disponível em: \url{https://rsync.samba.org/}$>$. Acesso
+  em 20 de junho de 2016.
 
 \bibitem[WEBER(2002)WEBER]{weber2002} WEBER, T.~S\@. \textbf{Um roteiro para
   exploração dos conceitos básicos de tolerância a falhas}. 2002. Curso de
@@ -302,6 +347,9 @@
 \bibitem[{Xiph.Org Foundation}(2016){Xiph.Org Foundation}]{icecast} {Xiph.Org
   Foundation}. \textbf{Icecast}. $<$Disponível em:
   \url{http://icecast.org/}$>$. Acesso em 05 de junho de 2016.
+
+\bibitem[{XSF}(2016){XSF}]{xmpp} {XSF}. \textbf{XMPP}. $<$Disponível em:
+  \url{https://xmpp.org/}$>$. Acesso em 21 de junho de 2016.
 
 \bibitem[ZAMINHANI(2008)ZAMINHANI]{zaminhani2008} ZAMINHANI, D\@.
   \textbf{Cluster de alta disponibilidade através de espelhamento de dados em

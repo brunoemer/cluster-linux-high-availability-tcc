@@ -178,7 +178,7 @@ A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Nest
 utilizado pois não faz replicação em tempo real. Já o \textit{GlusterFS} pode ser utilizado neste trabalho, porém sua principal característica, 
 que é a escalabilidade, ou seja, facilidade em aumentar os nós do \textit{cluster}, não será útil para esta implementação.
 Além disso ele faz a replicação a nível de arquivo, assim pode-se obter um desempenho inferior.
-E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para monitorar ?? ...
+E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para monitorar.
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -202,6 +202,14 @@ Replicação para virtualização & Sim & Sim & Sim & Não \\\hline
 
 % drbd: 2 nodes na versão 8 e 16 nodes por stacking / 16 nodes na versão 9
 
+% drbd dispositivo primário e secundário zaminhani2008
+% Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
+%dependendo da aplicação, a execução ocorra em todos os nós do cluster
+%simultaneamente (Ativo/Ativo). Para tornar isso possível é necessária a
+%utilização de um sistema de arquivos exclusivo para cluster, como o OCFS2 6 e o
+%GFS 7 por exemplo. Como a abordagem deste trabalho é cluster de alta
+%disponibilidade, a utilização do DRBD no modo Ativo/Ativo não será discutida.
+
 % glusterfs https://raobharata.wordpress.com/2012/10/29/qemu-glusterfs-native-integration/
 % melhor performace com disco utilizando protocolo gluster file=gluster://path/to
 
@@ -224,14 +232,6 @@ Com isso, todas as operações de escritas feitas no nó primário serão replic
  Fonte: \citet{jones2010}
  \label{fig:drbd_basic}
 \end{figure}
-
-% dispositivo primário e secundário zaminhani2008
-% Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
-%dependendo da aplicação, a execução ocorra em todos os nós do cluster
-%simultaneamente (Ativo/Ativo). Para tornar isso possível é necessária a
-%utilização de um sistema de arquivos exclusivo para cluster, como o OCFS2 6 e o
-%GFS 7 por exemplo. Como a abordagem deste trabalho é cluster de alta
-%disponibilidade, a utilização do DRBD no modo Ativo/Ativo não será discutida.
 
 \subsection{Ferramentas de gerenciamento de cluster}
 \label{section:toolcluster}

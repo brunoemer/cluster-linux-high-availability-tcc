@@ -22,8 +22,8 @@ critérios:
  Como exemplo de elementos pode-se citar a quantidade de contas de \textit{e-mail} em um servidor de \textit{e-mail} e a quantidade de 
  equipamentos monitorados por um servidor de monitoramento. 
  %Esse critério é importante pois com ele pode-se comparar diferentes serviços possibilitando perceber o grau de relevância que cada um possui;
- \item O número de conexões \ac{TCP} ou o número de requisições \ac{UDP}: essa medida demonstra a quantidade de acessos simultâneos que um
- serviço possui. 
+ \item O número de conexões \ac{TCP} \cite{tanenbaum2011} ou o número de requisições \ac{UDP} \cite{tanenbaum2011}: essa medida demonstra a 
+ quantidade de acessos simultâneos que um serviço possui. 
  %Esse critério, como o anterior, também permite comparar diferentes serviços para ter a possibilidade de ordená-los de acordo com sua relevância, por isso o torna importante para esta análise.
 \end{itemize}
 
@@ -85,9 +85,9 @@ atendimento de clientes, comunicação interna da empresa, vendas, ativações d
 direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui no total 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a empresa e o provedor. 
-Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{??} por segundo número de 
-requisições por segundo, como pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, de outros 
-clientes, nesse mesmo servidor. 
+Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{tanenbaum2011} por segundo 
+número de requisições por segundo, como pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, 
+de outros clientes, nesse mesmo servidor. 
 Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar que o servidor \textit{Soldi} está 
 entre os mais relevantes, como pode ser observado na Figura \ref{fig:elementos_tcp} (b). 
 
@@ -178,7 +178,8 @@ A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Nest
 utilizado pois não faz replicação em tempo real. Já o \textit{GlusterFS} pode ser utilizado neste trabalho, porém sua principal característica, 
 que é a escalabilidade, ou seja, facilidade em aumentar os nós do \textit{cluster}, não será útil para esta implementação.
 Além disso ele faz a replicação a nível de arquivo, assim pode-se obter um desempenho inferior.
-E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para monitorar ... ??
+E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para monitorar e administrar, além disso, ele executa o 
+\textit{storage} (Ceph ODS) em um \textit{hardware} separado dos nós que fazem o processamento (clientes MDS).
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -201,6 +202,14 @@ Replicação para virtualização & Sim & Sim & Sim & Não \\\hline
 % drbd melhor eficiencia(acredito) nivel de bloco, confiavel(10 anos develop)
 
 % drbd: 2 nodes na versão 8 e 16 nodes por stacking / 16 nodes na versão 9
+
+% drbd dispositivo primário e secundário zaminhani2008
+% Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
+%dependendo da aplicação, a execução ocorra em todos os nós do cluster
+%simultaneamente (Ativo/Ativo). Para tornar isso possível é necessária a
+%utilização de um sistema de arquivos exclusivo para cluster, como o OCFS2 6 e o
+%GFS 7 por exemplo. Como a abordagem deste trabalho é cluster de alta
+%disponibilidade, a utilização do DRBD no modo Ativo/Ativo não será discutida.
 
 % glusterfs https://raobharata.wordpress.com/2012/10/29/qemu-glusterfs-native-integration/
 % melhor performace com disco utilizando protocolo gluster file=gluster://path/to
@@ -225,14 +234,6 @@ Com isso, todas as operações de escritas feitas no nó primário serão replic
  \label{fig:drbd_basic}
 \end{figure}
 
-% dispositivo primário e secundário zaminhani2008
-% Segundo (ELLENBERG, 2007), a partir da versão 8 do DRBD é possível que,
-%dependendo da aplicação, a execução ocorra em todos os nós do cluster
-%simultaneamente (Ativo/Ativo). Para tornar isso possível é necessária a
-%utilização de um sistema de arquivos exclusivo para cluster, como o OCFS2 6 e o
-%GFS 7 por exemplo. Como a abordagem deste trabalho é cluster de alta
-%disponibilidade, a utilização do DRBD no modo Ativo/Ativo não será discutida.
-
 \subsection{Ferramentas de gerenciamento de cluster}
 \label{section:toolcluster}
 
@@ -241,19 +242,35 @@ Para ser possível implementar uma solução de alta disponibilidade é necessá
 Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
 de um serviço \cite{freitas2005}.
 
-Além disso, é interessante a utilização de ferramentas para facilitar o gerenciamento desse \textit{cluster}. Essas permitem detectar falhas em um 
+Além disso, é necessário a utilização de ferramentas para facilitar o gerenciamento desse \textit{cluster}. Essas permitem detectar falhas em um 
 nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. Essas ferramentas são conhecidas 
 como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}.
 
-O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta de código aberto
-mais completa e flexível encontrada. Contudo, foi encontrada outra forma para implementar este ambiente, que seria utilizando apenas a 
-ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} para fazer a migração das máquinas 
-virtuais, o que dificultaria a implementação.
+A Tabela \ref{tab:clusterger} ...
+
+\begin{table}[h!]
+\caption{Comparação ferramentas de gerenciamento de cluster.}
+\label{tab:clusterger}
+\begin{center}
+\begin{tabular}{|l|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
+Características & Pacemaker & Heartbeat & Ceph \\\hline
+ & & & \\\hline
+ & & & \\\hline
+ & & & \\\hline
+ & & & \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta ... 
+e de código aberto mais completa e flexível encontrada. Contudo, foi encontrada outra forma para implementar este ambiente, que seria utilizando 
+apenas a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} para fazer a migração das 
+máquinas virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
 informar se ele está ativo \cite{reis2009}.
-%ganeti http://docs.ganeti.org/ganeti/2.15/html/
 %ceph
+%ganeti http://docs.ganeti.org/ganeti/2.15/html/
 %Microsoft com+ cluster ???
 %ZS3-2 Clustering ???
 
