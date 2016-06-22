@@ -47,7 +47,7 @@ empresa através de requisições \ac{UDP}, onde pode-se observar que o servidor
  \label{fig:dns_udp}
 \end{figure}
 
-\subsection{Radius}
+\subsection{Autenticação PPPoE}
 \label{section:radius}
 
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
@@ -65,7 +65,7 @@ pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=350px]{img/freeradius_auth.eps}
+ \includegraphics[width=300px]{img/freeradius_auth.eps}
  \caption{Gráfico de requisições de autenticação do servidor Masterauth (a) e Speedauth (b).}
  \label{fig:freeradius_auth}
 \end{figure}
@@ -136,8 +136,23 @@ Desta forma, verifica-se que os servidores a serem incluídos no ambiente de alt
  \item \textit{SimplesIP}
 \end{itemize}
 
-Incluir tabela com disponibilidade atual ??
+Para medir os serviços críticos atuais criou-se a tabela \ref{tab:dispservcrit}, onde contém os servidores com seus respectivos serviços, o
+percentual de \textit{Uptime} e o tempo de \textit{Downtime} por ano.
 
+\begin{table}[h!]
+\caption{Serviços críticos do ano de 2015.}
+\label{tab:dispservcrit}
+\begin{center}
+\begin{tabular}{|l|l|l|l|}\hline
+Servidor & Serviço & Uptime & Downtime por ano \\\hline
+Passata & DNS recursivo & 99,913\% & 7 horas 37 minutos 30 segundos \\\hline
+Speedauth & Autenticação PPPoE & 99,755\% & 21 horas 25 minutos 50 segundos \\\hline
+Masterauth & Autenticação PPPoE & 99,475\% & 33 horas 47 minutos\\\hline
+Soldi & Sistemas & 99,989\% & 59 minutos 30 segundos \\\hline
+SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \section{Proposta de solução}
 \label{section:propostasolucao}
@@ -215,7 +230,8 @@ Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 % melhor performace com disco utilizando protocolo gluster file=gluster://path/to
 
 % ceph http://docs.ceph.com/docs/master/start/intro/
-% necessita um hardware especifico para monitor, outra para dados e metadata
+% necessita minimo 3 monitores com osd, outra para admin metadata
+% precisa openstack + nova
 % http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
 % https://elkano.org/blog/live-migration-openstack-ubuntu-14-04/
 
@@ -248,15 +264,16 @@ Além disso, é necessário a utilização de ferramentas para facilitar o geren
 nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. Essas ferramentas são conhecidas 
 como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}. Elas também fazem o \textit{failover} e o \textit{failback}.
 O \textit{failover} é o processo no qual um servidor adquire os serviços executados em outro servidor, quando este servidor fica indisponível
-por apresentar alguma falha. E o processo de \textit{failback} retorno, que ocorre após o \textit{failover}, quando o servidor de origem retornar
-ao estado disponível, ou seja,  \cite{bassan2008}.
+por apresentar alguma falha. E o processo de \textit{failback} é o retorno dos serviços para o servidor de origem quando este ficar disponível, 
+ele ocorre após o \textit{failover} sendo que este é opcional \cite{bassan2008}.
 
 A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. Pode-se observar que a ferramenta \textit{Pacemaker}
 pode ser configurada para fazer monitoramento e recuperação tanto a nível de nó quanto a nível de recurso.
-O \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, ...
-O \textit{Ceph} é uma ferramenta unificada de armazenamento de dados distribuída, ...
-É possível também implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} 
-para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
+O \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, ... ??
+O \textit{Ceph} é uma ferramenta unificada de armazenamento de dados distribuída, esta ferramenta tem como requisito , al´em disso ela necessita
+de outra ferramenta para orquestrar m´aquinas virtuais. Assim, esta torna-se complexa para configurar e manter.
+É possível também implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de 
+\textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
 informar se ele está ativo \cite{reis2009}.
@@ -278,7 +295,7 @@ Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 
 % ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd
 
-O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois é uma ferramenta flexível ... 
+O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois é uma ferramenta flexível ... ??
 e de código aberto. 
 
 O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
@@ -306,14 +323,6 @@ mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os
  Fonte: \citet{pacemaker}
  \label{fig:pacemaker_tools}
 \end{figure}
-
-% Como citado anteriormente, o \textit{Pacemaker} funciona juntamente com outras ferramentas. Sendo assim, a sua arquitetura pode ser 
-% dividida em três partes:
-% \begin{itemize}
-%  \item Componentes não-cluster:
-%  \item Gerência de recursos: 
-%  \item Camada de troca de mensagens:
-% \end{itemize}
 
 O \ac{CRM} \textit{Pacemaker} possui algumas funções principais que estão listadas abaixo:
 \begin{itemize}

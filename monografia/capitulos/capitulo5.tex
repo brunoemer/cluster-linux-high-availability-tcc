@@ -230,7 +230,8 @@ Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 % melhor performace com disco utilizando protocolo gluster file=gluster://path/to
 
 % ceph http://docs.ceph.com/docs/master/start/intro/
-% necessita um hardware especifico para monitor, outra para dados e metadata
+% necessita minimo 3 monitores com osd, outra para admin metadata
+% precisa openstack + nova
 % http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
 % https://elkano.org/blog/live-migration-openstack-ubuntu-14-04/
 
@@ -267,9 +268,18 @@ por apresentar alguma falha. E o processo de \textit{failback} é o retorno dos 
 ele ocorre após o \textit{failover} sendo que este é opcional \cite{bassan2008}.
 
 A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. Pode-se observar que a ferramenta \textit{Pacemaker}
-pode ser configurada para fazer monitoramento e recuperação tanto a nível de nó quanto a nível de recurso.
-O \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, ... ??
-O \textit{Ceph} é uma ferramenta unificada de armazenamento de dados distribuída, ... ??
+possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada para fazer monitoramento 
+e recuperação tanto a nível de nó quanto a nível de recurso. Além disso, ela possui a característica de sincronismo de configuração entre todos
+os nós que é exclusiva.
+
+A ferramenta \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, possui a vantagem de ser desenvolvido especificamente para
+virtualização, sendo que suporta os hipervisores \ac{KVM} e \textit{Xen}. Porém, conforme a Tabela \ref{tab:clusterger}, não faz sincronismo
+das configurações, assim necessitando de um nó \textit{master} e um nó \textit{master candidate}.
+
+O \textit{Ceph} é uma ferramenta unificada de armazenamento de dados distribuída, esta ferramenta tem foco em \textit{cluster} de armazenamento, 
+sendo assim ela necessita de outra ferramenta para orquestrar máquinas virtuais, como por exemplo \textit{OpenStack}. Assim, esta torna-se 
+complexa para configurar e manter. Além disso, tem como requisito três nós para armazenamento outro exclusivo para administração.
+
 É possível também implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de 
 \textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
@@ -283,7 +293,7 @@ informar se ele está ativo \cite{reis2009}.
 \begin{tabular}{|p{3.5cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
 Características & Pacemaker & Ceph & Ganeti & Heartbeat \\\hline
 Sincronismo de configuração entre os nós & Sim & Não & Não & Não \\\hline
-Failover e failback & Sim & Sim & Sim & Não \\\hline
+Failover e failback & Sim & Não & Sim & Não \\\hline
 Nível de detecção e recuperação & Nó e recurso & Nó & Nó e máquina virtual & Nó \\\hline
 Plataformas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & CentOS, Debian, Fedora, Red Hat, Ubuntu & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
 Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
@@ -291,11 +301,10 @@ Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 \end{center}
 \end{table}
 
-% ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd
+% ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
 
-O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois é uma ferramenta flexível ... ??
-e de código aberto. 
-
+Conforme justificado acima, o \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto 
+\textit{Pacemaker}. 
 O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
 de recursos, que possuía algumas limitações, da ferramenta \textit{Heartbeat} \cite{heartbeat}. Esse \ac{CRM} funciona juntamente com ferramentas
@@ -321,14 +330,6 @@ mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os
  Fonte: \citet{pacemaker}
  \label{fig:pacemaker_tools}
 \end{figure}
-
-% Como citado anteriormente, o \textit{Pacemaker} funciona juntamente com outras ferramentas. Sendo assim, a sua arquitetura pode ser 
-% dividida em três partes:
-% \begin{itemize}
-%  \item Componentes não-cluster:
-%  \item Gerência de recursos: 
-%  \item Camada de troca de mensagens:
-% \end{itemize}
 
 O \ac{CRM} \textit{Pacemaker} possui algumas funções principais que estão listadas abaixo:
 \begin{itemize}
