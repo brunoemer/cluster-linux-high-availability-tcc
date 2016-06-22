@@ -1,7 +1,7 @@
 \chapter{Projeto de implementação}
 \label{cap:projetoimplementacao}
 
-Neste capítulo será apresentados os serviços considerados mais críticos da empresa. Posteriormente, será proposta uma solução de implementação 
+Neste capítulo será apresentados os serviços considerados mais críticos para a empresa. Posteriormente, será proposta uma solução de implementação 
 de alta disponibilidade. Essa solução será detalhada na Seção \ref{section:propostasolucao}, e será baseada na utilização de virtualização e
 \textit{softwares} de código aberto. 
 
@@ -13,7 +13,7 @@ serviços, destacando os serviços considerados mais críticos para a empresa. P
 critérios:
 \begin{itemize}
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
- da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional, ao tempo que ficou sem 
+ da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
  acesso; 
  \item O número de requisições em um determinado tempo: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do 
  serviço. São exemplos dessa medida a quantidade de acessos por minuto em um servidor de hospedagens de sites e a quantidade de requisições 
@@ -27,17 +27,17 @@ critérios:
  %Esse critério, como o anterior, também permite comparar diferentes serviços para ter a possibilidade de ordená-los de acordo com sua relevância, por isso o torna importante para esta análise.
 \end{itemize}
 
-Nas próximas seções serão descritos os serviços considerados críticos.
+Nas próximas seções serão descritos os serviços considerados críticos, com base nesses critérios.
 
 \subsection{\ac{DNS} recursivo primário}
 \label{section:dnsrecprim}
 
-Esse serviço foi classificado como o mais importante pois possui um impacto direto nos clientes do provedor. Esse é o único serviço que todos 
-os clientes e funcionários utilizam. O objetivo de um provedor é fornecer uma navegação de qualidade aos seus clientes, sendo assim, o \ac{DNS} 
-é fundamental para essa navegação, uma vez que é usado por todos os clientes, que é aproximadamente 9000. Outro importante critério que pode ser 
-aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura \ref{fig:dns_udp} (a) esse serviço
-possui aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:dns_udp} (b), que compara os principais servidores da 
-empresa através de requisições \ac{UDP}, onde pode-se observar que o servidor \textit{Passata} possui um grande número de requisições 
+Esse serviço foi classificado como o mais importante pois possui um impacto direto nos clientes do provedor. Além disso, esse é o único serviço 
+que todos os clientes e funcionários utilizam, que totalizam aproximadamente 9000. O objetivo de um provedor é fornecer uma navegação de qualidade 
+aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação, uma vez que é usado por todos os clientes. Outro importante critério 
+que pode ser aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura \ref{fig:dns_udp} (a) esse 
+serviço possui picos de aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:dns_udp} (b), que compara os principais 
+servidores da empresa através de requisições \ac{UDP}, pode-se observar que o servidor \textit{Passata} possui um grande número de requisições 
 \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} são elevadas devido ao fato do serviço \ac{DNS} gerá-las.}.
 
 \begin{figure}[h!]
@@ -47,7 +47,7 @@ empresa através de requisições \ac{UDP}, onde pode-se observar que o servidor
  \label{fig:dns_udp}
 \end{figure}
 
-\subsection{Autenticação PPPoE}
+\subsection{Autenticação Radius}
 \label{section:radius}
 
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
@@ -72,7 +72,7 @@ pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=400px]{img/elementos_tcp.eps}
+ \includegraphics[width=380px]{img/elementos_tcp.eps}
  \caption{Gráfico de comparação de elementos (a) e de conexões TCP (b) entre os principais servidores.}
  \label{fig:elementos_tcp}
 \end{figure}
@@ -85,11 +85,10 @@ atendimento de clientes, comunicação interna da empresa, vendas, ativações d
 direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui no total 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a empresa e o provedor. 
-Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{tanenbaum2011} por segundo 
-número de requisições por segundo, como pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, 
-de outros clientes, nesse mesmo servidor. 
-Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar que o servidor \textit{Soldi} está 
-entre os mais relevantes, como pode ser observado na Figura \ref{fig:elementos_tcp} (b). 
+Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{tanenbaum2011} por segundo, como 
+pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, de outros clientes, nesse mesmo servidor. 
+Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar na Figura \ref{fig:elementos_tcp} (b) que o 
+servidor \textit{Soldi} está entre os mais relevantes. 
 
 %\begin{figure}[h!]
 % \centering
@@ -114,8 +113,8 @@ funcionários, comunicação com técnicos externos, vendas, cobranças a client
 recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
 O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se nesta figura que ocorre 
 de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Além disso, na Figura 
-\ref{fig:dns_udp} (b) observa-se o número de requisições \ac{UDP} recebidas\footnote[1]{Esse número de requisições \ac{UDP} deve-se ao fato
-da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}.
+\ref{fig:dns_udp} (b) observa-se esse serviço possui o segundo maior número derequisições \ac{UDP} recebidas\footnote[1]{Esse número de 
+requisições \ac{UDP} deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}.
 
 \begin{figure}[h!]
  \centering
@@ -146,8 +145,8 @@ percentual de \textit{Uptime} e o tempo de \textit{Downtime} por ano.
 \begin{tabular}{|l|l|l|l|}\hline
 Servidor & Serviço & Uptime & Downtime por ano \\\hline
 Passata & DNS recursivo & 99,913\% & 7 horas 37 minutos 30 segundos \\\hline
-Speedauth & Autenticação PPPoE & 99,755\% & 21 horas 25 minutos 50 segundos \\\hline
-Masterauth & Autenticação PPPoE & 99,475\% & 33 horas 47 minutos\\\hline
+Speedauth & Radius & 99,755\% & 21 horas 25 minutos 50 segundos \\\hline
+Masterauth & Radius & 99,475\% & 33 horas 47 minutos\\\hline
 Soldi & Sistemas & 99,989\% & 59 minutos 30 segundos \\\hline
 SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline
 \end{tabular}
@@ -158,8 +157,8 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline
 \label{section:propostasolucao}
 
 Para implementar esta solução será necessário dois servidores físicos, sendo que a configuração de cada servidor deverá ser de 
-11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco. Essa configuração foi calculada a partir da soma dos recursos 
-atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas na Seção \ref{section:servcrit}.
+11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
+recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas na Seção \ref{section:servcrit}.
 Com essa solução, caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
 Inicialmente, para obter-se esse \textit{hardware}, que é necessário para implementação, será feito uma reorganização nas máquinas virtuais.
 
@@ -179,7 +178,10 @@ disponibilidade dos servidores.}, porém não garante a disponibilidade quando \
 falhar \cite{zaminhani2008}.
 
 A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a cópia dos dados de um servidor
-para um servidor remoto em tempo real. A seguintes ferramentas de replicação de dados foram encontradas:
+para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}.
+Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
+de um serviço \cite{freitas2005}.
+A seguintes ferramentas de replicação de dados foram encontradas:
 \begin{itemize}
  \item \ac{DRBD} \cite{drbd}
  \item \textit{GlusterFS} \cite{glusterfs}
@@ -190,11 +192,12 @@ para um servidor remoto em tempo real. A seguintes ferramentas de replicação d
 % https://wiki.freebsd.org/HAST
 
 A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Nesta tabela, pode-se perceber que o \textit{Rsync} não pode ser
-utilizado pois não faz replicação em tempo real. Já o \textit{GlusterFS} pode ser utilizado neste trabalho, porém sua principal característica, 
-que é a escalabilidade, ou seja, facilidade em aumentar os nós do \textit{cluster}, não será útil para esta implementação.
-Além disso ele faz a replicação a nível de arquivo, assim pode-se obter um desempenho inferior.
-E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para monitorar e administrar, além disso, ele executa o 
-\textit{storage} (Ceph ODS) em um \textit{hardware} separado dos nós que fazem o processamento (clientes MDS).
+utilizado pois não faz replicação em tempo real. Já o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, 
+sendo assim, não pode-se afirmar que terá um desempenho superior. Além disso, sua principal característica é a escalabilidade, ou seja, 
+facilidade em aumentar os nós do \textit{cluster}, que não será útil para esta implementação.
+
+E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para administrar, além disso, ele executa o \textit{storage} 
+(\textit{Ceph ODS}) em um \textit{hardware} separado dos nós que fazem o processamento (\textit{clientes MDS}). % ??
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -235,9 +238,9 @@ Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 % http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
 % https://elkano.org/blog/live-migration-openstack-ubuntu-14-04/
 
-A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a configuração 
-\textit{master-slave}, suporte replicação de imagens de máquinas virtuais e faz replicação a nível de bloco, o que possibilita maior segurança
-dos dados e um melhor desempenho.
+Portanto, a ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a 
+configuração \textit{master-slave}, suporte replicação de imagens de máquinas virtuais e faz replicação a nível de bloco, o que possibilita maior 
+segurança dos dados e um melhor desempenho.
 Essa ferramenta é de código aberto, e permite a replicação de dados de um dispositivo. Os dispositivos \ac{DRBD}, possuem os estados primário 
 e secundário. Entretanto, apenas um nó do \textit{cluster} pode ser o nó primário, sendo que esse nó é o único que terá permissão para acessar 
 o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus 
@@ -257,15 +260,12 @@ Com isso, todas as operações de escritas feitas no nó primário serão replic
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster}.
 %uma ferramenta que monitora os recursos, fazendo a detecção e recuperação do serviço utilizando mensagens entre os servidores, que é denominada como um \textit{cluster} \cite{perkov2011}. 
-Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
-de um serviço \cite{freitas2005}.
-
 Além disso, é necessário a utilização de ferramentas para facilitar o gerenciamento desse \textit{cluster}. Essas permitem detectar falhas em um 
 nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. Essas ferramentas são conhecidas 
 como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}. Elas também fazem o \textit{failover} e o \textit{failback}.
 O \textit{failover} é o processo no qual um servidor adquire os serviços executados em outro servidor, quando este servidor fica indisponível
-por apresentar alguma falha. E o processo de \textit{failback} é o retorno dos serviços para o servidor de origem quando este ficar disponível, 
-ele ocorre após o \textit{failover} sendo que este é opcional \cite{bassan2008}.
+por apresentar alguma falha. E elas fazem também o processo de \textit{failback} é o retorno dos serviços para o servidor de origem quando este 
+ficar disponível, ele ocorre após o \textit{failover} sendo que este é opcional \cite{bassan2008}.
 
 A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. Pode-se observar que a ferramenta \textit{Pacemaker}
 possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada para fazer monitoramento 
@@ -274,11 +274,12 @@ os nós que é exclusiva.
 
 A ferramenta \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, possui a vantagem de ser desenvolvido especificamente para
 virtualização, sendo que suporta os hipervisores \ac{KVM} e \textit{Xen}. Porém, conforme a Tabela \ref{tab:clusterger}, não faz sincronismo
-das configurações, assim necessitando de um nó \textit{master} e um nó \textit{master candidate}.
+das configurações, assim essas configurações precisam ser feitas em todos os nós.
+%e necessita de um nó \textit{master} e um nó \textit{master candidate} para armazenar as configurações do \textit{cluster}.
 
 O \textit{Ceph} é uma ferramenta unificada de armazenamento de dados distribuída, esta ferramenta tem foco em \textit{cluster} de armazenamento, 
 sendo assim ela necessita de outra ferramenta para orquestrar máquinas virtuais, como por exemplo \textit{OpenStack}. Assim, esta torna-se 
-complexa para configurar e manter. Além disso, tem como requisito três nós para armazenamento outro exclusivo para administração.
+complexa para configurar e manter. Além disso, tem como requisito três nós para armazenamento e mais um exclusivo para administração.
 
 É possível também implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de 
 \textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
@@ -290,12 +291,12 @@ informar se ele está ativo \cite{reis2009}.
 \caption{Comparação ferramentas de gerenciamento de cluster.}
 \label{tab:clusterger}
 \begin{center}
-\begin{tabular}{|p{3.5cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
-Características & Pacemaker & Ceph & Ganeti & Heartbeat \\\hline
+\begin{tabular}{|p{3.5cm}|p{2.7cm}|p{2cm}|p{2.7cm}|p{2.7cm}|}\hline
+Características & Pacemaker & Ganeti & Ceph & Heartbeat \\\hline
 Sincronismo de configuração entre os nós & Sim & Não & Não & Não \\\hline
-Failover e failback & Sim & Não & Sim & Não \\\hline
-Nível de detecção e recuperação & Nó e recurso & Nó & Nó e máquina virtual & Nó \\\hline
-Plataformas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & CentOS, Debian, Fedora, Red Hat, Ubuntu & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
+Failover e failback & Sim & Sim & Não & Não \\\hline
+Nível de detecção e recuperação & Nó e recurso & Nó e máquina virtual & Nó & Nó \\\hline
+Plataformas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Linux & CentOS, Debian, Fedora, Red Hat, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
 Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 \end{tabular}
 \end{center}
@@ -307,7 +308,7 @@ Conforme justificado acima, o \ac{CRM} escolhido para gerenciar o ambiente que s
 \textit{Pacemaker}. 
 O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
-de recursos, que possuía algumas limitações, da ferramenta \textit{Heartbeat} \cite{heartbeat}. Esse \ac{CRM} funciona juntamente com ferramentas
+de recursos da ferramenta \textit{Heartbeat} \cite{heartbeat}, que possuía algumas limitações. Esse \ac{CRM} funciona juntamente com ferramentas
 que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que fazem a afiliação, ou seja, fazem o processo de registro dos
 nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistema de arquivos distribuídos. 
 
@@ -316,7 +317,7 @@ As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
  \item \textit{Corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos (utilizados para 
  implementar cLVM, GFS/GFS2, e OCFS2), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
  \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
- \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós \cite{clusterlabs}.
+ \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}.
 \end{itemize}
 % outras ferramentas cMAN e Apache Qpid
 
@@ -340,14 +341,15 @@ O \ac{CRM} \textit{Pacemaker} possui algumas funções principais que estão lis
  \item Elege um nó como primário para centralizar todas as decisões, sendo que, se esse nó falhar outro será eleito primário.
 \end{itemize}
 
-Após ter os dados replicados, como foi descrito na seção anterior, deve-se criar o recurso do \ac{DRBD} no \textit{Pacemaker}, esse recurso fará o
-monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
+Para configurar o ambiente deve-se criar alguns recursos no \textit{Pacemaker}.
+Deve-se criar primeiramente o recurso do \ac{DRBD}, após ter os dados replicados, como foi descrito na Seção \ref{section:toolrepl}. Esse recurso 
+fará o monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
 Também será necessário criar um recurso para montar o sistema de arquivos do dispositivo \ac{DRBD} no local onde ficarão os discos das máquinas
 virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário o sistema de
 arquivos será montado automaticamente.
 
 E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
-máquinas virtuais migrem de um nó para outro de forma automática e transparente quando houver falhas. Para isso será necessário utilizar a 
+máquinas virtuais migrem de um nó para outro de forma automática e transparente, quando houver falhas. Para isso será necessário utilizar a 
 opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo hipervisor \ac{KVM}.
 A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando, sendo que elas inicialmente estão 
 executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada para o segundo servidor.
@@ -363,8 +365,11 @@ executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada par
  \label{fig:vms_migration}
 \end{figure}
 
-Neste capítulo, durante a escolha das ferramentas, foi efetuado alguns testes experimentais para melhor entender e avaliar as ferramentas, 
-sendo que esses testes foram apenas para entendimento. Assim possibilitando escolha mais adequada para o ambiente da empresa.
+\section{Considerações finais}
+
+Neste capítulo, foram selecionados os serviços críticos para a empresa. E criado uma proposta de solução selecionando algumas ferramentas,
+sendo que durante a escolha das ferramentas, foi efetuado alguns testes experimentais para melhor entender e avaliar essas ferramentas. 
+Assim possibilitando escolha mais adequada para o ambiente da empresa.
 
 % Corosync provides pacemaker:
 % a mechanism to reliably send messages between nodes,
