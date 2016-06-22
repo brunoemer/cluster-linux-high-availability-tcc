@@ -216,6 +216,8 @@ Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 
 % ceph http://docs.ceph.com/docs/master/start/intro/
 % necessita um hardware especifico para monitor, outra para dados e metadata
+% http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
+% https://elkano.org/blog/live-migration-openstack-ubuntu-14-04/
 
 A ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a configuração 
 \textit{master-slave}, suporte replicação de imagens de máquinas virtuais e faz replicação a nível de bloco, o que possibilita maior segurança
@@ -244,12 +246,16 @@ de um serviço \cite{freitas2005}.
 
 Além disso, é necessário a utilização de ferramentas para facilitar o gerenciamento desse \textit{cluster}. Essas permitem detectar falhas em um 
 nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. Essas ferramentas são conhecidas 
-como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}.
+como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}. Elas também fazem o \textit{failover} e o \textit{failback}.
+O \textit{failover} é o processo no qual um servidor adquire os serviços executados em outro servidor, quando este servidor fica indisponível
+por apresentar alguma falha. E o processo de \textit{failback} retorno, que ocorre após o \textit{failover}, quando o servidor de origem retornar
+ao estado disponível, ou seja,  \cite{bassan2008}.
 
 A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. Pode-se observar que a ferramenta \textit{Pacemaker}
-...
+pode ser configurada para fazer monitoramento e recuperação tanto a nível de nó quanto a nível de recurso.
 O \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, ...
-É possível implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} 
+O \textit{Ceph} é uma ferramenta unificada de armazenamento de dados distribuída, ...
+É possível também implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de \textit{scripts} 
 para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
@@ -259,29 +265,27 @@ informar se ele está ativo \cite{reis2009}.
 \caption{Comparação ferramentas de gerenciamento de cluster.}
 \label{tab:clusterger}
 \begin{center}
-\begin{tabular}{|l|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
+\begin{tabular}{|p{3.5cm}|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
 Características & Pacemaker & Ceph & Ganeti & Heartbeat \\\hline
-Sincronismo de configuração entre os nós & Sim &  &  & Não \\\hline
-Failover e failback & Sim &  & Sim & Não \\\hline
-Nível de detecção e recuperação & Nó e recurso &  & Nó e máquina virtual & Nó \\\hline
-Plataformas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu &  & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
+Sincronismo de configuração entre os nós & Sim & Não & Não & Não \\\hline
+Failover e failback & Sim & Sim & Sim & Não \\\hline
+Nível de detecção e recuperação & Nó e recurso & Nó & Nó e máquina virtual & Nó \\\hline
+Plataformas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & CentOS, Debian, Fedora, Red Hat, Ubuntu & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
 Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois foi a ferramenta ... 
-e de código aberto mais completa e flexível encontrada. 
+% ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd
+
+O \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi o \textit{Pacemaker}, pois é uma ferramenta flexível ... 
+e de código aberto. 
 
 O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
 de recursos, que possuía algumas limitações, da ferramenta \textit{Heartbeat} \cite{heartbeat}. Esse \ac{CRM} funciona juntamente com ferramentas
 que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que fazem a afiliação, ou seja, fazem o processo de registro dos
 nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistema de arquivos distribuídos. 
-Definir failover ??
-\cite{bassan2008} pag 20
-%\cite{borne} pag 11
-%\cite{costa2009} pag 39
 
 As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
 \begin{itemize}

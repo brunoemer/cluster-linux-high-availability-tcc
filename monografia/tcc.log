@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  21 JUN 2016 17:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  21 JUN 2016 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1671,7 +1671,7 @@ File: img/freeradius_auth-eps-converted-to.pdf Graphic file (type pdf)
 <use img/freeradius_auth-eps-converted-to.pdf>
 Package pdftex.def Info: img/freeradius_auth-eps-converted-to.pdf used on input
  line 68.
-(pdftex.def)             Requested size: 351.31378pt x 354.16678pt.
+(pdftex.def)             Requested size: 301.1261pt x 303.5726pt.
 Package epstopdf Info: Source file: <img/elementos_tcp.eps>
 (epstopdf)                    date: 2016-06-20 09:50:56
 (epstopdf)                    size: 109551 bytes
@@ -1694,12 +1694,6 @@ ine 75.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 40
- []
-
-[40 <./img/freeradius_auth-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/soldi_week.eps>
 (epstopdf)                    date: 2016-06-06 20:44:08
 (epstopdf)                    size: 152712 bytes
@@ -1710,8 +1704,7 @@ Package epstopdf Info: Source file: <img/soldi_week.eps>
 ed-to.pdf img/soldi_week.eps>
 (epstopdf)             \includegraphics on input line 103.
 Package epstopdf Info: Output file is already uptodate.
-
-<img/soldi_week-eps-converted-to.pdf, id=215, 483.8075pt x 282.05376pt>
+<img/soldi_week-eps-converted-to.pdf, id=209, 483.8075pt x 282.05376pt>
 File: img/soldi_week-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/soldi_week-eps-converted-to.pdf>
@@ -1719,10 +1712,16 @@ Package pdftex.def Info: img/soldi_week-eps-converted-to.pdf used on input line
  103.
 (pdftex.def)             Requested size: 311.16364pt x 181.41327pt.
 
-Underfull \vbox (badness 2343) has occurred while \output is active []
 
- [41 <./img/elementos_tcp-eps-converted-to.pdf> <./img/soldi_week-eps-converted
--to.pdf>]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 40
+ []
+
+[40 <./img/freeradius_auth-eps-converted-to.pdf>] [41 <./img/elementos_tcp-eps-
+converted-to.pdf> <./img/soldi_week-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/simplesip_week.eps>
 (epstopdf)                    date: 2016-06-06 20:44:20
 (epstopdf)                    size: 143615 bytes
@@ -1747,32 +1746,32 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [42 <./img/simplesip_week-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
 \OT1/cmr/m/n/8 tOS, Red Hat,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
 []\OT1/cmr/m/n/8 Debian, Cen-tOS,
  []
 
 
-Underfull \hbox (badness 6173) in paragraph at lines 194--194
+Underfull \hbox (badness 6173) in paragraph at lines 209--209
 \OT1/cmr/m/n/8 Red Hat, Fe-dora,
  []
 
 
-Underfull \hbox (badness 2903) in paragraph at lines 194--194
+Underfull \hbox (badness 2903) in paragraph at lines 209--209
 []\OT1/cmr/m/n/8 CentOS, Red Hat,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
 \OT1/cmr/m/n/8 De-bian, Fe-dora,
  []
 
 
-Overfull \hbox (27.54662pt too wide) in paragraph at lines 188--197
+Overfull \hbox (27.54662pt too wide) in paragraph at lines 203--212
  [] 
  []
 
@@ -1788,14 +1787,14 @@ Package epstopdf Info: Source file: <img/drbd_basic.eps>
 (epstopdf)                    size: 10219 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/drbd_basic-eps-convert
 ed-to.pdf img/drbd_basic.eps>
-(epstopdf)             \includegraphics on input line 231.
+(epstopdf)             \includegraphics on input line 248.
 Package epstopdf Info: Output file is already uptodate.
  <img/drbd_basic-eps-converted-to.pdf, id=236, 480.79625pt x 196.735pt>
 File: img/drbd_basic-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/drbd_basic-eps-converted-to.pdf>
 Package pdftex.def Info: img/drbd_basic-eps-converted-to.pdf used on input line
- 231.
+ 248.
 (pdftex.def)             Requested size: 301.1261pt x 123.21722pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1803,47 +1802,47 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [44 <./img/drbd_basic-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
+Underfull \hbox (badness 10000) in paragraph at lines 285--285
 []\OT1/cmr/m/n/8 Sincronismo de con-fi-
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 268--268
+Underfull \hbox (badness 2042) in paragraph at lines 288--288
 []\OT1/cmr/m/n/8 Red Hat, Cen-tOS,
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 268--268
+Underfull \hbox (badness 3514) in paragraph at lines 288--288
 \OT1/cmr/m/n/8 Fe-dora, Suse, De-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--268
+Underfull \hbox (badness 10000) in paragraph at lines 288--288
 []\OT1/cmr/m/n/8 CentOS, De-bian,
  []
 
 
-Underfull \hbox (badness 6173) in paragraph at lines 268--268
+Underfull \hbox (badness 6173) in paragraph at lines 288--288
 \OT1/cmr/m/n/8 Fe-dora, Red Hat,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--268
+Underfull \hbox (badness 10000) in paragraph at lines 288--288
 \OT1/cmr/m/n/8 tOS, Fe-dora,
  []
 
 
-Underfull \hbox (badness 4832) in paragraph at lines 268--268
+Underfull \hbox (badness 4832) in paragraph at lines 288--288
 \OT1/cmr/m/n/8 Suse, De-bian,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 289--289
 []\OT1/cmr/m/n/8 Integra^^Xc~ao com vir-tu-a-
  []
 
 
-Overfull \hbox (20.16582pt too wide) in paragraph at lines 263--271
+Overfull \hbox (20.16582pt too wide) in paragraph at lines 283--291
  [] 
  []
 
@@ -1855,20 +1854,16 @@ Package epstopdf Info: Source file: <img/pacemaker_tools.eps>
 (epstopdf)                    size: 72029 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/pacemaker_tools-eps-co
 nverted-to.pdf img/pacemaker_tools.eps>
-(epstopdf)             \includegraphics on input line 303.
+(epstopdf)             \includegraphics on input line 319.
 Package epstopdf Info: Output file is already uptodate.
 <img/pacemaker_tools-eps-converted-to.pdf, id=243, 603.25375pt x 452.69125pt>
 File: img/pacemaker_tools-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/pacemaker_tools-eps-converted-to.pdf>
 Package pdftex.def Info: img/pacemaker_tools-eps-converted-to.pdf used on input
- line 303.
+ line 319.
 (pdftex.def)             Requested size: 281.05103pt x 210.89989pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[45]
+ [45]
 Package epstopdf Info: Source file: <img/vms_migration.eps>
 (epstopdf)                    date: 2016-06-02 21:44:45
 (epstopdf)                    size: 392709 bytes
@@ -1877,14 +1872,15 @@ Package epstopdf Info: Source file: <img/vms_migration.eps>
 (epstopdf)                    size: 89385 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_migration-eps-conv
 erted-to.pdf img/vms_migration.eps>
-(epstopdf)             \includegraphics on input line 343.
+(epstopdf)             \includegraphics on input line 359.
 Package epstopdf Info: Output file is already uptodate.
- <img/vms_migration-eps-converted-to.pdf, id=247, 372.39125pt x 373.395pt>
+
+<img/vms_migration-eps-converted-to.pdf, id=247, 372.39125pt x 373.395pt>
 File: img/vms_migration-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/vms_migration-eps-converted-to.pdf>
 Package pdftex.def Info: img/vms_migration-eps-converted-to.pdf used on input l
-ine 343.
+ine 359.
 (pdftex.def)             Requested size: 301.1261pt x 301.94691pt.
 
 
@@ -2011,10 +2007,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14253 strings out of 495004
- 275451 string characters out of 6180662
- 333970 words of memory out of 5000000
- 17148 multiletter control sequences out of 15000+600000
+ 14254 strings out of 495004
+ 275469 string characters out of 6180662
+ 333981 words of memory out of 5000000
+ 17149 multiletter control sequences out of 15000+600000
  10556 words of font info for 37 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,11n,57p,10374b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2029,7 +2025,7 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt12.pfb>
-Output written on tcc.pdf (56 pages, 1799814 bytes).
+Output written on tcc.pdf (56 pages, 1800997 bytes).
 PDF statistics:
  326 PDF objects out of 1000 (max. 8388607)
  207 compressed objects within 3 object streams
