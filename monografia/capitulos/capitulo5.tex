@@ -59,7 +59,7 @@ dos clientes, como por exemplo o endereço de \ac{IP} que é utilizado por um cl
 o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 
 requisições por segundo. %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de \textit{logins} 
-de autenticação dos clientes. Como pode ser obervado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e \textit{Speedauth}
+de autenticação dos clientes. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e \textit{Speedauth}
 estão entre os que apresentam o maior número de elementos. Além disso, existe um destaque desses servidores no número de conexões \ac{TCP}, como 
 pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
@@ -84,7 +84,7 @@ O sistema do provedor é responsável pela maior parte das operações do proved
 atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros. Esse sistema não tem um impacto 
 direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui no total 65 funcionários.
-%, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuizo elevado para a empresa e o provedor. 
+%, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuízo elevado para a empresa e o provedor. 
 Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{tanenbaum2011} por segundo, como 
 pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, de outros clientes, nesse mesmo servidor. 
 Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar na Figura \ref{fig:elementos_tcp} (b) que o 
@@ -113,7 +113,7 @@ funcionários, comunicação com técnicos externos, vendas, cobranças a client
 recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
 O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se nesta figura que ocorre 
 de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Além disso, na Figura 
-\ref{fig:dns_udp} (b) observa-se esse serviço possui o segundo maior número derequisições \ac{UDP} recebidas\footnote[1]{Esse número de 
+\ref{fig:dns_udp} (b) observa-se esse serviço possui o segundo maior número de requisições \ac{UDP} recebidas\footnote[1]{Esse número de 
 requisições \ac{UDP} deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}.
 
 \begin{figure}[h!]
@@ -163,7 +163,7 @@ Com essa solução, caso ocorra alguma falha em um servidor, as máquinas virtua
 Inicialmente, para obter-se esse \textit{hardware}, que é necessário para implementação, será feito uma reorganização nas máquinas virtuais.
 
 As ferramentas necessárias para a implementação podem ser divididas em dois grupos, ferramentas de replicação de dados de alta disponibilidade
-(Seção \ref{section:toolrepl}) e ferramentas para o monitoramento e a tranferências das máquinas virtuais entre os servidores 
+(Seção \ref{section:toolrepl}) e ferramentas para o monitoramento e a transferências das máquinas virtuais entre os servidores 
 (Seção \ref{section:toolcluster}).
 
 \subsection{Ferramentas de replicação de dados}

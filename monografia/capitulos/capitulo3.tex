@@ -36,7 +36,7 @@ nos sistemas de computação \cite{maziero2013}:
   Elas são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo 
   supervisor (ou modo \textit{kernel}), que permite realizar operações sensíveis\footnote[1]{Operações sensíveis são instruções que podem alterar o 
   estado do processador.} no \textit{hardware} \cite{buyya2013}. Como exemplo de instruções de sistema pode-se citar as instruções que alteram 
-  o estado dos registradores do processador; % entrada e saida (E/S)
+  o estado dos registradores do processador; % entrada e saída (E/S)
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
  Essas operações permitem um acesso controlado aos dispositivos, a memória e ao processador. 
@@ -99,8 +99,8 @@ tradução dessas interfaces, que será feita pela camada de virtualização. Os
 %tratadas. Alguns tipos de máquinas virtuais de aplicação que utilizam as interfaces do sistema real são:
 
 %\begin{itemize}
-% \item Sistemas operacionais multi-tarefas: sistemas operacionais que suportam simultaneamente mais de um usuário também podem ser
-% vistos como máquinas virtuais. Em um sistema multi-tarefa cada processo possui um ``processador virtual'' (devido a rápida troca de 
+% \item Sistemas operacionais multitarefas: sistemas operacionais que suportam simultaneamente mais de um usuário também podem ser
+% vistos como máquinas virtuais. Em um sistema multitarefa cada processo possui um ``processador virtual'' (devido a rápida troca de 
 % contextos do processador real), uma ``memória virtual'' (memória alocada para o processo) e outros recursos que podem ser acessados
 % através de chamadas de sistema;
 % \item Tradutores dinâmicos: esses tradutores analisam e otimizam o código de máquina para torná-lo mais eficiente. Essa otimização 
@@ -147,7 +147,7 @@ Existem basicamente duas arquiteturas de hipervisor de sistema, que são apresen
 \begin{itemize}
  \item Hipervisores nativos: esse hipervisor executa diretamente sobre o \textit{hardware}, ou seja, sem um sistema operacional
  hospedeiro. Neste caso, o hipervisor nativo faz a multiplexação dos recursos do \textit{hardware} (memória, disco rígido, interface de rede, 
- entre outros) e diponibiliza esses recursos para as máquinas virtuais. Alguns exemplos de sistemas que utilizam essa arquitetura de hipervisor 
+ entre outros) e disponibiliza esses recursos para as máquinas virtuais. Alguns exemplos de sistemas que utilizam essa arquitetura de hipervisor 
  são o \textit{IBM 370} \cite{ibm370}, o \textit{Xen} \cite{xen} e o \textit{VMware ESXi} \cite{vmwareesxi};
  \item Hipervisores convidados: esse tipo de hipervisor executa sobre um sistema operacional hospedeiro e utiliza os recursos desse sistema 
  para gerar recursos para as máquinas virtuais. Normalmente esse tipo de arquitetura suporta apenas um sistema operacional convidado para cada 
@@ -255,7 +255,7 @@ a execução de múltiplas plataformas de desenvolvimento sem comprometer o sist
 Em empresas pode-se ainda utilizar a virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um 
 servidor para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops}, além disso, estes necessitam 
 de um \textit{hardware} de menor valor, uma vez que esses executarão apenas um terminal remoto. Por fim, essa técnica possibilita uma maior 
-segurança dos dados, pois os dados serão armazenados em um local seguro, como por exemplo, um \textit{datacenter}. Exemplos desse tipo de 
+segurança dos dados, pois os dados serão armazenados em um local seguro, como por exemplo, um \textit{data center}. Exemplos desse tipo de 
 virtualização são o \textit{Xen Desktop} \cite{xendesktop} e o \textit{VMware Horizon View} \cite{vmwareview}.
 %Em empresas pode-se utilizar virtualização de \textit{desktops} para reduzir a subutilização dos \textit{desktops}, que pode ser feito através da
 %colaboração com projetos científicos de \textit{clusters} de computadores virtuais \cite{carissimi2008}. %exemplo seti@home
@@ -292,7 +292,7 @@ dos servidores físicos.
 %  Fonte: \citet{interspire2016}
 % \end{figure}
 
-Em um ambiente heterogênio pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um 
+Em um ambiente heterogêneo pode-se também utilizar virtualização, pois ela permite a instalação de diversos sistemas operacionais em um 
 único servidor. Esse tipo de virtualização favorece a implementação do conceito ``um servidor por serviço'', que consiste em ter um servidor 
 para cada serviço. Além disso, tem-se o isolamento de serviços, ou seja, caso ocorra uma falha de segurança em um serviço, essa falha não 
 comprometerá todo o sistema, uma vez que cada serviço estará executando em seu próprio sistema operacional \cite{carissimi2008}.

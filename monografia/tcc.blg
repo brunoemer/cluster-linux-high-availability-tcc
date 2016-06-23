@@ -28,7 +28,7 @@ I was expecting a `,' or a `}'---line 611 of file tcc.bib
 I'm skipping whatever remains of this entry
 You've used 80 entries,
             2371 wiz_defined-function locations,
-            932 strings with 16763 characters,
+            932 strings with 16764 characters,
 and the built_in function-call counts, 66266 in all, are:
 = -- 7652
 > -- 277
