@@ -1,44 +1,44 @@
 \chapter{Projeto de implementação}
 \label{cap:projetoimplementacao}
 
-Neste capítulo será apresentados os serviços considerados mais críticos para a empresa. Posteriormente, será proposta uma solução de implementação 
-de alta disponibilidade. Essa solução será detalhada na Seção \ref{section:propostasolucao}, e será baseada na utilização de virtualização e
-\textit{softwares} de código aberto. 
+Neste capítulo serão apresentados os serviços considerados mais críticos para a empresa. Posteriormente, será proposta uma solução de implementação 
+de alta disponibilidade para estes. Essa solução será detalhada na Seção \ref{section:propostasolucao}, e será baseada na utilização de 
+virtualização e de \textit{softwares} de código aberto. 
 
 \section{Levantamento dos serviços críticos}
 \label{section:servcrit}
 
-No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Sendo assim, nesta seção será feito uma análise desses
+No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feito uma análise desses
 serviços, destacando os serviços considerados mais críticos para a empresa. Para a seleção dos serviços críticos foram adotados os seguintes
 critérios:
 \begin{itemize}
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
  acesso; 
- \item O número de requisições em um determinado tempo: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do 
- serviço. São exemplos dessa medida a quantidade de acessos por minuto em um servidor de hospedagens de sites e a quantidade de requisições 
- \ac{DNS} em um servidor recursivo;
+ \item O número de requisições: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do serviço. Esse critério 
+ engloba, por exemplo, o número de conexões \ac{TCP} \cite{tanenbaum2011} de um serviço, o número de requisições \ac{UDP} \cite{tanenbaum2011}, 
+ a quantidade de acessos em um servidor de hospedagens de sites e a quantidade de requisições \ac{DNS} em um servidor recursivo;
  \item O volume de elementos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos clientes são dependentes deste. 
- Como exemplo de elementos pode-se citar a quantidade de contas de \textit{e-mail} em um servidor de \textit{e-mail} e a quantidade de 
- equipamentos monitorados por um servidor de monitoramento. 
+ Como exemplo de elementos pode-se citar a quantidade de contas ativas de \textit{e-mail} em um servidor de \textit{e-mail} ou a quantidade de 
+ equipamentos monitorados por um servidor de monitoramento;
  %Esse critério é importante pois com ele pode-se comparar diferentes serviços possibilitando perceber o grau de relevância que cada um possui;
- \item O número de conexões \ac{TCP} \cite{tanenbaum2011} ou o número de requisições \ac{UDP} \cite{tanenbaum2011}: essa medida demonstra a 
- quantidade de acessos simultâneos que um serviço possui. 
  %Esse critério, como o anterior, também permite comparar diferentes serviços para ter a possibilidade de ordená-los de acordo com sua relevância, por isso o torna importante para esta análise.
 \end{itemize}
 
-Nas próximas seções serão descritos os serviços considerados críticos, com base nesses critérios.
+Nas próximas seções serão descritos os serviços críticos, com base nesses critérios.
 
 \subsection{\ac{DNS} recursivo primário}
 \label{section:dnsrecprim}
 
-Esse serviço foi classificado como o mais importante pois possui um impacto direto nos clientes do provedor. Além disso, esse é o único serviço 
-que todos os clientes e funcionários utilizam, que totalizam aproximadamente 9000. O objetivo de um provedor é fornecer uma navegação de qualidade 
-aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação, uma vez que é usado por todos os clientes. Outro importante critério 
-que pode ser aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura \ref{fig:dns_udp} (a) esse 
-serviço possui picos de aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:dns_udp} (b), que compara os principais 
-servidores da empresa através de requisições \ac{UDP}, pode-se observar que o servidor \textit{Passata} possui um grande número de requisições 
-\ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} são elevadas devido ao fato do serviço \ac{DNS} gerá-las.}.
+Esse serviço foi classificado como o serviço mais importante pois possui um impacto direto nos clientes do provedor. Além disso, esse é o único 
+serviço que todos os clientes e funcionários utilizam, totalizando aproximadamente 9000 pessoas. O objetivo de um provedor é fornecer uma navegação 
+de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação, uma vez que é usado por todos os clientes. Outro 
+importante critério que pode ser aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura 
+\ref{fig:dns_udp} (a) esse serviço possui picos de aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:dns_udp} (b) 
+pode-se observar que o servidor \textit{Passata} é o servidor que possui um maior número de requisições \ac{UDP}\footnote[1]{Esse número de 
+requisições \ac{UDP} é elevado devido ao fato do serviço \ac{DNS} utilizar esse protocolo de transporte.}. Essa figura compara os principais 
+servidores da empresa através de requisições \ac{UDP}, sendo que esse número de requisições indica a quantidade de clientes que utilizam os 
+serviços.
 
 \begin{figure}[h!]
  \centering
@@ -51,16 +51,16 @@ servidores da empresa através de requisições \ac{UDP}, pode-se observar que o
 \label{section:radius}
 
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
-os clientes não conseguirão estabelecer conexão para sua navegação. Os servidores \textit{Masterauth} e \textit{Speedauth} fornecem o serviço de
-\textit{Radius}, sendo que recebem, em média, 1,6 requisições de autenticação por segundo, como pode ser observado na Figura 
-\ref{fig:freeradius_auth} (a) e na \ref{fig:freeradius_auth} (b). Caso esses servidores ficarem indisponíveis aproximadamente 1,6 clientes 
-não conseguirão efetuar a autenticação para iniciar a sua navegação. Além disso, esses servidores armazenam alguns dados relacionados à conexão 
-dos clientes, como por exemplo o endereço de \ac{IP} que é utilizado por um cliente em um determinado período, o tráfego de dados da conexão, 
-o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 
-requisições por segundo. %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
-Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de \textit{logins} 
-de autenticação dos clientes. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e \textit{Speedauth}
-estão entre os que apresentam o maior número de elementos. Além disso, existe um destaque desses servidores no número de conexões \ac{TCP}, como 
+os clientes não conseguirão estabelecer conexão e, consequentemente, não conseguirão utilizar o serviço de Internet. Os servidores 
+\textit{Masterauth} e \textit{Speedauth} fornecem o serviço de \textit{Radius}, sendo que recebem, em média, 1,6 requisições de autenticação 
+por segundo, como pode ser observado na Figura \ref{fig:freeradius_auth} (a) e na \ref{fig:freeradius_auth} (b). Caso esses servidores fiquem 
+indisponíveis aproximadamente 2 clientes não conseguirão realizar a autenticação. Além disso, esses servidores armazenam dados relacionados à 
+conexão dos clientes, como por exemplo, o endereço de \ac{IP} que é utilizado por um cliente em um determinado período de tempo, o tráfego de 
+dados da conexão, o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam 
+em média 23 requisições por segundo. %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
+Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes de
+acesso à Internet. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e \textit{Speedauth}
+estão entre os que apresentam o maior número de elementos. Além disso, existem um grande número de conexões \ac{TCP} nesses servidores, como 
 pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
 \begin{figure}[h!]
@@ -80,15 +80,15 @@ pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 \subsection{Sistemas da empresa e do provedor}
 \label{section:sistemas}
 
-O sistema do provedor é responsável pela maior parte das operações do provedor. De fato, esse sistema é responsável pela emissão de boletos, 
-atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros. Esse sistema não tem um impacto 
-direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
+O sistema do provedor é responsável pela maior parte das operações gerenciais do provedor. De fato, este sistema é responsável pela emissão de 
+boletos, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros. Esse sistema não tem um 
+impacto direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui no total 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuízo elevado para a empresa e o provedor. 
 Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{tanenbaum2011} por segundo, como 
-pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém outros 27 sistemas, de outros clientes, nesse mesmo servidor. 
-Outro critério que aplica-se a esse serviço é o número de conexões \ac{TCP}, onde pode-se observar na Figura \ref{fig:elementos_tcp} (b) que o 
-servidor \textit{Soldi} está entre os mais relevantes. 
+pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém 28 sistemas de outros clientes nesse servidor. 
+Também é importante destacar que esse serviço possui um número considerável de conexões \ac{TCP}, como pode ser observado na Figura 
+\ref{fig:elementos_tcp} (b).
 
 %\begin{figure}[h!]
 % \centering
@@ -99,59 +99,62 @@ servidor \textit{Soldi} está entre os mais relevantes.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=310px]{img/soldi_week.eps}
+ \includegraphics[width=300px]{img/soldi_week.eps}
  \caption{Gráfico de requisições por segundo do maior sistema.}
  \label{fig:soldi_week}
 \end{figure}
 
-\subsection{Telefonia}
+\subsection{Telefonia interna sobre IP}
 \label{section:telefonia}
 
 Esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre os clientes e os funcionários, ou seja, o 
-servidor \textit{SimplesIP} é responsável por garantir o atendimento a clientes para fins de suporte técnico, comunicação interna entre 
+servidor \textit{SimplesIP} é responsável por garantir o atendimento dos clientes para fins de suporte técnico, comunicação interna entre 
 funcionários, comunicação com técnicos externos, vendas, cobranças a clientes, entre outros. Para quantificar, no mês de maio de 2016 a empresa 
 recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
 O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se nesta figura que ocorre 
-de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Além disso, na Figura 
-\ref{fig:dns_udp} (b) observa-se esse serviço possui o segundo maior número de requisições \ac{UDP} recebidas\footnote[1]{Esse número de 
-requisições \ac{UDP} deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}.
+de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Também pode-se observar, na Figura 
+\ref{fig:dns_udp} (b), que esse serviço possui um elevado número de requisições \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} 
+deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.} comparado aos demais servidores.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=310px]{img/simplesip_week.eps}
+ \includegraphics[width=300px]{img/simplesip_week.eps}
  \caption{Gráfico de requisições por segundo do maior sistema.}
  \label{fig:simplesip_week}
 \end{figure}
 
-\subsection{Máquinas com serviços críticos}
+\section{Situação atual}
 \label{section:maqservcrit}
 
-Desta forma, verifica-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
+A partir da análise inicial, verificou-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
 \begin{itemize}
- \item \textit{Passata}
- \item \textit{Speedauth}
- \item \textit{Masterauth}
- \item \textit{Soldi}
- \item \textit{SimplesIP}
+ \item \textit{Passata}: servidor de \ac{DNS} recursivo;
+ \item \textit{Speedauth}: principal servidor \textit{Radius} para autenticação;
+ \item \textit{Masterauth}: segundo servidor \textit{Radius} para autenticação;
+ \item \textit{Soldi}: servidor de sistemas da empresa e do provedor;
+ \item \textit{SimplesIP}: servidor de telefonia interna sobre \ac{IP};
 \end{itemize}
 
-Para medir os serviços críticos atuais criou-se a tabela \ref{tab:dispservcrit}, onde contém os servidores com seus respectivos serviços, o
-percentual de \textit{Uptime} e o tempo de \textit{Downtime} por ano.
+Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime}\footnote[2]{O serviço de 
+telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim sua medição é dos últimos 6 meses de 2016.} e o tempo de \textit{Downtime} 
+por ano. 
 
 \begin{table}[h!]
 \caption{Serviços críticos do ano de 2015.}
 \label{tab:dispservcrit}
 \begin{center}
 \begin{tabular}{|l|l|l|l|}\hline
-Servidor & Serviço & Uptime & Downtime por ano \\\hline
+Servidor & Serviço & Uptime & Downtime por ano ?? NEGRITO \\\hline
 Passata & DNS recursivo & 99,913\% & 7 horas 37 minutos 30 segundos \\\hline
 Speedauth & Radius & 99,755\% & 21 horas 25 minutos 50 segundos \\\hline
 Masterauth & Radius & 99,475\% & 33 horas 47 minutos\\\hline
 Soldi & Sistemas & 99,989\% & 59 minutos 30 segundos \\\hline
-SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline
+SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-ping pois asterisk nao esta correto
 \end{tabular}
 \end{center}
 \end{table}
+
+A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
 
 \section{Proposta de solução}
 \label{section:propostasolucao}
@@ -166,14 +169,14 @@ As ferramentas necessárias para a implementação podem ser divididas em dois g
 (Seção \ref{section:toolrepl}) e ferramentas para o monitoramento e a transferências das máquinas virtuais entre os servidores 
 (Seção \ref{section:toolcluster}).
 
-\subsection{Ferramentas de replicação de dados}
+\subsection{Softwares para a replicação de dados}
 \label{section:toolrepl}
 
 Replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
 Dependendo do objetivo e da aplicação pode-se usar ferramentas como, por exemplo, o \textit{rsync} \cite{rsync}, que faz o sincronismo de dados 
 copiando os dados de um servidor de origem para um de destino. Essa não pode ser usada neste contexto pois ela não faz a sincronização em tempo
 real. Outra forma de replicação em \textit{hardware} é a utilização de discos em \ac{RAID} \cite{raid}. Essa solução é eficaz para garantir que 
-o sistema não fique indisponível em caso de falha de discos\footnote{Lembrando que essa solução é utilizada no ambiente atual para aumentar a 
+o sistema não fique indisponível em caso de falha de discos\footnote[2]{Lembrando que essa solução é utilizada no ambiente atual para aumentar a 
 disponibilidade dos servidores.}, porém não garante a disponibilidade quando \textit{software} ou algum outro componente de \textit{hardware} 
 falhar \cite{zaminhani2008}.
 
@@ -255,7 +258,7 @@ Com isso, todas as operações de escritas feitas no nó primário serão replic
  \label{fig:drbd_basic}
 \end{figure}
 
-\subsection{Ferramentas de gerenciamento de cluster}
+\subsection{Softwares para o gerenciamento de cluster}
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster}.
@@ -320,6 +323,9 @@ As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
  \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}.
 \end{itemize}
 % outras ferramentas cMAN e Apache Qpid
+
+\subsection{Projeto de implementação}
+\label{section:projetoimpl}
 
 Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
 mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
