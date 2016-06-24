@@ -165,15 +165,13 @@ crm configure primitive VMS ocf:heartbeat:VirtualDomain \
     op monitor depth="0" timeout="15" interval="10" \
     meta allow-migrate="false"
 
-crm configure group VMS_GROUP LIBVIRT_FS VMS ???
-# para rodar vms no cluster master
-crm configure colocation col_DRBD_VMS inf: VMS_GROUP MS_DRBD:Master ???
-# para iniciar antes o drbd
-crm configure order ord_DRBD_VMS inf: MS_DRBD:promote VMS_GROUP:start ???
 
 #nodo com preferencia. testar
-crm configure location master-prefer-node1 VMS_GROUP 50: brunonote
+crm configure location master-prefer-node1 VMS 50: brunonote ??
 
+#migrar de brunonote para bruno2
+crm resource migrate MS_DRBD bruno2
+crm resource restart MS_DRBD
 
 #configuracao final
 node $id="1084752392" brunonote
@@ -207,4 +205,48 @@ property $id="cib-bootstrap-options" \
         no-quorum-policy="ignore"
 rsc_defaults $id="rsc-options" \
         resource-stickiness="100"
+
+
+# live migration com lvm
+https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_KVM_%2B_Live_Migrations#Pacemaker
+
+# nao terminei de testar
+
+# configuracao teste 2 migracao
+node $id="1084752392" brunonote \
+	attributes maintenance="off" standby="off"
+node $id="1084752393" bruno2 \
+	attributes standby="off" maintenance="off"
+primitive DRBD ocf:linbit:drbd \
+	params drbd_resource="vms" \
+	op monitor interval="20" role="Master" timeout="20" \
+	op monitor interval="30" role="Slave" timeout="20" \
+	meta is-managed="true"
+primitive LIBVIRT_FS ocf:heartbeat:Filesystem \
+	params device="/dev/drbd0" directory="/var/lib/libvirt/images/drbd" fstype="ext4" \
+	meta is-managed="true" target-role="Started"
+primitive VMS ocf:heartbeat:VirtualDomain \
+	params config="/etc/libvirt/qemu/HAteste1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+	op start timeout="90" interval="0" \
+	op stop timeout="90" interval="0" \
+	op monitor timeout="30" interval="10" depth="0" \
+	op migrate_from interval="0" timeout="240" \
+	op migrate_to interval="0" timeout="240" \
+	meta allow-migrate="true" target-role="Started" \
+	utilization cpu="1" hv_memory="512"
+ms MS_DRBD DRBD \
+	meta master-max="1" clone-max="2" clone-node-max="1" notify="true" target-role="Master" migration-threshold="1" allow-migrate="true"
+location cli-prefer-MS_DRBD MS_DRBD inf: brunonote
+colocation col_DRBD_FS inf: LIBVIRT_FS MS_DRBD:Master
+colocation col_DRBD_VMS inf: VMS MS_DRBD:Master
+order ord_DRBD_VMS inf: MS_DRBD:promote LIBVIRT_FS:start VMS:start
+property $id="cib-bootstrap-options" \
+	dc-version="1.1.10-42f2063" \
+	cluster-infrastructure="corosync" \
+	stonith-enabled="false" \
+	no-quorum-policy="ignore" \
+	last-lrm-refresh="1466773789"
+rsc_defaults $id="rsc-options" \
+	resource-stickiness="100" \
+	migration-threshold="3"
 
