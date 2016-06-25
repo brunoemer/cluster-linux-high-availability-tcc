@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2016.3.11)  23 MAR 2016 19:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  24 JUN 2016 20:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1104,10 +1104,18 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: dvips.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
-File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count89
 ))
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
@@ -1117,7 +1125,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip43
 \bibsep=\skip44
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count89
+\c@NAT@ctr=\count90
 )
 
 ! LaTeX Error: Command \ii already defined.
@@ -1586,8 +1594,8 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no y in font nullfont!
-\c@ii@authorcount=\count90
-\c@kwcounter=\count91
+\c@ii@authorcount=\count91
+\c@kwcounter=\count92
 
 ! LaTeX Error: Command \@ already defined.
                Or name \end... illegal, see p.192 of the manual.
@@ -1742,7 +1750,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.277 }
+l.278 }
        
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1755,7 +1763,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.277 }
+l.278 }
        
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1773,7 +1781,7 @@ Missing character: There is no e in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    a
-l.277 }
+l.278 }
        
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1782,7 +1790,7 @@ look up `weird error' in the index to The TeXbook.)
 ! You already have nine parameters.
 \reserved@a ...\def \expandafter \@\reserved@b #10
                                                   a{
-l.277 }
+l.278 }
        
 I'm going to ignore the # sign you just used.
 
@@ -1796,7 +1804,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.277 }
+l.278 }
        
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1804,7 +1812,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Argument of reserved@f has an extra }.
 <inserted text> 
                 par 
-l.277 }
+l.278 }
        
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -1818,7 +1826,7 @@ Runaway argument?
 ! Paragraph ended before reserved@f was complete.
 <to be read again> 
                    par 
-l.277 }
+l.278 }
        
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
@@ -1827,7 +1835,7 @@ My plan is to forget the whole thing and hope for the best.
 ! Extra }, or forgotten endgroup.
 <recently read> }
                  
-l.277 }
+l.278 }
        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1838,7 +1846,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten endgroup.
 @argdef ...ifdefinable #1{@yargdef #1@ne {#2}{#3}}
                                                   
-l.277 }
+l.278 }
        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1854,7 +1862,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.327 \newlength{\ii@chapnumindent}
+l.328 \newlength{\ii@chapnumindent}
                                    \setlength{\ii@chapnumindent}{1.8em}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1891,7 +1899,7 @@ Missing character: There is no t in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    @
-l.327 ...dent}\setlength{\ii@chapnumindent}{1.8em}
+l.328 ...dent}\setlength{\ii@chapnumindent}{1.8em}
                                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1900,7 +1908,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    @
-l.327 ...dent}\setlength{\ii@chapnumindent}{1.8em}
+l.328 ...dent}\setlength{\ii@chapnumindent}{1.8em}
                                                   
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1945,7 +1953,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.329         \addpenalty{-\@highpenalty}
+l.330         \addpenalty{-\@highpenalty}
                                          
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1953,7 +1961,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Argument of @ has an extra }.
 <inserted text> 
                 par 
-l.344 }
+l.345 }
        
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -1967,7 +1975,7 @@ tempdima{1.5em} begingroup parindent z @ rightskip @pnumwidth parfillskip ETC.
 ! Paragraph ended before @ was complete.
 <to be read again> 
                    par 
-l.344 }
+l.345 }
        
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
@@ -1986,7 +1994,7 @@ Missing character: There is no ] in font nullfont!
 ! Argument of @ has an extra }.
 <inserted text> 
                 par 
-l.346 ...ine{1}{0em}{2.8em}{\textbf{#1}}{\hss #2}}
+l.347 ...ine{1}{0em}{2.8em}{\textbf{#1}}{\hss #2}}
                                                   
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -2000,7 +2008,7 @@ cline{1}{0em}{2.8em}{textbf {##1}}{hss ##2}
 ! Paragraph ended before @ was complete.
 <to be read again> 
                    par 
-l.346 ...ine{1}{0em}{2.8em}{\textbf{#1}}{\hss #2}}
+l.347 ...ine{1}{0em}{2.8em}{\textbf{#1}}{\hss #2}}
                                                   
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
@@ -2019,7 +2027,7 @@ Missing character: There is no n in font nullfont!
 ! Argument of @ has an extra }.
 <inserted text> 
                 par 
-l.347 ...bsection}{\@dottedtocline{2}{0em}{3.7em}}
+l.348 ...bsection}{\@dottedtocline{2}{0em}{3.7em}}
                                                   
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -2033,7 +2041,43 @@ cline{2}{0em}{3.7em}
 ! Paragraph ended before @ was complete.
 <to be read again> 
                    par 
-l.347 ...bsection}{\@dottedtocline{2}{0em}{3.7em}}
+l.348 ...bsection}{\@dottedtocline{2}{0em}{3.7em}}
+                                                  
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+! Argument of @ has an extra }.
+<inserted text> 
+                par 
+l.349 ...bsection}{\@dottedtocline{2}{0em}{3.7em}}
+                                                  
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+cline{2}{0em}{3.7em}
+! Paragraph ended before @ was complete.
+<to be read again> 
+                   par 
+l.349 ...bsection}{\@dottedtocline{2}{0em}{3.7em}}
                                                   
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
@@ -2068,11 +2112,11 @@ you'd better type `E' or `X' now and fix your file.
 
  
 Here is how much of TeX's memory you used:
- 1421 strings out of 495005
- 17581 string characters out of 6180688
- 75599 words of memory out of 5000000
- 4674 multiletter control sequences out of 15000+600000
+ 1712 strings out of 495004
+ 21869 string characters out of 6180662
+ 83039 words of memory out of 5000000
+ 4957 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 32i,4n,23p,231b,939s stack positions out of 5000i,500n,10000p,200000b,80000s
-Output written on iiufrgs.dvi (2 pages, 240 bytes).
+ 34i,4n,23p,243b,1185s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

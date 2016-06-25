@@ -15,9 +15,10 @@ critérios:
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
  acesso; 
- \item O número de requisições: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do serviço. Esse critério 
- engloba, por exemplo, o número de conexões \ac{TCP} \cite{tanenbaum2011} de um serviço, o número de requisições \ac{UDP} \cite{tanenbaum2011}, 
- a quantidade de acessos em um servidor de hospedagens de sites e a quantidade de requisições \ac{DNS} em um servidor recursivo;
+ \item O número de requisições: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do serviço e a frequência
+ de utilização do serviço. Esse critério engloba, por exemplo, o número de conexões \ac{TCP} \cite{tanenbaum2011} de um serviço, o número de 
+ requisições \ac{UDP} \cite{tanenbaum2011}, a quantidade de acessos em um servidor de hospedagens de sites e a quantidade de requisições \ac{DNS} 
+ em um servidor recursivo;
  \item O volume de elementos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos clientes são dependentes deste. 
  Como exemplo de elementos pode-se citar a quantidade de contas ativas de \textit{e-mail} em um servidor de \textit{e-mail} ou a quantidade de 
  equipamentos monitorados por um servidor de monitoramento;
@@ -27,7 +28,7 @@ critérios:
 
 Nas próximas seções serão descritos os serviços críticos, com base nesses critérios.
 
-\subsection{\ac{DNS} recursivo primário}
+\subsection{DNS recursivo primário}
 \label{section:dnsrecprim}
 
 Esse serviço foi classificado como o serviço mais importante pois possui um impacto direto nos clientes do provedor. Além disso, esse é o único 
@@ -123,7 +124,7 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de 
  \label{fig:simplesip_week}
 \end{figure}
 
-\section{Situação atual}
+\subsection{Situação atual}
 \label{section:maqservcrit}
 
 A partir da análise inicial, verificou-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
@@ -139,6 +140,7 @@ Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serv
 telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim sua medição é dos últimos 6 meses de 2016.} e o tempo de \textit{Downtime} 
 por ano. 
 
+% subir pagina da tabela ??
 \begin{table}[h!]
 \caption{Serviços críticos do ano de 2015.}
 \label{tab:dispservcrit}
@@ -160,31 +162,36 @@ A partir da implementação da solução de alta disponibilidade deste trabalho 
 \label{section:propostasolucao}
 
 Para implementar esta solução será necessário dois servidores físicos, sendo que a configuração de cada servidor deverá ser de 
-11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
 recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas na Seção \ref{section:servcrit}.
 Com essa solução, caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
-Inicialmente, para obter-se esse \textit{hardware}, que é necessário para implementação, será feito uma reorganização nas máquinas virtuais.
+Destaca-se que tais recursos já encontram-se disponíveis bastando efetuar uma reorganização das máquinas virtuais.
 
-As ferramentas necessárias para a implementação podem ser divididas em dois grupos, ferramentas de replicação de dados de alta disponibilidade
-(Seção \ref{section:toolrepl}) e ferramentas para o monitoramento e a transferências das máquinas virtuais entre os servidores 
-(Seção \ref{section:toolcluster}).
+Já os \textit{softwares} necessários para a implementação da alta disponibilidade podem ser divididas em dois grupos, \textit{softwares} de 
+replicação de dados e \textit{softwares} para o monitoramento e a transferências das máquinas virtuais entre os servidores.
 
 \subsection{Softwares para a replicação de dados}
 \label{section:toolrepl}
 
-Replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
-Dependendo do objetivo e da aplicação pode-se usar ferramentas como, por exemplo, o \textit{rsync} \cite{rsync}, que faz o sincronismo de dados 
-copiando os dados de um servidor de origem para um de destino. Essa não pode ser usada neste contexto pois ela não faz a sincronização em tempo
-real. Outra forma de replicação em \textit{hardware} é a utilização de discos em \ac{RAID} \cite{raid}. Essa solução é eficaz para garantir que 
-o sistema não fique indisponível em caso de falha de discos\footnote[2]{Lembrando que essa solução é utilizada no ambiente atual para aumentar a 
-disponibilidade dos servidores.}, porém não garante a disponibilidade quando \textit{software} ou algum outro componente de \textit{hardware} 
-falhar \cite{zaminhani2008}.
+A replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
+Dependendo do objetivo e da aplicação pode-se usar ferramentas como, por exemplo, o \textit{rsync} \cite{rsync}, que sincroniza os servidores 
+a partir de cópia dos dados de um servidor de origem para um de destino. Essa não pode ser usada neste contexto pois ela não faz a sincronização 
+em tempo real. Outra forma de replicação em \textit{hardware} é a utilização de discos em \ac{RAID} \cite{raid}. Essa solução é eficaz para 
+garantir que o sistema não fique indisponível em caso de falha de discos\footnote[2]{Lembrando que essa solução é utilizada no ambiente atual 
+para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando \textit{software} ou algum outro componente de 
+\textit{hardware} falhar \cite{zaminhani2008}.
 
 A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a cópia dos dados de um servidor
-para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}.
-Pode-se definir \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade
-de um serviço \cite{freitas2005}.
-A seguintes ferramentas de replicação de dados foram encontradas:
+para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}\footnote[1]{Pode-se definir 
+\textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
+\cite{freitas2005}}.
+As próximas seções irão detalhar os \textit{softwares} de replicação de dados que foram encontrados.
+
+\subsubsection{DRBD}
+\label{section:drbd}
+O \ac{DRBD} ...
+
 \begin{itemize}
  \item \ac{DRBD} \cite{drbd}
  \item \textit{GlusterFS} \cite{glusterfs}
@@ -193,6 +200,11 @@ A seguintes ferramentas de replicação de dados foram encontradas:
 \end{itemize}
 % Swift open stack
 % https://wiki.freebsd.org/HAST
+
+...
+
+\subsubsection{Software escolhido}
+\label{section:replicacaoescolhido}
 
 A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Nesta tabela, pode-se perceber que o \textit{Rsync} não pode ser
 utilizado pois não faz replicação em tempo real. Já o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, 
@@ -326,6 +338,8 @@ As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
 
 \subsection{Projeto de implementação}
 \label{section:projetoimpl}
+
+detalhes da implantacao e diagrama da nova estrutura servidores...
 
 Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
 mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.

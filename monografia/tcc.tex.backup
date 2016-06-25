@@ -4,10 +4,16 @@
 \usepackage{enumitem}
 \usepackage{url}
 \usepackage{setspace}
-\usepackage[list-style=extra-tabular]{acro}
+%\usepackage[list-style=extra-tabular]{acro} %problema quebra de pagina
+\usepackage{longtable}
+\usepackage{acro}
+\acsetup{
+  list-style=longtable,
+}
 \usepackage{graphicx}
 %\usepackage[brazilian]{babel}
 \usepackage{floatrow}
+\usepackage{tocloft}
   
 \setdescription{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
 \setitemize{topsep=1em,parsep=0pt,partopsep=0pt,itemsep=0pt}
@@ -15,8 +21,13 @@
 %tamanho das tabelas
 \DeclareFloatFont{scriptsize}{\scriptsize}% "scriptsize" is defined by floatrow, "scriptsize" not
 \floatsetup[table]{font=scriptsize}
+\floatsetup[longtable]{font=normalsize} % acronimos
 %para notas de rodape nao quebrar com mais de 2 linhas
 \interfootnotelinepenalty=10000
+
+\setcounter{tocdepth}{4}
+%\cftsetindents{subsubsection}{0in}{0in}
+%\dottedcontents{subsection}[1.5em]{}{1.3em}{.6em}
 
 %capa
 \course{\cgcc}

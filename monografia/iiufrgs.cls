@@ -346,6 +346,7 @@
 \renewcommand*{\l@section}[2]
               {\@dottedtocline{1}{0em}{2.8em}{\textbf{#1}}{\hss #2}}
 \renewcommand*{\l@subsection}{\@dottedtocline{2}{0em}{3.7em}}
+\renewcommand*{\l@subsubsection}{\@dottedtocline{2}{0em}{3.7em}}
 \newif\if@aftertoc
 \@aftertocfalse
 \renewcommand{\tableofcontents}{%
@@ -475,7 +476,7 @@
         \@startsection{subsection}{2}{0pt}{12pt}{6pt}{\reset@font\bfseries}
 }
 \renewcommand{\subsubsection}{%
-        \@startsection{subsubsection}{3}{0pt}{12pt}{6pt}{\reset@font\itshape}
+        \@startsection{subsubsection}{3}{0pt}{12pt}{6pt}{\reset@font}
 }
 \renewcommand{\paragraph}{%
         \@startsection{paragraph}{4}{0pt}{12pt}{6pt}{\reset@font}
