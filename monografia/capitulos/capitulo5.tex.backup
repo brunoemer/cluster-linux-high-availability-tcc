@@ -190,7 +190,21 @@ As próximas seções irão detalhar os \textit{softwares} de replicação de da
 \label{section:drbd}
 O \ac{DRBD} \cite{drbd} é uma solução de replicação de dispositivos de armazenamento, que permite uma replicação de um dispositivo de bloco local 
 para uma máquina remoto, implementado através de um módulo do \textit{kernel} \textit{Linux}. É um projeto de código aberto, é faz a replicação a 
-nível de bloco, o que garante o sincronismo seguro dos dispositivos. Ele pode ser configurado dos seguintes modos 
+nível de bloco, o que garante o sincronismo seguro dos dispositivos. 
+
+Para ilustrar, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos, \textit{hda1} e \textit{hda3}, formando um 
+\textit{cluster}, sendo que esses discos estão sincronizados através da rede. Com isso, todas as operações de escritas feitas no nó primário 
+serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/drbd_basic.eps}
+ \caption{Modelo DRBD}
+ Fonte: \citet{jones2010}
+ \label{fig:drbd_basic}
+\end{figure}
+
+O \ac{DRBD} pode ser configurado dos seguintes modos 
 \cite{drbd}:
 \begin{itemize}
  \item \textit{Single-primary}: ou \textit{master-slave}, neste modo apenas um nó do \textit{cluster} pode ser o nó primário, sendo que esse nó 
@@ -251,18 +265,7 @@ Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 
 Portanto, a ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a 
 configuração \textit{master-slave}, suporte replicação de imagens de máquinas virtuais e faz replicação a nível de bloco. Além disso, essa 
-ferramenta faz a resincronização dos dados automaticamente quando um nó retornar de uma falha ocorrida.
-Para ilustrar, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos, \textit{hda1} e \textit{hda3}, formando um 
-\textit{cluster}, sendo que esses discos estão sincronizados através da rede. Com isso, todas as operações de escritas feitas no nó primário 
-serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=300px]{img/drbd_basic.eps}
- \caption{Modelo DRBD}
- Fonte: \citet{jones2010}
- \label{fig:drbd_basic}
-\end{figure}
+ferramenta faz a resincronização dos dados automaticamente quando um nó retornar de uma falha ocorrida \cite{drbd}.
 
 %https://www.reddit.com/r/linux/comments/1qwarp/drbd_vs_glusterfs/
 % glusterfs mais escalavel, simples de administrar
@@ -296,39 +299,101 @@ permitem detectar falhas em um nó ou a nível de recursos, ou seja, essas podem
 Essas ferramentas são conhecidas como \ac{CRM}. 
 
 Os \textit{softwares} de gerenciamento de \textit{cluster} também executam um \textit{failover} e um \textit{failback}. O \textit{failover} é o 
-processo no qual um servidor adquire os serviços executados em outro servidor, quando este servidor fica indisponível. E elas fazem também o processo de 
-\textit{failback} é o retorno dos serviços para o servidor de origem quando este ficar disponível, ele ocorre após o \textit{failover} sendo 
-que este é opcional \cite{bassan2008}.
+processo no qual um servidor adquire os serviços executados em outro servidor, quando este servidor fica indisponível. Esses \textit{softwares} 
+executam também o processo de \textit{failback} que é o retorno dos serviços para o servidor de origem quando este ficar disponível. Esse ocorre 
+após o \textit{failover} sendo que ele é opcional \cite{bassan2008}.
 
-A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. 
-
+As próximas seções irão detalhar os \textit{softwares} de gerenciamento de \textit{cluster} que foram encontrados.
 
 \subsubsection{Pacemaker}
 \label{section:pacemaker}
-A ferramenta \textit{Pacemaker}
-possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada para fazer monitoramento 
-e recuperação tanto a nível de nó quanto a nível de recurso. Além disso, ela possui a característica de sincronismo de configuração entre todos
-os nós que é exclusiva.
-... Esta ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
-...
+O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
+Esse \textit{software} é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
+de recursos da ferramenta \textit{Heartbeat} \cite{heartbeat}, que possuía algumas limitações. 
 
+O \textit{Pacemaker} possui algumas funções principais que estão listadas abaixo:
+\begin{itemize}
+ \item Inicia e finaliza serviços dos nós do \textit{cluster}. Esses serviços podem ser desde um servidor \textit{web} até uma interface de 
+ rede, por exemplo;
+ \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} 
+ pode ser feita em qualquer nó;
+ \item Elege um nó como primário para centralizar todas as decisões, sendo que, se esse nó falhar outro será eleito primário.
+\end{itemize}
 
-A ferramenta \textit{Ganeti} \cite{ganeti} ?? é um gerenciador de \textit{cluster} de virtualização, possui a vantagem de ser desenvolvido especificamente para
-virtualização, sendo que suporta os hipervisores \ac{KVM} e \textit{Xen}. Porém, conforme a Tabela \ref{tab:clusterger}, não faz sincronismo
-das configurações, assim essas configurações precisam ser feitas em todos os nós.
-%e necessita de um nó \textit{master} e um nó \textit{master candidate} para armazenar as configurações do \textit{cluster}.
+Esse \textit{software} funciona juntamente com ferramentas que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que 
+fazem a afiliação, ou seja, fazem o processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistema 
+de arquivos distribuídos. As ferramentas que podem ser integradas com o \textit{Pacemaker} são \cite{pacemaker}:
+\begin{itemize}
+ \item \textit{Corosync} \cite{corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos 
+ (utilizados para implementar \ac{LVM}, \ac{GFS}, e \ac{OCFS2}), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
+ \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
+ \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}.
+\end{itemize}
+% outras ferramentas cMAN e Apache Qpid
 
-O \textit{Ceph} \cite{ceph}?? é uma ferramenta unificada de armazenamento de dados distribuída, esta ferramenta tem foco em \textit{cluster} 
-de armazenamento, sendo assim ela necessita de outra ferramenta para orquestrar máquinas virtuais, como por exemplo \textit{OpenStack}. Assim, 
-esta torna-se complexa para configurar e manter. 
-Sua arquitetura é composta por um nó administrador, onde será centralizado a gerência do \textit{cluster}, e no mínimo dois nós para 
-armazenamento (\textit{Ceph OSD}), monitoramento (\textit{Ceph Monitor}) e processamento (\textit{Ceph MDS}) \cite{ceph}.
+%Modelos Active/Passive, N+1, N TO N, Split Site ??
 
-É possível também implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de 
-\textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
+Na Figura \ref{fig:pacemaker_tools} tem-se a arquitetura do \textit{Pacemaker}. Como pode ser observado na camada inferior tem-se os nós do 
+\textit{cluster}. Acima as ferramentas de envio de mensagens, acima delas fica o \textit{Pacemaker}. Por fim, o \textit{DRBD} e os 
+serviços do servidor.
+
+REMOVER ACTIVE PASSIVE ??
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=280px]{img/pacemaker_tools.eps}
+ \caption{Pacemaker estrutura}
+ Fonte: \citet{pacemaker}
+ \label{fig:pacemaker_tools}
+\end{figure}
+
+\subsubsection{Ganeti}
+\label{section:ganeti}
+O \textit{software} \textit{Ganeti} \cite{ganeti} é um gerenciador de \textit{cluster} de virtualização, sendo que foi desenvolvido 
+especificamente para virtualização e suporta os hipervisores \ac{KVM} e \textit{Xen}.
+Para sua implementação ele necessita de um nó \textit{master} e um nó \textit{master candidate} para armazenar as configurações do \textit{cluster},
+Além de permitir criação de vários nós em \textit{slaves}. As máquinas virtuais são chamadas de instâncias, sendo que cada instâncias contém qual
+nó primário que essa executará e qual será o seu nó secundário.
+%gnt-instance add \
+%  -n TARGET_NODE:SECONDARY_NODE \
+%  -o OS_TYPE \
+%  -t DISK_TEMPLATE -s DISK_SIZE \
+%  INSTANCE_NAME
+
+As principais funções desse \textit{software} são \cite{ganeti}:
+\begin{itemize}
+ \item Gerenciamento de armazenamento;
+ \item Criação de instâncias, que são os sistemas operacionais convidados;
+ \item Iniciar e finalizar máquinas virtuais, além de efetuar o \textit{failover} entre os servidores hospedeiros.
+\end{itemize}
+
+% ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
+
+\subsubsection{Ceph}
+\label{section:ceph}
+O \textit{Ceph} \cite{ceph} é uma ferramenta para o armazenamento de dados distribuídos. Esta ferramenta tem foco em \textit{cluster} 
+de armazenamento, sendo assim ela necessita de outra ferramenta para gerenciar as máquinas virtuais, como por exemplo \textit{OpenStack} 
+\cite{openstack}. Sua arquitetura é composta por um nó administrador, onde será centralizado a gerência do \textit{cluster}, e no mínimo dois 
+nós para armazenamento (\textit{Ceph OSD}), monitoramento (\textit{Ceph Monitor}) e processamento (\textit{Ceph MDS}) \cite{ceph}.
+
+\subsubsection{Heartbeat}
+\label{section:heartbeat}
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
 informar se ele está ativo \cite{reis2009}.
+
+\subsubsection{Software escolhido}
+\label{section:gerenciadorescolhido}
+
+A Tabela \ref{tab:clusterger} compara alguns \textit{softwares} de gerenciamento de \textit{cluster} de acordo com algumas características. 
+Pode-se observar que o \textit{Ganeti} não faz sincronismo das configurações, assim essas configurações devem ser feitas no nó \textit{master}.
+Porém, possui a vantagem de ser desenvolvido especificamente para virtualização. 
+
+Já o \textit{Ceph} tem foco em \textit{cluster} de armazenamento, sendo assim ela necessita de outra ferramenta para gerenciar as máquinas 
+virtuais, assim tornando sua configuração mais complexa. Além disso, essa ferramenta necessita de um \textit{hardware} especifico para 
+administração do \textit{cluster}.
+
+É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, desta forma seria necessário criar 
+um conjunto de \textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de gerenciamento de cluster.}
@@ -345,49 +410,18 @@ Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 \end{center}
 \end{table}
 
-% ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
+O \textit{software} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto \textit{Pacemaker}. 
+Esse \textit{software} possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada 
+para fazer monitoramento e recuperação tanto a nível de nó quanto a nível de recurso. Além disso, ela possui a característica de sincronismo de 
+configuração entre todos os nós que é exclusiva. Destaca-se que essa ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} 
+de alta disponibilidade \cite{drbd}.
 
-Conforme justificado acima, o \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto 
-\textit{Pacemaker}. 
-O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
-Essa ferramenta é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
-de recursos da ferramenta \textit{Heartbeat} \cite{heartbeat}, que possuía algumas limitações. Esse \ac{CRM} funciona juntamente com ferramentas
-que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que fazem a afiliação, ou seja, fazem o processo de registro dos
-nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistema de arquivos distribuídos. 
-
-As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
-\begin{itemize}
- \item \textit{Corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos (utilizados para 
- implementar cLVM, \ac{GFS}, e \ac{OCFS2}), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
- \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
- \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}.
-\end{itemize}
-% outras ferramentas cMAN e Apache Qpid
 
 \subsection{Projeto de implementação}
 \label{section:projetoimpl}
 
 detalhes da implantacao e diagrama da nova estrutura servidores...
 
-Na Figura \ref{fig:pacemaker_tools} pode-se observar a camada inferior com os nós do \textit{cluster}, logo acima as ferramentas de envio de 
-mensagens, acima delas fica o \textit{Pacemaker}, e por fim o \textit{DRBD} e os serviços dos servidor.
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=280px]{img/pacemaker_tools.eps}
- \caption{Pacemaker estrutura}
- Fonte: \citet{pacemaker}
- \label{fig:pacemaker_tools}
-\end{figure}
-
-O \ac{CRM} \textit{Pacemaker} possui algumas funções principais que estão listadas abaixo:
-\begin{itemize}
- \item Inicia e para serviços dos nós do \textit{cluster}, esses serviços podem ser desde um servidor \textit{web} até uma interface de rede, 
- por exemplo;
- \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} 
- pode ser feita em qualquer nó;
- \item Elege um nó como primário para centralizar todas as decisões, sendo que, se esse nó falhar outro será eleito primário.
-\end{itemize}
 
 Para configurar o ambiente deve-se criar alguns recursos no \textit{Pacemaker}.
 Deve-se criar primeiramente o recurso do \ac{DRBD}, após ter os dados replicados, como foi descrito na Seção \ref{section:toolrepl}. Esse recurso 

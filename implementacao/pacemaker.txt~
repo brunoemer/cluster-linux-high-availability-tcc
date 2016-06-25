@@ -203,7 +203,7 @@ rsc_defaults $id="rsc-options" \
 crm resource migrate MS_DRBD bruno2
 crm resource restart MS_DRBD
 
-# funcionou com uma vm desligando e ligando no nó primario
+# funcionou com uma vm desligando e ligando no no primario
 
 
 

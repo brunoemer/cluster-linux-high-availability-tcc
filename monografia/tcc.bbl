@@ -75,6 +75,10 @@
   \textbf{Cluster Labs - The Home of Linux Clustering}. $<$Disponível em:
   \url{http://clusterlabs.org/}$>$. Acesso em 08 de junho de 2016.
 
+\bibitem[{Corosync}(2016){Corosync}]{corosync} {Corosync}. \textbf{Corosync by
+  corosync}. $<$Disponível em: \url{http://corosync.github.io/corosync/}$>$.
+  Acesso em 25 de junho de 2016.
+
 \bibitem[COSTA(2009)COSTA]{costa2009} COSTA, H. L.~A\@. \textbf{Alta
   disponibilidade e balanceamento de carga para melhoria de sistemas
   computacionais críticos usando software livre}: um estudo de caso. 2009.
@@ -102,6 +106,10 @@
   utilizando Software Livre}. 2009. Trabalho de Conclusão (Curso de Engenharia
   da Computação) --- Faculdade de Tecnologia e Ciências Sociais Aplicadas,
   Brasília.
+
+\bibitem[{Google}(2016){Google}]{ganeti} {Google}. \textbf{Ganeti}.
+  $<$Disponível em: \url{http://docs.ganeti.org/}$>$. Acesso em 25 de junho de
+  2016.
 
 \bibitem[{Gustavo Ats}(2012){Gustavo Ats}]{ats2012} {Gustavo Ats}.
   \textbf{Entenda o que são coolers e fans}. $<$Disponível em:
@@ -146,14 +154,14 @@
   Availability and Disaster Recovery}. $<$Disponível em:
   \url{http://www.drbd.org/}$>$. Acesso em 21 de junho de 2016.
 
-\bibitem[{Linux-HA}(2016a){Linux-HA}]{linuxha} {Linux-HA}. \textbf{Linux-HA}.
-  $<$Disponível em: \url{http://www.linux-ha.org/wiki/Main_Page}$>$. Acesso em
-  08 de junho de 2016.
-
-\bibitem[{Linux-HA}(2016b){Linux-HA}]{heartbeat} {Linux-HA}. \textbf{Heartbeat
+\bibitem[{Linux-HA}(2016a){Linux-HA}]{heartbeat} {Linux-HA}. \textbf{Heartbeat
   - Linux-HA}. $<$Disponível em:
   \url{http://www.linux-ha.org/wiki/Heartbeat}$>$. Acesso em 08 de junho de
   2016.
+
+\bibitem[{Linux-HA}(2016b){Linux-HA}]{linuxha} {Linux-HA}. \textbf{Linux-HA}.
+  $<$Disponível em: \url{http://www.linux-ha.org/wiki/Main_Page}$>$. Acesso em
+  08 de junho de 2016.
 
 \bibitem[{M. Tim Jones}(2010){M. Tim Jones}]{jones2010} {M. Tim Jones}.
   \textbf{High availability with the Distributed Replicated Block Device}.
@@ -208,6 +216,18 @@
   $<$Disponível em: \url{https://www.mysql.com/}$>$. Acesso em 05 de junho de
   2016.
 
+\bibitem[{Oracle}(2016c){Oracle}]{ocfs2} {Oracle}. \textbf{Project}: ocfs2.
+  $<$Disponível em: \url{https://oss.oracle.com/projects/ocfs2/}$>$. Acesso em
+  25 de junho de 2016.
+
+\bibitem[{OVA}(2016a){OVA}]{kvm} {OVA}. \textbf{KVM}. $<$Disponível em:
+  \url{http://www.linux-kvm.org/page/Main_Page}$>$. Acesso em 25 de junho de
+  2016.
+
+\bibitem[{OVA}(2016b){OVA}]{livemigration} {OVA}. \textbf{Migration - KVM}.
+  $<$Disponível em: \url{http://www.linux-kvm.org/page/Migration}$>$. Acesso
+  em 25 de junho de 2016.
+
 \bibitem[PANKAJ(1994)PANKAJ]{pankaj1994} PANKAJ, J\@. \textbf{Fault tolerance
   in distributed system}. Nova Jérsei, Estados Unidos: P T R Prentice Hall,
   1994.
@@ -245,13 +265,25 @@
   emulator}. $<$Disponível em: \url{http://wiki.qemu.org/Main_Page}$>$. Acesso
   em 22 de maio de 2016.
 
-\bibitem[{Red Hat}(2016a){Red Hat}]{glusterfs} {Red Hat}. \textbf{Storage for
+\bibitem[{Rackspace}(2016){Rackspace}]{openstack} {Rackspace}.
+  \textbf{OpenStack Open Source Cloud Computing Software}. $<$Disponível em:
+  \url{https://www.openstack.org/}$>$. Acesso em 25 de junho de 2016.
+
+\bibitem[{Red Hat}(2016a){Red Hat}]{gfs} {Red Hat}. \textbf{Red Hat GFS}.
+  $<$Disponível em:
+  \url{https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/5/html/Cluster_Suite_Overview/s1-rhgfs-overview-CSO.html}$>$.
+  Acesso em 25 de junho de 2016.
+
+\bibitem[{Red Hat}(2016b){Red Hat}]{glusterfs} {Red Hat}. \textbf{Storage for
   your Cloud - Gluster}. $<$Disponível em: \url{https://www.gluster.org/}$>$.
   Acesso em 21 de junho de 2016.
 
-\bibitem[{Red Hat}(2016b){Red Hat}]{cephrbd} {Red Hat}. \textbf{Block Storage}.
+\bibitem[{Red Hat}(2016c){Red Hat}]{cephrbd} {Red Hat}. \textbf{Block Storage}.
   $<$Disponível em: \url{http://ceph.com/ceph-storage/block-storage/}$>$.
   Acesso em 21 de junho de 2016.
+
+\bibitem[{Red Hat}(2016d){Red Hat}]{ceph} {Red Hat}. \textbf{Ceph}.
+  $<$Disponível em: \url{http://ceph.com/}$>$. Acesso em 25 de junho de 2016.
 
 \bibitem[{Red Hat Inc}(2016){Red Hat Inc}]{redhat} {Red Hat Inc}.
   \textbf{Plataforma corporativa Linux}. $<$Disponível em:

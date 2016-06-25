@@ -142,9 +142,9 @@ Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estã
 \section{Servidores com virtualização}
 \label{section:servvirt}
 
-Os servidores de virtualização possuem suas respectivas \ac{VM}s, sendo que, para a criação dessas \ac{VM}s utiliza-se o hipervisor \ac{KVM} e a 
-ferramenta \textit{QEmu}, que são projetos de \textit{software} livre. Procurou-se manter um ambiente homogêneo com o objetivo de facilitar a 
-manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional para os servidores de virtualização (hospedeiros). 
+Os servidores de virtualização possuem suas respectivas \ac{VM}s, sendo que, para a criação dessas \ac{VM}s utiliza-se o hipervisor \ac{KVM} 
+\cite{kvm} e a ferramenta \textit{QEmu}, que são projetos de \textit{software} livre. Procurou-se manter um ambiente homogêneo com o objetivo de 
+facilitar a manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional para os servidores de virtualização (hospedeiros). 
 Esse sistema operacional é o sistema de código aberto \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}.
 Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte de alimentação duplicada e discos rígidos configurados através de 
 um \ac{RAID} \cite{raid}. Em servidores com mais de dois discos é utilizado \ac{RAID} 5 \cite{raid}. Já em servidores que possuem apenas dois 

@@ -105,50 +105,50 @@ order=0
 
 [item:acronym.tex]
 archive=true
-column=26
+column=40
 encoding=UTF-8
 highlight=LaTeX
-line=227
+line=242
 mode=LaTeX
-open=false
+open=true
 order=8
 
 [item:capitulos/capitulo2.tex]
 archive=true
-column=0
+column=113
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=11
 mode=LaTeX
 open=true
 order=2
 
 [item:capitulos/capitulo3.tex]
 archive=true
-column=121
+column=69
 encoding=UTF-8
 highlight=LaTeX
-line=307
+line=62
 mode=LaTeX
 open=true
 order=3
 
 [item:capitulos/capitulo4.tex]
 archive=true
-column=11
+column=12
 encoding=UTF-8
 highlight=LaTeX
-line=149
+line=146
 mode=LaTeX
 open=true
 order=4
 
 [item:capitulos/capitulo5.tex]
 archive=true
-column=59
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=191
+line=385
 mode=LaTeX
 open=true
 order=5
@@ -198,7 +198,7 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=BibTeX
-line=675
+line=730
 mode=BibTeX
 open=true
 order=7
@@ -230,8 +230,8 @@ encoding=UTF-8
 highlight=LaTeX
 line=0
 mode=LaTeX
-open=false
-order=8
+open=true
+order=9
 
 [view-settings,view=0,item:abstract.tex]
 CursorColumn=0
@@ -240,34 +240,34 @@ JumpList=
 ViMarks=.,16,20,[,16,20,],16,20
 
 [view-settings,view=0,item:acronym.tex]
-CursorColumn=26
-CursorLine=227
+CursorColumn=40
+CursorLine=242
 JumpList=
-ViMarks=.,227,25,[,227,25,],227,25
+ViMarks=.,242,40,[,242,40,],242,40
 
 [view-settings,view=0,item:capitulos/capitulo2.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=113
+CursorLine=11
 JumpList=
 ViMarks=.,141,71,[,141,0,],-1,-1
 
 [view-settings,view=0,item:capitulos/capitulo3.tex]
-CursorColumn=121
-CursorLine=307
+CursorColumn=69
+CursorLine=62
 JumpList=
-ViMarks=.,307,121,[,307,121,],307,121
+ViMarks=.,62,78,[,62,76,],62,78
 
 [view-settings,view=0,item:capitulos/capitulo4.tex]
-CursorColumn=11
-CursorLine=149
+CursorColumn=12
+CursorLine=146
 JumpList=
-ViMarks=.,435,0,[,435,0,],435,0
+ViMarks=.,146,12,[,146,12,],146,12
 
 [view-settings,view=0,item:capitulos/capitulo5.tex]
-CursorColumn=59
-CursorLine=191
+CursorColumn=0
+CursorLine=385
 JumpList=
-ViMarks=.,191,58,[,191,56,],191,58
+ViMarks=.,435,1,[,435,0,],435,1
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
 CursorColumn=16
@@ -289,9 +289,9 @@ ViMarks=.,30,163,[,30,159,],30,163
 
 [view-settings,view=0,item:tcc.bib]
 CursorColumn=0
-CursorLine=675
+CursorLine=730
 JumpList=
-ViMarks=.,28,19,[,28,19,],28,19
+ViMarks=.,728,38,[,728,38,],728,76
 
 [view-settings,view=0,item:tcc.tex]
 CursorColumn=0

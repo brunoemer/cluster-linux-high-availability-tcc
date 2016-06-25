@@ -16,55 +16,55 @@ I was expecting a `,' or a `}'---line 282 of file tcc.bib
  :   isbn      = "9780124046412",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 600 of file tcc.bib
+I was expecting a `,' or a `}'---line 607 of file tcc.bib
  :   
  :   isbn      = "{9788576059240}",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 611 of file tcc.bib
+I was expecting a `,' or a `}'---line 618 of file tcc.bib
  :   
  :   isbn      = "{9788588639188}",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You've used 80 entries,
+You've used 88 entries,
             2371 wiz_defined-function locations,
-            932 strings with 16764 characters,
-and the built_in function-call counts, 66266 in all, are:
-= -- 7652
-> -- 277
-< -- 861
-+ -- 4278
-- -- 96
-* -- 2605
-:= -- 5814
-add.period$ -- 269
-call.type$ -- 80
-change.case$ -- 623
-chr.to.int$ -- 11
-cite$ -- 80
-duplicate$ -- 9112
-empty$ -- 2749
-format.name$ -- 644
-if$ -- 14436
-int.to.chr$ -- 9
+            960 strings with 17791 characters,
+and the built_in function-call counts, 70382 in all, are:
+= -- 8028
+> -- 301
+< -- 941
++ -- 4514
+- -- 104
+* -- 2829
+:= -- 6199
+add.period$ -- 293
+call.type$ -- 88
+change.case$ -- 679
+chr.to.int$ -- 15
+cite$ -- 88
+duplicate$ -- 9616
+empty$ -- 2989
+format.name$ -- 700
+if$ -- 15268
+int.to.chr$ -- 13
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 163
-num.names$ -- 400
-pop$ -- 1217
+newline$ -- 179
+num.names$ -- 440
+pop$ -- 1328
 preamble$ -- 1
-purify$ -- 80
+purify$ -- 88
 quote$ -- 0
-skip$ -- 4393
+skip$ -- 4641
 stack$ -- 0
-substring$ -- 3760
-swap$ -- 5591
+substring$ -- 3944
+swap$ -- 5935
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 496
+type$ -- 536
 warning$ -- 0
-while$ -- 487
+while$ -- 535
 width$ -- 0
-write$ -- 82
+write$ -- 90
 (There were 3 error messages)
