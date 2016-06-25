@@ -337,7 +337,7 @@ Na Figura \ref{fig:pacemaker_tools} tem-se a arquitetura do \textit{Pacemaker}. 
 \textit{cluster}. Acima as ferramentas de envio de mensagens, acima delas fica o \textit{Pacemaker}. Por fim, o \textit{DRBD} e os 
 serviços do servidor.
 
-REMOVER ACTIVE PASSIVE ??
+REMOVER ACTIVE PASSIVE da imagem ??
 \begin{figure}[h!]
  \centering
  \includegraphics[width=280px]{img/pacemaker_tools.eps}
@@ -345,6 +345,40 @@ REMOVER ACTIVE PASSIVE ??
  Fonte: \citet{pacemaker}
  \label{fig:pacemaker_tools}
 \end{figure}
+
+% Corosync provides pacemaker:
+% a mechanism to reliably send messages between nodes,
+% notifications when machines appear and disappear
+% a list of machines that are up that is consistent throughout the cluster 
+% Heartbeat provides:
+% a mechanism to reliably send messages between nodes,
+% notifications when machines appear and disappear
+% a list of machines that are up that is consistent throughout the cluster 
+% --
+% http://serverfault.com/questions/269831/relation-between-heartbeat-openais-corosync
+% well i reached answer on myself! clustering include two part:
+% 1.cluster resource management
+% 2.infrastructure with massaging layer
+% legacy heartbeat is broken into heartbeat message layer and pacemaker so pacemaker is CRM.
+% and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.highavailability.user/32355
+% There are, however, features in Pacemaker that require OpenAIS which will work only with Corosync, not Heartbeat. Those features are concerned 
+% with the distributed lock managers used by cLVM (but not regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you must select 
+% OpenAIS/Corosync. If you do not, you're free to choose.
+% as: http://www.clusterlabs.org/wiki/FAQ
+% Originally Corosync and OpenAIS were the same thing. Then they split into two parts... the core messaging and membership capabilities are now 
+% called Corosync, and OpenAIS retained the layer containing the implementation of the AIS standard.
+% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) 
+% require the OpenAIS layer as well.
+% so i went to openais/corosync and integrate it with pacemaker.
+% --
+% There are, however, features in Pacemaker that require OpenAIS which
+% will work only with Corosync, not Heartbeat. Those features are
+% concerned with the distributed lock managers used by cLVM (but not
+% regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you
+% must select OpenAIS/Corosync.
+% 
+% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
+% (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
 \subsubsection{Ganeti}
 \label{section:ganeti}
@@ -416,12 +450,14 @@ para fazer monitoramento e recuperação tanto a nível de nó quanto a nível d
 configuração entre todos os nós que é exclusiva. Destaca-se que essa ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} 
 de alta disponibilidade \cite{drbd}.
 
-
 \subsection{Projeto de implementação}
 \label{section:projetoimpl}
 
+
 detalhes da implantacao e diagrama da nova estrutura servidores...
 
+
+testes...
 
 Para configurar o ambiente deve-se criar alguns recursos no \textit{Pacemaker}.
 Deve-se criar primeiramente o recurso do \ac{DRBD}, após ter os dados replicados, como foi descrito na Seção \ref{section:toolrepl}. Esse recurso 
@@ -431,59 +467,23 @@ virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, 
 arquivos será montado automaticamente.
 
 E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
-máquinas virtuais migrem de um nó para outro de forma automática e transparente, quando houver falhas. 
+máquinas virtuais sejam migrem de um nó para outro de forma automática e transparente. 
 
-??
-Para isso será necessário utilizar a opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo 
-hipervisor \ac{KVM}. A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando, sendo que elas 
-inicialmente estão executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada para o segundo servidor \cite{livemigration}.
-
-%http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=300px]{img/vms_migration.eps}
- \caption{Live migration}
- Fonte: \citet{spaniol2015}
- \label{fig:vms_migration}
-\end{figure}
+live migration ??
+% Para isso será necessário utilizar a opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo 
+% hipervisor \ac{KVM}. A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando. Inicialmente 
+% estas estão executando sobre o primeiro servidor, então a \ac{VM} 1 é migrada para o segundo servidor \cite{livemigration}.
+% 
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=300px]{img/vms_migration.eps}
+%  \caption{Live migration}
+%  Fonte: \citet{spaniol2015}
+%  \label{fig:vms_migration}
+% \end{figure}
 
 \section{Considerações finais}
 
-Neste capítulo, foram selecionados os serviços críticos para a empresa. E criado uma proposta de solução selecionando algumas ferramentas,
-sendo que durante a escolha das ferramentas, foi efetuado alguns testes experimentais para melhor entender e avaliar essas ferramentas. 
-Assim possibilitando escolha mais adequada para o ambiente da empresa.
+Neste capítulo, foram apresentados os serviços críticos para a empresa. Além disso, foi apresentado uma proposta de solução. Destaca-se que 
+durante o estudo das ferramentas foram realizados testes para uma melhor avaliação das mesmas.
 
-% Corosync provides pacemaker:
-% a mechanism to reliably send messages between nodes,
-% notifications when machines appear and disappear
-% a list of machines that are up that is consistent throughout the cluster 
-% Heartbeat provides:
-% a mechanism to reliably send messages between nodes,
-% notifications when machines appear and disappear
-% a list of machines that are up that is consistent throughout the cluster 
-% --
-% http://serverfault.com/questions/269831/relation-between-heartbeat-openais-corosync
-% well i reached answer on myself! clustering include two part:
-% 1.cluster resource management
-% 2.infrastructure with massaging layer
-% legacy heartbeat is broken into heartbeat message layer and pacemaker so pacemaker is CRM.
-% and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.highavailability.user/32355
-% There are, however, features in Pacemaker that require OpenAIS which will work only with Corosync, not Heartbeat. Those features are concerned 
-% with the distributed lock managers used by cLVM (but not regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you must select 
-% OpenAIS/Corosync. If you do not, you're free to choose.
-% as: http://www.clusterlabs.org/wiki/FAQ
-% Originally Corosync and OpenAIS were the same thing. Then they split into two parts... the core messaging and membership capabilities are now 
-% called Corosync, and OpenAIS retained the layer containing the implementation of the AIS standard.
-% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) 
-% require the OpenAIS layer as well.
-% so i went to openais/corosync and integrate it with pacemaker.
-% --
-% There are, however, features in Pacemaker that require OpenAIS which
-% will work only with Corosync, not Heartbeat. Those features are
-% concerned with the distributed lock managers used by cLVM (but not
-% regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you
-% must select OpenAIS/Corosync.
-% 
-% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
-% (such as OCFS2 and GFS2) require the OpenAIS layer as well. 

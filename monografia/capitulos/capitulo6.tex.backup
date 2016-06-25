@@ -1,50 +1,62 @@
 \chapter{Conclusão}
 \label{cap:conclusao}
 
-Neste trabalho foi feito um estudo de uma empresa prestadora de serviços para internet, analisando sua estrutura física, bem como a configuração
-de todos os servidores, além do detalhamento de todos serviços fornecidos pela empresa. Após isso, foi feito o levantamento dos serviços mais 
-críticos para o funcionamento da empresa com base em alguns critérios relevantes para a empresa. Esse estudo foi feito com objetivo de encontrar 
-uma solução de alta disponibilidade para o ambiente atual da empresa, para aumentar a disponibilidade e a confiabilidade dos serviços vitais da 
-empresa.
+Neste trabalho foi feito um estudo sobre uma empresa prestadora de serviços para Internet, analisando sua estrutura física e os seus servidores, 
+bem como um detalhamento de todos serviços fornecidos pela empresa. Durante este estudo foram definidos os serviços críticos para a empresa.
+Essa definição foi baseada em alguns critérios que permitem distinguir esses serviços.
 
-Para atingir tal objetivo, estudou-se os conceitos básicos de alta disponibilidade, bem como os conceitos de tolerância a falhas, redundância de
-\textit{hardware} e \textit{software}. Como o ambiente atual da empresa possui grande parte dos serviços em máquinas virtuais, foi estudado
-os principais conceitos sobre virtualização. Sendo que na virtualização, foi estudado os dois grupos de máquinas virtuais o qual inclui máquinas 
-virtuais de aplicação e máquinas virtuais de sistema, além das arquiteturas e estratégias de implementação de máquinas virtuais. Também foram 
-descritas as vantagens do uso da virtualização em alguns cenários distintos.
+Para atingir o objetivo deste trabalho, estudou-se os conceitos básicos de alta disponibilidade. Sabendo que o ambiente atual da empresa possui 
+grande parte dos serviços em máquinas virtuais, foram estudados os principais conceitos sobre virtualização.
 
-E por fim pesquisou-se ferramentas para possibilitar a implementação de um ambiente tolerante a falhas com o uso de máquinas virtuais.
-Sendo que, deu-se foco na busca por ferramentas de código aberto, para redução de custos, e para ser compatível com o ambiente atual da empresa,
-que, em sua maioria utiliza ferramentas de código aberto. Para enfim propor-se um solução de alta disponibilidade compatível com o ambiente 
-da empresa.
+Também foi feito uma pesquisa de ferramentas para implementação de alta disponibilidade em um ambiente de virtualização. Para tal implementação
+...
 
 Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, e além disso 
 pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 
 
 Entretanto, como neste trabalho ainda será feito a implementação em si, não pode-se afirmar que a solução irá funcionar corretamente
-na empresa, devido a fatores como versão do sistema operacional, versão dos \textit{softwares} de virtualização, entre outros.
+na empresa, devido a fatores como versão dos \textit{softwares} de virtualização, desempenho das ferramentas do ambiente de alta disponibilidade, 
+versão do sistema operacional, entre outros.
 
 \newpage
 \section{Cronograma}
 \label{section:cronograma}
 
 A implementação fará parte da segunda etapa deste trabalho, bem como a elaboração da solução definitiva para o ambiente de alta disponibilidade. 
-Além disso, as tarefas da segunda etapa deste trabalho estão detalhadas na Tabela \ref{tab:implementacaotarefas}. Para uma melhor organização, foi criado um cronograma
-com a distribuição das tarefas ao longo do próximo semestre, esse cronograma está presente na Tabela \ref{}.
+As tarefas da segunda etapa deste trabalho estão detalhadas na Tabela \ref{tab:impltarefas}, juntamente com as tarefas efetuadas até o momento. 
+Para uma melhor organização, criou-se um cronograma com a distribuição das tarefas ao longo do próximo semestre, além de . 
+Esse cronograma encontra-se representado pela Tabela \ref{tab:implcronograma}.
 
-
-\begin{table}[h!]
+\begin{table}[h!]\normalsize
 \caption {Tarefas do trabalho de conclusão II}
-\label{tab:implementacaotarefas}
+\label{tab:impltarefas}
 \begin{center}
 \begin{tabular}{|l|l|}\hline
  & Descrição \\\hline
 1 & Redação do TCC II \\\hline
 2 & Elaboração da solução \\\hline
-3 & Realização de testes \\\hline
-4 & Implementação \\\hline
-5 & Análise dos resultados \\\hline
-6 & Apresentação do TCC II \\\hline
+3 & Reorganização do ambiente de virtualização \\\hline
+4 & Realização de testes \\\hline
+5 & Implementação da solução \\\hline
+6 & Análise dos resultados e medições \\\hline
+7 & Apresentação do TCC II \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[h!]\normalsize
+\caption {Cronograma do trabalho de conclusão II}
+\label{tab:implcronograma}
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|l|}\hline
+ & Jul & Ago & Set & Out & Nov & Dez \\\hline
+1 & X & X & X & X & X & X \\\hline
+2 & X & X & X & & & \\\hline
+3 & X & X & & & & \\\hline
+4 & & X & X & X & & \\\hline
+5 & & & X & X & & \\\hline
+6 & & & & X & X & \\\hline
+7 & & & & & & X \\\hline
 \end{tabular}
 \end{center}
 \end{table}
