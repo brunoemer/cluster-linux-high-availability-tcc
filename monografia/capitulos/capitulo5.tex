@@ -176,34 +176,48 @@ replicação de dados e \textit{softwares} para o monitoramento e a transferênc
 
 A replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
 Dependendo do objetivo e da aplicação pode-se usar como, por exemplo, a forma de replicação em \textit{hardware} que é utilizada em discos, o 
-\ac{RAID} \cite{raid}. Essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote[2]{Lembrando 
+\ac{RAID} \cite{raid}. Essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote[1]{Lembrando 
 que essa solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando 
 \textit{software} ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
 
 A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a cópia dos dados de um servidor
-para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}\footnote[1]{Pode-se definir 
+para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}\footnote[2]{Pode-se definir 
 \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
 \cite{freitas2005}}.
 As próximas seções irão detalhar os \textit{softwares} de replicação de dados que foram encontrados.
 
 \subsubsection{DRBD}
 \label{section:drbd}
-O \ac{DRBD} \cite{drbd} ...
-Ele pode ser configurado no modelo \textit{master-slave}...
+O \ac{DRBD} \cite{drbd} é uma solução de replicação de dispositivos de armazenamento, que permite uma replicação de um dispositivo de bloco local 
+para uma máquina remoto, implementado através de um módulo do \textit{kernel} \textit{Linux}. É um projeto de código aberto, é faz a replicação a 
+nível de bloco, o que garante o sincronismo seguro dos dispositivos. Ele pode ser configurado dos seguintes modos 
+\cite{drbd}:
+\begin{itemize}
+ \item \textit{Single-primary}: ou \textit{master-slave}, neste modo apenas um nó do \textit{cluster} pode ser o nó primário, sendo que esse nó 
+ é o único que terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. O nó 
+ secundário apenas armazenará a réplica dos dados;
+ \item \textit{Dual-primary}: neste modo existem dois nós primários, onde podem ser feitas operações de leitura e escrita simultaneamente. 
+ Porém, este necessita de um sistema de arquivos compartilhados para fazer o gerenciamento de bloqueios das operações em arquivos, 
+ como por exemplo, o \ac{GFS} \cite{gfs} e o \ac{OCFS2} \cite{ocfs2};
+\end{itemize}
 
 \subsubsection{GlusterFS}
 \label{section:glusterfs}
-O \textit{GlusterFS} \cite{glusterfs} ...
+O \textit{GlusterFS} \cite{glusterfs} é um sistema de arquivos distribuídos que utiliza a estrutura de \textit{cluster}. Sendo que, seu principal
+objetivo é a escalabilidade, ou seja, existem uma facilidade para aumentar a capacidade do \textit{cluster}.
+Ele também possui a opção de distribuição e replicação de dados que caracteriza a alta disponibilidade \cite{glusterfs}.
 
 \subsubsection{Ceph RBD}
 \label{section:cephrbd}
-O \textit{Ceph RBD} \cite{cephrbd} ...
+O \textit{Ceph RBD} \cite{cephrbd} é uma parte do projeto \textit{Ceph} \cite{ceph}. Esse subprojeto é responsável por prover acesso dos 
+dispositivos de bloco que estão distribuídos ou replicados em um \textit{cluster}. Sua arquitetura é composta por um nó administrador, onde será
+centralizado a gerência do \textit{cluster}, e no mínimo dois nós para armazenamento (\textit{Ceph OSD}) e monitoramento (\textit{Ceph Monitor})
+\cite{ceph}.
 
 \subsubsection{Rsync}
 \label{section:rsync}
 O \textit{Rsync} \cite{rsync} é um \textit{software} que sincroniza os servidores a partir de cópia dos dados de um servidor de origem 
-para um de destino. ...?? 
-
+para um de destino.
 
 % Swift open stack
 % https://wiki.freebsd.org/HAST
@@ -211,13 +225,13 @@ para um de destino. ...??
 \subsubsection{Software escolhido}
 \label{section:replicacaoescolhido}
 
-A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Nesta tabela, pode-se perceber que o \textit{Rsync} não pode ser
-utilizado pois não faz replicação em tempo real. Já o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, 
-sendo assim, não pode-se afirmar que terá um desempenho superior. Além disso, sua principal característica é a escalabilidade, ou seja, 
-facilidade em aumentar os nós do \textit{cluster}, que não será útil para esta implementação.
-
-E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para administrar, além disso, ele executa o \textit{storage} 
-(\textit{Ceph ODS}) em um \textit{hardware} separado dos nós que fazem o processamento (\textit{clientes MDS}). % ??
+A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Pode-se perceber que o \textit{GlusterFS} poderia ser utilizado, 
+porém ele faz a replicação a nível de arquivo, sendo assim, não é a ferramenta ideal para uma solução de alta disponibilidade utilizando 
+virtualização. Além disso, sua principal característica não será útil para esta implementação, essa característica é a escalabilidade, ou seja, 
+é a facilidade de aumentar a capacidade do \textit{cluster} a partir da inclusão de novos nós.
+Já o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para administrar, além de não ser uma escolha atrativa para um \textit{cluster}
+de pequeno porte devido a sua configuração ser mais complexa. 
+E por fim, o \textit{Rsync} não pode ser utilizado pois não faz replicação em tempo real.
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -225,7 +239,7 @@ E por fim, o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para 
 \begin{center}
 \begin{tabular}{|l|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
 Características & DRBD & GlusterFS & Ceph RBD & Rsync\\\hline
-Master/Slave & Sim & Sim & Não & Não \\\hline
+Master-slave & Sim & Sim & Não & Não \\\hline
 Replicação em tempo real & Sim & Sim & Sim & Não \\\hline
 Nível de replicação & Bloco & Arquivo & Bloco & Arquivo \\\hline
 Número máximo de nós & 16 & 64 & Ilimitado & Ilimitado \\\hline
@@ -234,6 +248,21 @@ Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 \end{tabular}
 \end{center}
 \end{table}
+
+Portanto, a ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a 
+configuração \textit{master-slave}, suporte replicação de imagens de máquinas virtuais e faz replicação a nível de bloco. Além disso, essa 
+ferramenta faz a resincronização dos dados automaticamente quando um nó retornar de uma falha ocorrida.
+Para ilustrar, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos, \textit{hda1} e \textit{hda3}, formando um 
+\textit{cluster}, sendo que esses discos estão sincronizados através da rede. Com isso, todas as operações de escritas feitas no nó primário 
+serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/drbd_basic.eps}
+ \caption{Modelo DRBD}
+ Fonte: \citet{jones2010}
+ \label{fig:drbd_basic}
+\end{figure}
 
 %https://www.reddit.com/r/linux/comments/1qwarp/drbd_vs_glusterfs/
 % glusterfs mais escalavel, simples de administrar
@@ -253,42 +282,25 @@ Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 % melhor performace com disco utilizando protocolo gluster file=gluster://path/to
 
 % ceph http://docs.ceph.com/docs/master/start/intro/
-% necessita minimo 3 monitores com osd, outra para admin metadata
+% necessita minimo 3 monitores com osd, outra para administração
 % precisa openstack + nova
 % http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
 % https://elkano.org/blog/live-migration-openstack-ubuntu-14-04/
-
-Portanto, a ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a 
-configuração \textit{master-slave}, suporte replicação de imagens de máquinas virtuais e faz replicação a nível de bloco, o que possibilita maior 
-segurança dos dados e um melhor desempenho.
-Essa ferramenta é de código aberto, e permite a replicação de dados de um dispositivo. Os dispositivos \ac{DRBD}, possuem os estados primário 
-e secundário. Entretanto, apenas um nó do \textit{cluster} pode ser o nó primário, sendo que esse nó é o único que terá permissão para acessar 
-o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus 
-respectivos discos, \textit{hda1} e \textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. 
-Com isso, todas as operações de escritas feitas no nó primário serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=300px]{img/drbd_basic.eps}
- \caption{Modelo DRBD}
- Fonte: \citet{jones2010}
- \label{fig:drbd_basic}
-\end{figure}
 
 \subsection{Softwares para o gerenciamento de cluster}
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster}.
-%uma ferramenta que monitora os recursos, fazendo a detecção e recuperação do serviço utilizando mensagens entre os servidores, que é denominada como um \textit{cluster} \cite{perkov2011}. 
-Além disso, é necessário a utilização de ferramentas para facilitar o gerenciamento desse \textit{cluster}. Essas permitem detectar falhas em um 
-nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. Essas ferramentas são conhecidas 
-como \ac{CRM}, cuja função é fazer a gerência de recursos de um \textit{cluster}. Elas também fazem o \textit{failover} e o \textit{failback}.
-O \textit{failover} é o processo no qual um servidor adquire os serviços executados em outro servidor, quando este servidor fica indisponível
-por apresentar alguma falha. E elas fazem também o processo de \textit{failback} é o retorno dos serviços para o servidor de origem quando este 
-ficar disponível, ele ocorre após o \textit{failover} sendo que este é opcional \cite{bassan2008}.
+Além disso, é necessário a utilização de \textit{softwares} que facilitam o gerenciamento desse \textit{cluster}. Esses \textit{softwares} 
+permitem detectar falhas em um nó ou a nível de recursos, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. 
+Essas ferramentas são conhecidas como \ac{CRM}. 
 
-A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. 
+Os \textit{softwares} de gerenciamento de \textit{cluster} também executam um \textit{failover} e um \textit{failback}. O \textit{failover} é o 
+processo no qual um servidor adquire os serviços executados em outro servidor, quando este servidor fica indisponível. Esses \textit{softwares} 
+executam também o processo de \textit{failback} que é o retorno dos serviços para o servidor de origem quando este ficar disponível. Esse ocorre 
+após o \textit{failover} sendo que ele é opcional \cite{bassan2008}.
 
+As próximas seções irão detalhar os \textit{softwares} de gerenciamento de \textit{cluster} que foram encontrados.
 
 \subsubsection{Pacemaker}
 \label{section:pacemaker}
@@ -299,21 +311,35 @@ os nós que é exclusiva.
 ... Esta ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
 ...
 
-
-A ferramenta \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, possui a vantagem de ser desenvolvido especificamente para
+\subsubsection{Ganeti}
+\label{section:ganeti}
+A ferramenta \textit{Ganeti} \cite{ganeti} ?? é um gerenciador de \textit{cluster} de virtualização, possui a vantagem de ser desenvolvido especificamente para
 virtualização, sendo que suporta os hipervisores \ac{KVM} e \textit{Xen}. Porém, conforme a Tabela \ref{tab:clusterger}, não faz sincronismo
 das configurações, assim essas configurações precisam ser feitas em todos os nós.
 %e necessita de um nó \textit{master} e um nó \textit{master candidate} para armazenar as configurações do \textit{cluster}.
+% ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
 
-O \textit{Ceph} é uma ferramenta unificada de armazenamento de dados distribuída, esta ferramenta tem foco em \textit{cluster} de armazenamento, 
-sendo assim ela necessita de outra ferramenta para orquestrar máquinas virtuais, como por exemplo \textit{OpenStack}. Assim, esta torna-se 
-complexa para configurar e manter. Além disso, tem como requisito três nós para armazenamento e mais um exclusivo para administração.
+\subsubsection{Ceph}
+\label{section:ceph}
+O \textit{Ceph} \cite{ceph}?? é uma ferramenta unificada de armazenamento de dados distribuída, esta ferramenta tem foco em \textit{cluster} 
+de armazenamento, sendo assim ela necessita de outra ferramenta para orquestrar máquinas virtuais, como por exemplo \textit{OpenStack}. Assim, 
+esta torna-se complexa para configurar e manter. 
+Sua arquitetura é composta por um nó administrador, onde será centralizado a gerência do \textit{cluster}, e no mínimo dois nós para 
+armazenamento (\textit{Ceph OSD}), monitoramento (\textit{Ceph Monitor}) e processamento (\textit{Ceph MDS}) \cite{ceph}.
 
+\subsubsection{Heartbeat}
+\label{section:heartbeat}
 É possível também implementar essa solução com a ferramenta \textit{Heartbeat}, porém, desta forma seria necessário criar um conjunto de 
 \textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}} através da rede para outras instâncias do \textit{Heartbeat}, para
 informar se ele está ativo \cite{reis2009}.
+
+\subsubsection{Software escolhido}
+\label{section:gerenciadorescolhido}
+
+A Tabela \ref{tab:clusterger} compara esses \textit{softwares} de acordo com algumas características. 
+...
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de gerenciamento de cluster.}
@@ -330,8 +356,6 @@ Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 \end{center}
 \end{table}
 
-% ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
-
 Conforme justificado acima, o \ac{CRM} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto 
 \textit{Pacemaker}. 
 O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
@@ -343,7 +367,7 @@ nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistem
 As ferramentas que podem ser integradas com o \textit{Pacemaker} são:
 \begin{itemize}
  \item \textit{Corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos (utilizados para 
- implementar cLVM, GFS/GFS2, e OCFS2), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
+ implementar cLVM, \ac{GFS}, e \ac{OCFS2}), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
  \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
  \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}.
 \end{itemize}
