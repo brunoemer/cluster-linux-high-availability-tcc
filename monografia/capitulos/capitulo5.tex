@@ -175,12 +175,10 @@ replicação de dados e \textit{softwares} para o monitoramento e a transferênc
 \label{section:toolrepl}
 
 A replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
-Dependendo do objetivo e da aplicação pode-se usar ferramentas como, por exemplo, o \textit{rsync} \cite{rsync}, que sincroniza os servidores 
-a partir de cópia dos dados de um servidor de origem para um de destino. Essa não pode ser usada neste contexto pois ela não faz a sincronização 
-em tempo real. Outra forma de replicação em \textit{hardware} é a utilização de discos em \ac{RAID} \cite{raid}. Essa solução é eficaz para 
-garantir que o sistema não fique indisponível em caso de falha de discos\footnote[2]{Lembrando que essa solução é utilizada no ambiente atual 
-para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando \textit{software} ou algum outro componente de 
-\textit{hardware} falhar \cite{zaminhani2008}.
+Dependendo do objetivo e da aplicação pode-se usar como, por exemplo, a forma de replicação em \textit{hardware} que é utilizada em discos, o 
+\ac{RAID} \cite{raid}. Essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote[2]{Lembrando 
+que essa solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando 
+\textit{software} ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
 
 A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a cópia dos dados de um servidor
 para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}\footnote[1]{Pode-se definir 
@@ -190,18 +188,25 @@ As próximas seções irão detalhar os \textit{softwares} de replicação de da
 
 \subsubsection{DRBD}
 \label{section:drbd}
-O \ac{DRBD} ...
+O \ac{DRBD} \cite{drbd} ...
+Ele pode ser configurado no modelo \textit{master-slave}...
 
-\begin{itemize}
- \item \ac{DRBD} \cite{drbd}
- \item \textit{GlusterFS} \cite{glusterfs}
- \item \textit{Ceph RBD} \cite{cephrbd}
- \item \textit{Rsync} \cite{rsync}
-\end{itemize}
+\subsubsection{GlusterFS}
+\label{section:glusterfs}
+O \textit{GlusterFS} \cite{glusterfs} ...
+
+\subsubsection{Ceph RBD}
+\label{section:cephrbd}
+O \textit{Ceph RBD} \cite{cephrbd} ...
+
+\subsubsection{Rsync}
+\label{section:rsync}
+O \textit{Rsync} \cite{rsync} é um \textit{software} que sincroniza os servidores a partir de cópia dos dados de um servidor de origem 
+para um de destino. ...?? 
+
+
 % Swift open stack
 % https://wiki.freebsd.org/HAST
-
-...
 
 \subsubsection{Software escolhido}
 \label{section:replicacaoescolhido}
@@ -282,10 +287,18 @@ O \textit{failover} é o processo no qual um servidor adquire os serviços execu
 por apresentar alguma falha. E elas fazem também o processo de \textit{failback} é o retorno dos serviços para o servidor de origem quando este 
 ficar disponível, ele ocorre após o \textit{failover} sendo que este é opcional \cite{bassan2008}.
 
-A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. Pode-se observar que a ferramenta \textit{Pacemaker}
+A Tabela \ref{tab:clusterger} compara as ferramentas de acordo com algumas características. 
+
+
+\subsubsection{Pacemaker}
+\label{section:pacemaker}
+A ferramenta \textit{Pacemaker}
 possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada para fazer monitoramento 
 e recuperação tanto a nível de nó quanto a nível de recurso. Além disso, ela possui a característica de sincronismo de configuração entre todos
 os nós que é exclusiva.
+... Esta ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
+...
+
 
 A ferramenta \textit{Ganeti} é um gerenciador de \textit{cluster} de virtualização, possui a vantagem de ser desenvolvido especificamente para
 virtualização, sendo que suporta os hipervisores \ac{KVM} e \textit{Xen}. Porém, conforme a Tabela \ref{tab:clusterger}, não faz sincronismo
