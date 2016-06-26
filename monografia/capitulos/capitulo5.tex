@@ -453,9 +453,17 @@ de alta disponibilidade \cite{drbd}.
 \subsection{Projeto de implementação}
 \label{section:projetoimpl}
 
+Tendo todas as definições e ferramentas necessárias, pode-se criar o ambiente de alta disponibilidade, que é o objetivo deste trabalho.
+Como mencionado anteriormente, esse ambiente será configurado na forma de um \textit{cluster} o qual será composto por no mínimo dois servidores, 
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+com configuração de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração inclui
+2 GB de memória \ac{RAM} e 24 GB de disco para o sistema operacional hóspede de cada servidor. Além disso, será mantido o mesmo sistema operacional 
+e o mesmo hipervisor utilizado no ambiente atual da empresa, o sistema \textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} respectivamente.
+...
+
+A Figura XX ?? demonstra a nova estrutura desses servidores juntamente com suas máquinas virtuais e seus respectivos serviços.
 
 detalhes da implantacao e diagrama da nova estrutura servidores...
-
 
 testes...
 

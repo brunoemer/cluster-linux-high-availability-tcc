@@ -26,7 +26,7 @@ critérios:
  %Esse critério, como o anterior, também permite comparar diferentes serviços para ter a possibilidade de ordená-los de acordo com sua relevância, por isso o torna importante para esta análise.
 \end{itemize}
 
-Nas próximas seções serão descritos os serviços críticos, com base nesses critérios.
+Nas próximas seções serão descritos os serviços críticos, com base nos critérios adotados.
 
 \subsection{DNS recursivo primário}
 \label{section:dnsrecprim}
@@ -105,6 +105,7 @@ Também é importante destacar que esse serviço possui um número considerável
  \label{fig:soldi_week}
 \end{figure}
 
+\newpage
 \subsection{Telefonia interna sobre IP}
 \label{section:telefonia}
 
@@ -129,14 +130,14 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de 
 
 A partir da análise inicial, verificou-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
 \begin{itemize}
- \item \textit{Passata}: servidor de \ac{DNS} recursivo;
- \item \textit{Speedauth}: principal servidor \textit{Radius} para autenticação;
- \item \textit{Masterauth}: segundo servidor \textit{Radius} para autenticação;
+ \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
+ \item \textit{Speedauth}: principal servidor \textit{Radius} para autenticação dos clientes do provedor;
+ \item \textit{Masterauth}: segundo servidor \textit{Radius} para autenticação dos clientes do provedor;
  \item \textit{Soldi}: servidor de sistemas da empresa e do provedor;
- \item \textit{SimplesIP}: servidor de telefonia interna sobre \ac{IP};
+ \item \textit{SimplesIP}: servidor de telefonia interna sobre \ac{IP} para atendimento aos clientes e comunicação interna do provedor e da empresa;
 \end{itemize}
 
-Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime}\footnote[2]{O serviço de 
+Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime}\footnote[1]{O serviço de 
 telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim sua medição é dos últimos 6 meses de 2016.} e o tempo de \textit{Downtime} 
 por ano. 
 
@@ -176,12 +177,12 @@ replicação de dados e \textit{softwares} para o monitoramento e a transferênc
 
 A replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
 Dependendo do objetivo e da aplicação pode-se usar como, por exemplo, a forma de replicação em \textit{hardware} que é utilizada em discos, o 
-\ac{RAID} \cite{raid}. Essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote[1]{Lembrando 
+\ac{RAID} \cite{raid}. Essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote[2]{Lembrando 
 que essa solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando 
 \textit{software} ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
 
 A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a cópia dos dados de um servidor
-para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}\footnote[2]{Pode-se definir 
+para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}\footnote[3]{Pode-se definir 
 \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
 \cite{freitas2005}}.
 As próximas seções irão detalhar os \textit{softwares} de replicação de dados que foram encontrados.
@@ -192,8 +193,8 @@ O \ac{DRBD} \cite{drbd} é uma solução de replicação de dispositivos de arma
 para uma máquina remoto, implementado através de um módulo do \textit{kernel} \textit{Linux}. É um projeto de código aberto, é faz a replicação a 
 nível de bloco, o que garante o sincronismo seguro dos dispositivos. 
 
-Para ilustrar, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos, \textit{hda1} e \textit{hda3}, formando um 
-\textit{cluster}, sendo que esses discos estão sincronizados através da rede. Com isso, todas as operações de escritas feitas no nó primário 
+Para ilustrar, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e \textit{hda3}, formando 
+um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Com isso, todas as operações de escritas realizadas no nó primário 
 serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
 
 \begin{figure}[h!]
@@ -204,14 +205,13 @@ serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
  \label{fig:drbd_basic}
 \end{figure}
 
-O \ac{DRBD} pode ser configurado dos seguintes modos 
-\cite{drbd}:
+O \ac{DRBD} pode ser configurado dos seguintes modos \cite{drbd}:
 \begin{itemize}
  \item \textit{Single-primary}: ou \textit{master-slave}, neste modo apenas um nó do \textit{cluster} pode ser o nó primário, sendo que esse nó 
  é o único que terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. O nó 
  secundário apenas armazenará a réplica dos dados;
- \item \textit{Dual-primary}: neste modo existem dois nós primários, onde podem ser feitas operações de leitura e escrita simultaneamente. 
- Porém, este necessita de um sistema de arquivos compartilhados para fazer o gerenciamento de bloqueios das operações em arquivos, 
+ \item \textit{Dual-primary}: ou \textit{dual-master}, neste modo existem dois nós primários, onde podem ser feitas operações de leitura e escrita 
+ simultaneamente. Porém, este necessita de um sistema de arquivos compartilhados para fazer o gerenciamento de bloqueios das operações em arquivos, 
  como por exemplo, o \ac{GFS} \cite{gfs} e o \ac{OCFS2} \cite{ocfs2};
 \end{itemize}
 
@@ -243,8 +243,9 @@ A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Pode
 porém ele faz a replicação a nível de arquivo, sendo assim, não é a ferramenta ideal para uma solução de alta disponibilidade utilizando 
 virtualização. Além disso, sua principal característica não será útil para esta implementação, essa característica é a escalabilidade, ou seja, 
 é a facilidade de aumentar a capacidade do \textit{cluster} a partir da inclusão de novos nós.
-Já o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para administrar, além de não ser uma escolha atrativa para um \textit{cluster}
-de pequeno porte devido a sua configuração ser mais complexa. 
+
+Já o \textit{Ceph RBD} necessita de um \textit{hardware} adicional para sua administração, além de não ser uma escolha atrativa para um 
+\textit{cluster} de pequeno porte devido a sua complexa configuração. 
 E por fim, o \textit{Rsync} não pode ser utilizado pois não faz replicação em tempo real.
 
 \begin{table}[h!]
@@ -264,7 +265,7 @@ Integração com virtualização & Sim & Sim & Sim & Não \\\hline
 \end{table}
 
 Portanto, a ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a 
-configuração \textit{master-slave}, suporte replicação de imagens de máquinas virtuais e faz replicação a nível de bloco. Além disso, essa 
+configuração \textit{master-slave} ou \textit{dual-primary}, além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa 
 ferramenta faz a resincronização dos dados automaticamente quando um nó retornar de uma falha ocorrida \cite{drbd}.
 
 %https://www.reddit.com/r/linux/comments/1qwarp/drbd_vs_glusterfs/
@@ -337,14 +338,47 @@ Na Figura \ref{fig:pacemaker_tools} tem-se a arquitetura do \textit{Pacemaker}. 
 \textit{cluster}. Acima as ferramentas de envio de mensagens, acima delas fica o \textit{Pacemaker}. Por fim, o \textit{DRBD} e os 
 serviços do servidor.
 
-REMOVER ACTIVE PASSIVE ??
 \begin{figure}[h!]
  \centering
- \includegraphics[width=280px]{img/pacemaker_tools.eps}
+ \includegraphics[width=320px]{img/pacemaker_tools.eps}
  \caption{Pacemaker estrutura}
  Fonte: \citet{pacemaker}
  \label{fig:pacemaker_tools}
 \end{figure}
+
+% Corosync provides pacemaker:
+% a mechanism to reliably send messages between nodes,
+% notifications when machines appear and disappear
+% a list of machines that are up that is consistent throughout the cluster 
+% Heartbeat provides:
+% a mechanism to reliably send messages between nodes,
+% notifications when machines appear and disappear
+% a list of machines that are up that is consistent throughout the cluster 
+% --
+% http://serverfault.com/questions/269831/relation-between-heartbeat-openais-corosync
+% well i reached answer on myself! clustering include two part:
+% 1.cluster resource management
+% 2.infrastructure with massaging layer
+% legacy heartbeat is broken into heartbeat message layer and pacemaker so pacemaker is CRM.
+% and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.highavailability.user/32355
+% There are, however, features in Pacemaker that require OpenAIS which will work only with Corosync, not Heartbeat. Those features are concerned 
+% with the distributed lock managers used by cLVM (but not regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you must select 
+% OpenAIS/Corosync. If you do not, you're free to choose.
+% as: http://www.clusterlabs.org/wiki/FAQ
+% Originally Corosync and OpenAIS were the same thing. Then they split into two parts... the core messaging and membership capabilities are now 
+% called Corosync, and OpenAIS retained the layer containing the implementation of the AIS standard.
+% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) 
+% require the OpenAIS layer as well.
+% so i went to openais/corosync and integrate it with pacemaker.
+% --
+% There are, however, features in Pacemaker that require OpenAIS which
+% will work only with Corosync, not Heartbeat. Those features are
+% concerned with the distributed lock managers used by cLVM (but not
+% regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you
+% must select OpenAIS/Corosync.
+% 
+% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
+% (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
 \subsubsection{Ganeti}
 \label{section:ganeti}
@@ -416,12 +450,15 @@ para fazer monitoramento e recuperação tanto a nível de nó quanto a nível d
 configuração entre todos os nós que é exclusiva. Destaca-se que essa ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} 
 de alta disponibilidade \cite{drbd}.
 
-
 \subsection{Projeto de implementação}
 \label{section:projetoimpl}
 
+Tendo todas as definições e ferramentas necessárias, pode-se criar o ambiente de alta disponibilidade, que é o objetivo deste trabalho.
+Esse ambiente é ... um \textit{cluster}
+
 detalhes da implantacao e diagrama da nova estrutura servidores...
 
+testes...
 
 Para configurar o ambiente deve-se criar alguns recursos no \textit{Pacemaker}.
 Deve-se criar primeiramente o recurso do \ac{DRBD}, após ter os dados replicados, como foi descrito na Seção \ref{section:toolrepl}. Esse recurso 
@@ -431,58 +468,23 @@ virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, 
 arquivos será montado automaticamente.
 
 E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
-máquinas virtuais migrem de um nó para outro de forma automática e transparente, quando houver falhas. Para isso será necessário utilizar a 
-opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo hipervisor \ac{KVM}.
-A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando, sendo que elas inicialmente estão 
-executando sobre o primeiro servidor, então a \ac{VM} 1 está sendo migrada para o segundo servidor.
+máquinas virtuais sejam migrem de um nó para outro de forma automática e transparente. 
 
-%http://www.linux-kvm.org/page/Migration
-%http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=300px]{img/vms_migration.eps}
- \caption{Live migration}
- Fonte: \citet{spaniol2015}
- \label{fig:vms_migration}
-\end{figure}
+live migration ??
+% Para isso será necessário utilizar a opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo 
+% hipervisor \ac{KVM}. A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando. Inicialmente 
+% estas estão executando sobre o primeiro servidor, então a \ac{VM} 1 é migrada para o segundo servidor \cite{livemigration}.
+% 
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=300px]{img/vms_migration.eps}
+%  \caption{Live migration}
+%  Fonte: \citet{spaniol2015}
+%  \label{fig:vms_migration}
+% \end{figure}
 
 \section{Considerações finais}
 
-Neste capítulo, foram selecionados os serviços críticos para a empresa. E criado uma proposta de solução selecionando algumas ferramentas,
-sendo que durante a escolha das ferramentas, foi efetuado alguns testes experimentais para melhor entender e avaliar essas ferramentas. 
-Assim possibilitando escolha mais adequada para o ambiente da empresa.
+Neste capítulo, foram apresentados os serviços críticos para a empresa. Além disso, foi apresentado uma proposta de solução. Destaca-se que 
+durante o estudo das ferramentas foram realizados testes para uma melhor avaliação das mesmas.
 
-% Corosync provides pacemaker:
-% a mechanism to reliably send messages between nodes,
-% notifications when machines appear and disappear
-% a list of machines that are up that is consistent throughout the cluster 
-% Heartbeat provides:
-% a mechanism to reliably send messages between nodes,
-% notifications when machines appear and disappear
-% a list of machines that are up that is consistent throughout the cluster 
-% --
-% http://serverfault.com/questions/269831/relation-between-heartbeat-openais-corosync
-% well i reached answer on myself! clustering include two part:
-% 1.cluster resource management
-% 2.infrastructure with massaging layer
-% legacy heartbeat is broken into heartbeat message layer and pacemaker so pacemaker is CRM.
-% and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.highavailability.user/32355
-% There are, however, features in Pacemaker that require OpenAIS which will work only with Corosync, not Heartbeat. Those features are concerned 
-% with the distributed lock managers used by cLVM (but not regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you must select 
-% OpenAIS/Corosync. If you do not, you're free to choose.
-% as: http://www.clusterlabs.org/wiki/FAQ
-% Originally Corosync and OpenAIS were the same thing. Then they split into two parts... the core messaging and membership capabilities are now 
-% called Corosync, and OpenAIS retained the layer containing the implementation of the AIS standard.
-% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage (such as OCFS2 and GFS2) 
-% require the OpenAIS layer as well.
-% so i went to openais/corosync and integrate it with pacemaker.
-% --
-% There are, however, features in Pacemaker that require OpenAIS which
-% will work only with Corosync, not Heartbeat. Those features are
-% concerned with the distributed lock managers used by cLVM (but not
-% regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you
-% must select OpenAIS/Corosync.
-% 
-% Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
-% (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
