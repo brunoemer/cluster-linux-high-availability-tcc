@@ -16,21 +16,21 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 4.1:}{\ignorespaces Diagrama de instala\IeC {\c c}\IeC {\~a}o el\IeC {\'e}trica.}}{25}
 \contentsline {figure}{\numberline {Figura\nobreakspace 4.2:}{\ignorespaces Modelo de estrutura f\IeC {\'\i }sica.}}{27}
 \contentsline {figure}{\numberline {Figura\nobreakspace 4.3:}{\ignorespaces Imagem do \textit {rack} e dos servidores.}}{27}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.4:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Brina.}}{29}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.5:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Fulmine.}}{30}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.6:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Piova.}}{32}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.7:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Raggio.}}{33}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.8:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Tempesta.}}{34}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.9:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Tuono.}}{35}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.10:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o Venti.}}{36}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.4:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Brina}.}}{29}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.5:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Fulmine}.}}{30}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.6:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Piova}.}}{32}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.7:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Raggio}.}}{33}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.8:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Tempesta}.}}{34}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.9:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Tuono}.}}{35}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.10:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Venti}.}}{36}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es DNS (a) e compara\IeC {\c c}\IeC {\~a}o de requisi\IeC {\c c}\IeC {\~o}es UDP entre os principais servidores (b).}}{38}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.2:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor Masterauth (a) e Speedauth (b).}}{39}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.2:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es de autentica\IeC {\c c}\IeC {\~a}o do servidor \textit {Masterauth} (a) e \textit {Speedauth} (b).}}{39}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de elementos (a) e de conex\IeC {\~o}es TCP (b) entre os principais servidores.}}{40}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{40}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.5:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{41}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.6:}{\ignorespaces Modelo DRBD}}{43}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.7:}{\ignorespaces Pacemaker estrutura}}{46}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.5:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos no servidor de telefonia.}}{41}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.6:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{43}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.7:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{46}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.8:}{\ignorespaces Estrutura do \textit {cluster}}}{48}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
