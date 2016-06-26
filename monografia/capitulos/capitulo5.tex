@@ -488,7 +488,7 @@ também fará o monitoramento dos nós do \textit{cluster} e iniciará ou finali
 
 No \textit{Pacemaker}, os serviços que são configurados para serem monitorados são chamados de recursos (\textit{resources}).
 
-Para configurar o ambiente deve-se criar alguns recursos no \textit{Pacemaker}. Primeiramente deve-se criar o recurso para o \ac{DRBD}. 
+Para configurar o ambiente deve-se criar esses recursos no \textit{Pacemaker}. Primeiramente deve-se criar o recurso para o \ac{DRBD}. 
 Esse recurso fará o monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
 Também será necessário criar um recurso para montar um sistema de arquivos para o dispositivo \ac{DRBD} no local onde ficarão os discos das 
 máquinas virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário 
