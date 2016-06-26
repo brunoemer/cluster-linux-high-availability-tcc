@@ -8,8 +8,10 @@ Essa definição foi baseada em alguns critérios que permitem distinguir esses 
 Para atingir o objetivo deste trabalho, estudou-se os conceitos básicos de alta disponibilidade. Sabendo que o ambiente atual da empresa possui 
 grande parte dos serviços em máquinas virtuais, foram estudados os principais conceitos sobre virtualização.
 
-Também foi feito uma pesquisa de ferramentas para implementação de alta disponibilidade em um ambiente de virtualização. Para tal implementação
-criou-se uma proposta de um \textit{cluster}, ...
+Também foi feito uma pesquisa de ferramentas para implementação de alta disponibilidade em um ambiente de virtualização. Criou-se uma proposta 
+para tal implementação, sendo esta é composta por um \textit{cluster} o qual é constituído por dois \textit{softwares}. Esses são o 
+\textit{software} de gerenciamento do \textit{cluster} e o \textit{software} de replicação de dados.
+Esse \textit{cluster} será composto por dois servidores executando máquinas virtuais ... ??
 
 Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, e além disso 
 pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 
@@ -50,25 +52,27 @@ deste semestre, juntamente com as tarefas do próximo semestre, encontra-se repr
 \end{center}
 \end{table}
 
-\begin{table}[h!]\normalsize
+\begin{table}[h!]\normalsize % fonte tamanho normal
 \caption {Cronograma deste trabalho}
 \label{tab:implcronograma}
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|}\hline
- & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\\hline
-1 & & & X & X & X & X & & & & & & \\\hline
-2 & X & X & X & X & X & & & & & & & \\\hline
-3 & & & & & X & X & & & & & & \\\hline
-4 & & & & & X & X & & & & & & \\\hline
-5 & & & & & X & X & & & & & & \\\hline
-6 & & & & & & & X & & & & & \\\hline
-7 & & & & & & & X & X & X & X & X & X \\\hline
-8 & & & & & & & X & X & X & & & \\\hline
-9 & & & & & & & X & X & & & & \\\hline
-10 & & & & & & & & X & X & X & & \\\hline
-11 & & & & & & & & & X & X & & \\\hline
-12 & & & & & & & & & & X & X & \\\hline
-13 & & & & & & & & & & & & X \\\hline
+\def\arraystretch{1}
+\setlength{\tabcolsep}{0.15cm}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}\hline
+ & TCC & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\\hline
+1 & TCC I & & & X & X & X & X & & & & & & \\\hline
+2 & TCC I & X & X & X & X & X & & & & & & & \\\hline
+3 & TCC I & & & & & X & X & & & & & & \\\hline
+4 & TCC I & & & & & X & X & & & & & & \\\hline
+5 & TCC I & & & & & X & X & & & & & & \\\hline
+6 & TCC I & & & & & & & X & & & & & \\\hline
+7 & TCC II & & & & & & & X & X & X & X & X & X \\\hline
+8 & TCC II & & & & & & & X & X & X & & & \\\hline
+9 & TCC II & & & & & & & X & X & & & & \\\hline
+10 & TCC II & & & & & & & & X & X & X & & \\\hline
+11 & TCC II & & & & & & & & & X & X & & \\\hline
+12 & TCC II & & & & & & & & & & X & X & \\\hline
+13 & TCC II & & & & & & & & & & & & X \\\hline
 \end{tabular}
 \end{center}
 \end{table}
