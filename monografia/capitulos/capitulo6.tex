@@ -9,9 +9,11 @@ Para atingir o objetivo deste trabalho, estudou-se os conceitos básicos de alta
 grande parte dos serviços em máquinas virtuais, foram estudados os principais conceitos sobre virtualização.
 
 Também foi feito uma pesquisa de ferramentas para implementação de alta disponibilidade em um ambiente de virtualização. Criou-se uma proposta 
-para tal implementação, sendo esta é composta por um \textit{cluster} o qual é constituído por dois \textit{softwares}. Esses são o 
-\textit{software} de gerenciamento do \textit{cluster} e o \textit{software} de replicação de dados.
-Esse \textit{cluster} será composto por dois servidores executando máquinas virtuais ... ??
+para tal implementação, sendo que esta é composta por um \textit{cluster} o qual é constituído por dois \textit{softwares}. Esses são o 
+\textit{software} de gerenciamento do \textit{cluster} e o \textit{software} de replicação de dados. %nome dos softwares?
+Esse \textit{cluster} será composto por dois servidores executando as máquinas virtuais contendo os serviços críticos. Esses servidores 
+irão caracterizar uma redundância de \textit{software} sendo que caso um servidor falhe, as máquinas virtuais serão transferidas para o outro
+servidor, assim possibilitando a disponibilidade dos serviços críticos.
 
 Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, e além disso 
 pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 

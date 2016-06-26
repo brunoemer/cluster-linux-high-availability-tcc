@@ -8,8 +8,11 @@ Essa definição foi baseada em alguns critérios que permitem distinguir esses 
 Para atingir o objetivo deste trabalho, estudou-se os conceitos básicos de alta disponibilidade. Sabendo que o ambiente atual da empresa possui 
 grande parte dos serviços em máquinas virtuais, foram estudados os principais conceitos sobre virtualização.
 
-Também foi feito uma pesquisa de ferramentas para implementação de alta disponibilidade em um ambiente de virtualização. Para tal implementação
-...
+Também foi feito uma pesquisa de ferramentas para implementação de alta disponibilidade em um ambiente de virtualização. Criou-se uma proposta 
+para tal implementação, sendo que esta é composta por um \textit{cluster} o qual é constituído por dois \textit{softwares}. Esses são o 
+\textit{software} de gerenciamento do \textit{cluster} e o \textit{software} de replicação de dados. %nome dos softwares?
+Esse \textit{cluster} será composto por dois servidores executando as máquinas virtuais contendo os serviços críticos. Esses servidores 
+irão caracteriar uma redundância de \textit{software}, possibilitando a disponibilidade dos serviços críticos, 
 
 Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, e além disso 
 pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 
@@ -24,39 +27,53 @@ versão do sistema operacional, entre outros.
 
 A implementação fará parte da segunda etapa deste trabalho, bem como a elaboração da solução definitiva para o ambiente de alta disponibilidade. 
 As tarefas da segunda etapa deste trabalho estão detalhadas na Tabela \ref{tab:impltarefas}, juntamente com as tarefas efetuadas até o momento. 
-Para uma melhor organização, criou-se um cronograma com a distribuição das tarefas ao longo do próximo semestre, além de . 
-Esse cronograma encontra-se representado pela Tabela \ref{tab:implcronograma}.
+Para uma melhor organização, criou-se um cronograma com a distribuição das tarefas ao longo do próximo semestre. O cronograma atualizado 
+deste semestre, juntamente com as tarefas do próximo semestre, encontra-se representado pela Tabela \ref{tab:implcronograma}.
 
 \begin{table}[h!]\normalsize
-\caption {Tarefas do trabalho de conclusão II}
+\caption {Tarefas deste trabalho}
 \label{tab:impltarefas}
 \begin{center}
 \begin{tabular}{|l|l|}\hline
  & Descrição \\\hline
-1 & Redação do TCC II \\\hline
-2 & Elaboração da solução \\\hline
-3 & Reorganização do ambiente de virtualização \\\hline
-4 & Realização de testes \\\hline
-5 & Implementação da solução \\\hline
-6 & Análise dos resultados e medições \\\hline
-7 & Apresentação do TCC II \\\hline
+1 & Redação TCC I \\\hline
+2 & Estudo bibliográfico \\\hline
+3 & Definição das ferramentas \\\hline
+4 & Análise na empresa \\\hline
+5 & Definição dos serviços críticos \\\hline
+6 & Apresentação TCC I \\\hline
+7 & Redação do TCC II \\\hline
+8 & Elaboração da solução \\\hline
+9 & Reorganização do ambiente de virtualização \\\hline
+10 & Realização de testes \\\hline
+11 & Implementação da solução \\\hline
+12 & Análise dos resultados e medições \\\hline
+13 & Apresentação do TCC II \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-\begin{table}[h!]\normalsize
-\caption {Cronograma do trabalho de conclusão II}
+\begin{table}[h!]\normalsize % fonte tamanho normal
+\caption {Cronograma deste trabalho}
 \label{tab:implcronograma}
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|l|l|}\hline
- & Jul & Ago & Set & Out & Nov & Dez \\\hline
-1 & X & X & X & X & X & X \\\hline
-2 & X & X & X & & & \\\hline
-3 & X & X & & & & \\\hline
-4 & & X & X & X & & \\\hline
-5 & & & X & X & & \\\hline
-6 & & & & X & X & \\\hline
-7 & & & & & & X \\\hline
+\def\arraystretch{1}
+\setlength{\tabcolsep}{0.15cm}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}\hline
+ & TCC & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\\hline
+1 & TCC I & & & X & X & X & X & & & & & & \\\hline
+2 & TCC I & X & X & X & X & X & & & & & & & \\\hline
+3 & TCC I & & & & & X & X & & & & & & \\\hline
+4 & TCC I & & & & & X & X & & & & & & \\\hline
+5 & TCC I & & & & & X & X & & & & & & \\\hline
+6 & TCC I & & & & & & & X & & & & & \\\hline
+7 & TCC II & & & & & & & X & X & X & X & X & X \\\hline
+8 & TCC II & & & & & & & X & X & X & & & \\\hline
+9 & TCC II & & & & & & & X & X & & & & \\\hline
+10 & TCC II & & & & & & & & X & X & X & & \\\hline
+11 & TCC II & & & & & & & & & X & X & & \\\hline
+12 & TCC II & & & & & & & & & & X & X & \\\hline
+13 & TCC II & & & & & & & & & & & & X \\\hline
 \end{tabular}
 \end{center}
 \end{table}

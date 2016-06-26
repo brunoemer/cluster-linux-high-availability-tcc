@@ -326,7 +326,7 @@ fazem a afiliação, ou seja, fazem o processo de registro dos nós, de \textit{
 de arquivos distribuídos. As ferramentas que podem ser integradas com o \textit{Pacemaker} são \cite{pacemaker}:
 \begin{itemize}
  \item \textit{Corosync} \cite{corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos 
- (utilizados para implementar \ac{LVM}, \ac{GFS}, e \ac{OCFS2}), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
+ (utilizados para implementar \ac{LVM} \cite{lvm}, \ac{GFS}, e \ac{OCFS2}), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
  \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
  \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}.
 \end{itemize}
@@ -459,23 +459,52 @@ Como mencionado anteriormente, esse ambiente será configurado na forma de um \t
 com configuração de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração inclui
 2 GB de memória \ac{RAM} e 24 GB de disco para o sistema operacional hóspede de cada servidor. Além disso, será mantido o mesmo sistema operacional 
 e o mesmo hipervisor utilizado no ambiente atual da empresa, o sistema \textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} respectivamente.
+
+A Figura \ref{fig:projeto_estrutura} demonstra a nova estrutura desses servidores juntamente com suas máquinas virtuais e seus respectivos 
+serviços.
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=320px]{img/projeto_estrutura.eps}
+ \caption{Estrutura do \textit{cluster}}
+ \label{fig:projeto_estrutura}
+\end{figure}
+
+O \textit{cluster} utilizará dois \textit{softwares}, um para a replicação dos dados das máquinas virtuais, e outro para o gerenciamento do 
+\textit{cluster}. O primeiro será o \ac{DRBD} e o segundo será o \textit{Pacemaker}, ambos podem ser observados na Figura 
+\ref{fig:projeto_estrutura}.
+
+%drbd
+O \ac{DRBD} será configurado no modo \textit{master-slave} ??, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
+replicação \ac{DRBD}. E para utilizar esse dispositivo em uma máquina virtual será criado um volume lógico através da ferramenta 
+\ac{LVM}\footnote{LVM é uma ferramenta de código aberto?? que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
+e volumes lógicos.} \cite{lvm}. 
+IMAGEM ??
+
+
+%pacemaker ou ganeti??
+O \textit{Pacemaker}, irá eleger um nó como \textit{master}, para centralizar a gerência. Esse \textit{software} 
+também fará o monitoramento dos nós do \textit{cluster} e iniciará ou finalizará os serviços (recursos) em caso de falhas de um nó.
 ...
 
-A Figura XX ?? demonstra a nova estrutura desses servidores juntamente com suas máquinas virtuais e seus respectivos serviços.
+No \textit{Pacemaker}, os serviços que são configurados para serem monitorados são chamados de recursos (\textit{resources}).
 
-detalhes da implantacao e diagrama da nova estrutura servidores...
+Para configurar o ambiente deve-se criar alguns recursos no \textit{Pacemaker}. Primeiramente deve-se criar o recurso para o \ac{DRBD}. 
+Esse recurso fará o monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
+Também será necessário criar um recurso para montar um sistema de arquivos para o dispositivo \ac{DRBD} no local onde ficarão os discos das 
+máquinas virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário 
+o sistema de arquivos será montado automaticamente.
+
+E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
+máquinas virtuais sejam migradas de um nó para outro de forma automática e transparente. 
+
+Na configuração das máquinas virtuais, será ...
+De forma a balancear a carga do \textit{cluster}, as máquinas virtuais serão distribuídas entre os nós, ...
+
 
 testes...
 
-Para configurar o ambiente deve-se criar alguns recursos no \textit{Pacemaker}.
-Deve-se criar primeiramente o recurso do \ac{DRBD}, após ter os dados replicados, como foi descrito na Seção \ref{section:toolrepl}. Esse recurso 
-fará o monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
-Também será necessário criar um recurso para montar o sistema de arquivos do dispositivo \ac{DRBD} no local onde ficarão os discos das máquinas
-virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário o sistema de
-arquivos será montado automaticamente.
+%Para configurar o ambiente será necessário instalar os \textit{softwares} do \textit{cluster}...
 
-E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
-máquinas virtuais sejam migrem de um nó para outro de forma automática e transparente. 
 
 live migration ??
 % Para isso será necessário utilizar a opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo 
