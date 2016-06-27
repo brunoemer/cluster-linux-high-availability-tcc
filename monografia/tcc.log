@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  26 JUN 2016 23:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  27 JUN 2016 11:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1746,42 +1746,42 @@ Package epstopdf Info: Source file: <img/drbd_basic.eps>
 (epstopdf)                    size: 10219 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/drbd_basic-eps-convert
 ed-to.pdf img/drbd_basic.eps>
-(epstopdf)             \includegraphics on input line 202.
+(epstopdf)             \includegraphics on input line 211.
 Package epstopdf Info: Output file is already uptodate.
  <img/drbd_basic-eps-converted-to.pdf, id=234, 480.79625pt x 196.735pt>
 File: img/drbd_basic-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/drbd_basic-eps-converted-to.pdf>
 Package pdftex.def Info: img/drbd_basic-eps-converted-to.pdf used on input line
- 202.
+ 211.
 (pdftex.def)             Requested size: 301.1261pt x 123.21722pt.
  [43 <./img/drbd_basic-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 261--261
-\OT1/cmr/m/n/8 tOS, Red Hat,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--261
-[]\OT1/cmr/m/n/8 Debian, Cen-tOS,
- []
-
-
-Underfull \hbox (badness 6173) in paragraph at lines 261--261
-\OT1/cmr/m/n/8 Red Hat, Fe-dora,
- []
-
-
-Underfull \hbox (badness 2903) in paragraph at lines 261--261
+Underfull \hbox (badness 2903) in paragraph at lines 264--264
 []\OT1/cmr/m/n/8 CentOS, Red Hat,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--261
+Underfull \hbox (badness 10000) in paragraph at lines 264--264
 \OT1/cmr/m/n/8 De-bian, Fe-dora,
  []
 
 
-Overfull \hbox (27.54662pt too wide) in paragraph at lines 255--264
+Underfull \hbox (badness 10000) in paragraph at lines 264--264
+\OT1/cmr/m/n/8 tOS, Red Hat,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--264
+[]\OT1/cmr/m/n/8 Debian, Cen-tOS,
+ []
+
+
+Underfull \hbox (badness 6173) in paragraph at lines 264--264
+\OT1/cmr/m/n/8 Red Hat, Fe-dora,
+ []
+
+
+Overfull \hbox (27.54662pt too wide) in paragraph at lines 258--267
  [] 
  []
 
@@ -1791,28 +1791,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [44]
-
-Package natbib Warning: Citation `lvm' on page 45 undefined on input line 329.
-
-Package epstopdf Info: Source file: <img/pacemaker_tools.eps>
-(epstopdf)                    date: 2016-06-25 21:54:17
-(epstopdf)                    size: 1521831 bytes
-(epstopdf)             Output file: <img/pacemaker_tools-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-25 21:54:28
-(epstopdf)                    size: 125416 bytes
-(epstopdf)             Command: <repstopdf --outfile=img/pacemaker_tools-eps-co
-nverted-to.pdf img/pacemaker_tools.eps>
-(epstopdf)             \includegraphics on input line 343.
-Package epstopdf Info: Output file is already uptodate.
-
-<img/pacemaker_tools-eps-converted-to.pdf, id=244, 1026.83624pt x 484.81125pt>
-File: img/pacemaker_tools-eps-converted-to.pdf Graphic file (type pdf)
-
-<use img/pacemaker_tools-eps-converted-to.pdf>
-Package pdftex.def Info: img/pacemaker_tools-eps-converted-to.pdf used on input
- line 343.
-(pdftex.def)             Requested size: 301.1261pt x 142.17474pt.
- [45 <./img/pacemaker_tools-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/ganeti_arquitetura.eps>
 (epstopdf)                    date: 2016-06-26 22:39:06
 (epstopdf)                    size: 157114 bytes
@@ -1822,99 +1800,111 @@ f>
 (epstopdf)                    size: 82198 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/ganeti_arquitetura-eps
 -converted-to.pdf img/ganeti_arquitetura.eps>
-(epstopdf)             \includegraphics on input line 405.
+(epstopdf)             \includegraphics on input line 341.
 Package epstopdf Info: Output file is already uptodate.
 
-<img/ganeti_arquitetura-eps-converted-to.pdf, id=251, 1013.7875pt x 328.22626pt
+<img/ganeti_arquitetura-eps-converted-to.pdf, id=244, 1013.7875pt x 328.22626pt
 >
 File: img/ganeti_arquitetura-eps-converted-to.pdf Graphic file (type pdf)
  <use img/ganeti_arquitetura-eps-converted-to.pdf>
 Package pdftex.def Info: img/ganeti_arquitetura-eps-converted-to.pdf used on in
-put line 405.
-(pdftex.def)             Requested size: 381.42639pt x 123.4902pt.
+put line 341.
+(pdftex.def)             Requested size: 341.27625pt x 110.4886pt.
+ [45 <./img/ganeti_arquitetura-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <img/pacemaker_tools.eps>
+(epstopdf)                    date: 2016-06-25 21:54:17
+(epstopdf)                    size: 1521831 bytes
+(epstopdf)             Output file: <img/pacemaker_tools-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-06-25 21:54:28
+(epstopdf)                    size: 125416 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/pacemaker_tools-eps-co
+nverted-to.pdf img/pacemaker_tools.eps>
+(epstopdf)             \includegraphics on input line 380.
+Package epstopdf Info: Output file is already uptodate.
 
+<img/pacemaker_tools-eps-converted-to.pdf, id=251, 1026.83624pt x 484.81125pt>
+File: img/pacemaker_tools-eps-converted-to.pdf Graphic file (type pdf)
 
-Package natbib Warning: Citation `carvalho2011' on page 46 undefined on input l
-ine 407.
-
+<use img/pacemaker_tools-eps-converted-to.pdf>
+Package pdftex.def Info: img/pacemaker_tools-eps-converted-to.pdf used on input
+ line 380.
+(pdftex.def)             Requested size: 301.1261pt x 142.17474pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 46
  []
 
-[46 <./img/ganeti_arquitetura-eps-converted-to.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+[46 <./img/pacemaker_tools-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 []\OT1/cmr/m/n/8 Sincronismo de con-fi-
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 453--453
-[]\OT1/cmr/m/n/8 Red Hat, Cen-tOS,
- []
-
-
-Underfull \hbox (badness 3514) in paragraph at lines 453--453
-\OT1/cmr/m/n/8 Fe-dora, Suse, De-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
+Underfull \hbox (badness 10000) in paragraph at lines 456--456
 []\OT1/cmr/m/n/8 CentOS, De-bian,
  []
 
 
-Underfull \hbox (badness 6173) in paragraph at lines 453--453
+Underfull \hbox (badness 6173) in paragraph at lines 456--456
 \OT1/cmr/m/n/8 Fe-dora, Red Hat,
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 453--453
+Underfull \hbox (badness 2042) in paragraph at lines 456--456
 []\OT1/cmr/m/n/8 Red Hat, Cen-tOS,
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 453--453
+Underfull \hbox (badness 3514) in paragraph at lines 456--456
 \OT1/cmr/m/n/8 Fe-dora, Suse, De-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 454--454
+Underfull \hbox (badness 2042) in paragraph at lines 456--456
+[]\OT1/cmr/m/n/8 Red Hat, Cen-tOS,
+ []
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 456--456
+\OT1/cmr/m/n/8 Fe-dora, Suse, De-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 457--457
 []\OT1/cmr/m/n/8 Integra^^Xc~ao com vir-tu-a-
  []
 
 
-Overfull \hbox (20.16582pt too wide) in paragraph at lines 448--456
+Overfull \hbox (20.16582pt too wide) in paragraph at lines 451--459
  [] 
  []
 
 [47]
-
-LaTeX Warning: File `img/projeto_estrutura.eps' not found on input line 487.
-
 Package epstopdf Info: Source file: <img/projeto_estrutura.eps>
+(epstopdf)                    date: 2016-06-27 08:22:12
+(epstopdf)                    size: 145066 bytes
 (epstopdf)             Output file: <img/projeto_estrutura-eps-converted-to.pdf
 >
+(epstopdf)                    date: 2016-06-27 08:22:20
+(epstopdf)                    size: 43307 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_estrutura-eps-
 converted-to.pdf img/projeto_estrutura.eps>
-(epstopdf)             \includegraphics on input line 487.
+(epstopdf)             \includegraphics on input line 492.
 Package epstopdf Info: Output file is already uptodate.
 
-! Package pdftex.def Error: File `img/projeto_estrutura-eps-converted-to.pdf' n
-ot found.
+<img/projeto_estrutura-eps-converted-to.pdf, id=261, 570.13pt x 468.75125pt>
+File: img/projeto_estrutura-eps-converted-to.pdf Graphic file (type pdf)
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.487 ...s[width=250px]{img/projeto_estrutura.eps}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use img/projeto_estrutura-eps-converted-to.pdf>
+Package pdftex.def Info: img/projeto_estrutura-eps-converted-to.pdf used on inp
+ut line 492.
+(pdftex.def)             Requested size: 381.42639pt x 313.60393pt.
 
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 48
+ []
 
-Package natbib Warning: Citation `lvm' on page 48 undefined on input line 496.
-
+[48 <./img/projeto_estrutura-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/vms_migration.eps>
 (epstopdf)                    date: 2016-06-02 21:44:45
 (epstopdf)                    size: 392709 bytes
@@ -1923,25 +1913,17 @@ Package epstopdf Info: Source file: <img/vms_migration.eps>
 (epstopdf)                    size: 89385 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_migration-eps-conv
 erted-to.pdf img/vms_migration.eps>
-(epstopdf)             \includegraphics on input line 535.
+(epstopdf)             \includegraphics on input line 519.
 Package epstopdf Info: Output file is already uptodate.
-<img/vms_migration-eps-converted-to.pdf, id=261, 372.39125pt x 373.395pt>
+
+<img/vms_migration-eps-converted-to.pdf, id=269, 372.39125pt x 373.395pt>
 File: img/vms_migration-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/vms_migration-eps-converted-to.pdf>
 Package pdftex.def Info: img/vms_migration-eps-converted-to.pdf used on input l
-ine 535.
-(pdftex.def)             Requested size: 301.1261pt x 301.94691pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-)
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 48
- []
-
-[48] [49 <./img/vms_migration-eps-converted-to.pdf>]
+ine 519.
+(pdftex.def)             Requested size: 250.93842pt x 251.62053pt.
+) [49 <./img/vms_migration-eps-converted-to.pdf>]
 \openout2 = `capitulos/capitulo6.aux'.
 
  (./capitulos/capitulo6.tex
@@ -1954,7 +1936,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Overfull \hbox (8.14792pt too wide) in paragraph at lines 63--79
+Overfull \hbox (8.14792pt too wide) in paragraph at lines 64--80
  [] 
  []
 
@@ -1980,32 +1962,26 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \hbox (badness 2197) in paragraph at lines 96--99
+Underfull \hbox (badness 2197) in paragraph at lines 102--105
 []\OT1/cmr/m/n/12 Edgewall Soft-ware. \OT1/cmr/bx/n/12 The Trac Pro-ject\OT1/cm
 r/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pvel em: $\OT1/cmtt/m
 /n/12 https : / / trac .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--118
+Underfull \hbox (badness 10000) in paragraph at lines 120--124
 []\OT1/cmr/m/n/12 Gustavo Ats. \OT1/cmr/bx/n/12 En-tenda o que s~ao co-o-lers e
  fans\OT1/cmr/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pvel
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--118
+Underfull \hbox (badness 10000) in paragraph at lines 120--124
 \OT1/cmr/m/n/12 em: $\OT1/cmtt/m/n/12 http : / / www . techtudo . com . br / ar
 tigos / noticia / 2012 / 01 /
  []
 
-
-Underfull \hbox (badness 1838) in paragraph at lines 128--133
-\OT1/cmtt/m/n/12 content / www / br / pt / support / boards-[]and-[]kits / 0000
-05867 . html$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em
- []
-
 [53]
-Underfull \hbox (badness 5847) in paragraph at lines 166--171
+Underfull \hbox (badness 5847) in paragraph at lines 142--146
 \OT1/cmr/bx/n/12 De-vice\OT1/cmr/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 D
 ispon^^S^^Pvel em: $\OT1/cmtt/m/n/12 http : / / www . ibm . com / developerwork
 s / library /
@@ -2017,45 +1993,45 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [54] [55]
-Underfull \hbox (badness 6741) in paragraph at lines 268--271
+Underfull \hbox (badness 6741) in paragraph at lines 271--274
 []\OT1/cmr/m/n/12 Rackspace. \OT1/cmr/bx/n/12 OpenS-tack Open Source Cloud Com-
 pu-ting Soft-ware\OT1/cmr/m/n/12 .
  []
 
 
-Underfull \hbox (badness 1112) in paragraph at lines 272--276
+Underfull \hbox (badness 1112) in paragraph at lines 282--286
 []\OT1/cmr/m/n/12 Red Hat. \OT1/cmr/bx/n/12 Red Hat GFS\OT1/cmr/m/n/12 . $\OML/
 cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pvel em: $\OT1/cmtt/m/n/12 https : / /
  access . redhat . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--276
+Underfull \hbox (badness 10000) in paragraph at lines 282--286
 \OT1/cmtt/m/n/12 documentation / pt-[]BR / Red _ Hat _ Enterprise _ Linux / 5 /
  html / Cluster _ Suite _
  []
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 309--313
+Underfull \hbox (badness 1092) in paragraph at lines 312--316
 []\OT1/cmr/m/n/12 SANTOS MA-CEDO, A. dos; SAN-TOS, C. C. G. \OT1/cmr/bx/n/12 Hy
 -per-vi-sor\OT1/cmr/m/n/12 : se-gu-ran^^Xca
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--333
+Underfull \hbox (badness 10000) in paragraph at lines 332--336
 []\OT1/cmr/m/n/12 SMITH, R. \OT1/cmr/bx/n/12 Ge-ren-ci-a-mento de N^^S^^Pvel de
  Servi^^Xco\OT1/cmr/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pve
 l
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--333
+Underfull \hbox (badness 10000) in paragraph at lines 332--336
 \OT1/cmr/m/n/12 em: $\OT1/cmtt/m/n/12 http : / / blogs . technet . com / b / ro
 naldosjr / archive / 2010 / 05 / 25 /
  []
 
 
-Underfull \hbox (badness 6542) in paragraph at lines 329--333
+Underfull \hbox (badness 6542) in paragraph at lines 332--336
 \OT1/cmtt/m/n/12 gerenciamento-[]de-[]n-[]237-[]vel-[]de-[]servi-[]231-[]o . as
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
@@ -2065,16 +2041,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 56
  []
 
-[56]) 
+[56] [57]) 
 AED: lastpage setting LastPage
-[57]
 
-Package natbib Warning: There were undefined citations.
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 58
+ []
 
-(./tcc.aux (./folha_rosto.aux) (./abstract.aux) (./capitulos/introducao.aux)
-(./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux)
-(./capitulos/capitulo4.aux) (./capitulos/capitulo5.aux)
-(./capitulos/capitulo6.aux))
+[58] (./tcc.aux (./folha_rosto.aux) (./abstract.aux)
+(./capitulos/introducao.aux) (./capitulos/capitulo2.aux)
+(./capitulos/capitulo3.aux) (./capitulos/capitulo4.aux)
+(./capitulos/capitulo5.aux) (./capitulos/capitulo6.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -2084,13 +2061,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14335 strings out of 495004
- 277168 string characters out of 6180662
- 339100 words of memory out of 5000000
- 17227 multiletter control sequences out of 15000+600000
+ 14343 strings out of 495004
+ 277484 string characters out of 6180662
+ 339325 words of memory out of 5000000
+ 17235 multiletter control sequences out of 15000+600000
  10865 words of font info for 38 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,11n,57p,10374b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,57p,10374b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texli
@@ -2103,10 +2080,10 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
 pfb>
-Output written on tcc.pdf (58 pages, 1964968 bytes).
+Output written on tcc.pdf (59 pages, 2009229 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
+ 347 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

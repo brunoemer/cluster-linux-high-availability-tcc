@@ -41,19 +41,19 @@
 \contentsline {subsection}{\numberline {5.1.5}Situa\IeC {\c c}\IeC {\~a}o atual}{41}
 \contentsline {section}{\numberline {5.2}Proposta de solu\IeC {\c c}\IeC {\~a}o}{42}
 \contentsline {subsection}{\numberline {5.2.1}Softwares para a replica\IeC {\c c}\IeC {\~a}o de dados}{42}
-\contentsline {subsubsection}{\numberline {5.2.1.1}DRBD}{43}
-\contentsline {subsubsection}{\numberline {5.2.1.2}GlusterFS}{43}
-\contentsline {subsubsection}{\numberline {5.2.1.3}Ceph RBD}{43}
+\contentsline {subsubsection}{\numberline {5.2.1.1}Ceph RBD}{43}
+\contentsline {subsubsection}{\numberline {5.2.1.2}DRBD}{43}
+\contentsline {subsubsection}{\numberline {5.2.1.3}GlusterFS}{43}
 \contentsline {subsubsection}{\numberline {5.2.1.4}Rsync}{44}
-\contentsline {subsubsection}{\numberline {5.2.1.5}Software escolhido}{44}
+\contentsline {subsubsection}{\numberline {5.2.1.5}Software de replica\IeC {\c c}\IeC {\~a}o escolhido}{44}
 \contentsline {subsection}{\numberline {5.2.2}Softwares para o gerenciamento de cluster}{44}
-\contentsline {subsubsection}{\numberline {5.2.2.1}Pacemaker}{45}
-\contentsline {subsubsection}{\numberline {5.2.2.2}Ganeti}{46}
-\contentsline {subsubsection}{\numberline {5.2.2.3}Ceph}{46}
-\contentsline {subsubsection}{\numberline {5.2.2.4}Heartbeat}{46}
-\contentsline {subsubsection}{\numberline {5.2.2.5}Software escolhido}{47}
+\contentsline {subsubsection}{\numberline {5.2.2.1}Ceph}{45}
+\contentsline {subsubsection}{\numberline {5.2.2.2}Ganeti}{45}
+\contentsline {subsubsection}{\numberline {5.2.2.3}Heartbeat}{46}
+\contentsline {subsubsection}{\numberline {5.2.2.4}Pacemaker}{46}
+\contentsline {subsubsection}{\numberline {5.2.2.5}Software de gerenciamento escolhido}{47}
 \contentsline {subsection}{\numberline {5.2.3}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{47}
-\contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{48}
+\contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{49}
 \contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{50}
 \contentsline {section}{\numberline {6.1}Cronograma}{51}
 \contentsline {chapter}{Refer{\^e}ncias}{52}

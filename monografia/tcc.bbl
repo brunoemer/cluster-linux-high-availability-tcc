@@ -53,6 +53,12 @@
   Brasileiro de Redes de Computadores}. Porto Alegre: XXVI Simpósio Brasileiro
   de Redes de Computadores e Sistemas Distribuídos, 2008.
 
+\bibitem[CARVALHO; SOBRAL(2011)CARVALHO; SOBRAL]{carvalho2011} CARVALHO, G.;
+  SOBRAL, D\@. \textbf{Assuma o controle do seu parque virtualizado}.
+  $<$Disponível em:
+  \url{http://gutocarvalho.net/wordpress/wp-content/uploads/2011/04/Palestra-Ganeti-Puppet.pdf}$>$.
+  Acesso em 26 de junho de 2016.
+
 \bibitem[{CentOS}(2016){CentOS}]{centos} {CentOS}. \textbf{The CentOS Project}.
   $<$Disponível em: \url{https://www.centos.org/}$>$. Acesso em 05 de junho de
   2016.
@@ -116,6 +122,10 @@
   \url{http://www.techtudo.com.br/artigos/noticia/2012/01/entenda-o-que-sao-coolers-e-fans.html}$>$.
   Acesso em 19 de junho de 2016.
 
+\bibitem[{Heinz Mauelshagen}(2016){Heinz Mauelshagen}]{lvm} {Heinz
+  Mauelshagen}. \textbf{LVM2}. $<$Disponível em:
+  \url{https://www.sourceware.org/lvm2/}$>$. Acesso em 26 de junho de 2016.
+
 \bibitem[{IBM}(2016){IBM}]{ibm370} {IBM}. \textbf{System/370 Model 145}.
   $<$Disponível em:
   \url{https://www-03.ibm.com/ibm/history/exhibits/mainframe/mainframe_PP3145.html}$>$.
@@ -125,14 +135,13 @@
   para Windows e Linux}. $<$Disponível em:
   \url{https://www.icewarp.com.br/}$>$. Acesso em 05 de junho de 2016.
 
-\bibitem[{Intel}(2016){Intel}]{raid} {Intel}. \textbf{RAID 0, 1, 5, 10, RAID em
-  matriz, Pronto para RAID para a tecnologia de armazenamento}. $<$Disponível
-  em:
-  \url{http://www.intel.com.br/content/www/br/pt/support/boards-and-kits/000005867.html}$>$.
-  Acesso em 21 de junho de 2016.
-
 \bibitem[{ISC}(2016){ISC}]{bind} {ISC}. \textbf{Internet Systems Consortium}.
   $<$Disponível em: \url{https://www.isc.org/downloads/}$>$. Acesso em 05 de
+  junho de 2016.
+
+\bibitem[JONES(2010)JONES]{jones2010} JONES, M.~T\@. \textbf{High availability
+  with the Distributed Replicated Block Device}. $<$Disponível em:
+  \url{http://www.ibm.com/developerworks/library/l-drbd/}$>$. Acesso em 12 de
   junho de 2016.
 
 \bibitem[JUNIOR; FREITAS(2005)JUNIOR; FREITAS]{freitas2005} JUNIOR, E. P.~F.;
@@ -154,20 +163,14 @@
   Availability and Disaster Recovery}. $<$Disponível em:
   \url{http://www.drbd.org/}$>$. Acesso em 21 de junho de 2016.
 
-\bibitem[{Linux-HA}(2016a){Linux-HA}]{heartbeat} {Linux-HA}. \textbf{Heartbeat
-  - Linux-HA}. $<$Disponível em:
-  \url{http://www.linux-ha.org/wiki/Heartbeat}$>$. Acesso em 08 de junho de
-  2016.
-
-\bibitem[{Linux-HA}(2016b){Linux-HA}]{linuxha} {Linux-HA}. \textbf{Linux-HA}.
+\bibitem[{Linux-HA}(2016a){Linux-HA}]{linuxha} {Linux-HA}. \textbf{Linux-HA}.
   $<$Disponível em: \url{http://www.linux-ha.org/wiki/Main_Page}$>$. Acesso em
   08 de junho de 2016.
 
-\bibitem[{M. Tim Jones}(2010){M. Tim Jones}]{jones2010} {M. Tim Jones}.
-  \textbf{High availability with the Distributed Replicated Block Device}.
-  $<$Disponível em:
-  \url{http://www.ibm.com/developerworks/library/l-drbd/}$>$. Acesso em 12 de
-  junho de 2016.
+\bibitem[{Linux-HA}(2016b){Linux-HA}]{heartbeat} {Linux-HA}. \textbf{Heartbeat
+  - Linux-HA}. $<$Disponível em:
+  \url{http://www.linux-ha.org/wiki/Heartbeat}$>$. Acesso em 08 de junho de
+  2016.
 
 \bibitem[MARINESCU(2013)MARINESCU]{marinescu2013} MARINESCU, D\@. \textbf{Cloud
   Computing}: theory and practice. [S.l.]: Elsevier Science, 2013.
@@ -269,21 +272,21 @@
   \textbf{OpenStack Open Source Cloud Computing Software}. $<$Disponível em:
   \url{https://www.openstack.org/}$>$. Acesso em 25 de junho de 2016.
 
-\bibitem[{Red Hat}(2016a){Red Hat}]{gfs} {Red Hat}. \textbf{Red Hat GFS}.
+\bibitem[{Red Hat}(2016a){Red Hat}]{cephrbd} {Red Hat}. \textbf{Block Storage}.
+  $<$Disponível em: \url{http://ceph.com/ceph-storage/block-storage/}$>$.
+  Acesso em 21 de junho de 2016.
+
+\bibitem[{Red Hat}(2016b){Red Hat}]{ceph} {Red Hat}. \textbf{Ceph}.
+  $<$Disponível em: \url{http://ceph.com/}$>$. Acesso em 25 de junho de 2016.
+
+\bibitem[{Red Hat}(2016c){Red Hat}]{gfs} {Red Hat}. \textbf{Red Hat GFS}.
   $<$Disponível em:
   \url{https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/5/html/Cluster_Suite_Overview/s1-rhgfs-overview-CSO.html}$>$.
   Acesso em 25 de junho de 2016.
 
-\bibitem[{Red Hat}(2016b){Red Hat}]{glusterfs} {Red Hat}. \textbf{Storage for
+\bibitem[{Red Hat}(2016d){Red Hat}]{glusterfs} {Red Hat}. \textbf{Storage for
   your Cloud - Gluster}. $<$Disponível em: \url{https://www.gluster.org/}$>$.
   Acesso em 21 de junho de 2016.
-
-\bibitem[{Red Hat}(2016c){Red Hat}]{cephrbd} {Red Hat}. \textbf{Block Storage}.
-  $<$Disponível em: \url{http://ceph.com/ceph-storage/block-storage/}$>$.
-  Acesso em 21 de junho de 2016.
-
-\bibitem[{Red Hat}(2016d){Red Hat}]{ceph} {Red Hat}. \textbf{Ceph}.
-  $<$Disponível em: \url{http://ceph.com/}$>$. Acesso em 25 de junho de 2016.
 
 \bibitem[{Red Hat Inc}(2016){Red Hat Inc}]{redhat} {Red Hat Inc}.
   \textbf{Plataforma corporativa Linux}. $<$Disponível em:
@@ -339,6 +342,10 @@
 \bibitem[TANENBAUM; WETHERALL(2011)TANENBAUM; WETHERALL]{tanenbaum2011}
   TANENBAUM, A.~S.; WETHERALL, D\@. \textbf{Redes de computadores}. 5.ed. São
   Paulo: Pearson Prentice Hall, 2011.
+
+\bibitem[TANENBAUM; WOODHULL(2009)TANENBAUM; WOODHULL]{tanenbaum2009sistemas}
+  TANENBAUM, A.; WOODHULL, A\@. \textbf{Sistemas Operacionais}: projetjos e
+  implementa{\c{c}}{\~a}o. [S.l.]: Bookman, 2009.
 
 \bibitem[TECHNOLOGIES(2005)TECHNOLOGIES]{javvin2005} TECHNOLOGIES, J\@.
   \textbf{Network Protocols Handbook}. [S.l.]: Javvin Technologies, 2005.

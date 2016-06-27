@@ -12,10 +12,12 @@ Também foi feito uma pesquisa de ferramentas para implementação de alta dispo
 para tal implementação, sendo que esta é composta por um \textit{cluster} o qual é constituído por dois \textit{softwares}. Esses são o 
 \textit{software} de gerenciamento do \textit{cluster} e o \textit{software} de replicação de dados. %nome dos softwares?
 Esse \textit{cluster} será composto por dois servidores executando as máquinas virtuais contendo os serviços críticos. Esses servidores 
-irão caracteriar uma redundância de \textit{software}, possibilitando a disponibilidade dos serviços críticos, 
+irão caracterizar uma redundância de \textit{software} sendo que caso um servidor falhe, as máquinas virtuais serão transferidas para o outro
+servidor, assim possibilitando a disponibilidade dos serviços críticos.
 
-Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, e além disso 
+Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, destacando que 
 pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 
+Além disso, pode-se observar que existem uma variedade de ferramentas para atingir tal ojbetivo.
 
 Entretanto, como neste trabalho ainda será feito a implementação em si, não pode-se afirmar que a solução irá funcionar corretamente
 na empresa, devido a fatores como versão dos \textit{softwares} de virtualização, desempenho das ferramentas do ambiente de alta disponibilidade, 
@@ -35,7 +37,7 @@ deste semestre, juntamente com as tarefas do próximo semestre, encontra-se repr
 \label{tab:impltarefas}
 \begin{center}
 \begin{tabular}{|l|l|}\hline
- & Descrição \\\hline
+ & \textbf{Descrição} \\\hline
 1 & Redação TCC I \\\hline
 2 & Estudo bibliográfico \\\hline
 3 & Definição das ferramentas \\\hline
@@ -60,7 +62,7 @@ deste semestre, juntamente com as tarefas do próximo semestre, encontra-se repr
 \def\arraystretch{1}
 \setlength{\tabcolsep}{0.15cm}
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}\hline
- & TCC & Jan & Fev & Mar & Abr & Mai & Jun & Jul & Ago & Set & Out & Nov & Dez \\\hline
+ & \textbf{TCC} & \textbf{Jan} & \textbf{Fev} & \textbf{Mar} & \textbf{Abr} & \textbf{Mai} & \textbf{Jun} & \textbf{Jul} & \textbf{Ago} & \textbf{Set} & \textbf{Out} & \textbf{Nov} & \textbf{Dez} \\\hline
 1 & TCC I & & & X & X & X & X & & & & & & \\\hline
 2 & TCC I & X & X & X & X & X & & & & & & & \\\hline
 3 & TCC I & & & & & X & X & & & & & & \\\hline
