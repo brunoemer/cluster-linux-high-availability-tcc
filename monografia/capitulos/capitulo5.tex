@@ -16,8 +16,8 @@ critérios:
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
  acesso; 
  \item O número de requisições: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do serviço e a frequência
- de utilização do serviço. Esse critério engloba, por exemplo, o número de conexões \ac{TCP} \cite{tanenbaum2011} de um serviço, o número de 
- requisições \ac{UDP} \cite{tanenbaum2011}, a quantidade de acessos em um servidor de hospedagens de sites e a quantidade de requisições \ac{DNS} 
+ de utilização do serviço. Esse critério engloba, por exemplo, o número de conexões \aca{TCP} \cite{tanenbaum2011} de um serviço, o número de 
+ requisições \aca{UDP} \cite{tanenbaum2011}, a quantidade de acessos em um servidor de hospedagens de sites e a quantidade de requisições \ac{DNS} 
  em um servidor recursivo;
  \item O volume de elementos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos clientes são dependentes deste. 
  Como exemplo de elementos pode-se citar a quantidade de contas ativas de \textit{e-mail} em um servidor de \textit{e-mail} ou a quantidade de 
@@ -57,7 +57,7 @@ os clientes não conseguirão estabelecer conexão e, consequentemente, não con
 por segundo, como pode ser observado na Figura \ref{fig:freeradius_auth} (a) e na \ref{fig:freeradius_auth} (b). Caso esses servidores fiquem 
 indisponíveis aproximadamente 2 clientes não conseguirão realizar a autenticação. Além disso, esses servidores armazenam dados relacionados à 
 conexão dos clientes, como por exemplo, o endereço de \ac{IP} que é utilizado por um cliente em um determinado período de tempo, o tráfego de 
-dados da conexão, o tempo da conexão de cada cliente, o endereço \ac{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam 
+dados da conexão, o tempo da conexão de cada cliente, o endereço \aca{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam 
 em média 23 requisições por segundo. %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes de
 acesso à Internet. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e \textit{Speedauth}
@@ -86,7 +86,7 @@ boletos, atendimento de clientes, comunicação interna da empresa, vendas, ativ
 impacto direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui no total 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuízo elevado para a empresa e o provedor. 
-Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \textit{HTTP} \cite{tanenbaum2011} por segundo, como 
+Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \aca{HTTP} \cite{tanenbaum2011} por segundo, como 
 pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém 28 sistemas de outros clientes nesse servidor. 
 Também é importante destacar que esse serviço possui um número considerável de conexões \ac{TCP}, como pode ser observado na Figura 
 \ref{fig:elementos_tcp} (b).
@@ -501,7 +501,7 @@ replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máqu
 e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
 %ganeti
-O \textit{software} \textit{Ganeti} será responsável pela gerência, monitoramento, \textit{failover}, migração das \ac{VM}s e criação das \ac{VM}s 
+O \textit{software} \textit{Ganeti} será responsável pela gerência, monitoramento, \textit{failover}, migração das \acp{VM} e criação das \acp{VM} 
 no \textit{cluster}. Para essas operações deve-se escolher um nó, que será o nó \textit{master}. Neste nó, primeiramente será feita inicialização 
 do \textit{cluster}, ou seja, será feito a criação das configurações iniciais do nó \textit{master}. Essas configurações serão, por exemplo, 
 a interface de rede, o \ac{IP}, o grupo de volumes do \ac{LVM} que o \textit{cluster} utilizará, entre outros. Após isso, será adicionado o outro 
@@ -511,7 +511,7 @@ o disco da máquina virtual. Desta forma, quando houver uma falha no nó primár
 virtual seja reiniciada.
 
 Para essa migração, o \textit{Ganeti} utilizará a opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida 
-pelo hipervisor \ac{KVM} \cite{kvm}. A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando. 
+pelo hipervisor \ac{KVM} \cite{kvm}. A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \acp{VM} executando. 
 Inicialmente estas estão executando sobre o primeiro servidor, então a \ac{VM} 1 é migrada para o segundo servidor \cite{livemigration}.
 
 \begin{figure}[h!]

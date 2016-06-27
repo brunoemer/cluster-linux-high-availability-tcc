@@ -109,7 +109,7 @@ Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estã
  
  \item \textit{Cacti}: um dos servidores de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.6} \cite{centos} e 
  executa a aplicação \textit{Cacti 0.8.8b} \cite{cacti}, que é uma ferramenta de código aberto desenvolvida para monitorar equipamentos de rede 
- que suportem o protocolo \ac{SNMP} \cite{kurose2006}. Essa ferramenta monitora a maior parte da rede 
+ que suportem o protocolo \aca{SNMP} \cite{kurose2006}. Essa ferramenta monitora a maior parte da rede 
  \textit{core}\footnote[1]{A rede \textit{core} é a rede de transporte do provedor, onde trafega os principais \textit{link} de acesso à Internet.} 
  e da rede \textit{backbone}\footnote[2]{A rede \textit{backbone} é a rede de transporte entre os pontos de atendimento a clientes.}, 
  tanto dos clientes de Internet via rádio, como de fibra óptica;
@@ -146,7 +146,7 @@ Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estã
 \section{Servidores com virtualização}
 \label{section:servvirt}
 
-Os servidores de virtualização possuem suas respectivas \ac{VM}s, sendo que, para a criação dessas \ac{VM}s utiliza-se o hipervisor \ac{KVM} 
+Os servidores de virtualização possuem suas respectivas \acp{VM}, sendo que, para a criação dessas \acp{VM} utiliza-se o hipervisor \ac{KVM} 
 \cite{kvm} e a ferramenta \textit{QEmu}, que são projetos de \textit{software} livre. Procurou-se manter um ambiente homogêneo com o objetivo de 
 facilitar a manutenção, para isso utilizou-se o mesmo hipervisor e o mesmo sistema operacional hospedeiro. Esse sistema operacional é o sistema 
 de código aberto \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Além disso, esses servidores possuem redundância de \textit{hardware}, com fonte 
@@ -154,16 +154,16 @@ de alimentação duplicada e discos rígidos configurados através de \ac{RAID} 
 utilizado \ac{RAID} 5. Já em servidores que possuem apenas dois discos é utilizado \ac{RAID} 1 (espelhamento de discos). 
 O ambiente também possui redundância no cabeamento de rede, como visto anteriormente.
 
-A empresa fornece serviços diversos, desde hospedagens de sites até \ac{DNS} recursivo para o provedor de Internet. Atualmente sete servidores 
-são utilizados com virtualização (os últimos sete servidores da Tabela \ref{tab:servfisicos}), sendo que existem quarenta e seis \ac{VM}s 
+A empresa fornece serviços diversos, desde hospedagens de sites até \aca{DNS} recursivo para o provedor de Internet. Atualmente sete servidores 
+são utilizados com virtualização (os últimos sete servidores da Tabela \ref{tab:servfisicos}), sendo que existem quarenta e seis \acp{VM} 
 distribuídas entre esses sete servidores. Nas próximas seções serão descritos esses servidores, e as respectivas máquinas virtuais que são
 executadas nestes.
 
 \subsection{Servidor Brina}
 \label{section:serv_brina}
 
-O servidor \textit{Brina} possui duas \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_brina}, sendo que os serviços executados nas 
-\ac{VM}s são:
+O servidor \textit{Brina} possui duas \acp{VM}, como pode ser visto na Figura \ref{fig:servidor_brina}, sendo que os serviços executados nas 
+\acp{VM} são:
 
 \begin{figure}[h!]
  \centering
@@ -177,7 +177,7 @@ O servidor \textit{Brina} possui duas \ac{VM}s, como pode ser visto na Figura \r
 \begin{itemize}
  \item \textit{Masterauth}: sua configuração é de 1 \textit{core} de \textit{2.33 GHz}, 1,5 GB de memória \ac{RAM} e 8 GB de disco. 
  O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor virtual fornece um serviço de autenticação 
- \ac{PPPoE} \cite{javvin2005} para uma parte dos clientes do provedor. Para a autenticação é utilizada o \textit{software} 
+ \aca{PPPoE} \cite{javvin2005} para uma parte dos clientes do provedor. Para a autenticação é utilizada o \textit{software} 
  \textit{Freeradius 2.1.12} \cite{freeradius};
  
  \item \textit{Monete}: sua configuração é de 1 \textit{core} de \textit{2.33 GHz}, 3 GB de memória \ac{RAM} e 50 GB de disco. 
@@ -189,8 +189,8 @@ O servidor \textit{Brina} possui duas \ac{VM}s, como pode ser visto na Figura \r
 \subsection{Servidor Fulmine}
 \label{section:serv_fulmine}
 
-O servidor \textit{Fulmine} possui dez \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_fulmine}, sendo que os serviços executados nas 
-\ac{VM}s são:
+O servidor \textit{Fulmine} possui dez \acp{VM}, como pode ser visto na Figura \ref{fig:servidor_fulmine}, sendo que os serviços executados nas 
+\acp{VM} são:
 
 \begin{figure}[h!]
  \centering
@@ -209,8 +209,8 @@ O servidor \textit{Fulmine} possui dez \ac{VM}s, como pode ser visto na Figura \
  tecnologia \textit{Wi-fi} para prover acesso à Internet em ambientes públicos e são utilizados pelo provedor;
  
  \item \textit{IPv6Dns}, \textit{IPv6Dns64} e \textit{IPv6Nat64}: suas configurações são de 1 \textit{core} de \textit{2.0 GHz}, 
- 1 GB de memória \ac{RAM} e 8 GB de disco. O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que essas \ac{VM}s
- fornecem o serviço de \ac{DNS} \cite{tanenbaum2011} e \ac{NAT} \cite{kurose2006} para navegação \ac{IPv6} \cite{ipv6} do provedor;
+ 1 GB de memória \ac{RAM} e 8 GB de disco. O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que essas \acp{VM}
+ fornecem o serviço de \ac{DNS} \cite{tanenbaum2011} e \aca{NAT} \cite{kurose2006} para navegação \aca{IPv6} \cite{ipv6} do provedor;
  
  \item \textit{Ottico}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz}, 4 GB de memória \ac{RAM} e 50 GB de disco. 
  O servidor possui o sistema operacional \textit{Windows 2007 Server Standard} e possui o serviço de \textit{terminal service} para suporte e 
@@ -239,15 +239,15 @@ O servidor \textit{Fulmine} possui dez \ac{VM}s, como pode ser visto na Figura \
  \textit{Bind 9.8.2} \cite{bind}, o serviço de \ac{DNS} autoritativo. Esse é o servidor de \ac{DNS} secundário dos domínios hospedados pela empresa;
  
  \item \textit{SimplesIP}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz}, 3 GB de memória \ac{RAM} e 80 GB de disco. 
- O servidor possui o sistema operacional \textit{CentOS 6.6} \cite{centos} e é o servidor de telefonia sobre \ac{IP} do provedor. Esse utiliza 
+ O servidor possui o sistema operacional \textit{CentOS 6.6} \cite{centos} e é o servidor de telefonia sobre \aca{IP} do provedor. Esse utiliza 
  como base o \textit{software} \textit{Asterisk 1.8.32} \cite{asterisk}.
 \end{itemize}
 
 \subsection{Servidor Piova}
 \label{section:serv_piova}
 
-O servidor \textit{Piova} possui nove \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_piova}, sendo que os serviços executados nas 
-\ac{VM}s são:
+O servidor \textit{Piova} possui nove \acp{VM}, como pode ser visto na Figura \ref{fig:servidor_piova}, sendo que os serviços executados nas 
+\acp{VM} são:
 
 \begin{figure}[h!]
  \centering
@@ -283,7 +283,7 @@ O servidor \textit{Piova} possui nove \ac{VM}s, como pode ser visto na Figura \r
  
  \item \textit{Parla}: sua configuração é de 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória \ac{RAM} e 8 GB de disco. 
  Ele possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e provê um serviço de mensagens instantâneas, baseado no protocolo 
- \ac{XMPP} \cite{xmpp}. Esse serviço é utilizado para comunicação entre funcionários da empresa e do provedor, e também entre os clientes e 
+ \aca{XMPP} \cite{xmpp}. Esse serviço é utilizado para comunicação entre funcionários da empresa e do provedor, e também entre os clientes e 
  os funcionários. O \textit{software} utilizado é o \textit{Ejabberd 2.1.11} \cite{ejabberd}, que também é um \textit{software} de código aberto;
 
  \item \textit{Passata2}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 2 GB de memória \ac{RAM} e 20 GB de disco. 
@@ -304,9 +304,9 @@ O servidor \textit{Piova} possui nove \ac{VM}s, como pode ser visto na Figura \r
 \subsection{Servidor Raggio}
 \label{section:serv_raggio}
 
-O servidor chamado \textit{Raggio} executa doze \ac{VM}s (Figura \ref{fig:servidor_raggio}), que fornecem os serviços de virtualização para algumas empresas,
+O servidor chamado \textit{Raggio} executa doze \acp{VM} (Figura \ref{fig:servidor_raggio}), que fornecem os serviços de virtualização para algumas empresas,
 sendo que as máquinas virtuais são instaladas com o sistema operacional de preferência do cliente. O acesso a essas máquinas virtuais é realizado
-através de um serviço de acesso remoto, como por exemplo, o de \ac{SSH} \cite{barrett2005}.
+através de um serviço de acesso remoto, como por exemplo, o de \aca{SSH} \cite{barrett2005}.
 
 \begin{figure}[h!]
  \centering
@@ -320,8 +320,8 @@ através de um serviço de acesso remoto, como por exemplo, o de \ac{SSH} \cite{
 \subsection{Servidor Tempesta}
 \label{section:serv_tempesta}
 
-O servidor \textit{Tempesta} possui quatro \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_tempesta}, sendo que os serviços executados 
-nas \ac{VM}s são:
+O servidor \textit{Tempesta} possui quatro \acp{VM}, como pode ser visto na Figura \ref{fig:servidor_tempesta}, sendo que os serviços executados 
+nas \acp{VM} são:
 
 \begin{figure}[h!]
  \centering
@@ -340,7 +340,7 @@ nas \ac{VM}s são:
  \item \textit{Merak}: esse servidor fornece serviço de \textit{e-mail}. Ele possui uma configuração de 6 \textit{cores} de \textit{2.00 GHz}, 
  10 GB de memória \ac{RAM} e 1 TB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e executa o \textit{software} 
  \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços de envios de: \textit{e-mails} através do protocolo 
- \ac{SMTP} \cite{kurose2006}; recebimentos de \textit{e-mails} através dos protocolos \ac{POP} \cite{kurose2006} e \ac{IMAP} \cite{kurose2006}; 
+ \aca{SMTP} \cite{kurose2006}; recebimentos de \textit{e-mails} através dos protocolos \aca{POP} \cite{kurose2006} e \aca{IMAP} \cite{kurose2006}; 
  e o serviço de \textit{Webmail} (\ac{PHP}) e Anti-spam. Destaca-se que grande parte das contas de \textit{e-mail} estão ociosas pois são oferecidas 
  juntamente com o serviço de Internet fornecida pelo provedor;
  %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
@@ -353,16 +353,16 @@ nas \ac{VM}s são:
  \textit{master-slave}, sendo que esse servidor é o \textit{slave} e o servidor \textit{Dati} é o \textit{master};
  
  \item \textit{Rauco}: esse servidor possui 2 \textit{cores} de \textit{2.00 GHz}, 6 GB de memória \ac{RAM} e 600 GB de disco. 
- Ele possui o sistema operacional \textit{CentOS 6.8} \cite{centos}. Ou seja, esse servidor virtual fornece o mesmo serviço do servidor \textit{Roncon}, 
- que foi descrito na Seção \ref{section:serv_fulmine}. Esse servidor fornece acesso a sites \textit{Web} desenvolvidos com a linguagem \ac{PHP}. 
- Foram criados dois servidores para a hospedagem de forma a suportar um número maior de sites.
+ Ele possui o sistema operacional \textit{CentOS 6.8} \cite{centos}. Ou seja, esse servidor virtual fornece o mesmo serviço do servidor 
+ \textit{Roncon}, que foi descrito na Seção \ref{section:serv_fulmine}. Esse servidor fornece acesso a sites \textit{Web} desenvolvidos com a 
+ linguagem \ac{PHP}. Foram criados dois servidores para a hospedagem de forma a suportar um número maior de sites.
 \end{itemize}
 
 \subsection{Servidor Tuono}
 \label{section:serv_tuono}
 
-O servidor \textit{Tuono} possui quatro \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_tuono}, sendo que os serviços executados nas 
-\ac{VM}s são:
+O servidor \textit{Tuono} possui quatro \acp{VM}, como pode ser visto na Figura \ref{fig:servidor_tuono}, sendo que os serviços executados nas 
+\acp{VM} são:
 
 \begin{figure}[h!]
  \centering
@@ -396,8 +396,8 @@ O servidor \textit{Tuono} possui quatro \ac{VM}s, como pode ser visto na Figura 
 \subsection{Servidor Venti}
 \label{section:serv_venti}
 
-O servidor \textit{Venti} possui cinco \ac{VM}s, como pode ser visto na Figura \ref{fig:servidor_venti}, sendo que os serviços executados nas 
-\ac{VM}s são:
+O servidor \textit{Venti} possui cinco \acp{VM}, como pode ser visto na Figura \ref{fig:servidor_venti}, sendo que os serviços executados nas 
+\acp{VM} são:
 
 \begin{figure}[h!]
  \centering
@@ -412,7 +412,7 @@ O servidor \textit{Venti} possui cinco \ac{VM}s, como pode ser visto na Figura \
  \item \textit{Backup}: sua configuração é de 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória \ac{RAM} e 15 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e executa o serviço de \textit{backup} dos equipamentos 
  do provedor. Esse servidor utiliza \textit{scripts} que foram desenvolvidos internamente e que efetuam a cópia de dados através do protocolo 
- \ac{FTP} \cite{kurose2006};
+ \aca{FTP} \cite{kurose2006};
  
  \item \textit{Esibire}: sua configuração é de 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória \ac{RAM} e 50 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, esse servidor faz a hospedagem de vídeos utilizando o 
