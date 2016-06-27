@@ -30,7 +30,9 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{40}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.5:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos no servidor de telefonia.}}{41}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.6:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{43}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.7:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{46}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.8:}{\ignorespaces Estrutura do \textit {cluster}.}}{48}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.7:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{45}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.8:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{46}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.9:}{\ignorespaces Estrutura do \textit {cluster}.}}{48}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.10:}{\ignorespaces Live migration}}{49}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -145,10 +145,10 @@ order=4
 
 [item:capitulos/capitulo5.tex]
 archive=true
-column=0
+column=18
 encoding=UTF-8
 highlight=LaTeX
-line=470
+line=500
 mode=LaTeX
 open=true
 order=5
@@ -195,10 +195,10 @@ order=-1
 
 [item:tcc.bib]
 archive=true
-column=0
+column=47
 encoding=UTF-8
 highlight=BibTeX
-line=600
+line=739
 mode=BibTeX
 open=true
 order=7
@@ -264,10 +264,10 @@ JumpList=
 ViMarks=.,406,49,[,406,49,],406,49
 
 [view-settings,view=0,item:capitulos/capitulo5.tex]
-CursorColumn=0
-CursorLine=470
+CursorColumn=18
+CursorLine=500
 JumpList=
-ViMarks=.,490,45,[,490,41,],490,45
+ViMarks=.,500,18,[,500,18,],500,18
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
 CursorColumn=0
@@ -288,10 +288,10 @@ JumpList=
 ViMarks=.,31,17,[,31,17,],31,17
 
 [view-settings,view=0,item:tcc.bib]
-CursorColumn=0
-CursorLine=600
+CursorColumn=47
+CursorLine=739
 JumpList=
-ViMarks=.,655,36,[,655,21,],655,36
+ViMarks=.,739,34,[,739,16,],739,46
 
 [view-settings,view=0,item:tcc.tex]
 CursorColumn=0

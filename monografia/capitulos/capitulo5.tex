@@ -340,7 +340,7 @@ serviços do servidor.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=320px]{img/pacemaker_tools.eps}
+ \includegraphics[width=300px]{img/pacemaker_tools.eps}
  \caption{Exemplo da arquitetura do \textit{Pacemaker}.}
  Fonte: \citet{pacemaker}
  \label{fig:pacemaker_tools}
@@ -383,15 +383,10 @@ serviços do servidor.
 \subsubsection{Ganeti}
 \label{section:ganeti}
 O \textit{software} \textit{Ganeti} \cite{ganeti} é um gerenciador de \textit{cluster} de virtualização, sendo que foi desenvolvido 
-especificamente para virtualização e suporta os hipervisores \ac{KVM} e \textit{Xen}.
-Para sua implementação ele necessita de um nó \textit{master} e um nó \textit{master candidate} para armazenar as configurações do \textit{cluster},
-Além de permitir criação de vários nós em \textit{slaves}. As máquinas virtuais são chamadas de instâncias, sendo que cada instâncias contém qual
-nó primário que essa executará e qual será o seu nó secundário.
-%gnt-instance add \
-%  -n TARGET_NODE:SECONDARY_NODE \
-%  -o OS_TYPE \
-%  -t DISK_TEMPLATE -s DISK_SIZE \
-%  INSTANCE_NAME
+especificamente para virtualização e suporta os hipervisores \ac{KVM} e \textit{Xen}. Para sua implementação ele necessita de um nó 
+\textit{master} e um nó \textit{master candidate} para armazenar as configurações do \textit{cluster}. Além disso, ele permite a criação de 
+vários nós \textit{slaves}. As máquinas virtuais são chamadas de instâncias, sendo que em cada instâncias é configurado qual o nó primário 
+que essa executará e qual o seu nó secundário.
 
 As principais funções desse \textit{software} são \cite{ganeti}:
 \begin{itemize}
@@ -399,6 +394,19 @@ As principais funções desse \textit{software} são \cite{ganeti}:
  \item Criação de instâncias, que são os sistemas operacionais convidados;
  \item Iniciar e finalizar máquinas virtuais, além de efetuar o \textit{failover} entre os servidores hospedeiros.
 \end{itemize}
+
+Na Figura \ref{fig:ganeti_arquitetura} tem-se a arquitetura deste \textit{software}. O \textit{cluster} é composto por nós, que por sua vez 
+possuem instâncias (máquinas virtuais). As instâncias podem ser migradas manualmente de um nó para outro e também serão migradas no processo de
+\textit{failover} quando um nó falhar. Caso o nó \textit{master} falhar, suas funções serão transferidas para o \textit{master failover} ou 
+\textit{master candidate}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=380px]{img/ganeti_arquitetura.eps}
+ \caption{Arquitetura do \textit{Ganeti}.}
+ Fonte: \citet{carvalho2011}
+ \label{fig:ganeti_arquitetura}
+\end{figure}
 
 % ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
 
@@ -419,8 +427,12 @@ informar se ele está ativo \cite{reis2009}.
 \label{section:gerenciadorescolhido}
 
 A Tabela \ref{tab:clusterger} compara alguns \textit{softwares} de gerenciamento de \textit{cluster} de acordo com algumas características. 
-Pode-se observar que o \textit{Ganeti} não faz sincronismo das configurações, assim essas configurações devem ser feitas no nó \textit{master}.
-Porém, possui a vantagem de ser desenvolvido especificamente para virtualização. 
+Pode-se observar que o \textit{software} \textit{Pacemaker} é o único que possui a característica de sincronismo de configuração entre todos 
+os nós, no entanto isto não é um grande diferencial. Ele pode ser configurado para fazer monitoramento e recuperação tanto a nível de nó quanto 
+a nível de recurso, desta forma dificultando a sua configuração. Devido ao monitoramento a nível de recurso, a ferramenta torna-se flexível para 
+execução com diversas aplicações, porém não obteve-se o resultado esperado nos testes efetuados em um ambiente de virtualização.
+%Pode-se observar que o \textit{Ganeti} não faz sincronismo das configurações, assim essas configurações devem ser feitas no nó \textit{master}.
+%Porém, possui a vantagem de ser desenvolvido especificamente para virtualização. 
 
 Já o \textit{Ceph} tem foco em \textit{cluster} de armazenamento, sendo assim ela necessita de outra ferramenta para gerenciar as máquinas 
 virtuais, assim tornando sua configuração mais complexa. Além disso, essa ferramenta necessita de um \textit{hardware} especifico para 
@@ -444,11 +456,15 @@ Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
 \end{center}
 \end{table}
 
-O \textit{software} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto \textit{Pacemaker}. 
-Esse \textit{software} possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada 
-para fazer monitoramento e recuperação tanto a nível de nó quanto a nível de recurso. Além disso, ela possui a característica de sincronismo de 
-configuração entre todos os nós que é exclusiva. Destaca-se que essa ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} 
-de alta disponibilidade \cite{drbd}.
+O \textit{software} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto \textit{Ganeti}. 
+Esse \textit{software} possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, além de possuir a vantagem de ser 
+desenvolvido especificamente para virtualização, o que simplifica a sua configuração. O \textit{Ganeti} possui detecção de falhas tanto a nível
+de nó quanto a nível de máquina virtual. Nos testes realizados destaca-se a opção a migração em tempo real, pois obteve-se um bom resultado.
+% O \textit{software} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto \textit{Pacemaker}. 
+% Esse \textit{software} possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada 
+% para fazer monitoramento e recuperação tanto a nível de nó quanto a nível de recurso. Além disso, ela possui a característica de sincronismo de 
+% configuração entre todos os nós que é exclusiva. Destaca-se que essa ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} 
+% de alta disponibilidade \cite{drbd}.
 
 \subsection{Projeto de implementação}
 \label{section:projetoimpl}
@@ -462,6 +478,10 @@ e o mesmo hipervisor utilizado no ambiente atual da empresa, o sistema \textit{U
 
 A Figura \ref{fig:projeto_estrutura} demonstra a nova estrutura desses servidores juntamente com suas máquinas virtuais e seus respectivos 
 serviços.
+O \textit{cluster} utilizará dois \textit{softwares}, um para a replicação dos dados das máquinas virtuais, e outro para o gerenciamento do 
+\textit{cluster}. O primeiro será o \ac{DRBD} e o segundo será o \textit{Ganeti}, ambos podem ser observados na Figura 
+\ref{fig:projeto_estrutura}.
+
 \begin{figure}[h!]
  \centering
  \includegraphics[width=250px]{img/projeto_estrutura.eps}
@@ -469,36 +489,36 @@ serviços.
  \label{fig:projeto_estrutura}
 \end{figure}
 
-O \textit{cluster} utilizará dois \textit{softwares}, um para a replicação dos dados das máquinas virtuais, e outro para o gerenciamento do 
-\textit{cluster}. O primeiro será o \ac{DRBD} e o segundo será o \textit{Pacemaker}, ambos podem ser observados na Figura 
-\ref{fig:projeto_estrutura}.
-
 %drbd
-O \ac{DRBD} será configurado no modo \textit{master-slave} ??, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
-replicação \ac{DRBD}. E para utilizar esse dispositivo em uma máquina virtual, será criado um volume lógico através da ferramenta 
-\ac{LVM}\footnote{LVM é uma ferramenta de código aberto?? que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
-e volumes lógicos.} \cite{lvm}. 
+O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
+replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico através da ferramenta 
+\ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
+e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
+
 IMAGEM ??
 
+%ganeti
+O \textit{Ganeti} 
 
-%pacemaker ou ganeti??
-O \textit{Pacemaker}, irá eleger um nó como \textit{master}, para centralizar a gerência. Esse \textit{software} 
-também fará o monitoramento dos nós do \textit{cluster} e iniciará ou finalizará os serviços (recursos) em caso de falhas de um nó.
-...
 
-No \textit{Pacemaker}, os serviços que são configurados para serem monitorados são chamados de recursos (\textit{resources}).
-
-Para configurar o ambiente deve-se criar esses recursos no \textit{Pacemaker}. Primeiramente deve-se criar o recurso para o \ac{DRBD}. 
-Esse recurso fará o monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
-Também será necessário criar um recurso para montar um sistema de arquivos para o dispositivo \ac{DRBD} no local onde ficarão os discos das 
-máquinas virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário 
-o sistema de arquivos será montado automaticamente.
-
-E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
-máquinas virtuais sejam migradas de um nó para outro de forma automática e transparente. 
-
-Na configuração das máquinas virtuais, será ...
-De forma a balancear a carga do \textit{cluster}, as máquinas virtuais serão distribuídas entre os nós, ...
+%pacemaker
+% O \textit{Pacemaker}, irá eleger um nó como \textit{master}, para centralizar a gerência. Esse \textit{software} 
+% também fará o monitoramento dos nós do \textit{cluster} e iniciará ou finalizará os serviços (recursos) em caso de falhas de um nó.
+% ...
+% 
+% No \textit{Pacemaker}, os serviços que são configurados para serem monitorados são chamados de recursos (\textit{resources}).
+% 
+% Para configurar o ambiente deve-se criar esses recursos no \textit{Pacemaker}. Primeiramente deve-se criar o recurso para o \ac{DRBD}. 
+% Esse recurso fará o monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
+% Também será necessário criar um recurso para montar um sistema de arquivos para o dispositivo \ac{DRBD} no local onde ficarão os discos das 
+% máquinas virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário 
+% o sistema de arquivos será montado automaticamente.
+% 
+% E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
+% máquinas virtuais sejam migradas de um nó para outro de forma automática e transparente. 
+% 
+% Na configuração das máquinas virtuais, será ...
+% De forma a balancear a carga do \textit{cluster}, as máquinas virtuais serão distribuídas entre os nós, ...
 
 
 testes...
@@ -506,18 +526,17 @@ testes...
 %Para configurar o ambiente será necessário instalar os \textit{softwares} do \textit{cluster}...
 
 
-live migration ??
-% Para isso será necessário utilizar a opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo 
-% hipervisor \ac{KVM}. A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando. Inicialmente 
-% estas estão executando sobre o primeiro servidor, então a \ac{VM} 1 é migrada para o segundo servidor \cite{livemigration}.
-% 
-% \begin{figure}[h!]
-%  \centering
-%  \includegraphics[width=300px]{img/vms_migration.eps}
-%  \caption{Live migration}
-%  Fonte: \citet{spaniol2015}
-%  \label{fig:vms_migration}
-% \end{figure}
+Para isso será necessário utilizar a opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida pelo 
+hipervisor \ac{KVM}. A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \ac{VM}s executando. Inicialmente 
+estas estão executando sobre o primeiro servidor, então a \ac{VM} 1 é migrada para o segundo servidor \cite{livemigration}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/vms_migration.eps}
+ \caption{Live migration}
+ Fonte: \citet{spaniol2015}
+ \label{fig:vms_migration}
+\end{figure}
 
 \section{Considerações finais}
 

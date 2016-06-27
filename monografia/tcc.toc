@@ -48,12 +48,12 @@
 \contentsline {subsubsection}{\numberline {5.2.1.5}Software escolhido}{44}
 \contentsline {subsection}{\numberline {5.2.2}Softwares para o gerenciamento de cluster}{44}
 \contentsline {subsubsection}{\numberline {5.2.2.1}Pacemaker}{45}
-\contentsline {subsubsection}{\numberline {5.2.2.2}Ganeti}{45}
+\contentsline {subsubsection}{\numberline {5.2.2.2}Ganeti}{46}
 \contentsline {subsubsection}{\numberline {5.2.2.3}Ceph}{46}
 \contentsline {subsubsection}{\numberline {5.2.2.4}Heartbeat}{46}
-\contentsline {subsubsection}{\numberline {5.2.2.5}Software escolhido}{46}
+\contentsline {subsubsection}{\numberline {5.2.2.5}Software escolhido}{47}
 \contentsline {subsection}{\numberline {5.2.3}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{47}
 \contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{48}
-\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{49}
-\contentsline {section}{\numberline {6.1}Cronograma}{50}
-\contentsline {chapter}{Refer{\^e}ncias}{51}
+\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{50}
+\contentsline {section}{\numberline {6.1}Cronograma}{51}
+\contentsline {chapter}{Refer{\^e}ncias}{52}
