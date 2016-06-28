@@ -58,3 +58,34 @@ https://code.osuosl.org/projects/ganeti-image/files
 #converter img para lvm
 #https://nsrc.org/workshops/2014/bdnog1/raw-attachment/wiki/Track3Agenda/ex-ganeti-instance-vmdk.htm
 
+
+# interface web
+https://code.osuosl.org/projects/ganeti-webmgr/wiki/Installation
+
+#antes de rodar: fab dev deploy
+apt-get install python-cffi
+apt-get install libffi-dev
+
+#nao funcionou
+
+# teste 2 intergace web
+https://ganeti-webmgr.readthedocs.io/en/latest/getting_started/installing.html
+
+erro:
+https://github.com/osuosl/ganeti_webmgr/issues/69
+
+The InsecurePlatformWarning implies that a newer version of Python 2.7 is desired than ship with Ubuntu LTS. How to do that is addressed at http://superuser.com/a/942296/24580 :
+sudo add-apt-repository ppa:fkrull/deadsnakes-python2.7
+sudo apt-get update
+sudo apt-get install python2.7
+Then, uh:
+sudo rm -rf /opt/ganeti_webmgr
+
+ENTAO:
+fab prod deploy
+
+Iniciar:
+https://ganeti-webmgr.readthedocs.io/en/latest/deployment/intro.html#development-server
+/opt/ganeti_webmgr/django-admin.py runserver 0.0.0.0:8000 --insecure
+
+funcionou
