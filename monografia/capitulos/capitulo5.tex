@@ -137,12 +137,12 @@ A partir da análise inicial, verificou-se que os servidores a serem incluídos 
  \item \textit{SimplesIP}: servidor de telefonia interna sobre \ac{IP} para atendimento aos clientes e comunicação interna do provedor e da empresa;
 \end{itemize}
 
-Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime}\footnote[1]{O serviço de 
-telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim sua medição é dos últimos 6 meses de 2016, por isso possui um 
-\textit{Uptime} elevado.} e o tempo de \textit{Downtime} 
-por ano. 
+\newpage
+Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime} e o tempo de 
+\textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim sua medição é dos 
+últimos 6 meses de 2016, por isso possui um \textit{Uptime} elevado.
+A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
 
-% subir pagina da tabela ??
 \begin{table}[h!]
 \caption{Serviços críticos do ano de 2015.}
 \label{tab:dispservcrit}
@@ -158,53 +158,51 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \end{center}
 \end{table}
 
-A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
-
 \section{Proposta de solução}
 \label{section:propostasolucao}
 
 Para implementar esta solução será necessário dois servidores físicos, sendo que a configuração de cada servidor deverá ser de 
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
-recursos atuais das máquinas virtuais que possuem os serviços críticos, que foram apresentadas na Seção \ref{section:servcrit}.
-Com essa solução, caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
-Destaca-se que tais recursos já encontram-se disponíveis bastando efetuar uma reorganização das máquinas virtuais.
+recursos das máquinas virtuais que atualmente abrangem os serviços críticos. Com essa solução, caso ocorra alguma falha em um servidor, as 
+máquinas virtuais serão transferidas para o outro servidor. Destaca-se que tais recursos de \textit{hardware} já encontram-se disponíveis, 
+sendo necessário somente efetuar uma reorganização das máquinas virtuais.
 
-Já os \textit{softwares} necessários para a implementação da alta disponibilidade podem ser divididas em dois grupos, \textit{softwares} de 
-replicação de dados e \textit{softwares} para o monitoramento e a transferências das máquinas virtuais entre os servidores.
+Já os \textit{softwares} necessários para a implementação da alta disponibilidade podem ser divididas em dois grupos: \textit{softwares} de 
+replicação de dados; e \textit{softwares} para o monitoramento e a transferências das máquinas virtuais entre os servidores.
 
 \subsection{Softwares para a replicação de dados}
 \label{section:toolrepl}
 
 A replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
-Dependendo do objetivo e da aplicação pode-se usar como, por exemplo, a forma de replicação em \textit{hardware} que é utilizada em discos, o 
-\ac{RAID} \cite{tanenbaum2009sistemas}. Essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de 
-discos\footnote[2]{Lembrando que essa solução é utilizada no ambiente atual para aumentar a disponibilidade dos servidores.}, porém não garante 
-a disponibilidade quando um \textit{software} ou algum outro componente de \textit{hardware} falhar \cite{zaminhani2008}.
+Dependendo do objetivo pode-se utilizar uma replicação através de um \ac{RAID} \cite{tanenbaum2009sistemas}. Essa solução é eficaz para garantir 
+que o sistema não fique indisponível em caso de falha de discos\footnote[1]{Lembrando que essa solução é utilizada no ambiente atual para 
+aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando um \textit{software} ou algum outro componente de 
+\textit{hardware} falhar \cite{zaminhani2008}.
 
 A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a cópia dos dados de um servidor
-para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de \textit{cluster}\footnote[3]{Pode-se definir 
+para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de um \textit{cluster}\footnote[2]{Pode-se definir 
 \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
 \cite{freitas2005}}.
-As próximas seções irão detalhar os \textit{softwares} de replicação de dados que foram encontrados e estudados.
+Nas próximas seções tem-se uma descrição dos \textit{softwares} de replicação de dados que foram estudados.
 
-\subsubsection{Ceph RBD}
-\label{section:cephrbd}
-O \textit{Ceph RBD} \cite{cephrbd} faz parte do projeto \textit{Ceph} \cite{ceph}. O \textit{Ceph RBD} é responsável por prover acesso dos 
-dispositivos de bloco que estão distribuídos ou replicados em um \textit{cluster}. Sua arquitetura é composta por um nó administrador, onde será
-centralizado a gerência do \textit{cluster}, e deve conter no mínimo dois nós para armazenamento (\textit{Ceph OSD}) e monitoramento 
-(\textit{Ceph Monitor}).
-\cite{ceph}.
+% \subsubsection{Ceph RBD}
+% \label{section:cephrbd}
+% O \textit{Ceph RBD} \cite{cephrbd} faz parte do projeto \textit{Ceph} \cite{ceph}. O \textit{Ceph RBD} é responsável por prover acesso dos 
+% dispositivos de bloco que estão distribuídos ou replicados em um \textit{cluster}. Sua arquitetura é composta por um nó administrador, onde será
+% centralizado a gerência do \textit{cluster}, e deve conter no mínimo dois nós para armazenamento (\textit{Ceph OSD}) e monitoramento 
+% (\textit{Ceph Monitor}).
+% \cite{ceph}.
 
 \subsubsection{DRBD}
 \label{section:drbd}
-O \ac{DRBD} \cite{drbd} é uma solução de replicação de dispositivos de armazenamento, que permite uma replicação de um dispositivo de bloco local 
-para uma máquina remoto, implementado através de um módulo do \textit{kernel} \textit{Linux}. É um projeto de código aberto, é faz a replicação a 
-nível de bloco, o que garante o sincronismo seguro dos dados. 
+O \ac{DRBD} é um projeto de código aberto desenvolvido pela \textit{LINBIT} \cite{drbd}.
+Esse \textit{software} é uma solução de replicação de dispositivos de armazenamento, ou seja, esse permite a duplicação de um dispositivo de bloco 
+em um servidor remoto. Esse é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
 
-Para ilustrar, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e \textit{hda3}, formando 
-um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Com isso, todas as operações de escritas realizadas no nó primário 
-serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
+Para ilustrar sua arquitetura, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e 
+\textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Ou seja, todas as operações de escritas 
+realizadas no nó primário serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
 
 \begin{figure}[h!]
  \centering
@@ -218,59 +216,101 @@ O \ac{DRBD} pode ser configurado dos seguintes modos \cite{drbd}:
 \begin{itemize}
  \item \textit{Single-primary}: ou \textit{master-slave}, neste modo apenas um nó do \textit{cluster} pode ser o nó primário, sendo que esse nó 
  é o único que terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. O nó 
- secundário apenas armazenará a réplica dos dados;
+ secundário terá apenas uma réplica dos dados;
  \item \textit{Dual-primary}: ou \textit{dual-master}, neste modo existem dois nós primários, nos quais podem ser feitas operações de leitura e 
- escrita simultaneamente. Porém, este necessita de um sistema de arquivos compartilhados para fazer o gerenciamento das operações em arquivos, 
- pode-se citar o \ac{GFS} \cite{gfs} e o \ac{OCFS2} \cite{ocfs2} como exemplo desses sistemas de arquivos;
+ escrita simultaneamente. Porém, este necessita de um sistema de arquivos compartilhados, sendo que esse pode utilizar os seguintes sistemas de
+ arquivos: o \ac{GFS} \cite{gfs}; e o \ac{OCFS2} \cite{ocfs2}.
 \end{itemize}
 
 \subsubsection{GlusterFS}
 \label{section:glusterfs}
-O \textit{GlusterFS} \cite{glusterfs} é um sistema de arquivos distribuídos que utiliza a estrutura de \textit{cluster}. Sendo que, seu principal
-objetivo é a escalabilidade, ou seja, existem uma facilidade para aumentar a capacidade do \textit{cluster}.
-Ele também possui a opção de distribuição e replicação de dados, que caracteriza a alta disponibilidade \cite{glusterfs}.
+O \textit{GlusterFS} \cite{glusterfs} é um sistema de arquivos distribuídos mantido pela \textit{Gluster community}. Esse \textit{software} 
+utiliza estrutura de \textit{cluster} e seu principal objetivo é a escalabilidade, ou seja, existe uma facilidade para aumentar a capacidade 
+do \textit{cluster} a partir da inclusão de novos nós.
+
+Na Figura \ref{fig:glusterfs} tem-se dois nós, onde cada nó possui dois discos rígidos, esses discos são denominados \textit{bricks}. 
+A partir dos \textit{bricks} o \textit{GlusterFS} constrói um volume lógico que é disponibilizado para clientes \textit{GlusterFS}.
+Esse volume é acessado pelos clientes através da rede.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/glusterfs.eps}
+ \caption{Modelo do \textit{GlusterFS}.}
+ Fonte: \citet{davies2013}
+ \label{fig:glusterfs}
+\end{figure}
+
+O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com as opções de distribuição e replicação de dados \cite{glusterfs}:
+\begin{itemize}
+ \item Volume distribuído: neste tipo os arquivos são distribuídos entre os diferentes \textit{bricks} dos nós. O objetivo deste tipo de 
+ configuração é ampliar a capacidade de armazenamento. Desta forma, não tem-se redundância de dados, caso um nó falhe haverá uma perda de todos 
+ dados;
+ \item Volume replicado: neste os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se umm rendundância, caso houver a falha de 
+ um \textit{brick} não haverá perda de dados;
+ \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores, sendo assim é feito a distribuição 
+ e a replicação dos arquivos entre os nós;
+ \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido e salvo uma
+ parte em cada \textit{brick}. Esse tipo é utilizado para armazenamento de arquivos muito grandes;
+ \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado, desta forma, é feito a divisão do arquivo 
+ e salvo em \textit{bricks} distintos e também é feito a replicação.
+\end{itemize}
 
 \subsubsection{Rsync}
 \label{section:rsync}
-O \textit{Rsync} \cite{rsync} é um \textit{software} que sincroniza os servidores a partir de cópia dos dados de um servidor de origem 
-para um de destino.
+O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} prove uma rápida
+tranferência arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
 
+A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}, ilustrando o sincronismo de dados entre dois servidores. Pode-se perceber
+que é feito somente a replicação dos arquivos que não foram modificados ou que não existem no destino, além disso, tem-se a opção de fazer a 
+replicação sobrescrevendo todos arquivos.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=370px]{img/rsync.eps}
+ \caption{Transferência de arquivos através do \textit{Rsync}.}
+ Fonte: \citet{lopez2012}
+ \label{fig:rsync}
+\end{figure}
+
+%Algoritmo \cite{tridgell98}
+
+O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar os dados com esse servidor. O sincronismo
+pode ser feito de cliente para cliente, utilizando como transporte o protocolo \ac{SSH} ou através de \textit{sockets}.
+
+% Ceph RBD
 % Swift open stack
 % https://wiki.freebsd.org/HAST
 
 \subsubsection{Software de replicação escolhido}
 \label{section:replicacaoescolhido}
 
-A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
-\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração, além de não ser uma escolha 
-atrativa para um \textit{cluster} de pequeno porte devido a sua complexa configuração. 
+Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. 
+A ferramenta adotada para replicação de dados será o \ac{DRBD}, pois permite a configuração \textit{master-slave} ou \textit{dual-primary}, 
+além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a resincronização 
+dos dados de forma automática em caso de um falha \cite{drbd}.
 
-Já o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, sendo assim, não é a ferramenta ideal para uma 
-solução de alta disponibilidade utilizando virtualização. Além disso, sua principal característica, que é a escalabilidade\footnote[1]{A 
-escalabilidade é a facilidade de aumentar a capacidade do \textit{cluster} a partir da inclusão de novos nós}, não será útil para esta 
-implementação, pois esta implementado não requer um grande volume de dados.
-E por fim, o \textit{Rsync} não pode ser utilizado pois não faz replicação em tempo real.
+De fato, o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, sendo assim, não é adequada para uma 
+solução de alta disponibilidade que utiliza-se de virtualização. 
+E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real.
+
+%Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
+%\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
 \label{tab:replicacao}
 \begin{center}
-\begin{tabular}{|l|p{2.7cm}|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
-\textbf{Características} & \textbf{Ceph RBD} & \textbf{DRBD} & \textbf{GlusterFS} & \textbf{Rsync} \\\hline
-Master-slave & Não & Sim & Sim & Não \\\hline
-Replicação em tempo real & Sim & Sim & Sim & Não \\\hline
-Nível de replicação & Bloco & Bloco & Arquivo & Arquivo \\\hline
-Número máximo de nós & Ilimitado & 16 & 64 & Ilimitado \\\hline
-Plataformas & CentOS, Red Hat, Debian, Fedora, Ubuntu & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, Red Hat, Fedora, Ubuntu & Linux \\\hline
-Integração com virtualização & Sim & Sim & Sim & Não \\\hline
+\begin{tabular}{|l|p{3.5cm}|p{3.5cm}|p{2cm}|}\hline
+\textbf{Características} & \textbf{DRBD} & \textbf{GlusterFS} & \textbf{Rsync} \\\hline
+Master-slave & Sim & Sim & Não \\\hline
+Replicação em tempo real & Sim & Sim & Não \\\hline
+Nível de replicação & Bloco & Arquivo & Arquivo \\\hline
+Número máximo de nós & 16 & 64 & Ilimitado \\\hline
+Plataformas & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, Red Hat, Fedora, Ubuntu & Linux \\\hline
+Integração com virtualização & Sim & Sim & Não \\\hline
 \end{tabular}
 \end{center}
 \end{table}
-
-Portanto, a ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a 
-configuração \textit{master-slave} ou \textit{dual-primary}, além de suportar a replicação de máquinas virtuais e fazer replicação a nível de 
-bloco. Além disso, essa ferramenta possibilita fazer a resincronização dos dados automaticamente quando um nó retornar de uma falha 
-ocorrida \cite{drbd}.
 
 %https://www.reddit.com/r/linux/comments/1qwarp/drbd_vs_glusterfs/
 % glusterfs mais escalavel, simples de administrar

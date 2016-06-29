@@ -18,6 +18,11 @@
   Foundation}. \textbf{Introducing Sakai 11}. $<$Disponível em:
   \url{https://sakaiproject.org/}$>$. Acesso em 05 de junho de 2016.
 
+\bibitem[ATS(2012)ATS]{ats2012} ATS, G\@. \textbf{Entenda o que são coolers e
+  fans}. $<$Disponível em:
+  \url{http://www.techtudo.com.br/artigos/noticia/2012/01/entenda-o-que-sao-coolers-e-fans.html}$>$.
+  Acesso em 19 de junho de 2016.
+
 \bibitem[{Bacula}(2016){Bacula}]{bacula} {Bacula}. \textbf{Open Source Backup,
   Enterprise ready, Network Backup Tool for Linux, Unix, Mac, and Windows}.
   $<$Disponível em: \url{http://blog.bacula.org/}$>$. Acesso em 05 de junho de
@@ -95,6 +100,14 @@
   \textbf{The Hosting Platform of Choice}. $<$Disponível em:
   \url{https://cpanel.com/}$>$. Acesso em 05 de junho de 2016.
 
+\bibitem[DAVIES; ORSARIA(2013)DAVIES; ORSARIA]{davies2013} DAVIES, A.; ORSARIA,
+  A\@. Scale out with GlusterFS. \textbf{Linux J.}, Houston, TX, v.2013, n.235,
+  nov~2013.
+
+\bibitem[DAVISON(2016)DAVISON]{rsync} DAVISON, W\@. \textbf{rsync}.
+  $<$Disponível em: \url{https://rsync.samba.org/}$>$. Acesso em 20 de junho
+  de 2016.
+
 \bibitem[{Digium}(2016){Digium}]{asterisk} {Digium}. \textbf{Asterisk.org}.
   $<$Disponível em: \url{http://www.asterisk.org/}$>$. Acesso em 05 de junho
   de 2016.
@@ -116,15 +129,6 @@
 \bibitem[{Google}(2016){Google}]{ganeti} {Google}. \textbf{Ganeti}.
   $<$Disponível em: \url{http://docs.ganeti.org/}$>$. Acesso em 25 de junho de
   2016.
-
-\bibitem[{Gustavo Ats}(2012){Gustavo Ats}]{ats2012} {Gustavo Ats}.
-  \textbf{Entenda o que são coolers e fans}. $<$Disponível em:
-  \url{http://www.techtudo.com.br/artigos/noticia/2012/01/entenda-o-que-sao-coolers-e-fans.html}$>$.
-  Acesso em 19 de junho de 2016.
-
-\bibitem[{Heinz Mauelshagen}(2016){Heinz Mauelshagen}]{lvm} {Heinz
-  Mauelshagen}. \textbf{LVM2}. $<$Disponível em:
-  \url{https://www.sourceware.org/lvm2/}$>$. Acesso em 26 de junho de 2016.
 
 \bibitem[{IBM}(2016){IBM}]{ibm370} {IBM}. \textbf{System/370 Model 145}.
   $<$Disponível em:
@@ -172,8 +176,17 @@
   \url{http://www.linux-ha.org/wiki/Heartbeat}$>$. Acesso em 08 de junho de
   2016.
 
+\bibitem[LOPEZ(2011)LOPEZ]{lopez2012} LOPEZ, P\@. \textbf{Managed
+  Load-balancing / Server Mirroring Solutions}. $<$Disponível em:
+  \url{https://www.gidforums.com/t-27040.html}$>$. Acesso em 29 de junho de
+  2016.
+
 \bibitem[MARINESCU(2013)MARINESCU]{marinescu2013} MARINESCU, D\@. \textbf{Cloud
   Computing}: theory and practice. [S.l.]: Elsevier Science, 2013.
+
+\bibitem[MAUELSHAGEN(2016)MAUELSHAGEN]{lvm} MAUELSHAGEN, H\@. \textbf{LVM2}.
+  $<$Disponível em: \url{https://www.sourceware.org/lvm2/}$>$. Acesso em 26 de
+  junho de 2016.
 
 \bibitem[MAZIERO(2013)MAZIERO]{maziero2013} MAZIERO, C.~A\@. \textbf{Sistemas
   Operacionais}: conceitos e mecanismos. 2013. Disserta{\c{c}}{\~a}o (Mestrado
@@ -272,26 +285,22 @@
   \textbf{OpenStack Open Source Cloud Computing Software}. $<$Disponível em:
   \url{https://www.openstack.org/}$>$. Acesso em 25 de junho de 2016.
 
-\bibitem[{Red Hat}(2016a){Red Hat}]{cephrbd} {Red Hat}. \textbf{Block Storage}.
-  $<$Disponível em: \url{http://ceph.com/ceph-storage/block-storage/}$>$.
-  Acesso em 21 de junho de 2016.
+\bibitem[{Red Hat}(2016a){Red Hat}]{redhat} {Red Hat}. \textbf{Plataforma
+  corporativa Linux}. $<$Disponível em:
+  \url{https://www.redhat.com/pt-br/technologies/linux-platforms}$>$. Acesso em
+  05 de junho de 2016.
 
-\bibitem[{Red Hat}(2016b){Red Hat}]{ceph} {Red Hat}. \textbf{Ceph}.
-  $<$Disponível em: \url{http://ceph.com/}$>$. Acesso em 25 de junho de 2016.
-
-\bibitem[{Red Hat}(2016c){Red Hat}]{gfs} {Red Hat}. \textbf{Red Hat GFS}.
+\bibitem[{Red Hat}(2016b){Red Hat}]{gfs} {Red Hat}. \textbf{Red Hat GFS}.
   $<$Disponível em:
   \url{https://access.redhat.com/documentation/pt-BR/Red_Hat_Enterprise_Linux/5/html/Cluster_Suite_Overview/s1-rhgfs-overview-CSO.html}$>$.
   Acesso em 25 de junho de 2016.
 
-\bibitem[{Red Hat}(2016d){Red Hat}]{glusterfs} {Red Hat}. \textbf{Storage for
+\bibitem[{Red Hat}(2016c){Red Hat}]{glusterfs} {Red Hat}. \textbf{Storage for
   your Cloud - Gluster}. $<$Disponível em: \url{https://www.gluster.org/}$>$.
   Acesso em 21 de junho de 2016.
 
-\bibitem[{Red Hat Inc}(2016){Red Hat Inc}]{redhat} {Red Hat Inc}.
-  \textbf{Plataforma corporativa Linux}. $<$Disponível em:
-  \url{https://www.redhat.com/pt-br/technologies/linux-platforms}$>$. Acesso em
-  05 de junho de 2016.
+\bibitem[{Red Hat}(2016d){Red Hat}]{ceph} {Red Hat}. \textbf{Ceph}.
+  $<$Disponível em: \url{http://ceph.com/}$>$. Acesso em 25 de junho de 2016.
 
 \bibitem[REIS(2009)REIS]{reis2009} REIS, W.~S.~dos. \textbf{Virtualização de
   serviços baseado em contêineres}: uma proposta para alta disponibilidade de
@@ -364,10 +373,6 @@
   Desktop Infrastructure with Horizon}. $<$Disponível em:
   \url{https://www.vmware.com/products/horizon-view}$>$. Acesso em 22 de maio
   de 2016.
-
-\bibitem[{Wayne Davison}(2016){Wayne Davison}]{rsync} {Wayne Davison}.
-  \textbf{rsync}. $<$Disponível em: \url{https://rsync.samba.org/}$>$. Acesso
-  em 20 de junho de 2016.
 
 \bibitem[WEBER(2002)WEBER]{weber2002} WEBER, T.~S\@. \textbf{Um roteiro para
   exploração dos conceitos básicos de tolerância a falhas}. 2002. Curso de
