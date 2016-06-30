@@ -46,13 +46,12 @@
 \contentsline {subsubsection}{\numberline {5.2.1.3}Rsync}{44}
 \contentsline {subsubsection}{\numberline {5.2.1.4}Software de replica\IeC {\c c}\IeC {\~a}o escolhido}{45}
 \contentsline {subsection}{\numberline {5.2.2}Softwares para o gerenciamento de cluster}{45}
-\contentsline {subsubsection}{\numberline {5.2.2.1}Ceph}{46}
-\contentsline {subsubsection}{\numberline {5.2.2.2}Ganeti}{46}
-\contentsline {subsubsection}{\numberline {5.2.2.3}Heartbeat}{46}
-\contentsline {subsubsection}{\numberline {5.2.2.4}Pacemaker}{47}
-\contentsline {subsubsection}{\numberline {5.2.2.5}Software de gerenciamento escolhido}{47}
+\contentsline {subsubsection}{\numberline {5.2.2.1}Ganeti}{46}
+\contentsline {subsubsection}{\numberline {5.2.2.2}Heartbeat}{46}
+\contentsline {subsubsection}{\numberline {5.2.2.3}Pacemaker}{47}
+\contentsline {subsubsection}{\numberline {5.2.2.4}Software de gerenciamento escolhido}{48}
 \contentsline {subsection}{\numberline {5.2.3}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{49}
-\contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{50}
-\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{51}
-\contentsline {section}{\numberline {6.1}Cronograma}{52}
-\contentsline {chapter}{Refer{\^e}ncias}{53}
+\contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{51}
+\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{52}
+\contentsline {section}{\numberline {6.1}Cronograma}{53}
+\contentsline {chapter}{Refer{\^e}ncias}{54}

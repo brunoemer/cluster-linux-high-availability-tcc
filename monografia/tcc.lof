@@ -32,9 +32,10 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.6:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{43}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.7:}{\ignorespaces Modelo do \textit {GlusterFS}.}}{44}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.8:}{\ignorespaces Transfer\IeC {\^e}ncia de arquivos atrav\IeC {\'e}s do \textit {Rsync}.}}{45}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.9:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{47}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.10:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{48}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.11:}{\ignorespaces Estrutura do \textit {cluster}.}}{49}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.12:}{\ignorespaces Live migration}}{50}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.9:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{46}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.10:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{47}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.11:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{48}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.12:}{\ignorespaces Estrutura do \textit {cluster}.}}{49}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.13:}{\ignorespaces Live migration}}{50}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

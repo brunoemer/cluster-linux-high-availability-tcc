@@ -247,9 +247,12 @@ O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com
  dados;
  \item Volume replicado: neste os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se umm rendundância, caso houver a falha de 
  um \textit{brick} não haverá perda de dados;
- \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores, 
- \item Volume listrado: 
- \item Volume distribuído e listrado: 
+ \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores, sendo assim é feito a distribuição 
+ e a replicação dos arquivos entre os nós;
+ \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido e salvo uma
+ parte em cada \textit{brick}. Esse tipo é utilizado para armazenamento de arquivos muito grandes;
+ \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado, desta forma, é feito a divisão do arquivo 
+ e salvo em \textit{bricks} distintos e também é feito a replicação.
 \end{itemize}
 
 \subsubsection{Rsync}
@@ -281,21 +284,23 @@ pode ser feito de cliente para cliente, utilizando como transporte o protocolo \
 \subsubsection{Software de replicação escolhido}
 \label{section:replicacaoescolhido}
 
-A Tabela \ref{tab:replicacao} compara as ferramentas citadas anteriormente. Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
-\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração, além de não ser uma escolha 
-atrativa para um \textit{cluster} de pequeno porte devido a sua complexa configuração. 
+Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. 
+A ferramenta adotada para replicação de dados será o \ac{DRBD}, pois permite a configuração \textit{master-slave} ou \textit{dual-primary}, 
+além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a resincronização 
+dos dados de forma automática em caso de um falha \cite{drbd}.
 
-Já o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, sendo assim, não é a ferramenta ideal para uma 
-solução de alta disponibilidade utilizando virtualização. Além disso, sua principal característica, que é a escalabilidade\footnote[1]{A 
-escalabilidade é a facilidade de aumentar a capacidade do \textit{cluster} a partir da inclusão de novos nós}, não será útil para esta 
-implementação, pois esta implementado não requer um grande volume de dados.
-E por fim, o \textit{Rsync} não pode ser utilizado pois não faz replicação em tempo real.
+De fato, o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, sendo assim, não é adequada para uma 
+solução de alta disponibilidade que utiliza-se de virtualização. 
+E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real.
+
+%Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
+%\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
 \label{tab:replicacao}
 \begin{center}
-\begin{tabular}{|l|p{2.7cm}|p{2.7cm}|p{2cm}|}\hline
+\begin{tabular}{|l|p{3.5cm}|p{3.5cm}|p{2cm}|}\hline
 \textbf{Características} & \textbf{DRBD} & \textbf{GlusterFS} & \textbf{Rsync} \\\hline
 Master-slave & Sim & Sim & Não \\\hline
 Replicação em tempo real & Sim & Sim & Não \\\hline
@@ -306,11 +311,6 @@ Integração com virtualização & Sim & Sim & Não \\\hline
 \end{tabular}
 \end{center}
 \end{table}
-
-Portanto, a ferramenta escolhida para replicação de dados na solução de alta disponibilidade desse trabalho foi o \ac{DRBD}, pois permite a 
-configuração \textit{master-slave} ou \textit{dual-primary}, além de suportar a replicação de máquinas virtuais e fazer replicação a nível de 
-bloco. Além disso, essa ferramenta possibilita fazer a resincronização dos dados automaticamente quando um nó retornar de uma falha 
-ocorrida \cite{drbd}.
 
 %https://www.reddit.com/r/linux/comments/1qwarp/drbd_vs_glusterfs/
 % glusterfs mais escalavel, simples de administrar
@@ -339,81 +339,97 @@ ocorrida \cite{drbd}.
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster}.
-Além disso, é necessário a utilização de \textit{softwares} que facilitam o gerenciamento desse \textit{cluster}. Esses \textit{softwares} 
-permitem detectar falhas em um nó, ou seja, essas podem detectar falhas de \textit{hardware} e falhas de serviços. 
+Além disso, é interessante a utilização de \textit{softwares} que facilitam o gerenciamento deste \textit{cluster}. Esses \textit{softwares} 
+permitem detectar falhas em um nó, sendo possível detectar falhas de \textit{hardware} ou falhas de serviços. 
 Essas ferramentas são conhecidas como \ac{CRM}. 
 
-Após a detecção de uma falha, os \textit{softwares} de gerenciamento de \textit{cluster} executam algumas ações, entre elas estão o 
-\textit{failover} e o \textit{failback}. O \textit{failover} é o processo no qual um servidor recebe os serviços que estavam executando em outro 
-servidor que ficou indisponível. Esses \textit{softwares} executam também o processo de \textit{failback} que é o retorno dos serviços 
-para o servidor de origem quando este ficar disponível. Esse ocorre após o \textit{failover} sendo que ele é opcional \cite{bassan2008}.
+Após a detecção de uma falha, os \textit{softwares} de gerenciamento de \textit{cluster} pode executar operações de \textit{failover} e 
+\textit{failback}. O \textit{failover} é um processo no qual um servidor recebe os serviços que estavam executando em um servidor que falhou. 
+Já no \textit{failback} tem-se o retorno dos serviços para o servidor de origem quando este estiver disponível. Esse processo ocorre após o 
+\textit{failover} sendo que ele é opcional \cite{bassan2008}.
 
-As próximas seções irão detalhar os \textit{softwares} de gerenciamento de \textit{cluster} que foram encontrados e estudados.
+Nas próximas seções tem-se uma breve descrição dos \textit{softwares} de gerenciamento de \textit{cluster} que foram estudados.
 
-\subsubsection{Ceph}
-\label{section:ceph}
-O \textit{Ceph} \cite{ceph} é uma ferramenta para o armazenamento de dados distribuídos. Esta ferramenta tem foco em \textit{cluster} 
-de armazenamento, sendo assim ela necessita de outra ferramenta para gerenciar as máquinas virtuais, como por exemplo \textit{OpenStack} 
-\cite{openstack}. Sua arquitetura é composta por um nó administrador, onde será centralizado a gerência do \textit{cluster}, e no mínimo dois 
-nós para fazer o armazenamento (\textit{Ceph OSD}), o monitoramento (\textit{Ceph Monitor}) e o processamento (\textit{Ceph MDS}) \cite{ceph}.
+% \subsubsection{Ceph}
+% \label{section:ceph}
+% O \textit{Ceph} \cite{ceph} é uma ferramenta com foco no armazenamento de dados distribuídos. Esta ferramenta tem foco em \textit{cluster} 
+% de armazenamento, sendo assim ela necessita de outra ferramenta para gerenciar as máquinas virtuais, como por exemplo \textit{OpenStack} 
+% \cite{openstack}. Sua arquitetura é composta por um nó administrador, onde tem-se a gerência do \textit{cluster}, e no mínimo dois 
+% nós, sendo um para o armazenamento (\textit{Ceph OSD}) e um para o monitoramento (\textit{Ceph Monitor}) e o processamento (\textit{Ceph MDS}) \cite{ceph}.
 
 \subsubsection{Ganeti}
 \label{section:ganeti}
-O \textit{software} \textit{Ganeti} \cite{ganeti} é um gerenciador de \textit{cluster} de virtualização, sendo que foi desenvolvido 
-especificamente para virtualização e suporta os hipervisores \ac{KVM} \cite{kvm} e \textit{Xen} \cite{xen}. Para sua implementação é necessário
-um nó \textit{master}, para armazenar as configurações e gerenciar o \textit{cluster}, e um nó \textit{master candidate}, para o caso do 
-nó \textit{master} falhar. Além disso, ele permite a criação de vários nós \textit{slaves}. As máquinas virtuais são chamadas de instâncias, 
-sendo que em cada instâncias é configurado qual será o nó primário que essa executará e qual será o nó secundário dessa instância.
+O \textit{Ganeti} \cite{ganeti} é um \textit{software} desenvolvido pelo \textit{Google}. Esse \textit{software} é um gerenciador de 
+\textit{cluster} de virtualização. Ele foi desenvolvido especificamente para ambientes de virtualização e suporta os hipervisores 
+\ac{KVM} \cite{kvm} e \textit{Xen} \cite{xen}. 
 
-As principais funções desse \textit{software} são \cite{ganeti}:
-\begin{itemize}
- \item Gerenciamento de armazenamento;
- \item Criação de instâncias, que são os sistemas operacionais convidados;
- \item Iniciar e finalizar máquinas virtuais, além de efetuar o \textit{failover} entre os servidores hospedeiros.
-\end{itemize}
-
-Na Figura \ref{fig:ganeti_arquitetura} tem-se a arquitetura deste \textit{software}. O \textit{cluster} é composto por nós, que por sua vez 
-possuem instâncias (máquinas virtuais). As instâncias podem ser migradas manualmente de um nó para outro e também serão migradas no processo de
-\textit{failover}. Caso o nó \textit{master} falhar, suas funções serão transferidas para o \textit{master failover} ou \textit{master candidate}.
+Na Figura \ref{fig:ganeti_arquitetura} tem-se a arquitetura deste \textit{software}. 
+O \textit{cluster} é composto por nós, sendo que é necessário um nó \textit{master}, que armazena as configurações e gerencia o \textit{cluster}, 
+e um nó \textit{master candidate}, para o caso do nó \textit{master} falhar. Além disso, ele permite a criação de vários nós \textit{slaves}, 
+que é responsável por armazenar os dados das máquinas virtuais.
+Cada nó possui uma ou mais instâncias. As instâncias são as máquinas virtuais que executam no \textit{cluster}. Em cada instância configura-se 
+dois nós: o nó primário, que ela executará inicialmente; e o nó secundário, que executará caso o primário falhe.
+As instâncias também podem ser migradas de um nó para outro de forma manual. 
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=340px]{img/ganeti_arquitetura.eps}
+ \includegraphics[width=380px]{img/ganeti_arquitetura.eps}
  \caption{Arquitetura do \textit{Ganeti}.}
  Fonte: \citet{carvalho2011}
  \label{fig:ganeti_arquitetura}
 \end{figure}
+
+As principais funcionalidades do \textit{Ganeti} são \cite{ganeti}:
+\begin{itemize}
+ \item Gerenciamento do armazenamento de dados das máquinas virtuais;
+ \item Criação de instâncias;
+ \item Iniciar e finalizar máquinas virtuais, além de efetuar o \textit{failover} entre os nós.
+\end{itemize}
 
 % ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
 
 \subsubsection{Heartbeat}
 \label{section:heartbeat}
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
-Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}}, através da rede, para outras instâncias do \textit{Heartbeat}, 
+Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}}, através da rede, para outras aplicações \textit{Heartbeat}, 
 com o objetivo de informar se ele está ativo \cite{reis2009}.
+
+Na Figura \ref{fig:heartbeat} tem-se o \textit{Heartbeat} executando em dois servidores sobre as interfaces de rede dedicadas (\textit{ethx}), 
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=320px]{img/heartbeat.eps}
+ \caption{Arquitetura do \textit{Heartbeat}.}
+ Fonte: \citet{zaminhani2008}
+ \label{fig:heartbeat}
+\end{figure}
+
+%faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse \textit{cluster} quando houver alguma alteração de 
+%estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}
+
+%exemplo de implementacao heartbeat com virtualizacao = \cite{reis2009}
 
 \subsubsection{Pacemaker}
 \label{section:pacemaker}
-O \textit{Pacemaker} \cite{pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
-Esse \textit{software} é um projeto de código aberto mantido pela \cite{clusterlabs}, e teve origem com a necessidade de aperfeiçoar o gerenciador 
-de recursos da ferramenta \textit{Heartbeat} \cite{heartbeat}, que possuía algumas limitações. 
+O \textit{Pacemaker} \cite{pacemaker} é um projeto de código aberto mantido pela \textit{ClusterLabs}, e teve origem com a necessidade de 
+aperfeiçoar o gerenciador de recursos da ferramenta \textit{Heartbeat} \cite{heartbeat}. 
+Esse \textit{software} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 
-Esse \textit{software} funciona juntamente com ferramentas que fazem troca de mensagens entre os nós do \textit{cluster} e ferramentas que 
-fazem a afiliação, ou seja, fazem o processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos, quando utilizado sistema 
-de arquivos distribuídos. As ferramentas que podem ser integradas com o \textit{Pacemaker} são \cite{pacemaker}:
+Esse \textit{software} é utilizado juntamente com ferramentas que fazem registro dos nós e troca de mensagens entre os nós do \textit{cluster}.
+As ferramentas que podem ser integradas com o \textit{Pacemaker} são \cite{pacemaker}:
 \begin{itemize}
  \item \textit{Corosync} \cite{corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos 
  (utilizados para implementar \ac{LVM} \cite{lvm}, \ac{GFS}, e \ac{OCFS2}), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
- \item \textit{Heartbeat}: é um mecanismo que faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse 
- \textit{cluster} quando houver alguma alteração de estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}.
+ \item \textit{Heartbeat}: como descrito na Seção \ref{section:heartbeat}, essa ferramenta faz envio de mensagens entre os nós do \textit{cluster},
+ além de iniciar e finalizar serviços.
 \end{itemize}
 % outras ferramentas cMAN e Apache Qpid
 
 %Modelos Active/Passive, N+1, N TO N, Split Site ??
 
 Na Figura \ref{fig:pacemaker_tools} tem-se a arquitetura do \textit{Pacemaker}. Como pode ser observado na camada inferior tem-se os nós do 
-\textit{cluster}. Acima as ferramentas de envio de mensagens, acima delas fica o \textit{Pacemaker}. Por fim, o \textit{DRBD}, o sistema de 
-arquivos e os serviços do servidor.
+\textit{cluster}. Na camada superior tem-se os \textit{softwares} de envio de mensagens e acima deste tem-se o \textit{Pacemaker}. 
+Por fim, tem-se os serviços executando, que são: o \textit{DRBD}; o sistema de arquivos; o \ac{IP}; e um servidor \textit{Apache}.
 
 \begin{figure}[h!]
  \centering
@@ -423,12 +439,12 @@ arquivos e os serviços do servidor.
  \label{fig:pacemaker_tools}
 \end{figure}
 
-O \textit{Pacemaker} possui algumas funções principais que estão listadas abaixo:
+Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 \begin{itemize}
  \item Inicia e finaliza serviços dos nós do \textit{cluster}. Esses serviços podem ser desde um servidor \textit{web} até uma interface de 
- rede, por exemplo;
- \item Replica a configuração do \textit{cluster} para todos os nós de forma transparente, com isso a configuração de todo o \textit{cluster} 
- pode ser feita em qualquer nó;
+ rede;
+ \item Replicação de configuração do \textit{cluster} para todos os nós de forma transparente. Desta forma, a configuração do \textit{cluster} 
+ pode ser alterada em qualquer nó;
  \item Elege um nó como primário para centralizar todas as decisões, sendo que, se esse nó falhar outro será eleito primário.
 \end{itemize}
 
@@ -488,13 +504,13 @@ configuração tornou-se complexa.
 \caption{Comparação ferramentas de gerenciamento de \textit{cluster}.}
 \label{tab:clusterger}
 \begin{center}
-\begin{tabular}{|p{3.5cm}|p{2.7cm}|p{2cm}|p{2.7cm}|p{2.7cm}|}\hline
-\textbf{Características} & \textbf{Ceph} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
-Sincronismo de configuração entre os nós & Não & Não & Não & Sim \\\hline
-Failover e failback & Não & Sim & Não & Sim \\\hline
-Nível de detecção e recuperação & Nó & Nó e máquina virtual & Nó & Nó e recurso \\\hline
-Plataformas & CentOS, Debian, Fedora, Red Hat, Ubuntu & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
-Integração com virtualização & Sim & Sim & Sim & Sim \\\hline
+\begin{tabular}{|p{4cm}|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
+\textbf{Características} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
+Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
+Failover e failback & Sim & Não & Sim \\\hline
+Nível de detecção e recuperação & Nó e máquina virtual & Nó & Nó e recurso \\\hline
+Plataformas & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
+Integração com virtualização & Sim & Sim & Sim \\\hline
 \end{tabular}
 \end{center}
 \end{table}

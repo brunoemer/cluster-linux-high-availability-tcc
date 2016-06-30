@@ -77,14 +77,10 @@
   \url{https://www.citrix.com/products/xenapp-xendesktop/}$>$. Acesso em 22 de
   maio de 2016.
 
-\bibitem[{ClusterLabs}(2016a){ClusterLabs}]{pacemaker} {ClusterLabs}.
+\bibitem[{ClusterLabs}(2016){ClusterLabs}]{pacemaker} {ClusterLabs}.
   \textbf{Pacemaker - ClusterLabs}. $<$Disponível em:
   \url{http://clusterlabs.org/wiki/Pacemaker}$>$. Acesso em 08 de junho de
   2016.
-
-\bibitem[{ClusterLabs}(2016b){ClusterLabs}]{clusterlabs} {ClusterLabs}.
-  \textbf{Cluster Labs - The Home of Linux Clustering}. $<$Disponível em:
-  \url{http://clusterlabs.org/}$>$. Acesso em 08 de junho de 2016.
 
 \bibitem[{Corosync}(2016){Corosync}]{corosync} {Corosync}. \textbf{Corosync by
   corosync}. $<$Disponível em: \url{http://corosync.github.io/corosync/}$>$.
@@ -281,10 +277,6 @@
   emulator}. $<$Disponível em: \url{http://wiki.qemu.org/Main_Page}$>$. Acesso
   em 22 de maio de 2016.
 
-\bibitem[{Rackspace}(2016){Rackspace}]{openstack} {Rackspace}.
-  \textbf{OpenStack Open Source Cloud Computing Software}. $<$Disponível em:
-  \url{https://www.openstack.org/}$>$. Acesso em 25 de junho de 2016.
-
 \bibitem[{Red Hat}(2016a){Red Hat}]{redhat} {Red Hat}. \textbf{Plataforma
   corporativa Linux}. $<$Disponível em:
   \url{https://www.redhat.com/pt-br/technologies/linux-platforms}$>$. Acesso em
@@ -298,9 +290,6 @@
 \bibitem[{Red Hat}(2016c){Red Hat}]{glusterfs} {Red Hat}. \textbf{Storage for
   your Cloud - Gluster}. $<$Disponível em: \url{https://www.gluster.org/}$>$.
   Acesso em 21 de junho de 2016.
-
-\bibitem[{Red Hat}(2016d){Red Hat}]{ceph} {Red Hat}. \textbf{Ceph}.
-  $<$Disponível em: \url{http://ceph.com/}$>$. Acesso em 25 de junho de 2016.
 
 \bibitem[REIS(2009)REIS]{reis2009} REIS, W.~S.~dos. \textbf{Virtualização de
   serviços baseado em contêineres}: uma proposta para alta disponibilidade de
