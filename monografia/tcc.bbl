@@ -232,13 +232,9 @@
   $<$Disponível em: \url{https://oss.oracle.com/projects/ocfs2/}$>$. Acesso em
   25 de junho de 2016.
 
-\bibitem[{OVA}(2016a){OVA}]{kvm} {OVA}. \textbf{KVM}. $<$Disponível em:
+\bibitem[{OVA}(2016){OVA}]{kvm} {OVA}. \textbf{KVM}. $<$Disponível em:
   \url{http://www.linux-kvm.org/page/Main_Page}$>$. Acesso em 25 de junho de
   2016.
-
-\bibitem[{OVA}(2016b){OVA}]{livemigration} {OVA}. \textbf{Migration - KVM}.
-  $<$Disponível em: \url{http://www.linux-kvm.org/page/Migration}$>$. Acesso
-  em 25 de junho de 2016.
 
 \bibitem[PANKAJ(1994)PANKAJ]{pankaj1994} PANKAJ, J\@. \textbf{Fault tolerance
   in distributed system}. Nova Jérsei, Estados Unidos: P T R Prentice Hall,
@@ -331,11 +327,6 @@
   Nível de Serviço}. $<$Disponível em:
   \url{http://blogs.technet.com/b/ronaldosjr/archive/2010/05/25/gerenciamento-de-n-237-vel-de-servi-231-o.aspx/}$>$.
   Acesso em 25 de março de 2016.
-
-\bibitem[SPANIOL(2015)SPANIOL]{spaniol2015} SPANIOL, B\@. \textbf{Quatro
-  estratégias de proteção para seu ambiente virtual}. $<$Disponível em:
-  \url{http://www.aliancatecnologia.com/conteudo/2015/05/quatro-estrategias-de-protecao-para-seu-ambiente-virtual/}$>$.
-  Acesso em 02 de junho de 2016.
 
 \bibitem[TANENBAUM; WETHERALL(2011)TANENBAUM; WETHERALL]{tanenbaum2011}
   TANENBAUM, A.~S.; WETHERALL, D\@. \textbf{Redes de computadores}. 5.ed. São

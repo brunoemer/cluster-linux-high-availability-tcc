@@ -1,26 +1,26 @@
 \chapter{Projeto de implementação}
 \label{cap:projetoimplementacao}
 
-Neste capítulo serão apresentados os serviços considerados mais críticos para a empresa. Posteriormente, será proposta uma solução de implementação 
-de alta disponibilidade para estes. Essa solução será detalhada na Seção \ref{section:propostasolucao}, e será baseada na utilização de 
-virtualização e de \textit{softwares} de código aberto. 
+Neste capítulo serão apresentados os serviços considerados críticos para a empresa. Posteriormente, será apresentada uma proposta de uma solução 
+de alta disponibilidade. Essa solução será detalhada na Seção \ref{section:propostasolucao} e será baseada na utilização de virtualização e 
+de \textit{softwares} de código aberto. 
 
 \section{Levantamento dos serviços críticos}
 \label{section:servcrit}
 
 No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feito uma análise desses
-serviços, destacando os serviços considerados mais críticos para a empresa. Para a seleção dos serviços críticos foram adotados os seguintes
+serviços, destacando os serviços considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados os seguintes
 critérios:
 \begin{itemize}
  \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
  acesso; 
  \item O número de requisições: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do serviço e a frequência
- de utilização do serviço. Esse critério engloba, por exemplo, o número de conexões \aca{TCP} \cite{tanenbaum2011} de um serviço, o número de 
- requisições \aca{UDP} \cite{tanenbaum2011}, a quantidade de acessos em um servidor de hospedagens de sites e a quantidade de requisições \ac{DNS} 
+ de utilização do serviço. Esse critério engloba, por exemplo, o número de conexões \aca{TCP} \cite{tanenbaum2011}, o número de requisições 
+ \aca{UDP} \cite{tanenbaum2011}, a quantidade de acessos em um servidor de hospedagens de sites e a quantidade de requisições \aca{DNS} 
  em um servidor recursivo;
  \item O volume de elementos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos clientes são dependentes deste. 
- Como exemplo de elementos pode-se citar a quantidade de contas ativas de \textit{e-mail} em um servidor de \textit{e-mail} ou a quantidade de 
+ Como exemplo de elementos pode-se citar a quantidade de contas de \textit{e-mail} ativas em um servidor de \textit{e-mail} ou a quantidade de 
  equipamentos monitorados por um servidor de monitoramento;
  %Esse critério é importante pois com ele pode-se comparar diferentes serviços possibilitando perceber o grau de relevância que cada um possui;
  %Esse critério, como o anterior, também permite comparar diferentes serviços para ter a possibilidade de ordená-los de acordo com sua relevância, por isso o torna importante para esta análise.
@@ -33,13 +33,12 @@ Nas próximas seções serão descritos os serviços críticos, com base nos cri
 
 Esse serviço foi classificado como o serviço mais importante pois possui um impacto direto nos clientes do provedor. Além disso, esse é o único 
 serviço que todos os clientes e funcionários utilizam, totalizando aproximadamente 9000 pessoas. O objetivo de um provedor é fornecer uma navegação 
-de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação, uma vez que é usado por todos os clientes. Outro 
-importante critério que pode ser aplicado ao \ac{DNS} recursivo é o número de requisições por segundo. Como pode ser observado na Figura 
-\ref{fig:dns_udp} (a) esse serviço possui picos de aproximadamente 1150 requisições por segundo. De acordo com a Figura \ref{fig:dns_udp} (b) 
-pode-se observar que o servidor \textit{Passata} é o servidor que possui um maior número de requisições \ac{UDP}\footnote[1]{Esse número de 
-requisições \ac{UDP} é elevado devido ao fato do serviço \ac{DNS} utilizar esse protocolo de transporte.}. Essa figura compara os principais 
-servidores da empresa através de requisições \ac{UDP}, sendo que esse número de requisições indica a quantidade de clientes que utilizam os 
-serviços.
+de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. A importância deste serviço está ilustrado na Figura 
+\ref{fig:dns_udp} (a), onde pode ser observado que esse serviço possui picos de aproximadamente 1150 requisições por segundo. Já na Figura 
+\ref{fig:dns_udp} (b) pode ser observado que o servidor \textit{Passata} é o servidor que possui um maior número de requisições 
+\ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} é elevado devido ao fato do serviço \ac{DNS} utilizar esse protocolo de transporte.}. 
+Essa figura compara os principais servidores da empresa através de requisições \ac{UDP} e pode ser usada como um indicador da quantidade de 
+clientes que utilizam os serviços.
 
 \begin{figure}[h!]
  \centering
@@ -54,22 +53,20 @@ serviços.
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
 os clientes não conseguirão estabelecer conexão e, consequentemente, não conseguirão utilizar o serviço de Internet. Os servidores 
 \textit{Masterauth} e \textit{Speedauth} fornecem o serviço de \textit{Radius}, sendo que recebem, em média, 1,6 requisições de autenticação 
-por segundo, como pode ser observado na Figura \ref{fig:freeradius_auth} (a) e na \ref{fig:freeradius_auth} (b). Caso esses servidores fiquem 
-indisponíveis aproximadamente 2 clientes não conseguirão realizar a autenticação. Além disso, esses servidores armazenam dados relacionados à 
-conexão dos clientes, como por exemplo, o endereço de \ac{IP} que é utilizado por um cliente em um determinado período de tempo, o tráfego de 
-dados da conexão, o tempo da conexão de cada cliente, o endereço \aca{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam 
-em média 23 requisições por segundo. %, como pode ser observado na Figura \ref{fig:speedauth_acct_week} e \ref{fig:masterauth_acct_week};
-Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes de
-acesso à Internet. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e \textit{Speedauth}
-estão entre os que apresentam o maior número de elementos. Além disso, existem um grande número de conexões \ac{TCP} nesses servidores, como 
-pode ser observado na Figura \ref{fig:elementos_tcp} (b).
+por segundo. Além disso, esses servidores armazenam dados relacionados à conexão dos clientes, como por exemplo, o endereço de \ac{IP} que é 
+utilizado por um cliente em um determinado período de tempo, o tráfego de dados da conexão, o tempo da conexão de cada cliente, o endereço 
+\aca{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 requisições por segundo. 
+Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes que
+utilizam esses servidores para autenticação. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e 
+\textit{Speedauth} estão entre os que apresentam o maior número de elementos. Além disso, existem um grande número de conexões \ac{TCP} nesses 
+servidores, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=300px]{img/freeradius_auth.eps}
- \caption{Gráfico de requisições de autenticação do servidor \textit{Masterauth} (a) e \textit{Speedauth} (b).}
- \label{fig:freeradius_auth}
-\end{figure}
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=300px]{img/freeradius_auth.eps}
+%  \caption{Gráfico de requisições de autenticação do servidor \textit{Masterauth} (a) e \textit{Speedauth} (b).}
+%  \label{fig:freeradius_auth}
+% \end{figure}
 
 \begin{figure}[h!]
  \centering
@@ -84,12 +81,13 @@ pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 O sistema do provedor é responsável pela maior parte das operações gerenciais do provedor. De fato, este sistema é responsável pela emissão de 
 boletos, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros. Esse sistema não tem um 
 impacto direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
-a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui no total 65 funcionários.
+a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui um total de 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuízo elevado para a empresa e o provedor. 
 Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \aca{HTTP} \cite{tanenbaum2011} por segundo, como 
 pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém 28 sistemas de outros clientes nesse servidor. 
-Também é importante destacar que esse serviço possui um número considerável de conexões \ac{TCP}, como pode ser observado na Figura 
-\ref{fig:elementos_tcp} (b).
+O nível de utilização deste servidor é ilustrado na Figura \ref{fig:elementos_tcp} (b) onde pode ser observado que esse serviço possui um número 
+considerável de conexões \ac{TCP}\footnote[1]{O número de conexões \ac{TCP} é considerado devido ao fato do protocolo \ac{HTTP} utilizar esse 
+protocolo de transporte.}.
 
 %\begin{figure}[h!]
 % \centering
@@ -100,12 +98,11 @@ Também é importante destacar que esse serviço possui um número considerável
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/soldi_week.eps}
+ \includegraphics[width=280px]{img/soldi_week.eps}
  \caption{Gráfico de requisições por segundo do maior sistema.}
  \label{fig:soldi_week}
 \end{figure}
 
-\newpage
 \subsection{Telefonia interna sobre IP}
 \label{section:telefonia}
 
@@ -113,14 +110,14 @@ Esse serviço tem relevância para a empresa e para o provedor, pois permite a c
 servidor \textit{SimplesIP} é responsável por garantir o atendimento dos clientes para fins de suporte técnico, comunicação interna entre 
 funcionários, comunicação com técnicos externos, vendas, cobranças a clientes, entre outros. Para quantificar, no mês de maio de 2016 a empresa 
 recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
-O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se nesta figura que ocorre 
+O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se que ocorrem 
 de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Também pode-se observar, na Figura 
-\ref{fig:dns_udp} (b), que esse serviço possui um elevado número de requisições \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} 
-deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.} comparado aos demais servidores.
+\ref{fig:dns_udp} (b), que esse serviço possui um elevado número de requisições \ac{UDP}\footnote[2]{Esse número de requisições \ac{UDP} 
+deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}, se comparado aos demais servidores.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/simplesip_week.eps}
+ \includegraphics[width=280px]{img/simplesip_week.eps}
  \caption{Gráfico da quantidade de canais ativos no servidor de telefonia.}
  \label{fig:simplesip_week}
 \end{figure}
@@ -131,13 +128,12 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de 
 A partir da análise inicial, verificou-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
 \begin{itemize}
  \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
- \item \textit{Speedauth}: principal servidor \textit{Radius} para autenticação dos clientes do provedor;
- \item \textit{Masterauth}: segundo servidor \textit{Radius} para autenticação dos clientes do provedor;
- \item \textit{Soldi}: servidor de sistemas da empresa e do provedor;
+ \item \textit{Speedauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
+ \item \textit{Masterauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
+ \item \textit{Soldi}: servidor dos sistemas da empresa e do provedor;
  \item \textit{SimplesIP}: servidor de telefonia interna sobre \ac{IP} para atendimento aos clientes e comunicação interna do provedor e da empresa;
 \end{itemize}
 
-\newpage
 Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime} e o tempo de 
 \textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim sua medição é dos 
 últimos 6 meses de 2016, por isso possui um \textit{Uptime} elevado.
@@ -206,7 +202,9 @@ realizadas no nó primário serão replicadas para o disco do nó secundário \c
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/drbd_basic.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=300px]{img/drbd_basic.eps}
+ }
  \caption{Exemplo do modelo \textit{master-slave} do \ac{DRBD}.}
  Fonte: \citet{jones2010}
  \label{fig:drbd_basic}
@@ -234,7 +232,9 @@ Esse volume é acessado pelos clientes através da rede.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/glusterfs.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=280px]{img/glusterfs.eps}
+ }
  \caption{Modelo do \textit{GlusterFS}.}
  Fonte: \citet{davies2013}
  \label{fig:glusterfs}
@@ -266,7 +266,9 @@ replicação sobrescrevendo todos arquivos.
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=370px]{img/rsync.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=370px]{img/rsync.eps}
+ }
  \caption{Transferência de arquivos através do \textit{Rsync}.}
  Fonte: \citet{lopez2012}
  \label{fig:rsync}
@@ -395,14 +397,24 @@ Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}}
 com o objetivo de informar se ele está ativo \cite{reis2009}.
 
 Na Figura \ref{fig:heartbeat} tem-se o \textit{Heartbeat} executando em dois servidores sobre as interfaces de rede dedicadas (\textit{ethx}), 
-
+para que cada nó monitore o outro. Caso o nó secundário deixe de receber os sinais do nó primário, este irá tornar-se o nó primário, iniciando o
+processo de \textit{failover}, com isso, ele receberá o \ac{IP} virtual (\textit{192.168.50.3}) e iniciará os serviços previamente configurados.
 \begin{figure}[h!]
  \centering
- \includegraphics[width=320px]{img/heartbeat.eps}
+ \fcolorbox{black}{white}{
+  \includegraphics[width=320px]{img/heartbeat.eps}
+ }
  \caption{Arquitetura do \textit{Heartbeat}.}
  Fonte: \citet{zaminhani2008}
  \label{fig:heartbeat}
 \end{figure}
+
+As principais funcionalidades do \textit{Heartbeat} são:
+\begin{itemize}
+ \item Envio de mensagens entre os nós para detecção de falhas;
+ \item Efetua os processos de \textit{failover} e \textit{failback};
+ \item Inicia e finaliza serviços dos nós;
+\end{itemize}
 
 %faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse \textit{cluster} quando houver alguma alteração de 
 %estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}
@@ -433,7 +445,7 @@ Por fim, tem-se os serviços executando, que são: o \textit{DRBD}; o sistema de
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=300px]{img/pacemaker_tools.eps}
+ \includegraphics[width=350px]{img/pacemaker_tools.eps}
  \caption{Exemplo da arquitetura do \textit{Pacemaker}.}
  Fonte: \citet{pacemaker}
  \label{fig:pacemaker_tools}
@@ -482,23 +494,19 @@ Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 % Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
 % (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
+\newpage
 \subsubsection{Software de gerenciamento escolhido}
 \label{section:gerenciadorescolhido}
 
-A Tabela \ref{tab:clusterger} compara alguns \textit{softwares} de gerenciamento de \textit{cluster} de acordo com algumas características. 
-Pode-se observar que o \textit{software} \textit{Ceph} possui apenas detecção e recuperação a nível de nó. Esse \textit{software} tem foco 
-em \textit{cluster} de armazenamento, desta forma ele necessita de outra ferramenta para gerenciar as máquinas virtuais, tornando assim sua 
-configuração mais complexa. Além disso, essa ferramenta necessita de um \textit{hardware} especifico para administração do \textit{cluster}.
+Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
+O \textit{software} adotado para gerenciar o ambiente será o \textit{Ganeti}, pois este possui todos os requisitos para a criação de um 
+\textit{cluster} de alta disponibilidade, além de possuir a vantagem de ser desenvolvido especificamente para virtualização, o que simplifica a 
+sua configuração. O \textit{Ganeti} possui detecção de falhas tanto a nível de nó quanto a nível de máquina virtual. 
+Destaca-se que foram realizados testes de migração de máquinas virtuais em tempo real utilizando o \textit{Ganeti}, e obteve-se bons resultados.
 
-É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, desta forma seria necessário criar 
-um conjunto de \textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
-
-Já o \textit{Pacemaker} é o único que possui a característica de sincronismo de configuração entre todos os nós, no entanto, isto não é um 
-grande diferencial. Devido ao monitoramento a nível de recurso, a ferramenta torna-se flexível para execução com diversas aplicações em 
-diferentes ambientes, porém, nos testes efetuados em um ambiente de virtualização obteve-se dificuldade para concluir a implementação, pois a 
-configuração tornou-se complexa.
-%Pode-se observar que o \textit{Ganeti} não faz sincronismo das configurações, assim essas configurações devem ser feitas no nó \textit{master}.
-%Porém, possui a vantagem de ser desenvolvido especificamente para virtualização. 
+% Pode-se observar que o \textit{software} \textit{Ceph} possui suporte apenas para a detecção e recuperação a nível de nó. De fato, esse 
+% \textit{software} tem foco em \textit{cluster} de armazenamento, desta forma necessitando de outra ferramenta para gerenciar a migração de 
+% máquinas virtuais. Além disso, essa ferramenta necessita de um \textit{hardware} especifico para administração do \textit{cluster}.
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de gerenciamento de \textit{cluster}.}
@@ -507,19 +515,20 @@ configuração tornou-se complexa.
 \begin{tabular}{|p{4cm}|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
 \textbf{Características} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
 Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
-Failover e failback & Sim & Não & Sim \\\hline
+Failover e failback & Sim & Sim & Sim \\\hline
 Nível de detecção e recuperação & Nó e máquina virtual & Nó & Nó e recurso \\\hline
 Plataformas & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
-Integração com virtualização & Sim & Sim & Sim \\\hline
+Integração com virtualização & Sim & Não & Sim \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-O \textit{software} escolhido para gerenciar o ambiente de alta disponibilidade, que será criado neste trabalho, foi a ferramenta de código aberto 
-\textit{Ganeti}. Esse \textit{software} possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, além de possuir a 
-vantagem de ser desenvolvido especificamente para virtualização, o que simplifica a sua configuração. O \textit{Ganeti} possui detecção de falhas 
-tanto a nível de nó quanto a nível de máquina virtual. Nos testes realizados destaca-se a opção a migração em tempo real, pois obteve-se um bom 
-resultado. Além disso, percebeu-se uma maior simplicidade na configuração do \textit{cluster}.
+É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, desta forma seria necessário criar 
+um conjunto de \textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
+
+Já o \textit{Pacemaker} é o único que possui a característica de sincronismo de configuração entre todos os nós, no entanto, isto não é uma
+característica essencial para o desenvolvimento deste trabalho.
+
 % O \textit{software} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto \textit{Pacemaker}. 
 % Esse \textit{software} possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada 
 % para fazer monitoramento e recuperação tanto a nível de nó quanto a nível de recurso. Além disso, ela possui a característica de sincronismo de 
@@ -529,57 +538,53 @@ resultado. Além disso, percebeu-se uma maior simplicidade na configuração do 
 \subsection{Projeto de implementação}
 \label{section:projetoimpl}
 
-Tendo todas as definições e ferramentas necessárias, pode-se criar o ambiente de alta disponibilidade, que é o objetivo deste trabalho.
-Como mencionado anteriormente, esse ambiente será configurado na forma de um \textit{cluster} o qual será composto por no mínimo dois servidores, 
+Como mencionado anteriormente, o ambiente será configurado na forma de um \textit{cluster} o qual será composto por dois servidores, 
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
 com configuração de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração inclui
-2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema operacional dos servidores hóspedes. Além disso, será mantido o mesmo sistema 
-operacional e o mesmo hipervisor utilizado no ambiente atual da empresa, o sistema \textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm} 
-respectivamente.
+2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema operacional hóspede. Além disso, serão utilizados o mesmo sistema operacional e o 
+mesmo hipervisor que são adotados na empresa, o sistema \textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm}, respectivamente.
 
-A nova estrutura desses servidores juntamente com suas máquinas virtuais e seus respectivos serviços estão contidos na Figura 
-\ref{fig:projeto_estrutura}. Além disso será utilizado dois \textit{softwares}, o primeiro será o \ac{DRBD}, que fará a replicação dos dados 
-das máquinas virtuais. Como pode ser observado na Figura \ref{fig:projeto_estrutura}, para cada \ac{VM} existe um disco \ac{DRBD} primário, 
-sendo que este esta replicado em um disco secundário que está localizado no nó oposto do \textit{cluster}. O segundo \textit{software} será o 
-\textit{Ganeti}, que fará o gerenciamento do \textit{cluster} e está localizado abaixo dos nós na Figura \ref{fig:projeto_estrutura}.
+A estrutura dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura \ref{fig:projeto_estrutura}. 
+Além disso, será utilizado dois \textit{softwares}, o primeiro será o \ac{DRBD}, que fará a replicação dos dados das máquinas virtuais. 
+Sendo que para cada \ac{VM} existe um disco \ac{DRBD} primário, que será replicado em um disco secundário localizado no outro nó do \textit{cluster}. 
+O segundo \textit{software} será o \textit{Ganeti}, que fará o gerenciamento do \textit{cluster}.
+Esse será responsável pela gerência, monitoramento e migração das \acp{VM}. Para essas operações deve-se escolher um nó, que será o nó 
+\textit{master}. Neste nó, serão realizadas as configurações iniciais do \textit{cluster}.
+% Essas configurações serão, por exemplo, a interface de rede, o \ac{IP}, o grupo de volumes do \ac{LVM} que o \textit{cluster} utilizará, entre outros. 
+Após isso, será adicionado o outro nó para possibilitar a tolerância a falhas. 
 
 \begin{figure}[h!]
  \centering
- \includegraphics[width=380px]{img/projeto_estrutura.eps}
+ \includegraphics[width=350px]{img/projeto_estrutura.eps}
  \caption{Estrutura do \textit{cluster}.}
  \label{fig:projeto_estrutura}
 \end{figure}
 
 %drbd
-O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
-replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico 
-\ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
-e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
+% O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
+% replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico 
+% \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
+% e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
-%ganeti
-O \textit{software} \textit{Ganeti} será responsável pela gerência, monitoramento, \textit{failover}, migração das \acp{VM} e criação das \acp{VM} 
-no \textit{cluster}. Para essas operações deve-se escolher um nó, que será o nó \textit{master}. Neste nó, primeiramente será feita inicialização 
-do \textit{cluster}, ou seja, será feito a criação das configurações iniciais do nó \textit{master}. Essas configurações serão, por exemplo, 
-a interface de rede, o \ac{IP}, o grupo de volumes do \ac{LVM} que o \textit{cluster} utilizará, entre outros. Após isso, será adicionado o outro 
-nó para completar o \textit{cluster} e permitir a tolerância a falhas das máquinas virtuais. Por fim, será criado as instâncias, sendo que para 
+Com isso tem-se o ambiente pronto para a criação das \acp{VM}
+??Por fim, será criado as instâncias, sendo que para 
 cada instância será definido qual será o nó primário e o nó secundário. Essa instância criará um volume lógico \ac{LVM} nos dois nós, este será
 o disco da máquina virtual. Desta forma, quando houver uma falha no nó primário a instância será migrada para o nó secundário, sem que a máquina 
 virtual seja reiniciada.
+\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
+e volumes lógicos para \textit{Linux}.}
 
-Para essa migração, o \textit{Ganeti} utilizará a opção de migração em tempo real, mais conhecida como \textit{live migration}, que é fornecida 
-pelo hipervisor \ac{KVM} \cite{kvm}. A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \acp{VM} executando. 
-Inicialmente estas estão executando sobre o primeiro servidor, então a \ac{VM} 1 é migrada para o segundo servidor \cite{livemigration}.
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=250px]{img/vms_migration.eps}
- \caption{Live migration}
- Fonte: \citet{spaniol2015}
- \label{fig:vms_migration}
-\end{figure}
-
-Desta forma, obtem-se a alta disponibilidade dos serviços críticos da empresa a partir de um ambiente composto por \textit{softwares} de código 
-aberto. Além disso, pode-se observar que existem uma variedade de ferramentas para atingir tal ojbetivo.
+Para essa migração, o \textit{Ganeti} utilizará a opção de migração em tempo real que é fornecida pelo hipervisor \ac{KVM} \cite{kvm}. 
+% A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \acp{VM} executando. 
+% Inicialmente estas estão executando sobre o primeiro servidor, então a \ac{VM} 1 é migrada para o segundo servidor \cite{livemigration}.
+% 
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=250px]{img/vms_migration.eps}
+%  \caption{Live migration}
+%  Fonte: \citet{spaniol2015}
+%  \label{fig:vms_migration}
+% \end{figure}
 
 %pacemaker
 % O \textit{Pacemaker}, irá eleger um nó como \textit{master}, para centralizar a gerência. Esse \textit{software} 
