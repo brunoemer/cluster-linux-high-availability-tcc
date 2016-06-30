@@ -170,7 +170,7 @@ replicação de dados; e \textit{softwares} para o monitoramento e a transferên
 \subsection{Softwares para a replicação de dados}
 \label{section:toolrepl}
 
-A replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
+A replicação de dados pode ser realizada de diferentes formas, esta pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
 Dependendo do objetivo pode-se utilizar uma replicação através de um \ac{RAID} \cite{tanenbaum2009sistemas}. Essa solução é eficaz para garantir 
 que o sistema não fique indisponível em caso de falha de discos\footnote[1]{Lembrando que essa solução é utilizada no ambiente atual para 
 aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando um \textit{software} ou algum outro componente de 
@@ -194,7 +194,7 @@ Nas próximas seções tem-se uma descrição dos \textit{softwares} de replica�
 \label{section:drbd}
 O \ac{DRBD} é um projeto de código aberto desenvolvido pela \textit{LINBIT} \cite{drbd}.
 Esse \textit{software} é uma solução de replicação de dispositivos de armazenamento, ou seja, esse permite a duplicação de um dispositivo de bloco 
-em um servidor remoto. Esse é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
+em um servidor remoto. O \ac{DRBD} é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
 
 Para ilustrar sua arquitetura, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e 
 \textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Ou seja, todas as operações de escritas 
@@ -243,14 +243,14 @@ Esse volume é acessado pelos clientes através da rede.
 O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com as opções de distribuição e replicação de dados \cite{glusterfs}:
 \begin{itemize}
  \item Volume distribuído: neste tipo os arquivos são distribuídos entre os diferentes \textit{bricks} dos nós. O objetivo deste tipo de 
- configuração é ampliar a capacidade de armazenamento. Desta forma, não tem-se redundância de dados, caso um nó falhe haverá uma perda de todos 
- dados;
- \item Volume replicado: neste os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se umm rendundância, caso houver a falha de 
- um \textit{brick} não haverá perda de dados;
- \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores, sendo assim é feito a distribuição 
+ configuração é ampliar a capacidade de armazenamento. Desta forma, não tem-se redundância de dados, sendo assim, caso um nó falhe haverá uma 
+ perda de todos dados;
+ \item Volume replicado: neste os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se uma redundância, sendo assim, caso houver 
+ uma falha em um \textit{brick} não haverá perda de dados;
+ \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores, sendo assim, é feito a distribuição 
  e a replicação dos arquivos entre os nós;
  \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido e salvo uma
- parte em cada \textit{brick}. Esse tipo é utilizado para armazenamento de arquivos muito grandes;
+ parte em cada \textit{brick}. Esse tipo é normalmente utilizado para armazenamento de arquivos muito grandes;
  \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado, desta forma, é feito a divisão do arquivo 
  e salvo em \textit{bricks} distintos e também é feito a replicação.
 \end{itemize}
@@ -258,11 +258,11 @@ O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com
 \subsubsection{Rsync}
 \label{section:rsync}
 O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} prove uma rápida
-tranferência arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
+transferência arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
 
-A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}, ilustrando o sincronismo de dados entre dois servidores. Pode-se perceber
-que é feito somente a replicação dos arquivos que não foram modificados ou que não existem no destino, além disso, tem-se a opção de fazer a 
-replicação sobrescrevendo todos arquivos.
+A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}, ilustrando o sincronismo de dados entre dois servidores. Percebe-se
+que pode ser feito a replicação dos arquivos que não foram modificados ou que não existem no destino, ou pode ser feito a replicação 
+sobrescrevendo todos arquivos.
 
 \begin{figure}[h!]
  \centering
@@ -276,24 +276,25 @@ replicação sobrescrevendo todos arquivos.
 
 %Algoritmo \cite{tridgell98}
 
-O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar os dados com esse servidor. O sincronismo
-pode ser feito de cliente para cliente, utilizando como transporte o protocolo \ac{SSH} ou através de \textit{sockets}.
+O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar os dados com esse servidor. 
+Além disso, o sincronismo pode ser de cliente para cliente, utilizando como transporte o protocolo \ac{SSH} ou através de \textit{sockets}.
 
 % Ceph RBD
 % Swift open stack
 % https://wiki.freebsd.org/HAST
 
-\subsubsection{Software de replicação escolhido}
+\subsubsection{Software de replicação adotado}
 \label{section:replicacaoescolhido}
 
 Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. 
 A ferramenta adotada para replicação de dados será o \ac{DRBD}, pois permite a configuração \textit{master-slave} ou \textit{dual-primary}, 
-além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a resincronização 
+além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a ressincronização 
 dos dados de forma automática em caso de um falha \cite{drbd}.
 
 De fato, o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, sendo assim, não é adequada para uma 
 solução de alta disponibilidade que utiliza-se de virtualização. 
-E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real.
+E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real, além de não ter sido desenvolvido para
+executar em conjunto com a virtualização.
 
 %Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
 %\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
@@ -367,10 +368,10 @@ O \textit{Ganeti} \cite{ganeti} é um \textit{software} desenvolvido pelo \texti
 
 Na Figura \ref{fig:ganeti_arquitetura} tem-se a arquitetura deste \textit{software}. 
 O \textit{cluster} é composto por nós, sendo que é necessário um nó \textit{master}, que armazena as configurações e gerencia o \textit{cluster}, 
-e um nó \textit{master candidate}, para o caso do nó \textit{master} falhar. Além disso, ele permite a criação de vários nós \textit{slaves}, 
-que é responsável por armazenar os dados das máquinas virtuais.
-Cada nó possui uma ou mais instâncias. As instâncias são as máquinas virtuais que executam no \textit{cluster}. Em cada instância configura-se 
-dois nós: o nó primário, que ela executará inicialmente; e o nó secundário, que executará caso o primário falhe.
+e um nó \textit{master candidate}, para o caso do nó \textit{master} falhar. Além disso, ele permite a criação de vários nós \textit{slaves}. 
+Destacando que todos os nós são responsáveis por prover o ambiente de virtualização e armazenar os dados das \acp{VM}.
+Cada nó possui uma ou mais instâncias. As instâncias são as \acp{VM} que executam no \textit{cluster}. Em cada instância configura-se 
+dois nós: o nó primário, que a instância executará inicialmente; e o nó secundário, para a instância executar caso o primário falhe.
 As instâncias também podem ser migradas de um nó para outro de forma manual. 
 
 \begin{figure}[h!]
@@ -383,9 +384,9 @@ As instâncias também podem ser migradas de um nó para outro de forma manual.
 
 As principais funcionalidades do \textit{Ganeti} são \cite{ganeti}:
 \begin{itemize}
- \item Gerenciamento do armazenamento de dados das máquinas virtuais;
  \item Criação de instâncias;
- \item Iniciar e finalizar máquinas virtuais, além de efetuar o \textit{failover} entre os nós.
+ \item Gerenciamento do armazenamento de dados das instâncias;
+ \item Iniciar e finalizar instâncias, além de efetuar o \textit{failover} entre os nós.
 \end{itemize}
 
 % ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
@@ -394,10 +395,11 @@ As principais funcionalidades do \textit{Ganeti} são \cite{ganeti}:
 \label{section:heartbeat}
 O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
 Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}}, através da rede, para outras aplicações \textit{Heartbeat}, 
-com o objetivo de informar se ele está ativo \cite{reis2009}.
+com o objetivo de informar se ele está ativo.
+Destaca-se que esse \textit{software} pode ser utilizando para alta disponibilidade em ambientes de virtualização \cite{reis2009}.
 
-Na Figura \ref{fig:heartbeat} tem-se o \textit{Heartbeat} executando em dois servidores sobre as interfaces de rede dedicadas (\textit{ethx}), 
-para que cada nó monitore o outro. Caso o nó secundário deixe de receber os sinais do nó primário, este irá tornar-se o nó primário, iniciando o
+Na Figura \ref{fig:heartbeat} tem-se o \textit{Heartbeat} executando em dois servidores sobre as interfaces de rede dedicadas (\textit{ethX}), 
+com o objetivo de cada nó monitorar o outro. Caso o nó secundário deixe de receber os sinais do nó primário, este irá tornar-se o nó primário, iniciando o
 processo de \textit{failover}, com isso, ele receberá o \ac{IP} virtual (\textit{192.168.50.3}) e iniciará os serviços previamente configurados.
 \begin{figure}[h!]
  \centering
@@ -409,15 +411,12 @@ processo de \textit{failover}, com isso, ele receberá o \ac{IP} virtual (\texti
  \label{fig:heartbeat}
 \end{figure}
 
-As principais funcionalidades do \textit{Heartbeat} são:
+As principais funcionalidades do \textit{Heartbeat} são \cite{clusterlabs}:
 \begin{itemize}
  \item Envio de mensagens entre os nós para detecção de falhas;
  \item Efetua os processos de \textit{failover} e \textit{failback};
- \item Inicia e finaliza serviços dos nós;
+ \item Inicia e finaliza serviços nos nós;
 \end{itemize}
-
-%faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse \textit{cluster} quando houver alguma alteração de 
-%estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}
 
 %exemplo de implementacao heartbeat com virtualizacao = \cite{reis2009}
 
@@ -425,7 +424,7 @@ As principais funcionalidades do \textit{Heartbeat} são:
 \label{section:pacemaker}
 O \textit{Pacemaker} \cite{pacemaker} é um projeto de código aberto mantido pela \textit{ClusterLabs}, e teve origem com a necessidade de 
 aperfeiçoar o gerenciador de recursos da ferramenta \textit{Heartbeat} \cite{heartbeat}. 
-Esse \textit{software} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
+O \textit{Pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 
 Esse \textit{software} é utilizado juntamente com ferramentas que fazem registro dos nós e troca de mensagens entre os nós do \textit{cluster}.
 As ferramentas que podem ser integradas com o \textit{Pacemaker} são \cite{pacemaker}:
@@ -495,7 +494,7 @@ Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 % (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
 \newpage
-\subsubsection{Software de gerenciamento escolhido}
+\subsubsection{Software de gerenciamento adotado}
 \label{section:gerenciadorescolhido}
 
 Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
@@ -566,13 +565,12 @@ Após isso, será adicionado o outro nó para possibilitar a tolerância a falha
 % \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
 % e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
-Com isso tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim será criado uma instância para cada servidor virtual definindo
-qual será o nó primário e o nó secundário. Como pode ser observado no Figura \ref{fig:projeto_estrutura}, será criado três instâncias no nó
-\textit{master} e duas instâncias no outro nó, com isso possibilita-se o balanceamento de carga.
-As instâncias criarão volumes lógicos \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, 
-através da criação de grupos de volumes e volumes lógicos para \textit{Linux}.}  ?? VER ESSE PARAGRAFO
-nos dois nós, para serem usados como disco das máquinas virtuais. Desta forma, quando houver 
-uma falha no nó primário a instância será migrada para o nó secundário, sem que a máquina virtual seja reiniciada.
+Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim será criado uma instância para cada servidor virtual, e nela será
+configurado o nó primário e o nó secundário. Como pode ser observado no Figura \ref{fig:projeto_estrutura}, será criado três instâncias no nó
+\textit{master} e duas instâncias no outro nó, desta forma, além da alta disponibilidade tem-se o balanceamento de carga.
+%Ao criar as instâncias também serão criados volumes lógicos \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação 
+%de discos rígidos, através da criação de grupos de volumes e volumes lógicos para \textit{Linux}.}, que serão utilizados como disco das \acp{VM}. 
+Desta forma, quando houver uma falha no nó primário as instâncias serão migradas para o nó secundário, sem que as \acp{VM} sejam reiniciadas.
 
 Para essa migração, o \textit{Ganeti} utilizará a opção de migração em tempo real que é fornecida pelo hipervisor \ac{KVM} \cite{kvm}. 
 % A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \acp{VM} executando. 
