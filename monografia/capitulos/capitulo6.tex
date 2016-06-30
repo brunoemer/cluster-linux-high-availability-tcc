@@ -2,20 +2,31 @@
 \label{cap:conclusao}
 
 Neste trabalho foi feito um estudo sobre uma empresa prestadora de serviços para Internet, analisando sua estrutura física e os seus servidores. 
-Durante este estudo foram definidos os serviços críticos, para tanto considerou-se o impacto dos mesmos para a empresa.
+Durante este estudo foram definidos os serviços críticos, para tanto considerou-se o impacto dos mesmos para a empresa através dos seguintes 
+critérios: a quantidade de clientes e funcionários que utilizam o serviço; o número de requisições do serviço, sendo que esta pode ser requisições 
+por segundo ou requisições simultâneas; e volume de elementos do serviço.
+Destaca-se que foi necessário selecionar os serviços mais críticos para a empresa por não haver recursos necessários para implementar a
+alta disponibilidade para todos os serviços.
+
+Deste modo, os serviços críticos definidos foram: o serviço de \ac{DNS} recursivo, pois é utilizado para navegação de Internet de todos os clientes 
+e funcionários do provedor; o serviço de autenticação \textit{Radius}, por influenciar diretamente na navegação dos clientes e armazenar dados 
+importantes para o provedor; sistemas da empresa, esse serviço é importante pois a maior parte dos funcionários utilizam-no e também por ter um 
+impacto indireto nos clientes; e serviço de telefonia interna, por ser responsável pela comunição tanto entre funcionários, como entre clientes 
+e funcionários.
 
 Após criou-se uma proposta de alta disponibilidade para esses serviços. Essa proposta é composta por um \textit{cluster} o qual é constituído 
-por dois servidores e \textit{softwares} que são responsáveis pelo gerenciamento do \textit{cluster} e pela replicação de dados. O
-\textit{software} de gerenciamento adotado, que foi o \textit{Ganeti}, fará o gerenciamento, monitoramento e a transferência dos serviços para 
-garantir a alta disponibilidade. O \textit{software} de replicação de dados adotado foi o \ac{DRBD}, que replicará os dados entre 
-os dois servidores.
+por dois servidores físicos. Para o gerenciamento do \textit{cluster} será adotado o \textit{software} \textit{Ganeti}, que fará o gerenciamento, 
+monitoramento e a transferência dos serviços para garantir a alta disponibilidade. Para a replicação de dados do \textit{cluster} foi adotado 
+o \textit{software} \ac{DRBD}. Esse será responsável pela replicação dos dados dos dois servidores.
 
-O ambiente de alta disponibilidade é composto por máquinas virtuais que contém os serviços críticos, sendo assim, utilizou-se a opção de 
-migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Ganeti}. Desta forma, possibilitou-se a alta disponibilidade 
-dos serviços caso um dos servidores falhe. Além disso, nos testes realizados com essas ferramentas pode-se afirmar que obteve-se bons resultados.
+O ambiente de alta disponibilidade será composto por máquinas virtuais que executarão os serviços críticos. Para garantir a disponibilidade 
+será utilizado a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Ganeti}. Desta forma, 
+caso um dos servidores falhe as máquinas virtuais serão migradas para o outro servidor. Destacando-se que bons resultados foram obtidos com os 
+testes realizados com essas ferramentas.
 
-Com esse estudo, destaca-se que existe uma variedade de ferramentas que possibilitam criar um ambiente de alta disponibilidade, de forma a atingir 
-o objetivo deste trabalho.
+Na próxima parte deste trabalho, primeiramente, será finalizada a elaboração da solução definitiva, além disso, será feito a organização do 
+ambiente de virtualização da empresa, para então ser possível a implementação desta solução de alta disponibilidade. E por fim, será feito uma 
+análise dos resultados desta implementação. O cronograma destas etapas está melhor detalhado na próxima seção.
 
 % Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, destacando que 
 % pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 
@@ -25,13 +36,12 @@ o objetivo deste trabalho.
 % na empresa, devido a fatores como versão dos \textit{softwares} de virtualização, desempenho das ferramentas do ambiente de alta disponibilidade, 
 % versão do sistema operacional, entre outros.
 
-\newpage
 \section{Cronograma}
 \label{section:cronograma}
 
 Na Tabela \ref{tab:propcronograma} tem-se o cronograma correspondente a primeira parte deste trabalho. Como pode ser observado todas etapas foram
 concluídas, sendo que houve uma modificação no item 3, definição das ferramentas.
-Já na Tabela \ref{tab:implcronograma} tem-se o cronograma da segunda etapa deste trabalho. Nesta etapa será implementada a solução de 
+Já na Tabela \ref{tab:implcronograma} tem-se o cronograma da segunda parte deste trabalho. Nesta parte será implementada a solução de 
 alta disponibilidade e será realizados os testes.
 
 \begin{table}[h!]\normalsize % fonte tamanho normal

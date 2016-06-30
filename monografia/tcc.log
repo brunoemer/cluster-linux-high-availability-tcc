@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  30 JUN 2016 10:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  30 JUN 2016 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1898,6 +1898,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 (./capitulos/capitulo6.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 50
  []
@@ -1907,7 +1910,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Overfull \hbox (3.52617pt too wide) in paragraph at lines 61--71
+Overfull \hbox (3.52617pt too wide) in paragraph at lines 71--81
  [] 
  []
 
@@ -2029,7 +2032,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  14366 strings out of 495004
  278090 string characters out of 6180662
- 335920 words of memory out of 5000000
+ 335935 words of memory out of 5000000
  17257 multiletter control sequences out of 15000+600000
  10865 words of font info for 38 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2046,7 +2049,7 @@ msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
 pfb>
-Output written on tcc.pdf (58 pages, 1885558 bytes).
+Output written on tcc.pdf (58 pages, 1886540 bytes).
 PDF statistics:
  348 PDF objects out of 1000 (max. 8388607)
  220 compressed objects within 3 object streams
