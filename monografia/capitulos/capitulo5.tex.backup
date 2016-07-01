@@ -1,7 +1,7 @@
 \chapter{Projeto de implementação}
 \label{cap:projetoimplementacao}
 
-Neste capítulo serão apresentados os serviços considerados críticos para a empresa. Posteriormente, será apresentada uma proposta de uma solução 
+Neste capítulo serão apresentados os serviços considerados críticos para a empresa. Posteriormente, será apresentada uma proposta de solução 
 de alta disponibilidade. Essa solução será detalhada na Seção \ref{section:propostasolucao} e será baseada na utilização de virtualização e 
 de \textit{softwares} de código aberto. 
 
@@ -9,10 +9,10 @@ de \textit{softwares} de código aberto.
 \label{section:servcrit}
 
 No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feito uma análise desses
-serviços, destacando os serviços considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados os seguintes
-critérios:
+serviços, destacando os serviços que foram considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados os 
+seguintes critérios:
 \begin{itemize}
- \item A quantidade de clientes ou funcionários que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
+ \item A quantidade de clientes que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
  acesso; 
  \item O número de requisições: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do serviço e a frequência
@@ -21,12 +21,12 @@ critérios:
  em um servidor recursivo;
  \item O volume de elementos do serviço: essa medida demonstra a abrangência do serviço, ou seja, quantos clientes são dependentes deste. 
  Como exemplo de elementos pode-se citar a quantidade de contas de \textit{e-mail} ativas em um servidor de \textit{e-mail} ou a quantidade de 
- equipamentos monitorados por um servidor de monitoramento;
+ equipamentos monitorados por um servidor.
  %Esse critério é importante pois com ele pode-se comparar diferentes serviços possibilitando perceber o grau de relevância que cada um possui;
  %Esse critério, como o anterior, também permite comparar diferentes serviços para ter a possibilidade de ordená-los de acordo com sua relevância, por isso o torna importante para esta análise.
 \end{itemize}
 
-Nas próximas seções serão descritos os serviços críticos, com base nos critérios adotados.
+Nas próximas seções serão descritos os serviços que foram considerados mais críticos, com base nos critérios adotados.
 
 \subsection{DNS recursivo primário}
 \label{section:dnsrecprim}
@@ -35,7 +35,7 @@ Esse serviço foi classificado como o serviço mais importante pois possui um im
 serviço que todos os clientes e funcionários utilizam, totalizando aproximadamente 9000 pessoas. O objetivo de um provedor é fornecer uma navegação 
 de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. A importância deste serviço está ilustrado na Figura 
 \ref{fig:dns_udp} (a), onde pode ser observado que esse serviço possui picos de aproximadamente 1150 requisições por segundo. Já na Figura 
-\ref{fig:dns_udp} (b) pode ser observado que o servidor \textit{Passata} é o servidor que possui um maior número de requisições 
+\ref{fig:dns_udp} (b) pode ser observado que o servidor \textit{Passata} é o servidor que apresenta o maior número de requisições 
 \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} é elevado devido ao fato do serviço \ac{DNS} utilizar esse protocolo de transporte.}. 
 Essa figura compara os principais servidores da empresa através de requisições \ac{UDP} e pode ser usada como um indicador da quantidade de 
 clientes que utilizam os serviços.
@@ -52,14 +52,15 @@ clientes que utilizam os serviços.
 
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
 os clientes não conseguirão estabelecer conexão e, consequentemente, não conseguirão utilizar o serviço de Internet. Os servidores 
-\textit{Masterauth} e \textit{Speedauth} fornecem o serviço de \textit{Radius}, sendo que recebem, em média, 1,6 requisições de autenticação 
+\textit{Masterauth} e \textit{Speedauth} fornecem o serviço de \textit{Radius}, sendo que recebem em média 1,6 requisições de autenticação 
 por segundo. Além disso, esses servidores armazenam dados relacionados à conexão dos clientes, como por exemplo, o endereço de \ac{IP} que é 
 utilizado por um cliente em um determinado período de tempo, o tráfego de dados da conexão, o tempo da conexão de cada cliente, o endereço 
 \aca{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 requisições por segundo. 
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes que
 utilizam esses servidores para autenticação. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e 
-\textit{Speedauth} estão entre os que apresentam o maior número de elementos. Além disso, existem um grande número de conexões \ac{TCP} nesses 
-servidores, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
+\textit{Speedauth} estão entre os que apresentam o maior número de elementos. Além disso, nesses servidores existem um grande número de conexões 
+\ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utilizar para comunicação com o
+seu banco de dados.}, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
 % \begin{figure}[h!]
 %  \centering
@@ -78,15 +79,16 @@ servidores, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 \subsection{Sistemas da empresa e do provedor}
 \label{section:sistemas}
 
-O sistema do provedor é responsável pela maior parte das operações gerenciais do provedor. De fato, este sistema é responsável pela emissão de 
+O sistema do provedor é responsável pela maior parte das operações gerenciais do provedor. Este sistema é responsável pela emissão de 
 boletos, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros. Esse sistema não tem um 
 impacto direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui um total de 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuízo elevado para a empresa e o provedor. 
-Esse sistema é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \aca{HTTP} \cite{tanenbaum2011} por segundo, como 
-pode ser observado na Figura \ref{fig:soldi_week}. Além disso, a empresa mantém 28 sistemas de outros clientes nesse servidor. 
-O nível de utilização deste servidor é ilustrado na Figura \ref{fig:elementos_tcp} (b) onde pode ser observado que esse serviço possui um número 
-considerável de conexões \ac{TCP}\footnote[1]{O número de conexões \ac{TCP} é considerado devido ao fato do protocolo \ac{HTTP} utilizar esse 
+
+O sistema do provedor é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \aca{HTTP} \cite{tanenbaum2011} por segundo
+(Figura \ref{fig:soldi_week}). Além disso, a empresa mantém 28 sistemas de outros clientes nesse servidor. 
+Como pode ser observado na Figura \ref{fig:elementos_tcp} (b), esse servidor encontra-se entre os que apresentam um alto nível de conexões 
+\ac{TCP}\footnote[1]{O número de conexões \ac{TCP} é considerado devido ao fato do protocolo \ac{HTTP} utilizar esse 
 protocolo de transporte.}.
 
 %\begin{figure}[h!]
@@ -106,7 +108,7 @@ protocolo de transporte.}.
 \subsection{Telefonia interna sobre IP}
 \label{section:telefonia}
 
-Esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre os clientes e os funcionários, ou seja, o 
+Esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre os clientes e os funcionários. De fato, o 
 servidor \textit{SimplesIP} é responsável por garantir o atendimento dos clientes para fins de suporte técnico, comunicação interna entre 
 funcionários, comunicação com técnicos externos, vendas, cobranças a clientes, entre outros. Para quantificar, no mês de maio de 2016 a empresa 
 recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
@@ -130,13 +132,13 @@ A partir da análise inicial, verificou-se que os servidores a serem incluídos 
  \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
  \item \textit{Speedauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
  \item \textit{Masterauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
- \item \textit{Soldi}: servidor dos sistemas da empresa e do provedor;
- \item \textit{SimplesIP}: servidor de telefonia interna sobre \ac{IP} para atendimento aos clientes e comunicação interna do provedor e da empresa;
+ \item \textit{Soldi}: servidor dos sistemas gerenciais da empresa e do provedor;
+ \item \textit{SimplesIP}: servidor de telefonia sobre \ac{IP} para atendimento dos clientes e comunicação interna do provedor e da empresa;
 \end{itemize}
 
 Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime} e o tempo de 
-\textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim sua medição é dos 
-últimos 6 meses de 2016, por isso possui um \textit{Uptime} elevado.
+\textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim foi utilizada a 
+medição apenas dos últimos 6 meses de 2015, por isso esse possui um \textit{Uptime} elevado.
 A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
 
 \begin{table}[h!]
@@ -157,27 +159,27 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \section{Proposta de solução}
 \label{section:propostasolucao}
 
-Para implementar esta solução será necessário dois servidores físicos, sendo que a configuração de cada servidor deverá ser de 
+Para implementação desta solução serão necessários dois servidores físicos, sendo que a configuração de cada servidor deverá ser de 
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
-recursos das máquinas virtuais que atualmente abrangem os serviços críticos. Com essa solução, caso ocorra alguma falha em um servidor, as 
-máquinas virtuais serão transferidas para o outro servidor. Destaca-se que tais recursos de \textit{hardware} já encontram-se disponíveis, 
-sendo necessário somente efetuar uma reorganização das máquinas virtuais.
+recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos. Com essa solução, caso ocorra alguma falha 
+em um servidor, as máquinas virtuais serão transferidas para o outro servidor. Destaca-se que tais recursos de \textit{hardware} já 
+encontram-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais.
 
-Já os \textit{softwares} necessários para a implementação da alta disponibilidade podem ser divididas em dois grupos: \textit{softwares} de 
-replicação de dados; e \textit{softwares} para o monitoramento e a transferências das máquinas virtuais entre os servidores.
+Já os \textit{softwares} que serão necessários para a implementação da alta disponibilidade podem ser divididas em dois grupos: 
+\textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e a transferências das máquinas virtuais entre os servidores.
 
 \subsection{Softwares para a replicação de dados}
 \label{section:toolrepl}
 
-A replicação de dados pode ser realizada de diferentes formas, que podem ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
+A replicação de dados pode ser realizada de diferentes formas, esta pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
 Dependendo do objetivo pode-se utilizar uma replicação através de um \ac{RAID} \cite{tanenbaum2009sistemas}. Essa solução é eficaz para garantir 
 que o sistema não fique indisponível em caso de falha de discos\footnote[1]{Lembrando que essa solução é utilizada no ambiente atual para 
 aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando um \textit{software} ou algum outro componente de 
 \textit{hardware} falhar \cite{zaminhani2008}.
 
-A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a cópia dos dados de um servidor
-para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de um \textit{cluster}\footnote[2]{Pode-se definir 
+A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a sincronização dos dados de um 
+servidor para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de um \textit{cluster}\footnote[2]{Pode-se definir 
 \textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
 \cite{freitas2005}}.
 Nas próximas seções tem-se uma descrição dos \textit{softwares} de replicação de dados que foram estudados.
@@ -194,11 +196,10 @@ Nas próximas seções tem-se uma descrição dos \textit{softwares} de replica�
 \label{section:drbd}
 O \ac{DRBD} é um projeto de código aberto desenvolvido pela \textit{LINBIT} \cite{drbd}.
 Esse \textit{software} é uma solução de replicação de dispositivos de armazenamento, ou seja, esse permite a duplicação de um dispositivo de bloco 
-em um servidor remoto. Esse é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
-
-Para ilustrar sua arquitetura, na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e 
+(geralmente um disco rígido) em um servidor remoto. O \ac{DRBD} é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
+Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e 
 \textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Ou seja, todas as operações de escritas 
-realizadas no nó primário serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
+realizadas no disco rígido do nó primário serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
 
 \begin{figure}[h!]
  \centering
@@ -212,23 +213,24 @@ realizadas no nó primário serão replicadas para o disco do nó secundário \c
 
 O \ac{DRBD} pode ser configurado dos seguintes modos \cite{drbd}:
 \begin{itemize}
- \item \textit{Single-primary}: ou \textit{master-slave}, neste modo apenas um nó do \textit{cluster} pode ser o nó primário, sendo que esse nó 
- é o único que terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. O nó 
+ \item \textit{Single-primary}: ou \textit{master-slave}, neste modo apenas um nó do \textit{cluster} pode ser o nó primário. Neste caso, somente
+ o nó primário terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. Já o nó 
  secundário terá apenas uma réplica dos dados;
- \item \textit{Dual-primary}: ou \textit{dual-master}, neste modo existem dois nós primários, nos quais podem ser feitas operações de leitura e 
- escrita simultaneamente. Porém, este necessita de um sistema de arquivos compartilhados, sendo que esse pode utilizar os seguintes sistemas de
- arquivos: o \ac{GFS} \cite{gfs}; e o \ac{OCFS2} \cite{ocfs2}.
+ \item \textit{Dual-primary}: ou \textit{dual-master}, neste modo existem dois nós primários, nos quais podem ser realizadas operações de leitura e 
+ escrita de forma simultânea. Porém, este modo necessita de um sistema de arquivos compartilhados, sendo que neste caso podem ser utilizados os 
+ sistemas de arquivos: o \ac{GFS} \cite{gfs} e o \ac{OCFS2} \cite{ocfs2}.
 \end{itemize}
 
 \subsubsection{GlusterFS}
 \label{section:glusterfs}
 O \textit{GlusterFS} \cite{glusterfs} é um sistema de arquivos distribuídos mantido pela \textit{Gluster community}. Esse \textit{software} 
-utiliza estrutura de \textit{cluster} e seu principal objetivo é a escalabilidade, ou seja, existe uma facilidade para aumentar a capacidade 
-do \textit{cluster} a partir da inclusão de novos nós.
+utiliza estrutura de \textit{cluster} e seu principal objetivo é a escalabilidade, ou seja, este possui funcionalidades que facilitam o aumento
+da capacidade do \textit{cluster} a partir da inclusão de novos nós.
 
-Na Figura \ref{fig:glusterfs} tem-se dois nós, onde cada nó possui dois discos rígidos, esses discos são denominados \textit{bricks}. 
-A partir dos \textit{bricks} o \textit{GlusterFS} constrói um volume lógico que é disponibilizado para clientes \textit{GlusterFS}.
-Esse volume é acessado pelos clientes através da rede.
+Na Figura \ref{fig:glusterfs} tem-se dois nós, onde cada nó possui dois discos rígidos, que são denominados \textit{bricks}. 
+A partir dos \textit{bricks} o \textit{GlusterFS} constrói um volume lógico que é disponibilizado através da rede para os clientes 
+\textit{GlusterFS}. A organização destes \textit{bricks} vai depender do objetivo da aplicação, sendo que uma das formas é a replicação. Esses 
+diferentes tipos de configurações serão detalhados a seguir.
 
 \begin{figure}[h!]
  \centering
@@ -243,26 +245,25 @@ Esse volume é acessado pelos clientes através da rede.
 O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com as opções de distribuição e replicação de dados \cite{glusterfs}:
 \begin{itemize}
  \item Volume distribuído: neste tipo os arquivos são distribuídos entre os diferentes \textit{bricks} dos nós. O objetivo deste tipo de 
- configuração é ampliar a capacidade de armazenamento. Desta forma, não tem-se redundância de dados, caso um nó falhe haverá uma perda de todos 
- dados;
- \item Volume replicado: neste os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se umm rendundância, caso houver a falha de 
- um \textit{brick} não haverá perda de dados;
- \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores, sendo assim é feito a distribuição 
+ configuração é ampliar a capacidade de armazenamento. Desta forma, não tem-se preocupação com a redundância de dados, sendo que no caso de uma
+ falha em um nó haverá uma perda de todos dados;
+ \item Volume replicado: neste tipo os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se uma redundância, ou seja, caso ocorra
+ uma falha em um \textit{brick} não haverá perda de dados;
+ \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores. Neste caso, é feito a distribuição 
  e a replicação dos arquivos entre os nós;
- \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido e salvo uma
- parte em cada \textit{brick}. Esse tipo é utilizado para armazenamento de arquivos muito grandes;
- \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado, desta forma, é feito a divisão do arquivo 
- e salvo em \textit{bricks} distintos e também é feito a replicação.
+ \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido entre os
+ \textit{brick}. Esse tipo é normalmente utilizado para armazenamento de arquivos muito grandes;
+ \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado. Neste modo é feito a divisão do arquivo 
+ entre \textit{bricks} distintos, sendo que estes são replicados.
 \end{itemize}
 
 \subsubsection{Rsync}
 \label{section:rsync}
 O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} prove uma rápida
-tranferência arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
-
-A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}, ilustrando o sincronismo de dados entre dois servidores. Pode-se perceber
-que é feito somente a replicação dos arquivos que não foram modificados ou que não existem no destino, além disso, tem-se a opção de fazer a 
-replicação sobrescrevendo todos arquivos.
+transferência arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
+A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}. Observa-se que no \textit{Rsync} tem-se a replicação dos arquivos que
+ainda não foram atualizados ou que não existem no servidor de destino. Além disso, o \textit{Rsync} permite uma replicação completa. Neste caso,
+tem-se uma replicação onde os arquivos já existentes são sobrescritos.
 
 \begin{figure}[h!]
  \centering
@@ -276,24 +277,25 @@ replicação sobrescrevendo todos arquivos.
 
 %Algoritmo \cite{tridgell98}
 
-O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar os dados com esse servidor. O sincronismo
-pode ser feito de cliente para cliente, utilizando como transporte o protocolo \ac{SSH} ou através de \textit{sockets}.
+O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar os dados com esse servidor. 
+Além disso, o sincronismo pode ser de cliente para cliente, utilizando como transporte o protocolo \ac{SSH} ou através de \textit{sockets}.
+Destaca-se que o \textit{Rsync} não faz um sincronismo em tempo real, ou seja, ele faz o sincronismo a partir de uma ação (execução de um comando).
 
 % Ceph RBD
 % Swift open stack
 % https://wiki.freebsd.org/HAST
 
-\subsubsection{Software de replicação escolhido}
+\subsubsection{Resumo e software de replicação adotado}
 \label{section:replicacaoescolhido}
 
 Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. 
 A ferramenta adotada para replicação de dados será o \ac{DRBD}, pois permite a configuração \textit{master-slave} ou \textit{dual-primary}, 
-além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a resincronização 
+além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a ressincronização 
 dos dados de forma automática em caso de um falha \cite{drbd}.
-
-De fato, o \textit{GlusterFS} poderia ser utilizado, porém ele faz a replicação a nível de arquivo, sendo assim, não é adequada para uma 
+O \textit{GlusterFS} poderia ser utilizado, porém este faz uma replicação a nível de arquivo, sendo assim, não é adequada para uma 
 solução de alta disponibilidade que utiliza-se de virtualização. 
-E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real.
+E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real, além de não ter sido desenvolvido para
+executar em conjunto com a virtualização.
 
 %Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
 %\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
@@ -308,7 +310,7 @@ Master-slave & Sim & Sim & Não \\\hline
 Replicação em tempo real & Sim & Sim & Não \\\hline
 Nível de replicação & Bloco & Arquivo & Arquivo \\\hline
 Número máximo de nós & 16 & 64 & Ilimitado \\\hline
-Plataformas & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, Red Hat, Fedora, Ubuntu & Linux \\\hline
+Distribuições Linux & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, Red Hat, Fedora, Ubuntu & Todas \\\hline
 Integração com virtualização & Sim & Sim & Não \\\hline
 \end{tabular}
 \end{center}
@@ -340,17 +342,15 @@ Integração com virtualização & Sim & Sim & Não \\\hline
 \subsection{Softwares para o gerenciamento de cluster}
 \label{section:toolcluster}
 
-Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster}.
-Além disso, é interessante a utilização de \textit{softwares} que facilitam o gerenciamento deste \textit{cluster}. Esses \textit{softwares} 
-permitem detectar falhas em um nó, sendo possível detectar falhas de \textit{hardware} ou falhas de serviços. 
-Essas ferramentas são conhecidas como \ac{CRM}. 
+Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster},
+sendo assim, é interessante a utilização de \textit{softwares} que facilitam o gerenciamento deste \textit{cluster}. Esses \textit{softwares} 
+permitem detectar falhas em um nó, sendo elas de \textit{hardware} ou de serviços. Essas ferramentas são conhecidas como \ac{CRM}. 
 
-Após a detecção de uma falha, os \textit{softwares} de gerenciamento de \textit{cluster} pode executar operações de \textit{failover} e 
-\textit{failback}. O \textit{failover} é um processo no qual um servidor recebe os serviços que estavam executando em um servidor que falhou. 
+Após a detecção de uma falha, os \textit{softwares} de gerenciamento de \textit{cluster} executam operações de \textit{failover} e 
+\textit{failback}. O \textit{failover} é um processo no qual um servidor recebe os serviços que estavam executando no servidor que falhou. 
 Já no \textit{failback} tem-se o retorno dos serviços para o servidor de origem quando este estiver disponível. Esse processo ocorre após o 
-\textit{failover} sendo que ele é opcional \cite{bassan2008}.
-
-Nas próximas seções tem-se uma breve descrição dos \textit{softwares} de gerenciamento de \textit{cluster} que foram estudados.
+\textit{failover} sendo que ele é opcional \cite{bassan2008}. Nas próximas seções tem-se uma breve descrição dos \textit{softwares} de 
+gerenciamento de \textit{cluster} que foram estudados.
 
 % \subsubsection{Ceph}
 % \label{section:ceph}
@@ -365,13 +365,12 @@ O \textit{Ganeti} \cite{ganeti} é um \textit{software} desenvolvido pelo \texti
 \textit{cluster} de virtualização. Ele foi desenvolvido especificamente para ambientes de virtualização e suporta os hipervisores 
 \ac{KVM} \cite{kvm} e \textit{Xen} \cite{xen}. 
 
-Na Figura \ref{fig:ganeti_arquitetura} tem-se a arquitetura deste \textit{software}. 
-O \textit{cluster} é composto por nós, sendo que é necessário um nó \textit{master}, que armazena as configurações e gerencia o \textit{cluster}, 
-e um nó \textit{master candidate}, para o caso do nó \textit{master} falhar. Além disso, ele permite a criação de vários nós \textit{slaves}, 
-que é responsável por armazenar os dados das máquinas virtuais.
-Cada nó possui uma ou mais instâncias. As instâncias são as máquinas virtuais que executam no \textit{cluster}. Em cada instância configura-se 
-dois nós: o nó primário, que ela executará inicialmente; e o nó secundário, que executará caso o primário falhe.
-As instâncias também podem ser migradas de um nó para outro de forma manual. 
+Na Figura \ref{fig:ganeti_arquitetura} tem-se a arquitetura do \textit{Ganeti}. O \textit{cluster} é composto por um nó \textit{master}, que 
+armazena as configurações e gerencia o \textit{cluster}, e um nó \textit{master candidate}, para o caso do nó \textit{master} falhar. 
+Além disso, ele permite a criação de vários nós \textit{slaves}. Destaca-se que todos os nós são responsáveis por prover o ambiente de 
+virtualização e armazenar os dados das \acp{VM}, sendo que cada nó pode possuir uma ou mais instâncias de \acp{VM}. Em cada instância 
+configura-se dois nós: o nó primário, que a instância executará inicialmente; e o nó secundário, que será utilizado no caso do nó primário falhar.
+Além disso, as instâncias também podem ser migradas de um nó para outro de forma manual. 
 
 \begin{figure}[h!]
  \centering
@@ -381,67 +380,67 @@ As instâncias também podem ser migradas de um nó para outro de forma manual.
  \label{fig:ganeti_arquitetura}
 \end{figure}
 
+\newpage
 As principais funcionalidades do \textit{Ganeti} são \cite{ganeti}:
 \begin{itemize}
- \item Gerenciamento do armazenamento de dados das máquinas virtuais;
  \item Criação de instâncias;
- \item Iniciar e finalizar máquinas virtuais, além de efetuar o \textit{failover} entre os nós.
+ \item Gerenciamento do armazenamento das instâncias;
+ \item Iniciar e finalizar instâncias, além de efetuar o \textit{failover} entre os nós.
 \end{itemize}
 
 % ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
 
 \subsubsection{Heartbeat}
 \label{section:heartbeat}
-O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve aplicações para soluções de alta disponibilidade.
-Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}}, através da rede, para outras aplicações \textit{Heartbeat}, 
-com o objetivo de informar se ele está ativo \cite{reis2009}.
+O \textit{Heartbeat} é um subprojeto do \textit{Linux-HA} \cite{linuxha}, que desenvolve soluções de alta disponibilidade.
+Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive \ac{UDP}}, através da rede, para outras aplicações \textit{Heartbeat}. 
+Esses pacotes possuem como objetivo verificar se uma aplicação está ativa.
+Destaca-se que esse \textit{software} pode ser utilizando para alta disponibilidade em ambientes de virtualização \cite{reis2009}.
 
-Na Figura \ref{fig:heartbeat} tem-se o \textit{Heartbeat} executando em dois servidores sobre as interfaces de rede dedicadas (\textit{ethx}), 
-para que cada nó monitore o outro. Caso o nó secundário deixe de receber os sinais do nó primário, este irá tornar-se o nó primário, iniciando o
-processo de \textit{failover}, com isso, ele receberá o \ac{IP} virtual (\textit{192.168.50.3}) e iniciará os serviços previamente configurados.
+Na Figura \ref{fig:heartbeat} tem-se o \textit{Heartbeat} executando em dois servidores sobre as interfaces de rede dedicadas (\textit{ethX}).
+Neste caso, se o nó secundário deixar de receber os sinais do nó primário, este irá tornar-se o nó primário, e iniciará o processo de 
+\textit{failover}. 
+%com isso, ele receberá o \ac{IP} virtual (\textit{192.168.50.3}) e iniciará os serviços previamente configurados.
 \begin{figure}[h!]
  \centering
  \fcolorbox{black}{white}{
-  \includegraphics[width=320px]{img/heartbeat.eps}
+  \includegraphics[width=300px]{img/heartbeat.eps}
  }
  \caption{Arquitetura do \textit{Heartbeat}.}
  Fonte: \citet{zaminhani2008}
  \label{fig:heartbeat}
 \end{figure}
 
-As principais funcionalidades do \textit{Heartbeat} são:
+As principais funcionalidades do \textit{Heartbeat} são \cite{clusterlabs}:
 \begin{itemize}
- \item Envio de mensagens entre os nós para detecção de falhas;
- \item Efetua os processos de \textit{failover} e \textit{failback};
- \item Inicia e finaliza serviços dos nós;
+ \item Enviar mensagens entre os nós para a detecção de falhas;
+ \item Efetuar os processos de \textit{failover} e \textit{failback};
+ \item Iniciar e finalizar serviços nos nós;
 \end{itemize}
-
-%faz envio de mensagens entre os nós do \textit{cluster} com objetivo de notificar esse \textit{cluster} quando houver alguma alteração de 
-%estado dos recursos ou dos nós, além de fazer o \textit{failover} \cite{clusterlabs}
 
 %exemplo de implementacao heartbeat com virtualizacao = \cite{reis2009}
 
 \subsubsection{Pacemaker}
 \label{section:pacemaker}
 O \textit{Pacemaker} \cite{pacemaker} é um projeto de código aberto mantido pela \textit{ClusterLabs}, e teve origem com a necessidade de 
-aperfeiçoar o gerenciador de recursos da ferramenta \textit{Heartbeat} \cite{heartbeat}. 
-Esse \textit{software} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
+aperfeiçoar o \textit{Heartbeat} \cite{heartbeat}. 
+O \textit{Pacemaker} pode ser definido como uma ferramenta de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 
 Esse \textit{software} é utilizado juntamente com ferramentas que fazem registro dos nós e troca de mensagens entre os nós do \textit{cluster}.
 As ferramentas que podem ser integradas com o \textit{Pacemaker} são \cite{pacemaker}:
 \begin{itemize}
- \item \textit{Corosync} \cite{corosync}: é responsável pelo processo de registro dos nós, de \textit{failover} e de bloqueios distribuídos 
- (utilizados para implementar \ac{LVM} \cite{lvm}, \ac{GFS}, e \ac{OCFS2}), entre outros. Essa ferramenta derivou do projeto \textit{OpenAIS};
- \item \textit{Heartbeat}: como descrito na Seção \ref{section:heartbeat}, essa ferramenta faz envio de mensagens entre os nós do \textit{cluster},
- além de iniciar e finalizar serviços.
+ \item \textit{Corosync} \cite{corosync}: é responsável pelo processo de registro dos nós e pelo processo de \textit{failover}.
+ %bloqueios distribuídos (utilizados para implementar \ac{LVM} \cite{lvm}, \ac{GFS}, e \ac{OCFS2}). 
+ Essa ferramenta derivou do projeto \textit{OpenAIS};
+ \item \textit{Heartbeat}: essa ferramenta faz envio de mensagens entre os nós do \textit{cluster}, além de iniciar e finalizar serviços.
 \end{itemize}
 % outras ferramentas cMAN e Apache Qpid
 
 %Modelos Active/Passive, N+1, N TO N, Split Site ??
 
 Na Figura \ref{fig:pacemaker_tools} tem-se a arquitetura do \textit{Pacemaker}. Como pode ser observado na camada inferior tem-se os nós do 
-\textit{cluster}. Na camada superior tem-se os \textit{softwares} de envio de mensagens e acima deste tem-se o \textit{Pacemaker}. 
-Por fim, tem-se os serviços executando, que são: o \textit{DRBD}; o sistema de arquivos; o \ac{IP}; e um servidor \textit{Apache}.
+\textit{cluster}. Na camada superior tem-se o \textit{software} de envio de mensagens e acima deste tem-se o \textit{Pacemaker}. 
+Por fim, tem-se os serviços.
 
 \begin{figure}[h!]
  \centering
@@ -453,11 +452,11 @@ Por fim, tem-se os serviços executando, que são: o \textit{DRBD}; o sistema de
 
 Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 \begin{itemize}
- \item Inicia e finaliza serviços dos nós do \textit{cluster}. Esses serviços podem ser desde um servidor \textit{web} até uma interface de 
+ \item Iniciar e finalizar os serviços dos nós do \textit{cluster}. Esses serviços podem ser desde um servidor \textit{web} até uma interface de 
  rede;
  \item Replicação de configuração do \textit{cluster} para todos os nós de forma transparente. Desta forma, a configuração do \textit{cluster} 
  pode ser alterada em qualquer nó;
- \item Elege um nó como primário para centralizar todas as decisões, sendo que, se esse nó falhar outro será eleito primário.
+ \item Eleição de um nó como primário. No caso de uma falha neste nó, um outro será eleito primário.
 \end{itemize}
 
 % Corosync provides pacemaker:
@@ -495,14 +494,14 @@ Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 % (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
 \newpage
-\subsubsection{Software de gerenciamento escolhido}
+\subsubsection{Resumo e software de gerenciamento adotado}
 \label{section:gerenciadorescolhido}
 
 Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
 O \textit{software} adotado para gerenciar o ambiente será o \textit{Ganeti}, pois este possui todos os requisitos para a criação de um 
-\textit{cluster} de alta disponibilidade, além de possuir a vantagem de ser desenvolvido especificamente para virtualização, o que simplifica a 
-sua configuração. O \textit{Ganeti} possui detecção de falhas tanto a nível de nó quanto a nível de máquina virtual. 
-Destaca-se que foram realizados testes de migração de máquinas virtuais em tempo real utilizando o \textit{Ganeti}, e obteve-se bons resultados.
+\textit{cluster} de alta disponibilidade, além de possuir a vantagem de ser desenvolvido com suporte a virtualização. O \textit{Ganeti} 
+possui detecção de falhas tanto a nível de nó quanto a nível de máquina virtual. Destaca-se que já foram realizados testes de migração de 
+máquinas virtuais em tempo real utilizando o \textit{Ganeti}, e obteve-se bons resultados.
 
 % Pode-se observar que o \textit{software} \textit{Ceph} possui suporte apenas para a detecção e recuperação a nível de nó. De fato, esse 
 % \textit{software} tem foco em \textit{cluster} de armazenamento, desta forma necessitando de outra ferramenta para gerenciar a migração de 
@@ -517,17 +516,16 @@ Destaca-se que foram realizados testes de migração de máquinas virtuais em te
 Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
 Failover e failback & Sim & Sim & Sim \\\hline
 Nível de detecção e recuperação & Nó e máquina virtual & Nó & Nó e recurso \\\hline
-Plataformas & Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
-Integração com virtualização & Sim & Não & Sim \\\hline
+Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
+Suporte nativo a virtualização & Sim & Não & Não \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, desta forma seria necessário criar 
-um conjunto de \textit{scripts} para fazer a migração das máquinas virtuais, o que dificultaria a implementação.
-
+É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário criar 
+um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 Já o \textit{Pacemaker} é o único que possui a característica de sincronismo de configuração entre todos os nós, no entanto, isto não é uma
-característica essencial para o desenvolvimento deste trabalho.
+característica essencial para o desenvolvimento deste trabalho. Além disso, o \textit{Pacemaker} não possui um suporte nativo a virtualização.
 
 % O \textit{software} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto \textit{Pacemaker}. 
 % Esse \textit{software} possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada 
@@ -566,13 +564,12 @@ Após isso, será adicionado o outro nó para possibilitar a tolerância a falha
 % \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
 % e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
-Com isso tem-se o ambiente pronto para a criação das \acp{VM}
-??Por fim, será criado as instâncias, sendo que para 
-cada instância será definido qual será o nó primário e o nó secundário. Essa instância criará um volume lógico \ac{LVM} nos dois nós, este será
-o disco da máquina virtual. Desta forma, quando houver uma falha no nó primário a instância será migrada para o nó secundário, sem que a máquina 
-virtual seja reiniciada.
-\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
-e volumes lógicos para \textit{Linux}.}
+Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim será criado uma instância para cada servidor virtual, e nela será
+configurado o nó primário e o nó secundário. Como pode ser observado no Figura \ref{fig:projeto_estrutura}, será criado três instâncias no nó
+\textit{master} e duas instâncias no outro nó, desta forma, além da alta disponibilidade tem-se o balanceamento de carga.
+%Ao criar as instâncias também serão criados volumes lógicos \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação 
+%de discos rígidos, através da criação de grupos de volumes e volumes lógicos para \textit{Linux}.}, que serão utilizados como disco das \acp{VM}. 
+Desta forma, quando houver uma falha no nó primário as instâncias serão migradas para o nó secundário, sem que as \acp{VM} sejam reiniciadas.
 
 Para essa migração, o \textit{Ganeti} utilizará a opção de migração em tempo real que é fornecida pelo hipervisor \ac{KVM} \cite{kvm}. 
 % A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \acp{VM} executando. 
@@ -608,6 +605,6 @@ Para essa migração, o \textit{Ganeti} utilizará a opção de migração em te
 
 \section{Considerações finais}
 
-Neste capítulo, foram apresentados os serviços críticos para a empresa. Além disso, foi apresentado uma proposta de solução. Destaca-se que 
-durante o estudo das ferramentas foram realizados testes para uma melhor avaliação das mesmas.
+Neste capítulo foram apresentados os serviços críticos e foi apresentado uma proposta de solução de alta disponibilidade.
+No próximo capítulo será feito as conclusões parciais e o cronograma de andamento deste trabalho.
 
