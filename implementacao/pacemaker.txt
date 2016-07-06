@@ -251,3 +251,9 @@ rsc_defaults $id="rsc-options" \
 	resource-stickiness="100" \
 	migration-threshold="3"
 
+
+
+
+
+# interface java para gerencia
+http://lcmc.sourceforge.net/
