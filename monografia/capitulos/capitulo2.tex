@@ -10,7 +10,7 @@ de \ac{SPOF}. A alta disponibilidade está diretamente relacionada aos conceitos
  \item Dependabilidade: indica a qualidade do serviço fornecido e a confiança depositada neste serviço. A dependabilidade envolve atributos 
  como segurança de funcionamento, segurança de acesso, manutenabilidade, testabilidade e comprometimento com o desempenho \cite{weber2002};
  \item Confiabilidade: é o atributo mais importante, pois transmite a ideia de continuidade de serviço \cite{pankaj1994}. A confiabilidade 
- refere-se a probabilidade de um serviço estar funcionando corretamente durante um dado intervalo de tempo;
+ refere-se à probabilidade de um serviço estar funcionando corretamente durante um dado intervalo de tempo;
  \item Disponibilidade: é a probabilidade de um serviço estar operacional no instante em que for solicitado \cite{costa2009};
  \item Tolerância a falhas: procura garantir a disponibilidade de um serviço utilizando mecanismos capazes de detectar, mascarar e recuperar 
  falhas. O seu principal objetivo é alcançar a dependabilidade, assim indicando uma boa qualidade de serviço \cite{costa2009}. A tolerância a 
@@ -22,7 +22,7 @@ de \ac{SPOF}. A alta disponibilidade está diretamente relacionada aos conceitos
 
 Sabe-se que o \textit{hardware} tende a falhar, principalmente devido a fatores físicos, por isso utiliza-se métodos para a prevenção 
 de falhas. A abordagem de prevenção de falhas é realizada na etapa de projeto, ou seja, consiste em definir mecanismos que impeçam que 
-que as falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, uma vez que esta 
+as falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, uma vez que esta 
 tem como objetivo diminuir a possibilidade de falhas antes de colocar o sistema em uso.
 
 A prevenção de falhas não eliminará todas as possíveis falhas. Sendo assim, a tolerância a falhas procura fornecer a disponibilidade de 
@@ -34,7 +34,7 @@ fornecidos estão disponíveis aos usuários. Um sistema é dito tolerante a fal
 de uma sem afetar o funcionamento do sistema \cite{pankaj1994}. %{pereirafilho2004}
 
 A tolerância a falhas frequentemente é implementada utilizando redundância (Seção \ref{section:redundancia}). 
-Um exemplo muito utilizado para tornar um sistema tolerante a falhas é a virtualização. Nestes ambientes normalmente existem dois servidores 
+Pode-se utilizar virtualização para tornar um sistema tolerante a falhas. Nestes ambientes normalmente existem dois servidores 
 físicos onde máquinas virtuais são executadas, sendo que no caso de um dos servidores falhar, o \textit{software} de monitoramento fará a 
 transferência das máquinas virtuais para o outro servidor, de forma transparente aos usuários, evitando assim a indisponibilidade do serviço. 
 Os principais conceitos de virtualização, são apresentados no Capítulo \ref{cap:virtualizacao}.
@@ -44,11 +44,11 @@ pois as falhas são tratadas na origem. O mascaramento é utilizado principalmen
 códigos de correção de erros, em inglês \ac{ECC}, que são utilizados em memórias para a detecção e a correção de erros.
 
 O segundo tipo de tolerância a falhas consiste em detectar, localizar a falha, e reconfigurar o \textit{software} ou \textit{hardware} de 
-forma a corrigi-la. Esse tipo de tolerância a falha é dividido nas seguintes etapas \cite{weber2002}. 
+forma a corrigi-la. Esse tipo de tolerância a falha é dividido nas seguintes etapas \cite{weber2002}:
 
 \begin{itemize}
  \item Detecção: realiza o monitoramento e aguarda uma falha se manifestar em forma de erro, para então passar para a próxima fase. 
- Um exemplo de detecção de erro é um cão de guarda (\textit{watchdog timer}), que recebe um sinal do programa ou serviço que esta sendo 
+ Um exemplo de detecção de erro é um cão de guarda (\textit{watchdog timer}), que recebe um sinal do programa ou serviço que está sendo 
  monitorado e caso este sinal não seja recebido, o \textit{watchdog} irá se manifestar na forma de erro. 
  Um outro exemplo é o esquema de duplicação e comparação, onde são realizadas operações em componentes replicados com os mesmos dados de 
  entrada, e então os dados de saída são comparados. No caso de diferenças nos dados de saída um erro é gerado.
@@ -64,7 +64,7 @@ forma a corrigi-la. Esse tipo de tolerância a falha é dividido nas seguintes e
   de recuperação mais eficiente, porém mais complexa de ser implementada.
   \item \textit{backward error recovery} (recuperação por retorno): ocorre um retorno para um estado anterior e livre de erros.
   Para retornar ao estado anterior podem ser utilizados pontos de recuperação (\textit{checkpoints}). Assim, quando ocorrer um erro, um 
-  \textit{rollback} é executado, ou seja, o sistema retornará a um estado anterior a falha.
+  \textit{rollback} é executado, ou seja, o sistema retornará a um estado anterior à falha.
  \end{itemize}
  \item Tratamento: procura prevenir que futuros erros aconteçam. Nesta fase ocorre a localização da falha para descobrir o 
  componente que originou a falha. A substituição do componente danificado pode ser feita de forma manual ou automática. 

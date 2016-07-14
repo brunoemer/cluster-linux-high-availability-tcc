@@ -1,13 +1,13 @@
 \chapter{Virtualização}
 \label{cap:virtualizacao}
 
-O conceito virtualização surgiu na década de 60, onde o usuário muitas vezes necessitava de um ambiente individual, 
+O conceito de virtualização surgiu na década de 60, onde o usuário muitas vezes necessitava de um ambiente individual, 
 com suas próprias aplicações e totalmente isolado dos demais usuários. Esse foi um dos principais motivos para a criação das máquinas 
 virtuais, que na época eram conhecidas como \ac{VM}. As \acp{VM} apresentaram uma forte expansão com o sistema operacional \textit{370}, que foi 
 desenvolvido pela \textit{IBM}, e foi um dos principais sistemas comerciais com suporte à virtualização da época. Esse sistema operacional 
 era executado em \textit{mainframes}, que eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
 
-Na década de 80 houve uma redução no uso da virtualização devido a popularização do \ac{PC}. Na época era mais vantajoso disponibilizar 
+Na década de 80 houve uma redução no uso da virtualização devido à popularização do \ac{PC}. Na época era mais vantajoso disponibilizar 
 um \ac{PC} para cada usuário do que investir em \textit{mainframes}. Devido à crescente melhora na performance do \ac{PC} e
 ao surgimento da linguagem \textit{Java}, no início da década de 90, a tecnologia de virtualização retornou com o conceito de virtualização
 de aplicação \cite{laureano2008}.
@@ -26,7 +26,7 @@ nos sistemas de computação \cite{maziero2013}:
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Essa interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis à aplicações de usuários. Essas instruções executam em 
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis a aplicações de usuários. Essas instruções executam em 
   modo usuário, sendo que neste modo existem restrições que procuram garantir um controle e segurança no acesso aos recursos de \textit{hardware}. 
   Instruções de usuário são instruções não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir em outras tarefas, 
   porque elas não acessam recursos compartilhados. Este grupo de interface contém, por exemplo, instruções de operações aritméticas e instruções 
@@ -39,7 +39,7 @@ nos sistemas de computação \cite{maziero2013}:
   o estado dos registradores do processador; % entrada e saída (E/S)
  \end{itemize}
  \item Chamadas de sistema ou \textit{syscalls}: são operações oferecidas pelo núcleo do sistema operacional para as aplicações dos usuários.
- Essas operações permitem um acesso controlado aos dispositivos, a memória e ao processador. 
+ Essas operações permitem um acesso controlado aos dispositivos, à memória e ao processador. 
  As instruções privilegiadas não podem ser executadas no modo usuário, por isso, as aplicações de usuários utilizam chamadas de sistemas em seu 
  lugar, e então o sistema operacional determina se essas operações poderão comprometer ou não a integridade do sistema \cite{marinescu2013}.
  Um exemplo de chamada de sistema é uma operação de escrita em disco rígido ou qualquer operação de entrada e saída feita por aplicações de usuários.
@@ -115,7 +115,7 @@ tradução dessas interfaces, que será feita pela camada de virtualização. Os
 
 As máquinas virtuais de sistema, também chamadas de hipervisor ou \ac{VMM}, são uma camada de \textit{software} que possibilita
 que múltiplos sistemas operacionais convidados executem sobre um mesmo computador físico, ou seja, o hipervisor provê uma interface
-\ac{ISA} virtual, que pode ou não ser igual a interface real, e virtualiza outros componentes de \textit{hardware}, para que cada máquina
+\ac{ISA} virtual, que pode ou não ser igual à interface real, e virtualiza outros componentes de \textit{hardware}, para que cada máquina
 virtual convidada possa ter seus próprios recursos. Para tanto, a virtualização de sistema utiliza abstrações em sua arquitetura. 
 Por exemplo, ela transforma um disco rígido físico em dois discos virtuais menores, sendo que esses discos virtuais são arquivos armazenados no 
 disco físico \cite{smithenair2005}.
@@ -214,7 +214,7 @@ são a virtualização total e a paravirtualização (Figura \ref{fig:vms_implem
  possibilidade de um sistema convidado ser executado sem a necessidade de ser modificado. Porém, essa estratégia possui um desempenho inferior 
  devido ao fato do hipervisor intermediar todas as chamadas de sistemas e operações do sistema convidado. Um exemplo de ferramenta que utiliza 
  a virtualização total é o \textit{QEmu} \cite{qemu};
- \item Paravirtualização: nesta estratégia a interface entre o hipervisor e o sistema operacional convidado é modificado para se obter uma 
+ \item Paravirtualização: nesta estratégia a interface entre o hipervisor e o sistema operacional convidado é modificada para se obter uma 
  maior eficiência. Destaca-se que essa estratégia de implementação utiliza uma arquitetura de hipervisor nativo. 
  As modificações na interface de sistema (\textit{system \ac{ISA}}) exigem que o sistema operacional convidado seja adaptado para o hipervisor, 
  para possibilitar a execução sobre a plataforma virtual. Para essa adaptação, o hipervisor disponibiliza uma \ac{API}, para que os 
@@ -253,7 +253,7 @@ a execução de múltiplas plataformas de desenvolvimento sem comprometer o sist
 \textit{VMware Workstation}, que possibilita a virtualização em \acp{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
 
 Em empresas pode-se ainda utilizar a virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um 
-servidor para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops}, além disso, estes necessitam 
+servidor para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops}. Além disso, estes necessitam 
 de um \textit{hardware} de menor valor, uma vez que esses executarão apenas um terminal remoto. Por fim, essa técnica possibilita uma maior 
 segurança dos dados, pois os dados serão armazenados em um local seguro, como por exemplo, um \textit{data center}. Exemplos desse tipo de 
 virtualização são o \textit{Xen Desktop} \cite{xendesktop} e o \textit{VMware Horizon View} \cite{vmwareview}.
@@ -265,7 +265,7 @@ está disponível para a plataforma utilizada. Deste modo, a virtualização pos
 usuário. Por exemplo, para um usuário de sistema operacional \textit{MacOS} é comum a necessidade de executar aplicações que não existem para a 
 sua plataforma, sendo assim esse pode utilizar uma máquina virtual para executar essas aplicações.
 
-Pode-se também encontrar virtualização de \textit{desktops} em laboratórios de ensino, devido a necessidade de executar diferentes sistemas 
+Pode-se também encontrar virtualização de \textit{desktops} em laboratórios de ensino, devido à necessidade de executar diferentes sistemas 
 operacionais para determinadas disciplinas. Isso é necessário quando pretende-se configurar e executar aplicações para fim de experimentos ou
 aprendizagem, com isso, essas ações não afetarão o sistema hospedeiro. A grande vantagem da utilização de máquinas virtuais nesse tipo de 
 ambiente é a facilidade na manutenção, pois as máquinas virtuais podem ser restauradas de forma simples.

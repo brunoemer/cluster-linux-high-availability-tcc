@@ -2,13 +2,13 @@
 \label{cap:conclusao}
 
 Neste trabalho foi feito um estudo sobre uma empresa prestadora de serviços para Internet, analisando sua estrutura física e os serviços oferecidos 
-por esta. Durante este estudo foram definidos os serviços críticos, para tanto considerou-se o impacto dos mesmos para a empresa, medido através
+por esta. Durante este estudo foram definidos os serviços críticos. Para tanto considerou-se o impacto dos mesmos para a empresa, medido através
 da quantidade de clientes e funcionários que utilizam o serviço. Destaca-se que foi necessário selecionar os serviços mais críticos, por não 
 haver recursos necessários para implementar a alta disponibilidade para todos os serviços.
 
 Deste modo, os serviços críticos definidos foram: o serviço de \ac{DNS} recursivo, pois é utilizado para navegação de Internet de todos os clientes 
 e funcionários do provedor; o serviço de autenticação \textit{Radius}, por influenciar diretamente na navegação dos clientes e armazenar dados 
-importantes para o provedor; sistemas da empresa, uma vez que todos os funcionários utilizam-no e também por ter um impacto indireto nos 
+importantes para o provedor; sistemas da empresa, uma vez que todos os funcionários utilizam-nos e também por ter um impacto indireto nos 
 clientes; e serviço de telefonia interna, por ser responsável pela comunicação tanto entre funcionários, como entre clientes e funcionários.
 
 Após criou-se uma proposta de alta disponibilidade para esses serviços. Essa proposta é composta por um \textit{cluster} o qual é constituído 
@@ -17,12 +17,12 @@ monitoramento e a transferência das máquinas virtuais, que executarão os serv
 do \textit{cluster} foi adotado o \textit{software} \ac{DRBD}. Esse será responsável pela replicação dos dados dos dois servidores.
 
 O ambiente de alta disponibilidade será composto por máquinas virtuais que executarão os serviços críticos. Para garantir a disponibilidade 
-será utilizado a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Ganeti}. Desta forma, 
-caso um dos servidores falhe as máquinas virtuais serão migradas para o outro servidor. Destacando-se que bons resultados foram obtidos com os 
+será utilizada a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Ganeti}. Desta forma, 
+caso um dos servidores falhe as máquinas virtuais serão migradas para o outro servidor. Destaca-se que bons resultados foram obtidos com os 
 testes realizados com ambas as ferramentas.
 
-Na próxima etapa deste trabalho, será finalizada a elaboração da solução, além disso, será feito a organização do ambiente de virtualização 
-da empresa, para então ser possível a implementação desta solução de alta disponibilidade. E por fim, será feito uma análise dos resultados 
+Na próxima etapa deste trabalho, será finalizada a elaboração da solução, além disso, será feita a organização do ambiente de virtualização 
+da empresa, para então ser possível a implementação desta solução de alta disponibilidade. E por fim, será feita uma análise dos resultados 
 desta implementação. O cronograma destas etapas está melhor detalhado na próxima seção.
 
 % Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, destacando que 
@@ -38,7 +38,7 @@ desta implementação. O cronograma destas etapas está melhor detalhado na pró
 \section{Cronograma}
 \label{section:cronograma}
 
-Na Tabela \ref{tab:propcronograma} tem-se o cronograma correspondente a primeira parte deste trabalho. Como pode ser observado todas etapas foram
+Na Tabela \ref{tab:propcronograma} tem-se o cronograma correspondente à primeira parte deste trabalho. Como pode ser observado todas etapas foram
 concluídas.
 Já na Tabela \ref{tab:implcronograma} tem-se o cronograma da segunda parte deste trabalho. Nesta parte será implementada a solução de 
 alta disponibilidade e serão realizados os testes.

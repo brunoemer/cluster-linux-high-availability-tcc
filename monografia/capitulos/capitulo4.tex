@@ -27,7 +27,7 @@ A redundância de refrigeração é composta por dois ares-condicionados (\texti
 A redundância de energia é feita através de três \textit{nobreaks}, sendo que dois deles (identificados como \textit{NB 1} e \textit{NB 2} na 
 Figura \ref{fig:insteletrica}) são utilizados para a alimentação dos servidores e outros equipamentos, como por exemplo, roteadores. Assim, se um 
 \textit{nobreak} falhar o outro assume a alimentação de todos os equipamentos. O terceiro \textit{nobreak} (identificado como \textit{NB Sala} 
-na Figura \ref{fig:insteletrica}) é utilizado para alimentar os computadores dos funcionários de dois setores da empresa. Conectado aos 
+na Figura \ref{fig:insteletrica}) é utilizado para alimentar os computadores dos funcionários de dois setores da empresa. Conectados aos 
 \textit{nobreaks} estão seis \textit{totens}\footnote[1]{\textit{Totens} são torres que possuem tomadas para plugar os equipamentos} de energia, 
 sendo que nestes \textit{totens} são ligados os equipamentos e os servidores que estão localizados nos \textit{racks}. Além disso, existe a 
 entrada de energia, com três fases (destacadas na cor vermelho), e dois geradores (destacados na cor verde) que suprem a necessidade de consumo 
@@ -35,7 +35,7 @@ de energia elétrica do ambiente.
 
 Nas próximas seções será feita uma descrição da estrutura da empresa. Na Seção \ref{section:fisico} serão descritos os servidores físicos, com 
 suas estruturas e configurações. Na Seção \ref{section:servsemvirt} serão descritos os servidores que não utilizam virtualização, ou seja, 
-os servidores que possuem os serviços instalados diretamente sobre o sistema operacional. Na Seção \ref{section:servvirt} será descrito a 
+os servidores que possuem os serviços instalados diretamente sobre o sistema operacional. Na Seção \ref{section:servvirt} será descrita a 
 estrutura dos servidores que utilizam de virtualização e todos os serviços fornecidos por esses servidores.
 
 \section{Instalação física}
@@ -43,7 +43,7 @@ estrutura dos servidores que utilizam de virtualização e todos os serviços fo
 
 A estrutura atual da empresa é composta por quatorze servidores físicos. A configuração desses servidores pode ser observada na 
 Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo, a configuração dos processadores, quantidade de memória
-\ac{RAM}, número de discos rígidos e a capacidade unitária de cada disco.
+\aca{RAM}, número de discos rígidos e a capacidade unitária de cada disco.
 
 \begin{table}[h!]
 \caption{Configuração dos servidores físicos.}
@@ -102,7 +102,7 @@ Atualmente tem-se sete servidores que possuem os serviços executando sobre o si
 Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estão descritos abaixo:
 \begin{itemize}
  \item \textit{Bello}: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Sua função é armazenar todos os 
- dados de \textit{backup} da empresa. Para isso ele possui instalado a ferramenta \textit{Bacula Storage 5.2.6} \cite{bacula}. De fato, esse só
+ dados de \textit{backup} da empresa. Para isso ele possui instalada a ferramenta \textit{Bacula Storage 5.2.6} \cite{bacula}. De fato, esse só
  armazena os dados do \textit{backup}, ou seja, esse servidor não é responsável pela execução do \textit{backup}. A ferramenta que faz a execução e
  a gerência do \textit{backup} é o \textit{Bacula Director}, que encontra-se instalado no servidor \textit{Quebei} o qual será detalhado na 
  Seção \ref{section:serv_venti};
@@ -110,8 +110,8 @@ Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estã
  \item \textit{Cacti}: um dos servidores de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.6} \cite{centos} e 
  executa a aplicação \textit{Cacti 0.8.8b} \cite{cacti}, que é uma ferramenta de código aberto desenvolvida para monitorar equipamentos de rede 
  que suportem o protocolo \aca{SNMP} \cite{kurose2006}. Essa ferramenta monitora a maior parte da rede 
- \textit{core}\footnote[1]{A rede \textit{core} é a rede de transporte do provedor, onde trafega os principais \textit{link} de acesso à Internet.} 
- e da rede \textit{backbone}\footnote[2]{A rede \textit{backbone} é a rede de transporte entre os pontos de atendimento a clientes.}, 
+ \textit{core}\footnote[1]{A rede \textit{core} é a rede de transporte do provedor, por onde passam os principais \textit{links} de acesso à 
+ Internet.} e da rede \textit{backbone}\footnote[2]{A rede \textit{backbone} é a rede de transporte entre os pontos de atendimento a clientes.}, 
  tanto dos clientes de Internet via rádio, como de fibra óptica;
  
  \item \textit{Dati}: é o servidor de banco de dados principal, sendo que esse possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} 
@@ -177,7 +177,7 @@ O servidor \textit{Brina} possui duas \acp{VM}, como pode ser visto na Figura \r
 \begin{itemize}
  \item \textit{Masterauth}: sua configuração é de 1 \textit{core} de \textit{2.33 GHz}, 1,5 GB de memória \ac{RAM} e 8 GB de disco. 
  O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor virtual fornece um serviço de autenticação 
- \aca{PPPoE} \cite{javvin2005} para uma parte dos clientes do provedor. Para a autenticação é utilizada o \textit{software} 
+ \aca{PPPoE} \cite{javvin2005} para uma parte dos clientes do provedor. Para a autenticação é utilizado o \textit{software} 
  \textit{Freeradius 2.1.12} \cite{freeradius};
  
  \item \textit{Monete}: sua configuração é de 1 \textit{core} de \textit{2.33 GHz}, 3 GB de memória \ac{RAM} e 50 GB de disco. 
@@ -204,7 +204,7 @@ O servidor \textit{Fulmine} possui dez \acp{VM}, como pode ser visto na Figura \
 \begin{itemize}
  \item \textit{Hotspot}: sua configuração é de 1 \textit{core} de \textit{2.0 GHz}, 1,5 GB de memória \ac{RAM} e 8 GB de disco. 
  Esse servidor virtual possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor faz a gerência de 
- equipamentos da \textit{Ubiquiti} que fazem \textit{hotspot}\footnote[1]{\textit{Hotspot} é um tipo de rede sem fim para computadores móveis 
+ equipamentos da \textit{Ubiquiti} que fazem \textit{hotspot}\footnote[1]{\textit{Hotspot} é um tipo de rede sem fio para computadores móveis 
  e normalmente estão presentes em locais como hotéis, aeroportos, entre outros \cite{tanenbaum2011}.}. Esses equipamentos disponibilizam a 
  tecnologia \textit{Wi-fi} para prover acesso à Internet em ambientes públicos e são utilizados pelo provedor;
  
@@ -390,7 +390,7 @@ O servidor \textit{Tuono} possui quatro \acp{VM}, como pode ser visto na Figura 
  \item \textit{Speedauth}: sua configuração é de 2 \textit{cores} de \textit{2.53 GHz}, 1,5 GB de memória \ac{RAM} e 8 GB de disco. 
  O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor 
  \textit{Masterauth} (Seção \ref{section:serv_brina}), que é autenticação \ac{PPPoE} dos clientes do provedor. Esse servidor é responsável pelas 
- as autenticações da maior parte dos usuários do provedor.
+ autenticações da maior parte dos usuários do provedor.
 \end{itemize}
 
 \subsection{Servidor Venti}
@@ -415,7 +415,7 @@ O servidor \textit{Venti} possui cinco \acp{VM}, como pode ser visto na Figura \
  \aca{FTP} \cite{kurose2006};
  
  \item \textit{Esibire}: sua configuração é de 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória \ac{RAM} e 50 GB de disco. 
- Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, esse servidor faz a hospedagem de vídeos utilizando o 
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, ele faz a hospedagem de vídeos utilizando o 
  protocolo \ac{FTP} e faz a reprodução de \textit{streaming} utilizando um servidor \textit{Web} \textit{Apache 2.4.7};
  
  \item \textit{Miatanto}: sua configuração é de 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória \ac{RAM} e 8 GB de disco. 
@@ -434,6 +434,6 @@ O servidor \textit{Venti} possui cinco \acp{VM}, como pode ser visto na Figura \
 
 \section{Considerações finais}
 
-Neste capítulo foi apresentada a infraestrutura de \ac{TI} da empresa. No próximo capítulo será feito a identificação dos serviços mais críticos 
+Neste capítulo foi apresentada a infraestrutura de \ac{TI} da empresa. No próximo capítulo será feita a identificação dos serviços mais críticos 
 da empresa. Além disso, será apresentada uma proposta de um ambiente de alta disponibilidade para os mesmos. Nesta proposta, serão apresentados 
 os \textit{softwares} que serão utilizados para implementar a alta disponibilidade.

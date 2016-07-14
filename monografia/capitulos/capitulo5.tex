@@ -8,7 +8,7 @@ de \textit{softwares} de código aberto.
 \section{Levantamento dos serviços críticos}
 \label{section:servcrit}
 
-No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feito uma análise desses
+No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feita uma análise desses
 serviços, destacando os serviços que foram considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados os 
 seguintes critérios:
 \begin{itemize}
@@ -33,7 +33,7 @@ Nas próximas seções serão descritos os serviços que foram considerados mais
 
 Esse serviço foi classificado como o serviço mais importante pois possui um impacto direto nos clientes do provedor. Além disso, esse é o único 
 serviço que todos os clientes e funcionários utilizam, totalizando aproximadamente 9000 pessoas. O objetivo de um provedor é fornecer uma navegação 
-de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. A importância deste serviço está ilustrado na Figura 
+de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. A importância deste serviço está ilustrada na Figura 
 \ref{fig:dns_udp} (a), onde pode ser observado que esse serviço possui picos de aproximadamente 1150 requisições por segundo. Já na Figura 
 \ref{fig:dns_udp} (b) pode ser observado que o servidor \textit{Passata} é o servidor que apresenta o maior número de requisições 
 \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} é elevado devido ao fato do serviço \ac{DNS} utilizar esse protocolo de transporte.}. 
@@ -58,7 +58,7 @@ utilizado por um cliente em um determinado período de tempo, o tráfego de dado
 \aca{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 requisições por segundo. 
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes que
 utilizam esses servidores para autenticação. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e 
-\textit{Speedauth} estão entre os que apresentam o maior número de elementos. Além disso, nesses servidores existem um grande número de conexões 
+\textit{Speedauth} estão entre os que apresentam o maior número de elementos. Além disso, nesses servidores existe um grande número de conexões 
 \ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utilizar para comunicação com o
 seu banco de dados.}, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
@@ -167,7 +167,7 @@ em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
 encontram-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais.
 
 Já os \textit{softwares} que serão necessários para a implementação da alta disponibilidade podem ser divididas em dois grupos: 
-\textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e a transferências das máquinas virtuais entre os servidores.
+\textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e as transferências das máquinas virtuais entre os servidores.
 
 \subsection{Softwares para a replicação de dados}
 \label{section:toolrepl}
@@ -198,7 +198,7 @@ O \ac{DRBD} é um projeto de código aberto desenvolvido pela \textit{LINBIT} \c
 Esse \textit{software} é uma solução de replicação de dispositivos de armazenamento, ou seja, esse permite a duplicação de um dispositivo de bloco 
 (geralmente um disco rígido) em um servidor remoto. O \ac{DRBD} é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
 Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e 
-\textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Ou seja, todas as operações de escritas 
+\textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Ou seja, todas as operações de escrita 
 realizadas no disco rígido do nó primário serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
 
 \begin{figure}[h!]
@@ -249,18 +249,18 @@ O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com
  falha em um nó haverá uma perda de todos dados;
  \item Volume replicado: neste tipo os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se uma redundância, ou seja, caso ocorra
  uma falha em um \textit{brick} não haverá perda de dados;
- \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores. Neste caso, é feito a distribuição 
+ \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores. Neste caso, é feita a distribuição 
  e a replicação dos arquivos entre os nós;
  \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido entre os
  \textit{brick}. Esse tipo é normalmente utilizado para armazenamento de arquivos muito grandes;
- \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado. Neste modo é feito a divisão do arquivo 
+ \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado. Neste modo é feita a divisão do arquivo 
  entre \textit{bricks} distintos, sendo que estes são replicados.
 \end{itemize}
 
 \subsubsection{Rsync}
 \label{section:rsync}
 O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} prove uma rápida
-transferência arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
+transferência de arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
 A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}. Observa-se que no \textit{Rsync} tem-se a replicação dos arquivos que
 ainda não foram atualizados ou que não existem no servidor de destino. Além disso, o \textit{Rsync} permite uma replicação completa. Neste caso,
 tem-se uma replicação onde os arquivos já existentes são sobrescritos.
@@ -277,7 +277,7 @@ tem-se uma replicação onde os arquivos já existentes são sobrescritos.
 
 %Algoritmo \cite{tridgell98}
 
-O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar os dados com esse servidor. 
+O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar os dados com ele. 
 Além disso, o sincronismo pode ser de cliente para cliente, utilizando como transporte o protocolo \ac{SSH} ou através de \textit{sockets}.
 Destaca-se que o \textit{Rsync} não faz um sincronismo em tempo real, ou seja, ele faz o sincronismo a partir de uma ação (execução de um comando).
 
@@ -508,7 +508,7 @@ máquinas virtuais em tempo real utilizando o \textit{Ganeti}, e obteve-se bons 
 % máquinas virtuais. Além disso, essa ferramenta necessita de um \textit{hardware} especifico para administração do \textit{cluster}.
 
 \begin{table}[h!]
-\caption{Comparação ferramentas de gerenciamento de \textit{cluster}.}
+\caption{Comparação entre ferramentas de gerenciamento de \textit{cluster}.}
 \label{tab:clusterger}
 \begin{center}
 \begin{tabular}{|p{4cm}|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
@@ -565,7 +565,7 @@ Após isso, será adicionado o outro nó para possibilitar a tolerância a falha
 % \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
 % e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
-Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim será criado uma instância para cada servidor virtual, e nela será
+Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim será criada uma instância para cada servidor virtual, e nela será
 configurado o nó primário e o nó secundário. Como pode ser observado no Figura \ref{fig:projeto_estrutura}, será criado três instâncias no nó
 \textit{master} e duas instâncias no outro nó. De fato, no nó primário serão criadas as instâncias dos servidores \textit{Soldi}, \textit{Passata}
 e \textit{Masterauth}. Já no nó secundário serão criadas as instâncias dos servidores \textit{SimplesIP} e \textit{Speedauth}.
@@ -606,6 +606,6 @@ Para essa migração, o \textit{Ganeti} utilizará a opção de migração em te
 
 \section{Considerações finais}
 
-Neste capítulo foram apresentados os serviços críticos e foi apresentado uma proposta de solução de alta disponibilidade.
+Neste capítulo foram apresentados os serviços críticos e foi apresentada uma proposta de solução de alta disponibilidade.
 No próximo capítulo são apresentados as conclusões parciais e o cronograma de andamento deste trabalho.
 
