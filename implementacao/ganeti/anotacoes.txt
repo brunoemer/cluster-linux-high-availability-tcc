@@ -1,0 +1,11 @@
+#diz que nao eh possivel fazer migracao quando um no falhar de forma inesperada
+https://groups.google.com/forum/#!topic/ganeti/KTjP7Owx1OU
+
+http://docs.ganeti.org/ganeti/2.17/html/design-linuxha.html
+http://docs.ganeti.org/ganeti/2.12/html/man-harep.html
+http://docs.ganeti.org/ganeti/2.9/html/design-autorepair.html#id6
+
+
+#exemplo failover manual
+http://lancealbertson.com/2011/02/handling-hdd-failures-with-ganeti/#.V6PlCJ78s8o
+

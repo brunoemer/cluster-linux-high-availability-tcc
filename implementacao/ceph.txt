@@ -1,4 +1,0 @@
-http://docs.ceph.com/docs/master/start/intro/
-http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
-
-testar
