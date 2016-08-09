@@ -13,6 +13,7 @@ openstack compute+storage node
 ceph
 -OSD
 -mon
+-ceph-deploy
 
 
 ##openstack
@@ -610,7 +611,7 @@ service nova-compute restart
 ## storage on compute+storage node
 apt-get install cinder-volume
 
-#editar /etc/cinder/cinder.conf 
+#editar /etc/cinder/cinder.conf
 [database]
 connection = mysql+pymysql://cinder:cinder@controller/cinder
 [DEFAULT]
@@ -649,24 +650,81 @@ service tgt restart
 service cinder-volume restart
 
 
-########### EXECUTAR A PARTIR DAQUI ????????
-#### FALTA ADICIONAR compute e storage node NO NODE CONTROLLER
-
 #http://blog.programster.org/ubuntu-14-04-deploy-a-ceph-cluster-part-1/
+#http://docs.ceph.com/docs/master/start/quick-ceph-deploy/
+#http://www.rajtechtips.com/2014/06/create-2-node-ceph-storage-cluster/
 
-## ceph cluster
+## ceph cluster - storage nodes
 wget -q -O- 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc' | sudo apt-key add -
 echo deb http://download.ceph.com/debian-jewel/ $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list
-sudo apt update
-sudo apt install ceph-deploy
+apt update
+apt install ceph-deploy
 
+apt-get install ntp openssh-server -y
+
+#cria usuario para ceph deploy
+USERNAME="ceph_deploy"  
+sudo useradd -d /home/$USERNAME -m $USERNAME  
+sudo passwd $USERNAME  
+#senha ceph_deploy
+visudo
+ceph_deploy ALL=(ALL) NOPASSWD:ALL
+
+#node 1
+sudo -H -u ceph_deploy bash
+ssh-keygen
+ssh-copy-id ceph_deploy@bruno2
+
+#node 2
+sudo -H -u ceph_deploy bash
+ssh-keygen
+ssh-copy-id ceph_deploy@brunonote
+
+#node deploy node 2
+sudo -H -u ceph_deploy bash
+mkdir ~/ceph_cluster
+cd ~/ceph_cluster
+
+ceph-deploy new bruno2 #monitor
+vi ceph.conf
+[global]
+osd pool default size = 2
+
+ceph-deploy install brunonote bruno2
+
+ceph-deploy mon create-initial
+
+ssh brunonote sudo mkdir /var/local/osd0
+ssh brunonote sudo chown ceph /var/local/osd0/
+sudo mkdir /var/local/osd1
+sudo chown ceph /var/local/osd1/
+
+ceph-deploy osd prepare \
+brunonote:/var/local/osd0 \
+bruno2:/var/local/osd1
+
+ceph-deploy osd activate \
+brunonote:/var/local/osd0 \
+bruno2:/var/local/osd1
+
+ceph-deploy admin \
+brunonote \
+bruno2
+
+sudo chmod +r /etc/ceph/ceph.client.admin.keyring
+
+ceph-deploy mon add bruno2
+
+ceph health
+
+########### EXECUTAR A PARTIR DAQUI ????????
+ERRO OSD bruno2
 
 
 #http://docs.ceph.com/docs/master/rbd/rbd-openstack/?highlight=openstack#create-a-pool
 
-
 ## ceph+openstack on controller node
-#?sudo apt-get install python-rbd
+#sudo apt-get install python-rbd #instalado no deploy
 
 #editar /etc/glance/glance-api.conf
 [DEFAULT]
@@ -683,7 +741,7 @@ CONTINUAR ?????
 
 
 ## ceph on compute+storage node
-sudo apt-get install ceph-common
+#sudo apt-get install ceph-common #instalado no deploy
 
 ssh {your-openstack-server} sudo tee /etc/ceph/ceph.conf </etc/ceph/ceph.conf
 
