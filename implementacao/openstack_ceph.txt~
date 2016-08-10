@@ -695,8 +695,15 @@ ceph-deploy install brunonote bruno2
 ceph-deploy mon create-initial
 
 ssh brunonote sudo mkdir /var/local/osd0
-ssh brunonote sudo chown ceph /var/local/osd0/
 sudo mkdir /var/local/osd1
+
+#formatar particao em Linux 83 e montar
+fdisk /dev/sdX
+mkfs.xfs /dev/sdXn -f
+#colocar em /etc/fstab
+mount /dev/sdXn
+
+ssh brunonote sudo chown ceph /var/local/osd0/
 sudo chown ceph /var/local/osd1/
 
 ceph-deploy osd prepare \
@@ -715,16 +722,54 @@ sudo chmod +r /etc/ceph/ceph.client.admin.keyring
 
 ceph-deploy mon add bruno2
 
+chown ceph /var/log/ceph/
+
 ceph health
 
-########### EXECUTAR A PARTIR DAQUI ????????
-ERRO OSD bruno2
 
+########### EXECUTAR A PARTIR DAQUI ????????
 
 #http://docs.ceph.com/docs/master/rbd/rbd-openstack/?highlight=openstack#create-a-pool
 
 ## ceph+openstack on controller node
 #sudo apt-get install python-rbd #instalado no deploy
+
+#keys
+ceph auth get-or-create client.cinder mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=volumes, allow rwx pool=vms, allow rx pool=images'
+ceph auth get-or-create client.glance mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=images'
+ceph auth get-or-create client.glance | sudo tee /etc/ceph/ceph.client.glance.keyring
+sudo chown glance:glance /etc/ceph/ceph.client.glance.keyring
+ceph auth get-or-create client.cinder | sudo tee /etc/ceph/ceph.client.cinder.keyring
+sudo chown cinder:cinder /etc/ceph/ceph.client.cinder.keyring
+ceph auth get-or-create client.cinder | ssh 192.168.2.9 sudo tee /etc/ceph/ceph.client.cinder.keyring
+ssh 192.168.2.9 sudo chown cinder:cinder /etc/ceph/ceph.client.cinder.keyring
+
+ceph auth get-key client.cinder | tee client.cinder.key
+UUIDRAND=$(uuidgen)
+cat > secret.xml <<EOF
+<secret ephemeral='no' private='no'>
+  <uuid>$UUIDRAND</uuid>
+  <usage type='ceph'>
+    <name>client.cinder secret</name>
+  </usage>
+</secret>
+EOF
+sudo virsh secret-define --file secret.xml
+sudo virsh secret-set-value --secret $UUIDRAND --base64 $(cat client.cinder.key) && rm client.cinder.key secret.xml
+
+ceph auth get-key client.cinder | ssh 192.168.2.9 tee client.cinder.key
+ssh 192.168.2.9 tee secret.xml <<EOF
+<secret ephemeral='no' private='no'>
+  <uuid>$UUIDRAND</uuid>
+  <usage type='ceph'>
+    <name>client.cinder secret</name>
+  </usage>
+</secret>
+EOF
+ssh 192.168.2.9 sudo virsh secret-define --file secret.xml
+ssh 192.168.2.9 sudo virsh secret-set-value --secret $UUIDRAND --base64 $(ssh 192.168.2.9 cat client.cinder.key)
+ssh 192.168.2.9 rm client.cinder.key secret.xml
+
 
 #editar /etc/glance/glance-api.conf
 [DEFAULT]
@@ -737,24 +782,56 @@ rbd_store_user = glance
 rbd_store_ceph_conf = /etc/ceph/ceph.conf
 rbd_store_chunk_size = 8
 
-CONTINUAR ?????
-
 
 ## ceph on compute+storage node
 #sudo apt-get install ceph-common #instalado no deploy
 
-ssh {your-openstack-server} sudo tee /etc/ceph/ceph.conf </etc/ceph/ceph.conf
-
-ceph osd pool create volumes 128
-ceph osd pool create images 128
+ceph osd pool create images 1024
+ceph osd pool create volumes 8192
+ceph osd pool create vms 8192
 #ceph osd pool create backups 128
-ceph osd pool create vms 128
 
+#editar /etc/cinder/cinder.conf
+[DEFAULT]
+enabled_backends = ceph
+[ceph]
+volume_driver = cinder.volume.drivers.rbd.RBDDriver
+rbd_pool = volumes
+rbd_ceph_conf = /etc/ceph/ceph.conf
+rbd_flatten_volume_from_snapshot = false
+rbd_max_clone_depth = 5
+rbd_store_chunk_size = 4
+rados_connect_timeout = -1
+glance_api_version = 2
+rbd_user = cinder
+rbd_secret_uuid = c843b8ed-f81a-4bd7-9450-515199bb062d   #uuid do compute nodes libvirt
 
+#cache opcional
+ceph daemon /var/run/ceph/ceph-client.cinder.19195.32310016.asok help
+#editar em compute nodes
+[client]
+    rbd cache = true
+    rbd cache writethrough until flush = true
+    admin socket = /var/run/ceph/guests/$cluster-$type.$id.$pid.$cctid.asok
+    log file = /var/log/qemu/qemu-guest-$pid.log
+    rbd concurrent management ops = 20
+mkdir -p /var/run/ceph/guests/ /var/log/qemu/
+chown qemu:libvirtd /var/run/ceph/guests /var/log/qemu/
 
-#ceph 2 nos
-http://www.rajtechtips.com/tag/ceph-2-node-storage-cluster/
-http://docs.ceph.com/docs/master/start/quick-ceph-deploy/
+#editar /etc/nova/nova.conf
+[libvirt]
+images_type = rbd
+images_rbd_pool = vms
+images_rbd_ceph_conf = /etc/ceph/ceph.conf
+rbd_user = cinder
+rbd_secret_uuid = c843b8ed-f81a-4bd7-9450-515199bb062d   #uuid do compute nodes libvirt
+inject_password = false
+inject_key = false
+inject_partition = -2
+live_migration_flag="VIR_MIGRATE_UNDEFINE_SOURCE,VIR_MIGRATE_PEER2PEER,VIR_MIGRATE_LIVE,VIR_MIGRATE_PERSIST_DEST,VIR_MIGRATE_TUNNELLED"
 
+sudo glance-control api restart
+sudo service nova-compute restart
+sudo service cinder-volume restart
 
 
