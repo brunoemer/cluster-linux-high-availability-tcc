@@ -16,7 +16,11 @@ ceph
 -ceph-deploy
 
 
-##openstack
+
+#############################
+## OPENSTACK ##
+#############################
+
 http://ceph.com/planet/openstack-nova-configure-multiple-ceph-backends-on-one-hypervisor/
 http://docs.openstack.org/juno/install-guide/install/apt/content/keystone-users.html
 
@@ -650,6 +654,10 @@ service tgt restart
 service cinder-volume restart
 
 
+#############################
+## CEPH ##
+#############################
+
 #http://blog.programster.org/ubuntu-14-04-deploy-a-ceph-cluster-part-1/
 #http://docs.ceph.com/docs/master/start/quick-ceph-deploy/
 #http://www.rajtechtips.com/2014/06/create-2-node-ceph-storage-cluster/
@@ -727,8 +735,6 @@ chown ceph /var/log/ceph/
 ceph health
 
 
-########### EXECUTAR A PARTIR DAQUI ????????
-
 #http://docs.ceph.com/docs/master/rbd/rbd-openstack/?highlight=openstack#create-a-pool
 
 ## ceph+openstack on controller node
@@ -786,10 +792,10 @@ rbd_store_chunk_size = 8
 ## ceph on compute+storage node
 #sudo apt-get install ceph-common #instalado no deploy
 
-ceph osd pool create images 1024
-ceph osd pool create volumes 8192
-ceph osd pool create vms 8192
-#ceph osd pool create backups 128
+ceph osd pool create images 128
+ceph osd pool create volumes 128
+ceph osd pool create vms 128
+#ceph osd pool create backups ?
 
 #editar /etc/cinder/cinder.conf
 [DEFAULT]
@@ -835,12 +841,17 @@ sudo service nova-compute restart
 sudo service cinder-volume restart
 
 
+#### CONTINUAR AQUI #####
 
-############
-falta essa ceph osd pool create vms 8192
-########
+## VMS
+## controller node no openstack
+neutron net-create --shared --provider:physical_network provider   --provider:network_type flat provider
 
+neutron subnet-create --name provider \
+  --allocation-pool start=192.168.2.18,end=192.168.2.22 \
+  --dns-nameserver 186.195.16.15 --gateway 192.168.2.1 \
+  provider 192.168.2.0/24
 
-
+cinder create --image-id {id of image} --display-name {name of volume} {size of volume}
 
 
