@@ -782,7 +782,7 @@ ssh 192.168.2.9 rm client.cinder.key secret.xml
 show_image_direct_url = True
 default_store = rbd
 [glance_store]
-stores = rbd
+stores = rbd,file
 rbd_store_pool = images
 rbd_store_user = glance
 rbd_store_ceph_conf = /etc/ceph/ceph.conf
@@ -843,6 +843,7 @@ sudo service cinder-volume restart
 
 #### CONTINUAR AQUI #####
 
+## VMS
 ## controller node no openstack
 neutron net-create --shared --provider:physical_network provider   --provider:network_type flat provider
 
