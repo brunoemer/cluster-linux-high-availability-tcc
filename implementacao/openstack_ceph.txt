@@ -852,6 +852,12 @@ neutron subnet-create --name provider \
   --dns-nameserver 186.195.16.15 --gateway 192.168.2.1 \
   provider 192.168.2.0/24
 
-cinder create --image-id {id of image} --display-name {name of volume} {size of volume}
+openstack image create Ubuntu-server-14.04 --file /var/lib/libvirt/images/ubuntu-14.04.1-server-amd64.iso \
+  --disk-format iso   #?COLOCAR? --container-format bare
+
+cinder create --image Ubuntu-server-14.04 --display-name vm1 5  # --name?
+#OU cinder create --image-id c3c07a48-fe0d-4656-aaac-98f7180092eb --display-name vm1 5
+
+
 
 

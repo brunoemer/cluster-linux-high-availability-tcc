@@ -782,7 +782,7 @@ ssh 192.168.2.9 rm client.cinder.key secret.xml
 show_image_direct_url = True
 default_store = rbd
 [glance_store]
-stores = rbd,file
+stores = rbd,file  # adicinei file para permitir local
 rbd_store_pool = images
 rbd_store_user = glance
 rbd_store_ceph_conf = /etc/ceph/ceph.conf
@@ -852,6 +852,12 @@ neutron subnet-create --name provider \
   --dns-nameserver 186.195.16.15 --gateway 192.168.2.1 \
   provider 192.168.2.0/24
 
-cinder create --image-id {id of image} --display-name {name of volume} {size of volume}
+openstack image create Ubuntu-server-14.04 --file /var/lib/libvirt/images/ubuntu-14.04.1-server-amd64.iso \
+  --disk-format iso   #?COLOCAR? --container-format bare
+
+cinder create --image Ubuntu-server-14.04 --display-name vm1 5 # --name?
+#OU cinder create --image-id c3c07a48-fe0d-4656-aaac-98f7180092eb --display-name vm1 5
+
+
 
 
