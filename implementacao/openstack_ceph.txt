@@ -841,7 +841,6 @@ sudo service nova-compute restart
 sudo service cinder-volume restart
 
 
-#### CONTINUAR AQUI #####
 
 ## VMS
 ## controller node no openstack
@@ -852,12 +851,33 @@ neutron subnet-create --name provider \
   --dns-nameserver 186.195.16.15 --gateway 192.168.2.1 \
   provider 192.168.2.0/24
 
-openstack image create Ubuntu-server-14.04 --file /var/lib/libvirt/images/ubuntu-14.04.1-server-amd64.iso \
-  --disk-format iso   #?COLOCAR? --container-format bare
+openstack image create Ubuntu-server-16.04 --file /var/lib/libvirt/images/ubuntu-16.04-server-amd64.iso \
+  --disk-format iso
 
-cinder create --image Ubuntu-server-14.04 --display-name vm1 5  # --name?
-#OU cinder create --image-id c3c07a48-fe0d-4656-aaac-98f7180092eb --display-name vm1 5
+cinder create --image Ubuntu-server-16.04 --display-name vm1 5
+
+openstack server create --flavor m1.tiny --volume vm1 \
+  --nic net-id=provider vm1
+#OU
+#no horizon: intance - launch instance, nome, origem inicializacao volume -> escolher o volume criado, escolher tipo e rede
+#nao completa instalacao do ubuntu
 
 
+#copiar disco ja existente
+openstack image create teste1 --file /var/lib/libvirt/images/HAteste1.img --disk-format raw
+
+cinder create --image teste1 --display-name vm4 5
+
+openstack server create --flavor m1.tiny --image teste1 \
+  --nic net-id=provider vm1 ??
+
+
+#bug cpu live migration
+#https://blog.codecentric.de/en/2015/03/true-kvm-live-migration-openstack-icehouse-ceph-based-vm-storage/
+#https://bugs.launchpad.net/nova/+bug/1082414/comments/29
+
+cpu_mode=none
+em /etc/nova/nova.conf
+ CONTINUAR
 
 
