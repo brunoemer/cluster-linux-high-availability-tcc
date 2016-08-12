@@ -4,7 +4,7 @@ openstack controller node
 -image(glance)
 -network(neutron)
 -dashboard(horizon)(interface)
-+openstack compute+storage node?
++openstack compute+storage node
 
 node 2
 openstack compute+storage node
@@ -16,7 +16,6 @@ ceph
 -ceph-deploy
 
 
-
 #############################
 ## OPENSTACK ##
 #############################
@@ -25,6 +24,16 @@ http://docs.openstack.org/mitaka/install-guide-ubuntu/environment-packages.html
 ####### controller node
 
 #network 1 publica 186.195.16.0/24 e 2 para gerencia x.x.x.x
+
+## NTP
+#controller node
+apt-get install chrony
+
+# compute nodes
+apt-get install chrony
+#editar /etc/chrony/chrony.conf
+server controller iburst
+service chrony restart
 
 apt-get install software-properties-common
 add-apt-repository cloud-archive:mitaka
@@ -838,10 +847,6 @@ live_migration_flag="VIR_MIGRATE_UNDEFINE_SOURCE,VIR_MIGRATE_PEER2PEER,VIR_MIGRA
 sudo glance-control api restart
 sudo service nova-compute restart
 sudo service cinder-volume restart
-
-
-##Aggregates hosts
-
 
 
 ## VMS
