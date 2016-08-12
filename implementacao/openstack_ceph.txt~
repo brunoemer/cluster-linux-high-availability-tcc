@@ -20,9 +20,7 @@ ceph
 #############################
 ## OPENSTACK ##
 #############################
-
-http://ceph.com/planet/openstack-nova-configure-multiple-ceph-backends-on-one-hypervisor/
-http://docs.openstack.org/juno/install-guide/install/apt/content/keystone-users.html
+http://docs.openstack.org/mitaka/install-guide-ubuntu/environment-packages.html
 
 ####### controller node
 
@@ -736,6 +734,7 @@ ceph health
 
 
 #http://docs.ceph.com/docs/master/rbd/rbd-openstack/?highlight=openstack#create-a-pool
+#http://ceph.com/planet/openstack-nova-configure-multiple-ceph-backends-on-one-hypervisor/
 
 ## ceph+openstack on controller node
 #sudo apt-get install python-rbd #instalado no deploy
@@ -841,6 +840,9 @@ sudo service nova-compute restart
 sudo service cinder-volume restart
 
 
+##Aggregates hosts
+
+
 
 ## VMS
 ## controller node no openstack
@@ -868,16 +870,21 @@ openstack image create teste1 --file /var/lib/libvirt/images/HAteste1.img --disk
 
 cinder create --image teste1 --display-name vm4 5
 
-openstack server create --flavor m1.tiny --image teste1 \
-  --nic net-id=provider vm1 ??
+openstack server create --flavor m1.tiny --volume vm4 \
+  --nic net-id=provider vm4
 
-
-#bug cpu live migration
+#live migration
+#bug cpu
 #https://blog.codecentric.de/en/2015/03/true-kvm-live-migration-openstack-icehouse-ceph-based-vm-storage/
 #https://bugs.launchpad.net/nova/+bug/1082414/comments/29
+#ver qual cpu tem na maioria
+sudo virsh capabilities | xmllint --xpath "/capabilities/host/cpu" - > /tmp/$(hostname).xml' 
+cat /tmp/node*.xml >> /tmp/all-cpus.xml  
+sudo virsh cpu-baseline /tmp/all-cpus.xml
 
-cpu_mode=none
+cpu_model=Penryn
+cpu_mode=None
+virt_type=qemu
 em /etc/nova/nova.conf
-
 
 
