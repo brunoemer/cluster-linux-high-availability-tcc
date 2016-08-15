@@ -247,6 +247,7 @@ resource vm1 {
     }
 }
 
+
 ######### PAREI AQUI
 
 #primary
@@ -258,6 +259,7 @@ drbdadm up vm1
 #resincronizar secundary
 drbdadm down vm1
 drbdadm -- --discard-my-data connect vm1
+
 
 
 
