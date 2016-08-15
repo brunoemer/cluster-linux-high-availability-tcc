@@ -5,6 +5,20 @@ sudo apt-get install lsscsi sysstat iftop iptraf iputils-arping bridge-utils ife
 # nao funcionou sem cman
 
 #levantar drbd
+#/etc/drbd.d/vms.conf
+resource vms {
+    meta-disk internal;
+    device /dev/drbd0;
+    on brunonote {
+        address 192.168.2.8:7791;
+        disk /dev/vgdrbd/vms;
+    }
+    on bruno2 {
+        address 192.168.2.9:7791;
+        disk /dev/vgdrbd/vms;
+    }
+}
+
 #primary
 drbdadm up vms
 drbdadm primary vms
@@ -205,15 +219,49 @@ crm resource restart MS_DRBD
 
 # funcionou com uma vm desligando e ligando no nó primario
 
+# interface java para gerencia
+http://lcmc.sourceforge.net/
+
 
 
 # TESTE 2
 # live migration com lvm
 https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_KVM_%2B_Live_Migrations#Pacemaker
 
-# nao terminei de testar
+# vg drbd
+#formatar particao em lvm2 e criar pv
+vgcreate vgdrbd /dev/sda10
+lvcreate -n vm1 vgdrbd -L 5G
 
-# configuracao teste 2 migracao
+# editar /etc/drbd.d/vm1.res
+resource vm1 {
+    meta-disk internal;
+    device /dev/drbd0;
+    on brunonote.emer.com {
+        address 192.168.2.8:7791;
+        disk /dev/vgdrbd/vm1;
+    }
+    on bruno2.emer.com {
+        address 192.168.2.9:7791;
+        disk /dev/vgdrbd/vm1;
+    }
+}
+
+######### PAREI AQUI
+
+#primary
+drbdadm up vm1
+drbdadm primary vm1
+
+#secundary
+drbdadm up vm1
+#resincronizar secundary
+drbdadm down vm1
+drbdadm -- --discard-my-data connect vm1
+
+
+
+# configuracao teste 2 migracao REVISAR
 node $id="1084752392" brunonote \
 	attributes maintenance="off" standby="off"
 node $id="1084752393" bruno2 \
@@ -252,8 +300,3 @@ rsc_defaults $id="rsc-options" \
 	migration-threshold="3"
 
 
-
-
-
-# interface java para gerencia
-http://lcmc.sourceforge.net/
