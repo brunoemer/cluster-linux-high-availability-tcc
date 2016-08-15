@@ -1,0 +1,303 @@
+#tentativa 1
+http://linux.opm.si/programska-oprema/linux-gruca-cluster
+
+sudo apt-get install lsscsi sysstat iftop iptraf iputils-arping bridge-utils ifenslave drbd8-utils drbdlinks qemu-kvm ubuntu-vm-builder libvirt-bin virt-viewer ntp pacemaker pacemaker-mgmt corosync resource-agents fence-agents 
+# nao funcionou sem cman
+
+#levantar drbd
+#/etc/drbd.d/vms.conf
+resource vms {
+    meta-disk internal;
+    device /dev/drbd0;
+    on brunonote {
+        address 192.168.2.8:7791;
+        disk /dev/vgdrbd/vms;
+    }
+    on bruno2 {
+        address 192.168.2.9:7791;
+        disk /dev/vgdrbd/vms;
+    }
+}
+
+#primary
+drbdadm up vms
+drbdadm primary vms
+mount /dev/drbd0 /var/lib/libvirt/images/drbd/
+
+#secundary
+drbdadm up vms
+
+#resincronizar secundary
+drbdadm down vms
+drbdadm -- --discard-my-data connect vms
+
+##########################
+
+#tentativa 2
+https://velenux.wordpress.com/2015/05/26/creating-a-corosync-2-x-pacemaker-1-1-cluster-on-ubuntu-14-04-lts/
+http://zeldor.biz/2010/12/activepassive-cluster-with-pacemaker-corosync/
+
+apt-get install pacemaker corosync rsync screen vim-nox mutt curl wget sysstat ntp
+
+#alterar para
+/etc/default/corosync
+START=yes
+
+#no cluster2 bruno2 colocar ip dele no nodelist antes ring0_addr: 192.168.2.9
+
+service corosync start
+service pacemaker start
+
+#startup
+for SRV in corosync pacemaker ; do
+    update-rc.d $SRV defaults
+    service $SRV start
+done
+
+crm configure property stonith-enabled=false
+crm configure property no-quorum-policy=ignore
+#para nao retornar apos queda
+crm configure rsc_defaults resource-stickiness=100
+
+#funcionou com
+/etc/corosync/corosync.conf
+# Please read the openais.conf.5 manual page
+
+totem {
+	version: 2
+
+	# How long before declaring a token lost (ms)
+	token: 3000
+
+	# How many token retransmits before forming a new configuration
+	token_retransmits_before_loss_const: 10
+
+	# How long to wait for join messages in the membership protocol (ms)
+	join: 60
+
+	# How long to wait for consensus to be achieved before starting a new round of membership configuration (ms)
+	consensus: 3600
+
+	# Turn off the virtual synchrony filter
+	vsftype: none
+
+	# Number of messages that may be sent by one processor on receipt of the token
+	max_messages: 20
+
+	# Limit generated nodeids to 31-bits (positive signed integers)
+	clear_node_high_bit: yes
+
+	# Disable encryption
+ 	secauth: off
+
+	# How many threads to use for encryption/decryption
+ 	threads: 0
+
+	# Optionally assign a fixed node id (integer)
+	# nodeid: 1234
+
+	# This specifies the mode of redundant ring, which may be none, active, or passive.
+ 	rrp_mode: none
+
+ 	interface {
+		# The following values need to be set based on your environment 
+		ringnumber: 0
+		bindnetaddr: 192.168.2.0 
+		mcastaddr: 226.94.1.1
+		mcastport: 5405
+	}
+}
+
+amf {
+	mode: disabled
+}
+
+quorum {
+	# Quorum for the Pacemaker Cluster Resource Manager
+	provider: corosync_votequorum
+	expected_votes: 2
+}
+
+# nodes
+nodelist {
+        node { 
+                ring0_addr: 192.168.2.8
+        }
+        node { 
+                ring0_addr: 192.168.2.9
+        }
+}
+
+service {
+        # Load the Pacemaker Cluster Resource Manager
+        ver:       0
+        name:      pacemaker
+}
+
+aisexec {
+        user:   root
+        group:  root
+}
+
+logging {
+        fileline: off
+        to_stderr: yes
+        to_logfile: no
+        to_syslog: yes
+	syslog_facility: daemon
+        debug: off
+        timestamp: on
+        logger_subsys {
+                subsys: AMF
+                debug: off
+                tags: enter|leave|trace1|trace2|trace3|trace4|trace6
+        }
+}
+
+#configurar as primitivas do cluster
+# DRBD:
+crm configure primitive DRBD ocf:linbit:drbd \
+        params drbd_resource="vms" \
+        op monitor interval="20" role="Master" timeout="20" \
+        op monitor interval="30" role="Slave" timeout="20" \
+        meta is-managed="true"
+# DRBD primary secondary
+crm configure ms MS_DRBD DRBD meta master-max="1" clone-max="2" clone-node-max="1" notify="true" target-role="Master"
+
+# file system:
+crm configure primitive LIBVIRT_FS ocf:heartbeat:Filesystem params device="/dev/drbd0" directory="/var/lib/libvirt/images/drbd" fstype="ext4"
+
+# virtual domain
+crm configure primitive VMS ocf:heartbeat:VirtualDomain \
+    params config="/etc/libvirt/qemu/HAteste1.xml" \
+    hypervisor="qemu:///system" \
+    op start timeout="20s" \
+    op stop timeout="20s" \
+    op monitor depth="0" timeout="15" interval="10" \
+    meta allow-migrate="false"
+
+
+#nodo com preferencia. testar
+crm configure location master-prefer-node1 VMS 50: brunonote ??
+
+#configuracao final
+node $id="1084752392" brunonote
+node $id="1084752393" bruno2
+primitive DRBD ocf:linbit:drbd \
+        params drbd_resource="vms" \
+        op monitor interval="20" role="Master" timeout="20" \
+        op monitor interval="30" role="Slave" timeout="20" \
+        meta is-managed="true"
+primitive LIBVIRT_FS ocf:heartbeat:Filesystem \
+        params device="/dev/drbd0" directory="/var/lib/libvirt/images/drbd" fstype="ext4" \
+        meta is-managed="true" target-role="Started"
+primitive VMS ocf:heartbeat:VirtualDomain \
+        params config="/etc/libvirt/qemu/HAteste1.xml" hypervisor="qemu:///system" \
+        op start timeout="20s" interval="0" \
+        op stop timeout="20s" interval="0" \
+        op monitor timeout="15" interval="10" depth="0" \
+        meta allow-migrate="false" target-role="Started" \
+        utilization cpu="1" hv_memory="512"
+ms MS_DRBD DRBD \
+        meta master-max="1" clone-max="2" clone-node-max="1" notify="true" target-role="Master"
+location cli-prefer LIBVIRT_FS 100: bruno2
+location master-prefer-node1 LIBVIRT_FS 50: brunonote
+colocation col_DRBD_FS inf: LIBVIRT_FS MS_DRBD:Master
+colocation col_DRBD_VMS inf: VMS MS_DRBD:Master
+order ord_DRBD_VMS inf: MS_DRBD:promote LIBVIRT_FS:start VMS:start
+property $id="cib-bootstrap-options" \
+        dc-version="1.1.10-42f2063" \
+        cluster-infrastructure="corosync" \
+        stonith-enabled="false" \
+        no-quorum-policy="ignore"
+rsc_defaults $id="rsc-options" \
+        resource-stickiness="100"
+
+# migrar de brunonote para bruno2
+crm resource migrate MS_DRBD bruno2
+crm resource restart MS_DRBD
+
+# funcionou com uma vm desligando e ligando no nó primario
+
+# interface java para gerencia
+http://lcmc.sourceforge.net/
+
+
+
+# TESTE 2
+# live migration com lvm
+https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_KVM_%2B_Live_Migrations#Pacemaker
+
+# vg drbd
+#formatar particao em lvm2 e criar pv
+vgcreate vgdrbd /dev/sda10
+lvcreate -n vm1 vgdrbd -L 5G
+
+# editar /etc/drbd.d/vm1.res
+resource vm1 {
+    meta-disk internal;
+    device /dev/drbd0;
+    on brunonote.emer.com {
+        address 192.168.2.8:7791;
+        disk /dev/vgdrbd/vm1;
+    }
+    on bruno2.emer.com {
+        address 192.168.2.9:7791;
+        disk /dev/vgdrbd/vm1;
+    }
+}
+
+
+######### PAREI AQUI
+
+#primary
+drbdadm up vm1
+drbdadm primary vm1
+
+#secundary
+drbdadm up vm1
+#resincronizar secundary
+drbdadm down vm1
+drbdadm -- --discard-my-data connect vm1
+
+
+
+# configuracao teste 2 migracao REVISAR
+node $id="1084752392" brunonote \
+	attributes maintenance="off" standby="off"
+node $id="1084752393" bruno2 \
+	attributes standby="off" maintenance="off"
+primitive DRBD ocf:linbit:drbd \
+	params drbd_resource="vms" \
+	op monitor interval="20" role="Master" timeout="20" \
+	op monitor interval="30" role="Slave" timeout="20" \
+	meta is-managed="true"
+primitive LIBVIRT_FS ocf:heartbeat:Filesystem \
+	params device="/dev/drbd0" directory="/var/lib/libvirt/images/drbd" fstype="ext4" \
+	meta is-managed="true" target-role="Started"
+primitive VMS ocf:heartbeat:VirtualDomain \
+	params config="/etc/libvirt/qemu/HAteste1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+	op start timeout="90" interval="0" \
+	op stop timeout="90" interval="0" \
+	op monitor timeout="30" interval="10" depth="0" \
+	op migrate_from interval="0" timeout="240" \
+	op migrate_to interval="0" timeout="240" \
+	meta allow-migrate="true" target-role="Started" \
+	utilization cpu="1" hv_memory="512"
+ms MS_DRBD DRBD \
+	meta master-max="1" clone-max="2" clone-node-max="1" notify="true" target-role="Master" migration-threshold="1" allow-migrate="true"
+location cli-prefer-MS_DRBD MS_DRBD inf: brunonote
+colocation col_DRBD_FS inf: LIBVIRT_FS MS_DRBD:Master
+colocation col_DRBD_VMS inf: VMS MS_DRBD:Master
+order ord_DRBD_VMS inf: MS_DRBD:promote LIBVIRT_FS:start VMS:start
+property $id="cib-bootstrap-options" \
+	dc-version="1.1.10-42f2063" \
+	cluster-infrastructure="corosync" \
+	stonith-enabled="false" \
+	no-quorum-policy="ignore" \
+	last-lrm-refresh="1466773789"
+rsc_defaults $id="rsc-options" \
+	resource-stickiness="100" \
+	migration-threshold="3"
+
+
