@@ -223,10 +223,16 @@ crm resource restart MS_DRBD
 http://lcmc.sourceforge.net/
 
 
-
+####################################
 # TESTE 2
 # live migration com lvm
 https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_KVM_%2B_Live_Migrations#Pacemaker
+
+#filtro no lvm - /etc/lvm/lvm.conf
+# By default we accept every block device:
+filter = [ "a|.*|", "r|/dev/drbd[0-9]+|" ]
+locking_type = 3 # VER
+fallback_to_local_locking = 0 # VER
 
 # vg drbd
 #formatar particao em lvm2 e criar pv
@@ -247,57 +253,237 @@ resource vm1 {
     }
 }
 
-
-######### PAREI AQUI
+service drbd reload
 
 #primary
 drbdadm up vm1
+drbdadm create-md vm1
+#drbdadm -- --overwrite-data-of-peer primary vm1  #primeira vez
 drbdadm primary vm1
 
 #secundary
 drbdadm up vm1
+drbdadm create-md vm1
 #resincronizar secundary
-drbdadm down vm1
 drbdadm -- --discard-my-data connect vm1
 
+# verificar
+root@brunonote:~# service drbd status
+drbd driver loaded OK; device status:
+version: 8.4.5 (api:1/proto:86-101)
+srcversion: 5A4F43804B37BB28FCB1F47 
+m:res  cs         ro                 ds                 p  mounted  fstype
+0:vm1  Connected  Primary/Secondary  UpToDate/UpToDate  C
 
+#importar imagem existente
+dd if=/var/lib/libvirt/images/HAteste1.img of=/dev/drbd/by-res/vm1 bs=1M
 
-# configuracao teste 2 migracao REVISAR
-node $id="1084752392" brunonote \
-	attributes maintenance="off" standby="off"
-node $id="1084752393" bruno2 \
-	attributes standby="off" maintenance="off"
+#criar vm libvirt
+#pool
+virsh pool-create-as vgdrbd --type=logical --target=/dev/vgdrbd
+#xml vm
+<domain type='kvm'>
+  <name>vm1</name>
+  <uuid>62d4fb34-1c0e-07e6-3264-89ce12f6ef25</uuid>
+  <memory unit='KiB'>524288</memory>
+  <currentMemory unit='KiB'>524288</currentMemory>
+  <vcpu placement='static'>1</vcpu>
+  <os>
+    <type arch='x86_64' machine='pc-i440fx-trusty'>hvm</type>
+    <boot dev='hd'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+    <pae/>
+  </features>
+  <clock offset='utc'/>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <devices>
+    <emulator>/usr/bin/kvm-spice</emulator>
+    <disk type='block' device='disk'>
+      <driver name='qemu' type='raw'/>
+      <source dev='/dev/vgdrbd/vm1'/>
+      <target dev='vda' bus='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
+    </disk>
+    <controller type='usb' index='0'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x2'/>
+    </controller>
+    <controller type='pci' index='0' model='pci-root'/>
+    <interface type='network'>
+      <mac address='52:54:00:3b:df:98'/>
+      <source network='default'/>
+      <model type='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+    </interface>
+    <serial type='pty'>
+      <target port='0'/>
+    </serial>
+    <console type='pty'>
+      <target type='serial' port='0'/>
+    </console>
+    <input type='mouse' bus='ps2'/>
+    <input type='keyboard' bus='ps2'/>
+    <graphics type='vnc' port='-1' autoport='yes'/>
+    <sound model='ich6'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
+    </sound>
+    <video>
+      <model type='cirrus' vram='9216' heads='1'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
+    </video>
+    <memballoon model='virtio'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+    </memballoon>
+  </devices>
+</domain>
+
+scp /home/bruno/vm1.xml bruno2:/home/bruno/
+ssh bruno2 virsh define /home/bruno/vm1.xml
+
+# corosync /etc/corosync/corosync.conf
+totem {
+	version: 2
+
+	# How long before declaring a token lost (ms)
+	token: 3000
+
+	# How many token retransmits before forming a new configuration
+	token_retransmits_before_loss_const: 10
+
+	# How long to wait for join messages in the membership protocol (ms)
+	join: 60
+
+	# How long to wait for consensus to be achieved before starting a new round of membership configuration (ms)
+	consensus: 3600
+
+	# Turn off the virtual synchrony filter
+	vsftype: none
+
+	# Number of messages that may be sent by one processor on receipt of the token
+	max_messages: 20
+
+	# Limit generated nodeids to 31-bits (positive signed integers)
+	clear_node_high_bit: yes
+
+	# Disable encryption
+ 	secauth: off
+
+	# How many threads to use for encryption/decryption
+ 	threads: 0
+
+	# Optionally assign a fixed node id (integer)
+	# nodeid: 1234
+
+	# This specifies the mode of redundant ring, which may be none, active, or passive.
+ 	rrp_mode: none
+
+ 	interface {
+		# The following values need to be set based on your environment 
+		ringnumber: 0
+		bindnetaddr: 192.168.2.0 
+		mcastaddr: 226.94.1.1
+		mcastport: 5405
+	}
+}
+
+amf {
+	mode: disabled
+}
+
+quorum {
+	# Quorum for the Pacemaker Cluster Resource Manager
+	provider: corosync_votequorum
+	expected_votes: 2
+}
+
+# nodes
+nodelist {
+        node { 
+                ring0_addr: 192.168.2.8
+        }
+        node { 
+                ring0_addr: 192.168.2.9
+        }
+}
+
+service {
+        # Load the Pacemaker Cluster Resource Manager
+        ver:       0
+        name:      pacemaker
+}
+
+aisexec {
+        user:   root
+        group:  root
+}
+
+logging {
+        fileline: off
+        to_stderr: yes
+        to_logfile: no
+        to_syslog: yes
+	syslog_facility: daemon
+        debug: off
+        timestamp: on
+        logger_subsys {
+                subsys: AMF
+                debug: off
+                tags: enter|leave|trace1|trace2|trace3|trace4|trace6
+        }
+}
+
+service corosync restart
+service pacemaker restart
+
+crm status
+crm resource show
+
+#configuracao
+crm configure edit
+
+node $id="1084752392" brunonote.emer.com \
+        attributes maintenance="off" standby="off"
+node $id="1084752393" bruno2.emer.com \
+        attributes standby="off" maintenance="off"
 primitive DRBD ocf:linbit:drbd \
-	params drbd_resource="vms" \
-	op monitor interval="20" role="Master" timeout="20" \
-	op monitor interval="30" role="Slave" timeout="20" \
-	meta is-managed="true"
-primitive LIBVIRT_FS ocf:heartbeat:Filesystem \
-	params device="/dev/drbd0" directory="/var/lib/libvirt/images/drbd" fstype="ext4" \
-	meta is-managed="true" target-role="Started"
-primitive VMS ocf:heartbeat:VirtualDomain \
-	params config="/etc/libvirt/qemu/HAteste1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
-	op start timeout="90" interval="0" \
-	op stop timeout="90" interval="0" \
-	op monitor timeout="30" interval="10" depth="0" \
-	op migrate_from interval="0" timeout="240" \
-	op migrate_to interval="0" timeout="240" \
-	meta allow-migrate="true" target-role="Started" \
-	utilization cpu="1" hv_memory="512"
+        params drbd_resource="vm1" \
+        op monitor interval="20" role="Master" timeout="240" \
+        op monitor interval="30" role="Slave" timeout="240" \
+        meta is-managed="true"
+primitive VM1 ocf:heartbeat:VirtualDomain \
+        params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        op start timeout="90" interval="0" \
+        op stop timeout="90" interval="0" \
+        op monitor timeout="30" interval="10" depth="0" \
+        op migrate_from interval="0" timeout="240" \
+        op migrate_to interval="0" timeout="240" \
+        meta allow-migrate="true" target-role="Started" \
+        utilization cpu="1" hv_memory="512"
 ms MS_DRBD DRBD \
-	meta master-max="1" clone-max="2" clone-node-max="1" notify="true" target-role="Master" migration-threshold="1" allow-migrate="true"
-location cli-prefer-MS_DRBD MS_DRBD inf: brunonote
-colocation col_DRBD_FS inf: LIBVIRT_FS MS_DRBD:Master
-colocation col_DRBD_VMS inf: VMS MS_DRBD:Master
-order ord_DRBD_VMS inf: MS_DRBD:promote LIBVIRT_FS:start VMS:start
+        meta master-max="1" clone-max="2" clone-node-max="1" notify="true" target-role="Started" \
+	migration-threshold="1" allow-migrate="true"
+location cli-prefer-MS_DRBD MS_DRBD inf: bruno2.emer.com
+colocation col_DRBD_VMS inf: VM1 MS_DRBD:Master
+order ord_DRBD_VMS inf: MS_DRBD:promote VM1:start
 property $id="cib-bootstrap-options" \
-	dc-version="1.1.10-42f2063" \
-	cluster-infrastructure="corosync" \
-	stonith-enabled="false" \
-	no-quorum-policy="ignore" \
-	last-lrm-refresh="1466773789"
+        dc-version="1.1.10-42f2063" \
+        cluster-infrastructure="corosync" \
+        stonith-enabled="false" \
+        no-quorum-policy="ignore" \
+        last-lrm-refresh="1466773789"
 rsc_defaults $id="rsc-options" \
-	resource-stickiness="100" \
-	migration-threshold="3"
+        resource-stickiness="100" \
+        migration-threshold="3"
+
+#para aplicar reiniciar os nodes
+reboot
+
+
+crm resource migrate MS_DRBD bruno2
+
 
 
