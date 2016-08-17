@@ -984,6 +984,9 @@ rsc_defaults $id="rsc-options" \
         migration-threshold="1"
 
 
+#### TESTER CONTINUAR
+
+
 #VM
 #xml vm
 <domain type='kvm'>
@@ -1051,6 +1054,16 @@ ssh bruno2 virsh define /home/bruno/vm1.xml
 
 
 #VER stonith-enabled para producao
+#https://www.drbd.org/en/doc/users-guide-84/ch-ocfs2
+#drbd resource:
+disk {
+        fencing resource-and-stonith;
+}
+handlers {
+        # Make sure the other node is confirmed
+        # dead after this!
+        fence-peer "/sbin/kill-other-node.sh";
+}
 
 
 
