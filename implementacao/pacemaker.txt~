@@ -481,7 +481,7 @@ reboot
 
 
 ####################################
-# TESTE LIVE MIGRATION E DUAL PRIMARY DRBD
+# TESTE LIVE MIGRATION E DUAL PRIMARY DRBD + CLVM
 # live migration com lvm
 https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_KVM_%2B_Live_Migrations#Pacemaker
 
@@ -496,7 +496,8 @@ devices {
 	locking_type = 3
 	fallback_to_local_locking = 0
 }
-sudo update-rc.d clvm disable ???????
+update-rc.d -f clvm remove
+### nao funcionou com clvm pois precisa do cman
 
 # vg drbd
 #formatar particao em lvm2 e criar pv
@@ -799,6 +800,258 @@ crm node ready brunonote.emer.com
 crm resource stop MS_DRBD
 crm resource start MS_DRBD
 crm resource cleanup MS_DRBD
+
+##### NAO FUNCIONOU, APENAS LIVE MIGRATION SEM CLVM
+
+
+################################
+# TESTE LIVE MIGRATION E DUAL PRIMARY DRBD + OCFS2
+http://publications.jbfavre.org/virtualisation/cluster-xen-corosync-pacemaker-drbd-ocfs2.en
+
+apt-get install pacemaker
+
+# vg drbd
+#formatar particao em lvm2 e criar pv
+pvcreate /dev/sda10
+vgcreate vgdrbd /dev/sda10
+lvcreate -n lvdrbd vgdrbd -L 6,5G
+
+# editar /etc/drbd.d/global_common.conf
+global {
+        usage-count yes;
+        minor-count 16;
+}
+# editar /etc/drbd.d/vms.res
+resource vms {
+    meta-disk internal;
+    device /dev/drbd0;
+    protocol C;
+    disk {
+        fencing resource-only;
+    }
+    handlers {
+        fence-peer "/usr/lib/drbd/crm-fence-peer.sh";
+        after-resync-target "/usr/lib/drbd/crm-unfence-peer.sh";
+    }
+    net {
+        allow-two-primaries;
+    }
+    startup {
+        become-primary-on both;
+    }
+    on brunonote.emer.com {
+        address 192.168.2.8:7791;
+        disk /dev/vgdrbd/lvdrbd;
+    }
+    on bruno2.emer.com {
+        address 192.168.2.9:7791;
+        disk /dev/vgdrbd/lvdrbd;
+    }
+    syncer {
+        rate 50M;
+    }
+}
+
+apt-get install ocfs2-tools
+#editar /etc/ocfs2/cluster.conf
+node:
+        ip_port = 7777
+        ip_address = 192.168.2.8
+        number = 0
+        name = brunonote.emer.com
+        cluster = clusterocfs
+
+node:
+        ip_port = 7777
+        ip_address = 192.168.2.9
+        number = 1
+        name = bruno2.emer.com
+        cluster = clusterocfs
+
+cluster:
+        node_count = 2
+        name = clusterocfs
+
+#editar /etc/default/o2cb
+# O2CB_ENABLED: 'true' means to load the driver on boot.
+O2CB_ENABLED=true
+
+# O2CB_BOOTCLUSTER: If not empty, the name of a cluster to start.
+O2CB_BOOTCLUSTER=clusterocfs
+
+# O2CB_HEARTBEAT_THRESHOLD: Iterations before a node is considered dead.
+O2CB_HEARTBEAT_THRESHOLD=31
+
+# O2CB_IDLE_TIMEOUT_MS: Time in ms before a network connection is considered dead.
+O2CB_IDLE_TIMEOUT_MS=30000
+
+# O2CB_KEEPALIVE_DELAY_MS: Max. time in ms before a keepalive packet is sent.
+O2CB_KEEPALIVE_DELAY_MS=2000
+
+# O2CB_RECONNECT_DELAY_MS: Min. time in ms between connection attempts.
+O2CB_RECONNECT_DELAY_MS=2000
+
+service ocfs2 restart
+
+mkfs.ocfs2 /dev/drbd/by-res/vms
+
+# corosync /etc/corosync/corosync.conf
+totem {
+	version: 2
+	token: 3000
+	token_retransmits_before_loss_const: 10
+	join: 60
+	consensus: 4320
+	vsftype: none
+	max_messages: 20
+	clear_node_high_bit: yes
+ 	secauth: on
+ 	threads: 0
+ 	rrp_mode: none
+ 	interface {
+		ringnumber: 0
+		bindnetaddr: 192.168.1.0
+		mcastaddr: 226.94.1.1
+		mcastport: 5405
+	}
+}
+amf {
+	mode: disabled
+}
+service {
+ 	ver:       0
+ 	name:      pacemaker
+}
+aisexec {
+        user:   root
+        group:  root
+}
+logging {
+    fileline: off
+    to_stderr: yes
+    to_logfile: no
+    to_syslog: yes
+	syslog_facility: daemon
+        debug: off
+        timestamp: on
+        logger_subsys {
+            subsys: AMF
+            debug: off
+            tags: enter|leave|trace1|trace2|trace3|trace4|trace6
+        }
+}
+
+service corosync restart
+
+# pacemaker
+crm configure edit
+node $id="1084752392" brunonote.emer.com \
+        attributes maintenance="off" standby="off"
+node $id="1084752393" bruno2.emer.com \
+        attributes standby="off" maintenance="off"
+primitive DRBD ocf:linbit:drbd \
+        params drbd_resource="vms" \
+        op monitor interval="20" role="Master" timeout="240" \
+        op monitor interval="30" role="Slave" timeout="240" \
+        meta is-managed="true"
+primitive VM1 ocf:heartbeat:VirtualDomain \
+        params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        op start timeout="90" interval="0" \
+        op stop timeout="90" interval="0" \
+        op monitor timeout="30" interval="10" depth="0" \
+        op migrate_from interval="0" timeout="240" \
+        op migrate_to interval="0" timeout="240" \
+        meta allow-migrate="true" target-role="Started"
+ms MS_DRBD DRBD \
+        meta master-max="2" resource-stickines="100" notify="true" interleave="true" migration-threshold="1" allow-migrate="true" is-managed="true"
+primitive ocfs-mount ocf:heartbeat:Filesystem \
+        params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2" \
+        meta target-role="Started"
+clone ocfs-mount-clone ocfs-mount \
+        meta interleave="true" ordered="true"
+order Cluster-FS-After-DRBD inf: \
+        MS_DRBD:promote \
+        ocfs-mount-clone:start
+property $id="cib-bootstrap-options" \
+        dc-version="1.1.10-42f2063" \
+        cluster-infrastructure="corosync" \
+        stonith-enabled="false" \
+        no-quorum-policy="ignore" \
+        last-lrm-refresh="1471391828" \
+        expected-quorum-votes="2" 
+rsc_defaults $id="rsc-options" \
+        resource-stickiness="1000" \
+        migration-threshold="1"
+
+
+#VM
+#xml vm
+<domain type='kvm'>
+  <name>vm1</name>
+  <uuid>62d4fb34-1c0e-07e6-3264-89ce12f6ef25</uuid>
+  <memory unit='KiB'>524288</memory>
+  <currentMemory unit='KiB'>524288</currentMemory>
+  <vcpu placement='static'>1</vcpu>
+  <os>
+    <type arch='x86_64' machine='pc-i440fx-trusty'>hvm</type>
+    <boot dev='hd'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+    <pae/>
+  </features>
+  <clock offset='utc'/>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <devices>
+    <emulator>/usr/bin/kvm-spice</emulator>
+    <disk type='block' device='disk'>
+      <driver name='qemu' type='raw' cache='none'/>
+      <source dev='/dev/vgdrbdcluster/lvvm1????'/>
+      <target dev='vda' bus='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
+    </disk>
+    <controller type='usb' index='0'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x2'/>
+    </controller>
+    <controller type='pci' index='0' model='pci-root'/>
+    <interface type='network'>
+      <mac address='52:54:00:3b:df:98'/>
+      <source network='default'/>
+      <model type='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
+    </interface>
+    <serial type='pty'>
+      <target port='0'/>
+    </serial>
+    <console type='pty'>
+      <target type='serial' port='0'/>
+    </console>
+    <input type='mouse' bus='ps2'/>
+    <input type='keyboard' bus='ps2'/>
+    <graphics type='vnc' port='-1' autoport='yes'/>
+    <sound model='ich6'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
+    </sound>
+    <video>
+      <model type='cirrus' vram='9216' heads='1'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
+    </video>
+    <memballoon model='virtio'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+    </memballoon>
+  </devices>
+</domain>
+
+scp /home/bruno/vm1.xml bruno2:/home/bruno/
+ssh bruno2 virsh define /home/bruno/vm1.xml
+
+
+
+#VER stonith-enabled para producao
+
 
 
 
