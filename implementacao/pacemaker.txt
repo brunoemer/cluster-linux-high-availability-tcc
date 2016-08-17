@@ -230,8 +230,6 @@ http://lcmc.sourceforge.net/
 #filtro no lvm - /etc/lvm/lvm.conf
 # By default we accept every block device:
 filter = [ "a|.*|", "r|/dev/drbd[0-9]+|" ]
-locking_type = 3 # VER
-fallback_to_local_locking = 0 # VER
 
 # vg drbd
 #formatar particao em lvm2 e criar pv
@@ -491,14 +489,21 @@ https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_
 devices {
 	filter = ["a|sd.*|", "a|drbd.*|", "r|.*|"]
 	write_cache_state = 0
-	locking_type = 3 # VER ??
-	fallback_to_local_locking = 0 # VER ??
+	locking_type = 3
+	fallback_to_local_locking = 0
 }
 
 # vg drbd
 #formatar particao em lvm2 e criar pv
 vgcreate vgdrbd /dev/sda10
-lvcreate -n vm1 vgdrbd -L 5G
+lvcreate -n vm1 vgdrbd -L 6.5G
+
+##### CONTINUAR
+# vg cluster
+pvcreate /dev/drbd0
+vgcreate --clustered y vgdrbdcluster /dev/drbd0
+lvcreate -n vm1 -L 6G vgdrbdcluster
+
 
 # editar /etc/drbd.d/vm1.res
 resource vm1 {
@@ -507,7 +512,9 @@ resource vm1 {
     protocol C;
 
     startup {
-	become-primary-on both;
+        become-primary-on both;
+        wfc-timeout 40;
+        degr-wfc-timeout 240;
     }
     net {
         allow-two-primaries;
@@ -517,7 +524,10 @@ resource vm1 {
     }
     disk {
         on-io-error detach;
-        fencing resource-only;
+        fencing resource-and-stonith;
+    }
+    handlers {
+        split-brain "/usr/lib/drbd/notify-split-brain.sh root";
     }
     syncer {
         rate 50M;
@@ -716,8 +726,6 @@ crm resource show
 #configuracao
 crm configure edit
 
-
-############ ALTERAR
 node $id="1084752392" brunonote.emer.com \
         attributes maintenance="off" standby="off"
 node $id="1084752393" bruno2.emer.com \
@@ -726,6 +734,8 @@ primitive DRBD ocf:linbit:drbd \
         params drbd_resource="vm1" \
         op monitor interval="20" role="Master" timeout="240" \
         op monitor interval="30" role="Slave" timeout="240" \
+        op start interval="0" timeout="240" \
+        op stop interval="0" timeout="100" start-delay="0" \
         meta is-managed="true"
 primitive VM1 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
@@ -737,17 +747,19 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         meta allow-migrate="true" target-role="Started" \
         utilization cpu="1" hv_memory="512"
 ms MS_DRBD DRBD \
-        meta master-max="1" clone-max="2" clone-node-max="1" notify="true" target-role="Started" \
-	migration-threshold="1" allow-migrate="true"
-location cli-prefer-MS_DRBD MS_DRBD inf: bruno2.emer.com
+        meta master-max="2" clone-max="2" clone-node-max="1" notify="true" target-role="Master" migration-threshold="1" allow-migrate="true" is-managed="true"
+location cli-prefer-MS_DRBD MS_DRBD inf: brunonote.emer.com
+location cli-prefer-VM1 VM1 inf: brunonote.emer.com
 colocation col_DRBD_VMS inf: VM1 MS_DRBD:Master
 order ord_DRBD_VMS inf: MS_DRBD:promote VM1:start
 property $id="cib-bootstrap-options" \
         dc-version="1.1.10-42f2063" \
         cluster-infrastructure="corosync" \
-        stonith-enabled="false" \
+        stonith-enabled="true" \
         no-quorum-policy="ignore" \
-        last-lrm-refresh="1466773789"
+        last-lrm-refresh="1471391828" \
+	expected-quorum-votes="2" \
+	stonith-action="poweroff"
 rsc_defaults $id="rsc-options" \
         resource-stickiness="100" \
         migration-threshold="3"
@@ -755,8 +767,34 @@ rsc_defaults $id="rsc-options" \
 #para aplicar reiniciar os nodes
 reboot
 
+#manutencao vms
+#live migration com drbd dual primary
+virsh migrate --live vm1 qemu+ssh://bruno2.emer.com/system
+#OK, mas nao funciona caso um node falhar ???
 
 crm resource migrate MS_DRBD brunonote.emer.com
+# nao funcionou ???
+
+crm node maintenance brunonote.emer.com
+service pacemaker stop
+service corosync stop
+###### split brain ?????
+
+#para remover gerencia pacemaker para fazer manualmente
+crm resource meta MS_DRBD set is-managed false
+
+#teste failover
+crm node standby brunonote.emer.com
+crm node online brunonote.emer.com
+
+#para efetuar configuracoes no drbd ou libvirt
+crm node maintenance brunonote.emer.com
+crm node ready brunonote.emer.com
+
+#desativar cluster
+crm resource stop MS_DRBD
+crm resource start MS_DRBD
+crm resource cleanup MS_DRBD
 
 
 
