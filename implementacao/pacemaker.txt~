@@ -485,6 +485,9 @@ reboot
 # live migration com lvm
 https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_KVM_%2B_Live_Migrations#Pacemaker
 
+#CLVM
+apt-get install clvm
+lvmconf --enable-cluster
 #filtro no lvm - /etc/lvm/lvm.conf
 devices {
 	filter = ["a|sd.*|", "a|drbd.*|", "r|.*|"]
@@ -492,20 +495,15 @@ devices {
 	locking_type = 3
 	fallback_to_local_locking = 0
 }
+sudo update-rc.d clvm disable
 
 # vg drbd
 #formatar particao em lvm2 e criar pv
 vgcreate vgdrbd /dev/sda10
-lvcreate -n vm1 vgdrbd -L 6.5G
+lvcreate -n lvdrbd vgdrbd -L 6,5G   # para grupo de vms??
 
-##### CONTINUAR
-# vg cluster
-pvcreate /dev/drbd0
-vgcreate --clustered y vgdrbdcluster /dev/drbd0
-lvcreate -n vm1 -L 6G vgdrbdcluster
-
-# editar /etc/drbd.d/vm1.res
-resource vm1 {
+# editar /etc/drbd.d/vms.res
+resource vms {
     meta-disk internal;
     device /dev/drbd0;
     protocol C;
@@ -526,26 +524,27 @@ resource vm1 {
         fencing resource-and-stonith;
     }
     handlers {
-        split-brain "/usr/lib/drbd/notify-split-brain.sh root";
+        #split-brain "/usr/lib/drbd/notify-split-brain.sh root";
     }
     syncer {
         rate 50M;
     }
     on brunonote.emer.com {
         address 192.168.2.8:7791;
-        disk /dev/vgdrbd/vm1;
+        disk /dev/vgdrbd/lvdrbd;
     }
     on bruno2.emer.com {
         address 192.168.2.9:7791;
-        disk /dev/vgdrbd/vm1;
+        disk /dev/vgdrbd/lvdrbd;
     }
 }
 
 service drbd reload
 
-drbdadm create-md vm1
-drbdadm up vm1
-drbdadm primary vm1
+drbdadm create-md vms
+drbdadm up vms
+drbdadm primary vms
+#drbdadm -- --overwrite-data-of-peer primary vms  #primeira vez
 
 # verificar
 root@brunonote:~# service drbd status
@@ -553,14 +552,19 @@ drbd driver loaded OK; device status:
 version: 8.4.5 (api:1/proto:86-101)
 srcversion: 5A4F43804B37BB28FCB1F47 
 m:res  cs         ro               ds                 p  mounted  fstype
-0:vm1  Connected  Primary/Primary  UpToDate/UpToDate  C
+0:vms  Connected  Primary/Primary  UpToDate/UpToDate  C
+
+# vg cluster
+pvcreate /dev/drbd0
+vgcreate --clustered y vgdrbdcluster /dev/drbd0 # em apenas um node
+lvcreate -n lvvm1 -L 6G vgdrbdcluster
 
 #importar imagem existente
-dd if=/var/lib/libvirt/images/HAteste1.img of=/dev/drbd/by-res/vm1 bs=1M
+dd if=/var/lib/libvirt/images/HAteste1.img of=/dev/vgdrbdcluster/lvvm1 bs=1M
 
 #criar vm libvirt
 #pool
-virsh pool-create-as vgdrbd --type=logical --target=/dev/vgdrbd
+virsh pool-create-as vgdrbd --type=logical --target=/dev/vgdrbdcluster/
 #xml vm
 <domain type='kvm'>
   <name>vm1</name>
@@ -585,7 +589,7 @@ virsh pool-create-as vgdrbd --type=logical --target=/dev/vgdrbd
     <emulator>/usr/bin/kvm-spice</emulator>
     <disk type='block' device='disk'>
       <driver name='qemu' type='raw' cache='none'/>
-      <source dev='/dev/vgdrbd/vm1'/>
+      <source dev='/dev/vgdrbdcluster/lvvm1'/>
       <target dev='vda' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
     </disk>
