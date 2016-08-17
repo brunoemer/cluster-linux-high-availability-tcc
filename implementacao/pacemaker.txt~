@@ -894,6 +894,7 @@ O2CB_RECONNECT_DELAY_MS=2000
 service ocfs2 restart
 
 mkfs.ocfs2 /dev/drbd/by-res/vms
+mkdir /var/lib/libvirt/images/ocfs
 
 # corosync /etc/corosync/corosync.conf
 totem {
@@ -1054,7 +1055,7 @@ ssh bruno2 virsh define /home/bruno/vm1.xml
 
 
 #VER stonith-enabled para producao
-#https://www.drbd.org/en/doc/users-guide-84/ch-ocfs2
+https://www.drbd.org/en/doc/users-guide-84/ch-ocfs2
 #drbd resource:
 disk {
         fencing resource-and-stonith;

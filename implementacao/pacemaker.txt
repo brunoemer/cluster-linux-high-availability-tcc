@@ -943,6 +943,8 @@ logging {
 
 service corosync restart
 
+mkdir /var/lib/libvirt/images/ocfs
+
 # pacemaker
 crm configure edit
 node $id="1084752392" brunonote.emer.com \
