@@ -487,6 +487,7 @@ https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_
 
 #CLVM
 apt-get install clvm
+apt-get install libdlmcontrol3
 lvmconf --enable-cluster
 #filtro no lvm - /etc/lvm/lvm.conf
 devices {
@@ -495,7 +496,7 @@ devices {
 	locking_type = 3
 	fallback_to_local_locking = 0
 }
-sudo update-rc.d clvm disable
+sudo update-rc.d clvm disable ???????
 
 # vg drbd
 #formatar particao em lvm2 e criar pv

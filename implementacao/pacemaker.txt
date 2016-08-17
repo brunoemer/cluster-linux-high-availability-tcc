@@ -487,6 +487,7 @@ https://rarforge.com/w/index.php/2_Node_Cluster:_Dual_Primary_DRBD_%2B_CLVM_%2B_
 
 #CLVM
 apt-get install clvm
+apt-get install libdlmcontrol3
 lvmconf --enable-cluster
 #filtro no lvm - /etc/lvm/lvm.conf
 devices {
