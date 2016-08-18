@@ -788,21 +788,10 @@ service corosync stop
 #para remover gerencia pacemaker para fazer manualmente
 crm resource meta MS_DRBD set is-managed false
 
-#teste failover
-crm node standby brunonote.emer.com
-crm node online brunonote.emer.com
-
-#para efetuar configuracoes no drbd ou libvirt
-crm node maintenance brunonote.emer.com
-crm node ready brunonote.emer.com
-
 #desativar cluster
 crm resource stop MS_DRBD
 crm resource start MS_DRBD
 crm resource cleanup MS_DRBD
-
-# limpar recurso e reiniciar
-crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 
 ##### NAO FUNCIONOU, APENAS LIVE MIGRATION SEM CLVM
 
@@ -908,6 +897,21 @@ cd /etc/rcS.d/
 ln -s ../init.d/o2cb /etc/rcS.d/S41o2cb
 
 mkfs.ocfs2 /dev/drbd/by-res/vms
+
+###### ERRO ocfs2 is not compatible with your environment.
+#https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
+# bug fix https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
+#patch /usr/lib/ocf/resource.d/heartbeat/Filesystem
+--- Filesystem 2013-12-16 07:41:25.000000000 +0000
++++ Filesystem.new 2015-01-19 19:01:30.181772112 +0000
+@@ -338,7 +338,7 @@ ocfs2_init()
+  # not need this:
+  OCFS2_SLES10=""
+- if [ "X$HA_cluster_type" = "Xcman" ]; then
++ if [ "X$HA_cluster_type" = "Xcorosync" ]; then
+      return
+  elif [ "X$HA_cluster_type" != "Xopenais" ]; then
+   if grep -q "SUSE Linux Enterprise Server 10" /etc/SuSE-release >/dev/null 2>&1 ; then
 
 #node 1
 corosync-keygen
@@ -1023,29 +1027,6 @@ clone OCFS_MOUNT_CLONE OCFS_MOUNT \
 	meta interleave="true" ordered="true"
 colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
 order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
-property $id="cib-bootstrap-options" \
-	dc-version="1.1.10-42f2063" \
-	cluster-infrastructure="corosync" \
-	default-resource-stickiness="1000" \
-	no-quorum-policy="ignore" \
-	stonith-enabled="false" \
-	last-lrm-refresh="1471491727"
-
-###### ERRO ocfs2 is not compatible with your environment.
-#https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
-# bug fix https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
-#patch /usr/lib/ocf/resource.d/heartbeat/Filesystem
---- Filesystem 2013-12-16 07:41:25.000000000 +0000
-+++ Filesystem.new 2015-01-19 19:01:30.181772112 +0000
-@@ -338,7 +338,7 @@ ocfs2_init()
-  # not need this:
-  OCFS2_SLES10=""
-- if [ "X$HA_cluster_type" = "Xcman" ]; then
-+ if [ "X$HA_cluster_type" = "Xcorosync" ]; then
-      return
-  elif [ "X$HA_cluster_type" != "Xopenais" ]; then
-   if grep -q "SUSE Linux Enterprise Server 10" /etc/SuSE-release >/dev/null 2>&1 ; then
-
 primitive VM1 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
         op monitor timeout="30" interval="10" depth="0" \
@@ -1056,6 +1037,16 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         meta allow-migrate="true" target-role="Started"
 colocation COL_VMS inf: VM1 MS_DRBD:Master
 order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
+property $id="cib-bootstrap-options" \
+	dc-version="1.1.10-42f2063" \
+	cluster-infrastructure="corosync" \
+	default-resource-stickiness="1000" \
+	no-quorum-policy="ignore" \
+	stonith-enabled="false" \
+	last-lrm-refresh="1471491727"
+
+# para preferencia do node que vm vai iniciar
+location cli-prefer-VM1 VM1 inf: brunonote.emer.com
 
 #VM
 #pool
@@ -1123,10 +1114,25 @@ virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
 scp /home/bruno/vm1.xml bruno2:/home/bruno/
 ssh bruno2 virsh define /home/bruno/vm1.xml
 
+crm resource migrate VM1 brunonote.emer.com
+# OK
+
+#teste failover
+crm node standby brunonote.emer.com
+crm node online brunonote.emer.com
+
+#para efetuar configuracoes no drbd ou libvirt
+crm node maintenance brunonote.emer.com
+crm node ready brunonote.emer.com
+
+# limpar recurso e reiniciar
+crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
+
 
 #### TESTAR #####
 
 
+### PRODUCAO
 #VER stonith-enabled para producao
 https://www.drbd.org/en/doc/users-guide-84/ch-ocfs2
 #drbd resource:
