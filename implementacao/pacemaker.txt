@@ -801,6 +801,9 @@ crm resource stop MS_DRBD
 crm resource start MS_DRBD
 crm resource cleanup MS_DRBD
 
+# limpar recurso e reiniciar
+crm_resource -r OCFS_MOUNT -C -H bruno2.emer.com
+
 ##### NAO FUNCIONOU, APENAS LIVE MIGRATION SEM CLVM
 
 
@@ -891,9 +894,18 @@ O2CB_KEEPALIVE_DELAY_MS=2000
 # O2CB_RECONNECT_DELAY_MS: Min. time in ms between connection attempts.
 O2CB_RECONNECT_DELAY_MS=2000
 
+sudo update-rc.d o2cb disable
 service ocfs2 restart
 
 mkfs.ocfs2 /dev/drbd/by-res/vms
+
+#node 1
+corosync-keygen
+scp /etc/corosync/authkey bruno2.emer.com:
+#node 2
+mv ~/authkey /etc/corosync/authkey
+chown root:root /etc/corosync/authkey
+chmod 400 /etc/corosync/authkey
 
 # corosync /etc/corosync/corosync.conf
 totem {
@@ -946,54 +958,102 @@ service corosync restart
 mkdir /var/lib/libvirt/images/ocfs
 
 # pacemaker
+#adicionar em crm configure edit
+node $id="1084752392" brunonote.emer.com
+node $id="1084752393" bruno2.emer.com
+
+service corosync restart
+service pacemaker restart
+
+
+##### NAO USAR DLM PELO PACEMAKER https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
+primitive p_drbd_ocfs2 ocf:linbit:drbd \
+  params drbd_resource="vms"
+ms ms_drbd_ocfs2 p_drbd_ocfs2 \
+  meta master-max=2 clone-max=2 notify=true
+primitive resDRBD ocf:linbit:drbd \
+   params drbd_resource="vms" \
+   operations $id="resDRBD-operations" \
+   op monitor interval="20" role="Master" timeout="20" \
+   op monitor interval="30" role="Slave" timeout="20"
+ms msDRBD resDRBD \
+   meta notify="true" master-max="2" interleave="true"
+primitive resDLM ocf:pacemaker:controld op monitor interval="120s"
+   clone cloneDLM resDLM meta globally-unique="false" interleave="true"
+colocation colDLMDRBD inf: cloneDLM msDRBD:Master
+order ordDRBDDLM 0: msDRBD:promote cloneDLM
+primitive resO2CB ocf:pacemaker:o2cb op monitor interval="120s"
+clone cloneO2CB resO2CB meta globally-unique="false" interleave="true"
+colocation colO2CBDLM inf: cloneO2CB cloneDLM
+order ordDLMO2CB 0: cloneDLM cloneO2CB
+primitive resFS ocf:heartbeat:Filesystem \
+   params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2" \
+   op monitor interval="120s"
+clone cloneFS resFS meta interleave="true" ordered="true"
+colocation colFSO2CB inf: cloneFS cloneO2CB
+order ordO2CBFS 0: cloneO2CB cloneFS
+#apt-get install dlm ???
+#### ERRO
+
+#tentativa 2
 crm configure edit
-node $id="1084752392" brunonote.emer.com \
-        attributes maintenance="off" standby="off"
-node $id="1084752393" bruno2.emer.com \
-        attributes standby="off" maintenance="off"
+node $id="1084752392" brunonote.emer.com
+node $id="1084752393" bruno2.emer.com
 primitive DRBD ocf:linbit:drbd \
-        params drbd_resource="vms" \
-        op monitor interval="20" role="Master" timeout="240" \
-        op monitor interval="30" role="Slave" timeout="240" \
-        meta is-managed="true"
+	params drbd_resource="vms" \
+	op monitor interval="20" role="Master" timeout="240" \
+	op monitor interval="30" role="Slave" timeout="240" \
+	meta is-managed="true" target-role="Started"
+primitive OCFS_MOUNT ocf:heartbeat:Filesystem \
+	params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2" \
+	meta target-role="Started"
+ms MS_DRBD DRBD \
+	meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true"
+clone OCFS_MOUNT_CLONE OCFS_MOUNT \
+	meta interleave="true" ordered="true"
+colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
+order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
+property $id="cib-bootstrap-options" \
+	dc-version="1.1.10-42f2063" \
+	cluster-infrastructure="corosync" \
+	default-resource-stickiness="1000" \
+	no-quorum-policy="ignore" \
+	stonith-enabled="false" \
+	last-lrm-refresh="1471491727"
+
+###### ERRO ocfs2 is not compatible with your environment.
+#https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
+# bug fix https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
+#patch /usr/lib/ocf/resource.d/heartbeat/Filesystem
+--- Filesystem 2013-12-16 07:41:25.000000000 +0000
++++ Filesystem.new 2015-01-19 19:01:30.181772112 +0000
+@@ -338,7 +338,7 @@ ocfs2_init()
+  # not need this:
+  OCFS2_SLES10=""
+- if [ "X$HA_cluster_type" = "Xcman" ]; then
++ if [ "X$HA_cluster_type" = "Xcorosync" ]; then
+      return
+  elif [ "X$HA_cluster_type" != "Xopenais" ]; then
+   if grep -q "SUSE Linux Enterprise Server 10" /etc/SuSE-release >/dev/null 2>&1 ; then
+
 primitive VM1 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        op monitor timeout="30" interval="10" depth="0" \
         op start timeout="90" interval="0" \
         op stop timeout="90" interval="0" \
-        op monitor timeout="30" interval="10" depth="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
         meta allow-migrate="true" target-role="Started"
-ms MS_DRBD DRBD \
-        meta master-max="2" resource-stickines="100" notify="true" interleave="true" migration-threshold="1" allow-migrate="true" is-managed="true"
-primitive ocfs-mount ocf:heartbeat:Filesystem \
-        params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2" \
-        meta target-role="Started"
-clone ocfs-mount-clone ocfs-mount \
-        meta interleave="true" ordered="true"
-order Cluster-FS-After-DRBD inf: \
-        MS_DRBD:promote \
-        ocfs-mount-clone:start
-property $id="cib-bootstrap-options" \
-        dc-version="1.1.10-42f2063" \
-        cluster-infrastructure="corosync" \
-        stonith-enabled="false" \
-        no-quorum-policy="ignore" \
-        last-lrm-refresh="1471391828" \
-        expected-quorum-votes="2" 
-rsc_defaults $id="rsc-options" \
-        resource-stickiness="1000" \
-        migration-threshold="1"
-
-
-#### TESTER CONTINUAR
-
+colocation COL_VMS inf: VM1 MS_DRBD:Master
+order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
 
 #VM
+#pool
+virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
 #xml vm
 <domain type='kvm'>
   <name>vm1</name>
-  <uuid>62d4fb34-1c0e-07e6-3264-89ce12f6ef25</uuid>
+  <uuid>eca754c1-099d-4129-9268-43c114e11c8a</uuid>
   <memory unit='KiB'>524288</memory>
   <currentMemory unit='KiB'>524288</currentMemory>
   <vcpu placement='static'>1</vcpu>
@@ -1012,9 +1072,9 @@ rsc_defaults $id="rsc-options" \
   <on_crash>restart</on_crash>
   <devices>
     <emulator>/usr/bin/kvm-spice</emulator>
-    <disk type='block' device='disk'>
-      <driver name='qemu' type='raw' cache='none'/>
-      <source dev='/dev/vgdrbdcluster/lvvm1????'/>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='raw' />
+      <source file='/var/lib/libvirt/images/ocfs/vm1.img'/>
       <target dev='vda' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
     </disk>
