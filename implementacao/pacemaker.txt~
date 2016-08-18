@@ -1053,7 +1053,7 @@ virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
 #xml vm
 <domain type='kvm'>
   <name>vm1</name>
-  <uuid>62d4fb34-1c0e-07e6-3264-89ce12f6ef25</uuid>
+  <uuid>eca754c1-099d-4129-9268-43c114e11c8a</uuid>
   <memory unit='KiB'>524288</memory>
   <currentMemory unit='KiB'>524288</currentMemory>
   <vcpu placement='static'>1</vcpu>
