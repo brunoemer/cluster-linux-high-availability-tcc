@@ -1113,6 +1113,7 @@ virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
 scp /home/bruno/vm1.xml bruno2:/home/bruno/
 ssh bruno2 virsh define /home/bruno/vm1.xml
 
+#### TESTAR #####
 
 
 #VER stonith-enabled para producao

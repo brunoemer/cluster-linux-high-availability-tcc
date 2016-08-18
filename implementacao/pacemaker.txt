@@ -894,7 +894,7 @@ O2CB_KEEPALIVE_DELAY_MS=2000
 # O2CB_RECONNECT_DELAY_MS: Min. time in ms between connection attempts.
 O2CB_RECONNECT_DELAY_MS=2000
 
-sudo update-rc.d o2cb disable
+#sudo update-rc.d o2cb disable #removi
 service ocfs2 restart
 
 mkfs.ocfs2 /dev/drbd/by-res/vms
