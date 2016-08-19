@@ -1176,6 +1176,13 @@ crm node ready brunonote.emer.com
 # limpar recurso e reiniciar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 
+#historico
+crm history node bruno2.emer.com
+
+
+#ver problema se ocorrer novamente de um no offline ???
+http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
+
 
 ### PRODUCAO VER ?????
 #VER stonith-enabled para producao

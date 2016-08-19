@@ -1085,7 +1085,7 @@ clone OCFS_MOUNT_CLONE OCFS_MOUNT \
 location backup-VM1 VM1 100: brunonote.emer.com
 location cli-prefer-VM1 VM1 inf: bruno2.emer.com
 colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
-colocation COL_VMS inf: VM1 OCFS_MOUNT_CLONE
+colocation COL_VMS inf: VM1 MS_DRBD:Master
 order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
 property $id="cib-bootstrap-options" \
 	dc-version="1.1.10-42f2063" \
@@ -1175,6 +1175,13 @@ crm node ready brunonote.emer.com
 
 # limpar recurso e reiniciar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
+
+#historico
+crm history node bruno2.emer.com
+
+
+#ver problema se ocorrer novamente de um no offline
+http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
 
 
 ### PRODUCAO VER ?????
