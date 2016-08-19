@@ -967,8 +967,6 @@ logging {
         }
 }
 
-service corosync restart
-
 mkdir /var/lib/libvirt/images/ocfs
 
 # pacemaker
@@ -1186,6 +1184,7 @@ http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one
 
 ### PRODUCAO VER ?????
 #VER stonith-enabled para producao
+http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack?page=0,1
 https://www.drbd.org/en/doc/users-guide-84/ch-ocfs2
 #drbd resource:
 disk {

@@ -966,8 +966,16 @@ logging {
             tags: enter|leave|trace1|trace2|trace3|trace4|trace6
         }
 }
-
-service corosync restart
+# nodes
+nodelist {
+        node { 
+                ring0_addr: 192.168.2.8
+        }
+        node { 
+                ring0_addr: 192.168.2.9
+        }
+}
+???
 
 mkdir /var/lib/libvirt/images/ocfs
 
@@ -1180,12 +1188,13 @@ crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 crm history node bruno2.emer.com
 
 
-#ver problema se ocorrer novamente de um no offline
+#ver problema se ocorrer novamente de um no offline ???
 http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
 
 
 ### PRODUCAO VER ?????
 #VER stonith-enabled para producao
+http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack?page=0,1
 https://www.drbd.org/en/doc/users-guide-84/ch-ocfs2
 #drbd resource:
 disk {
