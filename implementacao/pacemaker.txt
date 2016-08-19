@@ -177,8 +177,8 @@ crm configure primitive VMS ocf:heartbeat:VirtualDomain \
     meta allow-migrate="false"
 
 
-#nodo com preferencia. testar
-crm configure location master-prefer-node1 VMS 50: brunonote ??
+#nodo com preferencia.
+crm configure location master-prefer-node1 VMS 50: brunonote
 
 #configuracao final
 node $id="1084752392" brunonote
@@ -502,7 +502,7 @@ update-rc.d -f clvm remove
 # vg drbd
 #formatar particao em lvm2 e criar pv
 vgcreate vgdrbd /dev/sda10
-lvcreate -n lvdrbd vgdrbd -L 6,5G   # para grupo de vms??
+lvcreate -n lvdrbd vgdrbd -L 6,5G   
 
 # editar /etc/drbd.d/vms.res
 resource vms {
@@ -775,15 +775,15 @@ reboot
 #manutencao vms
 #live migration com drbd dual primary
 virsh migrate --live vm1 qemu+ssh://bruno2.emer.com/system
-#OK, mas nao funciona caso um node falhar ???
+#OK, mas nao funciona caso um node falhar
 
 crm resource migrate MS_DRBD brunonote.emer.com
-# nao funcionou ???
+# nao funcionou
 
 crm node maintenance brunonote.emer.com
 service pacemaker stop
 service corosync stop
-###### split brain ?????
+###### split brain
 
 #para remover gerencia pacemaker para fazer manualmente
 crm resource meta MS_DRBD set is-managed false
@@ -1006,27 +1006,32 @@ primitive resFS ocf:heartbeat:Filesystem \
 clone cloneFS resFS meta interleave="true" ordered="true"
 colocation colFSO2CB inf: cloneFS cloneO2CB
 order ordO2CBFS 0: cloneO2CB cloneFS
-#apt-get install dlm ???
+#apt-get install dlm #nao precisa
 #### ERRO
 
 #tentativa 2
 crm configure edit
 node $id="1084752392" brunonote.emer.com
 node $id="1084752393" bruno2.emer.com
+# drbd do resource vms
 primitive DRBD ocf:linbit:drbd \
 	params drbd_resource="vms" \
 	op monitor interval="20" role="Master" timeout="240" \
 	op monitor interval="30" role="Slave" timeout="240" \
 	meta is-managed="true" target-role="Started"
+# monta filesystem
 primitive OCFS_MOUNT ocf:heartbeat:Filesystem \
 	params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2" \
 	meta target-role="Started"
+# master/master do drbd
 ms MS_DRBD DRBD \
 	meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true"
+# replica configuracao do filesystem OCFS_MOUNT
 clone OCFS_MOUNT_CLONE OCFS_MOUNT \
 	meta interleave="true" ordered="true"
+# dependencias dos recursos, OCFS_MOUNT_CLONE depende de MS_DRBD
 colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
-order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
+# vm com live migration
 primitive VM1 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
         op monitor timeout="30" interval="10" depth="0" \
@@ -1035,8 +1040,15 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
         meta allow-migrate="true" target-role="Started"
+# dependencias dos recursos
 colocation COL_VMS inf: VM1 MS_DRBD:Master
+# ordena inicializacao de servicos, primeiro drbd, filesystem, e vm
 order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
+# para preferencia do node que vm vai iniciar
+location cli-prefer-VM1 VM1 inf: brunonote.emer.com
+# no secundario caso primario falhe ou fique em standby
+location backup-VM1 VM1 100: brunonote.emer.com
+#outros
 property $id="cib-bootstrap-options" \
 	dc-version="1.1.10-42f2063" \
 	cluster-infrastructure="corosync" \
@@ -1045,8 +1057,44 @@ property $id="cib-bootstrap-options" \
 	stonith-enabled="false" \
 	last-lrm-refresh="1471491727"
 
-# para preferencia do node que vm vai iniciar
-location cli-prefer-VM1 VM1 inf: brunonote.emer.com
+# config final com live migration e fail over automatico
+node $id="1084752392" brunonote.emer.com
+node $id="1084752393" bruno2.emer.com \
+	attributes standby="off"
+primitive DRBD ocf:linbit:drbd \
+	params drbd_resource="vms" \
+	op monitor interval="20" role="Master" timeout="240" \
+	op monitor interval="30" role="Slave" timeout="240" \
+	meta is-managed="true" target-role="Started"
+primitive OCFS_MOUNT ocf:heartbeat:Filesystem \
+	params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2" \
+	meta target-role="Started"
+primitive VM1 ocf:heartbeat:VirtualDomain \
+	params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+	op monitor timeout="30" interval="10" depth="0" \
+	op start timeout="90" interval="0" \
+	op stop timeout="90" interval="0" \
+	op migrate_from interval="0" timeout="240" \
+	op migrate_to interval="0" timeout="240" \
+	meta allow-migrate="true" target-role="Started" \
+	utilization cpu="1" hv_memory="512"
+ms MS_DRBD DRBD \
+	meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true"
+clone OCFS_MOUNT_CLONE OCFS_MOUNT \
+	meta interleave="true" ordered="true"
+location backup-VM1 VM1 100: brunonote.emer.com
+location cli-prefer-VM1 VM1 inf: bruno2.emer.com
+colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
+colocation COL_VMS inf: VM1 MS_DRBD:Master
+order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
+property $id="cib-bootstrap-options" \
+	dc-version="1.1.10-42f2063" \
+	cluster-infrastructure="corosync" \
+	default-resource-stickiness="1000" \
+	no-quorum-policy="ignore" \
+	stonith-enabled="false" \
+	last-lrm-refresh="1471519030"
+
 
 #VM
 #pool
@@ -1117,7 +1165,7 @@ ssh bruno2 virsh define /home/bruno/vm1.xml
 crm resource migrate VM1 brunonote.emer.com
 # OK
 
-#teste failover
+#teste failover, migra vms para outro node
 crm node standby brunonote.emer.com
 crm node online brunonote.emer.com
 
@@ -1129,10 +1177,7 @@ crm node ready brunonote.emer.com
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 
 
-#### TESTAR #####
-
-
-### PRODUCAO
+### PRODUCAO VER ?????
 #VER stonith-enabled para producao
 https://www.drbd.org/en/doc/users-guide-84/ch-ocfs2
 #drbd resource:
@@ -1145,6 +1190,10 @@ handlers {
         fence-peer "/sbin/kill-other-node.sh";
 }
 
+
+# web interface gui
+https://github.com/ClusterLabs/hawk
+https://hawk-guide.readthedocs.io/en/latest/
 
 
 
