@@ -966,6 +966,16 @@ logging {
             tags: enter|leave|trace1|trace2|trace3|trace4|trace6
         }
 }
+???
+# nodes
+nodelist {
+        node { 
+                ring0_addr: 192.168.2.8
+        }
+        node { 
+                ring0_addr: 192.168.2.9
+        }
+}
 
 mkdir /var/lib/libvirt/images/ocfs
 
@@ -1205,11 +1215,13 @@ umount /dev/drbd/by-res/vms
 tunefs.ocfs2 -S /dev/drbd/by-res/vms
 
 
-#ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
-
-
 #ver problema se ocorrer novamente de um no offline ???
 http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
+#sem mcastaddr nao da start no corosync
+#tentar com tag nodes, #parece que funcinou ??
+
+#ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
+
 
 ### PRODUCAO VER ?????
 #VER stonith-enabled para producao
