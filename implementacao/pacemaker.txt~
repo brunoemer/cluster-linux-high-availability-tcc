@@ -966,16 +966,6 @@ logging {
             tags: enter|leave|trace1|trace2|trace3|trace4|trace6
         }
 }
-# nodes
-nodelist {
-        node { 
-                ring0_addr: 192.168.2.8
-        }
-        node { 
-                ring0_addr: 192.168.2.9
-        }
-}
-???
 
 mkdir /var/lib/libvirt/images/ocfs
 
@@ -1048,7 +1038,7 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
         meta allow-migrate="true" target-role="Started"
-# dependencias dos recursos
+# dependencias dos recursos, VM1 depende de MS_DRBD
 colocation COL_VMS inf: VM1 MS_DRBD:Master
 # ordena inicializacao de servicos, primeiro drbd, filesystem, e vm
 order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
@@ -1070,31 +1060,43 @@ node $id="1084752392" brunonote.emer.com
 node $id="1084752393" bruno2.emer.com \
 	attributes standby="off"
 primitive DRBD ocf:linbit:drbd \
-	params drbd_resource="vms" \
-	op monitor interval="20" role="Master" timeout="240" \
-	op monitor interval="30" role="Slave" timeout="240" \
-	meta is-managed="true" target-role="Started"
+        params drbd_resource="vms" \
+        op monitor interval="20" role="Master" timeout="240" \
+        op monitor interval="30" role="Slave" timeout="240" \
+        meta is-managed="true" target-role="Started"
 primitive OCFS_MOUNT ocf:heartbeat:Filesystem \
-	params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2" \
-	meta target-role="Started"
+        params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2"
 primitive VM1 ocf:heartbeat:VirtualDomain \
-	params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
-	op monitor timeout="30" interval="10" depth="0" \
-	op start timeout="90" interval="0" \
-	op stop timeout="90" interval="0" \
-	op migrate_from interval="0" timeout="240" \
-	op migrate_to interval="0" timeout="240" \
-	meta allow-migrate="true" target-role="Started" \
-	utilization cpu="1" hv_memory="512"
+        params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        op monitor timeout="30" interval="10" depth="0" \
+        op start timeout="90" interval="0" \
+        op stop timeout="90" interval="0" \
+        op migrate_from interval="0" timeout="240" \
+        op migrate_to interval="0" timeout="240" \
+        meta allow-migrate="true" target-role="Started" \
+        utilization cpu="1" hv_memory="512"
+primitive VM2 ocf:heartbeat:VirtualDomain \
+        params config="/etc/libvirt/qemu/vm2.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        op monitor timeout="30" interval="10" depth="0" \
+        op start timeout="90" interval="0" \
+        op stop timeout="90" interval="0" \
+        op migrate_from interval="0" timeout="240" \
+        op migrate_to interval="0" timeout="240" \
+        meta allow-migrate="true" target-role="Started" \
+        utilization cpu="1" hv_memory="512"
 ms MS_DRBD DRBD \
-	meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true"
+        meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true"
 clone OCFS_MOUNT_CLONE OCFS_MOUNT \
-	meta interleave="true" ordered="true"
+        meta interleave="true" ordered="true" target-role="Started"
 location backup-VM1 VM1 100: brunonote.emer.com
+location backup-VM2 VM2 100: bruno2.emer.com
 location cli-prefer-VM1 VM1 inf: bruno2.emer.com
+location cli-prefer-VM2 VM2 inf: brunonote.emer.com
 colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
-colocation COL_VMS inf: VM1 MS_DRBD:Master
-order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
+colocation COL_VM1 inf: VM1 OCFS_MOUNT_CLONE
+colocation COL_VM2 inf: VM2 OCFS_MOUNT_CLONE
+order ORD_VM1 inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
+order ORD_VM2 inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM2:start
 property $id="cib-bootstrap-options" \
 	dc-version="1.1.10-42f2063" \
 	cluster-infrastructure="corosync" \
@@ -1102,7 +1104,6 @@ property $id="cib-bootstrap-options" \
 	no-quorum-policy="ignore" \
 	stonith-enabled="false" \
 	last-lrm-refresh="1471519030"
-
 
 #VM
 #pool
@@ -1141,7 +1142,7 @@ virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
     <controller type='pci' index='0' model='pci-root'/>
     <interface type='network'>
       <mac address='52:54:00:3b:df:98'/>
-      <source network='default'/>
+      <source bridge='br0'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
     </interface>
@@ -1187,10 +1188,22 @@ crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 #historico
 crm history node bruno2.emer.com
 
+#resize disco lvm - drbd - ocfs2
+lvextend /dev/vgdrbd/lvdrbd -l 100%VG
+#online resize
+drbdadm up vms
+drbdadm primary vms
+drbdadm resize vms
+#offline resize ocfs2
+drbdadm up vms
+umount /dev/drbd/by-res/vms
+#ocfs https://oss.oracle.com/projects/ocfs2/dist/documentation/v1.2/ocfs2_faq.html#RESIZE
+tunefs.ocfs2 -S /dev/drbd/by-res/vms
+
+
 
 #ver problema se ocorrer novamente de um no offline ???
 http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
-
 
 ### PRODUCAO VER ?????
 #VER stonith-enabled para producao
@@ -1210,6 +1223,5 @@ handlers {
 # web interface gui
 https://github.com/ClusterLabs/hawk
 https://hawk-guide.readthedocs.io/en/latest/
-
 
 
