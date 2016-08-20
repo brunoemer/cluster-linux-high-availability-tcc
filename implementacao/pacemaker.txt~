@@ -1205,6 +1205,8 @@ umount /dev/drbd/by-res/vms
 tunefs.ocfs2 -S /dev/drbd/by-res/vms
 
 
+#ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
+
 
 #ver problema se ocorrer novamente de um no offline ???
 http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
@@ -1228,4 +1230,22 @@ handlers {
 https://github.com/ClusterLabs/hawk
 https://hawk-guide.readthedocs.io/en/latest/
 
+#suse ou redhat
+git clone https://github.com/ClusterLabs/hawk.git
+vi Makefile
+WWW_BASE = /var/www
+INIT_STYLE = debian ???????
+
+#ubuntu
+git clone https://github.com/rndsolutions/hawk.git
+git clone https://github.com/rndsolutions/hawk-agentj.git
+
+Open "/etc/hosts"
+127.0.0.1 hawkserver
+127.0.0.1 redis
+
+Install Docker - https://docs.docker.com/engine/installation/linux/ubuntulinux/
+Install Redis - http://redis.io/download
+Install Redis Client - http://docs.redisdesktop.com/en/latest/install/#build-from-source
+Setup node.js - https://nodejs.org/en/
 

@@ -1230,4 +1230,10 @@ handlers {
 https://github.com/ClusterLabs/hawk
 https://hawk-guide.readthedocs.io/en/latest/
 
+#suse ou redhat
+git clone https://github.com/ClusterLabs/hawk.git
+vi Makefile
+WWW_BASE = /var/www
+INIT_STYLE = debian ???????
+
 
