@@ -1185,6 +1185,10 @@ crm node ready brunonote.emer.com
 # limpar recurso e reiniciar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 
+# OCFS_MOUNT_CLONE estava como Stopped entao executei:
+crm node standby bruno2.emer.com
+crm node online bruno2.emer.com
+
 #historico
 crm history node bruno2.emer.com
 
