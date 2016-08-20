@@ -1182,7 +1182,7 @@ crm node online brunonote.emer.com
 crm node maintenance brunonote.emer.com
 crm node ready brunonote.emer.com
 
-# limpar recurso e reiniciar
+# limpar recurso e reiniciar, quando recurso falhar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 
 # OCFS_MOUNT_CLONE estava como Stopped entao executei:
@@ -1204,6 +1204,8 @@ umount /dev/drbd/by-res/vms
 #ocfs https://oss.oracle.com/projects/ocfs2/dist/documentation/v1.2/ocfs2_faq.html#RESIZE
 tunefs.ocfs2 -S /dev/drbd/by-res/vms
 
+
+#ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
 
 
 #ver problema se ocorrer novamente de um no offline ???
