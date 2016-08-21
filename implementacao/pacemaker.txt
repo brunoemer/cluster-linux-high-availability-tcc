@@ -1275,18 +1275,45 @@ totem {
         transport: udpu
 }
 #FUNCIONOU
-
-#ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
-
-#ver se drbd e outros recursos nao devem iniciar no boot
-
-#ver como promover no DC para outro node manualmente
+#se der problema ainda testar:
+no-quorum-policy:
+• ignore: continue all resource management
+• freeze: continue resource management, but don’t
+recover resources from nodes not in the affected
+partition
+• stop: stop all resources in the affected cluster
+partition
+• suicide: fence all nodes in the affected cluster
+partition
 
 
 ### PRODUCAO VER ?????
 #VER stonith-enabled para producao
 http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack?page=0,1
+#testar por ipmi
+primitive p_ipmi_alice stonith:external/ipmi \
+  params hostname="alice" ipaddr="192.168.15.1" \
+    userid="admin" passwd="foobar" \
+  op start interval="0" timeout="60" \
+  op monitor interval="120" timeout="60"
+primitive p_ipmi_bob stonith:external/ipmi \
+  params hostname="bob" ipaddr="192.168.15.2" \
+    userid="admin" passwd="foobar" \
+  op start interval="0" timeout="60" \
+  op monitor interval="120" timeout="60"
+primitive p_ipmi_charlie stonith:external/ipmi \
+  params hostname="charlie" ipaddr="192.168.15.3" \
+    userid="admin" passwd="foobar" \
+  op start interval="0" timeout="60" \
+  op monitor interval="120" timeout="60"
+location l_ipmi_alice p_ipmi_alice -inf: alice
+location l_ipmi_bob p_ipmi_bob -inf: bob
+location l_ipmi_charlie p_ipmi_charlie -inf: charlie
+property stonith-enabled="true"
+#
+https://hawk-guide.readthedocs.io/en/latest/stonith.html
 https://www.drbd.org/en/doc/users-guide-84/ch-ocfs2
+http://clusterlabs.org/wiki/Guest_Fencing #redhat um node com todas vms
 #drbd resource:
 disk {
         fencing resource-and-stonith;
@@ -1296,11 +1323,19 @@ handlers {
         # dead after this!
         fence-peer "/sbin/kill-other-node.sh";
 }
-# pacemaker
-cibadmin -C -o resources --xml-file stonith.xml
-crm_attribute -t crm_config -n stonith-enabled -v true
-stonith_admin --reboot nodename
-#ver para fazer pelo crm
+#devices para utilizar:
+stonith_admin --list-installed
+#detalhes do device stonith
+stonith_admin --metadata --agent external/ipmi
+
+
+#ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
+# OK?
+
+#ver se drbd e outros recursos nao devem iniciar no boot
+
+#ver como promover no DC para outro node manualmente
+
 
 
 # web interface gui
