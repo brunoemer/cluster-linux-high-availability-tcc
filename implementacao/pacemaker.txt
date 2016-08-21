@@ -934,12 +934,18 @@ totem {
  	secauth: on
  	threads: 0
  	rrp_mode: none
- 	interface {
-		ringnumber: 0
-		bindnetaddr: 192.168.1.0
-		mcastaddr: 226.94.1.1
-		mcastport: 5405
-	}
+        interface {
+                # The following values need to be set based on your environment 
+                member {
+                        memberaddr: 192.168.2.8
+                }
+                member {
+                        memberaddr: 192.168.2.9
+                }
+                ringnumber: 0
+                bindnetaddr: 192.168.2.0
+        }
+        transport: udpu
 }
 amf {
 	mode: disabled
@@ -964,15 +970,6 @@ logging {
             subsys: AMF
             debug: off
             tags: enter|leave|trace1|trace2|trace3|trace4|trace6
-        }
-}
-# nodes
-nodelist {
-        node { 
-                ring0_addr: 192.168.2.8
-        }
-        node { 
-                ring0_addr: 192.168.2.9
         }
 }
 
@@ -1256,13 +1253,28 @@ drbdadm -- --discard-my-data connect vms
 
 
 #ver problema se ocorrer novamente de um no offline ???
-http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
-#sem mcastaddr nao da start no corosync
 #tentar com tag nodes, #parece que funcinou
 #ao iniciar node 2 aparece offline um para o outro e da splitbrain ??
 #esta subindo sem quorum, se usar no-quorum-policy=stop, quando um node cair derruba todos os recursos de todos nodes
-??? TESTAR SUBIR UM NO ESPERAR E LIGAR O OUTRO (NAO LIGAR SIMULTANEAMENTE)
-
+#TESTAR SUBIR UM NO ESPERAR E LIGAR O OUTRO (NAO LIGAR SIMULTANEAMENTE) nao funcionou, os dois subiram os recursos juntos
+#http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
+#sem mcastaddr 
+totem {
+	...
+        interface {
+                # The following values need to be set based on your environment 
+                member {
+                        memberaddr: 192.168.2.8
+                }
+                member {
+                        memberaddr: 192.168.2.9
+                }
+                ringnumber: 0
+                bindnetaddr: 192.168.2.0
+        }
+        transport: udpu
+}
+#FUNCIONOU
 
 #ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
 
