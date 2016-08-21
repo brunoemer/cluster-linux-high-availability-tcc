@@ -966,7 +966,6 @@ logging {
             tags: enter|leave|trace1|trace2|trace3|trace4|trace6
         }
 }
-???
 # nodes
 nodelist {
         node { 
@@ -1037,7 +1036,7 @@ ms MS_DRBD DRBD \
 # replica configuracao do filesystem OCFS_MOUNT
 clone OCFS_MOUNT_CLONE OCFS_MOUNT \
 	meta interleave="true" ordered="true"
-# dependencias dos recursos, OCFS_MOUNT_CLONE depende de MS_DRBD
+# dependencias dos recursos, OCFS_MOUNT_CLONE depende de MS_DRBD, para rodar no mesmo node
 colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
 # vm com live migration
 primitive VM1 ocf:heartbeat:VirtualDomain \
@@ -1048,10 +1047,10 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
         meta allow-migrate="true" target-role="Started"
-# dependencias dos recursos, VM1 depende de MS_DRBD
+# dependencias dos recursos, VM1 depende de MS_DRBD, para rodar no mesmo node
 colocation COL_VMS inf: VM1 MS_DRBD:Master
-# ordena inicializacao de servicos, primeiro drbd, filesystem, e vm
-order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
+# ordena inicializacao de servicos, primeiro drbd, filesystem
+order ORD inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
 # para preferencia do node que vm vai iniciar
 location cli-prefer-VM1 VM1 inf: brunonote.emer.com
 # no secundario caso primario falhe ou fique em standby
@@ -1060,6 +1059,7 @@ location backup-VM1 VM1 100: brunonote.emer.com
 property $id="cib-bootstrap-options" \
 	dc-version="1.1.10-42f2063" \
 	cluster-infrastructure="corosync" \
+# para recurso nao ser movido entre os nodes
 	default-resource-stickiness="1000" \
 	no-quorum-policy="ignore" \
 	stonith-enabled="false" \
@@ -1105,8 +1105,9 @@ location cli-prefer-VM2 VM2 inf: brunonote.emer.com
 colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
 colocation COL_VM1 inf: VM1 OCFS_MOUNT_CLONE
 colocation COL_VM2 inf: VM2 OCFS_MOUNT_CLONE
-order ORD_VM1 inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
-order ORD_VM2 inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM2:start
+order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
+order ORD_VM1 inf: OCFS_MOUNT_CLONE:start VM1:start
+order ORD_VM2 inf: OCFS_MOUNT_CLONE:start VM2:start
 property $id="cib-bootstrap-options" \
 	dc-version="1.1.10-42f2063" \
 	cluster-infrastructure="corosync" \
@@ -1192,6 +1193,9 @@ crm node online brunonote.emer.com
 crm node maintenance brunonote.emer.com
 crm node ready brunonote.emer.com
 
+#ver numero de falhas
+crm_mon --failcounts
+
 # limpar recurso e reiniciar, quando recurso falhar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 
@@ -1199,8 +1203,11 @@ crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
 crm node standby bruno2.emer.com
 crm node online bruno2.emer.com
 
-#historico
+# historico
 crm history node bruno2.emer.com
+
+# ver configuracao cib
+cibadmin -Q
 
 #resize disco lvm - drbd - ocfs2
 lvextend /dev/vgdrbd/lvdrbd -l 100%VG
@@ -1215,12 +1222,34 @@ umount /dev/drbd/by-res/vms
 tunefs.ocfs2 -S /dev/drbd/by-res/vms
 
 
+
+### TESTE ???
+order ORD_VM1 inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
+order ORD_VM2 inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM2:start
+# TESTAR:
+colocation COL_DRBD_OCFS inf: ( VM1 VM2 ) OCFS_MOUNT_CLONE MS_DRBD:Master
+order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start ( VM1 VM2 )
+cib:
+C->D ->E
+     ->F
+<resource_set id="ordered-set-2" sequential="true">
+ <resource_ref id="C"/>
+ <resource_ref id="D"/>
+</resource_set>
+<resource_set id="ordered-set-3" sequential="false">
+ <resource_ref id="E"/>
+ <resource_ref id="F"/>
+</resource_set>
+###
+
 #ver problema se ocorrer novamente de um no offline ???
 http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
 #sem mcastaddr nao da start no corosync
 #tentar com tag nodes, #parece que funcinou ??
 
 #ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
+
+#ver se drbd e outros recursos nao devem iniciar no boot
 
 
 ### PRODUCAO VER ?????
@@ -1236,6 +1265,11 @@ handlers {
         # dead after this!
         fence-peer "/sbin/kill-other-node.sh";
 }
+# pacemaker
+cibadmin -C -o resources --xml-file stonith.xml
+crm_attribute -t crm_config -n stonith-enabled -v true
+stonith_admin --reboot nodename
+#ver para fazer pelo crm
 
 
 # web interface gui
