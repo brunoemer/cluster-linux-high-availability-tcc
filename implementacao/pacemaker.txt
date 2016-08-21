@@ -1016,6 +1016,30 @@ order ordO2CBFS 0: cloneO2CB cloneFS
 #apt-get install dlm #nao precisa
 #### ERRO
 
+### TESTE COLOCATION ORDER COM SET
+colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
+colocation COL_VM1 inf: VM1 OCFS_MOUNT_CLONE
+colocation COL_VM2 inf: VM2 OCFS_MOUNT_CLONE
+order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
+order ORD_VM1 inf: OCFS_MOUNT_CLONE:start VM1:start
+order ORD_VM2 inf: OCFS_MOUNT_CLONE:start VM2:start
+# TESTAR:
+colocation COL_DRBD_OCFS inf: ( VM1 VM2 ) OCFS_MOUNT_CLONE MS_DRBD:Master
+order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start ( VM1 VM2 )
+#cib:
+#C->D ->E
+#     ->F
+<resource_set id="ordered-set-2" sequential="true">
+ <resource_ref id="C"/>
+ <resource_ref id="D"/>
+</resource_set>
+<resource_set id="ordered-set-3" sequential="false">
+ <resource_ref id="E"/>
+ <resource_ref id="F"/>
+</resource_set>
+# NAO FUNCIONOU, NAO INICIOU O DRBD
+
+
 #tentativa 2
 crm configure edit
 node $id="1084752392" brunonote.emer.com
@@ -1065,10 +1089,11 @@ property $id="cib-bootstrap-options" \
 	stonith-enabled="false" \
 	last-lrm-refresh="1471491727"
 
-# config final com live migration e fail over automatico
-node $id="1084752392" brunonote.emer.com
+# CONFIG final com live migration e fail over automatico
+node $id="1084752392" brunonote.emer.com \
+        attributes maintenance="off" standby="off"
 node $id="1084752393" bruno2.emer.com \
-	attributes standby="off"
+        attributes standby="on"
 primitive DRBD ocf:linbit:drbd \
         params drbd_resource="vms" \
         op monitor interval="20" role="Master" timeout="240" \
@@ -1083,7 +1108,7 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" \
+        meta allow-migrate="true" target-role="Started" is-managed="true" \
         utilization cpu="1" hv_memory="512"
 primitive VM2 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm2.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
@@ -1109,12 +1134,12 @@ order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
 order ORD_VM1 inf: OCFS_MOUNT_CLONE:start VM1:start
 order ORD_VM2 inf: OCFS_MOUNT_CLONE:start VM2:start
 property $id="cib-bootstrap-options" \
-	dc-version="1.1.10-42f2063" \
-	cluster-infrastructure="corosync" \
-	default-resource-stickiness="1000" \
-	no-quorum-policy="ignore" \
-	stonith-enabled="false" \
-	last-lrm-refresh="1471519030"
+        dc-version="1.1.10-42f2063" \
+        cluster-infrastructure="corosync" \
+        default-resource-stickiness="1000" \
+        no-quorum-policy="ignore" \
+        stonith-enabled="false" \
+        last-lrm-refresh="1471783143"
 
 #VM
 #pool
@@ -1183,6 +1208,7 @@ scp /home/bruno/vm1.xml bruno2:/home/bruno/
 ssh bruno2 virsh define /home/bruno/vm1.xml
 
 crm resource migrate VM1 brunonote.emer.com
+crm resource unmigrate VM1
 # OK
 
 #teste failover, migra vms para outro node
@@ -1206,6 +1232,7 @@ crm node online bruno2.emer.com
 
 # historico
 crm history node bruno2.emer.com
+crm_mon --timing-details
 
 # ver configuracao cib
 cibadmin -Q
@@ -1222,35 +1249,26 @@ umount /dev/drbd/by-res/vms
 #ocfs https://oss.oracle.com/projects/ocfs2/dist/documentation/v1.2/ocfs2_faq.html#RESIZE
 tunefs.ocfs2 -S /dev/drbd/by-res/vms
 
+#resincrinizar primario
+drbdadm -- --overwrite-data-of-peer primary vms
+#resincronizar secundary
+drbdadm -- --discard-my-data connect vms
 
-
-### TESTE ???
-order ORD_VM1 inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM1:start
-order ORD_VM2 inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start VM2:start
-# TESTAR:
-colocation COL_DRBD_OCFS inf: ( VM1 VM2 ) OCFS_MOUNT_CLONE MS_DRBD:Master
-order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start ( VM1 VM2 )
-cib:
-C->D ->E
-     ->F
-<resource_set id="ordered-set-2" sequential="true">
- <resource_ref id="C"/>
- <resource_ref id="D"/>
-</resource_set>
-<resource_set id="ordered-set-3" sequential="false">
- <resource_ref id="E"/>
- <resource_ref id="F"/>
-</resource_set>
-###
 
 #ver problema se ocorrer novamente de um no offline ???
 http://serverfault.com/questions/578141/2-corosync-nodes-not-online-together-one-offline-one-online
 #sem mcastaddr nao da start no corosync
-#tentar com tag nodes, #parece que funcinou ??
+#tentar com tag nodes, #parece que funcinou
+#ao iniciar node 2 aparece offline um para o outro e da splitbrain ??
+#esta subindo sem quorum, se usar no-quorum-policy=stop, quando um node cair derruba todos os recursos de todos nodes
+??? TESTAR SUBIR UM NO ESPERAR E LIGAR O OUTRO (NAO LIGAR SIMULTANEAMENTE)
+
 
 #ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
 
 #ver se drbd e outros recursos nao devem iniciar no boot
+
+#ver como promover no DC para outro node manualmente
 
 
 ### PRODUCAO VER ?????
