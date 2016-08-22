@@ -1222,6 +1222,7 @@ crm resource failcount VM1 show bruno2.emer.com
 
 # limpar recurso e reiniciar, quando recurso falhar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
+# usar no node onde deu a falha
 
 # OCFS_MOUNT_CLONE estava como Stopped entao executei:
 crm node standby bruno2.emer.com
