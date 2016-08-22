@@ -1330,6 +1330,7 @@ stonith_admin --metadata --agent external/ipmi
 
 
 #ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
+# OK?
 
 #ver se drbd e outros recursos nao devem iniciar no boot
 
@@ -1345,6 +1346,8 @@ https://hawk-guide.readthedocs.io/en/latest/
 git clone https://github.com/ClusterLabs/hawk.git
 vi Makefile
 WWW_BASE = /var/www
-INIT_STYLE = debian ???????
+INIT_STYLE = redhat ???????
 
+#debian
+http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
 

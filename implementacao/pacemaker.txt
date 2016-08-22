@@ -1346,6 +1346,9 @@ https://hawk-guide.readthedocs.io/en/latest/
 git clone https://github.com/ClusterLabs/hawk.git
 vi Makefile
 WWW_BASE = /var/www
-INIT_STYLE = debian ???????
+INIT_STYLE = redhat ???????
+
+#debian
+http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
 
 
