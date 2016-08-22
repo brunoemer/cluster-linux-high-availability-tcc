@@ -1350,7 +1350,9 @@ INIT_STYLE = redhat ???????
 
 apt-get install libpam0g-dev
 
+
 #debian
 http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
-
+https://github.com/rndsolutions/hawkcd/wiki/Setup-Hawk-Server-on-Linux-(Ubuntu)-Environment
+??
 
