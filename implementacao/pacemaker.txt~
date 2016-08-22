@@ -1292,6 +1292,8 @@ partition
 #VER stonith-enabled para producao
 http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack?page=0,1
 apt-get install ipmitool
+echo "ipmi_devintf" >> /etc/modules
+echo "ipmi_si" >> /etc/modules
 #teste ipmi
 /usr/bin/ipmitool -I lan -U root -P genese -H 172.31.0.240 chassis power status
 stonith -t external/ipmi ipaddr=172.31.0.240 userid=root password=somepass -S

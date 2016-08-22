@@ -560,6 +560,7 @@ m:res  cs         ro               ds                 p  mounted  fstype
 pvcreate /dev/drbd0
 vgcreate --clustered y vgdrbdcluster /dev/drbd0 # em apenas um node
 lvcreate -n lvvm1 -L 6G vgdrbdcluster
+#NAO FUNCINOU NO UBUNTU VG CLUSTERED
 
 #importar imagem existente
 dd if=/var/lib/libvirt/images/HAteste1.img of=/dev/vgdrbdcluster/lvvm1 bs=1M
