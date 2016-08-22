@@ -560,6 +560,7 @@ m:res  cs         ro               ds                 p  mounted  fstype
 pvcreate /dev/drbd0
 vgcreate --clustered y vgdrbdcluster /dev/drbd0 # em apenas um node
 lvcreate -n lvvm1 -L 6G vgdrbdcluster
+#NAO FUNCINOU NO UBUNTU VG CLUSTERED
 
 #importar imagem existente
 dd if=/var/lib/libvirt/images/HAteste1.img of=/dev/vgdrbdcluster/lvvm1 bs=1M
@@ -1344,6 +1345,7 @@ crm configure ra info stonith:external/ipmi
 
 #ver como promover no DC para outro node manualmente
 
+#se der problema de corromper disco ainda, testar com GFS em vez de OCFS2
 
 
 # web interface gui
@@ -1357,7 +1359,6 @@ WWW_BASE = /var/www
 INIT_STYLE = redhat ???????
 
 apt-get install libpam0g-dev
-
 
 #debian
 http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
