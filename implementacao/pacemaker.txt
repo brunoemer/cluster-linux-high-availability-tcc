@@ -1222,6 +1222,7 @@ crm resource failcount VM1 show bruno2.emer.com
 
 # limpar recurso e reiniciar, quando recurso falhar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
+# usar no node onde deu a falha
 
 # OCFS_MOUNT_CLONE estava como Stopped entao executei:
 crm node standby bruno2.emer.com
@@ -1290,7 +1291,11 @@ partition
 ### PRODUCAO VER ?????
 #VER stonith-enabled para producao
 http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack?page=0,1
-#testar por ipmi
+apt-get install ipmitool
+#teste ipmi
+/usr/bin/ipmitool -I lan -U root -P genese -H 172.31.0.240 chassis power status
+stonith -t external/ipmi ipaddr=172.31.0.240 userid=root password=somepass -S
+#testar pacemaker por ipmi
 primitive p_ipmi_alice stonith:external/ipmi \
   params hostname="alice" ipaddr="192.168.15.1" \
     userid="admin" passwd="foobar" \
@@ -1327,6 +1332,7 @@ handlers {
 stonith_admin --list-installed
 #detalhes do device stonith
 stonith_admin --metadata --agent external/ipmi
+crm configure ra info stonith:external/ipmi
 
 
 #ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar

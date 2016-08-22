@@ -1290,7 +1290,11 @@ partition
 ### PRODUCAO VER ?????
 #VER stonith-enabled para producao
 http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack?page=0,1
-#testar por ipmi
+apt-get install ipmitool
+#teste ipmi
+/usr/bin/ipmitool -I lan -U root -P genese -H 172.31.0.240 chassis power status
+stonith -t external/ipmi ipaddr=172.31.0.240 userid=root password=somepass -S
+#testar pacemaker por ipmi
 primitive p_ipmi_alice stonith:external/ipmi \
   params hostname="alice" ipaddr="192.168.15.1" \
     userid="admin" passwd="foobar" \
@@ -1327,6 +1331,7 @@ handlers {
 stonith_admin --list-installed
 #detalhes do device stonith
 stonith_admin --metadata --agent external/ipmi
+crm configure ra info stonith:external/ipmi
 
 
 #ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
@@ -1355,4 +1360,6 @@ apt-get install libpam0g-dev
 http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
 https://github.com/rndsolutions/hawkcd/wiki/Setup-Hawk-Server-on-Linux-(Ubuntu)-Environment
 ??
+
+
 
