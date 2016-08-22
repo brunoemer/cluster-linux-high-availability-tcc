@@ -1348,6 +1348,9 @@ vi Makefile
 WWW_BASE = /var/www
 INIT_STYLE = redhat ???????
 
+apt-get install libpam0g-dev
+
 #debian
 http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
+
 
