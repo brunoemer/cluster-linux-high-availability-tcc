@@ -61,8 +61,6 @@ iface br0 inet static
 # configuracao discos lvm
 lvcreate -n lvdrbd vg0 -L 500G
 
-#### PAREI AQUI #####
-
 # drbd
 apt-get install drbd8-utils drbdlinks
 
@@ -89,12 +87,12 @@ resource vms {
     startup {
         become-primary-on both;
     }
-    on brunonote.emer.com {
-        address 192.168.2.8:7791;
+    on brina.redesul.com.br {
+        address 186.195.16.14:7791;
         disk /dev/vg0/lvdrbd;
     }
-    on bruno2.emer.com {
-        address 192.168.2.9:7791;
+    on piova.redesul.com.br {
+        address 186.195.16.6:7791;
         disk /dev/vg0/lvdrbd;
     }
     syncer {
@@ -102,8 +100,17 @@ resource vms {
     }
 }
 
+#brina
+ufw allow from 186.195.16.6
+echo "brina.redesul.com.br" > /etc/hostname
+#piova
+ufw allow from 186.195.16.14
+echo "piova.redesul.com.br" > /etc/hostname
+
 service drbd restart
 service drbd status
+
+#### PAREI AQUI #####
 
 # ocfs
 apt-get install ocfs2-tools
