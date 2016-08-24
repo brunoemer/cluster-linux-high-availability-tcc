@@ -1341,8 +1341,6 @@ crm configure ra info stonith:external/ipmi
 #ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
 # OK?
 
-#ver se drbd e outros recursos nao devem iniciar no boot
-
 #ver como promover no DC para outro node manualmente
 
 #se der problema de corromper disco ainda, testar com GFS em vez de OCFS2

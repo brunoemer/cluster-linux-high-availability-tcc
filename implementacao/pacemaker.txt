@@ -801,8 +801,6 @@ crm resource cleanup MS_DRBD
 # TESTE LIVE MIGRATION E DUAL PRIMARY DRBD + OCFS2
 http://publications.jbfavre.org/virtualisation/cluster-xen-corosync-pacemaker-drbd-ocfs2.en
 
-apt-get install pacemaker
-
 # vg drbd
 #formatar particao em lvm2 e criar pv
 pvcreate /dev/sda10
@@ -921,6 +919,9 @@ scp /etc/corosync/authkey bruno2.emer.com:
 mv ~/authkey /etc/corosync/authkey
 chown root:root /etc/corosync/authkey
 chmod 400 /etc/corosync/authkey
+
+
+apt-get install pacemaker
 
 # corosync /etc/corosync/corosync.conf
 totem {

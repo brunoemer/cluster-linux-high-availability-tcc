@@ -1,0 +1,121 @@
+brina 186.195.16.14
+piova 186.195.16.6
+
+# OS
+
+
+# rede
+apt-get install bridge-utils
+
+# bond - link aggregation
+apt-get install ifenslave-2.6
+sh -c 'grep -q bonding /etc/modules || echo bonding >> /etc/modules'
+
+# vlan
+apt-get install vlan
+sudo  sh -c 'grep -q 8021q /etc/modules || echo 8021q >> /etc/modules'
+sudo modprobe 8021q
+
+echo 'net.bridge.bridge-nf-call-ip6tables = 0' >> /etc/sysctl.conf
+echo 'net.bridge.bridge-nf-call-iptables = 0' >> /etc/sysctl.conf
+echo 'net.bridge.bridge-nf-call-arptables = 0' >> /etc/sysctl.conf
+echo 'net.bridge.bridge-nf-filter-pppoe-tagged = 0' >> /etc/sysctl.conf
+echo 'net.bridge.bridge-nf-filter-vlan-tagged = 0' >> /etc/sysctl.conf
+
+
+# editar /etc/network/interfaces
+auto eth0
+iface eth0 inet manual
+bond-master bond0
+
+auto eth1
+iface eth1 inet manual
+bond-master bond0
+
+auto bond0
+iface bond0 inet manual
+       bond-mode 4
+       bond-slaves eth0 eth1
+       bond-lacp-rate 1
+       bond-miimon 100
+       bond-xmit_hash_policy layer3+4
+#       bond-ad-select 1
+
+# The primary network interface
+auto br0
+iface br0 inet static
+	address 186.195.16.x
+	netmask 255.255.255.0
+	network 186.195.16.0
+	broadcast 186.195.16.255
+	gateway 186.195.16.254
+	# dns-* options are implemented by the resolvconf package, if installed
+	dns-nameservers 186.195.16.1 186.195.16.2 186.195.16.3
+	dns-search redesul.com.br
+
+        bridge_ports bond0
+        bridge_stp off
+        bridge_maxwait 0
+
+
+# configuracao discos lvm
+lvcreate -n lvdrbd vg0 -L 500G
+
+#### PAREI AQUI #####
+
+# drbd
+apt-get install drbd8-utils drbdlinks
+
+# editar /etc/drbd.d/global_common.conf
+global {
+        usage-count yes;
+        minor-count 16;
+}
+# editar /etc/drbd.d/vms.res
+resource vms {
+    meta-disk internal;
+    device /dev/drbd0;
+    protocol C;
+    disk {
+        fencing resource-only;
+    }
+    handlers {
+        fence-peer "/usr/lib/drbd/crm-fence-peer.sh";
+        after-resync-target "/usr/lib/drbd/crm-unfence-peer.sh";
+    }
+    net {
+        allow-two-primaries;
+    }
+    startup {
+        become-primary-on both;
+    }
+    on brunonote.emer.com {
+        address 192.168.2.8:7791;
+        disk /dev/vg0/lvdrbd;
+    }
+    on bruno2.emer.com {
+        address 192.168.2.9:7791;
+        disk /dev/vg0/lvdrbd;
+    }
+    syncer {
+        rate 50M;
+    }
+}
+
+service drbd restart
+service drbd status
+
+# ocfs
+apt-get install ocfs2-tools
+
+
+# virtualizacao kvm
+apt-get install -y qemu-kvm libvirt-bin
+
+
+# cluster pacemaker corosync
+apt-get install pacemaker
+apt-get install corosync
+
+
+
