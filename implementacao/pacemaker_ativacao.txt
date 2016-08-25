@@ -108,6 +108,15 @@ ufw allow from 186.195.16.14
 echo "piova.redesul.com.br" > /etc/hostname
 
 service drbd restart
+
+drbdadm create-md vms
+drbdadm up vms
+# em um node
+drbdadm -- --overwrite-data-of-peer primary vms
+# aguardar sincronizar
+# outro no
+drbdadm primary vms
+
 service drbd status
 
 # ocfs
@@ -151,13 +160,16 @@ O2CB_RECONNECT_DELAY_MS=2000
 
 service ocfs2 restart
 
-#### PAREI AQUI #####
-
 mkfs.ocfs2 /dev/drbd/by-res/vms
 
 # verificar se esta executando
 service o2cb status
 
+# teste
+mkdir /var/lib/libvirt/images/ocfs
+mount -t ocfs2 /dev/drbd/by-res/vms /var/lib/libvirt/images/ocfs/
+
+#### PAREI AQUI #####
 
 # virtualizacao kvm
 apt-get install -y qemu-kvm libvirt-bin
