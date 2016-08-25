@@ -897,8 +897,7 @@ ln -s ../init.d/o2cb /etc/rcS.d/S41o2cb
 
 mkfs.ocfs2 /dev/drbd/by-res/vms
 
-###### ERRO ocfs2 is not compatible with your environment.
-#https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
+###### bug ocfs2 is not compatible with your environment.
 # bug fix https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
 #patch /usr/lib/ocf/resource.d/heartbeat/Filesystem
 --- Filesystem 2013-12-16 07:41:25.000000000 +0000
@@ -911,15 +910,6 @@ mkfs.ocfs2 /dev/drbd/by-res/vms
       return
   elif [ "X$HA_cluster_type" != "Xopenais" ]; then
    if grep -q "SUSE Linux Enterprise Server 10" /etc/SuSE-release >/dev/null 2>&1 ; then
-
-#node 1
-corosync-keygen
-scp /etc/corosync/authkey bruno2.emer.com:
-#node 2
-mv ~/authkey /etc/corosync/authkey
-chown root:root /etc/corosync/authkey
-chmod 400 /etc/corosync/authkey
-
 
 apt-get install pacemaker
 
@@ -974,6 +964,18 @@ logging {
             tags: enter|leave|trace1|trace2|trace3|trace4|trace6
         }
 }
+
+#node 1
+corosync-keygen
+scp /etc/corosync/authkey bruno2.emer.com:
+#node 2
+mv ~/authkey /etc/corosync/authkey
+chown root:root /etc/corosync/authkey
+chmod 400 /etc/corosync/authkey
+
+#alterar para
+/etc/default/corosync
+START=yes
 
 mkdir /var/lib/libvirt/images/ocfs
 
@@ -1345,6 +1347,8 @@ crm configure ra info stonith:external/ipmi
 #ver como promover no DC para outro node manualmente
 
 #se der problema de corromper disco ainda, testar com GFS em vez de OCFS2
+
+
 
 
 # web interface gui

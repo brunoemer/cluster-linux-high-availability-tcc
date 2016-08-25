@@ -165,19 +165,177 @@ mkfs.ocfs2 /dev/drbd/by-res/vms
 # verificar se esta executando
 service o2cb status
 
-# teste
+# teste ocfs
 mkdir /var/lib/libvirt/images/ocfs
 mount -t ocfs2 /dev/drbd/by-res/vms /var/lib/libvirt/images/ocfs/
 
-#### PAREI AQUI #####
+# bug ocfs2 is not compatible with your environment.
+# fix bug https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
+#patch /usr/lib/ocf/resource.d/heartbeat/Filesystem
+--- Filesystem 2013-12-16 07:41:25.000000000 +0000
++++ Filesystem.new 2015-01-19 19:01:30.181772112 +0000
+@@ -338,7 +338,7 @@ ocfs2_init()
+  # not need this:
+  OCFS2_SLES10=""
+- if [ "X$HA_cluster_type" = "Xcman" ]; then
++ if [ "X$HA_cluster_type" = "Xcorosync" ]; then
+      return
+  elif [ "X$HA_cluster_type" != "Xopenais" ]; then
+   if grep -q "SUSE Linux Enterprise Server 10" /etc/SuSE-release >/dev/null 2>&1 ; then
+
 
 # virtualizacao kvm
 apt-get install -y qemu-kvm libvirt-bin
 
+# criar pool
+virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
+
 
 # cluster pacemaker corosync
-apt-get install pacemaker
-apt-get install corosync
+apt-get install pacemaker corosync
 
+# editar /etc/corosync/corosync.conf
+totem {
+	version: 2
+	token: 3000
+	token_retransmits_before_loss_const: 10
+	join: 60
+	consensus: 3600
+	vsftype: none
+	max_messages: 20
+	clear_node_high_bit: yes
+ 	secauth: on
+ 	threads: 0
+ 	rrp_mode: none
+        interface {
+                # The following values need to be set based on your environment 
+                member {
+                        memberaddr: 186.195.16.14
+                }
+                member {
+                        memberaddr: 186.195.16.6
+                }
+                ringnumber: 0
+                bindnetaddr: 186.195.16.0
+        }
+        transport: udpu
+}
+amf {
+	mode: disabled
+}
+quorum {
+        # Quorum for the Pacemaker Cluster Resource Manager
+        provider: corosync_votequorum
+        expected_votes: 2
+}
+service {
+        # Load the Pacemaker Cluster Resource Manager
+        ver:       0
+        name:      pacemaker
+}
+aisexec {
+        user:   root
+        group:  root
+}
+logging {
+        fileline: off
+        to_stderr: yes
+        to_logfile: no
+        to_syslog: yes
+        syslog_facility: daemon
+        debug: off
+        timestamp: on
+        logger_subsys {
+                subsys: AMF
+                debug: off
+                tags: enter|leave|trace1|trace2|trace3|trace4|trace6
+        }
+}
+
+# node brina
+corosync-keygen
+scp /etc/corosync/authkey bruno@piova.redesul.com.br:
+# node piova
+mv /home/bruno/authkey /etc/corosync/authkey
+chown root:root /etc/corosync/authkey
+chmod 400 /etc/corosync/authkey
+
+# editar /etc/default/corosync
+START=yes
+
+service corosync restart
+service pacemaker restart
+
+# teste pacemaker
+root@brina:~# crm status
+Last updated: Thu Aug 25 15:03:20 2016
+Last change: Thu Aug 25 15:03:10 2016 via crmd on piova.redesul.com.br
+Stack: corosync
+Current DC: piova.redesul.com.br (985862150) - partition with quorum
+Version: 1.1.10-42f2063
+2 Nodes configured
+0 Resources configured
+
+Online: [ brina.redesul.com.br piova.redesul.com.br ]
+
+
+# configuracao pacemaker
+crm configure edit
+
+node $id="985862150" piova.redesul.com.br
+node $id="985862158" brina.redesul.com.br
+
+primitive DRBD ocf:linbit:drbd \
+        params drbd_resource="vms" \
+        op monitor interval="20" role="Master" timeout="240" \
+        op monitor interval="30" role="Slave" timeout="240" \
+        meta is-managed="true" target-role="Started"
+primitive OCFS_MOUNT ocf:heartbeat:Filesystem \
+        params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2"
+ms MS_DRBD DRBD \
+        meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true"
+clone OCFS_MOUNT_CLONE OCFS_MOUNT \
+        meta interleave="true" ordered="true" target-role="Started"
+colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
+order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
+
+property $id="cib-bootstrap-options" \
+	dc-version="1.1.10-42f2063" \
+	cluster-infrastructure="corosync" \
+        default-resource-stickiness="1000" \
+        no-quorum-policy="ignore" \
+        stonith-enabled="false"
+
+
+#### PAREI AQUI #####
+
+
+# VMS
+primitive VM1 ocf:heartbeat:VirtualDomain \
+        params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        op monitor timeout="30" interval="10" depth="0" \
+        op start timeout="90" interval="0" \
+        op stop timeout="90" interval="0" \
+        op migrate_from interval="0" timeout="240" \
+        op migrate_to interval="0" timeout="240" \
+        meta allow-migrate="true" target-role="Started" is-managed="true" \
+        utilization cpu="1" hv_memory="512"
+primitive VM2 ocf:heartbeat:VirtualDomain \
+        params config="/etc/libvirt/qemu/vm2.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        op monitor timeout="30" interval="10" depth="0" \
+        op start timeout="90" interval="0" \
+        op stop timeout="90" interval="0" \
+        op migrate_from interval="0" timeout="240" \
+        op migrate_to interval="0" timeout="240" \
+        meta allow-migrate="true" target-role="Started" \
+        utilization cpu="1" hv_memory="512"
+location backup-VM1 VM1 100: brunonote.emer.com
+location backup-VM2 VM2 100: bruno2.emer.com
+location cli-prefer-VM1 VM1 inf: bruno2.emer.com
+location cli-prefer-VM2 VM2 inf: brunonote.emer.com
+colocation COL_VM1 inf: VM1 OCFS_MOUNT_CLONE
+colocation COL_VM2 inf: VM2 OCFS_MOUNT_CLONE
+order ORD_VM1 inf: OCFS_MOUNT_CLONE:start VM1:start
+order ORD_VM2 inf: OCFS_MOUNT_CLONE:start VM2:start
 
 

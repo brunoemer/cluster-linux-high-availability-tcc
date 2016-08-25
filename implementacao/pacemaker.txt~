@@ -801,8 +801,6 @@ crm resource cleanup MS_DRBD
 # TESTE LIVE MIGRATION E DUAL PRIMARY DRBD + OCFS2
 http://publications.jbfavre.org/virtualisation/cluster-xen-corosync-pacemaker-drbd-ocfs2.en
 
-apt-get install pacemaker
-
 # vg drbd
 #formatar particao em lvm2 e criar pv
 pvcreate /dev/sda10
@@ -914,13 +912,7 @@ mkfs.ocfs2 /dev/drbd/by-res/vms
   elif [ "X$HA_cluster_type" != "Xopenais" ]; then
    if grep -q "SUSE Linux Enterprise Server 10" /etc/SuSE-release >/dev/null 2>&1 ; then
 
-#node 1
-corosync-keygen
-scp /etc/corosync/authkey bruno2.emer.com:
-#node 2
-mv ~/authkey /etc/corosync/authkey
-chown root:root /etc/corosync/authkey
-chmod 400 /etc/corosync/authkey
+apt-get install pacemaker
 
 # corosync /etc/corosync/corosync.conf
 totem {
@@ -973,6 +965,18 @@ logging {
             tags: enter|leave|trace1|trace2|trace3|trace4|trace6
         }
 }
+
+#node 1
+corosync-keygen
+scp /etc/corosync/authkey bruno2.emer.com:
+#node 2
+mv ~/authkey /etc/corosync/authkey
+chown root:root /etc/corosync/authkey
+chmod 400 /etc/corosync/authkey
+
+#alterar para
+/etc/default/corosync
+START=yes
 
 mkdir /var/lib/libvirt/images/ocfs
 
@@ -1344,6 +1348,8 @@ crm configure ra info stonith:external/ipmi
 #ver como promover no DC para outro node manualmente
 
 #se der problema de corromper disco ainda, testar com GFS em vez de OCFS2
+
+
 
 
 # web interface gui
