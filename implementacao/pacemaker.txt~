@@ -897,8 +897,7 @@ ln -s ../init.d/o2cb /etc/rcS.d/S41o2cb
 
 mkfs.ocfs2 /dev/drbd/by-res/vms
 
-###### ERRO ocfs2 is not compatible with your environment.
-#https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
+###### bug ocfs2 is not compatible with your environment.
 # bug fix https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438
 #patch /usr/lib/ocf/resource.d/heartbeat/Filesystem
 --- Filesystem 2013-12-16 07:41:25.000000000 +0000
@@ -1209,54 +1208,6 @@ virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
 scp /home/bruno/vm1.xml bruno2:/home/bruno/
 ssh bruno2 virsh define /home/bruno/vm1.xml
 
-crm resource migrate VM1 brunonote.emer.com
-crm resource unmigrate VM1
-# OK
-
-#teste failover, migra vms para outro node
-crm node standby brunonote.emer.com
-crm node online brunonote.emer.com
-
-#para efetuar configuracoes no drbd ou libvirt
-crm node maintenance brunonote.emer.com
-crm node ready brunonote.emer.com
-
-#ver numero de falhas
-crm_mon --failcounts
-crm resource failcount VM1 show bruno2.emer.com
-
-# limpar recurso e reiniciar, quando recurso falhar
-crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
-# usar no node onde deu a falha
-
-# OCFS_MOUNT_CLONE estava como Stopped entao executei:
-crm node standby bruno2.emer.com
-crm node online bruno2.emer.com
-
-# historico
-crm history node bruno2.emer.com
-crm_mon --timing-details
-
-# ver configuracao cib
-cibadmin -Q
-
-#resize disco lvm - drbd - ocfs2
-lvextend /dev/vgdrbd/lvdrbd -l 100%VG
-#online resize
-drbdadm up vms
-drbdadm primary vms
-drbdadm resize vms
-#offline resize ocfs2
-drbdadm up vms
-umount /dev/drbd/by-res/vms
-#ocfs https://oss.oracle.com/projects/ocfs2/dist/documentation/v1.2/ocfs2_faq.html#RESIZE
-tunefs.ocfs2 -S /dev/drbd/by-res/vms
-
-#resincrinizar primario
-drbdadm -- --overwrite-data-of-peer primary vms
-#resincronizar secundary
-drbdadm -- --discard-my-data connect vms
-
 
 #ver problema se ocorrer novamente de um no offline ???
 #tentar com tag nodes, #parece que funcinou
@@ -1291,6 +1242,24 @@ partition
 partition
 • suicide: fence all nodes in the affected cluster
 partition
+
+
+# web interface gui
+https://github.com/ClusterLabs/hawk
+https://hawk-guide.readthedocs.io/en/latest/
+
+#suse ou redhat
+git clone https://github.com/ClusterLabs/hawk.git
+vi Makefile
+WWW_BASE = /var/www
+INIT_STYLE = redhat ???????
+
+apt-get install libpam0g-dev
+
+#debian
+http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
+https://github.com/rndsolutions/hawkcd/wiki/Setup-Hawk-Server-on-Linux-(Ubuntu)-Environment
+??
 
 
 ### PRODUCAO VER ?????
@@ -1350,24 +1319,80 @@ crm configure ra info stonith:external/ipmi
 #se der problema de corromper disco ainda, testar com GFS em vez de OCFS2
 
 
+crm resource migrate VM1 brunonote.emer.com
+crm resource unmigrate VM1
+# OK
+
+#teste failover, migra vms para outro node
+crm node standby brunonote.emer.com
+crm node online brunonote.emer.com
+
+#para efetuar configuracoes no drbd ou libvirt
+crm node maintenance brunonote.emer.com
+crm node ready brunonote.emer.com
+
+#ver numero de falhas
+crm_mon --failcounts
+crm resource failcount VM1 show bruno2.emer.com
+
+# limpar recurso e reiniciar, quando recurso falhar
+crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
+# usar no node onde deu a falha
+
+# OCFS_MOUNT_CLONE estava como Stopped entao executei:
+crm node standby bruno2.emer.com
+crm node online bruno2.emer.com
+
+# historico
+crm history node bruno2.emer.com
+crm_mon --timing-details
+
+# ver configuracao cib
+cibadmin -Q
+
+#resize disco lvm - drbd - ocfs2
+lvextend /dev/vgdrbd/lvdrbd -l 100%VG
+#online resize
+drbdadm up vms
+drbdadm primary vms
+drbdadm resize vms
+#offline resize ocfs2
+drbdadm up vms
+umount /dev/drbd/by-res/vms
+#ocfs https://oss.oracle.com/projects/ocfs2/dist/documentation/v1.2/ocfs2_faq.html#RESIZE
+tunefs.ocfs2 -S /dev/drbd/by-res/vms
+
+#resincrinizar primario
+drbdadm -- --overwrite-data-of-peer primary vms
+#resincronizar secundary
+drbdadm -- --discard-my-data connect vms
 
 
-# web interface gui
-https://github.com/ClusterLabs/hawk
-https://hawk-guide.readthedocs.io/en/latest/
+# problema drbd split brain
+primario
+m:res  cs          ro               ds                 p       mounted  fstype
+0:vms  StandAlone  Primary/Unknown  UpToDate/Outdated  r-----  ocfs2
+secundario
+m:res  cs            ro                 ds                 p  mounted  fstype
+0:vms  WFConnection  Secondary/Unknown  UpToDate/Outdated  C
 
-#suse ou redhat
-git clone https://github.com/ClusterLabs/hawk.git
-vi Makefile
-WWW_BASE = /var/www
-INIT_STYLE = redhat ???????
+https://www.hastexo.com/resources/hints-and-kinks/solve-drbd-split-brain-4-steps/
+https://www.drbd.org/en/doc/users-guide-83/s-resolve-split-brain
 
-apt-get install libpam0g-dev
+#no principal
+#desligar servicos
+crm node standby piova.redesul.com.br
+#alterar para secundario
+drbdadm up vms
+drbdadm secondary vms
 
-#debian
-http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
-https://github.com/rndsolutions/hawkcd/wiki/Setup-Hawk-Server-on-Linux-(Ubuntu)-Environment
-??
+#no vitima, tera dados sobre postos
+drbdadm up vms
+drbdadm secondary vms
+drbdadm disconnect vms
+drbdadm connect --discard-my-data vms
 
+#no principal
+drbdadm connect vms
 
 

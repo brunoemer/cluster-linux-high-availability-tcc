@@ -76,6 +76,7 @@ resource vms {
     protocol C;
     disk {
         fencing resource-only;
+        resync-rate 50M;
     }
     handlers {
         fence-peer "/usr/lib/drbd/crm-fence-peer.sh";
@@ -189,6 +190,11 @@ apt-get install -y qemu-kvm libvirt-bin
 
 # criar pool
 virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
+
+# criar chaves ssh para live migration
+#colocar chave id_rsa.pub do piova em .ssh/authorized_keys no brina
+#e vice versa
+chmod og-r .ssh/authorized_keys
 
 
 # cluster pacemaker corosync
