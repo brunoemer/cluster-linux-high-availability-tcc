@@ -307,10 +307,27 @@ property $id="cib-bootstrap-options" \
         stonith-enabled="false"
 
 
-#### PAREI AQUI #####
+# Trapel
+# criar instancias nos 2 nodes
+virsh define Trapel.xml
+
+# pode ser com vm ligada
+crm configure edit
+primitive VM_TRAPEL ocf:heartbeat:VirtualDomain \
+        params config="/etc/libvirt/qemu/Trapel-14.04.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        op monitor timeout="30" interval="10" depth="0" \
+        op start timeout="90" interval="0" \
+        op stop timeout="90" interval="0" \
+        op migrate_from interval="0" timeout="240" \
+        op migrate_to interval="0" timeout="240" \
+        meta allow-migrate="true" target-role="Started" is-managed="true"
+location cli-prefer-VM_TRAPEL VM_TRAPEL inf: brina.redesul.com.br
+location backup-VM_TRAPEL VM_TRAPEL 100: piova.redesul.com.br
+colocation COL_VM_TRAPEL inf: VM_TRAPEL OCFS_MOUNT_CLONE
+order ORD_VM_TRAPEL inf: OCFS_MOUNT_CLONE:start VM_TRAPEL:start
 
 
-# VMS
+# VMS EXEMPLO
 primitive VM1 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
         op monitor timeout="30" interval="10" depth="0" \
