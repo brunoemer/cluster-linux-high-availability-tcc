@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  25 AUG 2016 21:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  26 AUG 2016 23:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -942,6 +942,31 @@ Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 \LTright=\skip81
 \flrow@types=\toks26
 )
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count153
+\lst@gtempboxa=\box49
+\lst@token=\toks27
+\lst@length=\count154
+\lst@currlwidth=\dimen153
+\lst@column=\count155
+\lst@pos=\count156
+\lst@lostspace=\dimen154
+\lst@width=\dimen155
+\lst@newlines=\count157
+\lst@lineno=\count158
+\lst@maxwidth=\dimen156
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count159
+\lst@skipnumbers=\count160
+\lst@framebox=\box50
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/08/26 1.5b listings configuration
+))
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
+
 \@input{acronym.aux}
 \openout2 = `acronym.aux'.
 
@@ -952,39 +977,39 @@ Package floatrow Info: Modified rotfloat package code loaded on input line 473.
 (./capitulos/conclusao.aux))
 \openout1 = `tcc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 38.
+(lastpage)             ! on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count153
-\scratchdimen=\dimen153
-\scratchbox=\box49
-\nofMPsegments=\count154
-\nofMParguments=\count155
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count156
-\MPscratchDim=\dimen154
-\MPnumerator=\count157
-\makeMPintoPDFobject=\count158
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count161
+\scratchdimen=\dimen157
+\scratchbox=\box51
+\nofMPsegments=\count162
+\nofMParguments=\count163
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count164
+\MPscratchDim=\dimen158
+\MPnumerator=\count165
+\makeMPintoPDFobject=\count166
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1003,17 +1028,18 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box50
+\AtBeginShipoutBox=\box52
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
 (/usr/share/texlive/texmf-dist/tex/latex/floatrow/fr-longtable.sty
 Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 
-\flrow@LT@lasthead=\box51
-\flrow@LT@prelastfoot=\box52
-\c@FBLTpage=\count159
+\flrow@LT@lasthead=\box53
+\flrow@LT@prelastfoot=\box54
+\c@FBLTpage=\count167
 )
+\c@lstlisting=\count168
 Package epstopdf Info: Source file: <img/iilogo.eps>
 (epstopdf)                    date: 2016-03-19 18:23:38
 (epstopdf)                    size: 14378 bytes
@@ -1022,18 +1048,18 @@ Package epstopdf Info: Source file: <img/iilogo.eps>
 (epstopdf)                    size: 8456 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/iilogo-eps-converted-t
 o.pdf img/iilogo.eps>
-(epstopdf)             \includegraphics on input line 40.
+(epstopdf)             \includegraphics on input line 41.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/iilogo-eps-converted-to.pdf, id=1, 64.24pt x 101.37875pt>
 File: img/iilogo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/iilogo-eps-converted-to.pdf>
-Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 40.
+Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 41.
 
 (pdftex.def)             Requested size: 32.11992pt x 50.68924pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--40
+Underfull \hbox (badness 10000) in paragraph at lines 41--41
 
  []
 
@@ -1058,15 +1084,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ])
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 44.
+(Font)              size <17.28> substituted on input line 45.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 44.
+(Font)              size <17.28> substituted on input line 45.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 44.
+(Font)              size <17.28> substituted on input line 45.
 
 (./tcc.toc
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
@@ -1136,17 +1162,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--64
 \openout3 = `tcc.toc'.
 
  [3]
-Underfull \hbox (badness 10000) in alignment at lines 47--47
+Underfull \hbox (badness 10000) in alignment at lines 48--48
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 47--47
+Underfull \hbox (badness 10000) in alignment at lines 48--48
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 47--47
+Underfull \hbox (badness 10000) in alignment at lines 48--48
 [] []
  []
 
@@ -1895,7 +1921,13 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \openout2 = `capitulos/capitulo6.aux'.
 
 
-(./capitulos/capitulo6.tex)
+(./capitulos/capitulo6.tex
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
+))
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 50
  []
@@ -2035,13 +2067,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 14378 strings out of 495004
- 278400 string characters out of 6180662
- 336385 words of memory out of 5000000
- 17261 multiletter control sequences out of 15000+600000
+ 16112 strings out of 495004
+ 301164 string characters out of 6180662
+ 375002 words of memory out of 5000000
+ 18977 multiletter control sequences out of 15000+600000
  11224 words of font info for 39 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,11n,57p,10374b,442s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,57p,10374b,1108s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
@@ -2055,7 +2087,7 @@ nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
 2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
 
-Output written on tcc.pdf (59 pages, 1899001 bytes).
+Output written on tcc.pdf (59 pages, 1900075 bytes).
 PDF statistics:
  355 PDF objects out of 1000 (max. 8388607)
  225 compressed objects within 3 object streams

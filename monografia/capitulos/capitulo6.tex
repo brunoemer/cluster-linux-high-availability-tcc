@@ -2,18 +2,25 @@
 \label{cap:implementacaoresultados}
 
 Neste capítulo será detalhado a implementação, com a configuração do \ac{OS}, do ambiente virtualizado e das ferramentas que irão compôr o
-\textit{cluster} de alta disponibilidade. Posteriormente, serão efetuados testes e medições.
+\textit{cluster} de alta disponibilidade. Posteriormente, serão efetuados testes e medições de resultados.
 
-Descrever o que nao deu certo no projeto?
+Descrever o que nao deu certo no projeto com o ganeti?
 
 \section{Topologia}
 
 
+
 \section{Configuração do \ac{OS}}
 
+Foi feita a instalação do sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} nos dois servidores.
 
 \section{Configuração de rede}
 
+A primeira etapa para incluir as máquinas virtuais a uma rede é criando uma \textit{bridge}. 
+
+\begin{lstlisting}[language=bash]
+  $ apt-get install bridge-utils
+\end{lstlisting}
 
 \section{Configuração de disco}
 
