@@ -1266,8 +1266,33 @@ AGUARDAR
 ### PRODUCAO implementar Resource-Level Fencing (isolamento nivel de servico) ja implementado no drbd (fencing resource-only)
 #precisa configurar 2 rings de comunicacao, um pelo swtich e outro direto
 # ou implementar Node-Level Fencing, mas precisa de uma interface separada iDRAC da dell ou placa IPMI por exemplo
+# Resource-Level Fencing
+#na pesquisa linux_magazine_pacemaker_isolamento.jpg
+#https://www.sebastien-han.fr/blog/2012/08/01/corosync-rrp-configuration/
+#corosync.conf
+totem {
+    version: 2
+    secauth: on
+    threads: 0
+    rrp_mode: passive
+    interface {
+        ringnumber: 0
+        bindnetaddr: 10.0.0.0
+        mcastaddr: 226.94.1.1
+        mcastport: 5405
+        ttl: 1
+        }
+    interface {
+        ringnumber: 1
+        bindnetaddr: 172.16.0.0
+        mcastaddr: 226.94.1.2
+        mcastport: 5407
+        ttl: 1
+    }
+}
+# e drbd como fazer ring redundante?
 
-#VER stonith-enabled para producao
+#STONITH para producao
 #na pesquisa linux_magazine_pacemaker_isolamento.jpg
 http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack?page=0,1
 apt-get install ipmitool
