@@ -1,79 +1,49 @@
-\chapter{Conclusão}
-\label{cap:conclusao}
+\chapter{Implementação e resultados}
+\label{cap:implementacaoresultados}
 
-Neste trabalho foi feito um estudo sobre uma empresa prestadora de serviços para Internet, analisando sua estrutura física e os seus servidores. 
-Durante este estudo foram definidos os serviços críticos, para tanto considerou-se o impacto dos mesmos para a empresa através dos seguintes 
-critérios: a quantidade de clientes e funcionários que utilizam o serviço; o número de requisições do serviço, sendo que esta pode ser requisições 
-por segundo ou requisições simultâneas; e volume de elementos do serviço.
-Destaca-se que foi necessário definir alguns serviços mais críticos para a empresa por não haver recursos necessários para implementar a
-alta disponibilidade para todos os serviços.
+Neste capítulo será detalhado a implementação, com a configuração do \ac{OS}, do ambiente virtualizado e das ferramentas que irão compôr o
+\textit{cluster} de alta disponibilidade. Posteriormente, serão efetuados testes e medições de resultados.
 
-Os serviços críticos definidos foram: o serviço de \ac{DNS} recursivo, pois é utilizado para navegação de Internet dos clientes e funcionários 
-do provedor; o serviço de autenticação \textit{Radius}, por influenciar diretamente na navegação dos clientes do provedor; sistemas da empresa,
+Nas próximas seções será demonstrado a configuração das ferramentas do ambiente de alta disponibilidade, do ambiente de virtualização e 
+também do sistema operacional.
+
+Descrever o que nao deu certo no projeto com o ganeti??
+
+\section{Topologia}
+
+A estrutura física adotada está representada na figura ??.
+
+figura?? parecida com Figura 4.2: Modelo de estrutura fisica.
+
+Pode-se observar os dois servidores ligados a um \textit{switch} ...
+
+Na figura ?? tem-se a imagem dos servidores, o primeiro \textit{Brina} (Dell PowerEdge 2950) mais acima, e \textit{Piova}
+%#fotos servidores, switch ??
+
+A estrutura que representa a configuração dos \textit{softwares} pode ser observado na figura ??. Onde tem-se o \textit{software} de gerenciamento
+do cluster, o \textit{software} de replicação de dados, o sistema de arquivos, as máquinas virtuais e os serviços.
+%#imagem do projeto??
+
+\section{Configuração do \ac{OS}}
+
+Foi feita a instalação do sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} nos dois servidores. A configuração feita foi a básica do sistema,
+com nome do servidor, configuração de rede, localização e instalação do servidor \ac{SSH}.
 
 
-Após criou-se uma proposta de alta disponibilidade para esses serviços. Essa proposta é composta por um \textit{cluster} o qual é constituído 
-por dois servidores físicos. Para o gerenciamento do \textit{cluster} será adotado o \textit{software} \textit{Ganeti}, que fará o gerenciamento, 
-monitoramento e a transferência dos serviços para garantir a alta disponibilidade. Para a replicação de dados do \textit{cluster} foi adotado 
-o \textit{software} \ac{DRBD}. Esse será responsável pela replicação dos dados dos dois servidores.
+\section{Configuração de rede}
 
-O ambiente de alta disponibilidade será composto por máquinas virtuais que executarão os serviços críticos. Para garantir a disponibilidade 
-será utilizado a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Ganeti}. Desta forma, 
-caso um dos servidores falhe as máquinas virtuais serão migradas para o outro servidor. Além disso, obteu-se bons resultados com os testes 
-realizados com essas ferramentas.
+Um requisito para incluir as máquinas virtuais a uma rede é criando uma \textit{bridge}. 
 
-Na próxima parte deste trabalho será ...
+\begin{lstlisting}[language=bash]
+  $ apt-get install bridge-utils
+\end{lstlisting}
 
-% Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, destacando que 
-% pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 
-% Além disso, com esse estudo pode-se observar que existe uma variedade de ferramentas que possibilitam atingir o objetivo geral deste trabalho.
+\section{Configuração de disco}
 
-% Entretanto, como neste trabalho ainda será feito a implementação em si, não pode-se afirmar que a solução irá funcionar corretamente
-% na empresa, devido a fatores como versão dos \textit{softwares} de virtualização, desempenho das ferramentas do ambiente de alta disponibilidade, 
-% versão do sistema operacional, entre outros.
 
-\newpage
-\section{Cronograma}
-\label{section:cronograma}
+\section{Configuração do ambiente virtualizado}
 
-Na Tabela \ref{tab:propcronograma} tem-se o cronograma correspondente a primeira parte deste trabalho. Como pode ser observado todas etapas foram
-concluídas, sendo que houve uma modificação no item 3, definição das ferramentas.
-Já na Tabela \ref{tab:implcronograma} tem-se o cronograma da segunda etapa deste trabalho. Nesta etapa será implementada a solução de 
-alta disponibilidade e será realizados os testes.
+chaves ssh root??
 
-\begin{table}[h!]\normalsize % fonte tamanho normal
-\caption {Cronograma TCC I}
-\label{tab:propcronograma}
-\begin{center}
-\def\arraystretch{1}
-\setlength{\tabcolsep}{0.15cm}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}\hline
- & \textbf{Descrição} & \textbf{Jan} & \textbf{Fev} & \textbf{Mar} & \textbf{Abr} & \textbf{Mai} & \textbf{Jun} & \textbf{Jul} \\\hline
-1 & Redação TCC I & & & X & X & X & X & X \\\hline
-2 & Estudo bibliográfico & X & X & X & X & X & & \\\hline
-3 & Definição das ferramentas & & & & & X & X & \\\hline
-4 & Análise na empresa & & & & & X & X & \\\hline
-5 & Definição dos serviços críticos & & & & & X & X & \\\hline
-6 & Apresentação TCC I & & & & & & & X \\\hline
-\end{tabular}
-\end{center}
-\end{table}
+\section{Configuração do cluster}
 
-\begin{table}[h!]\normalsize % fonte tamanho normal
-\caption {Cronograma TCC II}
-\label{tab:implcronograma}
-\begin{center}
-\def\arraystretch{1}
-\setlength{\tabcolsep}{0.15cm}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}\hline
- & \textbf{Descrição} & \textbf{Jul} & \textbf{Ago} & \textbf{Set} & \textbf{Out} & \textbf{Nov} & \textbf{Dez} \\\hline
-1 & Redação do TCC II & X & X & X & X & X & X \\\hline
-2 & Elaboração da solução & X & X & X & & & \\\hline
-3 & Reorganização do ambiente de virtualização & X & X & & & & \\\hline
-4 & Realização de testes & & X & X & X & & \\\hline
-5 & Implementação da solução & & & X & X & & \\\hline
-6 & Análise dos resultados e medições & & & & X & X & \\\hline
-7 & Apresentação do TCC II & & & & & & X \\\hline
-\end{tabular}
-\end{center}
-\end{table}

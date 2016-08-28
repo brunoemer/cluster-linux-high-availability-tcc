@@ -58,7 +58,7 @@
 \contentsline {section}{\numberline {6.3}Configura\IeC {\c c}\IeC {\~a}o de rede}{50}
 \contentsline {section}{\numberline {6.4}Configura\IeC {\c c}\IeC {\~a}o de disco}{50}
 \contentsline {section}{\numberline {6.5}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{50}
-\contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do cluster}{50}
-\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{51}
-\contentsline {section}{\numberline {7.1}Cronograma}{52}
-\contentsline {chapter}{Refer{\^e}ncias}{53}
+\contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do cluster}{51}
+\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{52}
+\contentsline {section}{\numberline {7.1}Cronograma}{53}
+\contentsline {chapter}{Refer{\^e}ncias}{54}

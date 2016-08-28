@@ -4,19 +4,36 @@
 Neste capítulo será detalhado a implementação, com a configuração do \ac{OS}, do ambiente virtualizado e das ferramentas que irão compôr o
 \textit{cluster} de alta disponibilidade. Posteriormente, serão efetuados testes e medições de resultados.
 
-Descrever o que nao deu certo no projeto com o ganeti?
+Nas próximas seções será demonstrado a configuração das ferramentas do ambiente de alta disponibilidade, do ambiente de virtualização e 
+também do sistema operacional.
+
+Descrever o que nao deu certo no projeto com o ganeti??
 
 \section{Topologia}
 
+A estrutura física adotada está representada na figura ??.
 
+figura?? %parecida com Figura 4.2: Modelo de estrutura fisica.
+
+Pode-se observar os dois servidores ligados a um \textit{switch} ...
+
+Na figura ?? tem-se a imagem dos servidores, o primeiro \textit{Brina} (Dell PowerEdge 2950) no topo da imagem, e o servidor mais abaixo 
+\textit{Piova} (Dell PowerEdge R410).
+%#fotos servidores, switch ??
+
+A estrutura que representa a configuração dos \textit{softwares} pode ser observado na figura ??. Onde tem-se o \textit{software} de gerenciamento
+do cluster, o \textit{software} de replicação de dados, o sistema de arquivos, as máquinas virtuais e os serviços.
+%#imagem do projeto??
 
 \section{Configuração do \ac{OS}}
 
-Foi feita a instalação do sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} nos dois servidores.
+Foi feita a instalação do sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} nos dois servidores. A configuração feita foi a básica do sistema,
+com nome do servidor, configuração de rede, localização e instalação do servidor \ac{SSH}.
+
 
 \section{Configuração de rede}
 
-A primeira etapa para incluir as máquinas virtuais a uma rede é criando uma \textit{bridge}. 
+Um requisito para incluir as máquinas virtuais a uma rede é criando uma \textit{bridge}. 
 
 \begin{lstlisting}[language=bash]
   $ apt-get install bridge-utils
@@ -27,6 +44,7 @@ A primeira etapa para incluir as máquinas virtuais a uma rede é criando uma \t
 
 \section{Configuração do ambiente virtualizado}
 
+chaves ssh root??
 
 \section{Configuração do cluster}
 
