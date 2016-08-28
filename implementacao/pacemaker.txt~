@@ -1260,10 +1260,40 @@ apt-get install libpam0g-dev
 http://oss.clusterlabs.org/pipermail/pacemaker/2011-August/011263.html
 https://github.com/rndsolutions/hawkcd/wiki/Setup-Hawk-Server-on-Linux-(Ubuntu)-Environment
 ??
+AGUARDAR
 
 
-### PRODUCAO VER ?????
-#VER stonith-enabled para producao
+### PRODUCAO implementar Resource-Level Fencing (isolamento nivel de servico) ja implementado no drbd (fencing resource-only)
+#precisa configurar 2 rings de comunicacao, um pelo swtich e outro direto
+# ou implementar Node-Level Fencing, mas precisa de uma interface separada iDRAC da dell ou placa IPMI por exemplo
+# Resource-Level Fencing
+#na pesquisa linux_magazine_pacemaker_isolamento.jpg
+#https://www.sebastien-han.fr/blog/2012/08/01/corosync-rrp-configuration/
+#corosync.conf
+totem {
+    version: 2
+    secauth: on
+    threads: 0
+    rrp_mode: passive
+    interface {
+        ringnumber: 0
+        bindnetaddr: 10.0.0.0
+        mcastaddr: 226.94.1.1
+        mcastport: 5405
+        ttl: 1
+        }
+    interface {
+        ringnumber: 1
+        bindnetaddr: 172.16.0.0
+        mcastaddr: 226.94.1.2
+        mcastport: 5407
+        ttl: 1
+    }
+}
+# e drbd?
+
+#STONITH para producao
+#na pesquisa linux_magazine_pacemaker_isolamento.jpg
 http://www.linuxjournal.com/content/ahead-pack-pacemaker-high-availability-stack?page=0,1
 apt-get install ipmitool
 echo "ipmi_devintf" >> /etc/modules
@@ -1312,11 +1342,13 @@ crm configure ra info stonith:external/ipmi
 
 
 #ver para quando OCFS_MOUNT nao iniciar, fazer retentativa ou monitorar
-# OK?
+# OK
 
 #ver como promover no DC para outro node manualmente
 
 #se der problema de corromper disco ainda, testar com GFS em vez de OCFS2
+
+#ver migration-threshold, numero de falhas para migrar o recurso para outro node
 
 
 crm resource migrate VM1 brunonote.emer.com
@@ -1332,11 +1364,12 @@ crm node maintenance brunonote.emer.com
 crm node ready brunonote.emer.com
 
 #ver numero de falhas
-crm_mon --failcounts
+crm_mon --failcounts -1
 crm resource failcount VM1 show bruno2.emer.com
 
 # limpar recurso e reiniciar, quando recurso falhar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
+#ou crm resource cleanup OCFS_MOUNT_CLONE
 # usar no node onde deu a falha
 
 # OCFS_MOUNT_CLONE estava como Stopped entao executei:
@@ -1345,7 +1378,7 @@ crm node online bruno2.emer.com
 
 # historico
 crm history node bruno2.emer.com
-crm_mon --timing-details
+crm_mon --timing-details -1
 
 # ver configuracao cib
 cibadmin -Q
@@ -1391,8 +1424,5 @@ drbdadm up vms
 drbdadm secondary vms
 drbdadm disconnect vms
 drbdadm connect --discard-my-data vms
-
-#no principal
-drbdadm connect vms
 
 
