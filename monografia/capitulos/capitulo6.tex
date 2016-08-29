@@ -54,19 +54,75 @@ e \textit{firewall}.
 
 \section{Configuração de rede}
 
-Um requisito para incluir as máquinas virtuais a uma rede é criar uma \textit{bridge}. A instalação é feita através do comando:
+Um requisito para incluir as máquinas virtuais a uma rede é através da criação de uma \textit{bridge}. A instalação é feita através do comando:
 \begin{lstlisting}[language=bash]
   $ apt-get install bridge-utils
 \end{lstlisting}
 
-Além disso, é necessário instalar e configurar o \textit{link agregation}
+Além disso, é necessário instalar e configurar o \textit{link aggregation}, padrão adotado foi o ??. A configuração é feita no servidor e 
+no \textit{switch}. Abaixo tem-se os comandos para instalação do \textit{link aggregation}, o primeiro comando faz a instalação
+e o segundo comando carrega o modulo do \textit{kernel} \textit{bonding}:
+\begin{lstlisting}[language=bash]
+ $ apt-get install ifenslave-2.6
+ $ sh -c 'grep -q bonding /etc/modules || echo bonding >> /etc/modules'
+\end{lstlisting}
+
+Para a configuração do \textit{link aggregation} deve-se criar uma interface \textit{bond} e nela inclui-se as duas interfaces físicas.
+Abaixo tem-se a configuração de rede, que inclui o \textit{link aggregation} e a \textit{bridge}, esta configuração deve ser colocada no 
+arquivo \textit{/etc/network/interfaces}:
+\begin{lstlisting}[language=bash]
+auto eth0
+iface eth0 inet manual
+bond-master bond0
+
+auto eth1
+iface eth1 inet manual
+bond-master bond0
+
+auto bond0
+iface bond0 inet manual
+       bond-mode 4
+       bond-slaves eth0 eth1
+       bond-lacp-rate 1
+       bond-miimon 100
+       bond-xmit_hash_policy layer3+4
+
+auto br0
+iface br0 inet static
+	address x.x.x.x
+	netmask 255.255.255.0
+	network x.x.x.0
+	broadcast x.x.x.255
+	gateway x.x.x.x
+	dns-nameservers 8.8.8.8 8.8.4.4
+	
+        bridge_ports bond0
+        bridge_stp off
+        bridge_maxwait 0
+\end{lstlisting}
 
 \section{Configuração de disco}
 
+Os discos que serão replicados podem ser utilizados diretamente no \ac{DRBD} (por exemplo /dev/sda2) ou configurados com \ac{LVM}. Adotou-se
+a configuração utilizando \ac{LVM} pois torna-se mais fácil a manipulação dos discos. O comando abaixo faz a criação de um volume lógico chamado 
+\textit{lvdrbd} com tamanho de 500 GB, este volume pertence ao grupo de volumes \textit{vg0}.
+\begin{lstlisting}[language=bash]
+ $ lvcreate -n lvdrbd vg0 -L 500G
+\end{lstlisting}
+
+\subsection{DRBD}
+
+Para a instalação do \textit{software} de replicação de dados é necessário instalar os dois pacotes listados abaixo:
+\begin{lstlisting}[language=bash]
+ $ apt-get install drbd8-utils drbdlinks
+\end{lstlisting}
 
 \section{Configuração do ambiente virtualizado}
 
 chaves ssh root??
 
 \section{Configuração do cluster}
+
+
+\subsection{Pacemaker}
 

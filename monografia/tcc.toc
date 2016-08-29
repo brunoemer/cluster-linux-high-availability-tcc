@@ -57,8 +57,10 @@
 \contentsline {section}{\numberline {6.2}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{51}
 \contentsline {section}{\numberline {6.3}Configura\IeC {\c c}\IeC {\~a}o de rede}{51}
 \contentsline {section}{\numberline {6.4}Configura\IeC {\c c}\IeC {\~a}o de disco}{52}
-\contentsline {section}{\numberline {6.5}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{52}
-\contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do cluster}{52}
-\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{53}
-\contentsline {section}{\numberline {7.1}Cronograma}{54}
-\contentsline {chapter}{Refer{\^e}ncias}{55}
+\contentsline {subsection}{\numberline {6.4.1}DRBD}{53}
+\contentsline {section}{\numberline {6.5}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{53}
+\contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do cluster}{53}
+\contentsline {subsection}{\numberline {6.6.1}Pacemaker}{53}
+\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{54}
+\contentsline {section}{\numberline {7.1}Cronograma}{55}
+\contentsline {chapter}{Refer{\^e}ncias}{56}

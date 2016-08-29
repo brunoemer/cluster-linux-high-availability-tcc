@@ -152,20 +152,20 @@ order=4
 
 [item:capitulos/capitulo5.tex]
 archive=true
-column=0
+column=19
 encoding=UTF-8
 highlight=LaTeX
-line=553
+line=194
 mode=LaTeX
 open=true
 order=2
 
 [item:capitulos/capitulo6.tex]
 archive=true
-column=72
+column=109
 encoding=UTF-8
 highlight=LaTeX
-line=61
+line=114
 mode=LaTeX
 open=true
 order=3
@@ -281,16 +281,16 @@ JumpList=
 ViMarks=.,439,138,[,440,0,],-1,-1
 
 [view-settings,view=0,item:capitulos/capitulo5.tex]
-CursorColumn=0
-CursorLine=553
+CursorColumn=19
+CursorLine=194
 JumpList=
 ViMarks=.,609,91,[,609,91,],609,91
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
-CursorColumn=72
-CursorLine=61
+CursorColumn=109
+CursorLine=114
 JumpList=
-ViMarks=.,61,71,[,61,65,],61,71
+ViMarks=.,114,108,[,114,100,],114,108
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=0
