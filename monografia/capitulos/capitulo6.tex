@@ -22,8 +22,8 @@ A estrutura física adotada está representada na Figura \ref{fig:projeto_fisico
 
 Pode-se observar os dois servidores ligados a um \textit{switch} através de dois cabos UTP cada servidor ...
 
-Na Figura \ref{fig:servidores_brina_piova} tem-se a imagem dos servidores, o primeiro \textit{Brina} (Dell PowerEdge 2950) no topo da imagem, e o servidor mais abaixo 
-\textit{Piova} (Dell PowerEdge R410).
+Na Figura \ref{fig:servidores_brina_piova} tem-se a imagem dos servidores, o primeiro no topo da imagem, \textit{Brina} 
+(\textit{Dell PowerEdge 2950}), e o servidor mais abaixo, \textit{Piova} (\textit{Dell PowerEdge R410}).
 
 \begin{figure}[h!]
  \centering
@@ -32,9 +32,9 @@ Na Figura \ref{fig:servidores_brina_piova} tem-se a imagem dos servidores, o pri
  \label{fig:servidores_brina_piova}
 \end{figure}
 
-A estrutura que representa a configuração dos \textit{softwares} pode ser observado na Figura \ref{fig:projeto_estrutura}. Onde tem-se o 
-\textit{software} de gerenciamento do cluster, o \textit{software} de replicação de dados, o sistema de arquivos, as máquinas virtuais e os 
-serviços.
+Pode ser observado na Figura \ref{fig:projeto_estrutura} a estrutura que representa a configuração dos \textit{softwares}. Nesta tem-se o 
+\textit{software} de gerenciamento do cluster, que fará o monitoramento, iniciará e parará os recursos dos nós, o \textit{software} de replicação 
+de dados, o sistema de arquivos, as máquinas virtuais e os serviços localizados nestas máquinas.
 
 \begin{figure}[h!]
  \centering
@@ -54,11 +54,12 @@ e \textit{firewall}.
 
 \section{Configuração de rede}
 
-Um requisito para incluir as máquinas virtuais a uma rede é criar uma \textit{bridge}. 
-
+Um requisito para incluir as máquinas virtuais a uma rede é criar uma \textit{bridge}. A instalação é feita através do comando:
 \begin{lstlisting}[language=bash]
   $ apt-get install bridge-utils
 \end{lstlisting}
+
+Além disso, é necessário instalar e configurar o \textit{link agregation}
 
 \section{Configuração de disco}
 

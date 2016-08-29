@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  28 AUG 2016 22:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  29 AUG 2016 07:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1988,9 +1988,6 @@ ut line 41.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \vbox (badness 1609) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 50
  []
@@ -2005,10 +2002,7 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51 <./img/servidores_brina_piova-eps-converted-to.pdf>])
+) [51 <./img/servidores_brina_piova-eps-converted-to.pdf>])
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 52
  []
@@ -2149,7 +2143,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  16124 strings out of 495004
  301638 string characters out of 6180662
- 375311 words of memory out of 5000000
+ 375350 words of memory out of 5000000
  18987 multiletter control sequences out of 15000+600000
  11224 words of font info for 39 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2167,7 +2161,7 @@ nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
 2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
 
-Output written on tcc.pdf (61 pages, 2140062 bytes).
+Output written on tcc.pdf (61 pages, 2140307 bytes).
 PDF statistics:
  370 PDF objects out of 1000 (max. 8388607)
  234 compressed objects within 3 object streams
