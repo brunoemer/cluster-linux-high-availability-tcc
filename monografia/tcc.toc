@@ -54,11 +54,11 @@
 \contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{49}
 \contentsline {chapter}{\numberline {6}Implementa\IeC {\c c}\IeC {\~a}o e resultados}{50}
 \contentsline {section}{\numberline {6.1}Topologia}{50}
-\contentsline {section}{\numberline {6.2}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{50}
-\contentsline {section}{\numberline {6.3}Configura\IeC {\c c}\IeC {\~a}o de rede}{50}
-\contentsline {section}{\numberline {6.4}Configura\IeC {\c c}\IeC {\~a}o de disco}{50}
-\contentsline {section}{\numberline {6.5}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{50}
-\contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do cluster}{51}
-\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{52}
-\contentsline {section}{\numberline {7.1}Cronograma}{53}
-\contentsline {chapter}{Refer{\^e}ncias}{54}
+\contentsline {section}{\numberline {6.2}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{51}
+\contentsline {section}{\numberline {6.3}Configura\IeC {\c c}\IeC {\~a}o de rede}{51}
+\contentsline {section}{\numberline {6.4}Configura\IeC {\c c}\IeC {\~a}o de disco}{52}
+\contentsline {section}{\numberline {6.5}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{52}
+\contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do cluster}{52}
+\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{53}
+\contentsline {section}{\numberline {7.1}Cronograma}{54}
+\contentsline {chapter}{Refer{\^e}ncias}{55}
