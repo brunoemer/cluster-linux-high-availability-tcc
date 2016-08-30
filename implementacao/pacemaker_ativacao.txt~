@@ -368,6 +368,9 @@ command[check_drbd]=/usr/lib/nagios/plugins/check_drbd -e Connected -r Primary
 #plugin pacemaker
 #https://exchange.nagios.org/directory/Plugins/Clustering-and-High-2DAvailability/Check-CRM/details
 #configuracao /etc/nagios/nrpe.cfg
-
+command[check_pacemaker]=/usr/lib/nagios/plugins/check_crm_v0_7
+#configuracao para executar, /etc/sudoers.d/nagios_pacemaker
+nagios ALL=(ALL) NOPASSWD: /usr/sbin/crm_mon -1 -r -f 
+chmod o-rwx /etc/sudoers.d/nagios_pacemaker
 
 
