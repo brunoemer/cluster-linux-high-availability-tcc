@@ -89,21 +89,21 @@ iface bond0 inet manual
 
 auto br0
 iface br0 inet static
-	address x.x.x.x
-	netmask 255.255.255.0
-	network x.x.x.0
-	broadcast x.x.x.255
-	gateway x.x.x.x
-	dns-nameservers 8.8.8.8 8.8.4.4
-	
-        bridge_ports bond0
-        bridge_stp off
-        bridge_maxwait 0
+       address x.x.x.x
+       netmask 255.255.255.0
+       network x.x.x.0
+       broadcast x.x.x.255
+       gateway x.x.x.x
+       dns-nameservers 8.8.8.8 8.8.4.4
+       
+       bridge_ports bond0
+       bridge_stp off
+       bridge_maxwait 0
 \end{lstlisting}
 
 \section{Configuração de disco}
 
-Os discos que serão replicados podem ser utilizados diretamente no \ac{DRBD} (por exemplo /dev/sda2) ou configurados com \ac{LVM}. Adotou-se
+Os discos que serão replicados podem ser utilizados diretamente no \ac{DRBD} (por exemplo \textit{/dev/sda2}) ou configurados com \ac{LVM}. Adotou-se
 a configuração utilizando \ac{LVM} pois torna-se mais fácil a manipulação dos discos. O comando abaixo faz a criação de um volume lógico chamado 
 \textit{lvdrbd} com tamanho de 500 GB, este volume pertence ao grupo de volumes \textit{vg0}.
 \begin{lstlisting}[language=bash]
@@ -117,7 +117,7 @@ Para a instalação do \textit{software} de replicação de dados é necessário
  $ apt-get install drbd8-utils drbdlinks
 \end{lstlisting}
 
-É necessário alterar a configuração global do \ac{DRBD} que está localizada em \textit{/etc/drbd.d/global_common.conf}:
+É necessário alterar a configuração global do \ac{DRBD} que está localizada em \textit{/etc/drbd.d/global\_common.conf}:
 \begin{lstlisting}[language=bash]
 global {
         usage-count yes;
@@ -146,19 +146,65 @@ Deve-se criar o arquivo \textit{/etc/drbd.d/vms.res}, o qual armazenará essa co
     startup {
         become-primary-on both;
     }
-    on brina.redesul.com.br {
-        address 186.195.16.14:7791;
+    on brina {
+        address x.x.x.x:7791;
         disk /dev/vg0/lvdrbd;
     }
-    on piova.redesul.com.br {
-        address 186.195.16.6:7791;
+    on piova {
+        address x.x.x.x:7791;
         disk /dev/vg0/lvdrbd;
-    }
-    syncer {
-        rate 50M;
     }
 }
 \end{lstlisting}
+Explicar os opcoes??
+
+Para o funcionamento correto dessa ferramenta, o nome dos servidores (localizado em \textit{/etc/hostname}) deve ser exatamente igual a opção
+\textit{on} da configuração do recurso.
+
+Após ter sido feita a configuração do \ac{DRBD}, deve-se reiniciar o serviço para aplicá-la:
+\begin{lstlisting}[language=bash]
+ $ service drbd restart 
+\end{lstlisting}
+
+...
+\begin{lstlisting}[language=bash]
+drbdadm create-md vms
+drbdadm up vms
+# em um node
+drbdadm -- --overwrite-data-of-peer primary vms
+# aguardar sincronizar
+# outro no
+drbdadm primary vms
+\end{lstlisting}
+
+\subsection{OCFS2}
+
+O \ac{OCFS2} é um sistema de arquivos para \textit{cluster}, ele faz o gerencimento de \textit{locks} que é necessário para o funcionamento 
+do \textit{Pacemaker}. Para sua instalação é necessário um pacote, o comando abaixo faz a instalação:
+\begin{lstlisting}[language=bash]
+ $ apt-get install ocfs2-tools
+\end{lstlisting}
+
+É preciso fazer duas configurações, uma para criar o \textit{cluster} criando o arquivos \textit{/etc/ocfs2/cluster.conf}:
+\begin{lstlisting}[language=bash]
+node:
+        ip_port = 7777
+        ip_address = x.x.x.x
+        number = 0
+        name = brina
+        cluster = clusterocfs
+node:
+        ip_port = 7777
+        ip_address = x.x.x.x
+        number = 1
+        name = piova
+        cluster = clusterocfs
+cluster:
+        node_count = 2
+        name = clusterocfs
+\end{lstlisting}
+
+A segunda configuração é feita no arquivo \textit{} para carregar o \textit{driver} no \textit{boot}
 
 \section{Configuração do ambiente virtualizado}
 

@@ -1290,7 +1290,7 @@ totem {
         ttl: 1
     }
 }
-# e drbd?
+# e drbd como fazer ring redundante?
 
 #STONITH para producao
 #na pesquisa linux_magazine_pacemaker_isolamento.jpg

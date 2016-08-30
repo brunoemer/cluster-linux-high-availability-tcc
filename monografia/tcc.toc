@@ -58,6 +58,7 @@
 \contentsline {section}{\numberline {6.3}Configura\IeC {\c c}\IeC {\~a}o de rede}{51}
 \contentsline {section}{\numberline {6.4}Configura\IeC {\c c}\IeC {\~a}o de disco}{52}
 \contentsline {subsection}{\numberline {6.4.1}DRBD}{53}
+\contentsline {subsection}{\numberline {6.4.2}OCFS2}{54}
 \contentsline {section}{\numberline {6.5}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{54}
 \contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do cluster}{54}
 \contentsline {subsection}{\numberline {6.6.1}Pacemaker}{54}

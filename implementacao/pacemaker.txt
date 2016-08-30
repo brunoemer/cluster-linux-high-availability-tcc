@@ -838,9 +838,6 @@ resource vms {
         address 192.168.2.9:7791;
         disk /dev/vgdrbd/lvdrbd;
     }
-    syncer {
-        rate 50M;
-    }
 }
 
 apt-get install ocfs2-tools

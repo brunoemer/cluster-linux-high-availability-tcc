@@ -154,17 +154,66 @@ Deve-se criar o arquivo \textit{/etc/drbd.d/vms.res}, o qual armazenará essa co
         address x.x.x.x:7791;
         disk /dev/vg0/lvdrbd;
     }
-    syncer {
-        rate 50M;
-    }
 }
 \end{lstlisting}
-Explicar os parametros??
+Explicar os opcoes??
 
-Para o funcionamento correto dessa ferramenta, o nome dos servidores (localizado em \textit{/etc/hostname}) deve ser exatamente igual ao parâmetro
+Para o funcionamento correto dessa ferramenta, o nome dos servidores (localizado em \textit{/etc/hostname}) deve ser exatamente igual a opção
 \textit{on} da configuração do recurso.
 
-...
+Após ter sido feita a configuração do \ac{DRBD}, deve-se reiniciar o serviço para aplicá-la:
+\begin{lstlisting}[language=bash]
+ $ service drbd restart 
+\end{lstlisting}
+
+Deve-se inicializar os discos do \ac{DRBD}, primeiro comando, e subi-lo para conectar ao outro nó, segundo comando. Após isso deve-se eleger
+os nós como primário e sincronizar os seus dados, terceiro comando:
+\begin{lstlisting}[language=bash]
+ $ drbdadm create-md vms
+ $ drbdadm up vms
+ $ drbdadm -- --overwrite-data-of-peer primary vms
+\end{lstlisting}
+
+Verifique o estado dos recursos do \ac{DRBD} através do comando:
+\begin{lstlisting}[language=bash]
+ $ service drbd status
+\end{lstlisting}
+
+\subsection{OCFS2}
+
+O \ac{OCFS2} é um sistema de arquivos para \textit{cluster}, ele faz o gerencimento de \textit{locks} que é necessário para o funcionamento 
+do \textit{Pacemaker}. Para sua instalação é necessário um pacote, o comando abaixo faz a instalação:
+\begin{lstlisting}[language=bash]
+ $ apt-get install ocfs2-tools
+\end{lstlisting}
+
+É preciso fazer duas configurações, uma para criar o \textit{cluster} criando o arquivos \textit{/etc/ocfs2/cluster.conf}:
+\begin{lstlisting}[language=bash]
+node:
+        ip_port = 7777
+        ip_address = x.x.x.x
+        number = 0
+        name = brina
+        cluster = clusterocfs
+node:
+        ip_port = 7777
+        ip_address = x.x.x.x
+        number = 1
+        name = piova
+        cluster = clusterocfs
+cluster:
+        node_count = 2
+        name = clusterocfs
+\end{lstlisting}
+
+A segunda configuração é feita no arquivo \textit{/etc/default/o2cb}, que faz o carregamento do \textit{driver} no \textit{boot} e a
+definição do nome do cluster para inicialização.
+
+Para aplicar as configurações deve-se reiniciar o serviço:
+\begin{lstlisting}[language=bash]
+ $ service ocfs2 restart
+\end{lstlisting}
+
 
 \section{Configuração do ambiente virtualizado}
 
