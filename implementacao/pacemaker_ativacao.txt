@@ -359,3 +359,15 @@ order ORD_VM1 inf: OCFS_MOUNT_CLONE:start VM1:start
 order ORD_VM2 inf: OCFS_MOUNT_CLONE:start VM2:start
 
 
+#nagios plugins pacemaker e drbd
+apt-get install nagios-plugins-contrib libnagios-plugin-perl
+
+#configuracao drbd nos nodes, /etc/nagios/nrpe.cfg
+command[check_drbd]=/usr/lib/nagios/plugins/check_drbd -e Connected -r Primary
+
+#plugin pacemaker
+#https://exchange.nagios.org/directory/Plugins/Clustering-and-High-2DAvailability/Check-CRM/details
+#configuracao /etc/nagios/nrpe.cfg
+command[check_pacemaker]=/usr/lib/nagios/plugins/check_crm_v0_7
+
+
