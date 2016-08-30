@@ -1424,10 +1424,11 @@ drbdadm invalidate vms
 drbdadm connect --discard-my-data vms
 #vai resincronizar
 
-#erro no live migration apos fazer isso ?????????
+#erro no live migration apos fazer isso
 #VER COMO RESINCRONIZAR
 drbdadm invalidate vms
 #resincroniza OK
 
+### ????? testar sem derrubar no primario
 
 
