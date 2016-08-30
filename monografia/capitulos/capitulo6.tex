@@ -89,21 +89,21 @@ iface bond0 inet manual
 
 auto br0
 iface br0 inet static
-	address x.x.x.x
-	netmask 255.255.255.0
-	network x.x.x.0
-	broadcast x.x.x.255
-	gateway x.x.x.x
-	dns-nameservers 8.8.8.8 8.8.4.4
-	
-        bridge_ports bond0
-        bridge_stp off
-        bridge_maxwait 0
+       address x.x.x.x
+       netmask 255.255.255.0
+       network x.x.x.0
+       broadcast x.x.x.255
+       gateway x.x.x.x
+       dns-nameservers 8.8.8.8 8.8.4.4
+       
+       bridge_ports bond0
+       bridge_stp off
+       bridge_maxwait 0
 \end{lstlisting}
 
 \section{Configuração de disco}
 
-Os discos que serão replicados podem ser utilizados diretamente no \ac{DRBD} (por exemplo /dev/sda2) ou configurados com \ac{LVM}. Adotou-se
+Os discos que serão replicados podem ser utilizados diretamente no \ac{DRBD} (por exemplo \textit{/dev/sda2}) ou configurados com \ac{LVM}. Adotou-se
 a configuração utilizando \ac{LVM} pois torna-se mais fácil a manipulação dos discos. O comando abaixo faz a criação de um volume lógico chamado 
 \textit{lvdrbd} com tamanho de 500 GB, este volume pertence ao grupo de volumes \textit{vg0}.
 \begin{lstlisting}[language=bash]
@@ -112,10 +112,59 @@ a configuração utilizando \ac{LVM} pois torna-se mais fácil a manipulação d
 
 \subsection{DRBD}
 
-Para a instalação do \textit{software} de replicação de dados é necessário instalar os dois pacotes listados abaixo:
+Para a instalação do \textit{software} de replicação de dados é necessário instalar os dois pacotes, que estão listados abaixo:
 \begin{lstlisting}[language=bash]
  $ apt-get install drbd8-utils drbdlinks
 \end{lstlisting}
+
+É necessário alterar a configuração global do \ac{DRBD} que está localizada em \textit{/etc/drbd.d/global\_common.conf}:
+\begin{lstlisting}[language=bash]
+global {
+        usage-count yes;
+        minor-count 16;
+}
+\end{lstlisting}
+
+Posteriormente, deve-se criar um recurso que definirá os dispositivos de disco, os endereços \ac{IP} e portas dos servidores.
+Deve-se criar o arquivo \textit{/etc/drbd.d/vms.res}, o qual armazenará essa configuração:
+\begin{lstlisting}[language=bash]
+ resource vms {
+    meta-disk internal;
+    device /dev/drbd0;
+    protocol C;
+    disk {
+        fencing resource-only;
+        resync-rate 50M;
+    }
+    handlers {
+        fence-peer "/usr/lib/drbd/crm-fence-peer.sh";
+        after-resync-target "/usr/lib/drbd/crm-unfence-peer.sh";
+    }
+    net {
+        allow-two-primaries;
+    }
+    startup {
+        become-primary-on both;
+    }
+    on brina {
+        address x.x.x.x:7791;
+        disk /dev/vg0/lvdrbd;
+    }
+    on piova {
+        address x.x.x.x:7791;
+        disk /dev/vg0/lvdrbd;
+    }
+    syncer {
+        rate 50M;
+    }
+}
+\end{lstlisting}
+Explicar os parametros??
+
+Para o funcionamento correto dessa ferramenta, o nome dos servidores (localizado em \textit{/etc/hostname}) deve ser exatamente igual ao parâmetro
+\textit{on} da configuração do recurso.
+
+...
 
 \section{Configuração do ambiente virtualizado}
 
