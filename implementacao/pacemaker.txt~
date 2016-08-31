@@ -1415,7 +1415,6 @@ crm node standby piova.redesul.com.br
 #alterar para secundario
 drbdadm up vms
 drbdadm secondary vms
-
 #no vitima, tera dados sobrepostos
 drbdadm up vms
 drbdadm secondary vms
@@ -1423,12 +1422,21 @@ drbdadm disconnect vms
 drbdadm invalidate vms
 drbdadm connect --discard-my-data vms
 #vai resincronizar
+#erro no live migration as vezes apos fazer isso
 
-#erro no live migration apos fazer isso
-#VER COMO RESINCRONIZAR
+#testar sem derrubar no primario
+#no vitima
+crm node maintenance brunonote.emer.com
+crm node maintenance bruno2.emer.com
+umount /dev/drbd/by-res/vms
+drbdadm secondary vms
 drbdadm invalidate vms
-#resincroniza OK
+drbdadm connect --discard-my-data vms
 
-### ????? testar sem derrubar no primario
+#no principal
+drbdadm connect vms
+#aguardar sincronizar
+
+#testar ??? PARECE QUE RESOLVEU, TESTAR EM PRODUCAO
 
 

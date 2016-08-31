@@ -44,6 +44,8 @@ de dados, o sistema de arquivos, as máquinas virtuais e os serviços localizado
 \end{figure}
 
 tabela com ips??
+node 1 brina 192.168.3.1
+node 2 piova 192.168.3.2
 
 \section{Configuração do \ac{OS}}
 
@@ -59,9 +61,9 @@ Um requisito para incluir as máquinas virtuais a uma rede é através da criaç
   $ apt-get install bridge-utils
 \end{lstlisting}
 
-Além disso, é necessário instalar e configurar o \textit{link aggregation}, padrão adotado foi o ??. A configuração é feita no servidor e 
-no \textit{switch}. Abaixo tem-se os comandos para instalação do \textit{link aggregation}, o primeiro comando faz a instalação
-e o segundo comando carrega o modulo do \textit{kernel} \textit{bonding}:
+Além disso, é necessário instalar e configurar o \textit{link aggregation}, o \textit{Ubuntu} usa o padrão \textit{IEEE 802.3ad}. A configuração 
+é feita no servidor e no \textit{switch}. Abaixo tem-se os comandos para instalação do \textit{link aggregation}, o primeiro comando faz a 
+instalação e o segundo comando carrega o modulo do \textit{kernel} \textit{bonding}:
 \begin{lstlisting}[language=bash]
  $ apt-get install ifenslave-2.6
  $ sh -c 'grep -q bonding /etc/modules || echo bonding >> /etc/modules'
@@ -70,7 +72,7 @@ e o segundo comando carrega o modulo do \textit{kernel} \textit{bonding}:
 Para a configuração do \textit{link aggregation} deve-se criar uma interface \textit{bond} e nela inclui-se as duas interfaces físicas.
 Abaixo tem-se a configuração de rede, que inclui o \textit{link aggregation} e a \textit{bridge}, esta configuração deve ser colocada no 
 arquivo \textit{/etc/network/interfaces}:
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}
 auto eth0
 iface eth0 inet manual
 bond-master bond0
@@ -101,6 +103,14 @@ iface br0 inet static
        bridge_maxwait 0
 \end{lstlisting}
 
+Também será necessário configurar algumas \textit{vlans} para algumas máquinas virtuais. Os comandos a seguir farão a instalação e carregarão
+o modulo \textit{kernel} necessário para gerenciar \textit{vlans}:
+\begin{lstlisting}[language=bash]
+ $ apt-get install vlan
+ $ sudo  sh -c 'grep -q 8021q /etc/modules || echo 8021q >> /etc/modules'
+ $ sudo modprobe 8021q
+\end{lstlisting}
+
 \section{Configuração de disco}
 
 Os discos que serão replicados podem ser utilizados diretamente no \ac{DRBD} (por exemplo \textit{/dev/sda2}) ou configurados com \ac{LVM}. Adotou-se
@@ -118,7 +128,7 @@ Para a instalação do \textit{software} de replicação de dados é necessário
 \end{lstlisting}
 
 É necessário alterar a configuração global do \ac{DRBD} que está localizada em \textit{/etc/drbd.d/global\_common.conf}:
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}
 global {
         usage-count yes;
         minor-count 16;
@@ -127,7 +137,7 @@ global {
 
 Posteriormente, deve-se criar um recurso que definirá os dispositivos de disco, os endereços \ac{IP} e portas dos servidores.
 Deve-se criar o arquivo \textit{/etc/drbd.d/vms.res}, o qual armazenará essa configuração:
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}
  resource vms {
     meta-disk internal;
     device /dev/drbd0;
@@ -166,15 +176,17 @@ Após ter sido feita a configuração do \ac{DRBD}, deve-se reiniciar o serviço
  $ service drbd restart 
 \end{lstlisting}
 
-...
+Deve-se inicializar os discos do \ac{DRBD}, primeiro comando, e subi-lo para conectar ao outro nó, segundo comando. Após isso deve-se eleger
+os nós como primário e sincronizar os seus dados, terceiro comando:
 \begin{lstlisting}[language=bash]
-drbdadm create-md vms
-drbdadm up vms
-# em um node
-drbdadm -- --overwrite-data-of-peer primary vms
-# aguardar sincronizar
-# outro no
-drbdadm primary vms
+ $ drbdadm create-md vms
+ $ drbdadm up vms
+ $ drbdadm -- --overwrite-data-of-peer primary vms
+\end{lstlisting}
+
+Verifique o estado dos recursos do \ac{DRBD} através do comando:
+\begin{lstlisting}[language=bash]
+ $ service drbd status
 \end{lstlisting}
 
 \subsection{OCFS2}
@@ -186,7 +198,7 @@ do \textit{Pacemaker}. Para sua instalação é necessário um pacote, o comando
 \end{lstlisting}
 
 É preciso fazer duas configurações, uma para criar o \textit{cluster} criando o arquivos \textit{/etc/ocfs2/cluster.conf}:
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}
 node:
         ip_port = 7777
         ip_address = x.x.x.x
@@ -204,11 +216,66 @@ cluster:
         name = clusterocfs
 \end{lstlisting}
 
-A segunda configuração é feita no arquivo \textit{} para carregar o \textit{driver} no \textit{boot}
+A segunda configuração é feita no arquivo \textit{/etc/default/o2cb}, que faz o carregamento do \textit{driver} no \textit{boot} e a definição 
+do nome do cluster para inicialização:
+\begin{lstlisting}
+O2CB_ENABLED=true
+O2CB_BOOTCLUSTER=clusterocfs
+\end{lstlisting}
+
+Para aplicar as configurações deve-se reiniciar o serviço:
+\begin{lstlisting}[language=bash]
+ $ service ocfs2 restart
+\end{lstlisting}
+
+E por fim, deve-se construir o sistema de arquivos utilizando o comando:
+\begin{lstlisting}[language=bash]
+ $ mkfs.ocfs2 /dev/drbd/by-res/vms
+\end{lstlisting}
+
+%bug ocfs2
+Na versão 1.6.4 do pacote \textit{ocfs2-tools} no \textit{Ubuntu 14.04} há um \textit{bug}\footnote{Detalhes do \textit{bug}: 
+https://bugs.launchpad.net/ubuntu/+source/ocfs2-tools/+bug/1412438} que impede o \textit{Pacemaker} de montar o sistema de arquivo \ac{OCFS2}. 
+Para corrigi-lo deve aplicar o \textit{patch} abaixo no arquivo \textit{/usr/lib/ocf/resource.d/heartbeat/Filesystem}:
+\begin{lstlisting}
+--- Filesystem 2013-12-16 07:41:25.000000000 +0000
++++ Filesystem.new 2015-01-19 19:01:30.181772112 +0000
+@@ -338,7 +338,7 @@ ocfs2_init()
+  # not need this:
+  OCFS2_SLES10=""
+- if [ "X$HA_cluster_type" = "Xcman" ]; then
++ if [ "X$HA_cluster_type" = "Xcorosync" ]; then
+      return
+  elif [ "X$HA_cluster_type" != "Xopenais" ]; then
+   if grep -q "SUSE Linux Enterprise Server 10" /etc/SuSE-release >/dev/null 2>&1 ; then
+\end{lstlisting}
 
 \section{Configuração do ambiente virtualizado}
 
-chaves ssh root??
+Como já mencionado anteriormente o hipervisor utilizado pela empresa é o \ac{KVM}. Além disso, é utilizado a \ac{API} \textit{libvirt} para
+o gerenciamento da virtualização. O comando abaixo faz a instalação dessas ferramentas:
+\begin{lstlisting}[language=bash]
+ $ apt-get install qemu-kvm libvirt-bin
+\end{lstlisting}
+
+Para incluir as máquinas virtuais é necessário criar um \textit{pool}, onde serão armazenadas suas imagens.
+\begin{lstlisting}[language=bash]
+ $ mkdir /var/lib/libvirt/images/ocfs
+ $ virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
+\end{lstlisting}
+
+Para o funcionamento do \textit{live migration} é preciso fazer a troca das chaves \ac{SSH} nos dois nós.
+No nó \textit{Brina}, no primeiro comando cria-se uma chave \textit{rsa} e no segundo copia-se a chave para o outro nó:
+\begin{lstlisting}[language=bash]
+ $ ssh-keygen
+ $ ssh-copy-id piova
+\end{lstlisting}
+
+E no nó \textit{Piova}, deve-se efetuar o mesmo processo:
+\begin{lstlisting}[language=bash]
+ $ ssh-keygen
+ $ ssh-copy-id brina
+\end{lstlisting}
 
 \section{Configuração do cluster}
 
