@@ -1440,3 +1440,11 @@ drbdadm connect vms
 #testar ??? PARECE QUE RESOLVEU, TESTAR EM PRODUCAO
 
 
+#testar configuracao corosync com two nodes no quorum
+quorum {
+   provider: corosync_votequorum
+   expected_votes: 2
+   two_node: 1
+}
+
+
