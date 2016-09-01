@@ -1409,6 +1409,7 @@ m:res  cs            ro                 ds                 p  mounted  fstype
 https://www.hastexo.com/resources/hints-and-kinks/solve-drbd-split-brain-4-steps/
 https://www.drbd.org/en/doc/users-guide-83/s-resolve-split-brain
 
+##tentativa 1
 #no principal
 #desligar servicos
 crm node standby piova.redesul.com.br
@@ -1424,6 +1425,7 @@ drbdadm connect --discard-my-data vms
 #vai resincronizar
 #erro no live migration as vezes apos fazer isso
 
+##tentativa 2
 ##testar sem derrubar no primario
 #no vitima
 crm node maintenance piova.redesul.com.br
@@ -1442,6 +1444,22 @@ crm node ready brina.redesul.com.br
 
 #testar ??? PARECE QUE RESOLVEU, TESTAR EM PRODUCAO DEU PROBLEMA
 # tentar reiniciar antes do live migration
+
+##tentativa 3
+#no principal
+#desligar servicos
+crm node standby piova.redesul.com.br
+#alterar para secundario
+drbdadm up vms
+drbdadm secondary vms
+#no vitima, tera dados sobrepostos
+drbdadm up vms
+drbdadm secondary vms
+drbdadm disconnect vms
+drbdadm invalidate vms
+drbdadm connect --discard-my-data vms
+#vai resincronizar
+crm node online piova.redesul.com.br
 
 #testar configuracao corosync com two nodes no quorum
 quorum {
