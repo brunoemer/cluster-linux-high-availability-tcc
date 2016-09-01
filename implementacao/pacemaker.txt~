@@ -1424,7 +1424,7 @@ drbdadm connect --discard-my-data vms
 #vai resincronizar
 #erro no live migration as vezes apos fazer isso
 
-#testar sem derrubar no primario
+##testar sem derrubar no primario
 #no vitima
 crm node maintenance piova.redesul.com.br
 crm node maintenance brina.redesul.com.br

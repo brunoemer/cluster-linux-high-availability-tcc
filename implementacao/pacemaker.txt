@@ -1450,6 +1450,8 @@ quorum {
    two_node: 1
 }
 
+#testar para crm nao subir vm em 2 nodes
+
 #testar falhas reiniciando vm para ver se migra de node
 
 
