@@ -1426,8 +1426,8 @@ drbdadm connect --discard-my-data vms
 
 #testar sem derrubar no primario
 #no vitima
-crm node maintenance brunonote.emer.com
-crm node maintenance bruno2.emer.com
+crm node maintenance piova.redesul.com.br
+crm node maintenance brina.redesul.com.br
 umount /dev/drbd/by-res/vms
 drbdadm secondary vms
 drbdadm invalidate vms
@@ -1437,6 +1437,19 @@ drbdadm connect --discard-my-data vms
 drbdadm connect vms
 #aguardar sincronizar
 
-#testar ??? PARECE QUE RESOLVEU, TESTAR EM PRODUCAO
+crm node ready piova.redesul.com.br
+crm node ready brina.redesul.com.br
+
+#testar ??? PARECE QUE RESOLVEU, TESTAR EM PRODUCAO DEU PROBLEMA
+# tentar reiniciar antes do live migration
+
+#testar configuracao corosync com two nodes no quorum
+quorum {
+   provider: corosync_votequorum
+   expected_votes: 2
+   two_node: 1
+}
+
+#testar falhas reiniciando vm para ver se migra de node
 
 
