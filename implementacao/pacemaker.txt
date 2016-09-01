@@ -1288,6 +1288,7 @@ totem {
     }
 }
 # e drbd como fazer ring redundante?
+# nao da com drbd
 
 #STONITH para producao
 #na pesquisa linux_magazine_pacemaker_isolamento.jpg
@@ -1343,61 +1344,13 @@ crm configure ra info stonith:external/ipmi
 
 #ver como promover no DC para outro node manualmente
 
-#se der problema de corromper disco ainda, testar com GFS em vez de OCFS2
-
-#ver migration-threshold, numero de falhas para migrar o recurso para outro node
-
-
-crm resource migrate VM1 brunonote.emer.com
-crm resource unmigrate VM1
-# OK
-
-#teste failover, migra vms para outro node
-crm node standby brunonote.emer.com
-crm node online brunonote.emer.com
-
-#para efetuar configuracoes no drbd ou libvirt
-crm node maintenance brunonote.emer.com
-crm node ready brunonote.emer.com
-
-#ver numero de falhas
-crm_mon --failcounts -1
-crm resource failcount VM1 show bruno2.emer.com
-
-# limpar recurso e reiniciar, quando recurso falhar
-crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
-#ou crm resource cleanup OCFS_MOUNT_CLONE
-# usar no node onde deu a falha
-
-# OCFS_MOUNT_CLONE estava como Stopped entao executei:
-crm node standby bruno2.emer.com
-crm node online bruno2.emer.com
-
-# historico
-crm history node bruno2.emer.com
-crm_mon --timing-details -1
-
-# ver configuracao cib
-cibadmin -Q
-
-#resize disco lvm - drbd - ocfs2
-lvextend /dev/vgdrbd/lvdrbd -l 100%VG
-#online resize
-drbdadm up vms
-drbdadm primary vms
-drbdadm resize vms
-#offline resize ocfs2
-drbdadm up vms
-umount /dev/drbd/by-res/vms
-#ocfs https://oss.oracle.com/projects/ocfs2/dist/documentation/v1.2/ocfs2_faq.html#RESIZE
-tunefs.ocfs2 -S /dev/drbd/by-res/vms
-
 #resincrinizar primario
 drbdadm -- --overwrite-data-of-peer primary vms
 #resincronizar secundary
 drbdadm -- --discard-my-data connect vms
 
 
+### RECURAR FALHA DE REDE
 # problema drbd split brain
 primario
 m:res  cs          ro               ds                 p       mounted  fstype
@@ -1441,9 +1394,8 @@ drbdadm connect vms
 
 crm node ready piova.redesul.com.br
 crm node ready brina.redesul.com.br
-
-#testar ??? PARECE QUE RESOLVEU, TESTAR EM PRODUCAO DEU PROBLEMA
-# tentar reiniciar antes do live migration
+#testar ??? PARECE QUE RESOLVEU, TESTAR EM PRODUCAO 
+#DEU PROBLEMA
 
 ##tentativa 3
 #no principal
@@ -1460,6 +1412,29 @@ drbdadm invalidate vms
 drbdadm connect --discard-my-data vms
 #vai resincronizar
 crm node online piova.redesul.com.br
+#nao funcionou
+
+#tentativa 4 - PROCEDIMENTO PARA RECURAR FALHA DE REDE
+#no principal
+#desligar servicos
+crm node maintenance piova.redesul.com.br
+crm node maintenance brina.redesul.com.br
+#no vitima, tera dados sobrepostos
+drbdadm up vms
+drbdadm secondary vms
+drbdadm disconnect vms
+drbdadm connect --discard-my-data vms
+#no principal
+drbdadm connect vms
+#ver resync e reiniciar vms
+crm node ready piova.redesul.com.br
+crm node standby piova.redesul.com.br
+crm node standby brina.redesul.com.br
+crm node ready brina.redesul.com.br
+crm node online brina.redesul.com.br
+crm node online piova.redesul.com.br
+#FUNCIONOU
+
 
 #testar configuracao corosync com two nodes no quorum
 quorum {
@@ -1468,8 +1443,8 @@ quorum {
    two_node: 1
 }
 
-#testar para crm nao subir vm em 2 nodes
 
 #testar falhas reiniciando vm para ver se migra de node
+#ver migration-threshold, numero de falhas para migrar o recurso para outro node
 
 

@@ -1,0 +1,83 @@
+### MIGRAR MANUAL
+crm resource migrate VM1 brunonote.emer.com
+crm resource unmigrate VM1
+# OK
+
+### DESATIVAR UM NODE
+#teste failover, migra vms para outro node
+crm node standby brunonote.emer.com
+crm node online brunonote.emer.com
+
+### MANUTENCAO MANUAL
+#para efetuar configuracoes no drbd ou libvirt
+crm node maintenance brunonote.emer.com
+crm node ready brunonote.emer.com
+
+### LIMPAR APOS FALHAS
+# limpar recurso e reiniciar, quando recurso falhar
+crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
+#ou crm resource cleanup OCFS_MOUNT_CLONE
+# usar no node onde deu a falha
+
+# REDIMENZIONAR DISCO LVM DRBD OCFS
+#resize disco lvm - drbd - ocfs2
+lvextend /dev/vgdrbd/lvdrbd -l 100%VG
+#online resize
+drbdadm up vms
+drbdadm primary vms
+drbdadm resize vms
+#offline resize ocfs2
+drbdadm up vms
+umount /dev/drbd/by-res/vms
+#ocfs https://oss.oracle.com/projects/ocfs2/dist/documentation/v1.2/ocfs2_faq.html#RESIZE
+tunefs.ocfs2 -S /dev/drbd/by-res/vms
+
+### FORCAR RESINCRONISMO
+drbdadm disconnect vms
+drbdadm invalidate vms
+drbdadm connect --discard-my-data vms
+
+### RECURAR FALHA DE REDE
+# problema drbd split brain
+https://www.hastexo.com/resources/hints-and-kinks/solve-drbd-split-brain-4-steps/
+https://www.drbd.org/en/doc/users-guide-83/s-resolve-split-brain
+primario
+m:res  cs          ro               ds                 p       mounted  fstype
+0:vms  StandAlone  Primary/Unknown  UpToDate/Outdated  r-----  ocfs2
+secundario
+m:res  cs            ro                 ds                 p  mounted  fstype
+0:vms  WFConnection  Secondary/Unknown  UpToDate/Outdated  C
+
+#no principal
+#desativar gerencia
+crm node maintenance piova.redesul.com.br
+crm node maintenance brina.redesul.com.br
+#no vitima, que tera dados sobrepostos
+drbdadm up vms
+drbdadm secondary vms
+drbdadm disconnect vms
+drbdadm connect --discard-my-data vms
+#no principal
+drbdadm connect vms
+#vai fazer resync
+#reiniciar vms para nao ter problema no live migration
+crm node ready piova.redesul.com.br
+crm node standby piova.redesul.com.br
+crm node standby brina.redesul.com.br
+crm node ready brina.redesul.com.br
+crm node online brina.redesul.com.br
+crm node online piova.redesul.com.br
+
+### OUTROS
+#ver numero de falhas
+crm_mon --failcounts -1
+crm resource failcount VM1 show bruno2.emer.com
+
+# historico
+crm history node bruno2.emer.com
+crm_mon --timing-details -1
+
+# ver configuracao cib
+cibadmin -Q
+
+
