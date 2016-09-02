@@ -75,9 +75,12 @@ crm_simulate -L -s
 crm_mon --failcounts -1
 crm resource failcount VM1 show bruno2.emer.com
 
-# historico
+#historico
 crm history node bruno2.emer.com
 crm_mon --timing-details -1
+
+#lista de erros
+crm_error -l
 
 # ver configuracao cib
 cibadmin -Q
