@@ -1,7 +1,6 @@
 ### MIGRAR MANUAL
 crm resource migrate VM1 brunonote.emer.com
 crm resource unmigrate VM1
-# OK
 
 ### DESATIVAR UM NODE
 #teste failover, migra vms para outro node
@@ -69,6 +68,9 @@ crm node online brina.redesul.com.br
 crm node online piova.redesul.com.br
 
 ### OUTROS
+#ver scores 
+crm_simulate -L -s
+
 #ver numero de falhas
 crm_mon --failcounts -1
 crm resource failcount VM1 show bruno2.emer.com

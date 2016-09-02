@@ -1106,7 +1106,7 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" is-managed="true" \
+        meta allow-migrate="true" target-role="Started" is-managed="true" migration-threshold="5" \
         utilization cpu="1" hv_memory="512"
 primitive VM2 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm2.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
@@ -1115,7 +1115,7 @@ primitive VM2 ocf:heartbeat:VirtualDomain \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" \
+        meta allow-migrate="true" target-role="Started" is-managed="true" migration-threshold="5" \
         utilization cpu="1" hv_memory="512"
 ms MS_DRBD DRBD \
         meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true"
@@ -1442,9 +1442,11 @@ quorum {
    expected_votes: 2
    two_node: 1
 }
+#nao deu diferencia, deixar com
 
 
 #testar falhas reiniciando vm para ver se migra de node
 #ver migration-threshold, numero de falhas para migrar o recurso para outro node
+# FUNCIONOU OK
 
 

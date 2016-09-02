@@ -1106,7 +1106,7 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" is-managed="true" \
+        meta allow-migrate="true" target-role="Started" is-managed="true" migration-threshold="5" \
         utilization cpu="1" hv_memory="512"
 primitive VM2 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm2.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
@@ -1115,7 +1115,7 @@ primitive VM2 ocf:heartbeat:VirtualDomain \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" \
+        meta allow-migrate="true" target-role="Started" is-managed="true" migration-threshold="5" \
         utilization cpu="1" hv_memory="512"
 ms MS_DRBD DRBD \
         meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true"
@@ -1350,57 +1350,6 @@ drbdadm -- --overwrite-data-of-peer primary vms
 drbdadm -- --discard-my-data connect vms
 
 
-### MIGRAR MANUAL
-crm resource migrate VM1 brunonote.emer.com
-crm resource unmigrate VM1
-# OK
-
-### DESATIVAR UM NODE
-#teste failover, migra vms para outro node
-crm node standby brunonote.emer.com
-crm node online brunonote.emer.com
-
-### MANUTENCAO MANUAL
-#para efetuar configuracoes no drbd ou libvirt
-crm node maintenance brunonote.emer.com
-crm node ready brunonote.emer.com
-
-### LIMPAR APOS FALHAS
-# limpar recurso e reiniciar, quando recurso falhar
-crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
-#ou crm resource cleanup OCFS_MOUNT_CLONE
-# usar no node onde deu a falha
-
-# REDIMENZIONAR DISCO LVM DRBD OCFS
-#resize disco lvm - drbd - ocfs2
-lvextend /dev/vgdrbd/lvdrbd -l 100%VG
-#online resize
-drbdadm up vms
-drbdadm primary vms
-drbdadm resize vms
-#offline resize ocfs2
-drbdadm up vms
-umount /dev/drbd/by-res/vms
-#ocfs https://oss.oracle.com/projects/ocfs2/dist/documentation/v1.2/ocfs2_faq.html#RESIZE
-tunefs.ocfs2 -S /dev/drbd/by-res/vms
-
-### FORCAR RESINCRONISMO
-drbdadm disconnect vms
-drbdadm invalidate vms
-drbdadm connect --discard-my-data vms
-
-#ver numero de falhas
-crm_mon --failcounts -1
-crm resource failcount VM1 show bruno2.emer.com
-
-# historico
-crm history node bruno2.emer.com
-crm_mon --timing-details -1
-
-# ver configuracao cib
-cibadmin -Q
-
-
 ### RECURAR FALHA DE REDE
 # problema drbd split brain
 primario
@@ -1497,5 +1446,6 @@ quorum {
 
 #testar falhas reiniciando vm para ver se migra de node
 #ver migration-threshold, numero de falhas para migrar o recurso para outro node
+# FUNCIONOU OK
 
 

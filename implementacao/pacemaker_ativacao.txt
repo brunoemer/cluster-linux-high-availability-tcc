@@ -230,6 +230,7 @@ quorum {
         # Quorum for the Pacemaker Cluster Resource Manager
         provider: corosync_votequorum
         expected_votes: 2
+	two_node: 1
 }
 service {
         # Load the Pacemaker Cluster Resource Manager
@@ -323,7 +324,7 @@ primitive VM_TRAPEL ocf:heartbeat:VirtualDomain \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" is-managed="true"
+        meta allow-migrate="true" target-role="Started" is-managed="true" migration-threshold="5"
 location cli-prefer-VM_TRAPEL VM_TRAPEL inf: brina.redesul.com.br
 location backup-VM_TRAPEL VM_TRAPEL 100: piova.redesul.com.br
 colocation COL_VM_TRAPEL inf: VM_TRAPEL OCFS_MOUNT_CLONE
@@ -338,7 +339,7 @@ primitive VM1 ocf:heartbeat:VirtualDomain \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" is-managed="true" \
+        meta allow-migrate="true" target-role="Started" is-managed="true" migration-threshold="5" \
         utilization cpu="1" hv_memory="512"
 primitive VM2 ocf:heartbeat:VirtualDomain \
         params config="/etc/libvirt/qemu/vm2.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
@@ -347,7 +348,7 @@ primitive VM2 ocf:heartbeat:VirtualDomain \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" \
+        meta allow-migrate="true" target-role="Started" migration-threshold="5" \
         utilization cpu="1" hv_memory="512"
 location backup-VM1 VM1 100: brunonote.emer.com
 location backup-VM2 VM2 100: bruno2.emer.com
@@ -370,5 +371,8 @@ command[check_pacemaker]=/usr/lib/nagios/plugins/check_crm_v0_7
 #configuracao para executar, /etc/sudoers.d/nagios_pacemaker
 nagios ALL=(ALL) NOPASSWD: /usr/sbin/crm_mon -1 -r -f 
 chmod o-rwx /etc/sudoers.d/nagios_pacemaker
+
+
+### configurar migration-threshold no drbd, ocfs e vms
 
 
