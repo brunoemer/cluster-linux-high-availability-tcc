@@ -138,7 +138,8 @@ A partir da análise inicial, verificou-se que os servidores a serem incluídos 
 
 Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime} e o tempo de 
 \textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim foi utilizada a 
-medição apenas dos últimos 6 meses de 2015, por isso esse possui um \textit{Uptime} elevado.
+medição apenas dos últimos 6 meses de 2015. 
+%, por isso esse possui um \textit{Uptime} elevado.
 %A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
 
 \begin{table}[h!]
@@ -156,7 +157,7 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \end{center}
 \end{table}
 
-\section{Proposta de solução}
+\section{Proposta de solução?}
 \label{section:propostasolucao}
 
 Para implementação desta solução serão necessários dois servidores físicos, sendo que a configuração de cada servidor deverá ser de 
@@ -167,8 +168,7 @@ em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
 encontram-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais.
 
 Destaca-se que para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se a técnica descrita no artigo 
-de ??. %\cite{}
-Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
+de \cite{thome2013}. Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
 
 Foi necessário dois tipos de \textit{softwares} para a implementação da alta disponibilidade, eles são divididos em dois grupos: 
 \textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e as transferências das máquinas virtuais entre os servidores.
@@ -193,7 +193,7 @@ Nas próximas seções tem-se uma descrição dos \textit{softwares} de replica�
 % O \textit{Ceph RBD} \cite{cephrbd} faz parte do projeto \textit{Ceph} \cite{ceph}. O \textit{Ceph RBD} é responsável por prover acesso dos 
 % dispositivos de bloco que estão distribuídos ou replicados em um \textit{cluster}. Sua arquitetura é composta por um nó administrador, onde será
 % centralizado a gerência do \textit{cluster}, e deve conter no mínimo dois nós para armazenamento (\textit{Ceph OSD}) e monitoramento 
-% (\textit{Ceph Monitor}).
+% (\textit{Ceph Monitor}). Conceito de n OSDs e n+1 monitors.
 % \cite{ceph}.
 
 \subsubsection{DRBD}
@@ -293,16 +293,9 @@ Destaca-se que o \textit{Rsync} não faz um sincronismo em tempo real, ou seja, 
 \label{section:replicacaoescolhido}
 
 Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. 
-A ferramenta adotada para replicação de dados foi o \ac{DRBD}, pois permite a configuração \textit{master-slave} ou \textit{dual-primary}, 
+A ferramenta adotada para replicação de dados foi o \ac{DRBD}, pois permite a configuração \textit{dual-primary} e também \textit{master-slave}, 
 além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a ressincronização 
 dos dados de forma automática em caso de um falha \cite{drbd}.
-O \textit{GlusterFS} poderia ser utilizado, porém este faz uma replicação a nível de arquivo, sendo assim, não é adequada para uma 
-solução de alta disponibilidade que utiliza-se de virtualização. 
-E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real, além de não ter sido desenvolvido para
-executar em conjunto com a virtualização.
-
-%Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
-%\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -311,7 +304,7 @@ executar em conjunto com a virtualização.
 \begin{tabular}{|l|p{3.5cm}|p{3.5cm}|p{2cm}|}\hline
 \textbf{Características} & \textbf{DRBD} & \textbf{GlusterFS} & \textbf{Rsync} \\\hline
 Integração com virtualização & Sim & Sim & Não \\\hline
-Dual-master & Sim & Sim & Não \\\hline
+Dual-primary & Sim & Sim & Não \\\hline
 Replicação em tempo real & Sim & Sim & Não \\\hline
 Nível de replicação & Bloco & Arquivo & Arquivo \\\hline
 Número máximo de nós & 16 & 64 & Ilimitado \\\hline
@@ -319,6 +312,14 @@ Distribuições Linux & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, 
 \end{tabular}
 \end{center}
 \end{table}
+
+O \textit{GlusterFS} poderia ser utilizado, porém este faz uma replicação a nível de arquivo, sendo assim, não é adequada para uma 
+solução de alta disponibilidade que utiliza-se de virtualização. 
+E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real, além de não ter sido desenvolvido para
+executar em conjunto com a virtualização.
+
+%Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
+%\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
 
 %https://www.reddit.com/r/linux/comments/1qwarp/drbd_vs_glusterfs/
 % glusterfs mais escalavel, simples de administrar
@@ -456,12 +457,19 @@ Por fim, tem-se os serviços.
 
 Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 \begin{itemize}
- \item Iniciar e finalizar os serviços dos nós do \textit{cluster}. Esses serviços podem ser desde um servidor \textit{web} até uma interface de 
- rede;
+ \item Iniciar e finalizar os serviços dos nós do \textit{cluster}. Esses serviços podem ser desde um servidor \textit{web} ou uma interface de 
+ rede até uma máquina virtual;
  \item Replicação de configuração do \textit{cluster} para todos os nós de forma transparente. Desta forma, a configuração do \textit{cluster} 
  pode ser alterada em qualquer nó;
  \item Eleição de um nó como primário. No caso de uma falha neste nó, um outro será eleito primário.
 \end{itemize}
+
+No \textit{Pacemaker} os serviços são denominados recursos (\textit{resources}), esses recursos são monitorados, iniciados e parados.
+Também pode-se criar dependências e ordem entre esses recursos, por exemplo, para iniciar um serviço \textit{web} é necessário iniciar 
+um \ac{IP} antes. Além disso, existem agentes que são responsáveis pela integração com os diversos serviços e ferramentas. 
+Também pode configurá-lo para fazer o \textit{failover}, desta forma caso ocorra uma falha em um nó, o \textit{Pacemaker} fará a inicialização 
+dos serviços em outro nó que foi previamente configurado. Essa ferramenta também servirá para recuperar um recurso que falhou, por exemplo, se 
+o serviço de banco de dados parar por uma falha qualquer, ele será iniciado novamente.
 
 % Corosync provides pacemaker:
 % a mechanism to reliably send messages between nodes,
@@ -498,19 +506,17 @@ Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 % Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
 % (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
-\newpage
 \subsubsection{Resumo e software de gerenciamento adotado}
 \label{section:gerenciadorescolhido}
 
 Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
-O \textit{software} adotado para gerenciar o ambiente será o \textit{Ganeti}, pois este possui todos os requisitos para a criação de um 
-\textit{cluster} de alta disponibilidade, além de possuir a vantagem de ser desenvolvido com suporte a virtualização. O \textit{Ganeti} 
-possui detecção de falhas tanto a nível de nó quanto a nível de máquina virtual. Destaca-se que já foram realizados testes de migração de 
-máquinas virtuais em tempo real utilizando o \textit{Ganeti}, e obteve-se bons resultados.
-
-% Pode-se observar que o \textit{software} \textit{Ceph} possui suporte apenas para a detecção e recuperação a nível de nó. De fato, esse 
-% \textit{software} tem foco em \textit{cluster} de armazenamento, desta forma necessitando de outra ferramenta para gerenciar a migração de 
-% máquinas virtuais. Além disso, essa ferramenta necessita de um \textit{hardware} especifico para administração do \textit{cluster}.
+O \textit{software} adotado para gerenciar o ambiente será o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
+\textit{cluster} de alta disponibilidade utilizando virtualização. A principal e fundamental característica é o \textit{failover} automático
+dos nós, pode-se perceber na tabela que o \textit{Pacemaker} é o único que suporta isto. Além disso, ele possui suporte a migração em tempo real, 
+que pode ser utilizada para manutenções. Esse \textit{software} é o único que possui a característica de sincronismo de configuração entre todos 
+os nós. Essa ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
+Destaca-se que já foram realizados testes de migração de máquinas virtuais em tempo real utilizando o \textit{Pacemaker}, e obteve-se 
+bons resultados.
 
 \begin{table}[h!]
 \caption{Comparação entre ferramentas de gerenciamento de \textit{cluster}.}
@@ -518,21 +524,28 @@ máquinas virtuais em tempo real utilizando o \textit{Ganeti}, e obteve-se bons 
 \begin{center}
 \begin{tabular}{|p{4cm}|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
 \textbf{Características} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
-Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
-Failover e failback & Sim & Sim & Sim \\\hline
-Nível de detecção e recuperação & Nó e máquina virtual & Nó & Nó e recurso \\\hline
-Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
 Suporte nativo a virtualização & Sim & Não & Sim \\\hline
-Migração de \acp{VM} em tempo real & Sim & Não & Não \\\hline
+Migração de \acp{VM} em tempo real & Sim & Não & Sim \\\hline
+Failover e failback automáticos & Não & Não & Sim \\\hline
+Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
+Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
+Pode-se perceber que o \textit{software} \textit{Ganeti} não faz o \textit{failover} de forma automática, o que é necessário para esta 
+implementação, sendo assim essa ferramenta é normalmente utilizada em ambientes com foco na segurança dos dados, pois os dados podem ser 
+facilmente recuperados.
 É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário criar 
 um conjunto de \textit{scripts} para a migração das máquinas virtuais.
-Já o \textit{Pacemaker} é o único que possui a característica de sincronismo de configuração entre todos os nós, no entanto, isto não é uma
-característica essencial para o desenvolvimento deste trabalho. Além disso, o \textit{Pacemaker} não possui a opção nativa de migração em tempo
-real das \acp{VM}.
+
+% Já o \textit{Pacemaker} é o único que possui a característica de sincronismo de configuração entre todos os nós, no entanto, isto não é uma
+% característica essencial para o desenvolvimento deste trabalho. Além disso, o \textit{Pacemaker} não possui a opção nativa de migração em tempo
+% real das \acp{VM}.
+
+% Pode-se observar que o \textit{software} \textit{Ceph} possui suporte apenas para a detecção e recuperação a nível de nó. De fato, esse 
+% \textit{software} tem foco em \textit{cluster} de armazenamento, desta forma necessitando de outra ferramenta para gerenciar a migração de 
+% máquinas virtuais. Além disso, essa ferramenta necessita de um \textit{hardware} especifico para administração do \textit{cluster}.
 
 % O \textit{software} escolhido para gerenciar o ambiente que será criado neste trabalho foi a ferramenta de código aberto \textit{Pacemaker}. 
 % Esse \textit{software} possui todos os requisitos para criar um \textit{cluster} de alta disponibilidade, sendo que, também pode ser configurada 
@@ -545,5 +558,5 @@ real das \acp{VM}.
 
 Neste capítulo foram apresentados os serviços críticos. Posteriormente foram apresentadas ferramentas para implementação de alta disponibilidade 
 e selecionada a mais adequada para o ambiente real da empresa. No próximo capítulo será apresentada a implementação da solução de alta 
-disponibilidade.
+disponibilidade, efetuado testes e apresentos os resultados.
 
