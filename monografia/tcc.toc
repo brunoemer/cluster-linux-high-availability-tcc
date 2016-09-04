@@ -50,18 +50,18 @@
 \contentsline {subsubsection}{\numberline {5.2.2.2}Heartbeat}{46}
 \contentsline {subsubsection}{\numberline {5.2.2.3}Pacemaker}{47}
 \contentsline {subsubsection}{\numberline {5.2.2.4}Resumo e software de gerenciamento adotado}{48}
-\contentsline {subsection}{\numberline {5.2.3}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{48}
-\contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{49}
-\contentsline {chapter}{\numberline {6}Implementa\IeC {\c c}\IeC {\~a}o e resultados}{50}
-\contentsline {section}{\numberline {6.1}Topologia}{50}
-\contentsline {section}{\numberline {6.2}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{51}
-\contentsline {section}{\numberline {6.3}Configura\IeC {\c c}\IeC {\~a}o de rede}{51}
-\contentsline {section}{\numberline {6.4}Configura\IeC {\c c}\IeC {\~a}o de disco}{53}
-\contentsline {subsection}{\numberline {6.4.1}DRBD}{53}
-\contentsline {subsection}{\numberline {6.4.2}OCFS2}{54}
-\contentsline {section}{\numberline {6.5}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{55}
-\contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do cluster}{55}
-\contentsline {subsection}{\numberline {6.6.1}Pacemaker}{55}
-\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{56}
-\contentsline {section}{\numberline {7.1}Cronograma}{57}
-\contentsline {chapter}{Refer{\^e}ncias}{58}
+\contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{48}
+\contentsline {chapter}{\numberline {6}Implementa\IeC {\c c}\IeC {\~a}o e resultados}{49}
+\contentsline {section}{\numberline {6.1}Implementa\IeC {\c c}\IeC {\~a}o}{49}
+\contentsline {section}{\numberline {6.2}Testes}{51}
+\contentsline {section}{\numberline {6.3}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{51}
+\contentsline {section}{\numberline {6.4}Configura\IeC {\c c}\IeC {\~a}o de rede}{51}
+\contentsline {section}{\numberline {6.5}Configura\IeC {\c c}\IeC {\~a}o de disco}{52}
+\contentsline {subsection}{\numberline {6.5.1}DRBD}{52}
+\contentsline {subsection}{\numberline {6.5.2}OCFS2}{54}
+\contentsline {section}{\numberline {6.6}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{55}
+\contentsline {section}{\numberline {6.7}Configura\IeC {\c c}\IeC {\~a}o do cluster}{55}
+\contentsline {subsection}{\numberline {6.7.1}Pacemaker}{55}
+\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{59}
+\contentsline {section}{\numberline {7.1}Cronograma}{60}
+\contentsline {chapter}{Refer{\^e}ncias}{61}

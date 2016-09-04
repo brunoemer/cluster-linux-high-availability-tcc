@@ -385,7 +385,7 @@ As principais funcionalidades do \textit{Ganeti} são \cite{ganeti}:
 \begin{itemize}
  \item Criação de instâncias;
  \item Gerenciamento do armazenamento das instâncias;
- \item Iniciar e finalizar instâncias, além de efetuar o \textit{failover} entre os nós.
+ \item Iniciar e finalizar instâncias, além de efetuar a migração entre os nós.
 \end{itemize}
 
 % ganeti pode ser usado com ceph rdb (RADOS Cluster), ou drbd, ou gluster
@@ -535,78 +535,10 @@ real das \acp{VM}.
 % configuração entre todos os nós que é exclusiva. Destaca-se que essa ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} 
 % de alta disponibilidade \cite{drbd}.
 
-\subsection{Projeto de implementação}
-\label{section:projetoimpl}
-
-Como mencionado anteriormente, o ambiente será configurado na forma de um \textit{cluster} o qual será composto por dois servidores, 
-%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
-com configuração de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração inclui
-2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema operacional hóspede. Além disso, optou-se por utilizar o mesmo sistema operacional e 
-o mesmo hipervisor que são adotados atualmente na empresa, o sistema \textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm}, respectivamente.
-
-A estrutura dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura \ref{fig:projeto_estrutura}. 
-Para a replicação de dados será utilizado o \textit{software} \ac{DRBD}, sendo que para cada \ac{VM} existirá um disco \ac{DRBD} primário, que 
-será replicado em um disco secundário localizado no outro nó do \textit{cluster}. O segundo \textit{software} será o \textit{Ganeti}, que fará o 
-gerenciamento do \textit{cluster}. Esse será responsável pela gerência, monitoramento e migração das \acp{VM}. Para essas operações deve-se 
-escolher um nó, que será o nó \textit{master}. Neste nó, serão realizadas as configurações iniciais do \textit{cluster}.
-% Essas configurações serão, por exemplo, a interface de rede, o \ac{IP}, o grupo de volumes do \ac{LVM} que o \textit{cluster} utilizará, entre outros. 
-Após isso, será adicionado o outro nó para possibilitar a tolerância a falhas. 
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=350px]{img/projeto_estrutura.eps}
- \caption{Estrutura do \textit{cluster}.}
- \label{fig:projeto_estrutura}
-\end{figure}
-
-%drbd
-% O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
-% replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico 
-% \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
-% e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
-
-Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim será criada uma instância para cada servidor virtual, e nela será
-configurado o nó primário e o nó secundário. Como pode ser observado no Figura \ref{fig:projeto_estrutura}, será criado três instâncias no nó
-\textit{master} e duas instâncias no outro nó. De fato, no nó primário serão criadas as instâncias dos servidores \textit{Soldi}, \textit{Passata}
-e \textit{Masterauth}. Já no nó secundário serão criadas as instâncias dos servidores \textit{SimplesIP} e \textit{Speedauth}.
-%Ao criar as instâncias também serão criados volumes lógicos \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação 
-%de discos rígidos, através da criação de grupos de volumes e volumes lógicos para \textit{Linux}.}, que serão utilizados como disco das \acp{VM}. 
-Desta forma, quando houver uma falha no nó primário as instâncias serão migradas para o nó secundário, sem que as \acp{VM} sejam reiniciadas.
-Para essa migração, o \textit{Ganeti} utilizará a opção de migração em tempo real que é fornecida pelo hipervisor \ac{KVM} \cite{kvm}. 
-% A Figura \ref{fig:vms_migration} demonstra dois servidores com um hipervisor e duas \acp{VM} executando. 
-% Inicialmente estas estão executando sobre o primeiro servidor, então a \ac{VM} 1 é migrada para o segundo servidor \cite{livemigration}.
-% 
-% \begin{figure}[h!]
-%  \centering
-%  \includegraphics[width=250px]{img/vms_migration.eps}
-%  \caption{Live migration}
-%  Fonte: \citet{spaniol2015}
-%  \label{fig:vms_migration}
-% \end{figure}
-
-%pacemaker
-% O \textit{Pacemaker}, irá eleger um nó como \textit{master}, para centralizar a gerência. Esse \textit{software} 
-% também fará o monitoramento dos nós do \textit{cluster} e iniciará ou finalizará os serviços (recursos) em caso de falhas de um nó.
-% ...
-% 
-% No \textit{Pacemaker}, os serviços que são configurados para serem monitorados são chamados de recursos (\textit{resources}).
-% 
-% Para configurar o ambiente deve-se criar esses recursos no \textit{Pacemaker}. Primeiramente deve-se criar o recurso para o \ac{DRBD}. 
-% Esse recurso fará o monitoramento e fará a troca dos estados, primário e secundário, dos nós do \ac{DRBD}.
-% Também será necessário criar um recurso para montar um sistema de arquivos para o dispositivo \ac{DRBD} no local onde ficarão os discos das 
-% máquinas virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário 
-% o sistema de arquivos será montado automaticamente.
-% 
-% E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
-% máquinas virtuais sejam migradas de um nó para outro de forma automática e transparente. 
-% 
-% Na configuração das máquinas virtuais, será ...
-% De forma a balancear a carga do \textit{cluster}, as máquinas virtuais serão distribuídas entre os nós, ...
-
 
 \section{Considerações finais}
 
 Neste capítulo foram apresentados os serviços críticos. Posteriormente foram apresentadas ferramentas para implementação de alta disponibilidade 
-e selecionada a mais adequada para o ambiente real da empresa. Além disso, foi apresentada a proposta de solução de alta disponibilidade.
-No próximo capítulo são apresentados as conclusões parciais e o cronograma de andamento deste trabalho.
+e selecionada a mais adequada para o ambiente real da empresa. No próximo capítulo será apresentada a implementação da solução de alta 
+disponibilidade.
 

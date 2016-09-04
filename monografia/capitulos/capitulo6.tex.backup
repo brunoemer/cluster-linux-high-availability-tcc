@@ -1,17 +1,23 @@
 \chapter{Implementação e resultados}
 \label{cap:implementacaoresultados}
 
-Neste capítulo será detalhado a implementação, com a configuração do \ac{OS}, do ambiente virtualizado e das ferramentas que irão compôr o
-\textit{cluster} de alta disponibilidade. Posteriormente, serão efetuados testes e medições de resultados.
+Neste capítulo será apresetado o projeto de implementação, detalhado a implementação com a configuração do \ac{OS}, do ambiente virtualizado e 
+das ferramentas que irão compôr o \textit{cluster} de alta disponibilidade. Posteriormente, será apresentada a metodologia de testes e 
+apresentado os resultados das medições para validação da alta disponibilidade.
 
-Nas próximas seções será demonstrado a configuração das ferramentas do ambiente de alta disponibilidade, do ambiente de virtualização e 
-também do sistema operacional.
+\section{Implementação}
+\label{section:implementacao}
 
-Descrever o que nao deu certo no projeto com o ganeti??
+O ambiente foi configurado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração 
+de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido.
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+Essa configuração inclui 2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema operacional hóspede. Além disso, optou-se por utilizar o 
+mesmo sistema operacional e o mesmo hipervisor que são adotados atualmente na empresa, o sistema \textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} 
+\cite{kvm}, respectivamente. O detalhamento da instalação e configuração encontra-se no APENDICE A 1??.
 
-\section{Topologia}
-
-A estrutura física adotada está representada na Figura \ref{fig:projeto_fisico}.
+A estrutura física adotada está representada na Figura \ref{fig:projeto_fisico}. Pode-se observar os dois servidores ligados a um 
+\textit{switch} através de dois cabos UTP, ou seja, cada servidor encontra-se conectado ao \textit{switch} através de dois cabos, de forma a 
+implementar uma redundância do cabeamento.
 
 \begin{figure}[h!]
  \centering
@@ -20,10 +26,11 @@ A estrutura física adotada está representada na Figura \ref{fig:projeto_fisico
  \label{fig:projeto_fisico}
 \end{figure}
 
-Pode-se observar os dois servidores ligados a um \textit{switch} através de dois cabos UTP cada servidor ...
+Para a configuração de rede manteve-se o \textit{link aggregation} e utilizou-se uma \textit{bridge} para incluir as máquinas virtuais à rede.
+Os detalhes da configuração estão localizados no APENDICE A 2 ??.
 
-Na Figura \ref{fig:servidores_brina_piova} tem-se a imagem dos servidores, o primeiro no topo da imagem, \textit{Brina} 
-(\textit{Dell PowerEdge 2950}), e o servidor mais abaixo, \textit{Piova} (\textit{Dell PowerEdge R410}).
+Na Figura \ref{fig:servidores_brina_piova} tem-se a imagem dos servidores, o primeiro é o \textit{Brina} (\textit{Dell PowerEdge 2950}), 
+e o segundo servidor é o \textit{Piova} (\textit{Dell PowerEdge R410}).
 
 \begin{figure}[h!]
  \centering
@@ -32,9 +39,12 @@ Na Figura \ref{fig:servidores_brina_piova} tem-se a imagem dos servidores, o pri
  \label{fig:servidores_brina_piova}
 \end{figure}
 
-Pode ser observado na Figura \ref{fig:projeto_estrutura} a estrutura que representa a configuração dos \textit{softwares}. Nesta tem-se o 
-\textit{software} de gerenciamento do cluster, que fará o monitoramento, iniciará e parará os recursos dos nós, o \textit{software} de replicação 
-de dados, o sistema de arquivos, as máquinas virtuais e os serviços localizados nestas máquinas.
+A estrutura lógica dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura 
+\ref{fig:projeto_estrutura}. Para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo 
+\textit{dual-master} onde os dois nós são configurados como primários. Para tal configuração é necessário utilizar um sistema de arquivos 
+distribuídos que faz o gerenciamento do acesso aos dados, o \textit{software} adotado foi o \ac{OCFS2}.
+O \textit{software} \textit{Pacemaker} faz o gerenciamento do \textit{cluster}, sendo responsável pela gerência, monitoramento e migração das 
+\acp{VM} entre os nós.
 
 \begin{figure}[h!]
  \centering
@@ -43,9 +53,37 @@ de dados, o sistema de arquivos, as máquinas virtuais e os serviços localizado
  \label{fig:projeto_estrutura}
 \end{figure}
 
-tabela com ips??
-node 1 brina 192.168.3.1
-node 2 piova 192.168.3.2
+%drbd
+% O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
+% replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico 
+% \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
+% e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
+
+Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim criou-se uma instância para cada servidor virtual. 
+Como pode ser observado no Figura \ref{fig:projeto_estrutura}, criou-se três instâncias no Nó 1 e duas instâncias no outro Nó 2. De fato, o 
+primeiro possui as instâncias dos servidores \textit{Soldi}, \textit{Passata} e \textit{Masterauth}. Já o segundo nó possui as instâncias dos 
+servidores \textit{SimplesIP} e \textit{Speedauth}. Desta forma, quando houver uma falha em um nó, as instâncias serão iniciadas no nó disponível.
+
+
+\section{Testes}
+\label{section:testes}
+
+objetivo também é compravar que a gerência da manutenção e a gerência de falhas são importantes para um ambiente...
+
+VER??
+Validação, metodologia de testes:
+-Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
+-Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
+-Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
+atualizacao de kernel dos nodes
+
+Medição através do Nagios, que utiliza ping para calcular o tempo de downtime
+Tabela com perda de pacotes, latencia, tempo de indisponibilidade
+
+
+
+APENDICE
+VERBOS PRESENTE?
 
 \section{Configuração do \ac{OS}}
 
@@ -56,14 +94,14 @@ e \textit{firewall}.
 
 \section{Configuração de rede}
 
-Um requisito para incluir as máquinas virtuais a uma rede é através da criação de uma \textit{bridge}. A instalação é feita através do comando:
+Uma forma de incluir as máquinas virtuais a uma rede é através da criação de uma \textit{bridge}. A instalação é feita através do comando:
 \begin{lstlisting}[language=bash]
   $ apt-get install bridge-utils
 \end{lstlisting}
 
 Além disso, é necessário instalar e configurar o \textit{link aggregation}, o \textit{Ubuntu} usa o padrão \textit{IEEE 802.3ad}. A configuração 
 é feita no servidor e no \textit{switch}. Abaixo tem-se os comandos para instalação do \textit{link aggregation}, o primeiro comando faz a 
-instalação e o segundo comando carrega o modulo do \textit{kernel} \textit{bonding}:
+instalação e o segundo comando carrega o modulo \textit{bonding} no \textit{kernel}:
 \begin{lstlisting}[language=bash]
  $ apt-get install ifenslave-2.6
  $ sh -c 'grep -q bonding /etc/modules || echo bonding >> /etc/modules'
@@ -71,7 +109,7 @@ instalação e o segundo comando carrega o modulo do \textit{kernel} \textit{bon
 
 Para a configuração do \textit{link aggregation} deve-se criar uma interface \textit{bond} e nela inclui-se as duas interfaces físicas.
 Abaixo tem-se a configuração de rede, que inclui o \textit{link aggregation} e a \textit{bridge}, esta configuração deve ser colocada no 
-arquivo \textit{/etc/network/interfaces}:
+arquivo \textit{/etc/network/interfaces} em cada nó:
 \begin{lstlisting}
 auto eth0
 iface eth0 inet manual
@@ -103,8 +141,8 @@ iface br0 inet static
        bridge_maxwait 0
 \end{lstlisting}
 
-Também será necessário configurar algumas \textit{vlans} para algumas máquinas virtuais. Os comandos a seguir farão a instalação e carregarão
-o modulo \textit{kernel} necessário para gerenciar \textit{vlans}:
+Também é necessário configurar algumas \textit{vlans} para algumas máquinas virtuais. Os comandos a seguir fazem a instalação e carregam
+o modulo do \textit{kernel} necessário para gerenciar \textit{vlans}:
 \begin{lstlisting}[language=bash]
  $ apt-get install vlan
  $ sudo  sh -c 'grep -q 8021q /etc/modules || echo 8021q >> /etc/modules'
@@ -113,7 +151,7 @@ o modulo \textit{kernel} necessário para gerenciar \textit{vlans}:
 
 \section{Configuração de disco}
 
-Os discos que serão replicados podem ser utilizados diretamente no \ac{DRBD} (por exemplo \textit{/dev/sda2}) ou configurados com \ac{LVM}. Adotou-se
+Os discos que são replicados podem ser utilizados diretamente no \ac{DRBD} (por exemplo \textit{/dev/sda2}) ou configurados com \ac{LVM}. Adotou-se
 a configuração utilizando \ac{LVM} pois torna-se mais fácil a manipulação dos discos. O comando abaixo faz a criação de um volume lógico chamado 
 \textit{lvdrbd} com tamanho de 500 GB, este volume pertence ao grupo de volumes \textit{vg0}.
 \begin{lstlisting}[language=bash]
@@ -136,7 +174,7 @@ global {
 \end{lstlisting}
 
 Posteriormente, deve-se criar um recurso que definirá os dispositivos de disco, os endereços \ac{IP} e portas dos servidores.
-Deve-se criar o arquivo \textit{/etc/drbd.d/vms.res}, o qual armazenará essa configuração:
+Deve-se criar o arquivo \textit{/etc/drbd.d/vms.res}, o qual armazena essa configuração:
 \begin{lstlisting}
  resource vms {
     meta-disk internal;
@@ -161,12 +199,11 @@ Deve-se criar o arquivo \textit{/etc/drbd.d/vms.res}, o qual armazenará essa co
         disk /dev/vg0/lvdrbd;
     }
     on piova {
-        address x.x.x.x:7791;
+        address y.y.y.y:7791;
         disk /dev/vg0/lvdrbd;
     }
 }
 \end{lstlisting}
-Explicar os opcoes??
 
 Para o funcionamento correto dessa ferramenta, o nome dos servidores (localizado em \textit{/etc/hostname}) deve ser exatamente igual a opção
 \textit{on} da configuração do recurso.
@@ -176,28 +213,28 @@ Após ter sido feita a configuração do \ac{DRBD}, deve-se reiniciar o serviço
  $ service drbd restart 
 \end{lstlisting}
 
-Deve-se inicializar os discos do \ac{DRBD}, primeiro comando, e subi-lo para conectar ao outro nó, segundo comando. Após isso deve-se eleger
-os nós como primário e sincronizar os seus dados, terceiro comando:
+Os comandos abaixo, inicializam os discos do \ac{DRBD}, conectam ao outro nó e elegem um nó como primário, respectivamente, para iniciar o 
+sincronismo dos dados:
 \begin{lstlisting}[language=bash]
  $ drbdadm create-md vms
  $ drbdadm up vms
  $ drbdadm -- --overwrite-data-of-peer primary vms
 \end{lstlisting}
 
-Verifique o estado dos recursos do \ac{DRBD} através do comando:
+E por fim pode-se verificar o estado dos recursos do \ac{DRBD} através do comando:
 \begin{lstlisting}[language=bash]
  $ service drbd status
 \end{lstlisting}
 
 \subsection{OCFS2}
 
-O \ac{OCFS2} é um sistema de arquivos para \textit{cluster}, ele faz o gerencimento de \textit{locks} que é necessário para o funcionamento 
-do \textit{Pacemaker}. Para sua instalação é necessário um pacote, o comando abaixo faz a instalação:
+O \ac{OCFS2} é um sistema de arquivos para \textit{cluster}, ele faz o gerencimento do acesso aos dados (\textit{locks}) que é necessário para o 
+funcionamento do \textit{Pacemaker}. Para seu funcionamento é necessário a instalação de um pacote:
 \begin{lstlisting}[language=bash]
  $ apt-get install ocfs2-tools
 \end{lstlisting}
 
-É preciso fazer duas configurações, uma para criar o \textit{cluster} criando o arquivos \textit{/etc/ocfs2/cluster.conf}:
+É preciso fazer duas configurações, a primeira para criar o \textit{cluster}, localizada no arquivo \textit{/etc/ocfs2/cluster.conf}:
 \begin{lstlisting}
 node:
         ip_port = 7777
@@ -207,7 +244,7 @@ node:
         cluster = clusterocfs
 node:
         ip_port = 7777
-        ip_address = x.x.x.x
+        ip_address = y.y.y.y
         number = 1
         name = piova
         cluster = clusterocfs
@@ -216,7 +253,7 @@ cluster:
         name = clusterocfs
 \end{lstlisting}
 
-A segunda configuração é feita no arquivo \textit{/etc/default/o2cb}, que faz o carregamento do \textit{driver} no \textit{boot} e a definição 
+A segunda configuração é feita no arquivo \textit{/etc/default/o2cb}, ela faz o carregamento do \textit{driver} no \textit{boot} e a definição 
 do nome do cluster para inicialização:
 \begin{lstlisting}
 O2CB_ENABLED=true
@@ -228,7 +265,7 @@ Para aplicar as configurações deve-se reiniciar o serviço:
  $ service ocfs2 restart
 \end{lstlisting}
 
-E por fim, deve-se construir o sistema de arquivos utilizando o comando:
+E por fim, deve-se construir o sistema de arquivos no dispositivo criado pelo \ac{DRBD}, através do comando:
 \begin{lstlisting}[language=bash]
  $ mkfs.ocfs2 /dev/drbd/by-res/vms
 \end{lstlisting}
@@ -252,20 +289,21 @@ Para corrigi-lo deve aplicar o \textit{patch} abaixo no arquivo \textit{/usr/lib
 
 \section{Configuração do ambiente virtualizado}
 
-Como já mencionado anteriormente o hipervisor utilizado pela empresa é o \ac{KVM}. Além disso, é utilizado a \ac{API} \textit{libvirt} para
-o gerenciamento da virtualização. O comando abaixo faz a instalação dessas ferramentas:
+Como já mencionado anteriormente o hipervisor utilizado pela empresa é o \ac{KVM}. Para a virtualização das máquinas também é utilizado a 
+\ac{API} \textit{libvirt}, que faz o gerenciamento da virtualização. O comando abaixo faz a instalação dessas ferramentas:
 \begin{lstlisting}[language=bash]
  $ apt-get install qemu-kvm libvirt-bin
 \end{lstlisting}
 
-Para incluir as máquinas virtuais é necessário criar um \textit{pool}, onde serão armazenadas suas imagens.
+Para incluir as máquinas virtuais é necessário criar um \textit{pool}, onde serão armazenadas suas imagens, os comandos abaixo criam a pasta
+e o \textit{pool}:
 \begin{lstlisting}[language=bash]
  $ mkdir /var/lib/libvirt/images/ocfs
  $ virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
 \end{lstlisting}
 
-Para o funcionamento do \textit{live migration} é preciso fazer a troca das chaves \ac{SSH} nos dois nós.
-No nó \textit{Brina}, no primeiro comando cria-se uma chave \textit{rsa} e no segundo copia-se a chave para o outro nó:
+Para o funcionamento do \textit{live migration} é preciso fazer a troca das chaves \ac{SSH} do usuário root entre os dois nós.
+No nó \textit{Brina}, o primeiro comando cria uma chave \textit{rsa} e o segundo copia a chave para o outro nó:
 \begin{lstlisting}[language=bash]
  $ ssh-keygen
  $ ssh-copy-id piova
@@ -278,7 +316,135 @@ E no nó \textit{Piova}, deve-se efetuar o mesmo processo:
 \end{lstlisting}
 
 \section{Configuração do cluster}
-
+\label{section:configpacemaker}
 
 \subsection{Pacemaker}
+
+O \textit{Pacemaker} faz monitoramento dos nós do \textit{cluster} e iniciará ou finalizará os serviços (recursos) em caso de falhas de um nó.
+No \textit{Pacemaker}, os serviços que são configurados para serem monitorados são chamados de recursos (\textit{resources}).
+
+A primeira etapa é a instalação da ferramenta:
+\begin{lstlisting}[language=bash]
+ $ apt-get install pacemaker corosync
+\end{lstlisting}
+
+Após deve-se configurar o \textit{corosync} para fazer o monitoramento do \textit{cluster}, para isso deve editar o arquivo 
+\textit{/etc/corosync/corosync.conf}:
+\begin{lstlisting}
+totem {
+	version: 2
+	token: 3000
+	token_retransmits_before_loss_const: 10
+	join: 60
+	consensus: 3600
+	vsftype: none
+	max_messages: 20
+	clear_node_high_bit: yes
+ 	secauth: on
+ 	threads: 0
+ 	rrp_mode: none
+        interface {
+                # The following values need to be set based on your environment 
+                member {
+                        memberaddr: x.x.x.x
+                }
+                member {
+                        memberaddr: y.y.y.y
+                }
+                ringnumber: 0
+                bindnetaddr: x.x.x.0
+        }
+        transport: udpu
+}
+amf {
+	mode: disabled
+}
+quorum {
+        # Quorum for the Pacemaker Cluster Resource Manager
+        provider: corosync_votequorum
+        expected_votes: 2
+	two_node: 1
+}
+service {
+        # Load the Pacemaker Cluster Resource Manager
+        ver:       0
+        name:      pacemaker
+}
+aisexec {
+        user:   root
+        group:  root
+}
+logging {
+        fileline: off
+        to_stderr: yes
+        to_logfile: no
+        to_syslog: yes
+        syslog_facility: daemon
+        debug: off
+        timestamp: on
+        logger_subsys {
+                subsys: AMF
+                debug: off
+                tags: enter|leave|trace1|trace2|trace3|trace4|trace6
+        }
+}
+\end{lstlisting}
+
+Ajustar para o \textit{corosync} inicie com o sistema, através da alteração da configuração em \textit{/etc/default/corosync}:
+\begin{lstlisting}
+ START=yes
+\end{lstlisting}
+
+Para a comunicação entre os nós deve-se criar uma chave e copiá-la para o outro nó:
+\begin{lstlisting}[language=bash]
+ $ corosync-keygen
+ $ scp /etc/corosync/authkey piova:/etc/corosync/
+\end{lstlisting}
+
+E por fim deve-se reiniciar os serviços:
+\begin{lstlisting}[language=bash]
+ $ service corosync restart
+ $ service pacemaker restart
+\end{lstlisting}
+
+Para verificar o estado os \textit{cluster}:
+\begin{lstlisting}[language=bash]
+ $ crm status
+\end{lstlisting}
+
+Após os nós estarem \textit{online} deve-se criar os recursos do \textit{Pacemaker}. Para alterar a configuração pode utilizar os diversos
+comandos do \textit{crm}, ou pode-se visualizar e alterar toda configuração através do comando:
+\begin{lstlisting}[language=bash]
+ $ crm configure edit
+\end{lstlisting}
+
+Primeiramente deve-se criar o recurso para o \ac{DRBD}. Esse recurso fará o monitoramento e iniciará os dispositivos nos nós do \ac{DRBD}.
+A configuração é:
+\begin{lstlisting}
+primitive DRBD ocf:linbit:drbd \
+        params drbd_resource="vms" \
+        op monitor interval="20" role="Master" timeout="240" \
+        op monitor interval="30" role="Slave" timeout="240" \
+        meta is-managed="true" target-role="Started"
+ms MS_DRBD DRBD \
+        meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true" 
+\end{lstlisting}
+
+primitive OCFS_MOUNT ocf:heartbeat:Filesystem \
+        params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2"
+clone OCFS_MOUNT_CLONE OCFS_MOUNT \
+        meta interleave="true" ordered="true" target-role="Started"
+colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
+order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
+
+
+% Também será necessário criar um recurso para montar um sistema de arquivos para o dispositivo \ac{DRBD} no local onde ficarão os discos das 
+% máquinas virtuais. Esse recurso executará juntamente com o recurso do \ac{DRBD}, assim, quando um nó do \ac{DRBD} for escolhido como primário 
+% o sistema de arquivos será montado automaticamente.
+% 
+% E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{Pacemaker} para possibilitar que as
+% máquinas virtuais sejam migradas de um nó para outro de forma automática e transparente. 
+% 
+% Na configuração das máquinas virtuais, será ...
+% De forma a balancear a carga do \textit{cluster}, as máquinas virtuais serão distribuídas entre os nós, ...
 
