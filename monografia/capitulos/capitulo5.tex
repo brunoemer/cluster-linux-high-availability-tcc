@@ -139,7 +139,7 @@ A partir da análise inicial, verificou-se que os servidores a serem incluídos 
 Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime} e o tempo de 
 \textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim foi utilizada a 
 medição apenas dos últimos 6 meses de 2015, por isso esse possui um \textit{Uptime} elevado.
-A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
+%A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
 
 \begin{table}[h!]
 \caption{Serviços críticos do ano de 2015.}
@@ -166,7 +166,11 @@ recursos das máquinas virtuais que atualmente abrangem os serviços que foram c
 em um servidor, as máquinas virtuais serão transferidas para o outro servidor. Destaca-se que tais recursos de \textit{hardware} já 
 encontram-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais.
 
-Já os \textit{softwares} que serão necessários para a implementação da alta disponibilidade podem ser divididas em dois grupos: 
+Destaca-se que para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se a técnica descrita no artigo 
+de ??. %\cite{}
+Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
+
+Foi necessário dois tipos de \textit{softwares} para a implementação da alta disponibilidade, eles são divididos em dois grupos: 
 \textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e as transferências das máquinas virtuais entre os servidores.
 
 \subsection{Softwares para a replicação de dados}
@@ -289,7 +293,7 @@ Destaca-se que o \textit{Rsync} não faz um sincronismo em tempo real, ou seja, 
 \label{section:replicacaoescolhido}
 
 Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. 
-A ferramenta adotada para replicação de dados será o \ac{DRBD}, pois permite a configuração \textit{master-slave} ou \textit{dual-primary}, 
+A ferramenta adotada para replicação de dados foi o \ac{DRBD}, pois permite a configuração \textit{master-slave} ou \textit{dual-primary}, 
 além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a ressincronização 
 dos dados de forma automática em caso de um falha \cite{drbd}.
 O \textit{GlusterFS} poderia ser utilizado, porém este faz uma replicação a nível de arquivo, sendo assim, não é adequada para uma 
@@ -306,12 +310,12 @@ executar em conjunto com a virtualização.
 \begin{center}
 \begin{tabular}{|l|p{3.5cm}|p{3.5cm}|p{2cm}|}\hline
 \textbf{Características} & \textbf{DRBD} & \textbf{GlusterFS} & \textbf{Rsync} \\\hline
-Master-slave & Sim & Sim & Não \\\hline
+Integração com virtualização & Sim & Sim & Não \\\hline
+Dual-master & Sim & Sim & Não \\\hline
 Replicação em tempo real & Sim & Sim & Não \\\hline
 Nível de replicação & Bloco & Arquivo & Arquivo \\\hline
 Número máximo de nós & 16 & 64 & Ilimitado \\\hline
 Distribuições Linux & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, Red Hat, Fedora, Ubuntu & Todas \\\hline
-Integração com virtualização & Sim & Sim & Não \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -473,7 +477,8 @@ Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 % 1.cluster resource management
 % 2.infrastructure with massaging layer
 % legacy heartbeat is broken into heartbeat message layer and pacemaker so pacemaker is CRM.
-% and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.highavailability.user/32355
+% and we have two option on message layer:heartbeat,openais. openais/corosync is preferred as: http://comments.gmane.org/gmane.linux.
+%highavailability.user/32355
 % There are, however, features in Pacemaker that require OpenAIS which will work only with Corosync, not Heartbeat. Those features are concerned 
 % with the distributed lock managers used by cLVM (but not regular LVM), GFS/GFS2, and OCFS2. If you need that functionality, you must select 
 % OpenAIS/Corosync. If you do not, you're free to choose.
