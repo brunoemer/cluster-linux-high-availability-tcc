@@ -11,6 +11,7 @@ A level-1 auxiliary file: capitulos/capitulo5.aux
 A level-1 auxiliary file: capitulos/capitulo6.aux
 A level-1 auxiliary file: capitulos/conclusao.aux
 The style file: abnt.bst
+A level-1 auxiliary file: capitulos/anexo1.aux
 Database file #1: tcc.bib
 I was expecting a `,' or a `}'---line 282 of file tcc.bib
  :   
@@ -29,7 +30,7 @@ I was expecting a `,' or a `}'---line 618 of file tcc.bib
 I'm skipping whatever remains of this entry
 You've used 87 entries,
             2371 wiz_defined-function locations,
-            962 strings with 17606 characters,
+            963 strings with 17626 characters,
 and the built_in function-call counts, 70091 in all, are:
 = -- 7935
 > -- 313
