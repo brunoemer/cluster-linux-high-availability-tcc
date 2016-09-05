@@ -9,6 +9,8 @@
 
 PROGNAME=`/usr/bin/basename $0`
 NODE=`hostname`
+ONLINE_CHECK_RES="OCFS_MOUNT_CLONE"
+STANDBY_CHECK_RES="MS_DRBD"
 
 logger "Script manutencao cluster $PROGNAME node: $NODE"
 
@@ -25,7 +27,7 @@ if [ $NAG -ne 0 ]; then
 fi
 
 #se outro node esta online
-RES_CHECK=$(crm resource show OCFS_MOUNT_CLONE)
+RES_CHECK=$(crm resource show $ONLINE_CHECK_RES)
 NODE_LIST=$(crm_node -l |awk '{print $2}' |grep -v $NODE)
 NODES_N=$(crm_node -l |awk '{print $2}' |grep -v $NODE |wc -l)
 NODES_ON=0
@@ -42,9 +44,24 @@ if [ $NODES_ON -lt $NODES_N ]; then
 fi
 
 #desativa servicos do node
-##crm node standby $NODE
+logger "Standby $NODE"
+crm node standby $NODE
 
-#aguarda no ficar livre, vms down e drbd down
+#aguarda node ficar livre, vms down e drbd down
+while :; do
+	RES_CHECK_DRBD=$(crm resource show $STANDBY_CHECK_RES)
+	RES_DRBD_ON=$(echo "$RES_CHECK_DRBD" |grep "$NODE")
+	VMS_NUM=$(virsh list --name |wc -l)
+        if [ -z "$RES_DRBD_ON" ] && [ $VMS_NUM -le 1 ]; then
+		logger "Pronto para reiniciar"
+		break
+	else
+		logger "Servicos ainda executando"
+	fi
+	sleep 30
+done
+
+#escreve arquivo para recuperar node depois do reboot
 
 
 #reinicia node
