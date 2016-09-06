@@ -375,3 +375,4 @@ chmod o-rwx /etc/sudoers.d/nagios_pacemaker
 
 ### configurar migration-threshold no drbd, ocfs e vms
 
+
