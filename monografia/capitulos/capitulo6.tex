@@ -70,11 +70,12 @@ O detalhamento da configuração do \textit{Pacemaker} estão no Apêndice \ref{
 \section{Testes}
 \label{section:testes}
 
+Esta seção apresenta a metodologia de testes desenvolvida para ser possível analisar a eficácia do ambiente de alta disponibilidade.
+... comprovar que o \ac{MTTR} é significativamente menor comparado a reconfiguração manual da \ac{VM}.
+... objetivo também é comprovar que a gerência de falhas é importante para um ambiente, além de destacar que a gerência da manutenção também é 
+favorecida através desta implementação.
 
-... comprovar que o \ac{MTTR} são significativamente menores comparados a reconfiguração manual da \ac{VM}.
-objetivo também é comprovar que a gerência da manutenção e a gerência de falhas são importantes para um ambiente...
 
-VER??
 Validação, metodologia de testes baseado nos trabalhos \cite{reis2009} e \cite{goncalves2009}:
 -Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
 -Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
