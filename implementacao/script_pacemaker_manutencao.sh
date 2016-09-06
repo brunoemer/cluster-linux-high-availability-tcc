@@ -4,6 +4,8 @@
 # [Bruno Emer] 2016-09-02
 #
 # Verifica e faz reinicializacao de um node do cluster pacemaker / drbd
+# Instalacao:
+# Agendar no cron de cada node em dias diferentes
 #
 # ------------------------------------------------------------------
 
@@ -26,48 +28,57 @@ if [ $NAG -ne 0 ]; then
 	exit
 fi
 
-#se outro node esta online
-RES_CHECK=$(crm resource show $ONLINE_CHECK_RES)
-NODE_LIST=$(crm_node -l |awk '{print $2}' |grep -v $NODE)
-NODES_N=$(crm_node -l |awk '{print $2}' |grep -v $NODE |wc -l)
-NODES_ON=0
-for row in $NODE_LIST; do
-	RES_ON=$(echo "$RES_CHECK" |grep "$row")
-	if [ -n "$RES_ON" ]; then
-		logger "$row online"
-		((NODES_ON++))
+#retorna o node para online se ja foi reiniciado
+if [ -f pacemaker_reboot.tmp ]; then
+	#verifica se pacemaker esta iniciado
+	#?????
+	crm node online $NODE
+	rm pacemaker_reboot.tmp
+
+else
+	#se outro node esta online
+	RES_CHECK=$(crm resource show $ONLINE_CHECK_RES)
+	NODE_LIST=$(crm_node -l |awk '{print $2}' |grep -v $NODE)
+	NODES_N=$(crm_node -l |awk '{print $2}' |grep -v $NODE |wc -l)
+	NODES_ON=0
+	for row in $NODE_LIST; do
+		RES_ON=$(echo "$RES_CHECK" |grep "$row")
+		if [ -n "$RES_ON" ]; then
+			logger "$row online"
+			((NODES_ON++))
+		fi
+	done
+	if [ $NODES_ON -lt $NODES_N ]; then
+		logger "Erro. Algum node nao esta online"
+		exit
 	fi
-done
-if [ $NODES_ON -lt $NODES_N ]; then
-	logger "Erro. Algum node nao esta online"
-	exit
+
+	#desativa servicos do node
+	logger "Standby $NODE"
+	crm node standby $NODE
+
+	#aguarda node ficar livre, vms down e drbd down
+	while :; do
+		RES_CHECK_DRBD=$(crm resource show $STANDBY_CHECK_RES)
+		RES_DRBD_ON=$(echo "$RES_CHECK_DRBD" |grep "$NODE")
+		VMS_NUM=$(virsh list --name |wc -l)
+	        if [ -z "$RES_DRBD_ON" ] && [ $VMS_NUM -le 1 ]; then
+			logger "Pronto para reiniciar"
+			break
+		else
+			logger "Servicos ainda executando"
+		fi
+		sleep 30
+	done
+
+	#escreve arquivo para recuperar node depois do reboot
+	echo $(date +"%Y-%m-%d") > pacemaker_reboot.tmp
+
+	#reinicia node
+	logger "Rebooting..."
+	##reboot
+
 fi
-
-#desativa servicos do node
-logger "Standby $NODE"
-crm node standby $NODE
-
-#aguarda node ficar livre, vms down e drbd down
-while :; do
-	RES_CHECK_DRBD=$(crm resource show $STANDBY_CHECK_RES)
-	RES_DRBD_ON=$(echo "$RES_CHECK_DRBD" |grep "$NODE")
-	VMS_NUM=$(virsh list --name |wc -l)
-        if [ -z "$RES_DRBD_ON" ] && [ $VMS_NUM -le 1 ]; then
-		logger "Pronto para reiniciar"
-		break
-	else
-		logger "Servicos ainda executando"
-	fi
-	sleep 30
-done
-
-#escreve arquivo para recuperar node depois do reboot
-
-
-#reinicia node
-logger "Rebooting..."
-##reboot
-
 
 # ------------------------------------------------------------------
 #recovery - retorna node para online
