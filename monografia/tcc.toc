@@ -55,15 +55,17 @@
 \contentsline {section}{\numberline {6.1}Implementa\IeC {\c c}\IeC {\~a}o}{49}
 \contentsline {section}{\numberline {6.2}Valida\IeC {\c c}\IeC {\~o}es e testes}{51}
 \contentsline {subsection}{\numberline {6.2.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{51}
-\contentsline {subsection}{\numberline {6.2.2}Teste 2 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{51}
-\contentsline {subsection}{\numberline {6.2.3}Teste 3 - Desligamento por software}{51}
-\contentsline {subsection}{\numberline {6.2.4}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{51}
-\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{52}
-\contentsline {section}{\numberline {7.1}Cronograma}{53}
-\contentsline {chapter}{Refer{\^e}ncias}{54}
-\contentsline {chapter}{\numberline {Ap{\^e}ndiceA}}{60}
-\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{60}
-\contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{60}
-\contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{61}
-\contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{63}
-\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{64}
+\contentsline {subsection}{\numberline {6.2.2}Teste 2 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{52}
+\contentsline {subsection}{\numberline {6.2.3}Teste 3 - Desligamento por software}{52}
+\contentsline {subsection}{\numberline {6.2.4}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{52}
+\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{53}
+\contentsline {section}{\numberline {7.1}Cronograma}{54}
+\contentsline {chapter}{Refer{\^e}ncias}{55}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceA}}{61}
+\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{61}
+\contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{61}
+\contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{62}
+\contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{64}
+\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{65}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{68}
+\contentsline {section}{\numberline {B.1}Script indisponibilidade}{68}

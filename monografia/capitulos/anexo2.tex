@@ -1,3 +1,11 @@
+
+\chapter{}
+\label{cap:apscripts}
+
+\section{Script indisponibilidade}
+\label{ap:scriptindisp}
+
+\begin{lstlisting}[language=bash]
 #!/bin/sh
 # Copyright (c) 2008 Wanderson S. Reis < wasare@gmail .com >
 #
@@ -16,14 +24,14 @@ FOO_PID=$!
 RETORNO=0
 while [ $RETORNO -eq 0 ]
 do
-	ping -c 1 $1 2> /dev/null 1> /dev/null
-	RETORNO=$?
+        ping -c 1 $1 2> /dev/null 1> /dev/null
+        RETORNO=$?
 done
 INICIAL=`date +%s`
 while [ $RETORNO -ne 0 ]
 do
-	ping -c 1 $1 2> /dev/null 1> /dev/null
-	RETORNO=$?
+        ping -c 1 $1 2> /dev/null 1> /dev/null
+        RETORNO=$?
 done
 FINAL=`date +%s`
 INTERVALO=$(( $FINAL - $INICIAL ))
@@ -33,3 +41,4 @@ pkill -SIGINT ping
 
 exit 0
 
+\end{lstlisting}

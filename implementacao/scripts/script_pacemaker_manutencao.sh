@@ -16,8 +16,6 @@ STANDBY_CHECK_RES="MS_DRBD"
 
 logger "Script manutencao cluster $PROGNAME node: $NODE"
 
-#destroy - derruba node para reiniciar
-
 #verificacoes
 #se cluster esta ok
 NAG_CHECK=$(/usr/lib/nagios/plugins/check_crm_v0_7)
@@ -28,14 +26,20 @@ if [ $NAG -ne 0 ]; then
 	exit
 fi
 
-#retorna o node para online se ja foi reiniciado
+# ------------------------------------------------------------------
+#recovery - retorna node para online se ja foi reiniciado
 if [ -f pacemaker_reboot.tmp ]; then
 	#verifica se pacemaker esta iniciado
-	#?????
-	crm node online $NODE
-	rm pacemaker_reboot.tmp
-
+	service pacemaker status
+	PACEMAKER_ST=$?
+	if [ $PACEMAKER_ST -eq 0 ]; then
+		logger "Online $NODE"
+		crm node online $NODE
+		rm pacemaker_reboot.tmp
+	fi
 else
+# ------------------------------------------------------------------
+#destroy - derruba node para reiniciar
 	#se outro node esta online
 	RES_CHECK=$(crm resource show $ONLINE_CHECK_RES)
 	NODE_LIST=$(crm_node -l |awk '{print $2}' |grep -v $NODE)
@@ -76,14 +80,7 @@ else
 
 	#reinicia node
 	logger "Rebooting..."
-	##reboot
+	reboot
 
 fi
-
-# ------------------------------------------------------------------
-#recovery - retorna node para online
-
-#como retornar do standby?? escrever em arquivo, executar mais de uma vez
-
-##crm node online $NODE
 
