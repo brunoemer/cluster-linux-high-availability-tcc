@@ -57,15 +57,16 @@
 \contentsline {subsection}{\numberline {6.2.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{51}
 \contentsline {subsection}{\numberline {6.2.2}Teste 2 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{52}
 \contentsline {subsection}{\numberline {6.2.3}Teste 3 - Desligamento por software}{52}
-\contentsline {subsection}{\numberline {6.2.4}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{52}
-\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{53}
-\contentsline {section}{\numberline {7.1}Cronograma}{54}
-\contentsline {chapter}{Refer{\^e}ncias}{55}
-\contentsline {chapter}{\numberline {Ap{\^e}ndiceA}}{61}
-\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{61}
-\contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{61}
-\contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{62}
-\contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{64}
-\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{65}
-\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{68}
-\contentsline {section}{\numberline {B.1}Script indisponibilidade}{68}
+\contentsline {subsection}{\numberline {6.2.4}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{53}
+\contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{54}
+\contentsline {section}{\numberline {7.1}Cronograma}{55}
+\contentsline {chapter}{Refer{\^e}ncias}{56}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceA}}{62}
+\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{62}
+\contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{62}
+\contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{63}
+\contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{65}
+\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{66}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{69}
+\contentsline {section}{\numberline {B.1}Script indisponibilidade}{69}
+\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{69}
