@@ -67,24 +67,52 @@ servidores \textit{SimplesIP} e \textit{Speedauth}. Desta forma, quando houver u
 O detalhamento da configuração do \textit{Pacemaker} estão no Apêndice \ref{ap:confpacemaker}.
 
 
-\section{Testes}
+\section{Validações e testes}
 \label{section:testes}
 
-Esta seção apresenta a metodologia de testes desenvolvida para ser possível analisar a eficácia do ambiente de alta disponibilidade.
-... comprovar que o \ac{MTTR} é significativamente menor comparado a reconfiguração manual da \ac{VM}.
-... objetivo também é comprovar que a gerência de falhas é importante para um ambiente, além de destacar que a gerência da manutenção também é 
-favorecida através desta implementação.
+O objetivo desta seção é comprovar que a gerência de falhas é importante para um ambiente computacional, além de destacar que a gerência da 
+manutenção também é favorecida por esta implementação.
+A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \cite{reis2009} e \cite{goncalves2009}, a mesma foi desenvolvida para 
+possibilitar a análise e eficácia do ambiente de alta disponibilidade. 
+
+Os testes desenvolvidos estão detalhados nas próximas seções, neles tem-se a justificativa, a aplicação e os resultados obtidos.
+
+\subsection{Teste 1 - Desligamento físico}
+
+Este teste faz a simulação de falhas de \textit{hardware} ou falhas elétricas em um nó do \textit{cluster}. Com este teste também pode-se 
+validar o processo de \textit{failover} dos serviços (máquinas virtuais) que estavam executando no nó que falhou.
+...
+
+Procedimento do teste:
+\begin{itemize}
+ \item Acessar o terminal do servidor de monitoramento;
+ \item Executar comando \textit{ping} e medir tempo de indisponibilidade;
+ \item Forçar desligamento do nó X;
+ \item 
+\end{itemize}
+
+%Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
+
+O \ac{MTTR} é significativamente menor comparado a reconfiguração manual da \ac{VM}, que poderia chegar a mais de um dia.
 
 
-Validação, metodologia de testes baseado nos trabalhos \cite{reis2009} e \cite{goncalves2009}:
--Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
--Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
+\subsection{Teste 2 - Manutenção agendada}
+
 -Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
 atualizacao de kernel dos nodes
+
+
+\subsection{Teste 3 - Desligamento por software}
+
+-Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
+
+
+\subsection{Comparação final da disponibilidade}
+
 -Medicao da disponibilidade dos serviços críticos por 1 mes (outubro) e comparar a mes setembro com uma reinicializacao dos servidores fisicos (reiniciados em 06/09)
+
+
 
 Medição através do Nagios, que utiliza ping para calcular o tempo de downtime
 Tabela com perda de pacotes, latencia, tempo de indisponibilidade
-
-Fazer procedimento de teste para cada um, em itens
 

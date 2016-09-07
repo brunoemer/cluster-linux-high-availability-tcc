@@ -70,16 +70,33 @@ O detalhamento da configuração do \textit{Pacemaker} estão no Apêndice \ref{
 \section{Testes}
 \label{section:testes}
 
+O objetivo desta seção é comprovar que a gerência de falhas é importante para um ambiente computacional, além de destacar que a gerência da 
+manutenção também é favorecida por esta implementação.
+A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \cite{reis2009} e \cite{goncalves2009}, a mesma foi desenvolvida para 
+possibilitar a análise e eficácia do ambiente de alta disponibilidade. 
 
-... comprovar que o \ac{MTTR} é significativamente menor comparado a reconfiguração manual da \ac{VM}.
-objetivo também é comprovar que a gerência da manutenção e a gerência de falhas são importantes para um ambiente...
+Os testes desenvolvidos estão detalhados nas próximas seções, neles tem-se a justificativa e os resultados obtidos.
 
-VER??
-Validação, metodologia de testes baseado nos trabalhos \cite{reis2009} e \cite{goncalves2009}:
+\subsection{Teste 1 - Desligamento físico}
+
 -Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
--Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
+
+O \ac{MTTR} é significativamente menor comparado a reconfiguração manual da \ac{VM}.
+
+
+\subsection{Teste 2 - Manutenção agendada}
+
 -Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
 atualizacao de kernel dos nodes
+
+
+\subsection{Teste 3 - Desligamento por software}
+
+-Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
+
+
+
+
 -Medicao da disponibilidade dos serviços críticos por 1 mes (outubro) e comparar a mes setembro com uma reinicializacao dos servidores fisicos (reiniciados em 06/09)
 
 Medição através do Nagios, que utiliza ping para calcular o tempo de downtime
