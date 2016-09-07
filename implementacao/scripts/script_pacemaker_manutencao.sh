@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ------------------------------------------------------------------
-# [Bruno Emer] 2016-09-02
+# Copyright (c) 2016-09-02 Bruno Emer <emerbruno@gmail.com>
 #
 # Verifica e faz reinicializacao de um node do cluster pacemaker / drbd
 # Instalacao:

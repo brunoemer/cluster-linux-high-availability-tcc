@@ -345,7 +345,7 @@ comandos do \textit{crm}, ou pode-se visualizar e alterar toda configuração at
  $ crm configure edit
 \end{lstlisting}
 
-Primeiramente deve-se criar o recurso para o \ac{DRBD}. Esse recurso fará o monitoramento e iniciará os dispositivos nos nós do \ac{DRBD}.
+Primeiramente deve-se criar o recurso para o \ac{DRBD}. Esse recurso faz o monitoramento e inicia os dispositivos nos nós do \ac{DRBD}.
 A configuração é:
 \begin{lstlisting}
 primitive DRBD ocf:linbit:drbd \
@@ -359,7 +359,7 @@ ms MS_DRBD DRBD \
 Onde \textit{primitive} é o recurso \ac{DRBD} configurado anteriormente, e \textit{ms} é a opção que fará o dispositivo se tornar \textit{master}
 sendo limitado em 2.
 
-Também será necessário criar um recurso para montar um sistema de arquivos \ac{OCFS2}, configurado da seguinte forma:
+Também é necessário criar um recurso para montar um sistema de arquivos \ac{OCFS2}, configurado da seguinte forma:
 \begin{lstlisting}
 primitive OCFS_MOUNT ocf:heartbeat:Filesystem \
         params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2"
@@ -368,8 +368,8 @@ clone OCFS_MOUNT_CLONE OCFS_MOUNT \
 colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
 order ORD_DRBD_OCFS inf: MS_DRBD:promote OCFS_MOUNT_CLONE:start
 \end{lstlisting}
-Onde \textit{primitive} define qual será o dispositivo e onde será montado, o recurso \textit{clone} permitirá montar o sistema nos dois nós
-ao mesmo tempo. Já o \textit{colocation} fará a dependecia entre os recursos do \textit{Pacemaker}, por exemplo, é necessário ter o dispositivo 
+Onde \textit{primitive} define qual é o dispositivo e onde está montado, o recurso \textit{clone} permite montar o sistema nos dois nós
+ao mesmo tempo. Já o \textit{colocation} faz a dependêcia entre os recursos do \textit{Pacemaker}, por exemplo, é necessário ter o dispositivo 
 \ac{DRBD} como \textit{master} para depois montar o sistema de arquivos. E o recurso \textit{order} identifica a ordem de inicialização dos 
 recursos, da equerda para direita.
 
