@@ -103,7 +103,7 @@ criou-se a Tabela \ref{tab:teste1resultados} a qual possui os dados resultantes 
 \label{tab:teste1resultados}
 \begin{center}
 \begin{tabular}{|l|p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
- & \textbf{Tempo do teste} & \textbf{Pacotes transmitidos} & \textbf{Pacotes perdidos} & \textbf{Latência média} & \textbf{Tempo de indisponibilidade} \\\hline
+ & \textbf{Tempo do teste} & \textbf{Pacotes transmitidos} & \textbf{Percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Tempo de indisponibilidade} \\\hline
 Teste 1 & & & & & \\\hline
 Teste 2 & & & & & \\\hline
 Teste 3 & & & & & \\\hline
@@ -137,6 +137,7 @@ O procedimento deste teste é o seguinte:
 \end{itemize}
 
 Este roteiro foi executado 2 vezes em cada nó semanalmente, durante 2 semanas. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
+% crontab: 
 % 12/09 a 26/09
 
 \begin{table}[h!]
@@ -144,7 +145,7 @@ Este roteiro foi executado 2 vezes em cada nó semanalmente, durante 2 semanas. 
 \label{tab:teste2resultados}
 \begin{center}
 \begin{tabular}{|l|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
-\textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média dos pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
+\textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
 Servidor físico & & & & & \\\hline
 Servidor virtual & & & & & \\\hline
 \end{tabular}
@@ -189,14 +190,15 @@ demonstra os dados do servidor físico e do virtual.
 \label{tab:teste3resultados}
 \begin{center}
 \begin{tabular}{|l|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
-\textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média dos pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
-Servidor físico & & & & & \\\hline
-Servidor virtual & & & & & \\\hline
+\textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
+Servidor físico & 260,53? & 261 & 60,75 & 14,98 ms & 152,75 segundos \\\hline
+Servidor virtual & 156,98? & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
 Pode-se observar que o tempo de indisponibilidade do servidor virtual é consideravelmente menor que o tempo do servidor físico.
+Além disso, pode-se perceber que o percentual de perda de pacotes é menor.
 ...
 %Exemplo servidor dns falhou ...
 

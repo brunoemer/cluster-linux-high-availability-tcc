@@ -26,6 +26,12 @@ if [ $NAG -ne 0 ]; then
 	exit
 fi
 
+#se ja reiniciou nao executa
+if [ `awk '{print $1}' /proc/uptime` -lt 86400 ]; then
+	logger "Ja reiniciado"
+	exit
+fi
+
 # ------------------------------------------------------------------
 #recovery - retorna node para online se ja foi reiniciado
 if [ -f pacemaker_reboot.tmp ]; then
