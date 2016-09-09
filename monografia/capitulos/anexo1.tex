@@ -35,7 +35,8 @@ Além disso, é necessário instalar e configurar o \textit{link aggregation}, o
 instalação e o segundo comando carrega o modulo \textit{bonding} no \textit{kernel}:
 \begin{lstlisting}[language=bash]
  $ apt-get install ifenslave-2.6
- $ sh -c 'grep -q bonding /etc/modules || echo bonding >> /etc/modules'
+ $ sh -c 'grep -q bonding /etc/modules \
+    || echo bonding >> /etc/modules'
 \end{lstlisting}
 
 Para a configuração do \textit{link aggregation} deve-se criar uma interface \textit{bond} e nela inclui-se as duas interfaces físicas.
@@ -76,7 +77,8 @@ Também é necessário configurar algumas \textit{vlans} para algumas máquinas 
 o modulo do \textit{kernel} necessário para gerenciar \textit{vlans}:
 \begin{lstlisting}[language=bash]
  $ apt-get install vlan
- $ sudo  sh -c 'grep -q 8021q /etc/modules || echo 8021q >> /etc/modules'
+ $ sudo  sh -c 'grep -q 8021q /etc/modules \
+    || echo 8021q >> /etc/modules'
  $ sudo modprobe 8021q
 \end{lstlisting}
 
@@ -228,7 +230,8 @@ Para incluir as máquinas virtuais é necessário criar um \textit{pool}, onde s
 e o \textit{pool}:
 \begin{lstlisting}[language=bash]
  $ mkdir /var/lib/libvirt/images/ocfs
- $ virsh pool-create-as ocfs --type=dir --target=/var/lib/libvirt/images/ocfs
+ $ virsh pool-create-as ocfs --type=dir \
+    --target=/var/lib/libvirt/images/ocfs
 \end{lstlisting}
 
 Para o funcionamento do \textit{live migration} é preciso fazer a troca das chaves \ac{SSH} do usuário root entre os dois nós.
@@ -271,7 +274,6 @@ totem {
  	threads: 0
  	rrp_mode: none
         interface {
-                # The following values need to be set based on your environment 
                 member {
                         memberaddr: x.x.x.x
                 }
@@ -354,7 +356,8 @@ primitive DRBD ocf:linbit:drbd \
         op monitor interval="30" role="Slave" timeout="240" \
         meta is-managed="true" target-role="Started"
 ms MS_DRBD DRBD \
-        meta master-max="2" clone-max="2" notify="true" interleave="true" allow-migrate="true" is-managed="true" 
+        meta master-max="2" clone-max="2" notify="true" \ 
+        interleave="true" allow-migrate="true" is-managed="true" 
 \end{lstlisting}
 Onde \textit{primitive} é o recurso \ac{DRBD} configurado anteriormente, e \textit{ms} é a opção que fará o dispositivo se tornar \textit{master}
 sendo limitado em 2.
@@ -362,7 +365,8 @@ sendo limitado em 2.
 Também é necessário criar um recurso para montar um sistema de arquivos \ac{OCFS2}, configurado da seguinte forma:
 \begin{lstlisting}
 primitive OCFS_MOUNT ocf:heartbeat:Filesystem \
-        params device="/dev/drbd/by-res/vms" directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2"
+        params device="/dev/drbd/by-res/vms" \ 
+        directory="/var/lib/libvirt/images/ocfs" fstype="ocfs2"
 clone OCFS_MOUNT_CLONE OCFS_MOUNT \
         meta interleave="true" ordered="true" target-role="Started"
 colocation COL_DRBD_OCFS inf: OCFS_MOUNT_CLONE MS_DRBD:Master
@@ -377,16 +381,17 @@ E por fim, deve-se configurar um recurso para cada máquina virtual no \textit{P
 iniciadas ou migradas de um nó para outro de forma automática: 
 \begin{lstlisting}
 primitive VM_1 ocf:heartbeat:VirtualDomain \
-        params config="/etc/libvirt/qemu/vm1.xml" hypervisor="qemu:///system" migration_transport="ssh" force_stop="0" \
+        params config="/etc/libvirt/qemu/vm1.xml" force_stop="0" \
+        hypervisor="qemu:///system" migration_transport="ssh" \
         op monitor timeout="30" interval="10" depth="0" \
         op start timeout="90" interval="0" \
         op stop timeout="90" interval="0" \
         op migrate_from interval="0" timeout="240" \
         op migrate_to interval="0" timeout="240" \
-        meta allow-migrate="true" target-role="Started" is-managed="true" migration-threshold="5"
+        meta allow-migrate="true" target-role="Started" \
+        is-managed="true" migration-threshold="5"
 location cli-prefer-VM_1 VM_1 inf: brina
 location backup-VM_1 VM_1 100: piova
 colocation COL_VM_1 inf: VM_1 OCFS_MOUNT_CLONE
 order ORD_VM_1 inf: OCFS_MOUNT_CLONE:start VM_1:start
 \end{lstlisting}
-

@@ -69,4 +69,4 @@
 \contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{66}
 \contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{69}
 \contentsline {section}{\numberline {B.1}Script indisponibilidade}{69}
-\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{69}
+\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{70}

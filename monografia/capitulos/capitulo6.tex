@@ -77,7 +77,7 @@ possibilitar a análise e eficácia do ambiente de alta disponibilidade.
 
 Os testes desenvolvidos estão detalhados nas próximas seções, neles tem-se a justificativa, a aplicação e os resultados obtidos.
 Observa-se que os testes foram efetuados com uma máquina virtual que não possui serviço críticos, pois eles possuem risco de perda de dados.
-Contudo, na Seção \ref{sec:comparacaofinal} será feito uma análise com dados obtidos do ambiente final executando os serviços críticos.
+Contudo, na Seção \ref{section:comparacaofinal} será feito uma análise com dados obtidos do ambiente final executando os serviços críticos.
 
 \subsection{Teste 1 - Desligamento físico}
 %Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos serviços e dos nodes (servico não crítico)
@@ -89,14 +89,14 @@ indisponibilidade dos serviços.
 O procedimento deste teste é o seguinte:
 \begin{itemize}
  \item Acessar o terminal do servidor de monitoramento;
- \item Executar comando \textit{ping} e medir tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
+ \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
  \item Forçar desligamento do nó;
  \item Aguardar máquinas virtuais inicirem no outro nó;
  \item Finalizar a medição do tempo e \textit{ping}.
 \end{itemize}
 
-Este procedimento foi executado 4 vezes para possibilitar o cálculo da média, sendo que este foi aplicado 2 vezes em cada nó.
-Deste modo, criou-se a Tabela \ref{tab:teste1resultados} a qual possui os dados resultantes do teste, esses são dados do servidor virtual.
+Este procedimento foi executado 4 vezes para possibilitar o cálculo da média, sendo que este foi aplicado 2 vezes em cada nó. Deste modo, 
+criou-se a Tabela \ref{tab:teste1resultados} a qual possui os dados resultantes dos testes e das medições efetuada sobre a máquina virtual.
 
 \begin{table}[h!]
 \caption{Resultados do teste 1 com servidor virtual.}
@@ -113,7 +113,7 @@ Média & & & & & \\\hline
 \end{center}
 \end{table}
 
-Pode-se observar que o tempo de indisponibilidade do servidor virtual é baixo, pois ele é iniciado no outro nó logo após o desligamento do 
+Pode-se observar que o tempo de indisponibilidade da máquina virtual é baixo, pois ele é iniciado no outro nó logo após o desligamento do 
 primeiro nó. Destaca-se que o \ac{MTTR} seria significativamente maior caso fosse necessário reconfigurar a máquina virtual, reinstalar as 
 aplicações, configurá-las e restaurar o \textit{backup}. Dependendo do servidor e da aplicação, a indisponibilidade poderia ser maior que 24 horas.
 
@@ -129,14 +129,15 @@ Reinicializações são necessárias para manutenções de \textit{hardware}, at
 O procedimento deste teste é o seguinte:
 \begin{itemize}
  \item Acessar o terminal do servidor de monitoramento;
- \item Executar comando \textit{ping} e medir tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
+ \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
  \item Acessar o terminal do nó que esta sendo feita a manutenção;
- \item Executar o \textit{script} que desativa o nó (\textit{standby}) e faz um \textit{reboot} (Apêndice \ref{ap:scriptmanutencao});
+ \item Executar o \textit{script} que desativa o nó (\textit{standby}) e executa o \textit{reboot} (Apêndice \ref{ap:scriptmanutencao});
  \item Após retorno do nó executar novamente o \textit{script} anterior para retorno do nó ao \textit{cluster};
  \item Finalizar a medição do tempo e \textit{ping}.
 \end{itemize}
 
-Este roteiro foi executado 2 vezes em cada nó por semana, durante 2 semanas. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
+Este roteiro foi executado 2 vezes em cada nó semanalmente, durante 2 semanas. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
+% 12/09 a 26/09
 
 \begin{table}[h!]
 \caption{Resultados do teste 2.}
@@ -150,25 +151,29 @@ Servidor virtual & & & & & \\\hline
 \end{center}
 \end{table}
 
-Pode-se observar ...
-latência maior durante \textit{live migration}, na transferência da memória...
-
-%log do pacemaker
+Pode-se observar que não houve \textit{downtime} na máquina virtual, e consequentemente nos serviços.
+Porém, tem-se uma latência maior durante \textit{live migration}...
 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
+A Figura X demonstra a disponibilidade da máquina virtual (a) e dos nós (b), esses dados foram retirados da ferramenta de monitoramento da empresa,
+\textit{Nagios}. Comparando os gráficos pode-se perceber a diferença do \textit{uptime} entre servidores físicos e o virtual.
+%%figura
 
+%log do pacemaker
+O processo de \textit{standby} feito pelo \textit{Pacemaker} está detalhado no \textit{log} abaixo:
+...
 
 \subsection{Teste 3 - Desligamento por software}
 %Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
 %simulação de falha de software ou manutenção emergencial
 
-Esse teste simula falhas de \textit{software} do nó do \textit{cluster} ou do \textit{software} de virtualização. Esse tipo de situação também
-pode ocorrer em uma manutenção emergencial, onde, por exemplo, é preciso desligar o servidor.
+Esse teste simula falhas de \textit{software} no nó do \textit{cluster}, como por exemplo do \textit{software} de virtualização. Esse tipo de 
+situação também pode ser necessário em uma manutenção emergencial, onde, por exemplo, é preciso desligar o servidor.
 
 O procedimento deste teste é o seguinte:
 \begin{itemize}
  \item Acessar o terminal do servidor de monitoramento;
- \item Executar comando \textit{ping} e medir tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
+ \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
  \item Acessar o terminal do nó que será reiniciado;
  \item Executar o comando \textit{reboot};
  \item Aguardar máquinas virtuais inicirem no outro nó e aguardar retorno do nó reiniciado;
@@ -192,14 +197,16 @@ Servidor virtual & & & & & \\\hline
 
 Pode-se observar que o tempo de indisponibilidade do servidor virtual é consideravelmente menor que o tempo do servidor físico.
 ...
+%Exemplo servidor dns falhou ...
 
 \subsection{Comparação final da disponibilidade}
-\label{sec:comparacaofinal}
+\label{section:comparacaofinal}
+%Medição da disponibilidade dos serviços críticos por 1 mes (outubro) e comparar ao mês de setembro no ambiente antigo com 
+%uma Reinicialização dos servidores físicos (reiniciados em 06/09/16)
 
--Medicao da disponibilidade dos serviços críticos por 1 mes (outubro) e comparar ao mês de setembro no ambiente antigo com 
-uma Reinicialização dos servidores físicos (reiniciados em 06/09/16)
-
-
+Como já mencionado anteriormente, esta seção analisará os serviços críticos no ambiente final de produção que possui as máquinas virtuais
+definidas na Seção \ref{section:maqservcrit}. 
+...foi mensurado a disponibilidade
 
 %Medição através do comando ping e do Nagios, que utiliza ping para calcular o tempo de downtime
 %Tabela com perda de pacotes, latencia, tempo de indisponibilidade X node fisico e maquina virtual

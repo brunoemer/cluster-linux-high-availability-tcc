@@ -136,20 +136,20 @@ order=3
 
 [item:capitulos/anexo1.tex]
 archive=true
-column=0
+column=36
 encoding=UTF-8
 highlight=LaTeX
 line=0
 mode=LaTeX
-open=false
-order=4
+open=true
+order=5
 
 [item:capitulos/anexo2.tex]
 archive=true
-column=26
+column=68
 encoding=UTF-8
 highlight=LaTeX
-line=14
+line=52
 mode=LaTeX
 open=true
 order=4
@@ -186,20 +186,20 @@ order=3
 
 [item:capitulos/capitulo5.tex]
 archive=true
-column=10
+column=26
 encoding=UTF-8
 highlight=LaTeX
-line=524
+line=127
 mode=LaTeX
 open=true
 order=2
 
 [item:capitulos/capitulo6.tex]
 archive=true
-column=0
+column=46
 encoding=UTF-8
 highlight=LaTeX
-line=159
+line=207
 mode=LaTeX
 open=true
 order=3
@@ -279,7 +279,7 @@ archive=true
 column=25
 encoding=UTF-8
 highlight=LaTeX
-line=75
+line=16
 mode=LaTeX
 open=true
 order=0
@@ -297,16 +297,16 @@ JumpList=
 ViMarks=.,0,0,[,0,0,],-1,-1
 
 [view-settings,view=0,item:capitulos/anexo1.tex]
-CursorColumn=0
+CursorColumn=36
 CursorLine=0
 JumpList=
-ViMarks=.,371,53,[,371,53,],371,53
+ViMarks=.,384,36,[,384,36,],384,36
 
 [view-settings,view=0,item:capitulos/anexo2.tex]
-CursorColumn=26
-CursorLine=14
+CursorColumn=68
+CursorLine=52
 JumpList=
-ViMarks=.,14,10,[,14,10,],14,25
+ViMarks=.,7,0,[,7,0,],7,0
 
 [view-settings,view=0,item:capitulos/capitulo2.tex]
 CursorColumn=14
@@ -327,16 +327,16 @@ JumpList=
 ViMarks=.,439,138,[,440,0,],-1,-1
 
 [view-settings,view=0,item:capitulos/capitulo5.tex]
-CursorColumn=10
-CursorLine=524
+CursorColumn=26
+CursorLine=127
 JumpList=
-ViMarks=.,530,76,[,530,76,],530,123
+ViMarks=.,140,43,[,140,43,],140,43
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
-CursorColumn=0
-CursorLine=159
+CursorColumn=46
+CursorLine=207
 JumpList=
-ViMarks=.,178,50,[,178,0,],178,50
+ViMarks=.,202,13,[,202,10,],202,13
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=0
@@ -364,6 +364,6 @@ ViMarks=.,785,20,[,785,15,],785,20
 
 [view-settings,view=0,item:tcc.tex]
 CursorColumn=25
-CursorLine=75
+CursorLine=16
 JumpList=
-ViMarks=.,75,24,[,75,24,],75,24
+ViMarks=.,16,24,[,16,22,],16,24

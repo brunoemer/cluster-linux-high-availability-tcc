@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  7 SEP 2016 20:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  8 SEP 2016 22:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -983,25 +983,25 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 (./capitulos/conclusao.aux) (./capitulos/anexo1.aux) (./capitulos/anexo2.aux))
 \openout1 = `tcc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 41.
+(lastpage)             ! on input line 42.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1054,18 +1054,18 @@ Package epstopdf Info: Source file: <img/iilogo.eps>
 (epstopdf)                    size: 8456 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/iilogo-eps-converted-t
 o.pdf img/iilogo.eps>
-(epstopdf)             \includegraphics on input line 43.
+(epstopdf)             \includegraphics on input line 44.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/iilogo-eps-converted-to.pdf, id=1, 64.24pt x 101.37875pt>
 File: img/iilogo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/iilogo-eps-converted-to.pdf>
-Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 43.
+Package pdftex.def Info: img/iilogo-eps-converted-to.pdf used on input line 44.
 
 (pdftex.def)             Requested size: 32.11992pt x 50.68924pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--43
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
 
  []
 
@@ -1090,15 +1090,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ])
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 47.
+(Font)              size <17.28> substituted on input line 48.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 47.
+(Font)              size <17.28> substituted on input line 48.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 47.
+(Font)              size <17.28> substituted on input line 48.
 
 (./tcc.toc
 Underfull \hbox (badness 10000) in paragraph at lines 2--2
@@ -1188,17 +1188,17 @@ Overfull \hbox (51.75058pt too wide) detected at line 70
 \openout3 = `tcc.toc'.
 
  [3]
-Underfull \hbox (badness 10000) in alignment at lines 50--50
+Underfull \hbox (badness 10000) in alignment at lines 51--51
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 50--50
+Underfull \hbox (badness 10000) in alignment at lines 51--51
 [] []
  []
 
 
-Underfull \hbox (badness 10000) in alignment at lines 50--50
+Underfull \hbox (badness 10000) in alignment at lines 51--51
 [] []
  []
 
@@ -1988,10 +1988,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [50 <./img/servidores_brina_piova-eps-converted-to.pdf> <./img/projeto_estrutur
 a-eps-converted-to.pdf>]
-Overfull \hbox (3.17744pt too wide) in paragraph at lines 92--93
+Overfull \hbox (11.66347pt too wide) in paragraph at lines 92--93
 []\OT1/cmr/m/n/12 Executar co-mando \OT1/cmr/m/it/12 ping \OT1/cmr/m/n/12 e me-
-dir tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12 n
-o Ap^endice
+dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
+ no Ap^endice
  []
 
 
@@ -2005,22 +2005,22 @@ Overfull \hbox (13.36986pt too wide) in paragraph at lines 105--113
  []
 
 [51]
-Overfull \hbox (3.17744pt too wide) in paragraph at lines 132--133
+Overfull \hbox (11.66347pt too wide) in paragraph at lines 132--133
 []\OT1/cmr/m/n/12 Executar co-mando \OT1/cmr/m/it/12 ping \OT1/cmr/m/n/12 e me-
-dir tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12 n
-o Ap^endice
+dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
+ no Ap^endice
  []
 
 
-Overfull \hbox (73.67168pt too wide) in paragraph at lines 145--150
+Overfull \hbox (73.67168pt too wide) in paragraph at lines 146--151
  [] 
  []
 
 
-Overfull \hbox (3.17744pt too wide) in paragraph at lines 171--172
+Overfull \hbox (11.66347pt too wide) in paragraph at lines 176--177
 []\OT1/cmr/m/n/12 Executar co-mando \OT1/cmr/m/it/12 ping \OT1/cmr/m/n/12 e me-
-dir tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12 n
-o Ap^endice
+dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
+ no Ap^endice
  []
 
 
@@ -2029,7 +2029,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [52]
-Overfull \hbox (73.67168pt too wide) in paragraph at lines 185--190
+Overfull \hbox (73.67168pt too wide) in paragraph at lines 190--195
  [] 
  []
 
@@ -2161,18 +2161,17 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 38.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 30.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 38.
-
-Overfull \hbox (73.75778pt too wide) in paragraph at lines 38--39
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 39.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 62
@@ -2181,90 +2180,34 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [62
 
 
-]
-Overfull \hbox (87.85776pt too wide) in paragraph at lines 79--80
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][] 
- []
-
-[63]
-Overfull \hbox (24.40787pt too wide) in paragraph at lines 119--120
-[][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
+] [63]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 64
  []
 
 [64]
-Overfull \hbox (193.60757pt too wide) in paragraph at lines 215--216
+Overfull \hbox (151.37466pt too wide) in paragraph at lines 217--218
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [65]
-Overfull \hbox (116.05771pt too wide) in paragraph at lines 231--232
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (130.15768pt too wide) in paragraph at lines 274--275
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 66
  []
 
 [66]
-Overfull \hbox (52.60782pt too wide) in paragraph at lines 315--316
+Overfull \hbox (19.9733pt too wide) in paragraph at lines 317--318
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 [67]
-Overfull \hbox (10.30789pt too wide) in paragraph at lines 353--354
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (3.2579pt too wide) in paragraph at lines 354--355
-[][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (362.80728pt too wide) in paragraph at lines 357--358
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (278.20743pt too wide) in paragraph at lines 365--366
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (45.55783pt too wide) in paragraph at lines 367--368
+Overfull \hbox (13.40323pt too wide) in paragraph at lines 371--372
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (3.2579pt too wide) in paragraph at lines 368--369
-[][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (17.35788pt too wide) in paragraph at lines 369--370
-[][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (419.20718pt too wide) in paragraph at lines 380--381
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (257.05746pt too wide) in paragraph at lines 386--387
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+Overfull \hbox (6.83316pt too wide) in paragraph at lines 384--385
+[][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 )
@@ -2275,11 +2218,75 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [68]
 \openout2 = `capitulos/anexo2.aux'.
 
- (./capitulos/anexo2.tex) [69
+ (./capitulos/anexo2.tex
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 10.
+
+Underfull \vbox (badness 3536) has occurred while \output is active []
+
+ [69
 
 
 
-] 
+]
+Overfull \hbox (19.9733pt too wide) in paragraph at lines 53--54
+[][][][][] 
+ []
+
+
+Overfull \hbox (39.6835pt too wide) in paragraph at lines 56--57
+[][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (19.9733pt too wide) in paragraph at lines 60--62
+[][][][][] 
+ []
+
+
+Overfull \hbox (19.9733pt too wide) in paragraph at lines 79--80
+[][][][][] 
+ []
+
+
+Overfull \hbox (19.9733pt too wide) in paragraph at lines 91--92
+[][][][][] 
+ []
+
+
+Overfull \hbox (0.26309pt too wide) in paragraph at lines 95--96
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (33.11343pt too wide) in paragraph at lines 96--97
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 70
+ []
+
+[70]
+Overfull \hbox (33.11343pt too wide) in paragraph at lines 116--117
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (13.40323pt too wide) in paragraph at lines 117--118
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (19.9733pt too wide) in paragraph at lines 119--120
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+) [71] 
 AED: lastpage setting LastPage
 (./tcc.aux (./folha_rosto.aux) (./abstract.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux)
@@ -2292,30 +2299,31 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 16578 strings out of 495004
- 307612 string characters out of 6180662
- 392855 words of memory out of 5000000
- 19421 multiletter control sequences out of 15000+600000
- 11224 words of font info for 39 fonts, out of 8000000 for 9000
+ 16652 strings out of 495004
+ 308529 string characters out of 6180662
+ 404859 words of memory out of 5000000
+ 19494 multiletter control sequences out of 15000+600000
+ 12494 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,11n,57p,10374b,1643s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-
-Output written on tcc.pdf (70 pages, 2171384 bytes).
+ 62i,11n,57p,10374b,1736s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on tcc.pdf (72 pages, 2211372 bytes).
 PDF statistics:
- 398 PDF objects out of 1000 (max. 8388607)
- 253 compressed objects within 3 object streams
+ 412 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
