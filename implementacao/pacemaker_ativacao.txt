@@ -117,6 +117,8 @@ drbdadm primary vms
 
 service drbd status
 
+update-rc.d drbd disable
+
 # ocfs
 apt-get install ocfs2-tools
 
@@ -267,8 +269,11 @@ chmod 400 /etc/corosync/authkey
 # editar /etc/default/corosync
 START=yes
 
-# pacemaker no boot
-update-rc.d pacemaker defaults
+# pacemaker nao deixar boot, pois faz live migration quando no falhar e ocorre erro
+# deve desligar a vm para restaurar o node
+update-rc.d pacemaker disable
+# por seguranca adicionar ao /etc/rc.local
+crm node standby nome_node
 
 service corosync restart
 service pacemaker restart

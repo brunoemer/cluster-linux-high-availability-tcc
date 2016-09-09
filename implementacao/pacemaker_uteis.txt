@@ -86,3 +86,19 @@ crm_error -l
 cibadmin -Q
 
 
+### RECURAR FALHA DE UM NO
+#NAO PODE FAZER LIVE MIGRATION POIS DA ERRO
+#deve tirar o pacemaker do boot: update-rc.d pacemaker disable
+
+#brina: reboot
+#vai reiniciar sem pacemaker
+
+#piova - no que ficou online desligar as vms
+crm resource stop VM_TRAPEL
+
+#brina - retornar online para subir vms
+service pacemaker start
+crm node online brina.redesul.com.br
+crm resource start VM_TRAPEL
+
+

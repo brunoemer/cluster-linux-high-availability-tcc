@@ -36,6 +36,8 @@ if [ -f pacemaker_reboot.tmp ]; then
 		logger "Online $NODE"
 		crm node online $NODE
 		rm pacemaker_reboot.tmp
+	else
+		service pacemaker start
 	fi
 else
 # ------------------------------------------------------------------
