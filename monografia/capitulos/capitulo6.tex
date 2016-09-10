@@ -137,8 +137,11 @@ O procedimento deste teste é o seguinte:
 \end{itemize}
 
 Este roteiro foi executado 2 vezes em cada nó semanalmente, durante 2 semanas. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
-% crontab: 
 % 12/09 a 26/09
+% crontab brina:
+% */10 04 * * 2 /usr/local/sbin/script_pacemaker_manutencao.sh
+% crontab piova:
+% */10 04 * * 4 /usr/local/sbin/script_pacemaker_manutencao.sh
 
 \begin{table}[h!]
 \caption{Resultados do teste 2.}
@@ -153,7 +156,7 @@ Servidor virtual & & & & & \\\hline
 \end{table}
 
 Pode-se observar que não houve \textit{downtime} na máquina virtual, e consequentemente nos serviços.
-Porém, tem-se uma latência maior durante \textit{live migration}...
+Porém, tem-se uma latência maior durante o \textit{live migration}...
 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
 A Figura X demonstra a disponibilidade da máquina virtual (a) e dos nós (b), esses dados foram retirados da ferramenta de monitoramento da empresa,
