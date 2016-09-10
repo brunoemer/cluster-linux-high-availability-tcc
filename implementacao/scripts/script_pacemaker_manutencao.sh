@@ -27,7 +27,9 @@ if [ $NAG -ne 0 ]; then
 fi
 
 #se ja reiniciou nao executa
-if [ `awk '{print $1}' /proc/uptime` -lt 86400 ]; then
+UPTIME=`awk '{print $1}' /proc/uptime`
+UPINT=${UPTIME%.*}
+if [ $UPINT -lt 86400 ]; then
 	logger "Ja reiniciado"
 	exit
 fi
