@@ -36,6 +36,7 @@ drbdadm disconnect vms
 drbdadm invalidate vms
 drbdadm connect --discard-my-data vms
 
+
 ### RECURAR FALHA DE REDE
 # problema drbd split brain
 https://www.hastexo.com/resources/hints-and-kinks/solve-drbd-split-brain-4-steps/
@@ -67,6 +68,26 @@ crm node ready brina.redesul.com.br
 crm node online brina.redesul.com.br
 crm node online piova.redesul.com.br
 
+#erro mount ocfs, limpar
+crm resource cleanup OCFS_MOUNT
+
+
+### RECURAR FALHA DE UM NO
+#NAO PODE FAZER LIVE MIGRATION POIS DA ERRO
+#deve tirar o pacemaker do boot: update-rc.d pacemaker disable
+
+#brina: reboot
+#vai reiniciar sem pacemaker
+
+#piova - no que ficou online desligar as vms
+crm resource stop VM_TRAPEL
+
+#brina - retornar online para subir vms
+service pacemaker start
+crm node online brina.redesul.com.br
+crm resource start VM_TRAPEL
+
+
 ### OUTROS
 #ver scores 
 crm_simulate -L -s
@@ -84,21 +105,5 @@ crm_error -l
 
 # ver configuracao cib
 cibadmin -Q
-
-
-### RECURAR FALHA DE UM NO
-#NAO PODE FAZER LIVE MIGRATION POIS DA ERRO
-#deve tirar o pacemaker do boot: update-rc.d pacemaker disable
-
-#brina: reboot
-#vai reiniciar sem pacemaker
-
-#piova - no que ficou online desligar as vms
-crm resource stop VM_TRAPEL
-
-#brina - retornar online para subir vms
-service pacemaker start
-crm node online brina.redesul.com.br
-crm resource start VM_TRAPEL
 
 
