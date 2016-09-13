@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  12 SEP 2016 21:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  12 SEP 2016 23:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2022,7 +2022,7 @@ Overfull \hbox (73.67168pt too wide) in paragraph at lines 154--159
  []
 
 
-Overfull \hbox (11.66347pt too wide) in paragraph at lines 185--186
+Overfull \hbox (11.66347pt too wide) in paragraph at lines 187--188
 []\OT1/cmr/m/n/12 Executar co-mando \OT1/cmr/m/it/12 ping \OT1/cmr/m/n/12 e me-
 dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
  no Ap^endice
@@ -2034,12 +2034,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [52]
-Underfull \hbox (badness 2894) in paragraph at lines 201--201
+Underfull \hbox (badness 2894) in paragraph at lines 203--203
 []\OT1/cmr/bx/n/8 M^^Sedia do per-
  []
 
 
-Overfull \hbox (73.67168pt too wide) in paragraph at lines 200--205
+Overfull \hbox (73.67168pt too wide) in paragraph at lines 202--207
  [] 
  []
 
@@ -2330,7 +2330,7 @@ mssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (72 pages, 2211696 bytes).
+Output written on tcc.pdf (72 pages, 2211811 bytes).
 PDF statistics:
  412 PDF objects out of 1000 (max. 8388607)
  263 compressed objects within 3 object streams
