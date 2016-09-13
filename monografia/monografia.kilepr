@@ -196,10 +196,10 @@ order=2
 
 [item:capitulos/capitulo6.tex]
 archive=true
-column=0
+column=178
 encoding=UTF-8
 highlight=LaTeX
-line=148
+line=165
 mode=LaTeX
 open=true
 order=3
@@ -333,10 +333,10 @@ JumpList=
 ViMarks=.,512,54,[,512,54,],512,54
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
-CursorColumn=0
-CursorLine=148
+CursorColumn=178
+CursorLine=165
 JumpList=
-ViMarks=.,145,87,[,145,87,],145,87
+ViMarks=.,165,172,[,165,172,],165,172
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=0
