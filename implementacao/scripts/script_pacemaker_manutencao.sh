@@ -42,7 +42,7 @@ if [ -f pacemaker_reboot.tmp ]; then
 	PACEMAKER_ST=$?
 	if [ $PACEMAKER_ST -eq 0 ]; then
 		logger "Online $NODE"
-		crm node online $NODE
+		/usr/sbin/crm node online $NODE
 		rm pacemaker_reboot.tmp
 	else
 		service pacemaker start
@@ -51,9 +51,9 @@ else
 # ------------------------------------------------------------------
 #destroy - derruba node para reiniciar
 	#se outro node esta online
-	RES_CHECK=$(crm resource show $ONLINE_CHECK_RES)
-	NODE_LIST=$(crm_node -l |awk '{print $2}' |grep -v $NODE)
-	NODES_N=$(crm_node -l |awk '{print $2}' |grep -v $NODE |wc -l)
+	RES_CHECK=$(/usr/sbin/crm resource show $ONLINE_CHECK_RES)
+	NODE_LIST=$(/usr/sbin/crm_node -l |awk '{print $2}' |grep -v $NODE)
+	NODES_N=$(/usr/sbin/crm_node -l |awk '{print $2}' |grep -v $NODE |wc -l)
 	NODES_ON=0
 	for row in $NODE_LIST; do
 		RES_ON=$(echo "$RES_CHECK" |grep "$row")
@@ -69,11 +69,11 @@ else
 
 	#desativa servicos do node
 	logger "Standby $NODE"
-	crm node standby $NODE
+	/usr/sbin/crm node standby "$NODE"
 
 	#aguarda node ficar livre, vms down e drbd down
 	while :; do
-		RES_CHECK_DRBD=$(crm resource show $STANDBY_CHECK_RES)
+		RES_CHECK_DRBD=$(/usr/sbin/crm resource show $STANDBY_CHECK_RES)
 		RES_DRBD_ON=$(echo "$RES_CHECK_DRBD" |grep "$NODE")
 		VMS_NUM=$(virsh list --name |wc -l)
 	        if [ -z "$RES_DRBD_ON" ] && [ $VMS_NUM -le 1 ]; then

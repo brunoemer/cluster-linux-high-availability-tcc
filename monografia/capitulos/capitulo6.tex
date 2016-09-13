@@ -97,6 +97,7 @@ O procedimento deste teste é o seguinte:
 
 Este procedimento foi executado 4 vezes para possibilitar o cálculo da média, sendo que este foi aplicado 2 vezes em cada nó. Deste modo, 
 criou-se a Tabela \ref{tab:teste1resultados} a qual possui os dados resultantes dos testes e das medições efetuada sobre a máquina virtual.
+% 15/09
 
 \begin{table}[h!]
 \caption{Resultados do teste 1 com servidor virtual.}
@@ -136,16 +137,17 @@ O procedimento deste teste é o seguinte:
 
 Este roteiro foi executado 2 vezes por semana em cada nó, durante 2 semanas. Para sua execução dos \textit{scripts} foi utilizada a ferramenta 
 \textit{crontab} do \textit{Linux}. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
-% 12/09 a 26/09
+% 17/09 a 30/09
 % crontab brina:
 % */10 04 * * 2 /usr/local/sbin/script_pacemaker_manutencao.sh
 % crontab piova:
 % */10 04 * * 4 /usr/local/sbin/script_pacemaker_manutencao.sh
 % crontab monit:
-%59 03 * * 2 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.14 1
-%59 03 * * 2 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 1
+%59 03 * * 2 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.14 3
+%59 03 * * 2 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 3
 %59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.6 2
 %59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 2
+
 
 \begin{table}[h!]
 \caption{Resultados do teste 2.}
@@ -165,6 +167,7 @@ Porém, tem-se uma latência maior durante o processo de \textit{live migration}
 ...grafico latencia
 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
+%grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 12/09 a 26/09 + Include Soft States = yes
 A Figura X demonstra a disponibilidade da máquina virtual (a) e dos nós (b), esses dados foram retirados da ferramenta de monitoramento da empresa,
 \textit{Nagios}. Comparando os gráficos pode-se perceber a diferença do \textit{uptime} entre servidores físicos e o virtual.
 %%figura

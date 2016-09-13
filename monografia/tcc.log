@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  12 SEP 2016 23:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  13 SEP 2016 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2012,17 +2012,17 @@ dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
  []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 155--155
+Underfull \hbox (badness 2894) in paragraph at lines 156--156
 []\OT1/cmr/bx/n/8 M^^Sedia do per-
  []
 
 
-Overfull \hbox (73.67168pt too wide) in paragraph at lines 154--159
+Overfull \hbox (73.67168pt too wide) in paragraph at lines 155--160
  [] 
  []
 
 
-Overfull \hbox (11.66347pt too wide) in paragraph at lines 187--188
+Overfull \hbox (11.66347pt too wide) in paragraph at lines 189--190
 []\OT1/cmr/m/n/12 Executar co-mando \OT1/cmr/m/it/12 ping \OT1/cmr/m/n/12 e me-
 dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
  no Ap^endice
@@ -2034,12 +2034,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [52]
-Underfull \hbox (badness 2894) in paragraph at lines 203--203
+Underfull \hbox (badness 2894) in paragraph at lines 205--205
 []\OT1/cmr/bx/n/8 M^^Sedia do per-
  []
 
 
-Overfull \hbox (73.67168pt too wide) in paragraph at lines 202--207
+Overfull \hbox (73.67168pt too wide) in paragraph at lines 204--209
  [] 
  []
 
