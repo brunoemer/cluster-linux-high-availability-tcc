@@ -160,7 +160,7 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \section{Proposta de solução?}
 \label{section:propostasolucao}
 
-Para implementação desta solução serão necessários dois servidores físicos, sendo que a configuração de cada servidor deverá ser de 
+Para implementação desta solução foram necessários dois servidores físicos, sendo que a configuração ideal de cada servidor é de 
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
 recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos. Com essa solução, caso ocorra alguma falha 
@@ -510,7 +510,7 @@ o serviço de banco de dados parar por uma falha qualquer, ele será iniciado no
 \label{section:gerenciadorescolhido}
 
 Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
-O \textit{software} adotado para gerenciar o ambiente será o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
+O \textit{software} adotado para gerenciar o ambiente é o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
 \textit{cluster} de alta disponibilidade utilizando virtualização. A principal e fundamental característica é o \textit{failover} automático
 dos nós, pode-se perceber na tabela que o \textit{Pacemaker} é o único que suporta isto. Além disso, ele possui suporte a migração em tempo real, 
 que pode ser utilizada para manutenções. Esse \textit{software} é o único que possui a característica de sincronismo de configuração entre todos 

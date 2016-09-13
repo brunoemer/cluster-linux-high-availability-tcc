@@ -128,20 +128,24 @@ Reinicializações são necessárias para manutenções de \textit{hardware}, at
 
 O procedimento deste teste é o seguinte:
 \begin{itemize}
- \item Acessar o terminal do servidor de monitoramento;
  \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
- \item Acessar o terminal do nó que esta sendo feita a manutenção;
- \item Executar o \textit{script} que desativa o nó (\textit{standby}) e executa o \textit{reboot} (Apêndice \ref{ap:scriptmanutencao});
+ \item Executar o \textit{script} que desativa o nó (comando \textit{standby}) e executa o \textit{reboot} (Apêndice \ref{ap:scriptmanutencao});
  \item Após retorno do nó executar novamente o \textit{script} anterior para retorno do nó ao \textit{cluster};
  \item Finalizar a medição do tempo e \textit{ping}.
 \end{itemize}
 
-Este roteiro foi executado 2 vezes em cada nó semanalmente, durante 2 semanas. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
+Este roteiro foi executado 2 vezes por semana em cada nó, durante 2 semanas. Para sua execução dos \textit{scripts} foi utilizada a ferramenta 
+\textit{crontab} do \textit{Linux}. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
 % 12/09 a 26/09
 % crontab brina:
 % */10 04 * * 2 /usr/local/sbin/script_pacemaker_manutencao.sh
 % crontab piova:
 % */10 04 * * 4 /usr/local/sbin/script_pacemaker_manutencao.sh
+% crontab monit:
+% 59 03 * * 2 cd /root/pacemaker/teste2/; /root/indisponibilidade.sh 186.195.16.14 1?
+% 59 03 * * 2 cd /root/pacemaker/teste2/; /root/indisponibilidade.sh 186.195.16.13 1
+% 59 03 * * 4 cd /root/pacemaker/teste2/; /root/indisponibilidade.sh 186.195.16.6 2
+% 59 03 * * 4 cd /root/pacemaker/teste2/; /root/indisponibilidade.sh 186.195.16.13 2
 
 \begin{table}[h!]
 \caption{Resultados do teste 2.}
@@ -156,12 +160,13 @@ Servidor virtual & & & & & \\\hline
 \end{table}
 
 Pode-se observar que não houve \textit{downtime} na máquina virtual, e consequentemente nos serviços.
-Porém, tem-se uma latência maior durante o \textit{live migration}...
+Porém, tem-se uma latência maior durante o processo de \textit{live migration}.
 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
 A Figura X demonstra a disponibilidade da máquina virtual (a) e dos nós (b), esses dados foram retirados da ferramenta de monitoramento da empresa,
 \textit{Nagios}. Comparando os gráficos pode-se perceber a diferença do \textit{uptime} entre servidores físicos e o virtual.
 %%figura
+...
 
 %log do pacemaker
 O processo de \textit{standby} feito pelo \textit{Pacemaker} está detalhado no \textit{log} abaixo:
@@ -171,7 +176,7 @@ O processo de \textit{standby} feito pelo \textit{Pacemaker} está detalhado no 
 %Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
 %simulação de falha de software ou manutenção emergencial
 
-Esse teste simula falhas de \textit{software} no nó do \textit{cluster}, como por exemplo do \textit{software} de virtualização. Esse tipo de 
+Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, como por exemplo do \textit{software} de virtualização. Esse tipo de 
 situação também pode ser necessário em uma manutenção emergencial, onde, por exemplo, é preciso desligar o servidor.
 
 O procedimento deste teste é o seguinte:
@@ -194,8 +199,8 @@ demonstra os dados do servidor físico e do virtual.
 \begin{center}
 \begin{tabular}{|l|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
 \textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
-Servidor físico & 260,53? & 261 & 60,75 & 14,98 ms & 152,75 segundos \\\hline
-Servidor virtual & 156,98? & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hline
+Servidor físico & 260,53 & 261 & 60,75 & 14,98 ms & 152,75 segundos \\\hline
+Servidor virtual & 156,98 & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hline
 \end{tabular}
 \end{center}
 \end{table}
