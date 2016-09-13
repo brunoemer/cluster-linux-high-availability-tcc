@@ -142,10 +142,11 @@ Este roteiro foi executado 2 vezes por semana em cada nó, durante 2 semanas. Pa
 % crontab piova:
 % */10 04 * * 4 /usr/local/sbin/script_pacemaker_manutencao.sh
 % crontab monit:
-% 59 03 * * 2 cd /root/pacemaker/teste2/; /root/indisponibilidade.sh 186.195.16.14 1?
-% 59 03 * * 2 cd /root/pacemaker/teste2/; /root/indisponibilidade.sh 186.195.16.13 1
-% 59 03 * * 4 cd /root/pacemaker/teste2/; /root/indisponibilidade.sh 186.195.16.6 2
-% 59 03 * * 4 cd /root/pacemaker/teste2/; /root/indisponibilidade.sh 186.195.16.13 2
+%59 03 * * 2 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.14 1
+%59 03 * * 2 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 1
+%59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.6 2
+%59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 2
+
 
 \begin{table}[h!]
 \caption{Resultados do teste 2.}

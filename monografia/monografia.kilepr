@@ -116,12 +116,12 @@ Mode=LaTeX
 
 [item:abstract.tex]
 archive=true
-column=0
+column=38
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=11
 mode=LaTeX
-open=false
+open=true
 order=1
 
 [item:acronym.tex]
@@ -141,17 +141,17 @@ encoding=UTF-8
 highlight=LaTeX
 line=0
 mode=LaTeX
-open=true
+open=false
 order=5
 
 [item:capitulos/anexo2.tex]
 archive=true
-column=6
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=42
+line=0
 mode=LaTeX
-open=true
+open=false
 order=4
 
 [item:capitulos/capitulo2.tex]
@@ -199,7 +199,7 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=114
+line=148
 mode=LaTeX
 open=true
 order=3
@@ -221,7 +221,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=59
 mode=LaTeX
-open=true
+open=false
 order=1
 
 [item:folha_rosto.tex]
@@ -334,9 +334,9 @@ ViMarks=.,512,54,[,512,54,],512,54
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
 CursorColumn=0
-CursorLine=114
+CursorLine=148
 JumpList=
-ViMarks=.,168,2,[,168,0,],168,2
+ViMarks=.,145,87,[,145,87,],145,87
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=0
