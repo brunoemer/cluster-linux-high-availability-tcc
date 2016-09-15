@@ -90,7 +90,7 @@ else
 
 	#reinicia node
 	logger "Rebooting..."
-	reboot
+	/sbin/reboot
 
 fi
 
