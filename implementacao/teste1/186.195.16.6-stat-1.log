@@ -1,0 +1,226 @@
+PING 186.195.16.6 (186.195.16.6) 56(84) bytes of data.
+64 bytes from 186.195.16.6: icmp_req=1 ttl=64 time=0.220 ms
+64 bytes from 186.195.16.6: icmp_req=2 ttl=64 time=0.190 ms
+64 bytes from 186.195.16.6: icmp_req=3 ttl=64 time=0.184 ms
+64 bytes from 186.195.16.6: icmp_req=4 ttl=64 time=0.175 ms
+64 bytes from 186.195.16.6: icmp_req=5 ttl=64 time=0.100 ms
+64 bytes from 186.195.16.6: icmp_req=6 ttl=64 time=0.168 ms
+64 bytes from 186.195.16.6: icmp_req=7 ttl=64 time=0.168 ms
+64 bytes from 186.195.16.6: icmp_req=8 ttl=64 time=0.123 ms
+64 bytes from 186.195.16.6: icmp_req=9 ttl=64 time=0.182 ms
+64 bytes from 186.195.16.6: icmp_req=10 ttl=64 time=0.213 ms
+64 bytes from 186.195.16.6: icmp_req=11 ttl=64 time=0.190 ms
+64 bytes from 186.195.16.6: icmp_req=12 ttl=64 time=0.198 ms
+64 bytes from 186.195.16.6: icmp_req=13 ttl=64 time=0.172 ms
+64 bytes from 186.195.16.6: icmp_req=14 ttl=64 time=0.171 ms
+From 186.195.16.22 icmp_seq=66 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=67 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=68 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=69 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=70 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=71 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=72 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=73 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=75 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=76 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=77 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=78 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=79 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=80 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=81 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=82 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=83 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=84 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=85 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=87 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=88 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=89 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=90 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=91 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=92 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=93 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=94 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=95 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=96 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=97 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=99 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=100 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=101 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=102 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=103 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=104 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=105 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=106 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=107 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=108 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=109 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=111 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=112 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=113 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=114 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=115 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=116 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=117 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=118 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=119 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=120 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=121 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=123 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=124 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=125 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=126 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=127 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=128 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=129 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=130 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=131 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=132 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=133 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=135 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=136 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=137 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=138 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=139 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=140 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=141 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=142 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=144 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=145 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=146 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=147 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=148 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=149 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=150 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=151 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=152 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=153 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=154 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=156 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=157 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=158 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=159 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=160 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=161 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=162 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=163 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=164 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=165 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=166 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=169 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=170 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=171 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=172 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=173 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=174 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=175 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=178 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=179 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=180 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=181 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=182 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=183 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=184 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=186 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=187 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=189 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=190 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=191 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=192 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=193 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=194 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=195 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=196 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=197 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=198 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=199 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=201 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=202 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=203 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=204 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=205 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=208 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=209 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=210 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=211 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=214 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=215 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=216 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=217 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=218 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=219 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=220 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=222 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=223 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=224 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=225 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=226 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=227 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=228 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=229 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=232 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=234 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=235 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=237 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=238 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=239 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=240 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=241 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=242 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=243 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=244 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=246 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=247 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=248 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=249 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=250 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=251 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=252 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=253 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=254 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=255 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=256 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=259 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=261 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=262 Destination Host Unreachable
+64 bytes from 186.195.16.6: icmp_req=263 ttl=64 time=1768 ms
+64 bytes from 186.195.16.6: icmp_req=264 ttl=64 time=768 ms
+64 bytes from 186.195.16.6: icmp_req=265 ttl=64 time=0.108 ms
+64 bytes from 186.195.16.6: icmp_req=266 ttl=64 time=0.087 ms
+64 bytes from 186.195.16.6: icmp_req=267 ttl=64 time=0.145 ms
+64 bytes from 186.195.16.6: icmp_req=268 ttl=64 time=0.235 ms
+64 bytes from 186.195.16.6: icmp_req=269 ttl=64 time=0.145 ms
+64 bytes from 186.195.16.6: icmp_req=270 ttl=64 time=0.135 ms
+64 bytes from 186.195.16.6: icmp_req=271 ttl=64 time=0.220 ms
+64 bytes from 186.195.16.6: icmp_req=272 ttl=64 time=0.229 ms
+64 bytes from 186.195.16.6: icmp_req=273 ttl=64 time=0.206 ms
+64 bytes from 186.195.16.6: icmp_req=274 ttl=64 time=0.214 ms
+64 bytes from 186.195.16.6: icmp_req=275 ttl=64 time=0.191 ms
+64 bytes from 186.195.16.6: icmp_req=276 ttl=64 time=0.196 ms
+64 bytes from 186.195.16.6: icmp_req=277 ttl=64 time=0.183 ms
+64 bytes from 186.195.16.6: icmp_req=278 ttl=64 time=0.195 ms
+64 bytes from 186.195.16.6: icmp_req=279 ttl=64 time=0.210 ms
+64 bytes from 186.195.16.6: icmp_req=280 ttl=64 time=0.230 ms
+64 bytes from 186.195.16.6: icmp_req=281 ttl=64 time=0.237 ms
+64 bytes from 186.195.16.6: icmp_req=282 ttl=64 time=0.192 ms
+64 bytes from 186.195.16.6: icmp_req=283 ttl=64 time=0.163 ms
+64 bytes from 186.195.16.6: icmp_req=284 ttl=64 time=0.212 ms
+64 bytes from 186.195.16.6: icmp_req=285 ttl=64 time=0.100 ms
+64 bytes from 186.195.16.6: icmp_req=286 ttl=64 time=0.141 ms
+64 bytes from 186.195.16.6: icmp_req=287 ttl=64 time=0.162 ms
+64 bytes from 186.195.16.6: icmp_req=288 ttl=64 time=0.122 ms
+64 bytes from 186.195.16.6: icmp_req=289 ttl=64 time=0.174 ms
+64 bytes from 186.195.16.6: icmp_req=290 ttl=64 time=0.139 ms
+64 bytes from 186.195.16.6: icmp_req=291 ttl=64 time=0.167 ms
+64 bytes from 186.195.16.6: icmp_req=292 ttl=64 time=0.167 ms
+64 bytes from 186.195.16.6: icmp_req=293 ttl=64 time=0.173 ms
+64 bytes from 186.195.16.6: icmp_req=294 ttl=64 time=0.161 ms
+64 bytes from 186.195.16.6: icmp_req=295 ttl=64 time=0.184 ms
+64 bytes from 186.195.16.6: icmp_req=296 ttl=64 time=0.172 ms
+64 bytes from 186.195.16.6: icmp_req=297 ttl=64 time=0.210 ms
+64 bytes from 186.195.16.6: icmp_req=298 ttl=64 time=0.168 ms
+64 bytes from 186.195.16.6: icmp_req=299 ttl=64 time=0.178 ms
+64 bytes from 186.195.16.6: icmp_req=300 ttl=64 time=0.207 ms
+
+--- 186.195.16.6 ping statistics ---
+300 packets transmitted, 52 received, +169 errors, 82% packet loss, time 299994ms
+rtt min/avg/max/mdev = 0.087/48.940/1768.008/262.797 ms, pipe 3

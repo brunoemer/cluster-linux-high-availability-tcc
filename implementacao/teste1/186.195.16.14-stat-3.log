@@ -1,0 +1,245 @@
+PING 186.195.16.14 (186.195.16.14) 56(84) bytes of data.
+64 bytes from 186.195.16.14: icmp_req=1 ttl=64 time=0.158 ms
+64 bytes from 186.195.16.14: icmp_req=2 ttl=64 time=0.113 ms
+64 bytes from 186.195.16.14: icmp_req=3 ttl=64 time=0.113 ms
+64 bytes from 186.195.16.14: icmp_req=4 ttl=64 time=0.125 ms
+64 bytes from 186.195.16.14: icmp_req=5 ttl=64 time=0.104 ms
+64 bytes from 186.195.16.14: icmp_req=6 ttl=64 time=0.118 ms
+64 bytes from 186.195.16.14: icmp_req=7 ttl=64 time=0.112 ms
+64 bytes from 186.195.16.14: icmp_req=8 ttl=64 time=0.120 ms
+64 bytes from 186.195.16.14: icmp_req=9 ttl=64 time=0.123 ms
+64 bytes from 186.195.16.14: icmp_req=10 ttl=64 time=0.117 ms
+64 bytes from 186.195.16.14: icmp_req=11 ttl=64 time=0.126 ms
+64 bytes from 186.195.16.14: icmp_req=12 ttl=64 time=0.313 ms
+64 bytes from 186.195.16.14: icmp_req=13 ttl=64 time=0.118 ms
+64 bytes from 186.195.16.14: icmp_req=14 ttl=64 time=0.130 ms
+64 bytes from 186.195.16.14: icmp_req=15 ttl=64 time=0.122 ms
+64 bytes from 186.195.16.14: icmp_req=16 ttl=64 time=0.123 ms
+64 bytes from 186.195.16.14: icmp_req=17 ttl=64 time=0.331 ms
+64 bytes from 186.195.16.14: icmp_req=18 ttl=64 time=0.118 ms
+64 bytes from 186.195.16.14: icmp_req=19 ttl=64 time=0.129 ms
+64 bytes from 186.195.16.14: icmp_req=20 ttl=64 time=0.126 ms
+64 bytes from 186.195.16.14: icmp_req=21 ttl=64 time=0.261 ms
+64 bytes from 186.195.16.14: icmp_req=22 ttl=64 time=0.135 ms
+64 bytes from 186.195.16.14: icmp_req=23 ttl=64 time=0.192 ms
+64 bytes from 186.195.16.14: icmp_req=24 ttl=64 time=0.129 ms
+From 186.195.16.22 icmp_seq=72 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=74 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=75 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=76 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=77 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=78 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=79 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=80 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=81 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=82 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=83 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=84 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=86 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=87 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=89 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=90 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=91 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=92 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=93 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=94 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=95 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=96 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=98 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=99 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=100 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=101 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=102 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=104 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=105 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=106 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=107 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=108 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=111 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=112 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=113 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=114 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=115 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=116 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=117 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=119 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=120 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=121 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=122 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=123 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=124 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=125 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=126 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=127 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=128 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=129 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=131 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=132 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=135 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=136 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=137 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=138 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=139 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=140 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=141 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=144 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=145 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=146 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=147 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=148 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=149 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=150 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=152 Destination Host Unreachable
+From 186.195.16.22 icmp_seq=153 Destination Host Unreachable
+64 bytes from 186.195.16.14: icmp_req=154 ttl=64 time=1303 ms
+64 bytes from 186.195.16.14: icmp_req=155 ttl=64 time=294 ms
+64 bytes from 186.195.16.14: icmp_req=156 ttl=64 time=0.136 ms
+64 bytes from 186.195.16.14: icmp_req=157 ttl=64 time=0.200 ms
+64 bytes from 186.195.16.14: icmp_req=158 ttl=64 time=0.152 ms
+64 bytes from 186.195.16.14: icmp_req=159 ttl=64 time=0.158 ms
+64 bytes from 186.195.16.14: icmp_req=160 ttl=64 time=0.143 ms
+64 bytes from 186.195.16.14: icmp_req=161 ttl=64 time=0.137 ms
+64 bytes from 186.195.16.14: icmp_req=162 ttl=64 time=0.155 ms
+64 bytes from 186.195.16.14: icmp_req=163 ttl=64 time=0.145 ms
+64 bytes from 186.195.16.14: icmp_req=164 ttl=64 time=0.137 ms
+64 bytes from 186.195.16.14: icmp_req=165 ttl=64 time=0.202 ms
+64 bytes from 186.195.16.14: icmp_req=166 ttl=64 time=0.133 ms
+64 bytes from 186.195.16.14: icmp_req=167 ttl=64 time=0.139 ms
+64 bytes from 186.195.16.14: icmp_req=168 ttl=64 time=0.193 ms
+64 bytes from 186.195.16.14: icmp_req=169 ttl=64 time=0.206 ms
+64 bytes from 186.195.16.14: icmp_req=170 ttl=64 time=0.222 ms
+64 bytes from 186.195.16.14: icmp_req=171 ttl=64 time=0.200 ms
+64 bytes from 186.195.16.14: icmp_req=172 ttl=64 time=0.157 ms
+64 bytes from 186.195.16.14: icmp_req=173 ttl=64 time=0.261 ms
+64 bytes from 186.195.16.14: icmp_req=174 ttl=64 time=0.199 ms
+64 bytes from 186.195.16.14: icmp_req=175 ttl=64 time=0.213 ms
+64 bytes from 186.195.16.14: icmp_req=176 ttl=64 time=0.210 ms
+64 bytes from 186.195.16.14: icmp_req=177 ttl=64 time=0.285 ms
+64 bytes from 186.195.16.14: icmp_req=178 ttl=64 time=0.211 ms
+64 bytes from 186.195.16.14: icmp_req=179 ttl=64 time=0.152 ms
+64 bytes from 186.195.16.14: icmp_req=180 ttl=64 time=0.161 ms
+64 bytes from 186.195.16.14: icmp_req=181 ttl=64 time=0.144 ms
+64 bytes from 186.195.16.14: icmp_req=182 ttl=64 time=0.189 ms
+64 bytes from 186.195.16.14: icmp_req=183 ttl=64 time=0.201 ms
+64 bytes from 186.195.16.14: icmp_req=184 ttl=64 time=0.147 ms
+64 bytes from 186.195.16.14: icmp_req=185 ttl=64 time=0.172 ms
+64 bytes from 186.195.16.14: icmp_req=186 ttl=64 time=0.158 ms
+64 bytes from 186.195.16.14: icmp_req=187 ttl=64 time=0.188 ms
+64 bytes from 186.195.16.14: icmp_req=188 ttl=64 time=0.187 ms
+64 bytes from 186.195.16.14: icmp_req=189 ttl=64 time=0.198 ms
+64 bytes from 186.195.16.14: icmp_req=190 ttl=64 time=0.134 ms
+64 bytes from 186.195.16.14: icmp_req=191 ttl=64 time=0.157 ms
+64 bytes from 186.195.16.14: icmp_req=192 ttl=64 time=0.135 ms
+64 bytes from 186.195.16.14: icmp_req=193 ttl=64 time=0.141 ms
+64 bytes from 186.195.16.14: icmp_req=194 ttl=64 time=0.142 ms
+64 bytes from 186.195.16.14: icmp_req=195 ttl=64 time=0.147 ms
+64 bytes from 186.195.16.14: icmp_req=196 ttl=64 time=0.131 ms
+64 bytes from 186.195.16.14: icmp_req=197 ttl=64 time=0.145 ms
+64 bytes from 186.195.16.14: icmp_req=198 ttl=64 time=0.137 ms
+64 bytes from 186.195.16.14: icmp_req=199 ttl=64 time=0.154 ms
+64 bytes from 186.195.16.14: icmp_req=200 ttl=64 time=0.154 ms
+64 bytes from 186.195.16.14: icmp_req=201 ttl=64 time=0.165 ms
+64 bytes from 186.195.16.14: icmp_req=202 ttl=64 time=0.139 ms
+64 bytes from 186.195.16.14: icmp_req=203 ttl=64 time=0.140 ms
+64 bytes from 186.195.16.14: icmp_req=204 ttl=64 time=0.140 ms
+64 bytes from 186.195.16.14: icmp_req=205 ttl=64 time=0.149 ms
+64 bytes from 186.195.16.14: icmp_req=206 ttl=64 time=0.142 ms
+64 bytes from 186.195.16.14: icmp_req=207 ttl=64 time=0.147 ms
+64 bytes from 186.195.16.14: icmp_req=208 ttl=64 time=0.145 ms
+64 bytes from 186.195.16.14: icmp_req=209 ttl=64 time=0.163 ms
+64 bytes from 186.195.16.14: icmp_req=210 ttl=64 time=0.158 ms
+64 bytes from 186.195.16.14: icmp_req=211 ttl=64 time=0.136 ms
+64 bytes from 186.195.16.14: icmp_req=212 ttl=64 time=0.142 ms
+64 bytes from 186.195.16.14: icmp_req=213 ttl=64 time=0.154 ms
+64 bytes from 186.195.16.14: icmp_req=214 ttl=64 time=0.156 ms
+64 bytes from 186.195.16.14: icmp_req=215 ttl=64 time=0.175 ms
+64 bytes from 186.195.16.14: icmp_req=216 ttl=64 time=0.142 ms
+64 bytes from 186.195.16.14: icmp_req=217 ttl=64 time=0.139 ms
+64 bytes from 186.195.16.14: icmp_req=218 ttl=64 time=0.134 ms
+64 bytes from 186.195.16.14: icmp_req=219 ttl=64 time=0.144 ms
+64 bytes from 186.195.16.14: icmp_req=220 ttl=64 time=0.155 ms
+64 bytes from 186.195.16.14: icmp_req=221 ttl=64 time=0.149 ms
+64 bytes from 186.195.16.14: icmp_req=222 ttl=64 time=0.141 ms
+64 bytes from 186.195.16.14: icmp_req=223 ttl=64 time=0.143 ms
+64 bytes from 186.195.16.14: icmp_req=224 ttl=64 time=0.144 ms
+64 bytes from 186.195.16.14: icmp_req=225 ttl=64 time=0.136 ms
+64 bytes from 186.195.16.14: icmp_req=226 ttl=64 time=0.124 ms
+64 bytes from 186.195.16.14: icmp_req=227 ttl=64 time=0.132 ms
+64 bytes from 186.195.16.14: icmp_req=228 ttl=64 time=0.140 ms
+64 bytes from 186.195.16.14: icmp_req=229 ttl=64 time=0.140 ms
+64 bytes from 186.195.16.14: icmp_req=230 ttl=64 time=0.179 ms
+64 bytes from 186.195.16.14: icmp_req=231 ttl=64 time=0.144 ms
+64 bytes from 186.195.16.14: icmp_req=232 ttl=64 time=0.143 ms
+64 bytes from 186.195.16.14: icmp_req=233 ttl=64 time=0.145 ms
+64 bytes from 186.195.16.14: icmp_req=234 ttl=64 time=0.170 ms
+64 bytes from 186.195.16.14: icmp_req=235 ttl=64 time=0.142 ms
+64 bytes from 186.195.16.14: icmp_req=236 ttl=64 time=0.139 ms
+64 bytes from 186.195.16.14: icmp_req=237 ttl=64 time=0.140 ms
+64 bytes from 186.195.16.14: icmp_req=238 ttl=64 time=0.274 ms
+64 bytes from 186.195.16.14: icmp_req=239 ttl=64 time=0.148 ms
+64 bytes from 186.195.16.14: icmp_req=240 ttl=64 time=0.153 ms
+64 bytes from 186.195.16.14: icmp_req=241 ttl=64 time=0.155 ms
+64 bytes from 186.195.16.14: icmp_req=242 ttl=64 time=0.150 ms
+64 bytes from 186.195.16.14: icmp_req=243 ttl=64 time=0.136 ms
+64 bytes from 186.195.16.14: icmp_req=244 ttl=64 time=0.153 ms
+64 bytes from 186.195.16.14: icmp_req=245 ttl=64 time=0.162 ms
+64 bytes from 186.195.16.14: icmp_req=246 ttl=64 time=0.153 ms
+64 bytes from 186.195.16.14: icmp_req=247 ttl=64 time=0.140 ms
+64 bytes from 186.195.16.14: icmp_req=248 ttl=64 time=0.155 ms
+64 bytes from 186.195.16.14: icmp_req=249 ttl=64 time=0.151 ms
+64 bytes from 186.195.16.14: icmp_req=250 ttl=64 time=0.148 ms
+64 bytes from 186.195.16.14: icmp_req=251 ttl=64 time=0.144 ms
+64 bytes from 186.195.16.14: icmp_req=252 ttl=64 time=0.167 ms
+64 bytes from 186.195.16.14: icmp_req=253 ttl=64 time=0.148 ms
+64 bytes from 186.195.16.14: icmp_req=254 ttl=64 time=0.169 ms
+64 bytes from 186.195.16.14: icmp_req=255 ttl=64 time=0.155 ms
+64 bytes from 186.195.16.14: icmp_req=256 ttl=64 time=0.134 ms
+64 bytes from 186.195.16.14: icmp_req=257 ttl=64 time=0.149 ms
+64 bytes from 186.195.16.14: icmp_req=258 ttl=64 time=0.138 ms
+64 bytes from 186.195.16.14: icmp_req=259 ttl=64 time=0.145 ms
+64 bytes from 186.195.16.14: icmp_req=260 ttl=64 time=0.144 ms
+64 bytes from 186.195.16.14: icmp_req=261 ttl=64 time=0.140 ms
+64 bytes from 186.195.16.14: icmp_req=262 ttl=64 time=0.100 ms
+64 bytes from 186.195.16.14: icmp_req=263 ttl=64 time=0.136 ms
+64 bytes from 186.195.16.14: icmp_req=264 ttl=64 time=0.151 ms
+64 bytes from 186.195.16.14: icmp_req=265 ttl=64 time=0.131 ms
+64 bytes from 186.195.16.14: icmp_req=266 ttl=64 time=0.131 ms
+64 bytes from 186.195.16.14: icmp_req=267 ttl=64 time=0.137 ms
+64 bytes from 186.195.16.14: icmp_req=268 ttl=64 time=0.127 ms
+64 bytes from 186.195.16.14: icmp_req=269 ttl=64 time=0.192 ms
+64 bytes from 186.195.16.14: icmp_req=270 ttl=64 time=0.162 ms
+64 bytes from 186.195.16.14: icmp_req=271 ttl=64 time=0.154 ms
+64 bytes from 186.195.16.14: icmp_req=272 ttl=64 time=0.147 ms
+64 bytes from 186.195.16.14: icmp_req=273 ttl=64 time=0.137 ms
+64 bytes from 186.195.16.14: icmp_req=274 ttl=64 time=0.197 ms
+64 bytes from 186.195.16.14: icmp_req=275 ttl=64 time=0.148 ms
+64 bytes from 186.195.16.14: icmp_req=276 ttl=64 time=0.149 ms
+64 bytes from 186.195.16.14: icmp_req=277 ttl=64 time=0.157 ms
+64 bytes from 186.195.16.14: icmp_req=278 ttl=64 time=0.145 ms
+64 bytes from 186.195.16.14: icmp_req=279 ttl=64 time=0.140 ms
+64 bytes from 186.195.16.14: icmp_req=280 ttl=64 time=0.137 ms
+64 bytes from 186.195.16.14: icmp_req=281 ttl=64 time=0.144 ms
+64 bytes from 186.195.16.14: icmp_req=282 ttl=64 time=0.217 ms
+64 bytes from 186.195.16.14: icmp_req=283 ttl=64 time=0.150 ms
+64 bytes from 186.195.16.14: icmp_req=284 ttl=64 time=0.217 ms
+64 bytes from 186.195.16.14: icmp_req=285 ttl=64 time=0.144 ms
+64 bytes from 186.195.16.14: icmp_req=286 ttl=64 time=0.146 ms
+64 bytes from 186.195.16.14: icmp_req=287 ttl=64 time=0.186 ms
+64 bytes from 186.195.16.14: icmp_req=288 ttl=64 time=0.149 ms
+64 bytes from 186.195.16.14: icmp_req=289 ttl=64 time=0.152 ms
+64 bytes from 186.195.16.14: icmp_req=290 ttl=64 time=0.155 ms
+64 bytes from 186.195.16.14: icmp_req=291 ttl=64 time=0.157 ms
+64 bytes from 186.195.16.14: icmp_req=292 ttl=64 time=0.132 ms
+64 bytes from 186.195.16.14: icmp_req=293 ttl=64 time=0.143 ms
+64 bytes from 186.195.16.14: icmp_req=294 ttl=64 time=0.159 ms
+64 bytes from 186.195.16.14: icmp_req=295 ttl=64 time=0.179 ms
+64 bytes from 186.195.16.14: icmp_req=296 ttl=64 time=0.160 ms
+64 bytes from 186.195.16.14: icmp_req=297 ttl=64 time=0.165 ms
+64 bytes from 186.195.16.14: icmp_req=298 ttl=64 time=0.188 ms
+64 bytes from 186.195.16.14: icmp_req=299 ttl=64 time=0.219 ms
+64 bytes from 186.195.16.14: icmp_req=300 ttl=64 time=0.192 ms
+64 bytes from 186.195.16.14: icmp_req=301 ttl=64 time=0.145 ms
+
+--- 186.195.16.14 ping statistics ---
+301 packets transmitted, 172 received, +68 errors, 42% packet loss, time 300498ms
+rtt min/avg/max/mdev = 0.100/9.440/1303.009/101.414 ms, pipe 3

@@ -105,11 +105,13 @@ criou-se a Tabela \ref{tab:teste1resultados} a qual possui os dados resultantes 
 \begin{center}
 \begin{tabular}{|l|p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
  & \textbf{Tempo do teste} & \textbf{Pacotes transmitidos} & \textbf{Percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Tempo de indisponibilidade} \\\hline
-Teste 1 & & & & & \\\hline
-Teste 2 & & & & & \\\hline
-Teste 3 & & & & & \\\hline
-Teste 4 & & & & & \\\hline
-Média & & & & & \\\hline
+Teste 1 & 299,92 segundos & 301 & 0 & 0,21 ms & 0 segundos \\\hline
+Teste 2 & 299,91 segundos & 301 & 0 & 0,22 ms & 0 segundos \\\hline
+Teste 3 & 300,15 segundos & 189 & 37 & 7,06 & 86 segundos \\\hline
+Teste 4 & 300,49 segundos & 216 & 28 & 4,96 & 76 segundos \\\hline
+Média & 300,11 segundos & 251,75 & 16,25 & 3,11 & 40,5 segundos \\\hline
+Média Piova & 300 segundos & 300,5 & 69,5 & 31,44 ms & 205,5 segundos \\\hline
+Média Brina & 300,03 segundos & 300,5 & 58,5 & 20,68 & 169 segundos \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -118,6 +120,8 @@ Pode-se observar que o tempo de indisponibilidade da máquina virtual é baixo, 
 primeiro nó. Destaca-se que o \ac{MTTR} seria significativamente maior caso fosse necessário reconfigurar a máquina virtual, reinstalar as 
 aplicações, configurá-las e restaurar o \textit{backup}. Dependendo do servidor e da aplicação, a indisponibilidade poderia ser maior que 24 horas.
 
+graficos nagios
+...
 
 \subsection{Teste 2 - Manutenção agendada}
 %Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
@@ -204,8 +208,8 @@ demonstra os dados do servidor físico e do virtual.
 \begin{center}
 \begin{tabular}{|l|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
 \textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
-Servidor físico & 260,53 & 261 & 60,75 & 14,98 ms & 152,75 segundos \\\hline
-Servidor virtual & 156,98 & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hline
+Servidor físico & 260,53 segundos & 261 & 60,75 & 14,98 ms & 152,75 segundos \\\hline
+Servidor virtual & 156,98 segundos & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hline
 \end{tabular}
 \end{center}
 \end{table}
