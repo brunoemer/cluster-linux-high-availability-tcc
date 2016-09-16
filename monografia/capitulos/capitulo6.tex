@@ -72,11 +72,11 @@ O detalhamento da configuração do \textit{Pacemaker} estão no Apêndice \ref{
 
 O objetivo desta seção é comprovar que a gerência de falhas é importante para um ambiente computacional, além de destacar que a gerência da 
 manutenção também é favorecida por esta implementação.
-A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \cite{reis2009} e \cite{goncalves2009}, a mesma foi desenvolvida para 
+A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}, a mesma foi desenvolvida para 
 possibilitar a análise e eficácia do ambiente de alta disponibilidade. 
 
 Os testes desenvolvidos estão detalhados nas próximas seções, neles tem-se a justificativa, a aplicação e os resultados obtidos.
-Observa-se que os testes foram efetuados com uma máquina virtual que não possui serviço críticos, pois eles possuem risco de perda de dados.
+Observa-se que os testes foram efetuados com uma máquina virtual que não possui serviço crítico, pois esses testes possuem risco de perda de dados.
 Contudo, na Seção \ref{section:comparacaofinal} será feito uma análise com dados obtidos do ambiente final executando os serviços críticos.
 
 \subsection{Teste 1 - Desligamento físico}
@@ -118,7 +118,9 @@ Pode-se observar que o tempo de indisponibilidade da máquina virtual é baixo, 
 primeiro nó. Destaca-se que o \ac{MTTR} seria significativamente maior caso fosse necessário reconfigurar a máquina virtual, reinstalar as 
 aplicações, configurá-las e restaurar o \textit{backup}. Dependendo do servidor e da aplicação, a indisponibilidade poderia ser maior que 24 horas.
 
-Na Tabela \ref{tab:teste1resultados} tem-se as médias dos testes dos servidores físicos, pode-se perceber o elevado percentual de pacotes perdidos.
+Na Tabela \ref{tab:teste1resultados} tem-se as médias dos testes dos servidores físicos, pode-se perceber o elevado percentual de pacotes perdidos. 
+Além disso, percebe-se a diferença do tempo de indisponibilidade da máquina virtual que é de 40,5 segundos comparado com os servidores 
+físicos que são de 169 e 205,5 segundos.
 
 \begin{table}[h!]
 \caption{Resultados do teste 1 dos servidores físicos.}
@@ -132,8 +134,17 @@ Média Piova & 300 segundos & 300,5 & 69,5 & 31,44 ms & 205,5 segundos \\\hline
 \end{center}
 \end{table}
 
-graficos nagios
-...
+A Figura \ref{fig:teste1_disponibilidade} demonstra a disponibilidade dos servidores físicos \textit{Brina} e \textit{Piova} e da máquinas virtual 
+\textit{Trapel}. A máquina virtual teve apenas 1 minuto e 10 segundos de \textit{downtime}, deste modo, caso o \textit{hardware} o qual a máquina
+virtual está executando falhe o serviço será reestabelecido neste curto período de tempo.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=470px]{img/teste1_disponibilidade.eps}
+ \caption{Disponibilidade servidores físicos \textit{Brina} e \textit{Piova} e máquinas virtual \textit{Trapel}.}
+ \label{fig:teste1_disponibilidade}
+\end{figure}
+
 
 \subsection{Teste 2 - Manutenção agendada}
 %Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
@@ -169,7 +180,7 @@ Este roteiro foi executado 2 vezes por semana em cada nó, durante 2 semanas. Pa
 \caption{Resultados do teste 2.}
 \label{tab:teste2resultados}
 \begin{center}
-\begin{tabular}{|l|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
+\begin{tabular}{|l|p{2.2cm}|p{2.5cm}|p{2.5cm}|p{1.5cm}|p{3cm}|}\hline
 \textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
 Brina & & & & & \\\hline
 Piova & & & & & \\\hline
@@ -178,13 +189,14 @@ Servidor virtual & & & & & \\\hline
 \end{center}
 \end{table}
 
-Pode-se observar que não houve \textit{downtime} na máquina virtual, e consequentemente nos serviços.
-Porém, tem-se uma latência maior durante o processo de \textit{live migration}.
+%Pode-se observar que não houve \textit{downtime} na máquina virtual, e consequentemente nos serviços.
+%Porém, tem-se uma latência maior durante o processo de \textit{live migration}, como pode ser observado na Figura X.
+...
 
-...grafico latencia
+grafico latencia
 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
-%grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 12/09 a 26/09 + Include Soft States = yes
+%grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 17/09 a 30/09 + Include Soft States = yes
 A Figura X demonstra a disponibilidade da máquina virtual (a) e dos nós (b), esses dados foram retirados da ferramenta de monitoramento da empresa,
 \textit{Nagios}. Comparando os gráficos pode-se perceber a diferença do \textit{uptime} entre servidores físicos e o virtual.
 %%figura
@@ -219,7 +231,7 @@ demonstra os dados do servidor físico e do virtual.
 \caption{Resultados do teste 3.}
 \label{tab:teste3resultados}
 \begin{center}
-\begin{tabular}{|l|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
+\begin{tabular}{|l|p{2.2cm}|p{2.5cm}|p{2.5cm}|p{1.5cm}|p{3cm}|}\hline
 \textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
 Servidores físicos & 260,53 segundos & 261 & 60,75 & 14,98 ms & 152,75 segundos \\\hline
 Servidor virtual & 156,98 segundos & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hline
@@ -227,10 +239,11 @@ Servidor virtual & 156,98 segundos & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hli
 \end{center}
 \end{table}
 
-Pode-se observar que o tempo de indisponibilidade do servidor virtual é consideravelmente menor que o tempo do servidor físico.
-Além disso, pode-se perceber que o percentual de perda de pacotes é menor.
-...
-%Exemplo servidor dns falhou ...
+Pode-se observar que o tempo de indisponibilidade do servidor virtual é consideravelmente menor que o tempo do servidor físico, ele representa 
+apenas 3,27\% do tempo de indisponibilidade do servidor físico. Além disso, pode-se perceber que o percentual de perda de pacotes é menor.
+Este teste pode ser comparado com um caso que ocorreu a alguns meses na empresa, um servidor de virtualização, que é atualizado de forma automática,
+foi reiniciado, porém ocorreu um erro na atualização e o servidor não pôde iniciar corretamente. Os serviços executados nele ficaram 
+aproximadamente 6 horas indisponíveis.
 
 \subsection{Comparação final da disponibilidade}
 \label{section:comparacaofinal}
@@ -239,7 +252,9 @@ Além disso, pode-se perceber que o percentual de perda de pacotes é menor.
 
 Como já mencionado anteriormente, esta seção analisará os serviços críticos no ambiente final de produção que possui as máquinas virtuais
 definidas na Seção \ref{section:maqservcrit}. 
-...foi mensurado a disponibilidade
+%...foi mensurado a disponibilidade
+
+adicinar gráficos de disponibilidade final dos serviços críticos:
 
 %Medição através do comando ping e do Nagios, que utiliza ping para calcular o tempo de downtime
 %Tabela com perda de pacotes, latencia, tempo de indisponibilidade X node fisico e maquina virtual

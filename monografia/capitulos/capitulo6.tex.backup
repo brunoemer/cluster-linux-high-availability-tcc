@@ -72,12 +72,12 @@ O detalhamento da configuração do \textit{Pacemaker} estão no Apêndice \ref{
 
 O objetivo desta seção é comprovar que a gerência de falhas é importante para um ambiente computacional, além de destacar que a gerência da 
 manutenção também é favorecida por esta implementação.
-A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \cite{reis2009} e \cite{goncalves2009}, a mesma foi desenvolvida para 
+A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}, a mesma foi desenvolvida para 
 possibilitar a análise e eficácia do ambiente de alta disponibilidade. 
 
 Os testes desenvolvidos estão detalhados nas próximas seções, neles tem-se a justificativa, a aplicação e os resultados obtidos.
-Observa-se que os testes foram efetuados com uma máquina virtual que não possui serviço críticos, pois eles possuem risco de perda de dados.
-Contudo, na Seção \ref{sec:comparacaofinal} será feito uma análise com dados obtidos do ambiente final executando os serviços críticos.
+Observa-se que os testes foram efetuados com uma máquina virtual que não possui serviço crítico, pois esses testes possuem risco de perda de dados.
+Contudo, na Seção \ref{section:comparacaofinal} será feito uma análise com dados obtidos do ambiente final executando os serviços críticos.
 
 \subsection{Teste 1 - Desligamento físico}
 %Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos serviços e dos nodes (servico não crítico)
@@ -96,19 +96,20 @@ O procedimento deste teste é o seguinte:
 \end{itemize}
 
 Este procedimento foi executado 4 vezes para possibilitar o cálculo da média, sendo que este foi aplicado 2 vezes em cada nó. Deste modo, 
-criou-se a Tabela \ref{tab:teste1resultados} a qual possui os dados resultantes dos testes e das medições efetuada sobre a máquina virtual.
+criou-se a Tabela \ref{tab:teste1resultadosvirt} a qual possui os dados resultantes dos testes e das medições efetuada sobre a máquina virtual.
+% 15/09
 
 \begin{table}[h!]
 \caption{Resultados do teste 1 com servidor virtual.}
-\label{tab:teste1resultados}
+\label{tab:teste1resultadosvirt}
 \begin{center}
-\begin{tabular}{|l|p{1.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
- & \textbf{Tempo do teste} & \textbf{Pacotes transmitidos} & \textbf{Pacotes perdidos} & \textbf{Latência média} & \textbf{Tempo de indisponibilidade} \\\hline
-Teste 1 & & & & & \\\hline
-Teste 2 & & & & & \\\hline
-Teste 3 & & & & & \\\hline
-Teste 4 & & & & & \\\hline
-Média & & & & & \\\hline
+\begin{tabular}{|l|p{2.3cm}|p{2.2cm}|p{2.5cm}|p{2cm}|p{2.7cm}|}\hline
+ & \textbf{Tempo do teste} & \textbf{Pacotes transmitidos} & \textbf{Percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Tempo de indisponibilidade} \\\hline
+Teste 1 & 299,92 segundos & 301 & 0 & 0,21 ms & 0 segundos \\\hline
+Teste 2 & 299,91 segundos & 301 & 0 & 0,22 ms & 0 segundos \\\hline
+Teste 3 & 300,15 segundos & 189 & 37 & 7,06 & 86 segundos \\\hline
+Teste 4 & 300,49 segundos & 216 & 28 & 4,96 & 76 segundos \\\hline
+Média & 300,11 segundos & 251,75 & 16,25 & 3,11 & 40,5 segundos \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -116,6 +117,31 @@ Média & & & & & \\\hline
 Pode-se observar que o tempo de indisponibilidade da máquina virtual é baixo, pois ele é iniciado no outro nó logo após o desligamento do 
 primeiro nó. Destaca-se que o \ac{MTTR} seria significativamente maior caso fosse necessário reconfigurar a máquina virtual, reinstalar as 
 aplicações, configurá-las e restaurar o \textit{backup}. Dependendo do servidor e da aplicação, a indisponibilidade poderia ser maior que 24 horas.
+
+Na Tabela \ref{tab:teste1resultados} tem-se as médias dos testes dos servidores físicos, pode-se perceber o elevado percentual de pacotes perdidos. 
+Além disso, percebe-se a diferença do tempo de indisponibilidade da máquinas virtual 40,5 segundos comparada as máquinas físicas 169 e 205,5 segundos.
+
+\begin{table}[h!]
+\caption{Resultados do teste 1 dos servidores físicos.}
+\label{tab:teste1resultados}
+\begin{center}
+\begin{tabular}{|l|p{2.3cm}|p{2.2cm}|p{2.5cm}|p{2cm}|p{2.7cm}|}\hline
+ & \textbf{Tempo do teste} & \textbf{Pacotes transmitidos} & \textbf{Percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Tempo de indisponibilidade} \\\hline
+Média Brina & 300,03 segundos & 300,5 & 58,5 & 20,68 & 169 segundos \\\hline
+Média Piova & 300 segundos & 300,5 & 69,5 & 31,44 ms & 205,5 segundos \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+A Figura \ref{fig:teste1_disponibilidade} demonstra a disponibilidade dos servidores físicos \textit{Brina} e \textit{Piova} e da máquinas virtual 
+\textit{Trapel}. A máquina virtual teve apenas 1 minuto e 10 segundos de \textit{downtime}
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=500px]{img/teste1_disponibilidade.eps}
+ \caption{Disponibilidade servidores físicos \textit{Brina} e \textit{Piova} e máquinas virtual \textit{Trapel}.}
+ \label{fig:teste1_disponibilidade}
+\end{figure}
 
 
 \subsection{Teste 2 - Manutenção agendada}
@@ -128,46 +154,62 @@ Reinicializações são necessárias para manutenções de \textit{hardware}, at
 
 O procedimento deste teste é o seguinte:
 \begin{itemize}
- \item Acessar o terminal do servidor de monitoramento;
  \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
- \item Acessar o terminal do nó que esta sendo feita a manutenção;
- \item Executar o \textit{script} que desativa o nó (\textit{standby}) e executa o \textit{reboot} (Apêndice \ref{ap:scriptmanutencao});
+ \item Executar o \textit{script} que desativa o nó (comando \textit{standby}) e executa o \textit{reboot} (Apêndice \ref{ap:scriptmanutencao});
  \item Após retorno do nó executar novamente o \textit{script} anterior para retorno do nó ao \textit{cluster};
  \item Finalizar a medição do tempo e \textit{ping}.
 \end{itemize}
 
-Este roteiro foi executado 2 vezes em cada nó semanalmente, durante 2 semanas. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
-% 12/09 a 26/09
+Este roteiro foi executado 2 vezes por semana em cada nó, durante 2 semanas. Para sua execução dos \textit{scripts} foi utilizada a ferramenta 
+\textit{crontab} do \textit{Linux}. Com os dados obtidos criou-se a Tabela \ref{tab:teste2resultados}.
+% 17/09 a 30/09
+% crontab brina:
+% */10 04 * * 2 /usr/local/sbin/script_pacemaker_manutencao.sh
+% crontab piova:
+% */10 04 * * 4 /usr/local/sbin/script_pacemaker_manutencao.sh
+% crontab monit:
+%59 03 * * 2 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.14 3
+%59 03 * * 2 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 3
+%59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.6 2
+%59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 2
+
 
 \begin{table}[h!]
 \caption{Resultados do teste 2.}
 \label{tab:teste2resultados}
 \begin{center}
 \begin{tabular}{|l|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
-\textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média dos pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
-Servidor físico & & & & & \\\hline
+\textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
+Brina & & & & & \\\hline
+Piova & & & & & \\\hline
 Servidor virtual & & & & & \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-Pode-se observar que não houve \textit{downtime} na máquina virtual, e consequentemente nos serviços.
-Porém, tem-se uma latência maior durante \textit{live migration}...
+%Pode-se observar que não houve \textit{downtime} na máquina virtual, e consequentemente nos serviços.
+%Porém, tem-se uma latência maior durante o processo de \textit{live migration}, como pode ser observado na Figura X.
+...
+
+grafico latencia
 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
+%grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 17/09 a 30/09 + Include Soft States = yes
 A Figura X demonstra a disponibilidade da máquina virtual (a) e dos nós (b), esses dados foram retirados da ferramenta de monitoramento da empresa,
 \textit{Nagios}. Comparando os gráficos pode-se perceber a diferença do \textit{uptime} entre servidores físicos e o virtual.
 %%figura
+...
 
 %log do pacemaker
-
+O processo de \textit{standby} feito pelo \textit{Pacemaker} está detalhado no \textit{log} abaixo:
+...
 
 \subsection{Teste 3 - Desligamento por software}
 %Desligamento por software (reboot manual): 4 vezes para medir tempo de downtime dos servicos e dos nodes (servico nao critico)
 %simulação de falha de software ou manutenção emergencial
 
-Esse teste simula falhas de \textit{software} do nó do \textit{cluster} ou do \textit{software} de virtualização. Esse tipo de situação também
-pode ocorrer em uma manutenção emergencial, onde, por exemplo, é preciso desligar o servidor.
+Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, como por exemplo do \textit{software} de virtualização. Esse tipo de 
+situação também pode ser necessário em uma manutenção emergencial, onde, por exemplo, é preciso desligar o servidor.
 
 O procedimento deste teste é o seguinte:
 \begin{itemize}
@@ -181,30 +223,36 @@ O procedimento deste teste é o seguinte:
 
 O procedimento deste teste foi executado 4 vezes no total, sendo que foram executadas 2 vezes em cada nó. A Tabela \ref{tab:teste3resultados}
 demonstra os dados do servidor físico e do virtual.
+% 09/09
 
 \begin{table}[h!]
 \caption{Resultados do teste 3.}
 \label{tab:teste3resultados}
 \begin{center}
-\begin{tabular}{|l|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|}\hline
-\textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média dos pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
-Servidor físico & & & & & \\\hline
-Servidor virtual & & & & & \\\hline
+\begin{tabular}{|l|p{2.2cm}|p{2.5cm}|p{2.5cm}|p{1.5cm}|p{3cm}|}\hline
+\textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
+Servidores físicos & 260,53 segundos & 261 & 60,75 & 14,98 ms & 152,75 segundos \\\hline
+Servidor virtual & 156,98 segundos & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-Pode-se observar que o tempo de indisponibilidade do servidor virtual é consideravelmente menor que o tempo do servidor físico.
-...
-Exemplo servidor dns falhou na redesul...
+Pode-se observar que o tempo de indisponibilidade do servidor virtual é consideravelmente menor que o tempo do servidor físico, ele representa 
+apenas 3,27\% do tempo de indisponibilidade do servidor físico. Além disso, pode-se perceber que o percentual de perda de pacotes é menor.
+Este teste pode ser comparado com um caso que ocorreu a alguns meses na empresa, um servidor de virtualização, que é atualizado de forma automática,
+foi reiniciado, porém ocorreu um erro na atualização e o servidor não pôde iniciar corretamente. Os serviços executados nele ficaram 
+aproximadamente 6 horas indisponíveis.
 
 \subsection{Comparação final da disponibilidade}
-\label{sec:comparacaofinal}
+\label{section:comparacaofinal}
+%Medição da disponibilidade dos serviços críticos por 1 mes (outubro) e comparar ao mês de setembro no ambiente antigo com 
+%uma Reinicialização dos servidores físicos (reiniciados em 06/09/16)
 
--Medicao da disponibilidade dos serviços críticos por 1 mes (outubro) e comparar ao mês de setembro no ambiente antigo com 
-uma Reinicialização dos servidores físicos (reiniciados em 06/09/16)
+Como já mencionado anteriormente, esta seção analisará os serviços críticos no ambiente final de produção que possui as máquinas virtuais
+definidas na Seção \ref{section:maqservcrit}. 
+%...foi mensurado a disponibilidade
 
-
+adicinar gráficos de disponibilidade final dos serviços críticos:
 
 %Medição através do comando ping e do Nagios, que utiliza ping para calcular o tempo de downtime
 %Tabela com perda de pacotes, latencia, tempo de indisponibilidade X node fisico e maquina virtual

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  15 SEP 2016 20:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.14)  16 SEP 2016 17:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1047,10 +1047,10 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 )
 \c@lstlisting=\count171
 Package epstopdf Info: Source file: <img/iilogo.eps>
-(epstopdf)                    date: 2016-03-19 18:23:38
+(epstopdf)                    date: 2016-03-22 10:25:59
 (epstopdf)                    size: 14378 bytes
 (epstopdf)             Output file: <img/iilogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-19 18:29:56
+(epstopdf)                    date: 2016-03-22 10:25:59
 (epstopdf)                    size: 8456 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/iilogo-eps-converted-t
 o.pdf img/iilogo.eps>
@@ -1282,10 +1282,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 38.
 Package epstopdf Info: Source file: <img/interfaces_isa.eps>
-(epstopdf)                    date: 2016-05-23 18:50:27
+(epstopdf)                    date: 2016-05-23 11:31:50
 (epstopdf)                    size: 94268 bytes
 (epstopdf)             Output file: <img/interfaces_isa-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-23 18:50:27
+(epstopdf)                    date: 2016-05-23 12:39:16
 (epstopdf)                    size: 28092 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/interfaces_isa-eps-con
 verted-to.pdf img/interfaces_isa.eps>
@@ -1301,10 +1301,10 @@ line 53.
 (pdftex.def)             Requested size: 301.1261pt x 148.92462pt.
  [17 <./img/interfaces_isa-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/vms_tipos.eps>
-(epstopdf)                    date: 2016-06-19 11:19:03
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 227248 bytes
 (epstopdf)             Output file: <img/vms_tipos-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-19 11:19:38
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 54761 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_tipos-eps-converte
 d-to.pdf img/vms_tipos.eps>
@@ -1325,10 +1325,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [18 <./img/vms_tipos-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/virtcomponentes.eps>
-(epstopdf)                    date: 2016-05-22 19:29:21
+(epstopdf)                    date: 2016-05-23 08:06:43
 (epstopdf)                    size: 107075 bytes
 (epstopdf)             Output file: <img/virtcomponentes-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-22 21:41:15
+(epstopdf)                    date: 2016-05-23 08:06:43
 (epstopdf)                    size: 42867 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/virtcomponentes-eps-co
 nverted-to.pdf img/virtcomponentes.eps>
@@ -1347,11 +1347,11 @@ Underfull \vbox (badness 1755) has occurred while \output is active []
 
  [19 <./img/virtcomponentes-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/vms_arquiteturas.eps>
-(epstopdf)                    date: 2016-06-05 23:53:52
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 212106 bytes
 (epstopdf)             Output file: <img/vms_arquiteturas-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2016-06-05 23:54:05
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 79690 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_arquiteturas-eps-c
 onverted-to.pdf img/vms_arquiteturas.eps>
@@ -1377,11 +1377,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [20 <./img/vms_arquiteturas-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/vms_implementacao.eps>
-(epstopdf)                    date: 2016-05-22 21:40:46
+(epstopdf)                    date: 2016-05-23 08:06:43
 (epstopdf)                    size: 119666 bytes
 (epstopdf)             Output file: <img/vms_implementacao-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2016-05-22 21:41:16
+(epstopdf)                    date: 2016-05-23 08:06:43
 (epstopdf)                    size: 41753 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/vms_implementacao-eps-
 converted-to.pdf img/vms_implementacao.eps>
@@ -1419,10 +1419,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
  (./capitulos/capitulo4.tex
 Package epstopdf Info: Source file: <img/insteletrica.eps>
-(epstopdf)                    date: 2016-06-07 22:22:23
+(epstopdf)                    date: 2016-06-09 08:24:12
 (epstopdf)                    size: 216179 bytes
 (epstopdf)             Output file: <img/insteletrica-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-07 22:22:44
+(epstopdf)                    date: 2016-06-09 08:24:12
 (epstopdf)                    size: 77419 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/insteletrica-eps-conve
 rted-to.pdf img/insteletrica.eps>
@@ -1451,10 +1451,10 @@ Overfull \hbox (12.55518pt too wide) in paragraph at lines 54--71
  []
 
 Package epstopdf Info: Source file: <img/servfisicos.eps>
-(epstopdf)                    date: 2016-05-22 18:27:40
+(epstopdf)                    date: 2016-05-23 08:06:43
 (epstopdf)                    size: 107713 bytes
 (epstopdf)             Output file: <img/servfisicos-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-05-22 18:27:53
+(epstopdf)                    date: 2016-05-23 08:06:43
 (epstopdf)                    size: 50237 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servfisicos-eps-conver
 ted-to.pdf img/servfisicos.eps>
@@ -1474,10 +1474,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [26]
 Package epstopdf Info: Source file: <img/servrack.eps>
-(epstopdf)                    date: 2016-06-05 10:35:03
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 4764668 bytes
 (epstopdf)             Output file: <img/servrack-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-05 10:35:11
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 433089 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servrack-eps-converted
 -to.pdf img/servrack.eps>
@@ -1498,10 +1498,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [28]
 Package epstopdf Info: Source file: <img/servidor_brina.eps>
-(epstopdf)                    date: 2016-06-05 21:49:57
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 45011 bytes
 (epstopdf)             Output file: <img/servidor_brina-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-05 21:52:08
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 22658 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_brina-eps-con
 verted-to.pdf img/servidor_brina.eps>
@@ -1516,11 +1516,11 @@ line 172.
 (pdftex.def)             Requested size: 180.67566pt x 106.62181pt.
  [29 <./img/servidor_brina-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/servidor_fulmine.eps>
-(epstopdf)                    date: 2016-06-05 21:49:33
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 134519 bytes
 (epstopdf)             Output file: <img/servidor_fulmine-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2016-06-05 21:50:21
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 93008 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_fulmine-eps-c
 onverted-to.pdf img/servidor_fulmine.eps>
@@ -1541,10 +1541,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [30 <./img/servidor_fulmine-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/servidor_piova.eps>
-(epstopdf)                    date: 2016-06-05 23:00:08
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 139983 bytes
 (epstopdf)             Output file: <img/servidor_piova-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-05 23:01:34
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 64394 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_piova-eps-con
 verted-to.pdf img/servidor_piova.eps>
@@ -1572,10 +1572,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [32 <./img/servidor_piova-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/servidor_raggio.eps>
-(epstopdf)                    date: 2016-06-05 23:00:26
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 75717 bytes
 (epstopdf)             Output file: <img/servidor_raggio-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-05 23:01:35
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 31508 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_raggio-eps-co
 nverted-to.pdf img/servidor_raggio.eps>
@@ -1590,11 +1590,11 @@ Package pdftex.def Info: img/servidor_raggio-eps-converted-to.pdf used on input
  line 315.
 (pdftex.def)             Requested size: 220.8258pt x 191.66725pt.
 Package epstopdf Info: Source file: <img/servidor_tempesta.eps>
-(epstopdf)                    date: 2016-06-05 21:48:38
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 66871 bytes
 (epstopdf)             Output file: <img/servidor_tempesta-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2016-06-05 21:50:21
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 30336 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_tempesta-eps-
 converted-to.pdf img/servidor_tempesta.eps>
@@ -1613,10 +1613,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [33 <./img/servidor_raggio-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/servidor_tuono.eps>
-(epstopdf)                    date: 2016-06-05 23:00:51
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 64262 bytes
 (epstopdf)             Output file: <img/servidor_tuono-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-05 23:01:35
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 30359 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_tuono-eps-con
 verted-to.pdf img/servidor_tuono.eps>
@@ -1641,10 +1641,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [34 <./img/servidor_tempesta-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/servidor_venti.eps>
-(epstopdf)                    date: 2016-06-05 23:01:10
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 84202 bytes
 (epstopdf)             Output file: <img/servidor_venti-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-05 23:01:35
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 37276 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidor_venti-eps-con
 verted-to.pdf img/servidor_venti.eps>
@@ -1682,10 +1682,10 @@ a-gram Pro-to-col\OT1/cmr/m/n/12 ) (TA-NEN-BAUM; WETHE-
 
 ]
 Package epstopdf Info: Source file: <img/dns_udp.eps>
-(epstopdf)                    date: 2016-06-20 10:03:19
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 214668 bytes
 (epstopdf)             Output file: <img/dns_udp-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-20 10:03:24
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 54822 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/dns_udp-eps-converted-
 to.pdf img/dns_udp.eps>
@@ -1705,10 +1705,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [38 <./img/dns_udp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/elementos_tcp.eps>
-(epstopdf)                    date: 2016-06-20 09:50:56
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 109551 bytes
 (epstopdf)             Output file: <img/elementos_tcp-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-20 09:56:42
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 32057 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/elementos_tcp-eps-conv
 erted-to.pdf img/elementos_tcp.eps>
@@ -1724,10 +1724,10 @@ ine 74.
 (pdftex.def)             Requested size: 381.42639pt x 329.76088pt.
  [39 <./img/elementos_tcp-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/soldi_week.eps>
-(epstopdf)                    date: 2016-06-06 20:44:08
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 152712 bytes
 (epstopdf)             Output file: <img/soldi_week-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-06 21:08:57
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 20517 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/soldi_week-eps-convert
 ed-to.pdf img/soldi_week.eps>
@@ -1742,10 +1742,10 @@ Package pdftex.def Info: img/soldi_week-eps-converted-to.pdf used on input line
  103.
 (pdftex.def)             Requested size: 281.05103pt x 163.8538pt.
 Package epstopdf Info: Source file: <img/simplesip_week.eps>
-(epstopdf)                    date: 2016-06-06 20:44:20
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 143615 bytes
 (epstopdf)             Output file: <img/simplesip_week-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-06 21:18:44
+(epstopdf)                    date: 2016-06-07 11:48:41
 (epstopdf)                    size: 19552 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/simplesip_week-eps-con
 verted-to.pdf img/simplesip_week.eps>
@@ -1767,10 +1767,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [40 <./img/soldi_week-eps-converted-to.pdf> <./img/simplesip_week-eps-converted
 -to.pdf>] [41]
 Package epstopdf Info: Source file: <img/drbd_basic.eps>
-(epstopdf)                    date: 2016-06-12 22:48:51
+(epstopdf)                    date: 2016-06-13 08:14:53
 (epstopdf)                    size: 44255 bytes
 (epstopdf)             Output file: <img/drbd_basic-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-12 22:49:13
+(epstopdf)                    date: 2016-06-13 08:14:53
 (epstopdf)                    size: 10219 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/drbd_basic-eps-convert
 ed-to.pdf img/drbd_basic.eps>
@@ -1791,10 +1791,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [42 <./img/drbd_basic-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/glusterfs.eps>
-(epstopdf)                    date: 2016-06-29 17:06:50
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 116191 bytes
 (epstopdf)             Output file: <img/glusterfs-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-29 17:06:54
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 27634 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/glusterfs-eps-converte
 d-to.pdf img/glusterfs.eps>
@@ -1810,10 +1810,10 @@ Package pdftex.def Info: img/glusterfs-eps-converted-to.pdf used on input line
 (pdftex.def)             Requested size: 281.05103pt x 237.42426pt.
  [43 <./img/glusterfs-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/rsync.eps>
-(epstopdf)                    date: 2016-06-29 16:26:30
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 130826 bytes
 (epstopdf)             Output file: <img/rsync-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-29 16:26:48
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 38637 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/rsync-eps-converted-to
 .pdf img/rsync.eps>
@@ -1841,11 +1841,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [44 <./img/rsync-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/ganeti_arquitetura.eps>
-(epstopdf)                    date: 2016-06-29 20:28:23
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 159120 bytes
 (epstopdf)             Output file: <img/ganeti_arquitetura-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-06-29 20:28:34
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 89302 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/ganeti_arquitetura-eps
 -converted-to.pdf img/ganeti_arquitetura.eps>
@@ -1865,10 +1865,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [45]
 Package epstopdf Info: Source file: <img/heartbeat.eps>
-(epstopdf)                    date: 2016-06-29 21:24:54
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 139063 bytes
 (epstopdf)             Output file: <img/heartbeat-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-29 21:26:04
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 43799 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/heartbeat-eps-converte
 d-to.pdf img/heartbeat.eps>
@@ -1889,10 +1889,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [46 <./img/ganeti_arquitetura-eps-converted-to.pdf> <./img/heartbeat-eps-conver
 ted-to.pdf>]
 Package epstopdf Info: Source file: <img/pacemaker_tools.eps>
-(epstopdf)                    date: 2016-06-25 21:54:17
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 1521831 bytes
 (epstopdf)             Output file: <img/pacemaker_tools-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-06-25 21:54:28
+(epstopdf)                    date: 2016-07-07 17:42:08
 (epstopdf)                    size: 125416 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/pacemaker_tools-eps-co
 nverted-to.pdf img/pacemaker_tools.eps>
@@ -1921,10 +1921,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
  (./capitulos/capitulo6.tex
 Package epstopdf Info: Source file: <img/projeto_fisico.eps>
-(epstopdf)                    date: 2016-08-28 22:08:06
+(epstopdf)                    date: 2016-08-29 10:06:38
 (epstopdf)                    size: 43998 bytes
 (epstopdf)             Output file: <img/projeto_fisico-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-08-28 22:09:22
+(epstopdf)                    date: 2016-08-29 10:06:38
 (epstopdf)                    size: 14715 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_fisico-eps-con
 verted-to.pdf img/projeto_fisico.eps>
@@ -1944,11 +1944,11 @@ line 24.
 
  <./img/projeto_fisico-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/servidores_brina_piova.eps>
-(epstopdf)                    date: 2016-08-28 22:35:28
+(epstopdf)                    date: 2016-08-29 10:06:38
 (epstopdf)                    size: 1835020 bytes
 (epstopdf)             Output file: <img/servidores_brina_piova-eps-converted-t
 o.pdf>
-(epstopdf)                    date: 2016-08-28 22:37:21
+(epstopdf)                    date: 2016-08-29 10:06:38
 (epstopdf)                    size: 170023 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/servidores_brina_piova
 -eps-converted-to.pdf img/servidores_brina_piova.eps>
@@ -1963,11 +1963,11 @@ Package pdftex.def Info: img/servidores_brina_piova-eps-converted-to.pdf used o
 n input line 37.
 (pdftex.def)             Requested size: 301.1261pt x 93.14285pt.
 Package epstopdf Info: Source file: <img/projeto_estrutura.eps>
-(epstopdf)                    date: 2016-08-28 20:48:31
+(epstopdf)                    date: 2016-08-29 10:06:38
 (epstopdf)                    size: 398064 bytes
 (epstopdf)             Output file: <img/projeto_estrutura-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2016-08-28 20:48:45
+(epstopdf)                    date: 2016-08-29 10:06:38
 (epstopdf)                    size: 100756 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_estrutura-eps-
 converted-to.pdf img/projeto_estrutura.eps>
@@ -2015,40 +2015,47 @@ Overfull \hbox (4.83394pt too wide) in paragraph at lines 106--114
  []
 
 [51]
-Underfull \hbox (badness 10000) in paragraph at lines 128--128
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
 []\OT1/cmr/bx/n/8 Percentual de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--128
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
 []\OT1/cmr/bx/n/8 Lat^encia
  []
 
 
-Underfull \hbox (badness 1264) in paragraph at lines 128--128
+Underfull \hbox (badness 1264) in paragraph at lines 130--130
 []\OT1/cmr/bx/n/8 Tempo de in-dis-
  []
 
 
-Overfull \hbox (24.49672pt too wide) in paragraph at lines 127--132
+Overfull \hbox (24.49672pt too wide) in paragraph at lines 129--134
  [] 
  []
 
+Package epstopdf Info: Source file: <img/teste1_disponibilidade.eps>
+(epstopdf)                    date: 2016-09-16 17:19:08
+(epstopdf)                    size: 182466 bytes
+(epstopdf)             Output file: <img/teste1_disponibilidade-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2016-09-16 17:19:42
+(epstopdf)                    size: 154215 bytes
+(epstopdf)             Command: <repstopdf --outfile=img/teste1_disponibilidade
+-eps-converted-to.pdf img/teste1_disponibilidade.eps>
+(epstopdf)             \includegraphics on input line 143.
+Package epstopdf Info: Output file is already uptodate.
 
-Overfull \hbox (11.66347pt too wide) in paragraph at lines 148--149
-[]\OT1/cmr/m/n/12 Executar co-mando \OT1/cmr/m/it/12 ping \OT1/cmr/m/n/12 e me-
-dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
- no Ap^endice
- []
+<img/teste1_disponibilidade-eps-converted-to.pdf, id=295, 804.00375pt x 608.272
+5pt>
+File: img/teste1_disponibilidade-eps-converted-to.pdf Graphic file (type pdf)
+ <use img/teste1_disponibilidade-eps-converted-to.pdf>
+Package pdftex.def Info: img/teste1_disponibilidade-eps-converted-to.pdf used o
+n input line 143.
+(pdftex.def)             Requested size: 471.76422pt x 356.91pt.
 
-
-Underfull \hbox (badness 2894) in paragraph at lines 173--173
-[]\OT1/cmr/bx/n/8 M^^Sedia do per-
- []
-
-
-Overfull \hbox (73.67168pt too wide) in paragraph at lines 172--178
- [] 
+Overfull \hbox (44.97287pt too wide) in paragraph at lines 143--144
+ [][] 
  []
 
 
@@ -2056,32 +2063,79 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 52
  []
 
-[52]
-Overfull \hbox (11.66347pt too wide) in paragraph at lines 207--208
+[52 <./img/teste1_disponibilidade-eps-converted-to.pdf>]
+Overfull \hbox (11.66347pt too wide) in paragraph at lines 159--160
 []\OT1/cmr/m/n/12 Executar co-mando \OT1/cmr/m/it/12 ping \OT1/cmr/m/n/12 e me-
 dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
  no Ap^endice
  []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 223--223
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]\OT1/cmr/bx/n/8 M^^Sedia do
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+\OT1/cmr/bx/n/8 tempo do
+ []
+
+
+Underfull \hbox (badness 2894) in paragraph at lines 184--184
 []\OT1/cmr/bx/n/8 M^^Sedia do per-
  []
 
 
-Overfull \hbox (78.05647pt too wide) in paragraph at lines 222--227
+Underfull \hbox (badness 10000) in paragraph at lines 184--184
+[]\OT1/cmr/bx/n/8 Lat^encia
+ []
+
+
+Overfull \hbox (36.683pt too wide) in paragraph at lines 183--189
  [] 
  []
 
-) [53]
-\openout2 = `capitulos/conclusao.aux'.
 
- (./capitulos/conclusao.tex
+Overfull \hbox (11.66347pt too wide) in paragraph at lines 219--220
+[]\OT1/cmr/m/n/12 Executar co-mando \OT1/cmr/m/it/12 ping \OT1/cmr/m/n/12 e me-
+dir o tempo de in-dis-po-ni-bi-li-dade (\OT1/cmr/m/it/12 script \OT1/cmr/m/n/12
+ no Ap^endice
+ []
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 235--235
+[]\OT1/cmr/bx/n/8 M^^Sedia do
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--235
+\OT1/cmr/bx/n/8 tempo do
+ []
+
+
+Underfull \hbox (badness 2894) in paragraph at lines 235--235
+[]\OT1/cmr/bx/n/8 M^^Sedia do per-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--235
+[]\OT1/cmr/bx/n/8 Lat^encia
+ []
+
+
+Overfull \hbox (41.0678pt too wide) in paragraph at lines 234--239
+ [] 
+ []
+
+)
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 54
  []
 
-[54
+[54]
+\openout2 = `capitulos/conclusao.aux'.
+
+ (./capitulos/conclusao.tex [55
 
 
 
@@ -2090,7 +2144,12 @@ Overfull \hbox (3.52617pt too wide) in paragraph at lines 70--80
  [] 
  []
 
-) [55] (./tcc.bbl
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 56
+ []
+
+[56] (./tcc.bbl
 Underfull \hbox (badness 3219) in paragraph at lines 17--20
 []\OT1/cmr/m/n/12 Apereo Foun-da-tion. \OT1/cmr/bx/n/12 In-tro-du-cing Sa-kai 1
 1\OT1/cmr/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pvel em: $\OT
@@ -2115,12 +2174,7 @@ Underfull \hbox (badness 3009) in paragraph at lines 48--51
 raphing So-lu-tion\OT1/cmr/m/n/12 .
  []
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 56
- []
-
-[56
+[57
 
 
 ]
@@ -2130,7 +2184,12 @@ r/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pvel em: $\OT1/cmtt/m
 /n/12 https : / / trac .
  []
 
-[57]
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 58
+ []
+
+[58]
 Underfull \hbox (badness 5847) in paragraph at lines 146--150
 \OT1/cmr/bx/n/12 De-vice\OT1/cmr/m/n/12 . $\OML/cmm/m/it/12 <$\OT1/cmr/m/n/12 D
 ispon^^S^^Pvel em: $\OT1/cmtt/m/n/12 http : / / www . ibm . com / developerwork
@@ -2143,12 +2202,12 @@ Underfull \hbox (badness 1776) in paragraph at lines 179--183
  Mir-ro-ring So-lu-ti-ons\OT1/cmr/m/n/12 .
  []
 
-
+[59]
 Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 58
+\OT1/cmr/m/n/10.95 60
  []
 
-[58] [59]
+[60]
 Underfull \hbox (badness 1112) in paragraph at lines 286--290
 []\OT1/cmr/m/n/12 Red Hat. \OT1/cmr/bx/n/12 Red Hat GFS\OT1/cmr/m/n/12 . $\OML/
 cmm/m/it/12 <$\OT1/cmr/m/n/12 Dispon^^S^^Pvel em: $\OT1/cmtt/m/n/12 https : / /
@@ -2186,12 +2245,12 @@ Underfull \hbox (badness 6542) in paragraph at lines 331--335
 px/$$\OML/cmm/m/it/12 >$\OT1/cmr/m/n/12 . Acesso em 25 de
  []
 
-
+[61])
 Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 60
+\OT1/cmr/m/n/10.95 62
  []
 
-[60]) [61]
+[62]
 \openout2 = `capitulos/anexo1.aux'.
 
  (./capitulos/anexo1.tex
@@ -2212,35 +2271,35 @@ File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 39.
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 62
- []
-
-[62
+ [63
 
 
-] [63]
+]
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 64
  []
 
-[64]
+[64] [65]
 Overfull \hbox (151.37466pt too wide) in paragraph at lines 217--218
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[65]
+
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 66
  []
 
-[66]
+[66] [67]
 Overfull \hbox (19.9733pt too wide) in paragraph at lines 317--318
 [][][][][][][][][][][][][][][][][][][] 
  []
 
-[67]
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 68
+ []
+
+[68]
 Overfull \hbox (13.40323pt too wide) in paragraph at lines 371--372
 [][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -2250,12 +2309,7 @@ Overfull \hbox (6.83316pt too wide) in paragraph at lines 384--385
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-)
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 68
- []
-
-[68]
+) [69]
 \openout2 = `capitulos/anexo2.aux'.
 
  (./capitulos/anexo2.tex
@@ -2264,7 +2318,12 @@ LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <10.95> not available
 
 Underfull \vbox (badness 3536) has occurred while \output is active []
 
- [69
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 70
+ []
+
+[70
 
 
 
@@ -2306,12 +2365,7 @@ Overfull \hbox (33.11343pt too wide) in paragraph at lines 96--97
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 70
- []
-
-[70]
+ [71]
 Overfull \hbox (33.11343pt too wide) in paragraph at lines 116--117
 [][][][][][][][][][][][][][][] 
  []
@@ -2326,7 +2380,12 @@ Overfull \hbox (19.9733pt too wide) in paragraph at lines 119--120
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [71] 
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 72
+ []
+
+[72] 
 AED: lastpage setting LastPage
 (./tcc.aux (./folha_rosto.aux) (./abstract.aux) (./capitulos/introducao.aux)
 (./capitulos/capitulo2.aux) (./capitulos/capitulo3.aux)
@@ -2339,13 +2398,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 16653 strings out of 495004
- 308555 string characters out of 6180662
- 404870 words of memory out of 5000000
- 19495 multiletter control sequences out of 15000+600000
+ 16659 strings out of 495004
+ 308816 string characters out of 6180662
+ 404937 words of memory out of 5000000
+ 19500 multiletter control sequences out of 15000+600000
  12494 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 62i,11n,57p,10374b,1736s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,11n,57p,10374b,1742s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
@@ -2360,10 +2419,10 @@ mssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (72 pages, 2212689 bytes).
+Output written on tcc.pdf (73 pages, 2365934 bytes).
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
- 263 compressed objects within 3 object streams
+ 421 PDF objects out of 1000 (max. 8388607)
+ 269 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 146 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
