@@ -16,24 +16,6 @@ STANDBY_CHECK_RES="MS_DRBD"
 
 logger "Script manutencao cluster $PROGNAME node: $NODE"
 
-#verificacoes
-#se cluster esta ok
-NAG_CHECK=$(/usr/lib/nagios/plugins/check_crm_v0_7)
-NAG=$?
-logger "Cluster nagios check: $NAG_CHECK"
-if [ $NAG -ne 0 ]; then
-	logger "Erro. Cluster nao esta ok"
-	exit
-fi
-
-#se ja reiniciou nao executa
-UPTIME=`awk '{print $1}' /proc/uptime`
-UPINT=${UPTIME%.*}
-if [ $UPINT -lt 86400 ]; then
-	logger "Ja reiniciado"
-	exit
-fi
-
 # ------------------------------------------------------------------
 #recovery - retorna node para online se ja foi reiniciado
 if [ -f pacemaker_reboot.tmp ]; then
@@ -45,11 +27,30 @@ if [ -f pacemaker_reboot.tmp ]; then
 		/usr/sbin/crm node online $NODE
 		rm pacemaker_reboot.tmp
 	else
+                logger "Inicia pacemaker"
 		service pacemaker start
 	fi
 else
 # ------------------------------------------------------------------
 #destroy - derruba node para reiniciar
+	#verificacoes
+	#se cluster esta ok
+	NAG_CHECK=$(/usr/lib/nagios/plugins/check_crm_v0_7)
+	NAG=$?
+	logger "Cluster nagios check: $NAG_CHECK"
+	if [ $NAG -ne 0 ]; then
+		logger "Erro. Cluster nao esta ok"
+		exit
+	fi
+
+	#se ja reiniciou nao executa
+	UPTIME=`awk '{print $1}' /proc/uptime`
+	UPINT=${UPTIME%.*}
+	if [ $UPINT -lt 86400 ]; then
+		logger "Ja reiniciado"
+		exit
+	fi
+
 	#se outro node esta online
 	RES_CHECK=$(/usr/sbin/crm resource show $ONLINE_CHECK_RES)
 	NODE_LIST=$(/usr/sbin/crm_node -l |awk '{print $2}' |grep -v $NODE)
