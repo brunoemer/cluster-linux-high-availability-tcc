@@ -51,7 +51,7 @@ else
 	UPINT=${UPTIME%.*}
 	if [ $UPINT -lt 86400 ]; then
 		logger "Ja reiniciado"
-#		exit
+		exit
 	fi
 
 	#se outro node esta online
