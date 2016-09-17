@@ -22,13 +22,16 @@ if [ -f pacemaker_reboot.tmp ]; then
 	#verifica se pacemaker esta iniciado
 	service pacemaker status
 	PACEMAKER_ST=$?
-	if [ $PACEMAKER_ST -eq 0 ]; then
-		logger "Online $NODE"
-		/usr/sbin/crm node online $NODE
-		rm pacemaker_reboot.tmp
-	else
-                logger "Inicia pacemaker"
+	if [ $PACEMAKER_ST -ne 0 ]; then
+		logger "Inicia pacemaker"
 		service pacemaker start
+	fi
+	service pacemaker status
+        PACEMAKER_ST=$?
+        if [ $PACEMAKER_ST -eq 0 ]; then
+		logger "Online $NODE"
+                /usr/sbin/crm node online $NODE
+                rm pacemaker_reboot.tmp
 	fi
 else
 # ------------------------------------------------------------------
@@ -48,7 +51,7 @@ else
 	UPINT=${UPTIME%.*}
 	if [ $UPINT -lt 86400 ]; then
 		logger "Ja reiniciado"
-		exit
+#		exit
 	fi
 
 	#se outro node esta online
