@@ -58,6 +58,7 @@
 \contentsline {subsection}{\numberline {6.2.2}Teste 2 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{53}
 \contentsline {subsection}{\numberline {6.2.3}Teste 3 - Desligamento por software}{53}
 \contentsline {subsection}{\numberline {6.2.4}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{54}
+\contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{54}
 \contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{55}
 \contentsline {section}{\numberline {7.1}Cronograma}{56}
 \contentsline {chapter}{Refer{\^e}ncias}{57}
