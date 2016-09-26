@@ -1,6 +1,6 @@
 \chapter{Introdução}
-O crescente avanço tecnológico e o desenvolvimento da Internet, provocou um aumento no número de aplicações ou serviços que dependem da 
-infraestrutura de \ac{TI}. Além disso, percebe-se um aumento significativo no número de operações \textit{on-line} que são realizadas, 
+O crescente avanço tecnológico e o desenvolvimento da Internet, provocou um aumento significativo no número de aplicações ou serviços que 
+dependem da infraestrutura de \ac{TI}. Além disso, percebe-se um aumento no número de operações \textit{on-line} que são realizadas, 
 tanto por organizações públicas ou privadas, quanto por grande parte da população.
 
 Desta forma, a sociedade está cada vez mais dependente da tecnologia, de computadores e de sistemas. De fato, pode-se observar 
@@ -25,38 +25,39 @@ detecção, mascaramento e a recuperação de falhas, sendo que esses mecanismos
 a falhas é, frequentemente, implementada utilizando redundância. No caso de uma falha em um dos componentes evita-se a interrupção do sistema,
 uma vez que o sistema poderá continuar funcionando utilizando o outro componente \cite{batista2007}.
 
-Neste trabalho será realizado um estudo sobre a implementação de um sistema de alta disponibilidade em uma empresa prestadora de serviços para 
+Neste trabalho foi realizado um estudo sobre a implementação de um sistema de alta disponibilidade em uma empresa prestadora de serviços para 
 Internet. Essa empresa oferece serviços, como por exemplo hospedagens de sites, \textit{e-mail}, sistemas de gestão, \textit{e-mail marketing}, 
 entre outros. A empresa possui aproximadamente 60 servidores físicos e virtuais, e aproximadamente 9000 clientes, 
 sendo que em períodos de pico atende em torno de 1000 requisições por segundo. 
 
-Atualmente, a empresa possui redundância de conexões de acesso à Internet, refrigeração e energia, com \textit{nobreaks} e geradores. 
-Porém, essa empresa não possui nenhuma redundância nos serviços que estão sendo executados nos servidores. Desta forma, caso ocorra 
-uma falha de \textit{software} ou de \textit{hardware}, os serviços ficarão indisponíveis. Neste trabalho será realizada uma análise dos 
-serviços oferecidos pela empresa, sendo que mecanismos de alta disponibilidade serão desenvolvidos para os serviços mais críticos. 
-Para a redução dos custos serão utilizadas ferramentas gratuitas e de código aberto.
+Anteriormente, a empresa possuía redundância nas conexões de acesso à Internet, refrigeração e energia, com \textit{nobreaks} e geradores. 
+Porém, essa empresa não possuía nenhuma redundância nos serviços que estavam sendo executados nos servidores. Desta forma, caso ocorresse
+uma falha de \textit{software} ou de \textit{hardware}, os serviços ficariam indisponíveis. Neste trabalho foi realizada uma análise dos 
+serviços oferecidos pela empresa, sendo que mecanismos de alta disponibilidade foram desenvolvidos para os serviços mais críticos. 
+Para a redução dos custos foram utilizadas ferramentas gratuitas e de código aberto.
 
 \section{Objetivos}
-Atualmente a empresa estudada não possui nenhuma solução de alta disponibilidade para seus serviços críticos. Desta forma, neste trabalho 
-será desenvolvida uma solução de alta disponibilidade para estes serviços, sendo que essa solução será baseada no uso de ferramentas de 
-código aberto e de baixo custo. Para que o objetivo geral seja atendido os seguintes objetivos específicos deverão ser realizados:
+A empresa estudada não apresentava nenhuma solução de alta disponibilidade para seus serviços críticos. Desta forma, neste trabalho 
+foi desenvolvida uma solução de alta disponibilidade para estes serviços, sendo que essa solução foi baseada no uso de ferramentas de 
+código aberto e de baixo custo. Para que o objetivo geral fosse atendido os seguintes objetivos específicos foram realizados:
 
 \begin{itemize}
-\item Identificar os serviços críticos a serem integrados ao ambiente de alta disponibilidade;
-\item Definir as ferramentas a serem utilizadas para implementar tolerância a falhas;
-\item Realizar testes para a validação do sistema de alta disponibilidade que foi desenvolvido.
+\item Identificação dos serviços críticos a serem integrados ao ambiente de alta disponibilidade;
+\item Definição das ferramentas a serem utilizadas para implementar tolerância a falhas;
+\item Realização de testes para a validação do sistema de alta disponibilidade que foi desenvolvido.
 \end{itemize}
 
 \section{Estrutura do trabalho}
-O trabalho foi estruturado em cinco capítulos, que são:
+O trabalho foi estruturado em seis capítulos, que são:
 
 \begin{itemize}
  \item Capítulo \ref{cap:altadisponibilidade}: apresenta o conceito de alta disponibilidade e conceitos relacionados;
  \item Capítulo \ref{cap:virtualizacao}: é apresentado um breve histórico da virtualização, bem como o conceito de máquinas virtuais e as 
  estratégias utilizadas para a implementação das mesmas;
- \item Capítulo \ref{cap:infraempresa}: descreve o ambiente atual da empresa com os serviços que são fornecidos;
- \item Capítulo \ref{cap:projetoimplementacao}: neste capítulo são descritos os serviços críticos e é apresentada a solução de alta disponibilidade 
- proposta. Essa proposta de solução foi desenvolvida baseada na utilização de virtualização;
- \item Capítulo :
- \item Capítulo \ref{cap:conclusao}: apresenta as conclusões parciais do trabalho e o cronograma de andamento.
+ \item Capítulo \ref{cap:infraempresa}: descreve o ambiente inicial da empresa com os serviços que são fornecidos;
+ \item Capítulo \ref{cap:projetoimplementacao}: neste capítulo são descritos os serviços críticos e é apresentada a solução de alta disponibilidade. 
+ Essa proposta de solução foi desenvolvida baseada na utilização de virtualização;
+ \item Capítulo \ref{cap:implementacaoresultados}: é feito a análise dos resultados proveniente dos testes realizados no ambiente de alta 
+ disponibilidade;
+ \item Capítulo \ref{cap:conclusao}: apresenta as conclusões do trabalho e as sugestões de trabalhos futuros.
 \end{itemize}
