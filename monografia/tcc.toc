@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {3.3.1}Virtualiza\IeC {\c c}\IeC {\~a}o de Desktop}{22}
 \contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{23}
 \contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{24}
-\contentsline {chapter}{\numberline {4}Infraestrutura atual da Empresa}{25}
+\contentsline {chapter}{\numberline {4}Infraestrutura da Empresa}{25}
 \contentsline {section}{\numberline {4.1}Instala\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica}{26}
 \contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{28}
 \contentsline {section}{\numberline {4.3}Servidores com virtualiza\IeC {\c c}\IeC {\~a}o}{29}

@@ -1,19 +1,20 @@
-\chapter{Infraestrutura atual da Empresa}
+\chapter{Infraestrutura da Empresa}
 \label{cap:infraempresa}
 
-Este capítulo apresentará a infraestrutura de \ac{TI} da empresa que será objetivo de estudo neste trabalho. Esta é uma empresa que fornece 
-serviços de hospedagens e também está associada a um provedor de Internet\footnote[1]{É importante salientar que esse provedor utiliza a maior 
-parte dos serviços da empresa.}. A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, sendo que, atualmente, 
-esta empresa possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de Garibaldi. Além disso, a empresa possui quatro 
-filiais no estado, atendendo aproximadamente 30 cidades.
+Este capítulo apresentará a infraestrutura de \ac{TI} da empresa, apresentará o ambiente, a configuração dos servidores e dos serviços. Esta é 
+uma empresa que fornece serviços de hospedagens e também está associada a um provedor de Internet\footnote[1]{É importante salientar que esse 
+provedor utiliza a maior parte dos serviços da empresa.}. A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, 
+sendo que, esta empresa possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de Garibaldi. Além disso, 
+a empresa possui quatro filiais no estado, atendendo aproximadamente 30 cidades.
 
 A empresa oferece serviços pela Internet, sendo eles: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
 \textit{e-mail marketing}, \textit{backup}, máquinas virtuais, autenticação via \ac{ADSL} e rádio \textit{online}. Além disso, o provedor 
 associado fornece aos seus clientes acesso à Internet via rádio e acesso à Internet por meio de fibra óptica. 
 A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto.
 
-Atualmente, a empresa possui redundância de refrigeração e de energia, como pode ser observado na Figura \ref{fig:insteletrica}. 
-A redundância de refrigeração é composta por dois ares-condicionados (\textit{Ar 1 (Inverter)} e \textit{Ar 2} na Figura \ref{fig:insteletrica}). 
+A empresa possui redundância de refrigeração e de energia, como pode ser observado na Figura \ref{fig:insteletrica}. 
+A redundância de refrigeração é composta por dois ares-condicionados, que foram denominados de \textit{Ar 1 (Inverter)} e \textit{Ar 2} na 
+Figura \ref{fig:insteletrica}.
 
 \begin{figure}[h!]
  \centering
@@ -33,15 +34,15 @@ sendo que nestes \textit{totens} são ligados os equipamentos e os servidores qu
 entrada de energia, com três fases (destacadas na cor vermelho), e dois geradores (destacados na cor verde) que suprem a necessidade de consumo 
 de energia elétrica do ambiente.
 
-Nas próximas seções será feita uma descrição da estrutura da empresa. Na Seção \ref{section:fisico} serão descritos os servidores físicos, com 
-suas estruturas e configurações. Na Seção \ref{section:servsemvirt} serão descritos os servidores que não utilizam virtualização, ou seja, 
+Nas próximas seções será feita uma breve descrição da estrutura da empresa. Na Seção \ref{section:fisico} serão descritos os servidores físicos, 
+com suas estruturas e configurações. Na Seção \ref{section:servsemvirt} serão descritos os servidores que não utilizam virtualização, ou seja, 
 os servidores que possuem os serviços instalados diretamente sobre o sistema operacional. Na Seção \ref{section:servvirt} será descrita a 
 estrutura dos servidores que utilizam de virtualização e todos os serviços fornecidos por esses servidores.
 
 \section{Instalação física}
 \label{section:fisico}
 
-A estrutura atual da empresa é composta por quatorze servidores físicos. A configuração desses servidores pode ser observada na 
+A estrutura da empresa é composta por quatorze servidores físicos. A configuração desses servidores pode ser observada na 
 Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo, a configuração dos processadores, quantidade de memória
 \aca{RAM}, número de discos rígidos e a capacidade unitária de cada disco.
 
@@ -98,7 +99,7 @@ A Figura \ref{fig:servrack} apresenta uma foto, com o \textit{rack} e todos os s
 \section{Servidores sem virtualização}
 \label{section:servsemvirt}
 
-Atualmente tem-se sete servidores que possuem os serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização. 
+Tem-se sete servidores que possuem os serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização. 
 Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estão descritos abaixo:
 \begin{itemize}
  \item \textit{Bello}: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Sua função é armazenar todos os 
@@ -154,7 +155,7 @@ de alimentação duplicada e discos rígidos configurados através de \ac{RAID} 
 utilizado \ac{RAID} 5. Já em servidores que possuem apenas dois discos é utilizado \ac{RAID} 1 (espelhamento de discos). 
 O ambiente também possui redundância no cabeamento de rede, como visto anteriormente.
 
-A empresa fornece serviços diversos, desde hospedagens de sites até \aca{DNS} recursivo para o provedor de Internet. Atualmente sete servidores 
+A empresa fornece serviços diversos, desde hospedagens de sites até \aca{DNS} recursivo para o provedor de Internet. Sete servidores 
 são utilizados com virtualização (os últimos sete servidores da Tabela \ref{tab:servfisicos}), sendo que existem quarenta e seis \acp{VM} 
 distribuídas entre esses sete servidores. Nas próximas seções serão descritos esses servidores, e as respectivas máquinas virtuais que são
 executadas nestes.
@@ -266,7 +267,7 @@ O servidor \textit{Piova} possui nove \acp{VM}, como pode ser visto na Figura \r
  
  \item \textit{CactiBackbone}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória \ac{RAM} e 20 GB de disco. 
  Ele é um servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.3} \cite{centos} e executa a aplicação 
- \textit{Cacti 0.8.8a} \cite{cacti}. Essa aplicação monitora atualmente uma parte da rede \textit{backbone} do provedor;
+ \textit{Cacti 0.8.8a} \cite{cacti}. Essa aplicação monitora uma parte da rede \textit{backbone} do provedor;
  
  \item \textit{Dio}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória \ac{RAM} e 17,8 GB de disco. 
  O servidor possui o sistema operacional \textit{Ubuntu 6.06 \ac{LTS}} \cite{ubuntu} e fornece serviço de hospedagens de sites desenvolvidos com 
@@ -436,6 +437,6 @@ O servidor \textit{Venti} possui cinco \acp{VM}, como pode ser visto na Figura \
 
 Neste capítulo foi apresentada a infraestrutura de \ac{TI} da empresa para possibilitar a identificação dos serviços mais críticos 
 da empresa, a qual será apresentada no próximo capítulo. Além disso, pode-se ter uma visão geral dos serviços fornecidos, bem como do 
-\textit{hardware} que está sendo utilizado atualmente. No próximo capítulo será apresentada uma proposta de um ambiente de alta disponibilidade 
+\textit{hardware} que está sendo utilizado. No próximo capítulo será apresentada uma proposta ?? de um ambiente de alta disponibilidade 
 para os serviços críticos, sendo que nesta proposta serão apresentados os \textit{softwares} que serão utilizados para implementar a alta 
 disponibilidade.

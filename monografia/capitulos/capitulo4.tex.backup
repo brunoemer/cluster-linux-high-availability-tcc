@@ -1,4 +1,4 @@
-\chapter{Infraestrutura atual da Empresa}
+\chapter{Infraestrutura da Empresa}
 \label{cap:infraempresa}
 
 Este capítulo apresentará a infraestrutura de \ac{TI} da empresa que será objetivo de estudo neste trabalho. Esta é uma empresa que fornece 
@@ -435,5 +435,7 @@ O servidor \textit{Venti} possui cinco \acp{VM}, como pode ser visto na Figura \
 \section{Considerações finais}
 
 Neste capítulo foi apresentada a infraestrutura de \ac{TI} da empresa para possibilitar a identificação dos serviços mais críticos 
-da empresa, a qual será apresentada no próximo capítulo. Além disso, pode-se . No próximo capítulo será apresentada uma proposta de um ambiente de alta disponibilidade 
-para os mesmos. Nesta proposta, serão apresentados os \textit{softwares} que serão utilizados para implementar a alta disponibilidade.
+da empresa, a qual será apresentada no próximo capítulo. Além disso, pode-se ter uma visão geral dos serviços fornecidos, bem como do 
+\textit{hardware} que está sendo utilizado atualmente. No próximo capítulo será apresentada uma proposta de um ambiente de alta disponibilidade 
+para os serviços críticos, sendo que nesta proposta serão apresentados os \textit{softwares} que serão utilizados para implementar a alta 
+disponibilidade.
