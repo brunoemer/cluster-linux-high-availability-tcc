@@ -128,7 +128,7 @@ físicos que são de 169 e 205,5 segundos.
 \begin{center}
 \begin{tabular}{|l|p{2.3cm}|p{2.2cm}|p{2.5cm}|p{2cm}|p{2.7cm}|}\hline
  & \textbf{Tempo do teste} & \textbf{Pacotes transmitidos} & \textbf{Percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Tempo de indisponibilidade} \\\hline
-Média Brina & 300,03 segundos & 300,5 & 58,5 & 20,68 & 169 segundos \\\hline
+Média Brina & 300,03 segundos & 300,5 & 58,5 & 20,68 ms & 169 segundos \\\hline
 Média Piova & 300 segundos & 300,5 & 69,5 & 31,44 ms & 205,5 segundos \\\hline
 \end{tabular}
 \end{center}
@@ -182,21 +182,25 @@ Este roteiro foi executado 2 vezes por semana em cada nó, durante 2 semanas. Pa
 \begin{center}
 \begin{tabular}{|l|p{2.2cm}|p{2.5cm}|p{2.5cm}|p{1.5cm}|p{3cm}|}\hline
 \textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
-Brina & & & & & \\\hline
-Piova & & & & & \\\hline
-Servidor virtual & & & & & \\\hline
+Brina & 299,9 segundos & 301 & 39,5 & 22,63 & 145,5 segundos \\\hline
+Piova & 300 segundos & 300,5 & 44,5 & 19,8 ms & 174 segundos\\\hline
+Servidor virtual & 299,99 & 301 & 0 & 0,309 ms & 0 segundos \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-%Pode-se observar que não houve \textit{downtime} na máquina virtual, e consequentemente nos serviços.
-%Porém, tem-se uma latência maior durante o processo de \textit{live migration}, como pode ser observado na Figura X.
+Pode-se observar que não houve \textit{downtime} e nem perda de pacotes na máquina virtual, desta forma também não houve indisponibilidade nos 
+seus serviços.
+%NAO Porém, tem-se uma latência maior durante o processo de \textit{live migration}, como pode ser observado na Figura X.
 ...
 
+Como era esperado, durante o processo de \textit{live migration} a latência da máquina virtual aumentou, isso pode ser observado na figura X.
 grafico latencia
+%teste2/186.195.16.13-stat-2.log
+%teste2/186.195.16.13-stat-1.log
 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
-%grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 17/09 a 30/09 + Include Soft States = yes
+%grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 18/09 a 30/09 + Include Soft States = yes
 A Figura X demonstra a disponibilidade da máquina virtual (a) e dos nós (b), esses dados foram retirados da ferramenta de monitoramento da empresa,
 \textit{Nagios}. Comparando os gráficos pode-se perceber a diferença do \textit{uptime} entre servidores físicos e o virtual.
 %%figura
@@ -235,7 +239,7 @@ demonstra os dados do servidor físico e do virtual.
 \begin{tabular}{|l|p{2.2cm}|p{2.5cm}|p{2.5cm}|p{1.5cm}|p{3cm}|}\hline
 \textbf{Tipo} & \textbf{Média do tempo do teste} & \textbf{Média dos pacotes transmitidos} & \textbf{Média do percentual de pacotes perdidos} & \textbf{Latência média} & \textbf{Média do tempo de indisponibilidade} \\\hline
 Servidores físicos & 260,53 segundos & 261 & 60,75 & 14,98 ms & 152,75 segundos \\\hline
-Servidor virtual & 156,98 segundos & 158 & 18,75 & 0,2217 ms & 5 segundos \\\hline
+Servidor virtual & 156,98 segundos & 158 & 18,75 & 0,222 ms & 5 segundos \\\hline
 \end{tabular}
 \end{center}
 \end{table}
