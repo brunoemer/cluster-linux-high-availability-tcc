@@ -9,8 +9,8 @@ de \textit{softwares} de código aberto.
 \label{section:servcrit}
 
 No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feita uma análise desses
-serviços, destacando os serviços que foram considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados os 
-seguintes critérios:
+serviços, destacando os serviços que foram considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados alguns 
+critérios. Esses critérios foram baseados em ??. Tem-se os critérios listados abaixo:
 \begin{itemize}
  \item A quantidade de clientes que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
@@ -52,15 +52,15 @@ clientes que utilizam os serviços.
 
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
 os clientes não conseguirão estabelecer conexão e, consequentemente, não conseguirão utilizar o serviço de Internet. Os servidores 
-\textit{Masterauth} e \textit{Speedauth} fornecem o serviço de \textit{Radius}, sendo que recebem em média 1,6 requisições de autenticação 
+\textit{Masterauth} e \textit{Speedauth} fornecem o serviço de \textit{Radius}, sendo que recebem em média, 1,6 requisições de autenticação 
 por segundo. Além disso, esses servidores armazenam dados relacionados à conexão dos clientes, como por exemplo, o endereço de \ac{IP} que é 
 utilizado por um cliente em um determinado período de tempo, o tráfego de dados da conexão, o tempo da conexão de cada cliente, o endereço 
 \aca{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 requisições por segundo. 
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes que
 utilizam esses servidores para autenticação. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e 
 \textit{Speedauth} estão entre os que apresentam o maior número de elementos. Além disso, nesses servidores existe um grande número de conexões 
-\ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utilizar para comunicação com o
-seu banco de dados.}, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
+\ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utiliza esse protocolo para a 
+comunicação com o seu banco de dados.}, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
 % \begin{figure}[h!]
 %  \centering
@@ -115,7 +115,7 @@ recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além di
 O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se que ocorrem 
 de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Também pode-se observar, na Figura 
 \ref{fig:dns_udp} (b), que esse serviço possui um elevado número de requisições \ac{UDP}\footnote[2]{Esse número de requisições \ac{UDP} 
-deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de voz.}, se comparado aos demais servidores.
+deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão de voz.}, se comparado aos demais servidores.
 
 \begin{figure}[h!]
  \centering
@@ -124,7 +124,7 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para transmissão de 
  \label{fig:simplesip_week}
 \end{figure}
 
-\subsection{Situação atual}
+\subsection{Situação anterior}
 \label{section:maqservcrit}
 
 A partir da análise inicial, verificou-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
@@ -138,8 +138,9 @@ A partir da análise inicial, verificou-se que os servidores a serem incluídos 
 
 Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime} e o tempo de 
 \textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim foi utilizada a 
-medição apenas dos últimos 6 meses de 2015, por isso esse possui um \textit{Uptime} elevado.
-%A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
+medição apenas dos últimos 6 meses de 2015.
+%, por isso esse possui um \textit{Uptime} elevado.
+A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
 
 \begin{table}[h!]
 \caption{Serviços críticos do ano de 2015.}
@@ -156,15 +157,15 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \end{center}
 \end{table}
 
-\section{Proposta de solução?}
+\section{Definição dos softwares utilizados}
 \label{section:propostasolucao}
 
-Para implementação desta solução serão necessários dois servidores físicos, sendo que a configuração de cada servidor deverá ser de 
+Para implementação desta solução foram necessários dois servidores físicos, sendo que a configuração ideal de cada servidor é de 
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
-recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos. Com essa solução, caso ocorra alguma falha 
-em um servidor, as máquinas virtuais serão transferidas para o outro servidor. Destaca-se que tais recursos de \textit{hardware} já 
-encontram-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais.
+recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos, observa-se que tais recursos de 
+\textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais. Com essa solução, 
+caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
 
 Destaca-se que para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se a técnica descrita no artigo 
 de \cite{thome2013}. Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
@@ -295,13 +296,6 @@ Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas cita
 A ferramenta adotada para replicação de dados foi o \ac{DRBD}, pois permite a configuração \textit{dual-primary} e também \textit{master-slave}, 
 além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a ressincronização 
 dos dados de forma automática em caso de um falha \cite{drbd}.
-O \textit{GlusterFS} poderia ser utilizado, porém este faz uma replicação a nível de arquivo, sendo assim, não é adequada para uma 
-solução de alta disponibilidade que utiliza-se de virtualização. 
-E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real, além de não ter sido desenvolvido para
-executar em conjunto com a virtualização.
-
-%Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
-%\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -318,6 +312,14 @@ Distribuições Linux & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, 
 \end{tabular}
 \end{center}
 \end{table}
+
+O \textit{GlusterFS} poderia ser utilizado, porém este faz uma replicação a nível de arquivo, sendo assim, não é adequada para uma 
+solução de alta disponibilidade que utiliza-se de virtualização. 
+E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real, além de não ter sido desenvolvido para
+executar em conjunto com a virtualização.
+
+%Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
+%\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
 
 %https://www.reddit.com/r/linux/comments/1qwarp/drbd_vs_glusterfs/
 % glusterfs mais escalavel, simples de administrar
@@ -508,7 +510,7 @@ o serviço de banco de dados parar por uma falha qualquer, ele será iniciado no
 \label{section:gerenciadorescolhido}
 
 Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
-O \textit{software} adotado para gerenciar o ambiente será o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
+O \textit{software} adotado para gerenciar o ambiente é o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
 \textit{cluster} de alta disponibilidade utilizando virtualização. A principal e fundamental característica é o \textit{failover} automático
 dos nós, pode-se perceber na tabela que o \textit{Pacemaker} é o único que suporta isto. Além disso, ele possui suporte a migração em tempo real, 
 que pode ser utilizada para manutenções. Esse \textit{software} é o único que possui a característica de sincronismo de configuração entre todos 
@@ -521,12 +523,12 @@ bons resultados.
 \label{tab:clusterger}
 \begin{center}
 \begin{tabular}{|p{4cm}|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
-\textbf{Características} & \textbf{Pacemaker} & \textbf{Ganeti} & \textbf{Heartbeat} \\\hline
-Suporte nativo a virtualização & Sim & Sim & Não \\\hline
-Migração de \acp{VM} em tempo real & Sim & Sim & Não \\\hline
-Failover e failback automáticos & Sim & Não & Não \\\hline
-Sincronismo de configuração entre os nós & Sim & Não & Não \\\hline
-Distribuições Linux & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
+\textbf{Características} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
+Suporte nativo a virtualização & Sim & Não & Sim \\\hline
+Migração de \acp{VM} em tempo real & Sim & Não & Sim \\\hline
+Failover e failback automáticos & Não & Não & Sim \\\hline
+Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
+Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -556,5 +558,5 @@ um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 
 Neste capítulo foram apresentados os serviços críticos. Posteriormente foram apresentadas ferramentas para implementação de alta disponibilidade 
 e selecionada a mais adequada para o ambiente real da empresa. No próximo capítulo será apresentada a implementação da solução de alta 
-disponibilidade.
+disponibilidade, efetuado testes e apresentos os resultados.
 
