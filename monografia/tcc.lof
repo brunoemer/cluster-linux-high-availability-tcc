@@ -40,7 +40,9 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.3:}{\ignorespaces Estrutura do \textit {cluster}.}}{51}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.4:}{\ignorespaces Disponibilidade servidores f\IeC {\'\i }sicos \textit {Brina} e \textit {Piova} e m\IeC {\'a}quinas virtual \textit {Trapel}.}}{53}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{54}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Disponibilidade da m\IeC {\'a}quina virtual, gr\IeC {\'a}fico da disponibilidade (a) e tabela com detalhes de tempo e percentual (b).}}{55}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Disponibilidade da m\IeC {\'a}quina virtual, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{55}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.7:}{\ignorespaces Disponibilidade do N\IeC {\'o} 1, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{55}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.8:}{\ignorespaces Disponibilidade do N\IeC {\'o} 2, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{56}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
