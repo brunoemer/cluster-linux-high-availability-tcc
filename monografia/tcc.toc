@@ -40,9 +40,9 @@
 \contentsline {subsection}{\numberline {5.1.4}Telefonia interna sobre IP}{41}
 \contentsline {subsection}{\numberline {5.1.5}Situa\IeC {\c c}\IeC {\~a}o anterior}{41}
 \contentsline {section}{\numberline {5.2}Defini\IeC {\c c}\IeC {\~a}o dos softwares utilizados}{42}
-\contentsline {subsection}{\numberline {5.2.1}Softwares para a replica\IeC {\c c}\IeC {\~a}o de dados}{43}
+\contentsline {subsection}{\numberline {5.2.1}Softwares para a replica\IeC {\c c}\IeC {\~a}o de dados}{42}
 \contentsline {subsubsection}{\numberline {5.2.1.1}DRBD}{43}
-\contentsline {subsubsection}{\numberline {5.2.1.2}GlusterFS}{44}
+\contentsline {subsubsection}{\numberline {5.2.1.2}GlusterFS}{43}
 \contentsline {subsubsection}{\numberline {5.2.1.3}Rsync}{45}
 \contentsline {subsubsection}{\numberline {5.2.1.4}Resumo e software de replica\IeC {\c c}\IeC {\~a}o adotado}{45}
 \contentsline {subsection}{\numberline {5.2.2}Softwares para o gerenciamento de cluster}{46}
@@ -50,15 +50,15 @@
 \contentsline {subsubsection}{\numberline {5.2.2.2}Heartbeat}{47}
 \contentsline {subsubsection}{\numberline {5.2.2.3}Pacemaker}{48}
 \contentsline {subsubsection}{\numberline {5.2.2.4}Resumo e software de gerenciamento adotado}{49}
-\contentsline {section}{\numberline {5.3}Considera\IeC {\c c}\IeC {\~o}es finais}{49}
-\contentsline {chapter}{\numberline {6}Implementa\IeC {\c c}\IeC {\~a}o e resultados}{50}
-\contentsline {section}{\numberline {6.1}Implementa\IeC {\c c}\IeC {\~a}o}{50}
-\contentsline {section}{\numberline {6.2}Valida\IeC {\c c}\IeC {\~o}es e testes}{52}
-\contentsline {subsection}{\numberline {6.2.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{52}
-\contentsline {subsection}{\numberline {6.2.2}Teste 2 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{54}
-\contentsline {subsection}{\numberline {6.2.3}Teste 3 - Desligamento por software}{55}
-\contentsline {subsection}{\numberline {6.2.4}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{57}
-\contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{57}
+\contentsline {section}{\numberline {5.3}Implementa\IeC {\c c}\IeC {\~a}o}{49}
+\contentsline {section}{\numberline {5.4}Considera\IeC {\c c}\IeC {\~o}es finais}{51}
+\contentsline {chapter}{\numberline {6}Resultados}{52}
+\contentsline {section}{\numberline {6.1}Testes realizados}{52}
+\contentsline {subsection}{\numberline {6.1.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{52}
+\contentsline {subsection}{\numberline {6.1.2}Teste 2 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{54}
+\contentsline {subsection}{\numberline {6.1.3}Teste 3 - Desligamento por software}{55}
+\contentsline {subsection}{\numberline {6.1.4}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{57}
+\contentsline {section}{\numberline {6.2}Considera\IeC {\c c}\IeC {\~o}es finais}{57}
 \contentsline {chapter}{\numberline {7}Conclus\IeC {\~a}o}{58}
 \contentsline {section}{\numberline {7.1}Trabalho futuros}{59}
 \contentsline {chapter}{Refer{\^e}ncias}{60}
@@ -67,7 +67,7 @@
 \contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{66}
 \contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{67}
 \contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{69}
-\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{70}
-\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{73}
-\contentsline {section}{\numberline {B.1}Script indisponibilidade}{73}
-\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{74}
+\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{69}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{72}
+\contentsline {section}{\numberline {B.1}Script indisponibilidade}{72}
+\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{72}

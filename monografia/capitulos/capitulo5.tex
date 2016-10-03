@@ -160,14 +160,7 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \section{Definição dos softwares utilizados}
 \label{section:propostasolucao}
 
-Para implementação desta solução foram necessários dois servidores físicos, sendo que a configuração ideal de cada servidor é de 
-%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
-12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
-recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos, observa-se que tais recursos de 
-\textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais. Com essa solução, 
-caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
-
-Destaca-se que para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se a técnica descrita no artigo 
+Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se a técnica descrita no artigo 
 de \cite{thome2013}. Neste artigo ... ?? exemplificar
 Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
 
@@ -552,9 +545,83 @@ um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 % de alta disponibilidade \cite{drbd}.
 
 
+\section{Implementação}
+\label{section:implementacao}
+
+%Para implementação desta solução foram necessários dois servidores físicos, sendo que a configuração ideal de cada servidor é de 
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+%12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
+%recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos, observa-se que tais recursos de 
+%\textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais. Com essa solução, 
+%caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
+
+O ambiente foi configurado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração 
+de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido.
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+Essa configuração foi calculada a partir da soma dos recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados 
+críticos, observa-se que tais recursos de \textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização 
+das máquinas virtuais. Destaca-se que a configuração também inclui 2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema operacional hóspede.
+
+Além disso, optou-se por utilizar o mesmo sistema operacional e o mesmo hipervisor que são adotados atualmente na empresa, o sistema 
+\textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm}, respectivamente. A descrição da instalação e configuração destes encontra-se no 
+Apêndice \ref{ap:confos} e \ref{ap:confvirt}.
+
+A estrutura física adotada está representada na Figura \ref{fig:projeto_fisico}. Como pode-se observar os dois servidores encontram-se conectados 
+a um \textit{switch} através de dois cabos UTP, ou seja, cada servidor encontra-se conectado ao \textit{switch} através de dois cabos, de forma a 
+implementar uma redundância do cabeamento.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=150px]{img/projeto_fisico.eps}
+ \caption{Estrutura física.}
+ \label{fig:projeto_fisico}
+\end{figure}
+
+Para a configuração de rede manteve-se o \textit{link aggregation} e utilizou-se uma \textit{bridge}\footnote{\textit{Bridges}, também conhecidas
+como pontes, são meios que fazem a conexão entre \textit{LANs}, e operam na camada de enlace de dados.} para incluir as máquinas virtuais à rede. 
+Os detalhes da configuração de rede estão localizados no Apêndice \ref{ap:confrede}.
+
+Na Figura \ref{fig:servidores_brina_piova} tem-se a imagem dos servidores, o primeiro é o Nó 1 (\textit{Brina}), que é um 
+\textit{Dell PowerEdge 2950}, e o segundo servidor é o Nó 2 (\textit{Piova}), que é um \textit{Dell PowerEdge R410}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/servidores_brina_piova.eps}
+ \caption{Servidores.}
+ \label{fig:servidores_brina_piova}
+\end{figure}
+
+A estrutura lógica dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura 
+\ref{fig:projeto_estrutura}. Para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo 
+\textit{dual-master} onde os dois nós são configurados como primários. Para tal configuração é necessário utilizar um sistema de arquivos 
+distribuídos que faz o gerenciamento do acesso aos dados, sendo que o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
+Os detalhes da instalação e da configuração de disco, \ac{DRBD} e sistema de arquivos estão detalhadas no Apêndice \ref{ap:confdisco}. 
+Já para o gerenciamento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} \textit{Pacemaker}. De fato, esse faz o gerenciamento do
+\textit{cluster}, sendo responsável pelo monitoramento e pela migração das \acp{VM} entre os nós.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=350px]{img/projeto_estrutura.eps}
+ \caption{Estrutura do \textit{cluster}.}
+ \label{fig:projeto_estrutura}
+\end{figure}
+
+%drbd
+% O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
+% replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico 
+% \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
+% e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
+
+Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim foi configurado uma \ac{VM} para cada um dos serviços críticos.
+Os serviços foram distribuídos entre os nós dos \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas de gestão, 
+\ac{DNS} recursivo e autenticação \ac{PPPoE}. E no Nó 2 foram instalados os serviços de telefonia e autenticação \ac{PPPoE}.
+Desta forma, quando houver uma falha em um nó, as \acp{VM} serão iniciadas no nó disponível. O detalhamento da configuração do \textit{Pacemaker} 
+estão disponíveis no Apêndice \ref{ap:confpacemaker}.
+
+
 \section{Considerações finais}
 
 Neste capítulo foram apresentados os serviços críticos. Posteriormente foram apresentadas ferramentas para implementação de alta disponibilidade 
-e selecionada a mais adequada para o ambiente real da empresa. No próximo capítulo será apresentada a implementação da solução de alta 
-disponibilidade. Além disso, serão descritos os testes realizados e os resultados obtidos.
+e selecionada a mais adequada para o ambiente real da empresa. E por fim, foi apresentada a implementação da solução de alta disponibilidade. 
+No próximo capítulo serão descritos os testes realizados e os resultados obtidos.
 

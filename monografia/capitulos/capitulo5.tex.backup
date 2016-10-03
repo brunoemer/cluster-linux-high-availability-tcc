@@ -160,17 +160,11 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \section{Definição dos softwares utilizados}
 \label{section:propostasolucao}
 
-Para implementação desta solução foram necessários dois servidores físicos, sendo que a configuração ideal de cada servidor é de 
-%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
-12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
-recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos, observa-se que tais recursos de 
-\textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais. Com essa solução, 
-caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
+Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se a técnica descrita no artigo 
+de \cite{thome2013}. Neste artigo ... ?? exemplificar
+Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
 
-Destaca-se que para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se a técnica descrita no artigo 
-de \cite{thome2013}. Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
-
-Foi necessário dois tipos de \textit{softwares} para a implementação da alta disponibilidade, eles são divididos em dois grupos: 
+Dois tipos de \textit{softwares} foram necessários para a implementação da alta disponibilidade, estes foram divididos em dois grupos: 
 \textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e as transferências das máquinas virtuais entre os servidores.
 
 \subsection{Softwares para a replicação de dados}
@@ -217,12 +211,12 @@ realizadas no disco rígido do nó primário serão replicadas para o disco do n
 
 O \ac{DRBD} pode ser configurado dos seguintes modos \cite{drbd}:
 \begin{itemize}
- \item \textit{Single-primary}: ou \textit{master-slave}, neste modo apenas um nó do \textit{cluster} pode ser o nó primário. Neste caso, somente
+ \item \textit{Single-primary} ou \textit{master-slave}: neste modo apenas um nó do \textit{cluster} pode ser o nó primário. Neste caso, somente
  o nó primário terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. Já o nó 
  secundário terá apenas uma réplica dos dados;
- \item \textit{Dual-primary}: ou \textit{dual-master}, neste modo existem dois nós primários, nos quais podem ser realizadas operações de leitura e 
- escrita de forma simultânea. Porém, este modo necessita de um sistema de arquivos compartilhados, sendo que neste caso podem ser utilizados os 
- sistemas de arquivos: o \ac{GFS} \cite{gfs} e o \ac{OCFS2} \cite{ocfs2}.
+ \item \textit{Dual-primary} ou \textit{dual-master}: neste modo existem dois nós primários, nos quais podem ser realizadas operações de leitura e 
+ escrita de forma simultânea. Porém, este modo necessita de um sistema de arquivos compartilhados, sendo que neste caso pode ser utilizado algum 
+ sistema de arquivo como por exemplo o \ac{GFS} \cite{gfs} e o \ac{OCFS2} \cite{ocfs2}.
 \end{itemize}
 
 \subsubsection{GlusterFS}
@@ -295,7 +289,7 @@ Destaca-se que o \textit{Rsync} não faz um sincronismo em tempo real, ou seja, 
 Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. 
 A ferramenta adotada para replicação de dados foi o \ac{DRBD}, pois permite a configuração \textit{dual-primary} e também \textit{master-slave}, 
 além de suportar a replicação de máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a ressincronização 
-dos dados de forma automática em caso de um falha \cite{drbd}.
+dos dados de forma automática em caso de uma falha \cite{drbd}.
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -354,7 +348,7 @@ permitem detectar falhas em um nó, sendo elas de \textit{hardware} ou de servi�
 Após a detecção de uma falha, os \textit{softwares} de gerenciamento de \textit{cluster} executam operações de \textit{failover} e 
 \textit{failback}. O \textit{failover} é um processo no qual um servidor recebe os serviços que estavam executando no servidor que falhou. 
 Já no \textit{failback} tem-se o retorno dos serviços para o servidor de origem quando este estiver disponível. Esse processo ocorre após o 
-\textit{failover} sendo que ele é opcional \cite{bassan2008}. Nas próximas seções tem-se uma breve descrição dos \textit{softwares} de 
+\textit{failover}, sendo que ele é opcional \cite{bassan2008}. Nas próximas seções tem-se uma breve descrição dos \textit{softwares} de 
 gerenciamento de \textit{cluster} que foram estudados.
 
 % \subsubsection{Ceph}
@@ -465,11 +459,10 @@ Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
 \end{itemize}
 
 No \textit{Pacemaker} os serviços são denominados recursos (\textit{resources}), esses recursos são monitorados, iniciados e parados.
-Também pode-se criar dependências e ordem entre esses recursos, por exemplo, para iniciar um serviço \textit{web} é necessário iniciar 
-um \ac{IP} antes. Além disso, existem agentes que são responsáveis pela integração com os diversos serviços e ferramentas. 
-Também pode configurá-lo para fazer o \textit{failover}, desta forma caso ocorra uma falha em um nó, o \textit{Pacemaker} fará a inicialização 
-dos serviços em outro nó que foi previamente configurado. Essa ferramenta também servirá para recuperar um recurso que falhou, por exemplo, se 
-o serviço de banco de dados parar por uma falha qualquer, ele será iniciado novamente.
+Pode-se criar dependências e ordem entre esses recursos, para eles iniciarem um após o outro. O \textit{Pacemaker} também pode ser configurado
+para fazer o \textit{failover}, desta forma caso ocorra uma falha em um nó, o \textit{Pacemaker} fará a inicialização dos serviços em outro nó 
+que foi configurado para ser o secundário. Além disso, essa ferramenta também pode recuperar um recurso que parou, por exemplo, se o sistema
+operacional forçar a parada de algum serviço o \textit{Pacemaker} tentará iniciá-lo.
 
 % Corosync provides pacemaker:
 % a mechanism to reliably send messages between nodes,
@@ -511,12 +504,11 @@ o serviço de banco de dados parar por uma falha qualquer, ele será iniciado no
 
 Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
 O \textit{software} adotado para gerenciar o ambiente é o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
-\textit{cluster} de alta disponibilidade utilizando virtualização. A principal e fundamental característica é o \textit{failover} automático
-dos nós, pode-se perceber na tabela que o \textit{Pacemaker} é o único que suporta isto. Além disso, ele possui suporte a migração em tempo real, 
-que pode ser utilizada para manutenções. Esse \textit{software} é o único que possui a característica de sincronismo de configuração entre todos 
-os nós. Essa ferramenta é indicada no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
-Destaca-se que já foram realizados testes de migração de máquinas virtuais em tempo real utilizando o \textit{Pacemaker}, e obteve-se 
-bons resultados.
+\textit{cluster} de alta disponibilidade utilizando virtualização. A principal característica disponível neste é o \textit{failover} automático
+dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, ele possui suporte a migração em tempo real, 
+que pode ser utilizada para manutenções. Além disso, o \textit{Pacemaker} é o único que possui o sincronismo de configuração entre todos 
+os nós. 
+%Destaca-se que o \textit{Pacemaker} é indicado no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
 
 \begin{table}[h!]
 \caption{Comparação entre ferramentas de gerenciamento de \textit{cluster}.}
@@ -533,9 +525,8 @@ Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & 
 \end{center}
 \end{table}
 
-Pode-se perceber que o \textit{software} \textit{Ganeti} não faz o \textit{failover} de forma automática, o que é necessário para esta 
-implementação, sendo assim essa ferramenta é normalmente utilizada em ambientes com foco na segurança dos dados, pois os dados podem ser 
-facilmente recuperados.
+O \textit{software} \textit{Ganeti} não se mostrou adequado pois não possui suporte para fazer um \textit{failover} de forma automática. 
+Essa ferramenta não possui foco na disponibilidade, mas sim na segurança dos dados, pois os dados ficam replicados e podem ser recuperados.
 É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário criar 
 um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 
@@ -554,9 +545,84 @@ um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 % de alta disponibilidade \cite{drbd}.
 
 
+\section{Implementação}
+\label{section:implementacao}
+
+%Para implementação desta solução foram necessários dois servidores físicos, sendo que a configuração ideal de cada servidor é de 
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+%12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
+%recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos, observa-se que tais recursos de 
+%\textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais. Com essa solução, 
+%caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
+
+O ambiente foi configurado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração 
+de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido.
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+Essa configuração foi calculada a partir da soma dos recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados 
+críticos, observa-se que tais recursos de \textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização 
+das máquinas virtuais. Destaca-se que a configuração também inclui 2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema operacional hóspede.
+
+Além disso, optou-se por utilizar o mesmo sistema operacional e o mesmo hipervisor que são adotados atualmente na empresa, o sistema 
+\textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm}, respectivamente. A descrição da instalação e configuração destes encontra-se no 
+Apêndice \ref{ap:confos} e \ref{ap:confvirt}.
+
+A estrutura física adotada está representada na Figura \ref{fig:projeto_fisico}. Como pode-se observar os dois servidores encontram-se conectados 
+a um \textit{switch} através de dois cabos UTP, ou seja, cada servidor encontra-se conectado ao \textit{switch} através de dois cabos, de forma a 
+implementar uma redundância do cabeamento.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=180px]{img/projeto_fisico.eps}
+ \caption{Estrutura física.}
+ \label{fig:projeto_fisico}
+\end{figure}
+
+Para a configuração de rede manteve-se o \textit{link aggregation} e utilizou-se uma \textit{bridge}\footnote{\textit{Bridges}, também conhecidas
+como pontes, são meios que fazem a conexão entre \textit{LANs}, e operam na camada de enlace de dados.} para incluir as máquinas virtuais à rede. 
+Os detalhes da configuração de rede estão localizados no Apêndice \ref{ap:confrede}.
+
+Na Figura \ref{fig:servidores_brina_piova} tem-se a imagem dos servidores, o primeiro é o \textit{Brina} (\textit{Dell PowerEdge 2950}), 
+e o segundo servidor é o \textit{Piova} (\textit{Dell PowerEdge R410}).
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=300px]{img/servidores_brina_piova.eps}
+ \caption{Servidores.}
+ \label{fig:servidores_brina_piova}
+\end{figure}
+
+A estrutura lógica dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura 
+\ref{fig:projeto_estrutura}. Para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo 
+\textit{dual-master} onde os dois nós são configurados como primários. Para tal configuração é necessário utilizar um sistema de arquivos 
+distribuídos que faz o gerenciamento do acesso aos dados, sendo que o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
+Os detalhes da instalação e da configuração de disco, \ac{DRBD} e sistema de arquivos estão detalhadas no Apêndice \ref{ap:confdisco}. 
+Já para o gerenciamento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} \textit{Pacemaker}. De fato, esse faz o gerenciamento do
+\textit{cluster}, sendo responsável pelo monitoramento e pela migração das \acp{VM} entre os nós.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=350px]{img/projeto_estrutura.eps}
+ \caption{Estrutura do \textit{cluster}.}
+ \label{fig:projeto_estrutura}
+\end{figure}
+
+%drbd
+% O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
+% replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico 
+% \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
+% e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
+
+Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim foi configurado uma \ac{VM} para cada um dos serviços críticos,
+sendo que os serviços que foram instalados no Nó 1
+Como pode ser observado no Figura \ref{fig:projeto_estrutura}, criou-se três instâncias no Nó 1 e duas instâncias no outro Nó 2. De fato, o 
+primeiro possui as instâncias dos servidores \textit{Soldi}, \textit{Passata} e \textit{Masterauth}. Já o segundo nó possui as instâncias dos 
+servidores \textit{SimplesIP} e \textit{Speedauth}. Desta forma, quando houver uma falha em um nó, as instâncias serão iniciadas no nó disponível.
+O detalhamento da configuração do \textit{Pacemaker} estão no Apêndice \ref{ap:confpacemaker}.
+
+
 \section{Considerações finais}
 
 Neste capítulo foram apresentados os serviços críticos. Posteriormente foram apresentadas ferramentas para implementação de alta disponibilidade 
 e selecionada a mais adequada para o ambiente real da empresa. No próximo capítulo será apresentada a implementação da solução de alta 
-disponibilidade, efetuado testes e apresentos os resultados.
+disponibilidade. Além disso, serão descritos os testes realizados e os resultados obtidos.
 
