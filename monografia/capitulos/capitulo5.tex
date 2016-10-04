@@ -8,9 +8,10 @@ de \textit{softwares} de código aberto.
 \section{Levantamento dos serviços críticos}
 \label{section:servcrit}
 
-No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feita uma análise desses
-serviços, destacando os serviços que foram considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados alguns 
-critérios. Esses critérios foram baseados em ??. Tem-se os critérios listados abaixo:
+No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feita uma análise desses serviços, 
+destacando os serviços que foram considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados alguns critérios. 
+Esses critérios foram baseados em ??. 
+Tem-se os critérios listados abaixo:
 \begin{itemize}
  \item A quantidade de clientes que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
@@ -160,9 +161,16 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \section{Definição dos softwares utilizados}
 \label{section:propostasolucao}
 
-Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se a técnica descrita no artigo 
-de \cite{thome2013}. Neste artigo ... ?? exemplificar
-Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
+Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se uma técnica semelhante à descrita no artigo 
+de \cite{thome2013}. Neste artigo foi feita uma análise comparativa de ferramentas \textit{open source} de computação em nuvem. Sendo que, 
+foram criadas as seguintes características:
+interface, gerenciamento de energia, balanceamento de carga, rede, armazenamento, monitoramento, integração, virtualização, segurança, 
+escalabilidade e tolerância a falhas. Essas características são importantes para medir a qualidade e compatibilidade, bem como para comparar 
+a usabilidade da ferramenta.
+
+Com base neste artigo, procurou-se selecionar as características mais relevantes para o real ambiente existente e compatível com o projeto 
+de implementação. Estas características estão listadas nas tabelas comparativas das ferramentas que serão detalhadas nas próximas seções.
+%Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
 
 Dois tipos de \textit{softwares} foram necessários para a implementação da alta disponibilidade, estes foram divididos em dois grupos: 
 \textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e as transferências das máquinas virtuais entre os servidores.
