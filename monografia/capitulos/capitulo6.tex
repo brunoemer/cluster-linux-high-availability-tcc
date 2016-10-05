@@ -12,7 +12,14 @@ dos testes serão apresentados os resultados obtidos.
 \label{section:testes}
 
 A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}, a mesma foi desenvolvida para 
-possibilitar a análise e eficácia do ambiente de alta disponibilidade. Exemplificar e detalhar ... ??
+possibilitar a análise e eficácia do ambiente de alta disponibilidade. No primeiro trabalho, o autor simulou falhas de três formas, através
+do desligamento brusco do servidor, desligamento por \textit{software} e falha de rede. Já no segundo trabalho, foi feito também três testes,
+um com a reinicialização do servidor físico, outro com migração da máquina virtual simples, ou seja, fazendo o desligamento da mesma, e por fim 
+um teste com migração em tempo real (\textit{live migration}).
+
+Para o desenvolvimento deste trabalho procurou-se selecionar os testes mais importantes para a empresa, que foram o desligamento brusco e o 
+desligamento por \textit{software} criados pelo primeiro autor. Já do segundo autor, foi selecionado o teste de migração em tempo real, porém 
+adaptado para simular um agendamento de manutenção de \textit{hardware} ou de \textit{software}.
 %O objetivo desta seção é comprovar que a gerência de falhas é importante para um ambiente computacional, além de destacar que a gerência da 
 %manutenção também é favorecida por esta implementação.
 
@@ -187,15 +194,15 @@ as duas reinicializações feitas.
 Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, como por exemplo do \textit{software} de virtualização. Esse tipo de 
 situação também pode ser necessário em uma manutenção emergencial, onde, por exemplo, é preciso desligar o servidor.
 
-O procedimento deste teste é o seguinte:
-\begin{itemize}
- \item Acessar o terminal do servidor de monitoramento;
- \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
- \item Acessar o terminal do nó que será reiniciado;
- \item Executar o comando \textit{reboot};
- \item Aguardar máquinas virtuais inicirem no outro nó e aguardar retorno do nó reiniciado;
- \item Finalizar a medição do tempo e \textit{ping}.
-\end{itemize}
+% O procedimento deste teste é o seguinte:
+% \begin{itemize}
+%  \item Acessar o terminal do servidor de monitoramento;
+%  \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
+%  \item Acessar o terminal do nó que será reiniciado;
+%  \item Executar o comando \textit{reboot};
+%  \item Aguardar máquinas virtuais inicirem no outro nó e aguardar retorno do nó reiniciado;
+%  \item Finalizar a medição do tempo e \textit{ping}.
+% \end{itemize}
 
 O procedimento deste teste foi executado 4 vezes no total, sendo que foram executadas 2 vezes em cada nó. A Tabela \ref{tab:teste3resultados}
 demonstra os dados do servidor físico e do virtual.

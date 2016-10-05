@@ -12,13 +12,14 @@ dos testes serão apresentados os resultados obtidos.
 \label{section:testes}
 
 A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}, a mesma foi desenvolvida para 
-possibilitar a análise e eficácia do ambiente de alta disponibilidade. Exemplificar e detalhar ... ??
+possibilitar a análise e eficácia do ambiente de alta disponibilidade. No primeiro trabalho, o autor simulou falhas de três formas, através
+do desligamento brusco do servidor, desligamento por \textit{software} e falha de rede.
 %O objetivo desta seção é comprovar que a gerência de falhas é importante para um ambiente computacional, além de destacar que a gerência da 
 %manutenção também é favorecida por esta implementação.
 
 %Os testes desenvolvidos estão detalhados nas próximas seções, neles tem-se a justificativa, a aplicação e os resultados obtidos.
 Os três testes descritos nas próximas seções foram efetuados no ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, 
-pois esses testes possuem risco de perda de dados.
+por possuírem risco de perda de dados em sua execução.
 Todavia, na Seção \ref{section:comparacaofinal} será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade,
 sendo que neste ambiente estarão executando os serviços críticos definidos.
 

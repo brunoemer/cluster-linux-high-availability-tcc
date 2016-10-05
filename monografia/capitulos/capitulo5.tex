@@ -1,9 +1,9 @@
 \chapter{Projeto de implementação}
 \label{cap:projetoimplementacao}
 
-Neste capítulo serão apresentados os serviços considerados críticos para a empresa. Posteriormente, será apresentada uma proposta de solução 
-de alta disponibilidade. Essa solução será detalhada na Seção \ref{section:propostasolucao} e será baseada na utilização de virtualização e 
-de \textit{softwares} de código aberto. 
+Neste capítulo serão apresentados os serviços considerados críticos para a empresa. Posteriormente, será feita a definição das ferramentas que
+irão compor o ambiente de alta disponibilidade. A solução será baseada na utilização de virtualização e de \textit{softwares} de código aberto,
+e será descrita na Seção \ref{section:implementacao}.
 
 \section{Levantamento dos serviços críticos}
 \label{section:servcrit}
@@ -128,7 +128,7 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão d
 \subsection{Situação anterior}
 \label{section:maqservcrit}
 
-A partir da análise inicial, verificou-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
+A partir da análise feita anteriormente decidiu-se que os servidores mais relevantes para a empresa são:
 \begin{itemize}
  \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
  \item \textit{Speedauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
@@ -163,10 +163,10 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 
 Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se uma técnica semelhante à descrita no artigo 
 de \cite{thome2013}. Neste artigo foi feita uma análise comparativa de ferramentas \textit{open source} de computação em nuvem. Sendo que, 
-foram criadas as seguintes características:
+foram criadas as seguintes características para fazer uma análise comparativa das ferramentas:
 interface, gerenciamento de energia, balanceamento de carga, rede, armazenamento, monitoramento, integração, virtualização, segurança, 
-escalabilidade e tolerância a falhas. Essas características são importantes para medir a qualidade e compatibilidade, bem como para comparar 
-a usabilidade da ferramenta.
+escalabilidade e tolerância a falhas. Essas características são importantes para medir a qualidade e compatibilidade das ferramentas estudadas, 
+além de comparar a usabilidade das ferramentas.
 
 Com base neste artigo, procurou-se selecionar as características mais relevantes para o real ambiente existente e compatível com o projeto 
 de implementação. Estas características estão listadas nas tabelas comparativas das ferramentas que serão detalhadas nas próximas seções.
@@ -443,7 +443,7 @@ As ferramentas que podem ser integradas com o \textit{Pacemaker} são \cite{pace
 \end{itemize}
 % outras ferramentas cMAN e Apache Qpid
 
-%Modelos Active/Passive, N+1, N TO N, Split Site ??
+%Modelos Active/Passive, N+1, N TO N, Split Site
 
 Na Figura \ref{fig:pacemaker_tools} tem-se a arquitetura do \textit{Pacemaker}. Como pode ser observado na camada inferior tem-se os nós do 
 \textit{cluster}. Na camada superior tem-se o \textit{software} de envio de mensagens e acima deste tem-se o \textit{Pacemaker}. 
@@ -514,7 +514,7 @@ Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de
 O \textit{software} adotado para gerenciar o ambiente é o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
 \textit{cluster} de alta disponibilidade utilizando virtualização. A principal característica disponível neste é o \textit{failover} automático
 dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, ele possui suporte a migração em tempo real, 
-que pode ser utilizada para manutenções. Além disso, o \textit{Pacemaker} é o único que possui o sincronismo de configuração entre todos 
+a qual pode ser utilizada para manutenções. O \textit{Pacemaker} é o único que possui o sincronismo de configuração entre todos 
 os nós. 
 %Destaca-se que o \textit{Pacemaker} é indicado no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
 
@@ -534,9 +534,9 @@ Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & 
 \end{table}
 
 O \textit{software} \textit{Ganeti} não se mostrou adequado pois não possui suporte para fazer um \textit{failover} de forma automática. 
-Essa ferramenta não possui foco na disponibilidade, mas sim na segurança dos dados, pois os dados ficam replicados e podem ser recuperados.
-É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário criar 
-um conjunto de \textit{scripts} para a migração das máquinas virtuais.
+Essa ferramenta não possui foco na disponibilidade, mas sim na segurança dos dados, pois os dados ficam replicados e podem ser recuperados de forma
+manual. É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário 
+criar um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 
 % Já o \textit{Pacemaker} é o único que possui a característica de sincronismo de configuração entre todos os nós, no entanto, isto não é uma
 % característica essencial para o desenvolvimento deste trabalho. Além disso, o \textit{Pacemaker} não possui a opção nativa de migração em tempo
@@ -566,7 +566,7 @@ um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 O ambiente foi configurado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração 
 de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido.
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
-Essa configuração foi calculada a partir da soma dos recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados 
+Essa configuração foi calculada a partir da soma dos recursos das máquinas virtuais que abrangem os serviços que foram considerados 
 críticos, observa-se que tais recursos de \textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização 
 das máquinas virtuais. Destaca-se que a configuração também inclui 2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema operacional hóspede.
 
