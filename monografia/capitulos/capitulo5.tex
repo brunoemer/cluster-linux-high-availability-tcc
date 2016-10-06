@@ -513,7 +513,7 @@ operacional forçar a parada de algum serviço o \textit{Pacemaker} tentará ini
 Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
 O \textit{software} adotado para gerenciar o ambiente é o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
 \textit{cluster} de alta disponibilidade utilizando virtualização. A principal característica disponível neste é o \textit{failover} automático
-dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, ele possui suporte a migração em tempo real, 
+dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, essa ferramenta possibilita a migração em tempo real, 
 a qual pode ser utilizada para manutenções. O \textit{Pacemaker} é o único que possui o sincronismo de configuração entre todos 
 os nós. 
 %Destaca-se que o \textit{Pacemaker} é indicado no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
@@ -620,7 +620,7 @@ Já para o gerenciamento do \textit{cluster} e das \acp{VM} utilizou-se o \texti
 % \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
 % e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
-Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim foi configurado uma \ac{VM} para cada um dos serviços críticos.
+Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim, foi configurado uma \ac{VM} para cada um dos serviços críticos.
 Os serviços foram distribuídos entre os nós dos \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas de gestão, 
 \ac{DNS} recursivo e autenticação \ac{PPPoE}. E no Nó 2 foram instalados os serviços de telefonia e autenticação \ac{PPPoE}.
 Desta forma, quando houver uma falha em um nó, as \acp{VM} serão iniciadas no nó disponível. O detalhamento da configuração do \textit{Pacemaker} 
