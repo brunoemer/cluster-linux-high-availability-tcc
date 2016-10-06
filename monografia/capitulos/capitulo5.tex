@@ -186,7 +186,7 @@ aumentar a disponibilidade dos servidores.}, porém não garante a disponibilida
 
 A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a sincronização dos dados de um 
 servidor para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de um \textit{cluster}\footnote[2]{Pode-se definir 
-\textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
+\textit{cluster} como um grupo de computadores interligados por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
 \cite{freitas2005}}.
 Nas próximas seções tem-se uma descrição dos \textit{softwares} de replicação de dados que foram estudados.
 
@@ -205,7 +205,7 @@ Esse \textit{software} é uma solução de replicação de dispositivos de armaz
 (geralmente um disco rígido) em um servidor remoto. O \ac{DRBD} é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
 Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e 
 \textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Ou seja, todas as operações de escrita 
-realizadas no disco rígido do nó primário serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
+realizadas no disco rígido do nó primário são replicadas para o disco do nó secundário \cite{zaminhani2008}.
 
 \begin{figure}[h!]
  \centering
@@ -265,7 +265,7 @@ O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com
 
 \subsubsection{Rsync}
 \label{section:rsync}
-O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} prove uma rápida
+O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} provê uma rápida
 transferência de arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
 A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}. Observa-se que no \textit{Rsync} tem-se a replicação dos arquivos que
 ainda não foram atualizados ou que não existem no servidor de destino. Além disso, o \textit{Rsync} permite uma replicação completa. Neste caso,
@@ -457,7 +457,7 @@ Por fim, tem-se os serviços.
  \label{fig:pacemaker_tools}
 \end{figure}
 
-Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
+Entre as principais funcionalidades do \textit{Pacemaker} destaca-se:
 \begin{itemize}
  \item Iniciar e finalizar os serviços dos nós do \textit{cluster}. Esses serviços podem ser desde um servidor \textit{web} ou uma interface de 
  rede até uma máquina virtual;
