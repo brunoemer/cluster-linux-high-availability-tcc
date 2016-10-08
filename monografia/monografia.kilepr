@@ -119,10 +119,10 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=30
 mode=LaTeX
-open=false
-order=1
+open=true
+order=5
 
 [item:acronym.tex]
 archive=true
@@ -152,7 +152,7 @@ highlight=LaTeX
 line=0
 mode=LaTeX
 open=true
-order=6
+order=4
 
 [item:capitulos/capitulo2.tex]
 archive=true
@@ -169,20 +169,20 @@ archive=true
 column=9
 encoding=UTF-8
 highlight=LaTeX
-line=316
+line=31
 mode=LaTeX
-open=true
+open=false
 order=2
 
 [item:capitulos/capitulo4.tex]
 archive=true
-column=79
+column=75
 encoding=UTF-8
 highlight=LaTeX
-line=440
+line=124
 mode=LaTeX
 open=true
-order=3
+order=1
 
 [item:capitulos/capitulo5.tex]
 archive=true
@@ -192,17 +192,17 @@ highlight=LaTeX
 line=263
 mode=LaTeX
 open=true
-order=4
+order=2
 
 [item:capitulos/capitulo6.tex]
 archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=89
+line=232
 mode=LaTeX
 open=true
-order=5
+order=3
 
 [item:capitulos/conclusao.tex]
 archive=true
@@ -221,7 +221,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=59
 mode=LaTeX
-open=true
+open=false
 order=1
 
 [item:folha_rosto.tex]
@@ -285,10 +285,10 @@ open=true
 order=0
 
 [view-settings,view=0,item:abstract.tex]
-CursorColumn=38
-CursorLine=11
+CursorColumn=0
+CursorLine=30
 JumpList=
-ViMarks=.,19,18,[,19,18,],19,18
+ViMarks=.,30,0,[,30,0,],-1,-1
 
 [view-settings,view=0,item:acronym.tex]
 CursorColumn=16
@@ -316,13 +316,13 @@ ViMarks=.,159,136,[,160,0,],-1,-1
 
 [view-settings,view=0,item:capitulos/capitulo3.tex]
 CursorColumn=9
-CursorLine=316
+CursorLine=31
 JumpList=
 ViMarks=.,316,9,[,316,9,],316,9
 
 [view-settings,view=0,item:capitulos/capitulo4.tex]
-CursorColumn=79
-CursorLine=440
+CursorColumn=75
+CursorLine=124
 JumpList=
 ViMarks=.,440,79,[,440,79,],440,79
 
@@ -334,9 +334,9 @@ ViMarks=.,622,77,[,622,77,],622,77
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
 CursorColumn=0
-CursorLine=89
+CursorLine=232
 JumpList=
-ViMarks=.,88,18,[,88,18,],88,18
+ViMarks=.,231,1,[,231,1,],231,1
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=96
