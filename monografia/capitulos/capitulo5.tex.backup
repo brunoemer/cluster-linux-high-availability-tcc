@@ -1,16 +1,17 @@
 \chapter{Projeto de implementação}
 \label{cap:projetoimplementacao}
 
-Neste capítulo serão apresentados os serviços considerados críticos para a empresa. Posteriormente, será apresentada uma proposta de solução 
-de alta disponibilidade. Essa solução será detalhada na Seção \ref{section:propostasolucao} e será baseada na utilização de virtualização e 
-de \textit{softwares} de código aberto. 
+Neste capítulo serão apresentados os serviços considerados críticos para a empresa. Posteriormente, será feita a definição das ferramentas que
+irão compor o ambiente de alta disponibilidade. A solução será baseada na utilização de virtualização e de \textit{softwares} de código aberto,
+e será descrita na Seção \ref{section:implementacao}.
 
 \section{Levantamento dos serviços críticos}
 \label{section:servcrit}
 
-No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feita uma análise desses
-serviços, destacando os serviços que foram considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados alguns 
-critérios. Esses critérios foram baseados em ??. Tem-se os critérios listados abaixo:
+No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Nesta seção será feita uma análise desses serviços, 
+destacando os serviços que foram considerados críticos para a empresa. Para a seleção dos serviços críticos foram adotados alguns critérios. 
+Esses critérios foram baseados em ??. 
+Tem-se os critérios listados abaixo:
 \begin{itemize}
  \item A quantidade de clientes que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
@@ -127,7 +128,7 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão d
 \subsection{Situação anterior}
 \label{section:maqservcrit}
 
-A partir da análise inicial, verificou-se que os servidores a serem incluídos no ambiente de alta disponibilidade são:
+A partir da análise feita anteriormente decidiu-se que os servidores mais relevantes para a empresa são:
 \begin{itemize}
  \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
  \item \textit{Speedauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
@@ -161,12 +162,15 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 \label{section:propostasolucao}
 
 Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se uma técnica semelhante à descrita no artigo 
-de \cite{thome2013}. Neste artigo foi feita uma análise comparativa de ferramentas \textit{open source} de computação em nuvem. 
+de \cite{thome2013}. Neste artigo foi feita uma análise comparativa de ferramentas \textit{open source} de computação em nuvem. Sendo que, 
+foram criadas as seguintes características para fazer uma análise comparativa das ferramentas:
 interface, gerenciamento de energia, balanceamento de carga, rede, armazenamento, monitoramento, integração, virtualização, segurança, 
-escalabilidade e tolerância a falhas. Essas características são importantes para medir a qualidade e compatibilidade, bem como para comparar 
-a usabilidade da ferramenta.
+escalabilidade e tolerância a falhas. Essas características são importantes para medir a qualidade e compatibilidade das ferramentas estudadas, 
+além de comparar a usabilidade das ferramentas.
 
-Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
+Com base neste artigo, procurou-se selecionar as características mais relevantes para o real ambiente existente e compatível com o projeto 
+de implementação. Estas características estão listadas nas tabelas comparativas das ferramentas que serão detalhadas nas próximas seções.
+%Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
 
 Dois tipos de \textit{softwares} foram necessários para a implementação da alta disponibilidade, estes foram divididos em dois grupos: 
 \textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e as transferências das máquinas virtuais entre os servidores.
@@ -182,7 +186,7 @@ aumentar a disponibilidade dos servidores.}, porém não garante a disponibilida
 
 A solução de replicação a ser adotada consiste em um espelhamento de dados através da rede. Essa solução permite a sincronização dos dados de um 
 servidor para um servidor remoto em tempo real. Normalmente essa solução é estruturada na forma de um \textit{cluster}\footnote[2]{Pode-se definir 
-\textit{cluster} como um grupo de computadores interligador por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
+\textit{cluster} como um grupo de computadores interligados por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço 
 \cite{freitas2005}}.
 Nas próximas seções tem-se uma descrição dos \textit{softwares} de replicação de dados que foram estudados.
 
@@ -201,7 +205,7 @@ Esse \textit{software} é uma solução de replicação de dispositivos de armaz
 (geralmente um disco rígido) em um servidor remoto. O \ac{DRBD} é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
 Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e 
 \textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Ou seja, todas as operações de escrita 
-realizadas no disco rígido do nó primário serão replicadas para o disco do nó secundário \cite{zaminhani2008}.
+realizadas no disco rígido do nó primário são replicadas para o disco do nó secundário \cite{zaminhani2008}.
 
 \begin{figure}[h!]
  \centering
@@ -261,7 +265,7 @@ O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com
 
 \subsubsection{Rsync}
 \label{section:rsync}
-O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} prove uma rápida
+O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} provê uma rápida
 transferência de arquivos, ou seja, ele faz o sincronismo de arquivos em servidores transferindo dados de um servidor de origem para um de destino.
 A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}. Observa-se que no \textit{Rsync} tem-se a replicação dos arquivos que
 ainda não foram atualizados ou que não existem no servidor de destino. Além disso, o \textit{Rsync} permite uma replicação completa. Neste caso,
@@ -439,7 +443,7 @@ As ferramentas que podem ser integradas com o \textit{Pacemaker} são \cite{pace
 \end{itemize}
 % outras ferramentas cMAN e Apache Qpid
 
-%Modelos Active/Passive, N+1, N TO N, Split Site ??
+%Modelos Active/Passive, N+1, N TO N, Split Site
 
 Na Figura \ref{fig:pacemaker_tools} tem-se a arquitetura do \textit{Pacemaker}. Como pode ser observado na camada inferior tem-se os nós do 
 \textit{cluster}. Na camada superior tem-se o \textit{software} de envio de mensagens e acima deste tem-se o \textit{Pacemaker}. 
@@ -453,7 +457,7 @@ Por fim, tem-se os serviços.
  \label{fig:pacemaker_tools}
 \end{figure}
 
-Entre as principais funcionalidades do \textit{Pacemaker} tem-se:
+Entre as principais funcionalidades do \textit{Pacemaker} destaca-se:
 \begin{itemize}
  \item Iniciar e finalizar os serviços dos nós do \textit{cluster}. Esses serviços podem ser desde um servidor \textit{web} ou uma interface de 
  rede até uma máquina virtual;
@@ -509,8 +513,8 @@ operacional forçar a parada de algum serviço o \textit{Pacemaker} tentará ini
 Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
 O \textit{software} adotado para gerenciar o ambiente é o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
 \textit{cluster} de alta disponibilidade utilizando virtualização. A principal característica disponível neste é o \textit{failover} automático
-dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, ele possui suporte a migração em tempo real, 
-que pode ser utilizada para manutenções. Além disso, o \textit{Pacemaker} é o único que possui o sincronismo de configuração entre todos 
+dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, essa ferramenta possibilita a migração em tempo real, 
+a qual pode ser utilizada para manutenções. O \textit{Pacemaker} é o único que possui o sincronismo de configuração entre todos 
 os nós. 
 %Destaca-se que o \textit{Pacemaker} é indicado no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
 
@@ -530,9 +534,9 @@ Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & 
 \end{table}
 
 O \textit{software} \textit{Ganeti} não se mostrou adequado pois não possui suporte para fazer um \textit{failover} de forma automática. 
-Essa ferramenta não possui foco na disponibilidade, mas sim na segurança dos dados, pois os dados ficam replicados e podem ser recuperados.
-É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário criar 
-um conjunto de \textit{scripts} para a migração das máquinas virtuais.
+Essa ferramenta não possui foco na disponibilidade, mas sim na segurança dos dados, pois os dados ficam replicados e podem ser recuperados de forma
+manual. É possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário 
+criar um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 
 % Já o \textit{Pacemaker} é o único que possui a característica de sincronismo de configuração entre todos os nós, no entanto, isto não é uma
 % característica essencial para o desenvolvimento deste trabalho. Além disso, o \textit{Pacemaker} não possui a opção nativa de migração em tempo
@@ -562,7 +566,7 @@ um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 O ambiente foi configurado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração 
 de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido.
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
-Essa configuração foi calculada a partir da soma dos recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados 
+Essa configuração foi calculada a partir da soma dos recursos das máquinas virtuais que abrangem os serviços que foram considerados 
 críticos, observa-se que tais recursos de \textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização 
 das máquinas virtuais. Destaca-se que a configuração também inclui 2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema operacional hóspede.
 
@@ -616,7 +620,7 @@ Já para o gerenciamento do \textit{cluster} e das \acp{VM} utilizou-se o \texti
 % \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
 % e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
-Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim foi configurado uma \ac{VM} para cada um dos serviços críticos.
+Deste modo, tem-se o ambiente pronto para a criação das \acp{VM}, sendo assim, foi configurado uma \ac{VM} para cada um dos serviços críticos.
 Os serviços foram distribuídos entre os nós dos \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas de gestão, 
 \ac{DNS} recursivo e autenticação \ac{PPPoE}. E no Nó 2 foram instalados os serviços de telefonia e autenticação \ac{PPPoE}.
 Desta forma, quando houver uma falha em um nó, as \acp{VM} serão iniciadas no nó disponível. O detalhamento da configuração do \textit{Pacemaker} 
