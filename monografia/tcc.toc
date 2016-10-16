@@ -41,7 +41,7 @@
 \contentsline {subsection}{\numberline {5.1.2}Autentica\IeC {\c c}\IeC {\~a}o Radius}{41}
 \contentsline {subsection}{\numberline {5.1.3}Sistemas da empresa e do provedor}{42}
 \contentsline {subsection}{\numberline {5.1.4}Telefonia interna sobre IP}{43}
-\contentsline {subsection}{\numberline {5.1.5}Situa\IeC {\c c}\IeC {\~a}o anterior}{43}
+\contentsline {subsection}{\numberline {5.1.5}Resumo e os servi\IeC {\c c}os cr\IeC {\'\i }ticos}{44}
 \contentsline {section}{\numberline {5.2}Considera\IeC {\c c}\IeC {\~o}es finais}{44}
 \contentsline {chapter}{\numberline {6}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{45}
 \contentsline {section}{\numberline {6.1}Defini\IeC {\c c}\IeC {\~a}o dos softwares utilizados}{45}
@@ -56,8 +56,8 @@
 \contentsline {subsubsection}{\numberline {6.1.2.3}Pacemaker}{51}
 \contentsline {subsubsection}{\numberline {6.1.2.4}Resumo e software de gerenciamento adotado}{52}
 \contentsline {section}{\numberline {6.2}Implementa\IeC {\c c}\IeC {\~a}o}{52}
-\contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{54}
-\contentsline {chapter}{\numberline {7}Resultados}{55}
+\contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{53}
+\contentsline {chapter}{\numberline {7}Testes e resultados}{55}
 \contentsline {section}{\numberline {7.1}Testes realizados}{55}
 \contentsline {subsection}{\numberline {7.1.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{55}
 \contentsline {subsection}{\numberline {7.1.2}Teste 2 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{56}

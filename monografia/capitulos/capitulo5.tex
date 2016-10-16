@@ -46,7 +46,7 @@ de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa
 \ref{fig:dns_udp} (b) pode ser observado que o servidor \textit{Passata} é o servidor que apresenta o maior número de requisições 
 \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} é elevado devido ao fato do serviço \ac{DNS} utilizar esse protocolo de transporte.}. 
 Essa figura compara os principais servidores da empresa através de requisições \ac{UDP} e pode ser usada como um indicador da quantidade de 
-clientes que utilizam os serviços.
+clientes que utilizam determinados serviços.
 
 \begin{figure}[h!]
  \centering
@@ -93,11 +93,12 @@ impacto direto para os clientes, porém é fundamental para o funcionamento da e
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui um total de 65 funcionários.
 %, sendo que são aproximadamente 35 funcionários simultâneos (de acordo com a Figura \ref{fig:ejabberd_week}), isso poderia gerar um prejuízo elevado para a empresa e o provedor. 
 
-O sistema do provedor é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \aca{HTTP} \cite{tanenbaum2011} por segundo
+O sistema do provedor é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \aca{HTTP} por segundo
 (Figura \ref{fig:soldi_week}). Além disso, a empresa mantém 28 sistemas de outros clientes nesse servidor. 
 Como pode ser observado na Figura \ref{fig:elementos_tcp} (b), esse servidor encontra-se entre os que apresentam um alto nível de conexões 
 \ac{TCP}\footnote[1]{O número de conexões \ac{TCP} é considerado devido ao fato do protocolo \ac{HTTP} utilizar esse 
 protocolo de transporte.}.
+%\aca{HTTP} \cite{tanenbaum2011}
 
 %\begin{figure}[h!]
 % \centering
@@ -109,7 +110,7 @@ protocolo de transporte.}.
 \begin{figure}[h!]
  \centering
  \includegraphics[width=280px]{img/soldi_week.eps}
- \caption{Gráfico de requisições por segundo do maior sistema.}
+ \caption{Gráfico de requisições por segundo do sistema do provedor.}
  \label{fig:soldi_week}
 \end{figure}
 
@@ -120,10 +121,6 @@ Esse serviço tem relevância para a empresa e para o provedor, pois permite a c
 servidor \textit{SimplesIP} é responsável por garantir o atendimento dos clientes para fins de suporte técnico, comunicação interna entre 
 funcionários, comunicação com técnicos externos, vendas, cobranças a clientes, entre outros. Para quantificar, no mês de maio de 2016 a empresa 
 recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além disso, no mesmo mês foram efetuadas 674 ligações entre funcionários. 
-O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se que ocorrem 
-de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Também pode-se observar, na Figura 
-\ref{fig:dns_udp} (b), que esse serviço possui um elevado número de requisições \ac{UDP}\footnote[2]{Esse número de requisições \ac{UDP} 
-deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão de voz.}, se comparado aos demais servidores.
 
 \begin{figure}[h!]
  \centering
@@ -132,10 +129,15 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão d
  \label{fig:simplesip_week}
 \end{figure}
 
-\subsection{Situação anterior}
+O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se que ocorrem 
+de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Também pode-se observar, na Figura 
+\ref{fig:dns_udp} (b), que esse serviço possui um elevado número de requisições \ac{UDP}\footnote[2]{Esse número de requisições \ac{UDP} 
+deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão de voz.}, se comparado aos demais servidores.
+
+\subsection{Resumo e os serviços críticos}
 \label{section:maqservcrit}
 
-A partir da análise feita anteriormente decidiu-se que os servidores mais relevantes para a empresa são:
+A partir da análise feita decidiu-se que os servidores mais relevantes para a empresa são:
 \begin{itemize}
  \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
  \item \textit{Speedauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
@@ -148,7 +150,7 @@ Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serv
 \textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim foi utilizada a 
 medição apenas dos últimos 6 meses de 2015.
 %, por isso esse possui um \textit{Uptime} elevado.
-A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} de 99,99\%.
+A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} superior a 99,99\%.
 
 \begin{table}[h!]
 \caption{Serviços críticos do ano de 2015.}
@@ -168,7 +170,9 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 
 \section{Considerações finais}
 
-Neste capítulo foram apresentados os serviços críticos. Posteriormente foram apresentadas ferramentas para implementação de alta disponibilidade 
-e selecionada a mais adequada para o ambiente real da empresa. E por fim, foi apresentada a implementação da solução de alta disponibilidade. 
-No próximo capítulo serão descritos os testes realizados e os resultados obtidos.
+Neste capítulo foram apresentados os serviços críticos que foram selecionados através da aplicação de critérios, sendo que esses critérios foram 
+criados de acordo com a política de prioridades da empresa.
 
+No próximo capítulo serão apresentadas as ferramentas para implementação do ambiente de alta disponibilidade e será feito a seleção da ferramenta 
+mais adequada para o ambiente real da empresa. Posteriormente será apresentada o projeto de implementação. 
+E para a conclusão, no último capítulo serão descritos os testes realizados e os resultados obtidos.

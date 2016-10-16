@@ -29,8 +29,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es DNS (a) e compara\IeC {\c c}\IeC {\~a}o de requisi\IeC {\c c}\IeC {\~o}es UDP entre os principais servidores (b).}}{41}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.2:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de elementos (a) e de conex\IeC {\~o}es TCP (b) entre os principais servidores.}}{42}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do maior sistema.}}{43}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos no servidor de telefonia.}}{44}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do sistema do provedor.}}{43}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos no servidor de telefonia.}}{43}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.1:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{46}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.2:}{\ignorespaces Modelo do \textit {GlusterFS}.}}{47}
@@ -39,8 +39,7 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{50}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{51}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.7:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{53}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.8:}{\ignorespaces Servidores.}}{53}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.9:}{\ignorespaces Estrutura do \textit {cluster}.}}{54}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.8:}{\ignorespaces Estrutura do \textit {cluster}.}}{54}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Disponibilidade servidores f\IeC {\'\i }sicos \textit {Brina} e \textit {Piova} e da m\IeC {\'a}quina virtual \textit {Trapel}.}}{57}
 \contentsline {figure}{\numberline {Figura\nobreakspace 7.2:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{58}
