@@ -2,7 +2,7 @@
 \label{cap:virtualizacao}
 
 O conceito de virtualização surgiu na década de 60, onde o usuário muitas vezes necessitava de um ambiente individual, com as suas próprias 
-aplicações e totalmente isolado dos demais usuários. Esse foi um dos principais motivos para a criação das máquinas virtuais, que na época 
+aplicações e totalmente isolado dos demais usuários. Esse foi um das principais motivações para a criação das máquinas virtuais, que na época 
 eram conhecidas como \ac{VM}. As \acp{VM} apresentaram uma forte expansão com o sistema operacional \textit{370}, que foi 
 desenvolvido pela \textit{IBM}, e foi um dos principais sistemas comerciais com suporte à virtualização da época. Esse sistema operacional 
 era executado em \textit{mainframes}, que eram grandes servidores capazes de processar um grande volume de informações \cite{laureano2008}. 
@@ -26,11 +26,11 @@ em sistemas de computação \cite{maziero2013}, sendo que entre essas pode-se ci
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Essa interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções disponíveis a aplicações de usuários. Essas instruções executam em 
-  modo usuário, sendo que neste modo existem restrições que procuram garantir um controle e segurança no acesso aos recursos de \textit{hardware}. 
-  As instruções de usuário são instruções não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir em outras tarefas, 
-  porque elas não acessam recursos compartilhados. Este grupo de interface contém, por exemplo, instruções de operações aritméticas e instruções 
-  de ponto flutuante \cite{buyya2013};
+  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções que estão disponíveis para as aplicações de usuários. Essas instruções 
+  executam em modo usuário, sendo que neste modo existem restrições que procuram garantir um controle e segurança no acesso aos recursos de 
+  \textit{hardware}. As instruções de usuário são instruções não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir 
+  em outras tarefas, porque elas não acessam recursos compartilhados. Este grupo de interface contém, por exemplo, instruções de operações 
+  aritméticas e instruções de ponto flutuante \cite{buyya2013};
   %Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção e será devidamente tratada;
   \item Instruções de sistema ou \textit{System \ac{ISA}}: essas instruções geralmente são disponibilizadas para o núcleo do sistema operacional. 
   Elas são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo 
@@ -60,7 +60,7 @@ Máquinas virtuais podem ser divididas em dois grupos principais, que são: as m
 e máquinas virtuais de sistema (Seção \ref{section:virtsistema}). As máquinas virtuais de aplicação fazem a virtualização de uma aplicação, 
 ou seja, elas provêm um ambiente que permite a execução de uma aplicação convidada. Um exemplo de máquina virtual de aplicação é a \ac{JVM}. 
 Já uma máquina virtual de sistema suporta um sistema operacional convidado, com suas aplicações executando sobre ele. Uma máquina virtual 
-executando sobre o hipervisor \ac{KVM} \cite{kvm} é um exemplo de uma máquina virtual de aplicação \cite{laureano2008}.
+executando sobre o hipervisor \ac{KVM} \cite{kvm} é um exemplo de uma máquina virtual de sistema \cite{laureano2008}.
 
 Na Figura \ref{fig:vms_tipos} (a) tem-se o modelo de máquina virtual de aplicação, onde uma \ac{JVM}, juntamente com aplicações, está executando 
 sobre um sistema operacional hospedeiro. A Figura \ref{fig:vms_tipos} (b) apresenta uma máquina virtual de sistema, que possui dois sistemas 
@@ -214,12 +214,11 @@ são a virtualização total e a paravirtualização (Figura \ref{fig:vms_implem
  estratégia é a possibilidade de um sistema convidado ser executado sem a necessidade de ser modificado. Porém, essa estratégia possui um 
  desempenho inferior devido ao fato do hipervisor intermediar todas as chamadas de sistemas e operações do sistema convidado. Um exemplo de 
  ferramenta que utiliza a virtualização total é o \textit{QEmu} \cite{qemu};
- \item Paravirtualização: nesta estratégia a interface entre o hipervisor e o sistema operacional convidado é modificada para se obter uma 
- maior eficiência. Destaca-se que essa estratégia de implementação utiliza uma arquitetura de hipervisor nativo. 
- As modificações na interface de sistema (\textit{system \ac{ISA}}) exigem que o sistema operacional convidado seja adaptado para o hipervisor, 
- para possibilitar a execução sobre a plataforma virtual. Para essa adaptação, o hipervisor disponibiliza uma \ac{API}, para que os 
- sistemas convidados possam acessar o \ac{ISA} de sistema. Contudo, a interface de usuário é mantida, assim, as aplicações do sistema convidado 
- não precisam ser modificadas \cite{maziero2013}.
+ \item Paravirtualização: essa estratégia utiliza uma arquitetura de hipervisor nativo, sendo que a interface entre o hipervisor e o sistema 
+ operacional convidado é modificada para se obter uma maior eficiência. As modificações na interface de sistema (\textit{system \ac{ISA}}) 
+ exigem que o sistema operacional convidado seja adaptado para o hipervisor, para possibilitar a execução sobre a plataforma virtual. Para essa 
+ adaptação, o hipervisor disponibiliza uma \ac{API}, para que os sistemas convidados possam acessar o \ac{ISA} de sistema. Contudo, a interface 
+ de usuário é mantida, assim, as aplicações do sistema convidado não precisam ser modificadas \cite{maziero2013}.
 \end{itemize}
 
 A paravirtualização possui um desempenho superior se comparada a virtualização total, pois acessa alguns recursos de forma direta, sendo que 
@@ -227,7 +226,7 @@ o hipervisor é responsável somente por impedir que o sistema convidado execute
 acesso à memória que é feito pelo hipervisor. Na virtualização total o hipervisor reserva um espaço para cada sistema convidado, que por sua vez, 
 acessa a memória como se fosse uma memória física, ou seja, inicia o seu endereçamento na posição zero. Sendo assim, cada vez que o sistema 
 convidado acessar a memória, o hipervisor precisará converter os endereços do sistema convidado para os endereços reais de memória. Já na 
-paravirtualização, o hipervisor informa ao sistema convidado a área de memória que ele poderá utilizar, assim, não sendo necessário nenhuma 
+paravirtualização, o hipervisor informa ao sistema convidado a área de memória que ele poderá utilizar, não sendo necessário nenhuma 
 conversão de endereços \cite{maziero2013}.
 
 Apesar de apresentar um desempenho inferior, a virtualização total possui uma maior portabilidade, ou seja, permite que sistemas operacionais 
@@ -248,14 +247,14 @@ de \textit{desktops} e de servidores.
 
 A portabilidade é uma das grandes vantagens da virtualização, que também pode ser aplicada em \textit{desktops}. Pode-se citar como exemplo, 
 o desenvolvimento de \textit{software} para diversos sistemas operacionais sem a necessidade de aquisição de um computador físico para a instalação
-de cada sistema operacional. Assim, a virtualização de \textit{desktops} pode ser utilizada em ambientes de desenvolvimento, pois possibilitam 
+de cada sistema operacional. Assim, a virtualização de \textit{desktops} pode ser utilizada em ambientes de desenvolvimento, pois possibilita 
 a execução de múltiplas plataformas de desenvolvimento sem comprometer o sistema operacional original \cite{carissimi2008}. Um exemplo é o 
 \textit{VMware Workstation}, que possibilita a virtualização em \acp{PC} para fins de desenvolvimento de \textit{software} \cite{vmware2016}.
 
 Em empresas pode-se ainda utilizar a virtualização de \textit{desktops}, através da configuração de terminais remotos nos computadores e um 
 servidor para centralizar as máquinas virtuais. Com isso torna-se mais simples a manutenção dos \textit{desktops}. Além disso, os \textit{desktops} 
 necessitam de um \textit{hardware} de menor valor, uma vez que esses executarão apenas um terminal remoto. Por fim, essa técnica possibilita uma 
-maior segurança dos dados, pois os dados serão armazenados em um local seguro, como por exemplo, um \textit{data center}. Exemplos desse tipo de 
+maior segurança dos dados, pois esses serão armazenados em um local seguro, como por exemplo, um \textit{data center}. Exemplos desse tipo de 
 virtualização são o \textit{Xen Desktop} \cite{xendesktop} e o \textit{VMware Horizon View} \cite{vmwareview}.
 %Em empresas pode-se utilizar virtualização de \textit{desktops} para reduzir a subutilização dos \textit{desktops}, que pode ser feito através da
 %colaboração com projetos científicos de \textit{clusters} de computadores virtuais \cite{carissimi2008}. %exemplo seti@home
@@ -273,7 +272,7 @@ ambiente é a facilidade na manutenção, pois as máquinas virtuais podem ser r
 \subsection{Virtualização de servidores}
 \label{section:virtserv}
 
-Em muitos casos as empresas utilizam serviços distribuídos entre diferentes servidores físicos, como por exemplo, servidores de \textit{e-mail}, 
+É muito comum as empresas utilizarem serviços distribuídos entre diferentes servidores físicos, como por exemplo, servidores de \textit{e-mail}, 
 hospedagens de sites e banco de dados. Essa estrutura faz com que alguns recursos fiquem ociosos, pois em muitos casos esses serviços necessitam 
 de uma quantidade de recursos inferior ao que o servidor físico oferece. Por exemplo, um serviço de transmissão de \textit{streaming} de áudio 
 utiliza pouco acesso ao disco rígido, porém utiliza um poder de processamento e de memória \aca{RAM} maior. Portanto, uma das grandes vantagens da 
@@ -297,7 +296,7 @@ Em um ambiente heterogêneo pode-se também utilizar a virtualização, pois ela
 para cada serviço. Além disso, tem-se o isolamento de serviços, ou seja, caso ocorra uma falha em um serviço, essa falha não 
 comprometerá todo o sistema, uma vez que cada serviço estará executando em seu próprio sistema operacional \cite{carissimi2008}.
 
-Outra motivação para a utilização de virtualização em servidores consiste na redução de custos com energia elétrica e na equipe que faz a 
+Outra motivação para a utilização de virtualização em servidores consiste na redução de custos com energia elétrica e na equipe responsável pela 
 manutenção. Essa redução de custos pode ser obtida através da implantação de servidores mais robustos para substituir dezenas de servidores comuns. 
 Além disso, pode-se obter uma redução nos custos com refrigeração, uma vez que essa estrutura proporciona uma redução no número de servidores
 e do espaço físico necessário para esses.
@@ -313,5 +312,8 @@ necessários para continuar a execução da máquina virtual \cite{silva2009}. E
 Neste capítulo foi apresentado um breve histórico da virtualização e os dois principais grupos de máquinas virtuais existentes, que são: máquinas 
 virtuais de aplicação e máquinas virtuais de sistema. Também foram apresentadas as vantagens e as estratégias de implementação de máquinas virtuais, 
 dando ênfase para as máquinas virtuais de sistema, uma vez que essas foram utilizadas no desenvolvimento deste trabalho para fazer a redundância 
-de \textit{software}. No próximo capítulo será feito o levantamento e análise dos serviços fornecidos pela empresa que está sendo estudada neste 
-trabalho.
+de \textit{software}. Para tal desenvolvimento, foi utilizado o hipervisor \ac{KVM} que é caracterizado pela virtualização total.
+
+No próximo capítulo será feito o levantamento e análise dos serviços fornecidos pela empresa que está sendo estudada neste trabalho.
+Também será detalhado a instalação física, do ambiente e dos servidores, bem como as configurações de todas as máquinas virtuais e seus
+respectivos \textit{softwares} e serviços.

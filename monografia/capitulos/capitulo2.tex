@@ -1,7 +1,7 @@
 \chapter{Alta disponibilidade}
 \label{cap:altadisponibilidade}
 
-Alta disponibilidade é uma conhecida técnica que está sendo cada vez mais empregada em ambientes computacionais. O objetivo de prover
+Alta disponibilidade é uma técnica conhecida que está sendo cada vez mais empregada em ambientes computacionais. O objetivo de prover
 alta disponibilidade resume-se em garantir que um serviço esteja sempre disponível quando o cliente solicitar ou acessar \cite{costa2009}.
 A alta disponibilidade geralmente é implementada com uma redundância de \textit{hardware} ou de \textit{software}, sendo que quanto maior for 
 a disponibilidade desejada maior deverá ser a redundância no ambiente, assim reduzindo os pontos únicos de falha, que em inglês são chamados 
@@ -23,7 +23,7 @@ de \ac{SPOF}. A alta disponibilidade está diretamente relacionada aos conceitos
 Sabe-se que o \textit{hardware} tende a falhar, principalmente devido a fatores físicos, por isso utilizam-se métodos para a prevenção 
 de falhas. A abordagem de prevenção de falhas é realizada na etapa de projeto, ou seja, consiste em definir mecanismos que impeçam que 
 as falhas ocorram. Além disso, a prevenção de falhas melhora a disponibilidade e a confiabilidade de um serviço, uma vez que esta 
-tem como objetivo diminuir a possibilidade de falhas antes de colocar o sistema em uso.
+tem como objetivo diminuir a probabilidade de falhas antes de colocar o sistema em uso.
 
 A prevenção de falhas não eliminará todas as possíveis falhas. Sendo assim, a tolerância a falhas procura fornecer a disponibilidade de 
 um serviço mesmo com a presença de falhas. De fato, enquanto a prevenção de falhas tem foco nas fases de projeto, teste e validação, a 
@@ -31,13 +31,13 @@ tolerância a falhas apresenta como foco a utilização de componentes replicado
 
 O objetivo da tolerância a falhas é aumentar a disponibilidade de um sistema, ou seja, aumentar o intervalo de tempo em que os serviços 
 fornecidos estão disponíveis aos usuários. Um sistema é dito tolerante a falhas se ele for capaz de mascarar a presença de falhas ou recuperar-se 
-de uma sem afetar o funcionamento do sistema \cite{pankaj1994}. %{pereirafilho2004}
+de uma falha sem afetar o funcionamento do sistema \cite{pankaj1994}. %{pereirafilho2004}
 
 A tolerância a falhas frequentemente é implementada utilizando redundância, que será apresentada na Seção \ref{section:redundancia}. 
-Pode-se utilizar virtualização para tornar um sistema tolerante a falhas. Nestes ambientes normalmente existem dois servidores 
-físicos onde máquinas virtuais são executadas, sendo que no caso de um dos servidores falhar, o \textit{software} de monitoramento fará a 
-transferência das máquinas virtuais para o outro servidor, de forma transparente aos usuários, evitando assim a indisponibilidade do serviço. 
-Os principais conceitos de virtualização, são apresentados no Capítulo \ref{cap:virtualizacao}.
+Pode-se utilizar virtualização para implementar uma redundância e, consequentemente, tornar um sistema tolerante a falhas. Nestes ambientes 
+normalmente existem dois servidores físicos onde máquinas virtuais são executadas, sendo que no caso de um dos servidores falhar, o 
+\textit{software} de monitoramento fará a transferência das máquinas virtuais para o outro servidor, de forma transparente aos usuários, 
+evitando assim a indisponibilidade do serviço. Os principais conceitos de virtualização, são apresentados no Capítulo \ref{cap:virtualizacao}.
 
 A tolerância a falhas pode ser dividida em dois tipos. O primeiro tipo, o mascaramento, não se manifesta na forma de erro ao sistema, 
 pois as falhas são tratadas na origem. O mascaramento é utilizado principalmente em sistemas críticos e de tempo real. Um exemplo são os 
@@ -156,10 +156,13 @@ Além disso, um \ac{SLA} deverá conter uma descrição do serviço, requeriment
 
 \section{Considerações finais}
 
-Neste capítulo foram descritos os principais conceitos de alta disponibilidade e conceitos relacionados. Pode-se concluir que a alta 
+Neste capítulo foram descritos os principais conceitos de alta disponibilidade e conceitos relacionados, como por exemplo, os tipos de tolerância
+a falhas, os tipos de redundância e a forma de calcular a disponibilidade de um serviço. Pode-se concluir que a alta 
 disponibilidade é alcançada através da tolerância a falhas, que por sua vez utiliza-se de redundância para mascarar as falhas e reduzir 
 os \ac{SPOF}. 
 
 Como mencionado anteriormente, um dos principais recursos utilizados atualmente para a obtenção de alta disponibilidade é a virtualização, 
 uma vez que essas são utilizadas para implementar a redundância a nível de \textit{software}. Desta forma, no próximo capítulo será feita 
 uma breve definição de virtualização, com as vantagens, as estratégias de implementação e os grupos de máquinas virtuais.
+Neste trabalho, será implementado redundância através de dois servidores, sendo que neste ambiente será utilizado virtualização de sistema 
+utilizando o hipervisor \ac{KVM}.

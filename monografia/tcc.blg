@@ -9,6 +9,7 @@ A level-1 auxiliary file: capitulos/capitulo3.aux
 A level-1 auxiliary file: capitulos/capitulo4.aux
 A level-1 auxiliary file: capitulos/capitulo5.aux
 A level-1 auxiliary file: capitulos/capitulo6.aux
+A level-1 auxiliary file: capitulos/capitulo7.aux
 A level-1 auxiliary file: capitulos/conclusao.aux
 The style file: abnt.bst
 A level-1 auxiliary file: capitulos/anexo1.aux
@@ -29,45 +30,45 @@ I was expecting a `,' or a `}'---line 618 of file tcc.bib
  :   isbn      = "{9788588639188}",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You've used 88 entries,
+You've used 89 entries,
             2371 wiz_defined-function locations,
-            970 strings with 17854 characters,
-and the built_in function-call counts, 71043 in all, are:
-= -- 8050
-> -- 316
-< -- 966
-+ -- 4548
-- -- 104
-* -- 2930
-:= -- 6234
-add.period$ -- 295
-call.type$ -- 88
-change.case$ -- 704
+            975 strings with 18034 characters,
+and the built_in function-call counts, 72189 in all, are:
+= -- 8197
+> -- 319
+< -- 976
++ -- 4626
+- -- 105
+* -- 2966
+:= -- 6331
+add.period$ -- 299
+call.type$ -- 89
+change.case$ -- 711
 chr.to.int$ -- 13
-cite$ -- 88
-duplicate$ -- 9705
-empty$ -- 3058
-format.name$ -- 735
-if$ -- 15360
+cite$ -- 89
+duplicate$ -- 9872
+empty$ -- 3096
+format.name$ -- 742
+if$ -- 15621
 int.to.chr$ -- 11
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 179
-num.names$ -- 440
-pop$ -- 1341
+newline$ -- 181
+num.names$ -- 445
+pop$ -- 1358
 preamble$ -- 1
-purify$ -- 88
+purify$ -- 89
 quote$ -- 0
-skip$ -- 4648
+skip$ -- 4727
 stack$ -- 0
-substring$ -- 3944
-swap$ -- 6026
+substring$ -- 4018
+swap$ -- 6122
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 546
+type$ -- 553
 warning$ -- 0
-while$ -- 535
+while$ -- 541
 width$ -- 0
-write$ -- 90
+write$ -- 91
 (There were 3 error messages)

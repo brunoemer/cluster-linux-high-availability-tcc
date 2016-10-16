@@ -1,19 +1,20 @@
 \chapter{Infraestrutura da Empresa}
 \label{cap:infraempresa}
 
-Este capítulo apresentará a infraestrutura de \ac{TI} da empresa que será objetivo de estudo neste trabalho. Esta é uma empresa que fornece 
-serviços de hospedagens e também está associada a um provedor de Internet\footnote[1]{É importante salientar que esse provedor utiliza a maior 
-parte dos serviços da empresa.}. A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, sendo que, atualmente, 
-esta empresa possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de Garibaldi. Além disso, a empresa possui quatro 
-filiais no estado, atendendo aproximadamente 30 cidades.
+Este capítulo apresentará a infraestrutura de \ac{TI} da empresa, descrevendo o ambiente, a configuração dos servidores e dos serviços. Esta é 
+uma empresa que fornece serviços de hospedagens e também está associada a um provedor de Internet\footnote[1]{É importante salientar que esse 
+provedor utiliza a maior parte dos serviços da empresa.}. A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, 
+sendo que, esta empresa possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de Garibaldi. Além disso, 
+a empresa possui quatro filiais no estado, atendendo aproximadamente 30 cidades.
 
 A empresa oferece serviços pela Internet, sendo eles: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
 \textit{e-mail marketing}, \textit{backup}, máquinas virtuais, autenticação via \ac{ADSL} e rádio \textit{online}. Além disso, o provedor 
 associado fornece aos seus clientes acesso à Internet via rádio e acesso à Internet por meio de fibra óptica. 
 A maioria dos serviços são fornecidos por meio de \textit{softwares} de código aberto.
 
-Atualmente, a empresa possui redundância de refrigeração e de energia, como pode ser observado na Figura \ref{fig:insteletrica}. 
-A redundância de refrigeração é composta por dois ares-condicionados (\textit{Ar 1 (Inverter)} e \textit{Ar 2} na Figura \ref{fig:insteletrica}). 
+A empresa possui redundância de refrigeração e de energia, como pode ser observado na Figura \ref{fig:insteletrica}. 
+A redundância de refrigeração é composta por dois ares-condicionados, que foram denominados de \textit{Ar 1 (Inverter)} e \textit{Ar 2} na 
+Figura \ref{fig:insteletrica}.
 
 \begin{figure}[h!]
  \centering
@@ -33,15 +34,15 @@ sendo que nestes \textit{totens} são ligados os equipamentos e os servidores qu
 entrada de energia, com três fases (destacadas na cor vermelho), e dois geradores (destacados na cor verde) que suprem a necessidade de consumo 
 de energia elétrica do ambiente.
 
-Nas próximas seções será feita uma descrição da estrutura da empresa. Na Seção \ref{section:fisico} serão descritos os servidores físicos, com 
-suas estruturas e configurações. Na Seção \ref{section:servsemvirt} serão descritos os servidores que não utilizam virtualização, ou seja, 
-os servidores que possuem os serviços instalados diretamente sobre o sistema operacional. Na Seção \ref{section:servvirt} será descrita a 
+Nas próximas seções será feita uma breve descrição da estrutura da empresa. Na Seção \ref{section:fisico} serão descritos os servidores físicos, 
+com suas estruturas e configurações. Na Seção \ref{section:servsemvirt} serão descritos os servidores que não utilizam virtualização, ou seja, 
+os servidores que possuem os serviços instalados diretamente sobre o sistema operacional nativo. Na Seção \ref{section:servvirt} será descrita a 
 estrutura dos servidores que utilizam de virtualização e todos os serviços fornecidos por esses servidores.
 
 \section{Instalação física}
 \label{section:fisico}
 
-A estrutura atual da empresa é composta por quatorze servidores físicos. A configuração desses servidores pode ser observada na 
+A estrutura da empresa é composta por quatorze servidores físicos. A configuração desses servidores pode ser observada na 
 Tabela \ref{tab:servfisicos}, onde tem-se o nome do servidor, o modelo, a configuração dos processadores, quantidade de memória
 \aca{RAM}, número de discos rígidos e a capacidade unitária de cada disco.
 
@@ -98,14 +99,14 @@ A Figura \ref{fig:servrack} apresenta uma foto, com o \textit{rack} e todos os s
 \section{Servidores sem virtualização}
 \label{section:servsemvirt}
 
-Atualmente tem-se sete servidores que possuem os serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização. 
+Tem-se sete servidores que possuem os serviços executando sobre o sistema operacional nativo, ou seja, sem virtualização. 
 Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estão descritos abaixo:
 \begin{itemize}
  \item \textit{Bello}: esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Sua função é armazenar todos os 
- dados de \textit{backup} da empresa. Para isso ele possui instalada a ferramenta \textit{Bacula Storage 5.2.6} \cite{bacula}. De fato, esse só
- armazena os dados do \textit{backup}, ou seja, esse servidor não é responsável pela execução do \textit{backup}. A ferramenta que faz a execução e
- a gerência do \textit{backup} é o \textit{Bacula Director}, que encontra-se instalado no servidor \textit{Quebei} o qual será detalhado na 
- Seção \ref{section:serv_venti};
+ dados de \textit{backup} da empresa. Para isso ele possui instalada a ferramenta \textit{Bacula Storage 5.2.6} \cite{bacula}. Destaca-se que esse 
+ servidor armazena apenas os dados do \textit{backup}, ou seja, esse servidor não é responsável pela execução do \textit{backup}. A ferramenta que 
+ faz a execução e a gerência do \textit{backup} é o \textit{Bacula Director}, que encontra-se instalado no servidor \textit{Quebei} o qual será 
+ detalhado na Seção \ref{section:serv_venti};
  
  \item \textit{Cacti}: um dos servidores de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.6} \cite{centos} e 
  executa a aplicação \textit{Cacti 0.8.8b} \cite{cacti}, que é uma ferramenta de código aberto desenvolvida para monitorar equipamentos de rede 
@@ -123,9 +124,10 @@ Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estã
  \item \textit{Monit}: esse servidor faz o monitoramento dos demais servidores. Ele possui o sistema operacional \textit{Ubuntu 12.04 \ac{LTS}} 
  \cite{ubuntu}, e executa as aplicações \textit{Nagios 3.2.3} \cite{nagios} e \textit{Munin 1.4.6} \cite{munin}, ambos \textit{softwares} livres. 
  O \textit{Nagios} é responsável por monitorar o \textit{hardware} e os serviços que estão executando em cada servidor. Já o \textit{Munin} é 
- responsável por gerar gráficos de monitoramento. Com o \textit{Munin} pode-se criar, por exemplo, gráficos com a utilização do processador, 
+ responsável por gerar gráficos de monitoramento. A partir do \textit{Munin} pode-se criar, por exemplo, gráficos com a utilização do processador,
  de memória \ac{RAM}, do disco rígido, da temperatura e da velocidade dos \textit{fans}\footnote[3]{Os \textit{fans} são exaustores, ou seja, 
- ventiladores que empurram o ar quente para fora de um recipiente ou ambiente \cite{ats2012}.};
+ ventiladores que empurram o ar quente para fora de um recipiente ou ambiente \cite{ats2012}. Nos servidores, os \textit{fans} removem o ar quente 
+ gerado pelos componentes de \textit{hardware}.};
  
  \item \textit{Nino}: esse é o servidor utilizado pelo setor de desenvolvimento de \textit{software}. Suas aplicações executam sobre o sistema 
  operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que os serviços fornecidos pelo servidor são: um servidor \textit{Web} 
@@ -140,7 +142,7 @@ Esses são os sete primeiros servidores da Tabela \ref{tab:servfisicos}, e estã
  
  \item \textit{Vigilante}: esse servidor é responsável por capturar e armazenar o \textit{streaming} de vídeo das câmeras de segurança do provedor. 
  Esse possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e executa a aplicação \textit{ZoneMinder 1.29} \cite{zoneminder}, 
- que é a aplicação responsável pela captura e armazenamento das imagens das câmeras do provedor.
+ que é a aplicação responsável pela captura e pelo armazenamento das imagens das câmeras.
 \end{itemize}
 
 \section{Servidores com virtualização}
@@ -154,7 +156,7 @@ de alimentação duplicada e discos rígidos configurados através de \ac{RAID} 
 utilizado \ac{RAID} 5. Já em servidores que possuem apenas dois discos é utilizado \ac{RAID} 1 (espelhamento de discos). 
 O ambiente também possui redundância no cabeamento de rede, como visto anteriormente.
 
-A empresa fornece serviços diversos, desde hospedagens de sites até \aca{DNS} recursivo para o provedor de Internet. Atualmente sete servidores 
+A empresa fornece serviços diversos, desde hospedagens de sites até \aca{DNS} recursivo para o provedor de Internet. Sete servidores 
 são utilizados com virtualização (os últimos sete servidores da Tabela \ref{tab:servfisicos}), sendo que existem quarenta e seis \acp{VM} 
 distribuídas entre esses sete servidores. Nas próximas seções serão descritos esses servidores, e as respectivas máquinas virtuais que são
 executadas nestes.
@@ -182,8 +184,8 @@ O servidor \textit{Brina} possui duas \acp{VM}, como pode ser visto na Figura \r
  
  \item \textit{Monete}: sua configuração é de 1 \textit{core} de \textit{2.33 GHz}, 3 GB de memória \ac{RAM} e 50 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{Web} dedicado para o site do 
- provedor, ou seja, esse servidor armazena o site do provedor. Para isso ele utiliza os \textit{softwares} 
- \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} e \textit{MySQL 5.5.49} \cite{mysql}.
+ provedor. Para isso ele utiliza os \textit{softwares} \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} e 
+ \textit{MySQL 5.5.49} \cite{mysql}.
 \end{itemize}
 
 \subsection{Servidor Fulmine}
@@ -204,13 +206,14 @@ O servidor \textit{Fulmine} possui dez \acp{VM}, como pode ser visto na Figura \
 \begin{itemize}
  \item \textit{Hotspot}: sua configuração é de 1 \textit{core} de \textit{2.0 GHz}, 1,5 GB de memória \ac{RAM} e 8 GB de disco. 
  Esse servidor virtual possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor faz a gerência de 
- equipamentos da \textit{Ubiquiti} que fazem \textit{hotspot}\footnote[1]{\textit{Hotspot} é um tipo de rede sem fio para computadores móveis 
- e normalmente estão presentes em locais como hotéis, aeroportos, entre outros \cite{tanenbaum2011}.}. Esses equipamentos disponibilizam a 
- tecnologia \textit{Wi-fi} para prover acesso à Internet em ambientes públicos e são utilizados pelo provedor;
+ equipamentos \textit{Unifi} da empresa \textit{Ubiquiti} que fazem \textit{hotspot}\footnote[1]{\textit{Hotspot} é um tipo de rede sem fio 
+ para computadores móveis e normalmente estão presentes em locais como hotéis, aeroportos, entre outros \cite{tanenbaum2011}.}. Esses 
+ equipamentos disponibilizam a tecnologia \textit{Wi-fi} para prover acesso à Internet em ambientes públicos e são utilizados pelo provedor;
  
  \item \textit{IPv6Dns}, \textit{IPv6Dns64} e \textit{IPv6Nat64}: suas configurações são de 1 \textit{core} de \textit{2.0 GHz}, 
  1 GB de memória \ac{RAM} e 8 GB de disco. O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que essas \acp{VM}
- fornecem o serviço de \ac{DNS} \cite{tanenbaum2011} e \aca{NAT} \cite{kurose2006} para navegação \aca{IPv6} \cite{ipv6} do provedor;
+ fornecem o serviço de \aca{DNS} e \aca{NAT} para navegação \aca{IPv6} \cite{ipv6} do provedor;
+ %\aca{DNS} \cite{tanenbaum2011} e \aca{NAT} \cite{kurose2006} para navegação \aca{IPv6} \cite{ipv6}
  
  \item \textit{Ottico}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz}, 4 GB de memória \ac{RAM} e 50 GB de disco. 
  O servidor possui o sistema operacional \textit{Windows 2007 Server Standard} e possui o serviço de \textit{terminal service} para suporte e 
@@ -222,8 +225,8 @@ O servidor \textit{Fulmine} possui dez \acp{VM}, como pode ser visto na Figura \
  
  \item \textit{Passata}: esse servidor possui 2 \textit{cores} de \textit{2.0 GHz}, 3 GB de memória \ac{RAM} e 20 GB de disco. 
  O servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece o serviço de \ac{DNS} recursivo, através do 
- \textit{software} \textit{Bind 9.9.5} \cite{bind}. Esse é o servidor primário de \ac{DNS}, sendo o mais importante para navegação dos clientes 
- do provedor;
+ \textit{software} \textit{Bind 9.9.5} \cite{bind}. Esse é o servidor primário de \ac{DNS}, sendo o mais importante para a navegação dos 
+ clientes do provedor;
  
  \item \textit{Roncon}: esse servidor possui 4 \textit{cores} de \textit{2.0 GHz}, 6 GB de memória \ac{RAM} e 400 GB de disco. 
  Ele possui o sistema operacional \textit{Red Hat 5.11} \cite{redhat} e provê hospedagem de sites \textit{Web} desenvolvidos com a linguagem 
@@ -231,8 +234,9 @@ O servidor \textit{Fulmine} possui dez \acp{VM}, como pode ser visto na Figura \
  dados. Além disso, encontra-se disponível a ferramenta \textit{cPanel}, que faz parte do \ac{WHM} e fornece acesso aos desenvolvedores de
  sites. Para fornecer a hospedagem desses sites os seguintes \textit{softwares} estão instalados: \textit{Apache 2.2.26} \cite{apache}, 
  \textit{\ac{PHP} 5.3.27} \cite{php}, \textit{MySQL 5.1.73} \cite{mysql} e \textit{PostgreSQL 8.4.20} \cite{postgres}.
- Além da hospedagem, esse servidor fornece o serviço de autenticação \ac{ADSL} \cite{tanenbaum2011} de terceiros utilizando o \textit{software} 
+ Além da hospedagem, esse servidor fornece o serviço de autenticação \aca{ADSL} de terceiros utilizando o \textit{software} 
  \textit{Freeradius 1.1.3} \cite{freeradius};
+ %\ac{ADSL} \cite{tanenbaum2011}
  
  \item \textit{Servo}: sua configuração é de 1 \textit{core} de \textit{2.0 GHz}, 2 GB de memória \ac{RAM} e 30 GB de disco. 
  Esse servidor possui o sistema operacional \textit{CentOS 6.8} \cite{centos}, sendo que este servidor virtual fornece, através do \textit{software} 
@@ -262,16 +266,16 @@ O servidor \textit{Piova} possui nove \acp{VM}, como pode ser visto na Figura \r
  \item \textit{ASP}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória \ac{RAM} e 50 GB de disco. 
  O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e provê acesso a sites \textit{Web} desenvolvidos com a linguagem 
  \ac{ASP} \cite{asp}, através do \textit{software} \textit{\ac{IIS} 7.5} \cite{iis}. Destaca-se que esse servidor hospeda um número baixo de sites.
- De fato, esse armazena somente 10 sites;
+ De fato, esse servidor armazena somente 10 sites;
  
  \item \textit{CactiBackbone}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória \ac{RAM} e 20 GB de disco. 
  Ele é um servidor de monitoramento da rede do provedor. Esse utiliza a distribuição \textit{CentOS 6.3} \cite{centos} e executa a aplicação 
- \textit{Cacti 0.8.8a} \cite{cacti}. Essa aplicação monitora atualmente uma parte da rede \textit{backbone} do provedor;
+ \textit{Cacti 0.8.8a} \cite{cacti}. Essa aplicação monitora uma parte da rede \textit{backbone} do provedor;
  
  \item \textit{Dio}: esse servidor possui 1 \textit{core} de \textit{2.40 GHz}, 1 GB de memória \ac{RAM} e 17,8 GB de disco. 
  O servidor possui o sistema operacional \textit{Ubuntu 6.06 \ac{LTS}} \cite{ubuntu} e fornece serviço de hospedagens de sites desenvolvidos com 
- a linguagem \ac{PHP} versão 4.4.2. Esses sites são mantidos em um servidor separado devido a incompatibilidade com a versão 5. Esse servidor 
- armazena somente 10 sites;
+ a linguagem \ac{PHP} versão 4.4.2. Esses sites são mantidos em um servidor separado devido a incompatibilidade com a versão 5 do \ac{PHP}. 
+ Esse servidor armazena somente 10 sites;
  
  \item \textit{FateFurbo}: sua configuração é de 2 \textit{cores} de \textit{2.40 GHz}, 4 GB de memória \ac{RAM} e 80 GB de disco. 
  O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}. Esse servidor possui um \textit{software} proprietário da empresa 
@@ -339,22 +343,22 @@ nas \acp{VM} são:
  
  \item \textit{Merak}: esse servidor fornece serviço de \textit{e-mail}. Ele possui uma configuração de 6 \textit{cores} de \textit{2.00 GHz}, 
  10 GB de memória \ac{RAM} e 1 TB de disco. O servidor possui o sistema operacional \textit{Windows 2008 Server R2} e executa o \textit{software} 
- \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços de envios de: \textit{e-mails} através do protocolo 
- \aca{SMTP} \cite{kurose2006}; recebimentos de \textit{e-mails} através dos protocolos \aca{POP} \cite{kurose2006} e \aca{IMAP} \cite{kurose2006}; 
- e o serviço de \textit{Webmail} (\ac{PHP}) e Anti-spam. Destaca-se que grande parte das contas de \textit{e-mail} estão ociosas pois são oferecidas 
- juntamente com o serviço de Internet fornecida pelo provedor;
- %Possui ?? contas sendo que possui uma média de ?? usuários simultâneos...
+ \textit{Icewarp Server 10.4.4} \cite{icewarp}. Essa aplicação fornece os serviços: de envios de \textit{e-mails} através do protocolo \aca{SMTP}; 
+ recebimentos de \textit{e-mails} através dos protocolos \aca{POP} e \aca{IMAP}; e o serviço de \textit{Webmail} (\ac{PHP}) e Anti-spam. 
+ Destaca-se que grande parte das contas de \textit{e-mail} estão ociosas pois são oferecidas juntamente com o serviço de Internet fornecida 
+ pelo provedor;
+ %\aca{SMTP} \cite{kurose2006}; \aca{POP} \cite{kurose2006} e \aca{IMAP} \cite{kurose2006}; 
  
  \item \textit{Quebei}: sua configuração é de 1 \textit{core} de \textit{2.00 GHz}, 3 GB de memória \ac{RAM} e 140 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e sua função é gerenciar o \textit{backup} dos outros 
  servidores. Para isso ele utiliza a ferramenta \textit{Bacula 5.2.6} \cite{bacula} (pacote \textit{bacula-director-common 5.2.6}). Destaca-se
- que esse \textit{backup} é armazenado no servidor físico \textit{Bello}, que foi detalhado na Seção \ref{section:servsemvirt}. Além disso, 
- esse servidor possui o sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql} instalado, que está configurado no modelo 
+ que os dados de \textit{backup} são armazenados no servidor físico \textit{Bello}, que foi detalhado na Seção \ref{section:servsemvirt}. 
+ Além disso, esse servidor possui o sistema gerenciador de banco de dados \textit{MySQL 5.5.49} \cite{mysql}, que está configurado no modelo 
  \textit{master-slave}, sendo que esse servidor é o \textit{slave} e o servidor \textit{Dati} é o \textit{master};
  
  \item \textit{Rauco}: esse servidor possui 2 \textit{cores} de \textit{2.00 GHz}, 6 GB de memória \ac{RAM} e 600 GB de disco. 
- Ele possui o sistema operacional \textit{CentOS 6.8} \cite{centos}. Ou seja, esse servidor virtual fornece o mesmo serviço do servidor 
- \textit{Roncon}, que foi descrito na Seção \ref{section:serv_fulmine}. Esse servidor fornece acesso a sites \textit{Web} desenvolvidos com a 
+ Ele possui o sistema operacional \textit{CentOS 6.8} \cite{centos}, e fornece o mesmo serviço do servidor \textit{Roncon}, que foi descrito 
+ na Seção \ref{section:serv_fulmine}. Ou seja, esse servidor fornece acesso a sites \textit{Web} desenvolvidos com a 
  linguagem \ac{PHP}. Foram criados dois servidores para a hospedagem de forma a suportar um número maior de sites.
 \end{itemize}
 
@@ -384,8 +388,8 @@ O servidor \textit{Tuono} possui quatro \acp{VM}, como pode ser visto na Figura 
 
  \item \textit{Soldi}: sua configuração é 4 \textit{cores} de \textit{2.53 GHz}, 4 GB de memória \ac{RAM} e 40 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{Web} exclusivo para os
- \textit{softwares} de gestão que são desenvolvidos pela empresa. Os seguintes \textit{softwares} são utilizados: \textit{Apache 2.4.7} 
- \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} e \textit{MySQL 5.5.49} \cite{mysql};
+ \textit{softwares} de gestão que são desenvolvidos pela empresa. Os seguintes \textit{softwares} encontram-se instalados neste servidor: 
+ \textit{Apache 2.4.7} \cite{apache}, \textit{\ac{PHP} 5.5.9} \cite{php} e \textit{MySQL 5.5.49} \cite{mysql};
 
  \item \textit{Speedauth}: sua configuração é de 2 \textit{cores} de \textit{2.53 GHz}, 1,5 GB de memória \ac{RAM} e 8 GB de disco. 
  O sistema operacional é o \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, sendo que esse servidor fornece o mesmo serviço do servidor 
@@ -411,12 +415,13 @@ O servidor \textit{Venti} possui cinco \acp{VM}, como pode ser visto na Figura \
 \begin{itemize}
  \item \textit{Backup}: sua configuração é de 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória \ac{RAM} e 15 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e executa o serviço de \textit{backup} dos equipamentos 
- do provedor. Esse servidor utiliza \textit{scripts} que foram desenvolvidos internamente e que efetuam a cópia de dados através do protocolo 
- \aca{FTP} \cite{kurose2006};
+ do provedor. Esse servidor utiliza \textit{scripts} que foram desenvolvidos internamente e que efetuam a cópia de dados através do protocolo
+ \aca{FTP};
+ %\aca{FTP} \cite{kurose2006};
  
  \item \textit{Esibire}: sua configuração é de 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória \ac{RAM} e 50 GB de disco. 
- Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, ele faz a hospedagem de vídeos utilizando o 
- protocolo \ac{FTP} e faz a reprodução de \textit{streaming} utilizando um servidor \textit{Web} \textit{Apache 2.4.7};
+ Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu}, e faz a hospedagem de vídeos utilizando o 
+ protocolo \ac{FTP}. Além disso, ele faz a reprodução de \textit{streaming} utilizando um servidor \textit{Web} \textit{Apache 2.4.7};
  
  \item \textit{Miatanto}: sua configuração é de 1 \textit{core} de \textit{3.10 GHz}, 1 GB de memória \ac{RAM} e 8 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para uma \textit{Web} 
@@ -434,8 +439,9 @@ O servidor \textit{Venti} possui cinco \acp{VM}, como pode ser visto na Figura \
 
 \section{Considerações finais}
 
-Neste capítulo foi apresentada a infraestrutura de \ac{TI} da empresa para possibilitar a identificação dos serviços mais críticos 
-da empresa, a qual será apresentada no próximo capítulo. Além disso, pode-se ter uma visão geral dos serviços fornecidos, bem como do 
-\textit{hardware} que está sendo utilizado atualmente. No próximo capítulo será apresentada uma proposta de um ambiente de alta disponibilidade 
-para os serviços críticos, sendo que nesta proposta serão apresentados os \textit{softwares} que serão utilizados para implementar a alta 
-disponibilidade.
+Neste capítulo foi apresentada a infraestrutura de \ac{TI} da empresa estudada, com isso, pôde-se . Além disso, pôde-se ter uma visão geral dos serviços fornecidos, 
+dos \textit{softwares} utilizados, bem como do \textit{hardware} que vem sendo utilizado. 
+
+Com base nos serviços apresentados neste capítulo, o próximo capítulo apresentará os serviços que são considerados críticos, para tanto, 
+será definidos alguns critérios. Posteriormente, serão definidas algumas ferramentas para a criação do ambiente de alta disponibilidade, que 
+farão parte do projeto de implementação.
