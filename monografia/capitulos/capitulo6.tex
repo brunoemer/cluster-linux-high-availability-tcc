@@ -124,7 +124,8 @@ O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com
  \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores. Neste caso, é feita a distribuição 
  e a replicação dos arquivos entre os nós;
  \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido entre os
- \textit{brick} e também ocorre a replicação ??. Esse tipo é normalmente utilizado para armazenamento de arquivos muito grandes;
+ \textit{bricks}, desta forma não ocorre replicação dos dados. Esse tipo é normalmente utilizado para armazenamento de arquivos muito grandes 
+ e para balancear carga quando possuir muito acesso a disco;
  \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado. Neste modo é feita a divisão do arquivo 
  entre \textit{bricks} distintos, sendo que estes são replicados.
 \end{itemize}

@@ -1,29 +1,24 @@
 \chapter{Testes e resultados}
-\label{cap:implementacaoresultados}
+\label{cap:resultados}
 
-Neste capítulo será apresentada a metodologia de testes utilizada para validar o ambiente de alta disponibilidade criado. Após a execução
-dos testes serão apresentados os resultados obtidos.
-
-%Neste capítulo será apresetado o projeto de implementação, detalhado a implementação com a configuração do \ac{OS}, do ambiente virtualizado e 
-%das ferramentas que irão compôr o \textit{cluster} de alta disponibilidade. Posteriormente, será apresentada a metodologia de testes e 
-%apresentado os resultados das medições para validação da alta disponibilidade.
+Neste capítulo será apresentada a metodologia de testes utilizada para validar o ambiente de alta disponibilidade criado, bem como os
+resultados obtidos dos testes efetuados.
 
 \section{Testes realizados}
 \label{section:testes}
 
 A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}, a mesma foi desenvolvida para 
 possibilitar a análise e eficácia do ambiente de alta disponibilidade. No primeiro trabalho, o autor simulou falhas de três formas, através
-do desligamento brusco do servidor, desligamento por \textit{software} e falha de rede. Já no segundo trabalho, foi feito também três testes,
-um com a reinicialização do servidor físico, outro com migração da máquina virtual simples, ou seja, fazendo o desligamento da mesma, e por fim 
-um teste com migração em tempo real (\textit{live migration}).
+do desligamento brusco do servidor, desligamento por \textit{software} e falha de rede. Já no segundo trabalho, foram realizados três testes,
+um com a reinicialização do servidor físico, outro com migração de uma máquina virtual simples, ou seja, fazendo o desligamento da mesma, e por 
+fim um teste com migração em tempo real (\textit{live migration}).
 
-Para o desenvolvimento deste trabalho procurou-se selecionar os testes mais importantes para a empresa, que foram o desligamento brusco e o 
-desligamento por \textit{software} criados pelo primeiro autor. Já do segundo autor, foi selecionado o teste de migração em tempo real, porém 
-adaptado para simular um agendamento de manutenção de \textit{hardware} ou de \textit{software}.
+Neste trabalho optou-se por utilizar os testes de desligamento brusco e o desligamento por \textit{software} criados pelo primeiro autor. 
+Já do segundo autor, utilizou-se o teste de migração em tempo real, porém adaptado para simular um agendamento de manutenção de \textit{hardware} 
+ou de \textit{software}.
 %O objetivo desta seção é comprovar que a gerência de falhas é importante para um ambiente computacional, além de destacar que a gerência da 
 %manutenção também é favorecida por esta implementação.
 
-%Os testes desenvolvidos estão detalhados nas próximas seções, neles tem-se a justificativa, a aplicação e os resultados obtidos.
 Os três testes descritos nas próximas seções foram efetuados no ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, 
 por possuírem risco de perda de dados em sua execução.
 Todavia, na Seção \ref{section:comparacaofinal} será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade,
