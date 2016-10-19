@@ -33,7 +33,7 @@ Com este teste pode-se validar ainda o processo de \textit{failover} dos serviç
 bem como medir o tempo de indisponibilidade dos serviços. Este teste juntamente com os dois testes das próximas seções foram efetuados no 
 ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, por possuírem risco de perda de dados em sua execução.
 
-O teste foi executado 4 vezes nos nós do \textit{cluster}. A Tabela \ref{tab:teste1resultados} possui os resultados
+O teste foi executado 4 vezes nos nós do \textit{cluster}. A Tabela \ref{tab:teste1resultadosvirt} possui os resultados
 dos testes e das medições efetuadas sobre a máquina virtual e sobre os nós. Pode-se observar que o tempo de indisponibilidade da máquina virtual 
 é baixo, sendo apenas 40,5 segundos, pois a \ac{VM} é iniciada em um outro nó logo após o desligamento do primeiro nó. Essa indisponibilidade é 
 baixa comparado com os servidores físicos que são de 169 e 205,5 segundos. O desvio padrão demonstra que, nos testes realizados, existe pouca 
@@ -62,10 +62,10 @@ a indisponibilidade poderia ser maior que 24 horas.
 \caption{Resultados do teste 1.}
 \label{tab:teste1resultados}
 \begin{center}
-\begin{tabular}{|l|l|l|}\hline
- & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão da indisponibilidade} \\\hline
-Nó 1 & 124 segundos & 4,24 \\\hline
-Nó 2 & 170,5 segundos & 6,36 \\\hline
+\begin{tabular}{|l|l|p{2.5cm}|}\hline
+ & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão} \\\hline
+Nó 1 & 169 segundos & 67,88 \\\hline
+Nó 2 & 205,5 segundos & 55,86 \\\hline
 Máquina virtual & 81 segundos & 7,07 \\\hline
 \end{tabular}
 \end{center}
@@ -122,8 +122,8 @@ A latência baixa da máquina virtual demonstra que não há perda significante 
 \caption{Resultados do teste 2.}
 \label{tab:teste2resultados}
 \begin{center}
-\begin{tabular}{|l|p{4cm}|p{4cm}|l|}\hline
- & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão da indisponibilidade} & \textbf{Latência média} \\\hline
+\begin{tabular}{|l|l|l|p{3cm}|}\hline
+ & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão} & \textbf{Latência média} \\\hline
 Nó 1 & 145,5 segundos & 0,70 & 22,63 ms \\\hline
 Nó 2 & 173 segundos & 1,41 & 19,8 ms \\\hline
 Máquina virtual & 0 segundos & 0 & 0,309 ms \\\hline
@@ -205,11 +205,11 @@ porém ocorreu um erro na atualização e o servidor não pôde iniciar corretam
 \caption{Resultados do teste 3.}
 \label{tab:teste3resultados}
 \begin{center}
-\begin{tabular}{|l|l|l|}\hline
- & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão da indisponibilidade} \\\hline
+\begin{tabular}{|l|l|p{2.5cm}|}\hline
+ & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão} \\\hline
 Nó 1 & 138,5 segundos & 2,12 \\\hline
 Nó 2 & 167 segundos & 1,41 \\\hline
-Máquina virtual & 10 segundos & 0 \\\hline
+Máquina virtual & 5 segundos &  \\\hline
 \end{tabular}
 \end{center}
 \end{table}

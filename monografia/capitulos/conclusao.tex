@@ -12,18 +12,18 @@ importantes para o provedor; sistemas da empresa, uma vez que todos os funcioná
 clientes; e serviço de telefonia interna, por ser responsável pela comunicação tanto entre funcionários, como entre clientes e funcionários.
 
 Após criou-se uma proposta de alta disponibilidade para esses serviços. Essa proposta é composta por um \textit{cluster} o qual é constituído 
-por dois servidores físicos. Para o gerenciamento do \textit{cluster} será adotado o \textit{software} \textit{Ganeti}, que fará o gerenciamento, 
-monitoramento e a transferência das máquinas virtuais, que executarão os serviços, para garantir a alta disponibilidade. Para a replicação de dados 
-do \textit{cluster} foi adotado o \textit{software} \ac{DRBD}. Esse será responsável pela replicação dos dados dos dois servidores.
+por dois servidores físicos. Para o gerenciamento do \textit{cluster} foi adotado o \textit{software} \textit{Ganeti}, que é responsável pelo 
+gerenciamento, monitoramento e a transferência das máquinas virtuais, que executam os serviços. Para a replicação de dados 
+do \textit{cluster} foi adotado o \textit{software} \ac{DRBD}. Esse é responsável pela replicação dos dados dos dois servidores.
 
-O ambiente de alta disponibilidade será composto por máquinas virtuais que executarão os serviços críticos. Para garantir a disponibilidade 
-será utilizada a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Ganeti}. Desta forma, 
+O ambiente de alta disponibilidade é composto por máquinas virtuais que executam os serviços críticos. Para garantir a disponibilidade 
+foi utilizada a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Ganeti}. Desta forma, 
 caso um dos servidores falhe as máquinas virtuais serão migradas para o outro servidor. Destaca-se que bons resultados foram obtidos com os 
 testes realizados com ambas as ferramentas.
 
-Na próxima etapa deste trabalho, será finalizada a elaboração da solução, além disso, será feita a organização do ambiente de virtualização 
-da empresa, para então ser possível a implementação desta solução de alta disponibilidade. E por fim, será feita uma análise dos resultados 
-desta implementação. O cronograma destas etapas está melhor detalhado na próxima seção.
+%Na próxima etapa deste trabalho, será finalizada a elaboração da solução, além disso, será feita a organização do ambiente de virtualização 
+%da empresa, para então ser possível a implementação desta solução de alta disponibilidade. E por fim, será feita uma análise dos resultados 
+%desta implementação. O cronograma destas etapas está melhor detalhado na próxima seção.
 
 % Sendo assim, pode-se concluir que é possível criar um \textit{cluster} de alta disponibilidade com ferramentas de código aberto, destacando que 
 % pode-se utilizar virtualização em conjunto com essas ferramentas, para que, deste modo o ambiente se torne mais flexível e disponível. 
