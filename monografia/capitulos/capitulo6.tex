@@ -4,7 +4,7 @@
 Neste capítulo será feita a definição das ferramentas que irão compor o ambiente de alta disponibilidade. A solução será baseada na utilização 
 de virtualização e de \textit{softwares} de código aberto, e será descrita na Seção \ref{section:implementacao}.
 
-\section{Definição dos softwares utilizados}
+\section{Softwares utilizados}
 \label{section:propostasolucao}
 
 %Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se uma técnica semelhante à descrita no artigo 
@@ -13,18 +13,24 @@ de virtualização e de \textit{softwares} de código aberto, e será descrita n
 %interface, gerenciamento de energia, balanceamento de carga, rede, armazenamento, monitoramento, integração, virtualização, segurança, 
 %escalabilidade e tolerância a falhas. Essas características são importantes para medir a qualidade e compatibilidade das ferramentas estudadas, 
 %além de comparar a usabilidade das ferramentas.
-%Usar metodologia MAH Método Analítico Hierárquico \cite{geordano2014} NAO INICIALMENTE
 
-A estrutura criada neste trabalho foi baseada nos trabalhos de ... Nestes a estrutura é baseada em cluster ..  
-Desta forma, torna-se necessario a escolha de um software para.. e um
-??
+%Dois tipos de \textit{softwares} foram necessários para a implementação da alta disponibilidade, estes foram divididos em dois grupos: 
+%\textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e gerência do \textit{cluster} (transferências das máquinas 
+%virtuais entre os nós). 
 
-Procurou-se selecionar as características mais relevantes para o real ambiente existente e compatível com o projeto de implementação. 
-Além disso, dois tipos de \textit{softwares} foram necessários para a implementação da alta disponibilidade, estes foram divididos em dois grupos: 
-\textit{softwares} de replicação de dados; e \textit{softwares} para o monitoramento e gerência do \textit{cluster} (transferências das máquinas 
-virtuais entre os nós). As características que serão utilizadas para adotar o \textit{software} mais adequado para a implementação deste 
-trabalho estão listadas abaixo.
-%Foram consideradas as características, funcionalidades e formas de operação, para possibilitar a comparação das ferramentas.
+%Usar metodologia MAH - Método Analítico Hierárquico \cite{geordano2014} NAO INICIALMENTE
+
+A estrutura criada neste trabalho foi baseada nos artigos de \citet{goncalves2009}, \citet{reis2009} e \citet{zaminhani2008}. 
+Os dois primeiros implementam alta disponibilidade em máquinas virtuais, com mesmos objetivos deste trabalho. O terceiro autor utiliza uma 
+técnica semelhante, com as mesmas ferramentas de alta disponibilidade, porém implementada especificamente para um serviço.
+Em ambos os artigos a estrutura é baseada em \textit{cluster}. Desta forma, torna-se necessário a escolha de um \textit{software} que seja 
+responsável pela replicação de dados e um outro para monitoramento e gerência do \textit{cluster} de alta disponibilidade.
+
+Para selecionar esses \textit{softwares} procurou-se características que sejam compatíveis com as estruturas apresentadas nesses artigos e que 
+também se adequem ao real ambiente da empresa. Além disso, foram consideradas as funcionalidades, limitações e formas de operação desses 
+\textit{softwares}, desta forma possibilitando uma melhor comparação dos \textit{softwares}.
+As características que serão utilizadas para adotar o \textit{software} mais adequado para a implementação deste trabalho foram divididas em
+dois grupos e estão listadas abaixo.
 
 \textit{Software} de replicação de dados:
 \begin{itemize}

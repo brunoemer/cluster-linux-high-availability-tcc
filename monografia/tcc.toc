@@ -44,8 +44,8 @@
 \contentsline {subsection}{\numberline {5.1.5}Resumo e os servi\IeC {\c c}os cr\IeC {\'\i }ticos}{44}
 \contentsline {section}{\numberline {5.2}Considera\IeC {\c c}\IeC {\~o}es finais}{44}
 \contentsline {chapter}{\numberline {6}Projeto de implementa\IeC {\c c}\IeC {\~a}o}{45}
-\contentsline {section}{\numberline {6.1}Defini\IeC {\c c}\IeC {\~a}o dos softwares utilizados}{45}
-\contentsline {subsection}{\numberline {6.1.1}Softwares para a replica\IeC {\c c}\IeC {\~a}o de dados}{45}
+\contentsline {section}{\numberline {6.1}Softwares utilizados}{45}
+\contentsline {subsection}{\numberline {6.1.1}Softwares para a replica\IeC {\c c}\IeC {\~a}o de dados}{46}
 \contentsline {subsubsection}{\numberline {6.1.1.1}DRBD}{46}
 \contentsline {subsubsection}{\numberline {6.1.1.2}GlusterFS}{47}
 \contentsline {subsubsection}{\numberline {6.1.1.3}Rsync}{48}
@@ -61,7 +61,7 @@
 \contentsline {section}{\numberline {7.1}Testes realizados}{55}
 \contentsline {subsection}{\numberline {7.1.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{55}
 \contentsline {subsection}{\numberline {7.1.2}Teste 2 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{57}
-\contentsline {subsection}{\numberline {7.1.3}Teste 3 - Desligamento por software}{58}
+\contentsline {subsection}{\numberline {7.1.3}Teste 3 - Desligamento por software}{59}
 \contentsline {subsection}{\numberline {7.1.4}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{60}
 \contentsline {section}{\numberline {7.2}Considera\IeC {\c c}\IeC {\~o}es finais}{60}
 \contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{61}
