@@ -1,24 +1,20 @@
 \chapter{Serviços críticos}
 \label{cap:servicoscriticos}
 
-No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa, desta forma, neste capítulo serão apresentados os 
-serviços considerados críticos para a empresa.
+No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Neste capítulo serão apresentados os serviços 
+que foram considerados críticos para a empresa, sendo que para a definição desses foram adotados alguns critérios. Esses critérios foram criados
+através de uma análise dos serviços, levando em consideração a importância para a empresa, para o seu ambiente e a opnião da direção da empresa, 
+da mesma forma que o autor \citet{geordano2014} definiu a relevância de seus critérios.
+Mais especificamente, os critérios encontram-se listados abaixo:
 
-\section{Levantamento dos serviços críticos}
-\label{section:servcrit}
-
-Nesta seção será feita uma análise dos serviços fornecidos pela empresa, apresentados no capítulo anterior, destacando os serviços que foram 
-considerados críticos para a empresa, sendo que para a seleção desses serviços críticos foram adotados alguns critérios. 
-
-Para a definição desses critérios utilizou-se uma metodologia semelhante à utilizada no artigo de \citet{geordano2014}. O autor 
-comparou ferramentas para monitoramento de redes de fibra óptica, para isso, ele criou critérios baseados na tecnologia foco do trabalho 
-(tecnologia PON), além de levar em consideração desempenho e \ac{SLA}. Para a definição da relevância de cada critério, o autor considerou
-a importância do critério para o ambiente monitorado da empresa e também a opnião da direção da empresa.
+%Para a definição desses critérios utilizou-se uma metodologia semelhante à utilizada no artigo de \citet{geordano2014}. O autor 
+%comparou ferramentas para monitoramento de redes de fibra óptica, para isso, ele criou critérios baseados na tecnologia foco do trabalho 
+%(tecnologia PON), além de levar em consideração desempenho e \ac{SLA}. Para a definição da relevância de cada critério, o autor considerou
+%a importância do critério para o ambiente monitorado da empresa e também a opnião da direção da empresa.
 %tcc geordano - bom tempo, orientador maria de fatima, Monitoramento_snmp_redes_Geordano_Arend.pdf
 
-Desta forma, critou-se os critérios listados abaixo:
 \begin{itemize}
- \item A quantidade de clientes que utilizam o serviço: esse é o item mais relevante, pois impacta diretamente no faturamento
+ \item A quantidade de clientes que utilizam o serviço: esse é o critério mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
  acesso; 
  \item O número de requisições: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do serviço e a frequência
@@ -34,7 +30,7 @@ Desta forma, critou-se os critérios listados abaixo:
  %por isso o torna importante para esta análise.
 \end{itemize}
 
-Nas próximas seções serão descritos os serviços que foram considerados mais críticos, com base nos critérios que foram apresentados.
+Nas próximas seções serão descritos os serviços que foram considerados críticos, com base nos critérios apresentados.
 
 \subsection{DNS recursivo primário}
 \label{section:dnsrecprim}
@@ -51,7 +47,8 @@ clientes que utilizam determinados serviços.
 \begin{figure}[h!]
  \centering
  \includegraphics[width=400px]{img/dns_udp.eps}
- \caption{Gráfico de requisições DNS (a) e comparação de requisições UDP entre os principais servidores (b).}
+ \caption{Gráfico de requisições DNS por segundo do período de uma semana (a) e comparação de requisições UDP simultâneas máximas entre 
+ os principais servidores (b).}
  \label{fig:dns_udp}
 \end{figure}
 
@@ -60,15 +57,15 @@ clientes que utilizam determinados serviços.
 
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
 os clientes não conseguirão estabelecer conexão e, consequentemente, não conseguirão utilizar o serviço de Internet. Os servidores 
-\textit{Masterauth} e \textit{Speedauth} fornecem o serviço de \textit{Radius}, sendo que recebem em média, 1,6 requisições de autenticação 
+\textit{Masterauth} e \textit{Speedauth} fornecem o serviço de \textit{Radius}, sendo que esses recebem em média, 1,6 requisições de autenticação 
 por segundo. Além disso, esses servidores armazenam dados relacionados à conexão dos clientes, como por exemplo, o endereço de \ac{IP} que é 
-utilizado por um cliente em um determinado período de tempo, o tráfego de dados da conexão, o tempo da conexão de cada cliente, o endereço 
-\aca{MAC} dos equipamentos dos clientes, entre outros. Essas operações resultam em média 23 requisições por segundo. 
+utilizado por um cliente em um determinado período de tempo, o tráfego de dados da conexão, o tempo de conexão, o endereço \aca{MAC} dos 
+equipamentos dos clientes, entre outros. Essas operações resultam em média 23 requisições por segundo. 
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes que
-utilizam esses servidores para autenticação. Como pode ser observado na Figura \ref{fig:elementos_tcp} (a), os servidores \textit{Masterauth} e 
-\textit{Speedauth} estão entre os que apresentam o maior número de elementos. Além disso, nesses servidores existe um grande número de conexões 
-\ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utiliza esse protocolo para a 
-comunicação com o seu banco de dados.}, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
+utilizam esses servidores para autenticação. De fato, como pode-se observar na Figura \ref{fig:elementos_tcp} (a) que os servidores 
+\textit{Masterauth} e \textit{Speedauth} estão entre os que apresentam o maior número de contas. Além disso, nesses servidores existe um grande 
+número de conexões \ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utiliza esse 
+protocolo para a comunicação com o seu banco de dados.} simultâneas, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
 % \begin{figure}[h!]
 %  \centering
@@ -80,7 +77,7 @@ comunicação com o seu banco de dados.}, como pode ser observado na Figura \ref
 \begin{figure}[h!]
  \centering
  \includegraphics[width=380px]{img/elementos_tcp.eps}
- \caption{Gráfico de comparação de elementos (a) e de conexões TCP (b) entre os principais servidores.}
+ \caption{Gráfico de comparação de elementos (a) e de conexões TCP simultâneas máximas (b) entre os principais servidores.}
  \label{fig:elementos_tcp}
 \end{figure}
 
@@ -95,9 +92,9 @@ a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo qu
 
 O sistema do provedor é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \aca{HTTP} por segundo
 (Figura \ref{fig:soldi_week}). Além disso, a empresa mantém 28 sistemas de outros clientes nesse servidor. 
-Como pode ser observado na Figura \ref{fig:elementos_tcp} (b), esse servidor encontra-se entre os que apresentam um alto nível de conexões 
+Como pode ser observado na Figura \ref{fig:elementos_tcp} (b), esse servidor encontra-se entre os que apresentam os maiores níveis de conexões 
 \ac{TCP}\footnote[1]{O número de conexões \ac{TCP} é considerado devido ao fato do protocolo \ac{HTTP} utilizar esse 
-protocolo de transporte.}.
+protocolo de transporte.} simultâneas.
 %\aca{HTTP} \cite{tanenbaum2011}
 
 %\begin{figure}[h!]
@@ -110,7 +107,7 @@ protocolo de transporte.}.
 \begin{figure}[h!]
  \centering
  \includegraphics[width=280px]{img/soldi_week.eps}
- \caption{Gráfico de requisições por segundo do sistema do provedor.}
+ \caption{Gráfico de requisições por segundo do sistema do provedor durante o período de uma semana.}
  \label{fig:soldi_week}
 \end{figure}
 
@@ -125,14 +122,14 @@ recebeu 15922 ligações, com duração total de 67 horas e 40 minutos. Além di
 \begin{figure}[h!]
  \centering
  \includegraphics[width=280px]{img/simplesip_week.eps}
- \caption{Gráfico da quantidade de canais ativos no servidor de telefonia.}
+ \caption{Gráfico da quantidade de canais ativos simultâneamente no servidor de telefonia durante o período de uma semana.}
  \label{fig:simplesip_week}
 \end{figure}
 
 O gráfico da Figura \ref{fig:simplesip_week} mostra a quantidade de canais ativos no servidor de telefonia. Observa-se que ocorrem 
 de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:00 às 12:00 e das 13:00 às 18:00. Também pode-se observar, na Figura 
 \ref{fig:dns_udp} (b), que esse serviço possui um elevado número de requisições \ac{UDP}\footnote[2]{Esse número de requisições \ac{UDP} 
-deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão de voz.}, se comparado aos demais servidores.
+deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão de voz.}, quando comparado aos demais servidores.
 
 \subsection{Resumo e os serviços críticos}
 \label{section:maqservcrit}
@@ -147,10 +144,11 @@ A partir da análise feita decidiu-se que os servidores mais relevantes para a e
 \end{itemize}
 
 Na Tabela \ref{tab:dispservcrit}, tem-se esses servidores, seus respectivos serviços, o percentual de \textit{Uptime} e o tempo de 
-\textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim foi utilizada a 
+\textit{Downtime} por ano. Destaca-se que o serviço de telefonia do servidor SimplesIP foi implantado em 06/2015, sendo assim foi apresentada a 
 medição apenas dos últimos 6 meses de 2015.
 %, por isso esse possui um \textit{Uptime} elevado.
-A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} superior a 99,99\%.
+A partir da implementação da solução de alta disponibilidade deste trabalho pretende-se atingir um \textit{Uptime} superior a 99,99\% em
+todos esses serviços.
 
 \begin{table}[h!]
 \caption{Serviços críticos do ano de 2015.}
@@ -170,9 +168,11 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 
 \section{Considerações finais}
 
-Neste capítulo foram apresentados os serviços críticos que foram selecionados através da aplicação de critérios, sendo que esses critérios foram 
-criados de acordo com a política de prioridades da empresa.
+Neste capítulo foram apresentados os serviços críticos que foram considerados através dos critérios adotados, sendo que esses critérios foram 
+criados de acordo com a análise feita nos serviços, levando em consideração a importância para a empresa, para o seu ambiente e a opnião da 
+direção da empresa. Pôde-se observar que a maioria dos serviços críticos estão diretamente relacionados com o provedor, o qual possui a maior
+parte dos clientes. Os serviços críticos apresentados foram o \ac{DNS} recursivo primário e a autenticação \textit{Radius}, as quais possuem
+um impacto direto na navegação dos clientes do provedor. E os sistemas da empresa e do provedor juntamente com a telefonia interna, que 
+são responsáveis pela gestão e pela gerência e operação da empresa e do provedor.
 
-No próximo capítulo serão apresentadas as ferramentas para implementação do ambiente de alta disponibilidade e será feito a seleção da ferramenta 
-mais adequada para o ambiente real da empresa. Posteriormente será apresentada o projeto de implementação. 
-E para a conclusão, no último capítulo serão descritos os testes realizados e os resultados obtidos.
+No próximo capítulo serão apresentado o projeto e as ferramentas escolhidas para implementação do ambiente de alta disponibilidade. 
