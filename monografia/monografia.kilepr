@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.3
-lastDocument=capitulos/capitulo6.tex
+lastDocument=capitulos/capitulo7.tex
 masterDocument=
 name=monografia
 pkg_extIsRegExp=false
@@ -133,12 +133,12 @@ order=5
 
 [item:acronym.tex]
 archive=true
-column=25
+column=41
 encoding=UTF-8
 highlight=LaTeX
-line=270
+line=271
 mode=LaTeX
-open=true
+open=false
 order=5
 
 [item:capitulos/anexo1.tex]
@@ -183,10 +183,10 @@ order=1
 
 [item:capitulos/capitulo4.tex]
 archive=true
-column=97
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=89
+line=0
 mode=LaTeX
 open=true
 order=1
@@ -216,7 +216,7 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=240
+line=2
 mode=LaTeX
 open=true
 order=4
@@ -308,10 +308,10 @@ JumpList=
 ViMarks=.,30,0,[,30,0,],-1,-1
 
 [view-settings,view=0,item:acronym.tex]
-CursorColumn=25
-CursorLine=270
+CursorColumn=41
+CursorLine=271
 JumpList=
-ViMarks=.,270,24,[,270,23,],270,24
+ViMarks=.,271,18,[,271,18,],271,40
 
 [view-settings,view=0,item:capitulos/anexo1.tex]
 CursorColumn=17
@@ -338,8 +338,8 @@ JumpList=
 ViMarks=.,314,128,[,314,109,],314,128
 
 [view-settings,view=0,item:capitulos/capitulo4.tex]
-CursorColumn=97
-CursorLine=89
+CursorColumn=0
+CursorLine=0
 JumpList=
 ViMarks=.,210,7,[,210,7,],210,7
 
@@ -357,7 +357,7 @@ ViMarks=.,486,70,[,486,67,],486,70
 
 [view-settings,view=0,item:capitulos/capitulo7.tex]
 CursorColumn=0
-CursorLine=240
+CursorLine=2
 JumpList=
 ViMarks=.,168,25,[,168,25,],168,25
 
