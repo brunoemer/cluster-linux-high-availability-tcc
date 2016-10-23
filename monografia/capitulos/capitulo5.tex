@@ -32,7 +32,7 @@ Mais especificamente, os critérios encontram-se listados abaixo:
 
 Nas próximas seções serão descritos os serviços que foram considerados críticos, com base nos critérios apresentados.
 
-\subsection{DNS recursivo primário}
+\section{DNS recursivo primário}
 \label{section:dnsrecprim}
 
 Esse serviço foi classificado como o serviço mais importante pois possui um impacto direto nos clientes do provedor. Além disso, esse é o único 
@@ -52,7 +52,7 @@ clientes que utilizam determinados serviços.
  \label{fig:dns_udp}
 \end{figure}
 
-\subsection{Autenticação Radius}
+\section{Autenticação Radius}
 \label{section:radius}
 
 Esse serviço é importante pois é o responsável pela autenticação de todos os clientes do provedor. Caso esse serviço fique indisponível, 
@@ -81,7 +81,7 @@ protocolo para a comunicação com o seu banco de dados.} simultâneas, como pod
  \label{fig:elementos_tcp}
 \end{figure}
 
-\subsection{Sistemas da empresa e do provedor}
+\section{Sistemas da empresa e do provedor}
 \label{section:sistemas}
 
 O sistema do provedor é responsável pela maior parte das operações gerenciais do provedor. Este sistema é responsável pela emissão de 
@@ -111,7 +111,7 @@ protocolo de transporte.} simultâneas.
  \label{fig:soldi_week}
 \end{figure}
 
-\subsection{Telefonia interna sobre IP}
+\section{Telefonia interna sobre IP}
 \label{section:telefonia}
 
 Esse serviço tem relevância para a empresa e para o provedor, pois permite a comunicação entre os clientes e os funcionários. De fato, o 
@@ -131,7 +131,7 @@ de 20 a 30 ligações simultâneas durante o horário comercial, que é das 08:0
 \ref{fig:dns_udp} (b), que esse serviço possui um elevado número de requisições \ac{UDP}\footnote[2]{Esse número de requisições \ac{UDP} 
 deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão de voz.}, quando comparado aos demais servidores.
 
-\subsection{Resumo e os serviços críticos}
+\section{Resumo e os serviços críticos}
 \label{section:maqservcrit}
 
 A partir da análise feita decidiu-se que os servidores mais relevantes para a empresa são:
@@ -176,3 +176,5 @@ um impacto direto na navegação dos clientes do provedor. E os sistemas da empr
 são responsáveis pela gestão e pela gerência e operação da empresa e do provedor.
 
 No próximo capítulo serão apresentado o projeto e as ferramentas escolhidas para implementação do ambiente de alta disponibilidade. 
+
+reler ??
