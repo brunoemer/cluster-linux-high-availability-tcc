@@ -3,37 +3,31 @@
 
 Neste capítulo será apresentada a metodologia de testes utilizada para validar o ambiente de alta disponibilidade criado, bem como os
 resultados obtidos dos testes efetuados.
+A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}. No primeiro trabalho, 
+o autor simulou falhas de três formas, que foram através do desligamento brusco do servidor, desligamento por \textit{software} e falha de rede. 
+Já no segundo trabalho, foram realizados três testes, que foram a reinicialização do servidor físico, a migração de uma máquina virtual de forma
+manual, e por fim um teste com migração em tempo real (\textit{live migration}).
 
-\section{Testes realizados}
-\label{section:testes}
+Neste trabalho optou-se por utilizar o teste de desligamento brusco e o desligamento por \textit{software} utilizados por \citet{reis2009}.
+Já do autor \citet{goncalves2009}, utilizou-se o teste de migração em tempo real, porém adaptado para simular um agendamento de manutenção de 
+\textit{hardware} ou de \textit{software}.
 
-A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}, a mesma foi desenvolvida para 
-possibilitar a análise e eficácia do ambiente de alta disponibilidade. No primeiro trabalho, o autor simulou falhas de três formas, através
-do desligamento brusco do servidor, desligamento por \textit{software} e falha de rede. Já no segundo trabalho, foram realizados três testes,
-um com a reinicialização do servidor físico, outro com migração de uma máquina virtual simples, ou seja, fazendo o desligamento da mesma, e por 
-fim um teste com migração em tempo real (\textit{live migration}).
-
-Neste trabalho optou-se por utilizar os testes de desligamento brusco e o desligamento por \textit{software} criados pelo primeiro autor. 
-Já do segundo autor, utilizou-se o teste de migração em tempo real, porém adaptado para simular um agendamento de manutenção de \textit{hardware} 
-ou de \textit{software}.
-%O objetivo desta seção é comprovar que a gerência de falhas é importante para um ambiente computacional, além de destacar que a gerência da 
-%manutenção também é favorecida por esta implementação.
-
-%Os três testes descritos nas próximas seções foram efetuados no ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, 
-%por possuírem risco de perda de dados em sua execução.
+Os três testes descritos nas próximas seções foram efetuados no ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, 
+por possuírem risco de perda de dados em sua execução.
 %Todavia, na Seção \ref{section:comparacaofinal} será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade,
 %sendo que neste ambiente estarão executando os serviços críticos definidos.
 
-\subsection{Teste 1 - Desligamento físico}
+\section{Teste 1 - Desligamento físico}
 %Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos serviços e dos nodes (servico não crítico)
 
 Neste teste são simuladas falhas de \textit{hardware} ou falhas elétricas nos nós do \textit{cluster}. Para isso foi feito o desligamento 
 forçado do servidor, ou seja, foi pressionado o botão \textit{power} até o servidor desligar.
 Com este teste pode-se validar ainda o processo de \textit{failover} dos serviços (máquinas virtuais) que estavam executando no nó que falhou, 
-bem como medir o tempo de indisponibilidade dos serviços. Este teste juntamente com os dois testes das próximas seções foram efetuados no 
-ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, por possuírem risco de perda de dados em sua execução.
+bem como medir o tempo de indisponibilidade dos serviços. 
+%Este teste juntamente com os dois testes das próximas seções foram efetuados no 
+%ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, por possuírem risco de perda de dados em sua execução.
 
-O teste foi executado 4 vezes nos nós do \textit{cluster}. A Tabela \ref{tab:teste1resultados} possui os resultados
+?? Este teste foi executado 4 vezes nos nós do \textit{cluster}. A Tabela \ref{tab:teste1resultados} possui os resultados
 dos testes e das medições efetuadas sobre a máquina virtual e sobre os nós. Pode-se observar que o tempo de indisponibilidade da máquina virtual 
 é baixo, sendo apenas 40,5 segundos, pois a \ac{VM} é iniciada em um outro nó logo após o desligamento do primeiro nó. Essa indisponibilidade é 
 baixa comparado com os servidores físicos que são de 169 e 205,5 segundos. O desvio padrão demonstra que, nos testes realizados, existe pouca 
@@ -83,7 +77,46 @@ máquinas virtual (\textit{Trapel}). A máquina virtual teve apenas 1 minuto e 1
 \end{figure}
 
 
-\subsection{Teste 2 - Manutenção agendada}
+\section{Teste 2 - Desligamento por software}
+
+Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, como por exemplo, o \textit{software} de virtualização para de funcionar,
+desta forma o nó não consegue iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma manutenção emergencial, onde, 
+por exemplo, é preciso desligar um servidor físico de forma emergencial. Desta forma, pode-se verificar a capacidade do outro nó manter os serviços
+em funcionamento. Para simular esta situação, foram acessados os nós via \ac{SSH} e executado o comando \textit{reboot}.
+
+% O procedimento deste teste é o seguinte:
+% \begin{itemize}
+%  \item Acessar o terminal do servidor de monitoramento;
+%  \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
+%  \item Acessar o terminal do nó que será reiniciado;
+%  \item Executar o comando \textit{reboot};
+%  \item Aguardar máquinas virtuais inicirem no outro nó e aguardar retorno do nó reiniciado;
+%  \item Finalizar a medição do tempo e \textit{ping}.
+% \end{itemize}
+
+Este teste foi executado 4 vezes nos nós do \textit{cluster}. A Tabela \ref{tab:teste3resultados} demonstra os dados do servidor físico e do virtual.
+Pode-se observar que o tempo de indisponibilidade do máquina virtual é consideravelmente menor que o tempo do servidor físico, ele representa 
+apenas 3,27\% do tempo de indisponibilidade do servidor físico. 
+A alguns meses ocorreu um problema semelhante a este teste, um servidor de virtualização, que é atualizado de forma automática, foi reiniciado, 
+porém ocorreu um erro na atualização e o servidor não pôde iniciar corretamente. Os serviços executados nele ficaram aproximadamente 
+6 horas indisponíveis.
+% feito em 09/09
+
+\begin{table}[h!]
+\caption{Resultados do teste 3.}
+\label{tab:teste3resultados}
+\begin{center}
+\begin{tabular}{|l|l|l|}\hline
+ & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão da indisponibilidade} \\\hline
+Nó 1 & 138,5 segundos & 2,12 \\\hline
+Nó 2 & 167 segundos & 1,41 \\\hline
+Máquina virtual & 10 segundos & 0 \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Teste 3 - Manutenção agendada}
 %Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
 %atualizacao de kernel dos nodes. Resultados: latencia, comparacao downtime servidor virtual e fisico, log
 
@@ -173,46 +206,6 @@ Durante o processo de \textit{live migration} a latência da máquina virtual au
 
 %log do pacemaker
 %O processo de \textit{standby} feito pelo \textit{Pacemaker} está detalhado no \textit{log} abaixo:
-
-
-\newpage
-\subsection{Teste 3 - Desligamento por software}
-
-Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, como por exemplo, o \textit{software} de virtualização para de funcionar,
-desta forma o nó não consegue iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma manutenção emergencial, onde, 
-por exemplo, é preciso desligar um servidor físico de forma emergencial. Desta forma, pode-se verificar a capacidade do outro nó manter os serviços
-em funcionamento. Para simular esta situação, foram acessados os nós via \ac{SSH} e executado o comando \textit{reboot}.
-
-% O procedimento deste teste é o seguinte:
-% \begin{itemize}
-%  \item Acessar o terminal do servidor de monitoramento;
-%  \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
-%  \item Acessar o terminal do nó que será reiniciado;
-%  \item Executar o comando \textit{reboot};
-%  \item Aguardar máquinas virtuais inicirem no outro nó e aguardar retorno do nó reiniciado;
-%  \item Finalizar a medição do tempo e \textit{ping}.
-% \end{itemize}
-
-Este teste foi executado 4 vezes nos nós do \textit{cluster}. A Tabela \ref{tab:teste3resultados} demonstra os dados do servidor físico e do virtual.
-Pode-se observar que o tempo de indisponibilidade do máquina virtual é consideravelmente menor que o tempo do servidor físico, ele representa 
-apenas 3,27\% do tempo de indisponibilidade do servidor físico. 
-A alguns meses ocorreu um problema semelhante a este teste, um servidor de virtualização, que é atualizado de forma automática, foi reiniciado, 
-porém ocorreu um erro na atualização e o servidor não pôde iniciar corretamente. Os serviços executados nele ficaram aproximadamente 
-6 horas indisponíveis.
-% feito em 09/09
-
-\begin{table}[h!]
-\caption{Resultados do teste 3.}
-\label{tab:teste3resultados}
-\begin{center}
-\begin{tabular}{|l|l|l|}\hline
- & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão da indisponibilidade} \\\hline
-Nó 1 & 138,5 segundos & 2,12 \\\hline
-Nó 2 & 167 segundos & 1,41 \\\hline
-Máquina virtual & 10 segundos & 0 \\\hline
-\end{tabular}
-\end{center}
-\end{table}
 
 
 \subsection{Comparação final da disponibilidade}
