@@ -41,11 +41,10 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.7:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{53}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.8:}{\ignorespaces Estrutura do \textit {cluster}.}}{54}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Disponibilidade servidores f\IeC {\'\i }sicos \textit {Brina} e \textit {Piova} e da m\IeC {\'a}quina virtual \textit {Trapel}.}}{56}
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.2:}{\ignorespaces Disponibilidade da m\IeC {\'a}quina virtual, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{58}
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.3:}{\ignorespaces Disponibilidade do N\IeC {\'o} 1, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{59}
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.4:}{\ignorespaces Disponibilidade do N\IeC {\'o} 2, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{59}
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.5:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{60}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Disponibilidade da m\IeC {\'a}quina virtual, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{58}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.2:}{\ignorespaces Disponibilidade do N\IeC {\'o} 1, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{58}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.3:}{\ignorespaces Disponibilidade do N\IeC {\'o} 2, com o gr\IeC {\'a}fico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}}{59}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.4:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{59}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
