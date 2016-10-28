@@ -13,7 +13,7 @@ Já do autor \citet{goncalves2009}, utilizou-se o teste de migração em tempo r
 \textit{hardware} ou de \textit{software}.
 
 Os três testes descritos nas próximas seções foram efetuados no ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, 
-por possuírem risco de perda de dados em sua execução.
+devido ao fato destes testes possuírem risco de perda de dados durante a execução.
 %Todavia, na Seção \ref{section:comparacaofinal} será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade,
 %sendo que neste ambiente estarão executando os serviços críticos definidos.
 
@@ -31,11 +31,10 @@ Esse teste de desligamento foi executado 4 vezes no \textit{cluster} juntamente 
 indisponibilidade e da latência dos dois nós e de uma máquina virtual, essa coleta é necessária para comparar os tempos de indisponibilidade da
 máquina virtual e dos nós. 
 Esse \textit{script} que está localizado no Apêndice \ref{ap:scriptindisp} utiliza o comando \textit{ping} para medir o tempo de indisponibilidade 
-e possui um tempo de 5 minutos para sua execução. Na Tabela \ref{tab:teste1resultados} são apresentados os dados coletados desses testes efetuados. 
-Pode-se observar que o tempo de indisponibilidade da máquina virtual é baixo, sendo apenas 81 segundos, pois a \ac{VM} é iniciada em um outro 
-nó logo após o desligamento do primeiro nó. Essa indisponibilidade é baixa comparado com os servidores físicos que são de 169 e 205,5 segundos. 
+e possui um tempo de 5 minutos para sua execução. Na Tabela \ref{tab:teste1resultados}, onde são apresentados os dados coletados dos testes 
+efetuados, pode-se observar que o tempo de indisponibilidade da máquina virtual é de 81 segundos, sendo considerado baixo comparado aos nós 
+que são de 169 e 205,5 segundos. Isto se deve ao fato da \ac{VM} ser iniciada em um outro nó logo após o desligamento do primeiro. 
 O desvio padrão demonstra que, nos testes realizados, existe pouca variação de tempo de indisponibilidade da máquina virtual.
-revisar ??
 
 % feito em 15/09
 
@@ -99,15 +98,14 @@ em funcionamento. Para simular esta situação, foram acessados os nós via \ac{
 %  \item Finalizar a medição do tempo e \textit{ping}.
 % \end{itemize}
 
-Este teste foi executado 4 vezes nos nós do \textit{cluster}. Também foi utilizado o mesmo \textit{script} utilizado no teste da Seção anterior
-(Apêndice \ref{ap:scriptindisp}) para a coleta dos dados de indisponibilidade. A medição foi feita nos dois nós e também na máquina virtual, para
-possibilitar a análise e comparação.
-A Tabela \ref{tab:teste2resultados} demonstra o tempo de indisponibilidade e o desvio padrão dos servidores físicos e da máquina virtual.
-Pode-se observar que o tempo de indisponibilidade do máquina virtual é consideravelmente menor que o tempo do servidor físico, ele representa 
-apenas 3,27\% do tempo de indisponibilidade do servidor físico. 
-A alguns meses ocorreu um problema semelhante a este teste, um servidor de virtualização, que é atualizado de forma automática, foi reiniciado, 
-porém ocorreu um erro na atualização e o servidor não pôde iniciar corretamente. Os serviços executados nele ficaram aproximadamente 
-6 horas indisponíveis.
+Esse teste foi executado 4 vezes nos nós do \textit{cluster}. Foi utilizado o mesmo \textit{script} da Seção anterior, Apêndice 
+\ref{ap:scriptindisp}, para fazer a coleta dos dados de indisponibilidade. A medição do tempo de indisponibilidade foi feita nos dois nós e 
+também na máquina virtual, para possibilitar a análise e comparação dos tempos. A Tabela \ref{tab:teste2resultados} demonstra o tempo de 
+indisponibilidade e o desvio padrão dos nós e da máquina virtual. Pode-se observar que o tempo de indisponibilidade da máquina virtual é 
+consideravelmente menor que o tempo do servidor físico, ele representa apenas 3,27\% do tempo de indisponibilidade dos servidores físicos que são 
+138,5 e 167 segundos. A alguns meses ocorreu um problema semelhante a este teste, um servidor de virtualização, que é atualizado de forma 
+automática, foi reiniciado, porém ocorreu um erro na atualização e o servidor não pôde iniciar corretamente. Os serviços executados nele ficaram 
+aproximadamente 6 horas indisponíveis.
 % feito em 09/09
 
 \begin{table}[h!]
@@ -130,9 +128,8 @@ Máquina virtual & 10 segundos & 0 \\\hline
 
 Reinicializações são necessárias para manutenções de \textit{hardware}, atualização de \textit{software} e até mesmo para 
 rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste na aplicações de métodos para remover problemas gerados pelo 
-envelhecimento. Um exemplo de um método é o \textit{reboot} de um sistema operacional.} 
-de \textit{software} \cite{melo2014}. Desta forma, criou-se esse teste para simular manutenções previamente agendadas. Para tanto, criou-se 
-um \textit{script}, disponível no Apêndice \ref{ap:scriptmanutencao}, que é responsável por migrar as \acp{VM} e reiniciar o nó.
+envelhecimento. Um exemplo de um método é o \textit{reboot} de um sistema operacional, uma vez que esse torna-se suscetível a gerar erros e 
+falhas.} de \textit{software} \cite{melo2014}. Desta forma, criou-se esse teste para simular manutenções previamente agendadas.
 
 %O procedimento deste teste é o seguinte:
 %\begin{itemize}
@@ -142,11 +139,14 @@ um \textit{script}, disponível no Apêndice \ref{ap:scriptmanutencao}, que é r
 % \item Finalizar a medição do tempo e \textit{ping}.
 %\end{itemize}
 
-Este teste foi executado 2 vezes em cada nó, durante 2 semanas. Para a execução dos \textit{scripts} foi utilizada a ferramenta 
-\textit{crontab} do \textit{Linux}. Os resultados são apresentados na Tabela \ref{tab:teste3resultados}.
-Pode-se observar que não houve \textit{downtime} e nem perda de pacotes na máquina virtual, desta forma também não houve indisponibilidade nos 
-seus serviços. Já nos nós do \textit{cluster} tem-se um tempo de indisponibilidade devido a reinicialização do servidor.
-A latência baixa da máquina virtual demonstra que não há perda significante de desempenho durante a migração da máquina virtual de um nó para outro.
+Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias, para tanto, criou-se um \textit{script} que é 
+responsável por migrar as \acp{VM} para liberar o nó e reiniciá-lo, este está disponível no Apêndice \ref{ap:scriptmanutencao}. 
+Além disso, é utilizado o \textit{script} do Apêndice \ref{ap:scriptindisp} para a coleta do tempo de indisponibilidade. 
+Para a execução desses \textit{scripts} foi utilizada a ferramenta \textit{crontab} do \textit{Linux}. 
+Os resultados são apresentados na Tabela \ref{tab:teste3resultados}, pode-se observar que não houve \textit{downtime}, e consequentemente, não 
+houve indisponibilidade nos serviços, devido ao migração em tempo real das \acp{VM}. Já nos nós do \textit{cluster} tem-se um tempo de 
+indisponibilidade devido a reinicialização do servidor.
+%A latência baixa da máquina virtual demonstra que não há perda significante de desempenho durante a migração da máquina virtual de um nó para outro.
 
 % feito em 17/09 a 30/09
 % crontab brina:
@@ -160,11 +160,11 @@ A latência baixa da máquina virtual demonstra que não há perda significante 
 %59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 2
 
 \begin{table}[h!]
-\caption{Resultados do teste 3.}
+\caption{Resultados do teste de manutenção agendada.}
 \label{tab:teste3resultados}
 \begin{center}
 \begin{tabular}{|l|p{4cm}|p{4cm}|l|}\hline
- & \textbf{Média do tempo de indisponibilidade} & \textbf{Desvio padrão da indisponibilidade} & \textbf{Latência média} \\\hline
+ & \textbf{Tempo de indisponibilidade média} & \textbf{Desvio padrão da indisponibilidade} & \textbf{Latência média} \\\hline
 Nó 1 & 145,5 segundos & 0,70 & 22,63 ms \\\hline
 Nó 2 & 173 segundos & 1,41 & 19,8 ms \\\hline
 Máquina virtual & 0 segundos & 0 & 0,309 ms \\\hline
@@ -172,37 +172,55 @@ Máquina virtual & 0 segundos & 0 & 0,309 ms \\\hline
 \end{center}
 \end{table}
 
+
+continuar ??
+
+\begin{table}[h!]
+\caption{Tabela de disponibilidade e tempo de indisponibilidade do período de 13 dias.}
+\label{tab:teste3resultados}
+\begin{center}
+\begin{tabular}{|l|l|p{4cm}|l|}\hline
+ & \textbf{Disponibilidade} & \textbf{Tempo indisponibilidade} \\\hline
+Nó 1 & 99,976\% & 4 minutos e 30 segundos \\\hline
+Nó 2 & 99,975\% & 4 minutos e 40 segundos \\\hline
+Máquina virtual & 100\% & 0 minutos \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
 A Figura \ref{fig:teste2_trapel1} demonstra a disponibilidade da máquina virtual, onde pode-se perceber que não houve nenhuma indisponibilidade. 
 Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que faz o monitoramento da empresa. 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
 %grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 18/09 a 30/09 + Include Soft States = yes
-\begin{figure}[h!]
- \centering
- \includegraphics[width=360px]{img/teste2_trapel1.eps}
- \caption{Disponibilidade da máquina virtual, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
- \label{fig:teste2_trapel1}
-\end{figure}
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=360px]{img/teste2_trapel1.eps}
+%  \caption{Disponibilidade da máquina virtual, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
+%  \label{fig:teste2_trapel1}
+% \end{figure}
 
 Comparando os resultados da máquina virtual (Figura \ref{fig:teste2_trapel1} (b)) com os resultados dos nós 1 e 2 (Figura \ref{fig:teste2_brina1} 
 (b) e Figura \ref{fig:teste2_piova1} (b)), pode-se perceber a diferença do \textit{uptime}, que fica entre 99,975\% e 99,976\% para os nós e 
 100\% para a máquina virtual. Já nos gráficos da Figura \ref{fig:teste2_brina1} (a) e da Figura \ref{fig:teste2_piova1} (a), pode-se observar 
 as duas reinicializações feitas.
-\begin{figure}[h!]
- \centering
- \includegraphics[width=360px]{img/teste2_brina1.eps}
- \caption{Disponibilidade do Nó 1, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
- \label{fig:teste2_brina1}
-\end{figure}
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=360px]{img/teste2_brina1.eps}
+%  \caption{Disponibilidade do Nó 1, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
+%  \label{fig:teste2_brina1}
+% \end{figure}
+% 
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=360px]{img/teste2_piova1.eps}
+%  \caption{Disponibilidade do Nó 2, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
+%  \label{fig:teste2_piova1}
+% \end{figure}
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=360px]{img/teste2_piova1.eps}
- \caption{Disponibilidade do Nó 2, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
- \label{fig:teste2_piova1}
-\end{figure}
-
-Durante o processo de \textit{live migration} a latência da máquina virtual aumentou, isso pode ser observado na Figura 
-\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo 50 e 100 do eixo x.
+Durante o processo de \textit{live migration} de um nó para outro a latência da máquina virtual aumentou, isso pode ser observado na Figura 
+\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo 50 e 100 segundos. Mesmo com o aumento de latência não ocorre 
+perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
 %teste2/186.195.16.13-stat-2.log
 \begin{figure}[h!]
@@ -216,7 +234,7 @@ Durante o processo de \textit{live migration} a latência da máquina virtual au
 %O processo de \textit{standby} feito pelo \textit{Pacemaker} está detalhado no \textit{log} abaixo:
 
 
-\subsection{Comparação final da disponibilidade}
+\section{Comparação final da disponibilidade}
 \label{section:comparacaofinal}
 %Medição da disponibilidade dos serviços críticos por 30 dias (14/10 a 12/11) FAZER uma manutencao de hardware.
 %Comparar ao mês de setembro (01/09 a 30/09) no ambiente antigo com uma reinicialização dos servidores físicos (reiniciados em 06/09/16)
