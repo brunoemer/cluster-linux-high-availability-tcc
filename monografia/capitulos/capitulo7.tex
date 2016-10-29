@@ -163,21 +163,22 @@ indisponibilidade devido a reinicialização do servidor.
 \caption{Resultados do teste de manutenção agendada.}
 \label{tab:teste3resultados}
 \begin{center}
-\begin{tabular}{|l|p{4cm}|p{4cm}|l|}\hline
- & \textbf{Tempo de indisponibilidade média} & \textbf{Desvio padrão da indisponibilidade} & \textbf{Latência média} \\\hline
-Nó 1 & 145,5 segundos & 0,70 & 22,63 ms \\\hline
-Nó 2 & 173 segundos & 1,41 & 19,8 ms \\\hline
-Máquina virtual & 0 segundos & 0 & 0,309 ms \\\hline
+\begin{tabular}{|l|l|l|}\hline
+ & \textbf{Tempo de indisponibilidade média} & \textbf{Desvio padrão da indisponibilidade} \\\hline
+Nó 1 & 145,5 segundos & 0,70 \\\hline
+Nó 2 & 173 segundos & 1,41 \\\hline
+Máquina virtual & 0 segundos & 0 \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-
-continuar ??
+A Tabela \ref{tab:teste3disp} demonstra o percentual de disponibilidade da \ac{VM} e dos nós do \textit{cluster} durante o período de 13 dias
+do teste. Destaca-se que a máquina virtual não apresentou nenhuma indisponibilidade. 
+Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, responsável pelo monitoramento da empresa.
 
 \begin{table}[h!]
-\caption{Tabela de disponibilidade e tempo de indisponibilidade do período de 13 dias.}
-\label{tab:teste3resultados}
+\caption{Disponibilidade e tempo de indisponibilidade do período de 13 dias.}
+\label{tab:teste3disp}
 \begin{center}
 \begin{tabular}{|l|l|p{4cm}|l|}\hline
  & \textbf{Disponibilidade} & \textbf{Tempo indisponibilidade} \\\hline
@@ -188,9 +189,8 @@ Máquina virtual & 100\% & 0 minutos \\\hline
 \end{center}
 \end{table}
 
-
-A Figura \ref{fig:teste2_trapel1} demonstra a disponibilidade da máquina virtual, onde pode-se perceber que não houve nenhuma indisponibilidade. 
-Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que faz o monitoramento da empresa. 
+%A Figura \ref{fig:teste2_trapel1} demonstra a disponibilidade da máquina virtual, onde pode-se perceber que não houve nenhuma indisponibilidade. 
+%Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que faz o monitoramento da empresa. 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
 %grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 18/09 a 30/09 + Include Soft States = yes
 % \begin{figure}[h!]
@@ -200,10 +200,10 @@ Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que 
 %  \label{fig:teste2_trapel1}
 % \end{figure}
 
-Comparando os resultados da máquina virtual (Figura \ref{fig:teste2_trapel1} (b)) com os resultados dos nós 1 e 2 (Figura \ref{fig:teste2_brina1} 
-(b) e Figura \ref{fig:teste2_piova1} (b)), pode-se perceber a diferença do \textit{uptime}, que fica entre 99,975\% e 99,976\% para os nós e 
-100\% para a máquina virtual. Já nos gráficos da Figura \ref{fig:teste2_brina1} (a) e da Figura \ref{fig:teste2_piova1} (a), pode-se observar 
-as duas reinicializações feitas.
+%Comparando os resultados da máquina virtual (Figura \ref{fig:teste2_trapel1} (b)) com os resultados dos nós 1 e 2 (Figura \ref{fig:teste2_brina1} 
+%(b) e Figura \ref{fig:teste2_piova1} (b)), pode-se perceber a diferença do \textit{uptime}, que fica entre 99,975\% e 99,976\% para os nós e 
+%100\% para a máquina virtual. Já nos gráficos da Figura \ref{fig:teste2_brina1} (a) e da Figura \ref{fig:teste2_piova1} (a), pode-se observar 
+%as duas reinicializações feitas.
 % \begin{figure}[h!]
 %  \centering
 %  \includegraphics[width=360px]{img/teste2_brina1.eps}
@@ -241,10 +241,10 @@ perda significante de desempenho durante a migração da máquina virtual.
 
 Nesta seção será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade, sendo que neste ambiente estarão executando 
 os serviços críticos definidos na Seção \ref{section:maqservcrit}.
-Durante esse período foi feito uma manutenção...
+Durante o período foi feito uma manutenção ...
 %...foi mensurado a disponibilidade
 
-... ??
+continuar ??
 
 adicionar gráficos de disponibilidade final dos serviços críticos:
 

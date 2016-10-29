@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  27 OCT 2016 22:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  28 OCT 2016 23:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -980,12 +980,8 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 (./capitulos/introducao.aux) (./capitulos/capitulo2.aux)
 (./capitulos/capitulo3.aux) (./capitulos/capitulo4.aux)
 (./capitulos/capitulo5.aux) (./capitulos/capitulo6.aux)
-(./capitulos/capitulo7.aux
-
-LaTeX Warning: Label `tab:teste3resultados' multiply defined.
-
-) (./capitulos/conclusao.aux) (./capitulos/anexo1.aux) (./capitulos/anexo2.aux)
-)
+(./capitulos/capitulo7.aux) (./capitulos/conclusao.aux) (./capitulos/anexo1.aux
+) (./capitulos/anexo2.aux))
 \openout1 = `tcc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
@@ -1007,7 +1003,8 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
 (lastpage)             ! on input line 42.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count164
 \scratchdimen=\dimen157
@@ -1237,7 +1234,7 @@ Underfull \hbox (badness 10000) in alignment at lines 51--51
 
 
 ]
-Overfull \hbox (3.91663pt too wide) in paragraph at lines 29--29
+Overfull \hbox (3.91663pt too wide) in paragraph at lines 26--26
 [] 
  []
 
@@ -1819,6 +1816,9 @@ File: img/drbd_basic-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: img/drbd_basic-eps-converted-to.pdf used on input line
  84.
 (pdftex.def)             Requested size: 301.1261pt x 123.21722pt.
+
+Underfull \vbox (badness 1874) has occurred while \output is active []
+
  [45 <./img/drbd_basic-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <img/glusterfs.eps>
 (epstopdf)                    date: 2016-06-29 17:06:50
@@ -1830,7 +1830,8 @@ Package epstopdf Info: Source file: <img/glusterfs.eps>
 d-to.pdf img/glusterfs.eps>
 (epstopdf)             \includegraphics on input line 115.
 Package epstopdf Info: Output file is already uptodate.
- <img/glusterfs-eps-converted-to.pdf, id=244, 497.86pt x 420.57124pt>
+
+<img/glusterfs-eps-converted-to.pdf, id=244, 497.86pt x 420.57124pt>
 File: img/glusterfs-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/glusterfs-eps-converted-to.pdf>
@@ -1893,6 +1894,12 @@ put line 256.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/n/10.95 48
+ []
+
+[48]
 Package epstopdf Info: Source file: <img/heartbeat.eps>
 (epstopdf)                    date: 2016-06-29 21:24:54
 (epstopdf)                    size: 139063 bytes
@@ -1903,20 +1910,15 @@ Package epstopdf Info: Source file: <img/heartbeat.eps>
 d-to.pdf img/heartbeat.eps>
 (epstopdf)             \includegraphics on input line 287.
 Package epstopdf Info: Output file is already uptodate.
-<img/heartbeat-eps-converted-to.pdf, id=259, 699.61375pt x 488.82625pt>
+ <img/heartbeat-eps-converted-to.pdf, id=263, 699.61375pt x 488.82625pt>
 File: img/heartbeat-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/heartbeat-eps-converted-to.pdf>
 Package pdftex.def Info: img/heartbeat-eps-converted-to.pdf used on input line 
 287.
 (pdftex.def)             Requested size: 301.1261pt x 210.40002pt.
-
-Underfull \hbox (badness 10000) has occurred while \output is active
-\OT1/cmr/m/n/10.95 48
- []
-
-[48] [49 <./img/ganeti_arquitetura-eps-converted-to.pdf> <./img/heartbeat-eps-c
-onverted-to.pdf>]
+ [49 <./img/ganeti_arquitetura-eps-converted-to.pdf> <./img/heartbeat-eps-conve
+rted-to.pdf>]
 Package epstopdf Info: Source file: <img/pacemaker_tools.eps>
 (epstopdf)                    date: 2016-06-25 21:54:17
 (epstopdf)                    size: 1521831 bytes
@@ -2023,35 +2025,6 @@ Overfull \hbox (1.39171pt too wide) in paragraph at lines 142--150
 efe-tu-a-das du-rante o per^^S^^Podo
  []
 
-
-Underfull \hbox (badness 5217) in paragraph at lines 167--167
-[]\OT1/cmr/bx/n/8 Tempo de in-dis-po-ni-bi-li-
- []
-
-
-LaTeX Warning: Reference `fig:teste2_trapel1' on page 56 undefined on input lin
-e 192.
-
-
-LaTeX Warning: Reference `fig:teste2_trapel1' on page 56 undefined on input lin
-e 203.
-
-
-LaTeX Warning: Reference `fig:teste2_brina1' on page 56 undefined on input line
- 203.
-
-
-LaTeX Warning: Reference `fig:teste2_piova1' on page 56 undefined on input line
- 204.
-
-
-LaTeX Warning: Reference `fig:teste2_brina1' on page 56 undefined on input line
- 205.
-
-
-LaTeX Warning: Reference `fig:teste2_piova1' on page 56 undefined on input line
- 205.
-
 Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    date: 2016-10-01 21:34:54
 (epstopdf)                    size: 177981 bytes
@@ -2073,12 +2046,12 @@ Package pdftex.def Info: img/teste2_latencia-eps-converted-to.pdf used on input
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
+)
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 56
  []
 
-[56]) [57 <./img/teste2_latencia-eps-converted-to.pdf>]
+[56] [57 <./img/teste2_latencia-eps-converted-to.pdf>]
 \openout2 = `capitulos/conclusao.aux'.
 
 
@@ -2268,18 +2241,12 @@ AED: lastpage setting LastPage
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 16686 strings out of 495004
- 309138 string characters out of 6180662
- 418859 words of memory out of 5000000
- 19521 multiletter control sequences out of 15000+600000
+ 16684 strings out of 495004
+ 309096 string characters out of 6180662
+ 418810 words of memory out of 5000000
+ 19519 multiletter control sequences out of 15000+600000
  11576 words of font info for 40 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,11n,57p,10374b,1730s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2298,7 +2265,7 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (75 pages, 2186050 bytes).
+Output written on tcc.pdf (75 pages, 2185538 bytes).
 PDF statistics:
  427 PDF objects out of 1000 (max. 8388607)
  274 compressed objects within 3 object streams
