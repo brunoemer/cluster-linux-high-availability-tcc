@@ -32,17 +32,19 @@ e que sejam adequadas ao ambiente da empresa. As características utilizadas par
 \begin{itemize}
  \item Integração com virtualização: possibilita a replicação dos discos das máquinas virtuais;
  \item Dual-primary: permite leitura e escrita de dados simultaneamente em ambos os nós;
- \item Replicação em tempo real: ;
- \item Nível de replicação: ;
- \item Número máximo de nós: .
+ \item Replicação em tempo real: faz a replicação dos dados de forma instantânea e automática;
+ \item Nível de replicação: pode ser a nível de bloco ou de arquivo;
+ \item Número máximo de nós: quantidade de nós comportado pelo \textit{cluster}. Observa-se que para esse trabalho é necessário no mínimo dois.
 \end{itemize}
 
 As características utilizadas para a escolha do \textit{software} de monitoramento e gerência do \textit{cluster} foram:
 \begin{itemize}
- \item Suporte nativo a virtualização;
- \item Migração de \acp{VM} em tempo real;
- \item Failover e failback automáticos;
- \item Sincronismo de configuração entre os nós.
+ \item Suporte nativo à virtualização: permite monitorar e manipular máquinas virtuais;
+ \item Migração de \acp{VM} em tempo real: suporta a utilização de \textit{live migration} das máquinas virtuais, ou seja, possibilita mover uma
+ \ac{VM} de um nó para outro sem reiniciá-lo;
+ \item \textit{Failover} e \textit{failback} automáticos: move automaticamente os serviços de um nó que falhou para outro disponível;
+ \item Sincronismo de configuração entre os nós: configuração do \textit{cluster} pode ser alterada em qualquer nó, ou seja, ocorre a replicação
+ da configuração para todos os nós do \textit{cluster}.
 \end{itemize}
 
 \section{Softwares para a replicação de dados}
@@ -394,7 +396,7 @@ Por fim, é o único que possui o sincronismo de configuração entre todos os n
 \begin{center}
 \begin{tabular}{|p{4cm}|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
 \textbf{Características} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
-Suporte nativo a virtualização & Sim & Não & Sim \\\hline
+Suporte nativo à virtualização & Sim & Não & Sim \\\hline
 Migração de \acp{VM} em tempo real & Sim & Não & Sim \\\hline
 Failover e failback automáticos & Não & Não & Sim \\\hline
 Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
@@ -484,7 +486,7 @@ Neste capítulo foi apresentada a arquitetura de alta disponibilidade implementa
 físicos, onde foram configuradas máquinas virtuais contendo os serviços críticos da empresa. Os \textit{softwares} utilizados foram escolhidos 
 a partir de características compatíveis com alguns trabalhos científicos semelhantes e também adequadas com o ambiente da empresa. 
 Deste modo, foram necessários dois \textit{softwares} para a implementação, o \ac{DRBD} para fazer a replicação dos dados, e o \textit{Pacemaker}
-que é responsável pela gerência e monitoramento do \textit{cluster}. ??
+que é responsável pela gerência e monitoramento do \textit{cluster}. 
 No próximo capítulo serão descritos os testes criados e apresentado os resultados obtidos.
 
 reler ??

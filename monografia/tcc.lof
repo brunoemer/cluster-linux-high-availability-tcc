@@ -36,7 +36,7 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.2:}{\ignorespaces Modelo do \textit {GlusterFS}.}}{46}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.3:}{\ignorespaces Transfer\IeC {\^e}ncia de arquivos atrav\IeC {\'e}s do \textit {Rsync}.}}{47}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.4:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{49}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{49}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{50}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{50}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.7:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{52}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.8:}{\ignorespaces Estrutura do \textit {cluster}.}}{53}
