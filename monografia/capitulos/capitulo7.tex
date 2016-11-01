@@ -30,11 +30,11 @@ bem como medir o tempo de indisponibilidade dos serviços.
 Esse teste de desligamento foi executado 4 vezes no \textit{cluster} juntamente com um \textit{script} que faz a coleta do tempo de
 indisponibilidade e da latência dos dois nós e de uma máquina virtual, essa coleta é necessária para comparar os tempos de indisponibilidade da
 máquina virtual e dos nós. 
-Esse \textit{script} que está localizado no Apêndice \ref{ap:scriptindisp} utiliza o comando \textit{ping} para medir o tempo de indisponibilidade 
-e possui um tempo de 5 minutos para sua execução. Na Tabela \ref{tab:teste1resultados}, onde são apresentados os dados coletados dos testes 
-efetuados, pode-se observar que o tempo de indisponibilidade da máquina virtual é de 81 segundos, sendo considerado baixo comparado aos nós 
-que são de 169 e 205,5 segundos. Isto se deve ao fato da \ac{VM} ser iniciada em um outro nó logo após o desligamento do primeiro. 
-O desvio padrão demonstra que, nos testes realizados, existe pouca variação de tempo de indisponibilidade da máquina virtual.
+Esse \textit{script} está localizado no Apêndice \ref{ap:scriptindisp}, que utiliza o comando \textit{ping} para medir o tempo de 
+indisponibilidade e possui um tempo de 5 minutos para sua execução. Na Tabela \ref{tab:teste1resultados}, onde são apresentados os dados coletados 
+dos testes efetuados, pode-se observar que o tempo de indisponibilidade da máquina virtual é de 81 segundos, sendo considerado baixo comparado 
+aos nós que são de 169 e 205,5 segundos. Isto se deve ao fato da \ac{VM} ser iniciada em um outro nó logo após o desligamento do primeiro. 
+Nos testes realizados o desvio padrão demonstra que, existe pouca variação de tempo de indisponibilidade da máquina virtual.
 
 % feito em 15/09
 
@@ -51,10 +51,10 @@ Máquina virtual & 81 segundos & 7,07 \\\hline
 \end{center}
 \end{table}
 
-Destaca-se que, caso um servidor de virtualização sem esta solução de alta disponibilidade fosse reiniciado, por uma falha elétrica por exemplo, 
+Caso um servidor de virtualização que não possua esta solução de alta disponibilidade for reiniciado por causa de uma falha elétrica por exemplo,
 o tempo para reestabelecer o serviço seria igual a soma do tempo de inicialização do servidor físico mais o tempo da máquina virtual, 
 que totalizaria aproximadamente 270 segundos. 
-Na pior das hipóteses, caso haja uma perca definitiva do servidor físico, sendo necessário reconfigurar a máquina virtual, reinstalar as aplicações,
+Na pior das hipóteses, caso haja uma perda definitiva do servidor físico, sendo necessário reconfigurar a máquina virtual, reinstalar as aplicações,
 configurá-las e restaurar o \textit{backup}, o \ac{MTTR} seria significativamente maior. Dependendo do servidor e da aplicação, 
 a indisponibilidade poderia ser maior que 24 horas.
 %talvez adicionar um teste de desligamento de um servidor comum para comparar os tempos de indisponibilidade??
@@ -83,9 +83,9 @@ colocar em um apendice os graficos??
 
 \section{Teste 2 - Desligamento por software}
 
-Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, como por exemplo, o \textit{software} de virtualização para de funcionar,
-desta forma o nó não consegue iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma manutenção emergencial, onde, 
-por exemplo, é preciso desligar um servidor físico de forma emergencial. Desta forma, pode-se verificar a capacidade do outro nó manter os serviços
+Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, desta forma pode-se citar como exemplo uma falha de um \textit{software} 
+de virtualização, com isso o nó não conseguirá iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma manutenção emergencial, 
+onde é preciso desligar um servidor físico de forma rápida. Desta forma, pode-se verificar a capacidade do outro nó manter os serviços
 em funcionamento. Para simular esta situação, foram acessados os nós via \ac{SSH} e executado o comando \textit{reboot}.
 
 % O procedimento deste teste é o seguinte:
@@ -100,8 +100,8 @@ em funcionamento. Para simular esta situação, foram acessados os nós via \ac{
 
 Esse teste foi executado 4 vezes nos nós do \textit{cluster}. Foi utilizado o mesmo \textit{script} da Seção anterior, Apêndice 
 \ref{ap:scriptindisp}, para fazer a coleta dos dados de indisponibilidade. A medição do tempo de indisponibilidade foi feita nos dois nós e 
-também na máquina virtual, para possibilitar a análise e comparação dos tempos. A Tabela \ref{tab:teste2resultados} demonstra o tempo de 
-indisponibilidade e o desvio padrão dos nós e da máquina virtual. Pode-se observar que o tempo de indisponibilidade da máquina virtual é 
+também na máquina virtual para possibilitar a análise e comparação dos tempos. A Tabela \ref{tab:teste2resultados} demonstra o tempo de 
+indisponibilidade e o desvio padrão dos nós e da \ac{VM}. Pode-se observar que o tempo de indisponibilidade da \ac{VM} é 
 consideravelmente menor que o tempo do servidor físico, ele representa apenas 3,27\% do tempo de indisponibilidade dos servidores físicos que são 
 138,5 e 167 segundos. A alguns meses ocorreu um problema semelhante a este teste, um servidor de virtualização, que é atualizado de forma 
 automática, foi reiniciado, porém ocorreu um erro na atualização e o servidor não pôde iniciar corretamente. Os serviços executados nele ficaram 
@@ -144,7 +144,7 @@ responsável por migrar as \acp{VM} para liberar o nó e reiniciá-lo, este est�
 Além disso, é utilizado o \textit{script} do Apêndice \ref{ap:scriptindisp} para a coleta do tempo de indisponibilidade. 
 Para a execução desses \textit{scripts} foi utilizada a ferramenta \textit{crontab} do \textit{Linux}. 
 Os resultados são apresentados na Tabela \ref{tab:teste3resultados}, pode-se observar que não houve \textit{downtime}, e consequentemente, não 
-houve indisponibilidade nos serviços, devido ao migração em tempo real das \acp{VM}. Já nos nós do \textit{cluster} tem-se um tempo de 
+houve indisponibilidade nos serviços, devido a migração em tempo real das \acp{VM}. Já nos nós do \textit{cluster} tem-se um tempo de 
 indisponibilidade devido a reinicialização do servidor.
 %A latência baixa da máquina virtual demonstra que não há perda significante de desempenho durante a migração da máquina virtual de um nó para outro.
 
@@ -219,7 +219,7 @@ Máquina virtual & 100\% & 0 minutos \\\hline
 % \end{figure}
 
 Durante o processo de \textit{live migration} de um nó para outro a latência da máquina virtual aumentou, isso pode ser observado na Figura 
-\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo 50 e 100 segundos. Mesmo com o aumento de latência não ocorre 
+\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo de 50 e 100 segundos. Mesmo com o aumento de latência não ocorre 
 perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
 %teste2/186.195.16.13-stat-2.log
@@ -255,5 +255,5 @@ adicionar gráficos de disponibilidade final dos serviços críticos:
 \section{Considerações finais}
 
 Neste capítulo foi feita a análise do ambiente de alta disponibilidade implementado na empresa, através de testes e da coleta de dados
-provenientes desses testes. Pode-se perceber resultados obtidos foram positivos, e que os objetivos deste trabalho foram alcançados. 
+provenientes desses testes. Pode-se perceber que resultados obtidos foram positivos, e que os objetivos deste trabalho foram alcançados. 
 ...

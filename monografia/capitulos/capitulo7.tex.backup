@@ -30,11 +30,11 @@ bem como medir o tempo de indisponibilidade dos serviços.
 Esse teste de desligamento foi executado 4 vezes no \textit{cluster} juntamente com um \textit{script} que faz a coleta do tempo de
 indisponibilidade e da latência dos dois nós e de uma máquina virtual, essa coleta é necessária para comparar os tempos de indisponibilidade da
 máquina virtual e dos nós. 
-Esse \textit{script} que está localizado no Apêndice \ref{ap:scriptindisp} utiliza o comando \textit{ping} para medir o tempo de indisponibilidade 
-e possui um tempo de 5 minutos para sua execução. Na Tabela \ref{tab:teste1resultados}, onde são apresentados os dados coletados dos testes 
-efetuados, pode-se observar que o tempo de indisponibilidade da máquina virtual é de 81 segundos, sendo considerado baixo comparado aos nós 
-que são de 169 e 205,5 segundos. Isto se deve ao fato da \ac{VM} ser iniciada em um outro nó logo após o desligamento do primeiro. 
-O desvio padrão demonstra que, nos testes realizados, existe pouca variação de tempo de indisponibilidade da máquina virtual.
+Esse \textit{script} está localizado no Apêndice \ref{ap:scriptindisp}, que utiliza o comando \textit{ping} para medir o tempo de 
+indisponibilidade e possui um tempo de 5 minutos para sua execução. Na Tabela \ref{tab:teste1resultados}, onde são apresentados os dados coletados 
+dos testes efetuados, pode-se observar que o tempo de indisponibilidade da máquina virtual é de 81 segundos, sendo considerado baixo comparado 
+aos nós que são de 169 e 205,5 segundos. Isto se deve ao fato da \ac{VM} ser iniciada em um outro nó logo após o desligamento do primeiro. 
+Nos testes realizados o desvio padrão demonstra que, existe pouca variação de tempo de indisponibilidade da máquina virtual.
 
 % feito em 15/09
 
@@ -51,10 +51,10 @@ Máquina virtual & 81 segundos & 7,07 \\\hline
 \end{center}
 \end{table}
 
-Destaca-se que, caso um servidor de virtualização sem esta solução de alta disponibilidade fosse reiniciado, por uma falha elétrica por exemplo, 
+Caso um servidor de virtualização que não possua esta solução de alta disponibilidade for reiniciado por causa de uma falha elétrica por exemplo,
 o tempo para reestabelecer o serviço seria igual a soma do tempo de inicialização do servidor físico mais o tempo da máquina virtual, 
 que totalizaria aproximadamente 270 segundos. 
-Na pior das hipóteses, caso haja uma perca definitiva do servidor físico, sendo necessário reconfigurar a máquina virtual, reinstalar as aplicações,
+Na pior das hipóteses, caso haja uma perda definitiva do servidor físico, sendo necessário reconfigurar a máquina virtual, reinstalar as aplicações,
 configurá-las e restaurar o \textit{backup}, o \ac{MTTR} seria significativamente maior. Dependendo do servidor e da aplicação, 
 a indisponibilidade poderia ser maior que 24 horas.
 %talvez adicionar um teste de desligamento de um servidor comum para comparar os tempos de indisponibilidade??
@@ -83,9 +83,9 @@ colocar em um apendice os graficos??
 
 \section{Teste 2 - Desligamento por software}
 
-Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, como por exemplo, o \textit{software} de virtualização para de funcionar,
+Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, desta forma pode-se citar o exemplo, o \textit{software} de virtualização pára de funcionar,
 desta forma o nó não consegue iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma manutenção emergencial, onde, 
-por exemplo, é preciso desligar um servidor físico de forma emergencial. Desta forma, pode-se verificar a capacidade do outro nó manter os serviços
+é preciso desligar um servidor físico de forma emergencial. Desta forma, pode-se verificar a capacidade do outro nó manter os serviços
 em funcionamento. Para simular esta situação, foram acessados os nós via \ac{SSH} e executado o comando \textit{reboot}.
 
 % O procedimento deste teste é o seguinte:
@@ -128,8 +128,8 @@ Máquina virtual & 10 segundos & 0 \\\hline
 
 Reinicializações são necessárias para manutenções de \textit{hardware}, atualização de \textit{software} e até mesmo para 
 rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste na aplicações de métodos para remover problemas gerados pelo 
-envelhecimento. Um exemplo de um método é o \textit{reboot} de um sistema operacional.} de \textit{software} \cite{melo2014}. Desta forma, 
-criou-se esse teste para simular manutenções previamente agendadas.
+envelhecimento. Um exemplo de um método é o \textit{reboot} de um sistema operacional, uma vez que esse torna-se suscetível a gerar erros e 
+falhas.} de \textit{software} \cite{melo2014}. Desta forma, criou-se esse teste para simular manutenções previamente agendadas.
 
 %O procedimento deste teste é o seguinte:
 %\begin{itemize}
@@ -163,46 +163,64 @@ indisponibilidade devido a reinicialização do servidor.
 \caption{Resultados do teste de manutenção agendada.}
 \label{tab:teste3resultados}
 \begin{center}
-\begin{tabular}{|l|p{4cm}|p{4cm}|l|}\hline
- & \textbf{Tempo de indisponibilidade média} & \textbf{Desvio padrão da indisponibilidade} & \textbf{Latência média} \\\hline
-Nó 1 & 145,5 segundos & 0,70 & 22,63 ms \\\hline
-Nó 2 & 173 segundos & 1,41 & 19,8 ms \\\hline
-Máquina virtual & 0 segundos & 0 & 0,309 ms \\\hline
+\begin{tabular}{|l|l|l|}\hline
+ & \textbf{Tempo de indisponibilidade média} & \textbf{Desvio padrão da indisponibilidade} \\\hline
+Nó 1 & 145,5 segundos & 0,70 \\\hline
+Nó 2 & 173 segundos & 1,41 \\\hline
+Máquina virtual & 0 segundos & 0 \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-A Figura \ref{fig:teste2_trapel1} demonstra a disponibilidade da máquina virtual, onde pode-se perceber que não houve nenhuma indisponibilidade. 
-Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que faz o monitoramento da empresa. 
+A Tabela \ref{tab:teste3disp} demonstra o percentual de disponibilidade da \ac{VM} e dos nós do \textit{cluster} durante o período de 13 dias
+do teste. Destaca-se que a máquina virtual não apresentou nenhuma indisponibilidade. 
+Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, responsável pelo monitoramento da empresa.
+
+\begin{table}[h!]
+\caption{Disponibilidade e tempo de indisponibilidade do período de 13 dias.}
+\label{tab:teste3disp}
+\begin{center}
+\begin{tabular}{|l|l|p{4cm}|l|}\hline
+ & \textbf{Disponibilidade} & \textbf{Tempo indisponibilidade} \\\hline
+Nó 1 & 99,976\% & 4 minutos e 30 segundos \\\hline
+Nó 2 & 99,975\% & 4 minutos e 40 segundos \\\hline
+Máquina virtual & 100\% & 0 minutos \\\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+%A Figura \ref{fig:teste2_trapel1} demonstra a disponibilidade da máquina virtual, onde pode-se perceber que não houve nenhuma indisponibilidade. 
+%Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que faz o monitoramento da empresa. 
 %grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
 %grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 18/09 a 30/09 + Include Soft States = yes
-\begin{figure}[h!]
- \centering
- \includegraphics[width=360px]{img/teste2_trapel1.eps}
- \caption{Disponibilidade da máquina virtual, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
- \label{fig:teste2_trapel1}
-\end{figure}
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=360px]{img/teste2_trapel1.eps}
+%  \caption{Disponibilidade da máquina virtual, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
+%  \label{fig:teste2_trapel1}
+% \end{figure}
 
-Comparando os resultados da máquina virtual (Figura \ref{fig:teste2_trapel1} (b)) com os resultados dos nós 1 e 2 (Figura \ref{fig:teste2_brina1} 
-(b) e Figura \ref{fig:teste2_piova1} (b)), pode-se perceber a diferença do \textit{uptime}, que fica entre 99,975\% e 99,976\% para os nós e 
-100\% para a máquina virtual. Já nos gráficos da Figura \ref{fig:teste2_brina1} (a) e da Figura \ref{fig:teste2_piova1} (a), pode-se observar 
-as duas reinicializações feitas.
-\begin{figure}[h!]
- \centering
- \includegraphics[width=360px]{img/teste2_brina1.eps}
- \caption{Disponibilidade do Nó 1, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
- \label{fig:teste2_brina1}
-\end{figure}
+%Comparando os resultados da máquina virtual (Figura \ref{fig:teste2_trapel1} (b)) com os resultados dos nós 1 e 2 (Figura \ref{fig:teste2_brina1} 
+%(b) e Figura \ref{fig:teste2_piova1} (b)), pode-se perceber a diferença do \textit{uptime}, que fica entre 99,975\% e 99,976\% para os nós e 
+%100\% para a máquina virtual. Já nos gráficos da Figura \ref{fig:teste2_brina1} (a) e da Figura \ref{fig:teste2_piova1} (a), pode-se observar 
+%as duas reinicializações feitas.
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=360px]{img/teste2_brina1.eps}
+%  \caption{Disponibilidade do Nó 1, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
+%  \label{fig:teste2_brina1}
+% \end{figure}
+% 
+% \begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=360px]{img/teste2_piova1.eps}
+%  \caption{Disponibilidade do Nó 2, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
+%  \label{fig:teste2_piova1}
+% \end{figure}
 
-\begin{figure}[h!]
- \centering
- \includegraphics[width=360px]{img/teste2_piova1.eps}
- \caption{Disponibilidade do Nó 2, com o gráfico da disponibilidade (a) e a tabela com detalhes de tempo e percentual (b).}
- \label{fig:teste2_piova1}
-\end{figure}
-
-Durante o processo de \textit{live migration} a latência da máquina virtual aumentou, isso pode ser observado na Figura 
-\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo 50 e 100 do eixo x. A latência baixa da máquina virtual demonstra que não há perda significante de desempenho durante a migração da máquina virtual de um nó para outro.
+Durante o processo de \textit{live migration} de um nó para outro a latência da máquina virtual aumentou, isso pode ser observado na Figura 
+\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo 50 e 100 segundos. Mesmo com o aumento de latência não ocorre 
+perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
 %teste2/186.195.16.13-stat-2.log
 \begin{figure}[h!]
@@ -223,10 +241,10 @@ Durante o processo de \textit{live migration} a latência da máquina virtual au
 
 Nesta seção será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade, sendo que neste ambiente estarão executando 
 os serviços críticos definidos na Seção \ref{section:maqservcrit}.
-Durante esse período foi feito uma manutenção...
+Durante o período foi feito uma manutenção ...
 %...foi mensurado a disponibilidade
 
-... ??
+continuar ??
 
 adicionar gráficos de disponibilidade final dos serviços críticos:
 

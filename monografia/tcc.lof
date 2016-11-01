@@ -32,16 +32,16 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do sistema do provedor durante o per\IeC {\'\i }odo de uma semana.}}{41}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos simult\IeC {\^a}neamente no servidor de telefonia durante o per\IeC {\'\i }odo de uma semana.}}{41}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.1:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{45}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.2:}{\ignorespaces Modelo do \textit {GlusterFS}.}}{46}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.3:}{\ignorespaces Transfer\IeC {\^e}ncia de arquivos atrav\IeC {\'e}s do \textit {Rsync}.}}{47}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.4:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{49}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{50}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{50}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.7:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{52}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.8:}{\ignorespaces Estrutura do \textit {cluster}.}}{53}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.1:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{44}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.2:}{\ignorespaces Modelo do \textit {GlusterFS}.}}{45}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.3:}{\ignorespaces Transfer\IeC {\^e}ncia de arquivos atrav\IeC {\'e}s do \textit {Rsync}.}}{46}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.4:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{48}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{49}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{49}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.7:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{51}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.8:}{\ignorespaces Estrutura do \textit {cluster}.}}{52}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{57}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{56}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
