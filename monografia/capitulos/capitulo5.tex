@@ -1,11 +1,10 @@
 \chapter{Serviços críticos}
 \label{cap:servicoscriticos}
 
-No capítulo anterior foram detalhados todos os serviços que estão disponíveis na empresa. Neste capítulo serão apresentados os serviços 
+No capítulo anterior foram detalhados os serviços que estão disponíveis na empresa. Neste capítulo serão apresentados os serviços 
 que foram considerados críticos para a empresa, sendo que para a definição desses foram adotados alguns critérios. Esses critérios foram criados
-através de uma análise dos serviços, levando em consideração a importância para a empresa, para o seu ambiente e a opnião da direção da empresa, 
-da mesma forma que o autor \citet{geordano2014} definiu a relevância de seus critérios.
-Mais especificamente, os critérios encontram-se listados abaixo:
+através de uma análise dos serviços, levando em consideração a importância para a empresa, para o seu ambiente e a opnião da direção da empresa
+\citet{geordano2014}. Mais especificamente, os critérios definidos foram:
 
 %Para a definição desses critérios utilizou-se uma metodologia semelhante à utilizada no artigo de \citet{geordano2014}. O autor 
 %comparou ferramentas para monitoramento de redes de fibra óptica, para isso, ele criou critérios baseados na tecnologia foco do trabalho 
@@ -17,7 +16,7 @@ Mais especificamente, os critérios encontram-se listados abaixo:
  \item A quantidade de clientes que utilizam o serviço: esse é o critério mais relevante, pois impacta diretamente no faturamento
  da empresa. De fato, se um cliente ficar sem acesso à Internet, o cliente terá um desconto proporcional ao tempo que ficou sem 
  acesso; 
- \item O número de requisições: esse número é importante, uma vez que, indicam a quantidade de usuários que dependem do serviço e a frequência
+ \item O número de requisições: esse número é importante, uma vez que, indica a quantidade de usuários que dependem do serviço e a frequência
  de utilização do serviço. Esse critério engloba, por exemplo, o número de conexões \aca{TCP}, o número de requisições 
  \aca{UDP}, a quantidade de acessos em um servidor de hospedagens de sites e a quantidade de requisições \aca{DNS} 
  em um servidor recursivo;
@@ -92,9 +91,9 @@ a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo qu
 
 O sistema do provedor é executado no servidor \textit{Soldi} que recebe aproximadamente 3 requisições \aca{HTTP} por segundo
 (Figura \ref{fig:soldi_week}). Além disso, a empresa mantém 28 sistemas de outros clientes nesse servidor. 
-Como pode ser observado na Figura \ref{fig:elementos_tcp} (b), esse servidor encontra-se entre os que apresentam os maiores níveis de conexões 
+Como pode ser observado na Figura \ref{fig:elementos_tcp} (b), esse servidor encontra-se entre os que apresentam um maior número de conexões 
 \ac{TCP}\footnote[1]{O número de conexões \ac{TCP} é considerado devido ao fato do protocolo \ac{HTTP} utilizar esse 
-protocolo de transporte.} simultâneas.
+protocolo de transporte.}.
 %\aca{HTTP} \cite{tanenbaum2011}
 
 %\begin{figure}[h!]
@@ -134,7 +133,7 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão d
 \section{Resumo e os serviços críticos}
 \label{section:maqservcrit}
 
-A partir da análise feita decidiu-se que os servidores mais relevantes para a empresa são:
+A partir da análise feita decidiu-se que os servidores com maior importância para a empresa são:
 \begin{itemize}
  \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
  \item \textit{Speedauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
@@ -168,11 +167,10 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 
 \section{Considerações finais}
 
-Neste capítulo foram apresentados os serviços que foram considerados críticos através dos critérios adotados, sendo que esses critérios foram 
+Neste capítulo foram apresentados os serviços que foram considerados críticos, sendo que os critérios utilizados para a escolha destes foram 
 criados de acordo com a análise feita nos serviços, levando em consideração a importância para a empresa, para o seu ambiente e a opnião da 
 direção da empresa. Pôde-se observar que a maioria dos serviços críticos estão diretamente relacionados com o provedor, o qual possui a maior
 parte dos clientes. Os serviços críticos apresentados foram o \ac{DNS} recursivo primário e a autenticação \textit{Radius}, as quais possuem
 um impacto direto na navegação dos clientes do provedor. E os sistemas da empresa e do provedor juntamente com a telefonia interna, que 
 são responsáveis pela gestão e pela gerência e operação da empresa e do provedor.
-
 No próximo capítulo serão apresentados o projeto e as ferramentas escolhidas para implementação do ambiente de alta disponibilidade. 
