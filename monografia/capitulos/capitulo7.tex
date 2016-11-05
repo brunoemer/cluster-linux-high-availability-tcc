@@ -1,8 +1,76 @@
-\chapter{Testes e resultados}
-\label{cap:resultados}
+\chapter{Implementação e testes}
+\label{cap:implementacaoresultados}
 
 Neste capítulo será apresentada a metodologia de testes utilizada para validar o ambiente de alta disponibilidade criado, bem como os
 resultados obtidos dos testes efetuados.
+IMPLEMENTACAO ??
+
+\section{Implementação}
+\label{section:implementacao}
+
+%Para implementação desta solução foram necessários dois servidores físicos, sendo que a configuração ideal de cada servidor é de 
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+%12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
+%recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos, observa-se que tais recursos de 
+%\textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais. Com essa solução, 
+%caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
+
+O ambiente foi projetado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração 
+de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido.
+%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
+Essa configuração foi calculada a partir da soma dos recursos consumidos pelas máquinas virtuais que atualmente executam os serviços que foram 
+considerados críticos. Observa-se que tais recursos de \textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma 
+reorganização das máquinas virtuais. Destaca-se que a configuração também inclui 2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema 
+operacional hóspede.
+
+Além disso, optou-se por utilizar o mesmo sistema operacional e o mesmo hipervisor que são adotados atualmente na empresa, o sistema 
+\textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm}, respectivamente. O processo de instalação e de configuração encontra-se no 
+Apêndice \ref{ap:confos} e \ref{ap:confvirt}.
+
+A estrutura física adotada encontra-se na Figura \ref{fig:projeto_fisico} (a). Como pode ser observado, os dois servidores encontram-se 
+conectados a um \textit{switch} através de dois cabos \aca{UTP}, de forma a implementar uma redundância de cabeamento. Além disso, manteve-se o 
+\textit{link aggregation} e utilizou-se uma \textit{bridge}\footnote[1]{\textit{Bridges}, também conhecidas como pontes, são meios que fazem a 
+conexão entre \textit{LANs}, e operam na camada de enlace de dados.} para incluir as máquinas virtuais à rede. 
+Os detalhes da configuração de rede estão localizados no Apêndice \ref{ap:confrede}.
+Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores, o primeiro é o Nó 1 (\textit{Brina}), que é um 
+\textit{Dell PowerEdge 2950}, e o segundo servidor é o Nó 2 (\textit{Piova}), que é um \textit{Dell PowerEdge R410}.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=430px]{img/projeto_fisico.eps}
+ \caption{Estrutura física.}
+ \label{fig:projeto_fisico}
+\end{figure}
+
+A estrutura lógica dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura 
+\ref{fig:projeto_estrutura}. Para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo 
+\textit{dual-master} onde os dois nós são configurados como primários. Para tal configuração é necessário utilizar um sistema de arquivos 
+distribuídos para um acesso compartilhado dos dados, sendo que o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
+Os detalhes da instalação e da configuração de disco, \ac{DRBD} e sistema de arquivos estão detalhadas no Apêndice \ref{ap:confdisco}. 
+Já para o gerenciamento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} \textit{Pacemaker}. 
+Mais especificamente esse é o \textit{software} responsável pelo monitoramento e pela migração das \acp{VM} entre os nós.
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=350px]{img/projeto_estrutura.eps}
+ \caption{Estrutura do \textit{cluster}.}
+ \label{fig:projeto_estrutura}
+\end{figure}
+
+%drbd
+% O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
+% replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico 
+% \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
+% e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
+
+Os serviços foram distribuídos entre os nós dos \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas de gestão, 
+\ac{DNS} recursivo e autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de telefonia e autenticação \ac{PPPoE}.
+No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. O detalhamento da configuração do \textit{Pacemaker} 
+estão disponíveis no Apêndice \ref{ap:confpacemaker}.
+
+
+\section{Testes}
+
 A metodologia de testes deste trabalho foi fundamentada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}. No primeiro trabalho, 
 o autor simulou falhas de três formas, que foram através do desligamento brusco do servidor, desligamento por \textit{software} e falha de rede. 
 Já no segundo trabalho, foram realizados três testes, que foram a reinicialização do servidor físico, a migração de uma máquina virtual de forma
@@ -17,7 +85,7 @@ devido ao fato destes testes possuírem risco de perda de dados durante a execu�
 %Todavia, na Seção \ref{section:comparacaofinal} será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade,
 %sendo que neste ambiente estarão executando os serviços críticos definidos.
 
-\section{Teste 1 - Desligamento físico}
+\subsection{Teste 1 - Desligamento físico}
 %Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos serviços e dos nodes (servico não crítico)
 
 Neste teste são simuladas falhas de \textit{hardware} ou falhas elétricas nos nós do \textit{cluster}. Para isso foi feito o desligamento 
@@ -68,7 +136,6 @@ a indisponibilidade poderia ser maior que 24 horas.
 % \item Finalizar a medição do tempo e \textit{ping}.
 %\end{itemize}
 
-colocar em um apendice os graficos??
 % A Figura \ref{fig:teste1_disponibilidade} demonstra a disponibilidade dos servidores físicos Nó 1 (\textit{Brina}) e Nó 2 (\textit{Piova}) e da 
 % máquinas virtual (\textit{Trapel}). A máquina virtual teve apenas 1 minuto e 10 segundos de \textit{downtime}, deste modo, caso o 
 % \textit{hardware} no qual a máquina virtual está executando falhe, o serviço será reestabelecido neste curto período de tempo.
@@ -81,7 +148,7 @@ colocar em um apendice os graficos??
 % \end{figure}
 
 
-\section{Teste 2 - Desligamento por software}
+\subsection{Teste 2 - Desligamento por software}
 
 Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, desta forma pode-se citar como exemplo uma falha de um \textit{software} 
 de virtualização, com isso o nó não conseguirá iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma manutenção emergencial, 
@@ -122,7 +189,7 @@ Máquina virtual & 10 segundos & 0 \\\hline
 \end{table}
 
 
-\section{Teste 3 - Manutenção agendada}
+\subsection{Teste 3 - Manutenção agendada}
 %Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
 %atualizacao de kernel dos nodes. Resultados: latencia, comparacao downtime servidor virtual e fisico, log
 
@@ -244,7 +311,7 @@ os serviços críticos definidos na Seção \ref{section:maqservcrit}.
 Durante o período foi feito uma manutenção ...
 %...foi mensurado a disponibilidade
 
-continuar ??
+continuar ... ??
 
 adicionar gráficos de disponibilidade final dos serviços críticos:
 

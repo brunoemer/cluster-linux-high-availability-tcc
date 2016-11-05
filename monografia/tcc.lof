@@ -38,10 +38,10 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.4:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{48}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{49}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{49}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.7:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{51}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.8:}{\ignorespaces Estrutura do \textit {cluster}.}}{52}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{56}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{53}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.2:}{\ignorespaces Estrutura do \textit {cluster}.}}{53}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.3:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{56}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
