@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tcc.aux
 A level-1 auxiliary file: folha_rosto.aux
+A level-1 auxiliary file: agradecimentos.aux
 A level-1 auxiliary file: abstract.aux
 A level-1 auxiliary file: capitulos/introducao.aux
 A level-1 auxiliary file: capitulos/capitulo2.aux
@@ -32,7 +33,7 @@ I was expecting a `,' or a `}'---line 618 of file tcc.bib
 I'm skipping whatever remains of this entry
 You've used 88 entries,
             2371 wiz_defined-function locations,
-            971 strings with 17877 characters,
+            972 strings with 17895 characters,
 and the built_in function-call counts, 71314 in all, are:
 = -- 8120
 > -- 310

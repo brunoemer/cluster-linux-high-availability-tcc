@@ -1,76 +1,76 @@
 \select@language {brazilian}
-\contentsline {chapter}{Lista de siglas}{4}
-\contentsline {chapter}{Lista de Figuras}{6}
-\contentsline {chapter}{Lista de Tabelas}{7}
-\contentsline {chapter}{Resumo}{8}
+\contentsline {chapter}{Lista de siglas}{5}
+\contentsline {chapter}{Lista de Figuras}{7}
+\contentsline {chapter}{Lista de Tabelas}{8}
+\contentsline {chapter}{Resumo}{9}
 \select@language {english}
-\contentsline {chapter}{Abstract}{9}
+\contentsline {chapter}{Abstract}{10}
 \select@language {brazilian}
-\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{10}
-\contentsline {section}{\numberline {1.1}Objetivos}{11}
-\contentsline {section}{\numberline {1.2}Estrutura do trabalho}{11}
-\contentsline {chapter}{\numberline {2}Alta disponibilidade}{12}
-\contentsline {section}{\numberline {2.1}Toler\IeC {\^a}ncia a falhas}{12}
-\contentsline {section}{\numberline {2.2}Redund\IeC {\^a}ncia}{14}
-\contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo da alta disponibilidade}{15}
-\contentsline {section}{\numberline {2.4}Considera\IeC {\c c}\IeC {\~o}es finais}{16}
-\contentsline {chapter}{\numberline {3}Virtualiza\IeC {\c c}\IeC {\~a}o}{17}
-\contentsline {section}{\numberline {3.1}M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o}{19}
-\contentsline {section}{\numberline {3.2}M\IeC {\'a}quinas virtuais de sistema}{20}
-\contentsline {subsection}{\numberline {3.2.1}Arquiteturas de m\IeC {\'a}quinas virtuais de sistema}{21}
-\contentsline {subsection}{\numberline {3.2.2}Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema}{22}
-\contentsline {section}{\numberline {3.3}Vantagens das m\IeC {\'a}quinas virtuais}{23}
-\contentsline {subsection}{\numberline {3.3.1}Virtualiza\IeC {\c c}\IeC {\~a}o de Desktop}{23}
-\contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{24}
-\contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{25}
-\contentsline {chapter}{\numberline {4}Infraestrutura da Empresa}{26}
-\contentsline {section}{\numberline {4.1}Instala\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica}{27}
-\contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{29}
-\contentsline {section}{\numberline {4.3}Servidores com virtualiza\IeC {\c c}\IeC {\~a}o}{30}
-\contentsline {subsection}{\numberline {4.3.1}Servidor Brina}{30}
-\contentsline {subsection}{\numberline {4.3.2}Servidor Fulmine}{31}
-\contentsline {subsection}{\numberline {4.3.3}Servidor Piova}{32}
-\contentsline {subsection}{\numberline {4.3.4}Servidor Raggio}{34}
-\contentsline {subsection}{\numberline {4.3.5}Servidor Tempesta}{34}
-\contentsline {subsection}{\numberline {4.3.6}Servidor Tuono}{35}
-\contentsline {subsection}{\numberline {4.3.7}Servidor Venti}{36}
-\contentsline {section}{\numberline {4.4}Considera\IeC {\c c}\IeC {\~o}es finais}{37}
-\contentsline {chapter}{\numberline {5}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{38}
-\contentsline {section}{\numberline {5.1}DNS recursivo prim\IeC {\'a}rio}{38}
-\contentsline {section}{\numberline {5.2}Autentica\IeC {\c c}\IeC {\~a}o Radius}{39}
-\contentsline {section}{\numberline {5.3}Sistemas da empresa e do provedor}{40}
-\contentsline {section}{\numberline {5.4}Telefonia interna sobre IP}{41}
-\contentsline {section}{\numberline {5.5}Resumo e os servi\IeC {\c c}os cr\IeC {\'\i }ticos}{42}
-\contentsline {section}{\numberline {5.6}Considera\IeC {\c c}\IeC {\~o}es finais}{42}
-\contentsline {chapter}{\numberline {6}Softwares para implementa\IeC {\c c}\IeC {\~a}o}{43}
-\contentsline {section}{\numberline {6.1}Defini\IeC {\c c}\IeC {\~a}o do software para a replica\IeC {\c c}\IeC {\~a}o de dados}{44}
-\contentsline {subsection}{\numberline {6.1.1}\aca {DRBD}}{44}
-\contentsline {subsection}{\numberline {6.1.2}GlusterFS}{45}
-\contentsline {subsection}{\numberline {6.1.3}Rsync}{46}
-\contentsline {subsection}{\numberline {6.1.4}Resumo e software de replica\IeC {\c c}\IeC {\~a}o adotado}{47}
-\contentsline {section}{\numberline {6.2}Defini\IeC {\c c}\IeC {\~a}o do software para o gerenciamento de cluster}{47}
-\contentsline {subsection}{\numberline {6.2.1}Ganeti}{47}
-\contentsline {subsection}{\numberline {6.2.2}Heartbeat}{48}
-\contentsline {subsection}{\numberline {6.2.3}Pacemaker}{48}
-\contentsline {subsection}{\numberline {6.2.4}Resumo e software de gerenciamento adotado}{50}
-\contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{50}
-\contentsline {chapter}{\numberline {7}Implementa\IeC {\c c}\IeC {\~a}o e testes}{52}
-\contentsline {section}{\numberline {7.1}Implementa\IeC {\c c}\IeC {\~a}o}{52}
-\contentsline {section}{\numberline {7.2}Testes}{54}
-\contentsline {subsection}{\numberline {7.2.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{54}
-\contentsline {subsection}{\numberline {7.2.2}Teste 2 - Desligamento por software}{55}
-\contentsline {subsection}{\numberline {7.2.3}Teste 3 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{55}
-\contentsline {section}{\numberline {7.3}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{56}
-\contentsline {section}{\numberline {7.4}Considera\IeC {\c c}\IeC {\~o}es finais}{57}
-\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{58}
-\contentsline {section}{\numberline {8.1}Trabalho futuros}{59}
-\contentsline {chapter}{Refer{\^e}ncias}{60}
-\contentsline {chapter}{\numberline {Ap{\^e}ndiceA}}{66}
-\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{66}
-\contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{66}
-\contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{67}
-\contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{69}
-\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{69}
-\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{72}
-\contentsline {section}{\numberline {B.1}Script indisponibilidade}{72}
-\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{72}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{11}
+\contentsline {section}{\numberline {1.1}Objetivos}{12}
+\contentsline {section}{\numberline {1.2}Estrutura do trabalho}{12}
+\contentsline {chapter}{\numberline {2}Alta disponibilidade}{13}
+\contentsline {section}{\numberline {2.1}Toler\IeC {\^a}ncia a falhas}{13}
+\contentsline {section}{\numberline {2.2}Redund\IeC {\^a}ncia}{15}
+\contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo da alta disponibilidade}{16}
+\contentsline {section}{\numberline {2.4}Considera\IeC {\c c}\IeC {\~o}es finais}{17}
+\contentsline {chapter}{\numberline {3}Virtualiza\IeC {\c c}\IeC {\~a}o}{18}
+\contentsline {section}{\numberline {3.1}M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o}{20}
+\contentsline {section}{\numberline {3.2}M\IeC {\'a}quinas virtuais de sistema}{21}
+\contentsline {subsection}{\numberline {3.2.1}Arquiteturas de m\IeC {\'a}quinas virtuais de sistema}{22}
+\contentsline {subsection}{\numberline {3.2.2}Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema}{23}
+\contentsline {section}{\numberline {3.3}Vantagens das m\IeC {\'a}quinas virtuais}{24}
+\contentsline {subsection}{\numberline {3.3.1}Virtualiza\IeC {\c c}\IeC {\~a}o de Desktop}{24}
+\contentsline {subsection}{\numberline {3.3.2}Virtualiza\IeC {\c c}\IeC {\~a}o de servidores}{25}
+\contentsline {section}{\numberline {3.4}Considera\IeC {\c c}\IeC {\~o}es finais}{26}
+\contentsline {chapter}{\numberline {4}Infraestrutura da Empresa}{27}
+\contentsline {section}{\numberline {4.1}Instala\IeC {\c c}\IeC {\~a}o f\IeC {\'\i }sica}{28}
+\contentsline {section}{\numberline {4.2}Servidores sem virtualiza\IeC {\c c}\IeC {\~a}o}{30}
+\contentsline {section}{\numberline {4.3}Servidores com virtualiza\IeC {\c c}\IeC {\~a}o}{31}
+\contentsline {subsection}{\numberline {4.3.1}Servidor Brina}{31}
+\contentsline {subsection}{\numberline {4.3.2}Servidor Fulmine}{32}
+\contentsline {subsection}{\numberline {4.3.3}Servidor Piova}{33}
+\contentsline {subsection}{\numberline {4.3.4}Servidor Raggio}{35}
+\contentsline {subsection}{\numberline {4.3.5}Servidor Tempesta}{35}
+\contentsline {subsection}{\numberline {4.3.6}Servidor Tuono}{36}
+\contentsline {subsection}{\numberline {4.3.7}Servidor Venti}{37}
+\contentsline {section}{\numberline {4.4}Considera\IeC {\c c}\IeC {\~o}es finais}{38}
+\contentsline {chapter}{\numberline {5}Servi\IeC {\c c}os cr\IeC {\'\i }ticos}{39}
+\contentsline {section}{\numberline {5.1}DNS recursivo prim\IeC {\'a}rio}{39}
+\contentsline {section}{\numberline {5.2}Autentica\IeC {\c c}\IeC {\~a}o Radius}{40}
+\contentsline {section}{\numberline {5.3}Sistemas da empresa e do provedor}{41}
+\contentsline {section}{\numberline {5.4}Telefonia interna sobre IP}{42}
+\contentsline {section}{\numberline {5.5}Resumo e os servi\IeC {\c c}os cr\IeC {\'\i }ticos}{43}
+\contentsline {section}{\numberline {5.6}Considera\IeC {\c c}\IeC {\~o}es finais}{43}
+\contentsline {chapter}{\numberline {6}Softwares para implementa\IeC {\c c}\IeC {\~a}o}{44}
+\contentsline {section}{\numberline {6.1}Defini\IeC {\c c}\IeC {\~a}o do software para a replica\IeC {\c c}\IeC {\~a}o de dados}{45}
+\contentsline {subsection}{\numberline {6.1.1}\aca {DRBD}}{45}
+\contentsline {subsection}{\numberline {6.1.2}GlusterFS}{46}
+\contentsline {subsection}{\numberline {6.1.3}Rsync}{47}
+\contentsline {subsection}{\numberline {6.1.4}Resumo e software de replica\IeC {\c c}\IeC {\~a}o adotado}{48}
+\contentsline {section}{\numberline {6.2}Defini\IeC {\c c}\IeC {\~a}o do software para o gerenciamento de cluster}{48}
+\contentsline {subsection}{\numberline {6.2.1}Ganeti}{48}
+\contentsline {subsection}{\numberline {6.2.2}Heartbeat}{49}
+\contentsline {subsection}{\numberline {6.2.3}Pacemaker}{49}
+\contentsline {subsection}{\numberline {6.2.4}Resumo e software de gerenciamento adotado}{51}
+\contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{51}
+\contentsline {chapter}{\numberline {7}Implementa\IeC {\c c}\IeC {\~a}o e testes}{53}
+\contentsline {section}{\numberline {7.1}Implementa\IeC {\c c}\IeC {\~a}o}{53}
+\contentsline {section}{\numberline {7.2}Testes}{55}
+\contentsline {subsection}{\numberline {7.2.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{55}
+\contentsline {subsection}{\numberline {7.2.2}Teste 2 - Desligamento por software}{56}
+\contentsline {subsection}{\numberline {7.2.3}Teste 3 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{56}
+\contentsline {section}{\numberline {7.3}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{57}
+\contentsline {section}{\numberline {7.4}Considera\IeC {\c c}\IeC {\~o}es finais}{58}
+\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{59}
+\contentsline {section}{\numberline {8.1}Trabalho futuros}{60}
+\contentsline {chapter}{Refer{\^e}ncias}{61}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceA}}{67}
+\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{67}
+\contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{67}
+\contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{68}
+\contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{70}
+\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{70}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{73}
+\contentsline {section}{\numberline {B.1}Script indisponibilidade}{73}
+\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{73}

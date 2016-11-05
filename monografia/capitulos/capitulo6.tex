@@ -393,7 +393,7 @@ Ela também faz o sincronismo de configuração entre todos os nós, ou seja, a 
 \caption{Comparação entre ferramentas de gerenciamento de \textit{cluster}.}
 \label{tab:clusterger}
 \begin{center}
-\begin{tabular}{|p{4cm}|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
+\begin{tabular}{|l|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
 \textbf{Critério} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
 Suporte nativo à virtualização & Sim & Não & Sim \\\hline
 Migração de \acp{VM} em tempo real & Sim & Não & Sim \\\hline
@@ -416,10 +416,9 @@ criar um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 
 \section{Considerações finais}
 
-Neste capítulo foi apresentada a arquitetura de alta disponibilidade implementada com base em virtualização, sendo composta por dois servidores 
-físicos, onde foram configuradas máquinas virtuais contendo os serviços críticos da empresa. Os \textit{softwares} utilizados foram escolhidos 
-a partir de características compatíveis com alguns trabalhos científicos semelhantes e também adequadas com o ambiente da empresa. 
-Deste modo, foram necessários dois \textit{softwares} para a implementação, o \ac{DRBD} para fazer a replicação dos dados, e o \textit{Pacemaker}
-que é responsável pela gerência e monitoramento do \textit{cluster}. MUDAR PROJETO IMPLEMENTACAO ??
-
+Neste capítulo foi feito um levantamento de \textit{softwares} para possibilitar a construção de um ambiente de alta disponibilidade utilizando 
+virtualização. Para construção desse ambiente dois \textit{softwares} foram necessários, um para a replicação de dados e outro para gerência e 
+monitoramento do \textit{cluster}. Foram utilizados alguns critérios para auxiliar na escolha dos \textit{softwares}, sendo assim, os 
+\textit{softwares} escolhidos foram: o \ac{DRBD} para fazer a replicação dos dados, e o \textit{Pacemaker} que é responsável pela gerência e 
+monitoramento.
 No próximo capítulo será apresentado o projeto de implementação e serão descritos os testes criados e apresentado os resultados obtidos.
