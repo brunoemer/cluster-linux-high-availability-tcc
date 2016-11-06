@@ -93,8 +93,8 @@ forçado do servidor, ou seja, foi pressionado o botão \textit{power} até o se
 Com este teste pode-se validar ainda o processo de \textit{failover} dos serviços (máquinas virtuais) que estavam executando no nó que falhou, 
 bem como medir o tempo de indisponibilidade dos serviços. 
 Esse teste de desligamento foi executado 4 vezes no \textit{cluster}. O tempo de indisponibilidade foi medido utilizando o comando \textit{ping}
-(utilizado um \textit{script} para facilitar a medição, ele está localizado no Apêndice \ref{ap:scriptindisp}), ou seja, durante a execução de 
-cada teste foi executado um \textit{ping} com duração de 5 minutos para cada servidor, para os dois nós e para a máquina virtual.
+(para facilitar a medição foi utilizado um \textit{script} que está localizado no Apêndice \ref{ap:scriptindisp}), ou seja, durante a execução de 
+cada teste foi executado um \textit{ping}, para cada servidor, para os dois nós e para a máquina virtual. Cada execução possui duração de 5 minutos.
 Com os resultados desses testes efetuados criou-se a Tabela \ref{tab:teste1resultados}, ?? CONTINUAR onde pode-se observar que o tempo de indisponibilidade 
 da máquina virtual é de 81 segundos, sendo considerado baixo comparado aos nós que são de 124 e 170,5 segundos. Isto se deve ao fato da \ac{VM} 
 ser iniciada em um outro nó logo após o desligamento do primeiro. Nos testes realizados o desvio padrão demonstra que, existe pouca variação de 
