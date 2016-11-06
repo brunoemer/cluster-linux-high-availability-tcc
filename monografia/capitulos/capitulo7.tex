@@ -177,14 +177,14 @@ aproximadamente 6 horas indisponíveis.
 % \end{itemize}
 
 \begin{table}[h!]
-\caption{Resultados do teste de desligamento por \textit{software}.}
+\caption{Resultados do teste de desligamento por \textit{software}, com tempo de indisponibilidade em segundos e o desvio padrão.}
 \label{tab:teste2resultados}
 \begin{center}
 \begin{tabular}{|l|l|l|}\hline
  & \textbf{Tempo de indisponibilidade média} & \textbf{Desvio padrão da indisponibilidade} \\\hline
-Nó 1 & 138,5 segundos & 2,12 \\\hline
-Nó 2 & 167 segundos & 1,41 \\\hline
-Máquina virtual & 10 segundos & 0 \\\hline
+Nó 1 & 138,5 & 2,12 \\\hline
+Nó 2 & 167 & 1,41 \\\hline
+Máquina virtual & 10 & 0 \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -208,10 +208,11 @@ falhas.} de \textit{software} \cite{melo2014}. Desta forma, criou-se esse teste 
 %\end{itemize}
 
 Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias, para tanto, criou-se um \textit{script} que é 
-responsável por migrar as \acp{VM} para liberar o nó e reiniciá-lo (este \textit{script} está disponível no Apêndice \ref{ap:scriptmanutencao}). 
+responsável por migrar as \acp{VM} para liberar o nó e reiniciá-lo, simulando assim uma atualização de \textit{kernel} 
+(este \textit{script} está disponível no Apêndice \ref{ap:scriptmanutencao}). 
 Para a execução do \textit{script} foi utilizada a ferramenta \textit{crontab} do \textit{Linux}. 
-Os resultados são apresentados na Tabela \ref{tab:teste3resultados}, pode-se observar que não houve \textit{downtime}, e consequentemente, não 
-houve indisponibilidade nos serviços, devido a migração em tempo real das \acp{VM}. 
+Os resultados são apresentados na Tabela \ref{tab:teste3resultados}, pode-se observar que não houve \textit{downtime} na máquina virtual, e 
+consequentemente, não houve indisponibilidade nos serviços, devido a migração em tempo real das \acp{VM}. 
 Já nos nós do \textit{cluster} tem-se um tempo de indisponibilidade de 145,5 e 173 segundos devido a reinicialização dos nós.
 %A latência baixa da máquina virtual demonstra que não há perda significante de desempenho durante a migração da máquina virtual de um nó para outro.
 
@@ -242,6 +243,7 @@ Máquina virtual & 0 & 0 \\\hline
 A Tabela \ref{tab:teste3disp} demonstra o percentual de disponibilidade da \ac{VM} e dos nós do \textit{cluster} durante o período de 13 dias
 do teste. Destaca-se que a máquina virtual não apresentou nenhuma indisponibilidade. 
 Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, responsável pelo monitoramento da empresa.
+COLOCAR ESSA TABELA ??
 
 \begin{table}[h!]
 \caption{Disponibilidade e tempo de indisponibilidade do período de 13 dias.}
@@ -286,8 +288,8 @@ Máquina virtual & 100\% & 0 minutos \\\hline
 % \end{figure}
 
 Durante o processo de \textit{live migration} de um nó para outro a latência da máquina virtual aumentou, isso pode ser observado na Figura 
-\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo de 50 e 100 segundos. Mesmo com o aumento de latência não ocorre 
-perda significante de desempenho durante a migração da máquina virtual.
+\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo de 50 e 100 segundos. 
+%Mesmo com o aumento de latência não ocorre perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
 %teste2/186.195.16.13-stat-2.log
 \begin{figure}[h!]
