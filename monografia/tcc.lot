@@ -19,9 +19,9 @@
 \contentsline {table}{\numberline {Tabela\nobreakspace 6.1:}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados.}}{48}
 \contentsline {table}{\numberline {Tabela\nobreakspace 6.2:}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o entre ferramentas de gerenciamento de \textit {cluster}.}}{51}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {Tabela\nobreakspace 7.1:}{\ignorespaces Resultados do teste de desligamento f\IeC {\'\i }sico, contendo o tempo de indisponibilidade medido durante o teste e o desvio padr\IeC {\~a}o.}}{55}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.1:}{\ignorespaces Resultados do teste de desligamento f\IeC {\'\i }sico, contendo o tempo de indisponibilidade em segundos e o desvio padr\IeC {\~a}o.}}{55}
 \contentsline {table}{\numberline {Tabela\nobreakspace 7.2:}{\ignorespaces Resultados do teste de desligamento por \textit {software}.}}{56}
-\contentsline {table}{\numberline {Tabela\nobreakspace 7.3:}{\ignorespaces Resultados do teste de manuten\IeC {\c c}\IeC {\~a}o agendada.}}{57}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.3:}{\ignorespaces Resultados do teste de manuten\IeC {\c c}\IeC {\~a}o agendada, com o tempo de indisponibilidade em segundos e o desvio padr\IeC {\~a}o.}}{57}
 \contentsline {table}{\numberline {Tabela\nobreakspace 7.4:}{\ignorespaces Disponibilidade e tempo de indisponibilidade do per\IeC {\'\i }odo de 13 dias.}}{57}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

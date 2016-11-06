@@ -90,18 +90,14 @@ migração em tempo real para não gerar indisponibilidade da \ac{VM}.
 
 Neste teste são simuladas falhas de \textit{hardware} ou falhas elétricas nos nós do \textit{cluster}. Para isso foi feito o desligamento 
 forçado do servidor, ou seja, foi pressionado o botão \textit{power} até o servidor desligar.
-Com este teste pode-se validar ainda o processo de \textit{failover} dos serviços (máquinas virtuais) que estavam executando no nó que falhou, 
+Com esse teste pode-se validar ainda o processo de \textit{failover} dos serviços (máquinas virtuais) que estavam executando no nó que falhou, 
 bem como medir o tempo de indisponibilidade dos serviços. 
-Esse teste de desligamento foi executado 4 vezes no \textit{cluster}. O tempo de indisponibilidade foi medido utilizando o comando \textit{ping},
-ou seja, 
+Esse teste de desligamento foi executado 4 vezes no \textit{cluster}. O tempo de indisponibilidade foi medido utilizando o comando \textit{ping}
+(para facilitar a medição foi utilizado um \textit{script} que está localizado no Apêndice \ref{ap:scriptindisp}), ou seja, durante a execução de 
+cada teste foi executado um \textit{ping} para os dois nós e para a máquina virtual, sendo que cada execução possui duração de 5 minutos.
+Com os resultados desses testes efetuados criou-se a Tabela \ref{tab:teste1resultados}, onde pode-se observar que o tempo de indisponibilidade 
+da máquina virtual é de 81 segundos. Isso se deve ao fato da \ac{VM} ser iniciada em um outro nó logo após o desligamento do primeiro. 
 
-juntamente com um \textit{script} que faz a coleta do tempo de
-indisponibilidade e da latência dos dois nós e de uma máquina virtual, essa coleta é necessária para comparar os tempos de indisponibilidade da
-máquina virtual e dos nós. 
-Esse \textit{script} está localizado no Apêndice \ref{ap:scriptindisp}, que utiliza o comando \textit{ping} para medir o tempo de 
-indisponibilidade e possui um tempo de 5 minutos para sua execução. Na Tabela \ref{tab:teste1resultados}, onde são apresentados os dados coletados 
-dos testes efetuados, pode-se observar que o tempo de indisponibilidade da máquina virtual é de 81 segundos, sendo considerado baixo comparado 
-aos nós que são de 169 e 205,5 segundos. Isto se deve ao fato da \ac{VM} ser iniciada em um outro nó logo após o desligamento do primeiro. 
 Nos testes realizados o desvio padrão demonstra que, existe pouca variação de tempo de indisponibilidade da máquina virtual.
 
 %Este teste juntamente com os dois testes das próximas seções foram efetuados no 
