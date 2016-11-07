@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  7 NOV 2016 19:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  7 NOV 2016 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2010,17 +2010,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [54 <./img/projeto_fisico-eps-converted-to.pdf> <./img/projeto_estrutura-eps-co
 nverted-to.pdf>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 122.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [55]
-Overfull \hbox (1.39171pt too wide) in paragraph at lines 210--218
+Overfull \hbox (1.39171pt too wide) in paragraph at lines 212--220
 []\OT1/cmr/m/n/12 Esse teste con-siste no agen-da-mento de 4 ma-nu-ten^^Xc~oes 
 efe-tu-a-das du-rante o per^^S^^Podo
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2036,15 +2036,15 @@ Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    size: 17324 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/teste2_latencia-eps-co
 nverted-to.pdf img/teste2_latencia.eps>
-(epstopdf)             \includegraphics on input line 297.
+(epstopdf)             \includegraphics on input line 301.
 Package epstopdf Info: Output file is already uptodate.
 
-<img/teste2_latencia-eps-converted-to.pdf, id=307, 723.70375pt x 506.89375pt>
+<img/teste2_latencia-eps-converted-to.pdf, id=308, 723.70375pt x 506.89375pt>
 File: img/teste2_latencia-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/teste2_latencia-eps-converted-to.pdf>
 Package pdftex.def Info: img/teste2_latencia-eps-converted-to.pdf used on input
- line 297.
+ line 301.
 (pdftex.def)             Requested size: 321.20117pt x 224.97531pt.
  [57 <./img/teste2_latencia-eps-converted-to.pdf>])
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2236,34 +2236,38 @@ AED: lastpage setting LastPage
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 16695 strings out of 495004
- 309330 string characters out of 6180662
+ 16700 strings out of 495004
+ 309408 string characters out of 6180662
  419512 words of memory out of 5000000
- 19524 multiletter control sequences out of 15000+600000
- 11576 words of font info for 40 fonts, out of 8000000 for 9000
+ 19528 multiletter control sequences out of 15000+600000
+ 12500 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,11n,57p,10374b,1724s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (76 pages, 2286837 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on tcc.pdf (76 pages, 2298755 bytes).
 PDF statistics:
- 430 PDF objects out of 1000 (max. 8388607)
- 276 compressed objects within 3 object streams
+ 434 PDF objects out of 1000 (max. 8388607)
+ 279 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
