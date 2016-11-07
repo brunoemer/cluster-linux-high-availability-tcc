@@ -77,8 +77,8 @@ manual, e por fim um teste com migração em tempo real (\textit{live migration}
 
 Neste trabalho optou-se por utilizar o teste de desligamento brusco e o desligamento por \textit{software} utilizados por \citet{reis2009}.
 Já do autor \citet{goncalves2009}, utilizou-se o teste de migração em tempo real, porém adaptado para simular um agendamento de manutenção de 
-\textit{hardware} ou de \textit{software}, ou seja, fazer a migração das \acp{VM} de um nó para fazer uma manutenção deste nó, utilizando a
-migração em tempo real para não gerar indisponibilidade da \ac{VM}.
+\textit{hardware} ou de \textit{software}, ou seja, migrar as \acp{VM} de um nó para outro utilizando a migração em tempo real, 
+com objetivo de fazer uma manutenção do sistema operacional deste nó.
 
 %Os três testes descritos nas próximas seções foram efetuados no ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, 
 %devido ao fato destes testes possuírem risco de perda de dados durante a execução.
@@ -97,17 +97,17 @@ Esse teste de desligamento foi executado 4 vezes no \textit{cluster}. O tempo de
 cada teste foi executado um \textit{ping} para os dois nós e para a máquina virtual, sendo que cada execução possui duração de 5 minutos.
 
 Com os resultados desses testes efetuados criou-se a Tabela \ref{tab:teste1resultados}, onde pode-se observar que o tempo de indisponibilidade 
-da máquina virtual é de apenas 81 segundos. Isso se deve ao fato da \ac{VM} ser iniciada em um outro nó logo após o desligamento do primeiro. 
+da máquina virtual é de apenas 81 segundos. Isso se deve ao fato da \ac{VM} ser iniciada em um outro nó após o desligamento do primeiro. 
 Caso um servidor de virtualização que não possua esta solução de alta disponibilidade for reiniciado por causa de uma falha elétrica por exemplo,
-o tempo para reestabelecer o serviço seria igual a soma do tempo de inicialização do servidor físico mais o tempo da máquina virtual, 
-que totalizaria aproximadamente 250 segundos. 
+o tempo para a recuperação do serviço seria igual a soma do tempo de inicialização do servidor físico mais o tempo de inicialização da máquina 
+virtual, que totalizaria aproximadamente 250 segundos. 
 Na pior das hipóteses, caso haja uma falha definitiva do servidor físico, sendo necessário reconfigurar a máquina virtual, reinstalar as aplicações,
 configurá-las e restaurar o \textit{backup}, o \ac{MTTR} seria significativamente maior. Dependendo do servidor e da aplicação, 
 a indisponibilidade poderia ser maior que 24 horas.
 %talvez adicionar um teste de desligamento de um servidor comum para comparar os tempos de indisponibilidade??
 
 Pode-se observar na tabela uma diferença entre os tempos de indisponibilidade do Nó 1 e Nó 2, isso ocorre devido a utilização de \textit{hardwares}
-diferentes na implementação. Observa-se também que o desvio padrão possui pouca variação entre os tempos de indisponibilidade.
+diferentes na implementação. Além disso, o desvio padrão demonstra que existe pouca variação entre os tempos de indisponibilidade.
 
 %Este teste juntamente com os dois testes das próximas seções foram efetuados no 
 %ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, por possuírem risco de perda de dados em sua execução.
@@ -152,7 +152,7 @@ Máquina virtual & 81 & 7,07 \\\hline
 \subsection{Teste 2 - Desligamento por software}
 
 Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, desta forma pode-se citar como exemplo uma falha de um \textit{software} 
-de virtualização, com isso o nó não conseguirá iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma manutenção emergencial, 
+de virtualização, com isso o nó não conseguiria iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma manutenção emergencial, 
 onde é preciso desligar um servidor físico de forma rápida. Desta forma, pode-se verificar a capacidade do outro nó manter os serviços
 em funcionamento. Para simular esta situação, foram acessados os nós via \ac{SSH} e executado o comando \textit{reboot}.
 Esse teste foi executado 4 vezes nos nós do \textit{cluster}. O tempo de indisponibilidade foi medido da mesma forma que o teste da seção anterior,

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  6 NOV 2016 22:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  7 NOV 2016 19:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1986,18 +1986,12 @@ Package epstopdf Info: Source file: <img/projeto_estrutura.eps>
 (epstopdf)                    size: 398995 bytes
 (epstopdf)             Output file: <img/projeto_estrutura-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2016-11-06 22:23:21
-(epstopdf)                    size: 101520 bytes
+(epstopdf)                    date: 2016-11-06 22:26:59
+(epstopdf)                    size: 101807 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_estrutura-eps-
 converted-to.pdf img/projeto_estrutura.eps>
 (epstopdf)             \includegraphics on input line 54.
-runsystem(repstopdf --outfile=img/projeto_estrutura-eps-converted-to.pdf img/pr
-ojeto_estrutura.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <img/projeto_estrutura-eps-converted-to.pdf
->
-(epstopdf)                    date: 2016-11-06 22:26:59
-(epstopdf)                    size: 101807 bytes.
+Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_estrutura-eps-converted-to.pdf, id=290, 1139.25626pt x 984.67876pt
 >
@@ -2015,7 +2009,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [54 <./img/projeto_fisico-eps-converted-to.pdf> <./img/projeto_estrutura-eps-co
-nverted-to.pdf>] [55]
+nverted-to.pdf>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[55]
 Overfull \hbox (1.39171pt too wide) in paragraph at lines 210--218
 []\OT1/cmr/m/n/12 Esse teste con-siste no agen-da-mento de 4 ma-nu-ten^^Xc~oes 
 efe-tu-a-das du-rante o per^^S^^Podo
@@ -2242,7 +2240,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  16695 strings out of 495004
  309330 string characters out of 6180662
- 419527 words of memory out of 5000000
+ 419512 words of memory out of 5000000
  19524 multiletter control sequences out of 15000+600000
  11576 words of font info for 40 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2262,7 +2260,7 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (76 pages, 2286945 bytes).
+Output written on tcc.pdf (76 pages, 2286837 bytes).
 PDF statistics:
  430 PDF objects out of 1000 (max. 8388607)
  276 compressed objects within 3 object streams
