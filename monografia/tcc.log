@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  12 NOV 2016 18:17
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  12 NOV 2016 19:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1970,7 +1970,7 @@ Package epstopdf Info: Source file: <img/projeto_fisico.eps>
 (epstopdf)                    size: 130299 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_fisico-eps-con
 verted-to.pdf img/projeto_fisico.eps>
-(epstopdf)             \includegraphics on input line 41.
+(epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_fisico-eps-converted-to.pdf, id=286, 1012.78375pt x 341.275pt>
@@ -1978,10 +1978,10 @@ File: img/projeto_fisico-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/projeto_fisico-eps-converted-to.pdf>
 Package pdftex.def Info: img/projeto_fisico-eps-converted-to.pdf used on input 
-line 41.
+line 42.
 (pdftex.def)             Requested size: 431.61407pt x 145.43831pt.
 
-Overfull \hbox (4.82272pt too wide) in paragraph at lines 41--42
+Overfull \hbox (4.82272pt too wide) in paragraph at lines 42--43
  [][] 
  []
 
@@ -2002,7 +2002,7 @@ Package epstopdf Info: Source file: <img/projeto_estrutura.eps>
 (epstopdf)                    size: 101807 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_estrutura-eps-
 converted-to.pdf img/projeto_estrutura.eps>
-(epstopdf)             \includegraphics on input line 57.
+(epstopdf)             \includegraphics on input line 58.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_estrutura-eps-converted-to.pdf, id=290, 1139.25626pt x 984.67876pt
@@ -2010,7 +2010,7 @@ Package epstopdf Info: Output file is already uptodate.
 File: img/projeto_estrutura-eps-converted-to.pdf Graphic file (type pdf)
  <use img/projeto_estrutura-eps-converted-to.pdf>
 Package pdftex.def Info: img/projeto_estrutura-eps-converted-to.pdf used on inp
-ut line 57.
+ut line 58.
 (pdftex.def)             Requested size: 351.31378pt x 303.63959pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2020,9 +2020,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [54 <./img/projeto_fisico-eps-converted-to.pdf> <./img/projeto_estrutura-eps-co
 nverted-to.pdf>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 126.
+(Font)              <10.95> on input line 127.
  [55]
-Overfull \hbox (1.39171pt too wide) in paragraph at lines 220--228
+Overfull \hbox (1.39171pt too wide) in paragraph at lines 221--225
 []\OT1/cmr/m/n/12 Esse teste con-siste no agen-da-mento de 4 ma-nu-ten^^Xc~oes 
 efe-tu-a-das du-rante o per^^S^^Podo
  []
@@ -2044,7 +2044,7 @@ Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    size: 17324 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/teste2_latencia-eps-co
 nverted-to.pdf img/teste2_latencia.eps>
-(epstopdf)             \includegraphics on input line 309.
+(epstopdf)             \includegraphics on input line 311.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/teste2_latencia-eps-converted-to.pdf, id=308, 723.70375pt x 506.89375pt>
@@ -2052,11 +2052,8 @@ File: img/teste2_latencia-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/teste2_latencia-eps-converted-to.pdf>
 Package pdftex.def Info: img/teste2_latencia-eps-converted-to.pdf used on input
- line 309.
+ line 311.
 (pdftex.def)             Requested size: 321.20117pt x 224.97531pt.
-
-Underfull \vbox (badness 1466) has occurred while \output is active []
-
  [57 <./img/teste2_latencia-eps-converted-to.pdf>])
 Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 58
@@ -2272,7 +2269,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (76 pages, 2299106 bytes).
+Output written on tcc.pdf (76 pages, 2299316 bytes).
 PDF statistics:
  434 PDF objects out of 1000 (max. 8388607)
  279 compressed objects within 3 object streams
