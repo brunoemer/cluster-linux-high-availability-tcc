@@ -47,18 +47,18 @@
 \contentsline {subsection}{\numberline {6.1.1}\aca {DRBD}}{45}
 \contentsline {subsection}{\numberline {6.1.2}GlusterFS}{46}
 \contentsline {subsection}{\numberline {6.1.3}Rsync}{47}
-\contentsline {subsection}{\numberline {6.1.4}Resumo e software de replica\IeC {\c c}\IeC {\~a}o adotado}{48}
+\contentsline {subsection}{\numberline {6.1.4}Comparativo entre os softwares de replica\IeC {\c c}\IeC {\~a}o de dados}{48}
 \contentsline {section}{\numberline {6.2}Softwares para o gerenciamento do cluster}{48}
 \contentsline {subsection}{\numberline {6.2.1}Ganeti}{48}
 \contentsline {subsection}{\numberline {6.2.2}Heartbeat}{49}
 \contentsline {subsection}{\numberline {6.2.3}Pacemaker}{49}
-\contentsline {subsection}{\numberline {6.2.4}Resumo e software de gerenciamento adotado}{51}
+\contentsline {subsection}{\numberline {6.2.4}Comparativo entre os softwares de gerenciamento de cluster}{51}
 \contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{51}
 \contentsline {chapter}{\numberline {7}Implementa\IeC {\c c}\IeC {\~a}o e testes}{53}
-\contentsline {section}{\numberline {7.1}Implementa\IeC {\c c}\IeC {\~a}o}{53}
+\contentsline {section}{\numberline {7.1}Descri\IeC {\c c}\IeC {\~a}o do ambiente de alta disponibilidade}{53}
 \contentsline {section}{\numberline {7.2}Testes}{55}
 \contentsline {subsection}{\numberline {7.2.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{55}
-\contentsline {subsection}{\numberline {7.2.2}Teste 2 - Desligamento por software}{55}
+\contentsline {subsection}{\numberline {7.2.2}Teste 2 - Desligamento por software}{56}
 \contentsline {subsection}{\numberline {7.2.3}Teste 3 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{56}
 \contentsline {section}{\numberline {7.3}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{58}
 \contentsline {section}{\numberline {7.4}Considera\IeC {\c c}\IeC {\~o}es finais}{58}

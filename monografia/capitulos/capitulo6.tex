@@ -138,9 +138,9 @@ O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com
 \subsection{Rsync}
 \label{section:rsync}
 O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} provê uma rápida
-transferência de arquivos, ou seja, ele faz o sincronização de arquivos transferindo-os de um servidor de origem para um de destino. 
+transferência de arquivos, ou seja, ele faz o sincronização de arquivos transferindo-os de um servidor de origem para um servidor de destino. 
 A Figura \ref{fig:rsync} demonstra o funcionamento do \textit{Rsync}. Observa-se que no \textit{Rsync} tem-se uma replicação somente dos 
-arquivos que ainda não foram atualizados ou que não existem no servidor de destino. Além disso, o \textit{Rsync} permite uma replicação completa, 
+arquivos que foram alterados ou ainda que não existem no servidor de destino. Além disso, o \textit{Rsync} permite uma replicação completa, 
 sendo que neste caso os arquivos já existentes são sobrescritos.
 
 \begin{figure}[h!]
@@ -156,22 +156,22 @@ sendo que neste caso os arquivos já existentes são sobrescritos.
 %Algoritmo \cite{tridgell98}
 
 O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar seus arquivos com ele. 
-Além disso, a sincronização pode ser de cliente para cliente, utilizando como transporte o protocolo \ac{SSH} ou através de \textit{sockets}.
-Destaca-se que o \textit{Rsync} não faz uma sincronização em tempo real, ou seja, ele faz a sincronização a partir de uma ação de um operador, 
-por exemplo, a execução de um comando.
+Além disso, a sincronização pode ser feita de cliente para cliente, utilizando para a transferência o protocolo \ac{SSH} ou através de 
+\textit{sockets}. Destaca-se que o \textit{Rsync} não faz uma sincronização em tempo real, ou seja, esse faz a sincronização a partir de 
+uma ação de um operador, por exemplo, a execução de um comando.
 
 % Ceph RBD
 % Swift open stack
 % https://wiki.freebsd.org/HAST
 
 \newpage
-\subsection{Resumo e software de replicação adotado}
+\subsection{Comparativo entre os softwares de replicação de dados}
 \label{section:replicacaoescolhido}
 
-Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. 
-A ferramenta adotada para replicação de dados foi o \ac{DRBD}, pois permite a configuração \textit{dual-primary} e também \textit{master-slave}, 
-além de suportar a replicação de discos das máquinas virtuais e fazer replicação a nível de bloco. Além disso, essa ferramenta permite a 
-ressincronização dos dados de forma automática em caso de uma falha \cite{drbd}.
+Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. A ferramenta adotada escolhida para a replicação 
+de dados foi o \ac{DRBD}, pois esse permite a configuração \textit{dual-primary} e também \textit{master-slave}, além de suportar a replicação 
+de discos das máquinas virtuais e permitir a replicação a nível de bloco. Além disso, esse \textit{software} permite a ressincronização dos dados 
+de forma automática em caso de uma falha \cite{drbd}.
 
 \begin{table}[h!]
 \caption{Comparação ferramentas de replicação de dados.}
@@ -189,9 +189,9 @@ Distribuições Linux & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, 
 \end{center}
 \end{table}
 
-O \textit{GlusterFS} poderia ser utilizado, porém este faz uma replicação a nível de arquivo, não sendo adequado para uma solução de alta 
-disponibilidade que utiliza-se de virtualização. E, por fim, o \textit{Rsync} não pode ser utilizado pois não executa uma replicação em tempo real, 
-além de não ter sido desenvolvido para ser utilizado em conjunto com a virtualização.
+O \textit{GlusterFS} poderia ser utilizado, porém este faz uma replicação a nível de arquivo, desta forma esse \textit{software} não é adequado 
+para uma solução de alta disponibilidade baseada em virtualização. E, por fim, o \textit{Rsync} não pode ser utilizado pois esse não executa 
+uma replicação em tempo real, além de não ter sido desenvolvido para ser utilizado em conjunto com a virtualização.
 
 %Pode-se perceber que o \textit{Ceph RBD} não possui a opção de
 %\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
@@ -223,13 +223,14 @@ além de não ter sido desenvolvido para ser utilizado em conjunto com a virtual
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster},
-sendo assim, é interessante a utilização de \textit{softwares} que facilitam o gerenciamento deste \textit{cluster}. Esses \textit{softwares} 
-permitem detectar falhas em um nó, sendo elas de \textit{hardware} ou de serviços. Essas ferramentas são conhecidas como \ac{CRM}. 
+sendo assim, é interessante a utilização de \textit{softwares} que facilitem o gerenciamento deste \textit{cluster}. De fato, esses 
+\textit{softwares} permitem detectar falhas em um nó, sendo elas de \textit{hardware} ou de serviços. Essas ferramentas são conhecidas como 
+\ac{CRM}. 
 
 Após a detecção de uma falha, os \textit{softwares} de gerenciamento de \textit{cluster} executam operações de \textit{failover} e 
 \textit{failback}. O \textit{failover} é um processo no qual um outro servidor recebe os serviços que estavam executando no servidor que falhou. 
-Já no \textit{failback} tem-se o retorno dos serviços para o servidor de origem quando este estiver disponível. Esse processo ocorre após o 
-\textit{failover}, sendo que ele é opcional \cite{bassan2008}. Nas próximas seções tem-se uma breve descrição dos \textit{softwares} de 
+Já no processo de \textit{failback} tem-se o retorno dos serviços para o servidor de origem quando este estiver disponível. Esse processo ocorre 
+após o \textit{failover}, sendo que ele é opcional \cite{bassan2008}. Nas próximas seções tem-se uma breve descrição dos \textit{softwares} de 
 gerenciamento de \textit{cluster} que foram estudados.
 
 % \subsubsection{Ceph}
@@ -241,8 +242,8 @@ gerenciamento de \textit{cluster} que foram estudados.
 
 \subsection{Ganeti}
 \label{section:ganeti}
-O \textit{Ganeti} \cite{ganeti} é um \textit{software} desenvolvido pelo \textit{Google}. Esse \textit{software} é um gerenciador de 
-\textit{cluster} de virtualização. Ele foi desenvolvido especificamente para ambientes de virtualização e suporta os hipervisores 
+O \textit{Ganeti} \cite{ganeti} é um \textit{software} desenvolvido pelo \textit{Google}, utilizado como um gerenciador de \textit{cluster} 
+baseado em virtualização. Esse foi desenvolvido especificamente para ambientes de virtualização e suporta os hipervisores 
 \ac{KVM} \cite{kvm} e \textit{Xen} \cite{xen}. 
 
 Na Figura \ref{fig:ganeti_arquitetura} tem-se um exemplo de um \textit{cluster} com a arquitetura do \textit{Ganeti}, sendo que este 
@@ -250,7 +251,7 @@ Na Figura \ref{fig:ganeti_arquitetura} tem-se um exemplo de um \textit{cluster} 
 \textit{master candidate}, para o caso do nó \textit{master} falhar. Além disso, a arquitetura é formada por vários nós \textit{slaves}. 
 Destaca-se que no \textit{Ganeti} todos os nós são responsáveis por prover o ambiente de virtualização e armazenar os dados das \acp{VM}, 
 sendo que cada nó pode possuir uma ou mais instâncias de \acp{VM}. Em cada instância das \acp{VM} configura-se dois nós, que são: o nó primário, 
-que a instância da \ac{VM} executará inicialmente; e o nó secundário, que será utilizado no caso de uma falha no nó primário.
+onde a instância da \ac{VM} será executada inicialmente; e o nó secundário, que será utilizado no caso de uma falha no nó primário.
 Além disso, as instâncias das \acp{VM} também podem ser migradas de um nó para outro de forma manual. 
 
 \begin{figure}[h!]
@@ -277,8 +278,8 @@ Esse subprojeto é uma aplicação que envia pacotes \textit{keepalive}\footnote
 enviados em uma determinada frequência para verificar se a comunicação esta ativa.} \textit{\ac{UDP}}, 
 através da rede, para outras aplicações \textit{Heartbeat}. Esses pacotes possuem como objetivo verificar se uma aplicação está ativa.
 Destaca-se que esse \textit{software} pode ser utilizado para alta disponibilidade em ambientes de virtualização \cite{reis2009}.
-Na Figura \ref{fig:heartbeat} tem-se o \textit{Heartbeat} executando em dois servidores sobre as interfaces de rede dedicadas (identificadas na 
-figura como \textit{ethX}).
+Na Figura \ref{fig:heartbeat} tem-se uma ilustração mostrando a execução do \textit{Heartbeat} em dois servidores sobre as interfaces de rede 
+dedicadas (identificadas na figura como \textit{ethX}).
 Neste caso, se o nó secundário deixar de receber os sinais do nó primário, este irá tornar-se o nó primário, e iniciará o processo de 
 \textit{failover}. 
 %com isso, ele receberá o \ac{IP} virtual (\textit{192.168.50.3}) e iniciará os serviços previamente configurados.
@@ -303,8 +304,8 @@ De forma resumida, as principais funcionalidades do \textit{Heartbeat} são \cit
 
 \subsection{Pacemaker}
 \label{section:pacemaker}
-O \textit{Pacemaker} \cite{pacemaker} é um projeto de código aberto mantido pela \textit{ClusterLabs}, e teve origem com a necessidade do 
-aperfeiçoamento do \textit{Heartbeat} \cite{heartbeat}. 
+O \textit{Pacemaker} \cite{pacemaker} é um projeto de código aberto mantido pela \textit{ClusterLabs}, e teve origem a partir da necessidade 
+de um aperfeiçoamento no \textit{software} \textit{Heartbeat} \cite{heartbeat}. 
 O \textit{Pacemaker} pode ser definido como um \textit{software} de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 
 Esse \textit{software} é utilizado juntamente com outros \textit{softwares} que fazem os registros dos nós e troca de mensagens entre os nós do 
@@ -313,7 +314,7 @@ Esse \textit{software} é utilizado juntamente com outros \textit{softwares} que
  \item \textit{Corosync} \cite{corosync}: derivou do projeto \textit{OpenAIS} e é responsável pelo processo de registro dos nós e pelo processo 
  de \textit{failover};
  %bloqueios distribuídos (utilizados para implementar \ac{LVM} \cite{lvm}, \ac{GFS}, e \ac{OCFS2}). 
- \item \textit{Heartbeat}: responsável pelo envio de mensagens entre os nós do \textit{cluster}, além de iniciar e finalizar serviços.
+ \item \textit{Heartbeat}: responsável pelo envio de mensagens entre os nós do \textit{cluster}, além de inicializar e finalizar os serviços.
 \end{itemize}
 % outras ferramentas cMAN e Apache Qpid
 
@@ -335,8 +336,8 @@ Entre as principais funcionalidades do \textit{Pacemaker} destaca-se:
 \begin{itemize}
  \item Iniciar e finalizar os serviços dos nós do \textit{cluster}: esses serviços podem ser desde um servidor \textit{web}, uma interface de 
  rede, ou até uma máquina virtual;
- \item Replicação de configuração do \textit{cluster}: a configuração alterada em um nó é replicada para todos os nós de forma transparente;
- \item Eleição de um nó como primário: no caso de uma falha neste nó, um outro será eleito primário de forma automática.
+ \item Replicação de configuração do \textit{cluster}: a configuração alterada em um nó pode ser replicada para todos os nós de forma transparente;
+ \item Eleição de um nó como primário: no caso de uma falha neste nó, um outro nó será eleito primário de forma automática.
 \end{itemize}
 
 No \textit{Pacemaker} os serviços são denominados recursos (\textit{resources}), esses recursos são monitorados, inicializados e parados.
@@ -380,13 +381,13 @@ se ocorrer algum erro interno em um \textit{software} e este for interrompido, o
 % Pacemaker itself only needs the Corosync piece in order to function, however some of the applications it can manage 
 % (such as OCFS2 and GFS2) require the OpenAIS layer as well. 
 
-\subsection{Resumo e software de gerenciamento adotado}
+\subsection{Comparativo entre os softwares de gerenciamento de cluster}
 \label{section:gerenciadorescolhido}
 
-Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de gerenciamento de \textit{cluster}. 
-O \textit{software} escolhido para gerenciar o ambiente foi o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
+Na Tabela \ref{tab:clusterger} tem-se um comparativo entre os \textit{softwares} de gerenciamento de \textit{cluster}. O \textit{software} 
+escolhido para o gerenciamento do ambiente a ser criado foi o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
 \textit{cluster} de alta disponibilidade utilizando virtualização. A principal característica disponível neste é o \textit{failover} automático
-dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, essa ferramenta possibilita a migração em tempo real. 
+dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, essa ferramenta possibilita a migração de \acp{VM} em tempo real. 
 Ela também faz o sincronismo de configuração entre todos os nós, ou seja, a configuração do \textit{cluster} pode ser feita a partir de qualquer nó. 
 %Destaca-se que o \textit{Pacemaker} é indicado no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
 
@@ -408,7 +409,7 @@ Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & 
 O \textit{software} \textit{Ganeti} não se mostrou adequado pois não possui suporte de \textit{failover} de forma automática. 
 %Essa ferramenta não possui foco na disponibilidade, mas sim na segurança dos dados, pois os dados ficam replicados e podem ser recuperados de forma manual. 
 Seria possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário 
-criar um conjunto de \textit{scripts} para a migração das máquinas virtuais.
+o desenvolvimento de um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 
 % Pode-se observar que o \textit{software} \textit{Ceph} possui suporte apenas para a detecção e recuperação a nível de nó. De fato, esse 
 % \textit{software} tem foco em \textit{cluster} de armazenamento, desta forma necessitando de outra ferramenta para gerenciar a migração de 
@@ -417,10 +418,9 @@ criar um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 
 \section{Considerações finais}
 
-Neste capítulo foi feito um levantamento de \textit{softwares} para possibilitar a construção de um ambiente de alta disponibilidade utilizando 
-virtualização. Para construção desse ambiente dois \textit{softwares} foram necessários, um para a replicação de dados e outro para gerência e 
-monitoramento do \textit{cluster}. Foram utilizados alguns critérios para auxiliar na escolha dos \textit{softwares}, sendo assim, os 
-\textit{softwares} escolhidos foram o \ac{DRBD} para fazer a replicação dos dados, e o \textit{Pacemaker} que é responsável pela gerência e 
-monitoramento.
-No próximo capítulo será apresentado a descrição da implementação efetuada e posteriormente serão descritos os testes criados e apresentado 
-os resultados obtidos.
+Neste capítulo foi feito um levantamento de \textit{softwares} para o desenvolvimento de um ambiente de alta disponibilidade utilizando 
+virtualização. Para a implementação desse ambiente dois tipos de \textit{softwares} tornam-se necessários, um para a replicação de dados e outro 
+para gerência e monitoramento do \textit{cluster}, sendo que os \textit{softwares} escolhidos foram o \ac{DRBD} para fazer a replicação dos dados, 
+e o \textit{Pacemaker} que é responsável pela gerência e monitoramento do \textit{cluster}. Destaca-se que foram utilizados alguns critérios 
+para auxiliar na escolha desses \textit{softwares}.
+No próximo capítulo será apresentada a implementação realizada, bem como os testes e resultados obtidos.
