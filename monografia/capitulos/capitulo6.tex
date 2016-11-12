@@ -15,50 +15,51 @@
 %Usar metodologia MAH - Método Analítico Hierárquico \cite{geordano2014} NAO INICIALMENTE
 
 Neste capítulo serão apresetadas as ferramentas que irão compor o ambiente de alta disponibilidade. A solução será baseada na utilização 
-de virtualização e de \textit{softwares} de código aberto. Essa estrutura foi baseada nos Trabalhos de \citet{goncalves2009}, \citet{reis2009} 
-e \citet{zaminhani2008}. Os dois primeiros trabalhos implementam alta disponibilidade em máquinas virtuais, com mesmos objetivos deste trabalho. 
-O terceiro autor utiliza uma técnica semelhante, porém implementada para apenas um serviço. Nestes trabalhos a estrutura é baseada em 
+de virtualização e de \textit{softwares} de código aberto. Essa estrutura foi baseada nos trabalhos de \citet{goncalves2009}, \citet{reis2009} 
+e \citet{zaminhani2008}. Os dois primeiros trabalhos implementam alta disponibilidade através de máquinas virtuais, com os mesmos objetivos deste 
+trabalho. O terceiro autor utiliza uma técnica semelhante, porém implementada para apenas um serviço. Nestes trabalhos a estrutura é baseada em 
 \textit{cluster}\footnote[1]{Pode-se definir \textit{cluster} como um grupo de computadores interligados por rede com o objetivo de aumentar 
 o desempenho ou disponibilidade de um serviço \cite{freitas2005}}, onde é utilizado um \textit{software} responsável pela replicação de dados 
-e um outro para monitoramento e gerência do \textit{cluster}. 
+e um outro para o monitoramento e a gerência do \textit{cluster}. 
 
-Para a escolha do \textit{software} de replicação de dados utilizou-se critérios que fossem compatíveis com as estruturas apresentadas nesses 
-Trabalhos e que fossem adequadas ao ambiente da empresa. Os critérios utilizados para a escolha do \textit{software} de replicação de dados foram:
+A escolha do \textit{software} de replicação de dados baseou-se em critérios que fossem compatíveis com as estruturas apresentadas nesses 
+trabalhos e que fossem adequadas ao ambiente da empresa. Os critérios utilizados para a escolha do \textit{software} de replicação de dados foram:
 %As características que serão utilizadas para adotar o \textit{software} mais adequado para a implementação deste trabalho foram divididas em
 %dois grupos e estão listadas abaixo.
 
 \begin{itemize}
- \item Integração com virtualização: possibilita a replicação dos dados das máquinas virtuais;
- \item Dual-primary: permite leitura e escrita de dados simultaneamente em ambos os nós;
- \item Replicação em tempo real: faz a replicação dos dados de forma instantânea e automática;
- \item Nível de replicação: pode ser a nível de bloco ou de arquivo.
+ \item Integração com virtualização: possibilidade de replicação dos dados das máquinas virtuais;
+ \item \textit{Dual-primary}: suporte para a leitura e escrita de dados simultaneamente em ambos os nós;
+ \item Replicação em tempo real: replicação dos dados de forma instantânea e automática;
+ \item Nível de replicação: possibilidade de replicação a nível de bloco ou de arquivo.
  %\item Número máximo de nós: quantidade de nós comportado pelo \textit{cluster}. Observa-se que para esse trabalho é necessário no mínimo dois.
 \end{itemize}
 
 Já os critérios utilizados para a escolha do \textit{software} de monitoramento e gerência do \textit{cluster} foram:
 \begin{itemize}
- \item Suporte nativo à virtualização: permite monitorar e manipular máquinas virtuais;
- \item Migração de \acp{VM} em tempo real: suporta a utilização de \textit{live migration} das máquinas virtuais, ou seja, possibilita mover uma
- \ac{VM} de um nó para outro sem reiniciá-lo;
- \item \textit{Failover} e \textit{failback} automáticos: move automaticamente os serviços do nó que falhou para um outro nó disponível.
+ \item Suporte nativo à virtualização: possibilidade de monitorar e manipular máquinas virtuais;
+ \item Migração de \acp{VM} em tempo real: suporte para a utilização de \textit{live migration} das máquinas virtuais, ou seja, possibilita mover 
+ uma \ac{VM} de um nó para outro sem reiniciá-lo;
+ \item \textit{Failover} e \textit{failback} automáticos: suporte para a movimentação automática dos serviços de um nó que falhou para um outro 
+ nó disponível.
  %\item Sincronismo de configuração entre os nós: configuração do \textit{cluster} pode ser alterada em qualquer nó, ou seja, ocorre a replicação
  %da configuração para todos os nós do \textit{cluster}.
 \end{itemize}
 
-\section{Definição do software para a replicação de dados}
+\section{Softwares para a replicação de dados}
 \label{section:toolrepl}
 
 A replicação de dados pode ser realizada de diferentes formas, esta pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
-Dependendo do objetivo pode-se utilizar uma replicação através de um \ac{RAID}. Essa solução é eficaz para garantir 
-que o sistema não fique indisponível em caso de falha de discos\footnote[1]{Lembrando que essa solução é utilizada no ambiente atual para 
-aumentar a disponibilidade dos servidores.}, porém não garante a disponibilidade quando um \textit{software} ou algum outro componente de 
+Dependendo do objetivo pode-se utilizar uma replicação através de um \ac{RAID}. Essa solução é eficaz para garantir que o sistema não fique 
+indisponível em caso de falha de discos\footnote[1]{Lembrando que essa solução é utilizada no ambiente atual para 
+aumentar a disponibilidade dos servidores.} rígidos, porém não garante a disponibilidade quando um \textit{software} ou algum outro componente de 
 \textit{hardware} falhar \cite{zaminhani2008}.
 %\ac{RAID} \cite{tanenbaum2009sistemas}
 
 A solução de replicação a ser adotada neste trabalho consiste em um espelhamento de dados através da rede. Essa solução permite a sincronização 
-dos dados de um servidor para um servidor em tempo real.
+dos dados de um servidor para outro servidor em tempo real.
 Nas próximas seções tem-se uma descrição dos \textit{softwares} de replicação de dados que foram estudados, bem como as funcionalidades 
-suportadas pelas mesmas.
+suportadas pelos mesmos.
 
 % \subsubsection{Ceph RBD}
 % \label{section:cephrbd}
@@ -93,7 +94,7 @@ O \ac{DRBD} pode ser configurado dos seguintes modos \cite{drbd}:
  o nó primário terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. Já o nó 
  secundário terá apenas uma réplica dos dados;
  \item \textit{Dual-primary} ou \textit{dual-master}: neste modo existem dois nós primários, nos quais podem ser realizadas operações de leitura e 
- escrita de forma simultânea. Porém, este modo necessita de um sistema de arquivos compartilhados, sendo que neste caso pode ser utilizado os
+ escrita de forma simultânea. Porém, este modo necessita de um sistema de arquivos compartilhados, sendo que neste caso podem ser utilizados os
  sistemas \ac{GFS} \cite{gfs} e \ac{OCFS2} \cite{ocfs2}.
 \end{itemize}
 
@@ -104,7 +105,7 @@ de \textit{cluster} e seu principal objetivo é a escalabilidade, ou seja, este 
 do \textit{cluster} a partir da inclusão de novos nós.
 
 Na Figura \ref{fig:glusterfs} tem-se um exemplo de dois nós, onde cada nó possui dois discos rígidos, que são denominados \textit{bricks}. 
-A partir dos \textit{bricks} o \textit{GlusterFS} constrói um volume lógico que é disponibilizado através da rede para os clientes 
+A partir dos \textit{bricks}, o \textit{GlusterFS} constrói um volume lógico que é disponibilizado através da rede para os clientes 
 \textit{GlusterFS}. A organização destes \textit{bricks} vai depender do objetivo da aplicação, sendo que uma das formas é a replicação. 
 Os diferentes tipos de configurações serão detalhados a seguir.
 
@@ -121,15 +122,15 @@ Os diferentes tipos de configurações serão detalhados a seguir.
 O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com as opções de distribuição e replicação de dados \cite{glusterfs}:
 \begin{itemize}
  \item Volume distribuído: neste tipo os arquivos são distribuídos entre os diferentes \textit{bricks} dos nós. O objetivo deste tipo de 
- configuração é ampliar a capacidade de armazenamento. Desta forma, não tem-se preocupação com a redundância de dados, sendo que no caso de uma
+ configuração é ampliar a capacidade de armazenamento. Neste modo, não se tem preocupação com a redundância de dados, sendo que no caso de uma
  falha em um nó haverá uma perda de todos dados;
  \item Volume replicado: neste tipo os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se uma redundância, ou seja, caso ocorra
  uma falha em um \textit{brick} não haverá perda de dados;
  \item Volume distribuído e replicado: este é uma combinação dos dois tipos de volumes anteriores. Neste caso, é feita a distribuição 
  e a replicação dos arquivos entre os nós;
- \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido entre os
- \textit{bricks}. Esse tipo é normalmente utilizado para armazenamento de arquivos muito grandes e para balancear carga quando houver muito 
- acesso ao disco. Neste tipo de volume não tem-se nenhuma forma de replicação de dados;
+ \item Volume listrado: neste tipo de configuração ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é 
+ dividido entre os \textit{bricks}. Esse tipo é normalmente utilizado para o armazenamento de arquivos muito grandes e para garantir um melhor 
+ balanceamento de carga em sistemas com muito acesso à disco. Neste tipo de volume não se tem nenhuma forma de replicação de dados;
  \item Volume distribuído e listrado: este tipo de volume é uma combinação do distribuído e do listrado. Neste modo é feita a divisão do arquivo 
  entre \textit{bricks} distintos, sendo que estes são replicados.
 \end{itemize}
@@ -218,7 +219,7 @@ além de não ter sido desenvolvido para ser utilizado em conjunto com a virtual
 % http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
 % https://elkano.org/blog/live-migration-openstack-ubuntu-14-04/
 
-\section{Definição do software para o gerenciamento de cluster}
+\section{Softwares para o gerenciamento do cluster}
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster},

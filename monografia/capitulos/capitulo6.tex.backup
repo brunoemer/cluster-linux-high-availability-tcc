@@ -1,8 +1,5 @@
-\chapter{Projeto de implementação}
-\label{cap:projetoimplementacao}
-
-Neste capítulo serão apresetadas as ferramentas que irão compor o ambiente de alta disponibilidade. A solução será baseada na utilização 
-de virtualização e de \textit{softwares} de código aberto.
+\chapter{Softwares para implementação}
+\label{cap:softwares}
 
 %Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se uma técnica semelhante à descrita no artigo 
 %de \cite{thome2013}. Neste artigo foi feita uma análise comparativa de ferramentas \textit{open source} de computação em nuvem. Sendo que, 
@@ -17,35 +14,38 @@ de virtualização e de \textit{softwares} de código aberto.
 
 %Usar metodologia MAH - Método Analítico Hierárquico \cite{geordano2014} NAO INICIALMENTE
 
-Essa estrutura foi baseada em \citet{goncalves2009}, \citet{reis2009} e \citet{zaminhani2008}. Os dois primeiros trabalhos implementam alta 
-disponibilidade em máquinas virtuais, com mesmos objetivos deste trabalho. O terceiro autor utiliza uma técnica semelhante, porém implementada 
-para apenas um serviço. Nestes trabalhos a estrutura é baseada em \textit{cluster}\footnote[1]{Pode-se definir \textit{cluster} como um grupo 
-de computadores interligados por rede com o objetivo de aumentar o desempenho ou disponibilidade de um serviço \cite{freitas2005}}, onde é 
-utilizado um \textit{software} responsável pela replicação de dados e um outro para monitoramento e gerência do \textit{cluster} de alta 
-disponibilidade. 
+Neste capítulo serão apresetadas as ferramentas que irão compor o ambiente de alta disponibilidade. A solução será baseada na utilização 
+de virtualização e de \textit{softwares} de código aberto. Essa estrutura foi baseada nos trabalhos de \citet{goncalves2009}, \citet{reis2009} 
+e \citet{zaminhani2008}. Os dois primeiros trabalhos implementam alta disponibilidade através de máquinas virtuais, com os mesmos objetivos deste 
+trabalho. O terceiro autor utiliza uma técnica semelhante, porém implementada para apenas um serviço. Nestes trabalhos a estrutura é baseada em 
+\textit{cluster}\footnote[1]{Pode-se definir \textit{cluster} como um grupo de computadores interligados por rede com o objetivo de aumentar 
+o desempenho ou disponibilidade de um serviço \cite{freitas2005}}, onde é utilizado um \textit{software} responsável pela replicação de dados 
+e um outro para o monitoramento e a gerência do \textit{cluster}. 
 
-Desta forma, para a escolha dos \textit{softwares} procurou-se características que sejam compatíveis com as estruturas apresentadas nesses artigos
-e que sejam adequadas ao ambiente da empresa. As características utilizadas para a escolha do \textit{software} de replicação de dados foram:
+A escolha do \textit{software} de replicação de dados baseou-se em critérios que fossem compatíveis com as estruturas apresentadas nesses 
+trabalhos e que fossem adequadas ao ambiente da empresa. Os critérios utilizados para a escolha do \textit{software} de replicação de dados foram:
 %As características que serão utilizadas para adotar o \textit{software} mais adequado para a implementação deste trabalho foram divididas em
 %dois grupos e estão listadas abaixo.
 
 \begin{itemize}
- \item Integração com virtualização: possibilita a replicação dos discos das máquinas virtuais;
- \item Dual-primary: permite leitura e escrita de dados simultaneamente em ambos os nós;
- \item Replicação em tempo real: faz a replicação dos dados de forma instantânea e automática;
- \item Nível de replicação: pode ser a nível de bloco ou de arquivo;
- \item Número máximo de nós: quantidade de nós comportado pelo \textit{cluster}. Observa-se que para esse trabalho é necessário no mínimo dois.
+ \item Integração com virtualização: possibilidade de replicação dos dados das máquinas virtuais;
+ \item \textit{Dual-primary}: suporte para a leitura e escrita de dados simultaneamente em ambos os nós;
+ \item Replicação em tempo real: replicação dos dados de forma instantânea e automática;
+ \item Nível de replicação: possibilidade de replicação a nível de bloco ou de arquivo.
+ %\item Número máximo de nós: quantidade de nós comportado pelo \textit{cluster}. Observa-se que para esse trabalho é necessário no mínimo dois.
 \end{itemize}
 
-As características utilizadas para a escolha do \textit{software} de monitoramento e gerência do \textit{cluster} foram:
+Já os critérios utilizados para a escolha do \textit{software} de monitoramento e gerência do \textit{cluster} foram:
 \begin{itemize}
- \item Suporte nativo à virtualização: permite monitorar e manipular máquinas virtuais;
- \item Migração de \acp{VM} em tempo real: ;
- \item \textit{Failover} e \textit{failback} automáticos;
- \item Sincronismo de configuração entre os nós.
+ \item Suporte nativo à virtualização: possibilidade de monitorar e manipular máquinas virtuais;
+ \item Migração de \acp{VM} em tempo real: suporte para a utilização de \textit{live migration} das máquinas virtuais, ou seja, possibilita mover uma
+ \ac{VM} de um nó para outro sem reiniciá-lo;
+ \item \textit{Failover} e \textit{failback} automáticos: move automaticamente os serviços do nó que falhou para um outro nó disponível.
+ %\item Sincronismo de configuração entre os nós: configuração do \textit{cluster} pode ser alterada em qualquer nó, ou seja, ocorre a replicação
+ %da configuração para todos os nós do \textit{cluster}.
 \end{itemize}
 
-\section{Softwares para a replicação de dados}
+\section{Definição do software para a replicação de dados}
 \label{section:toolrepl}
 
 A replicação de dados pode ser realizada de diferentes formas, esta pode ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
@@ -56,8 +56,8 @@ aumentar a disponibilidade dos servidores.}, porém não garante a disponibilida
 %\ac{RAID} \cite{tanenbaum2009sistemas}
 
 A solução de replicação a ser adotada neste trabalho consiste em um espelhamento de dados através da rede. Essa solução permite a sincronização 
-dos dados de um servidor para um servidor remoto em tempo real.
-Nas próximas seções tem-se uma descrição dos \textit{softwares} de replicação de dados que foram estudados, bom como as funcionalidades 
+dos dados de um servidor para um servidor em tempo real.
+Nas próximas seções tem-se uma descrição dos \textit{softwares} de replicação de dados que foram estudados, bem como as funcionalidades 
 suportadas pelas mesmas.
 
 % \subsubsection{Ceph RBD}
@@ -68,7 +68,7 @@ suportadas pelas mesmas.
 % (\textit{Ceph Monitor}). Conceito de n OSDs e n+1 monitors.
 % \cite{ceph}.
 
-\subsection{DRBD}
+\subsection{\aca{DRBD}}
 \label{section:drbd}
 O \ac{DRBD} é um projeto de código aberto desenvolvido pela \textit{LINBIT} \cite{drbd}.
 Esse \textit{software} é uma solução de replicação de dispositivos de armazenamento, ou seja, esse permite a duplicação de um dispositivo de bloco 
@@ -93,20 +93,20 @@ O \ac{DRBD} pode ser configurado dos seguintes modos \cite{drbd}:
  o nó primário terá permissão para acessar o dispositivo, ou seja, somente ele poderá fazer operações de leitura e escrita. Já o nó 
  secundário terá apenas uma réplica dos dados;
  \item \textit{Dual-primary} ou \textit{dual-master}: neste modo existem dois nós primários, nos quais podem ser realizadas operações de leitura e 
- escrita de forma simultânea. Porém, este modo necessita de um sistema de arquivos compartilhados, sendo que neste caso pode ser utilizado, por
- exemplo, o \ac{GFS} \cite{gfs} ou o \ac{OCFS2} \cite{ocfs2}.
+ escrita de forma simultânea. Porém, este modo necessita de um sistema de arquivos compartilhados, sendo que neste caso pode ser utilizado os
+ sistemas \ac{GFS} \cite{gfs} e \ac{OCFS2} \cite{ocfs2}.
 \end{itemize}
 
 \subsection{GlusterFS}
 \label{section:glusterfs}
 O \textit{GlusterFS} \cite{glusterfs} é um sistema de arquivos distribuídos mantido pela \textit{Gluster community}. Este utiliza estrutura 
-de \textit{cluster} e seu principal objetivo é a escalabilidade, ou seja, este possui funcionalidades que facilitam amplicar a capacidade 
+de \textit{cluster} e seu principal objetivo é a escalabilidade, ou seja, este possui funcionalidades que facilitam ampliar a capacidade 
 do \textit{cluster} a partir da inclusão de novos nós.
 
-Na Figura \ref{fig:glusterfs} tem-se um exemplo com dois nós, onde cada nó possui dois discos rígidos, que são denominados \textit{bricks}. 
+Na Figura \ref{fig:glusterfs} tem-se um exemplo de dois nós, onde cada nó possui dois discos rígidos, que são denominados \textit{bricks}. 
 A partir dos \textit{bricks} o \textit{GlusterFS} constrói um volume lógico que é disponibilizado através da rede para os clientes 
-\textit{GlusterFS}. A organização destes \textit{bricks} vai depender do objetivo da aplicação, sendo que uma das formas é a replicação. Esses 
-diferentes tipos de configurações serão detalhados a seguir.
+\textit{GlusterFS}. A organização destes \textit{bricks} vai depender do objetivo da aplicação, sendo que uma das formas é a replicação. 
+Os diferentes tipos de configurações serão detalhados a seguir.
 
 \begin{figure}[h!]
  \centering
@@ -125,12 +125,12 @@ O \textit{GlusterFS} suporta diferentes tipos de configurações de volumes, com
  falha em um nó haverá uma perda de todos dados;
  \item Volume replicado: neste tipo os arquivos são replicados entre os \textit{bricks}, deste modo, tem-se uma redundância, ou seja, caso ocorra
  uma falha em um \textit{brick} não haverá perda de dados;
- \item Volume distribuído e replicado: este é a combinação dos dois tipos de volumes anteriores. Neste caso, é feita a distribuição 
+ \item Volume distribuído e replicado: este é uma combinação dos dois tipos de volumes anteriores. Neste caso, é feita a distribuição 
  e a replicação dos arquivos entre os nós;
  \item Volume listrado: neste tipo ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é dividido entre os
- \textit{bricks}. Esse tipo é normalmente utilizado para armazenamento de arquivos muito grandes e para balancear carga quando possuir muito 
- acesso a disco. Neste tipo de volume não tem-se nenhuma forma de replicação de dados;
- \item Volume distribuído e listrado: este tipo de volume é a combinação do distribuído e do listrado. Neste modo é feita a divisão do arquivo 
+ \textit{bricks}. Esse tipo é normalmente utilizado para armazenamento de arquivos muito grandes e para balancear carga quando houver muito 
+ acesso ao disco. Neste tipo de volume não tem-se nenhuma forma de replicação de dados;
+ \item Volume distribuído e listrado: este tipo de volume é uma combinação do distribuído e do listrado. Neste modo é feita a divisão do arquivo 
  entre \textit{bricks} distintos, sendo que estes são replicados.
 \end{itemize}
 
@@ -156,13 +156,14 @@ sendo que neste caso os arquivos já existentes são sobrescritos.
 
 O \textit{Rsync} pode ser configurado como servidor, o que permite que vários clientes possam sincronizar seus arquivos com ele. 
 Além disso, a sincronização pode ser de cliente para cliente, utilizando como transporte o protocolo \ac{SSH} ou através de \textit{sockets}.
-Destaca-se que o \textit{Rsync} não faz uma sincronização em tempo real, ou seja, ele faz a sincronização a partir de uma ação de um operador 
-(execução de um comando).
+Destaca-se que o \textit{Rsync} não faz uma sincronização em tempo real, ou seja, ele faz a sincronização a partir de uma ação de um operador, 
+por exemplo, a execução de um comando.
 
 % Ceph RBD
 % Swift open stack
 % https://wiki.freebsd.org/HAST
 
+\newpage
 \subsection{Resumo e software de replicação adotado}
 \label{section:replicacaoescolhido}
 
@@ -176,12 +177,12 @@ ressincronização dos dados de forma automática em caso de uma falha \cite{drb
 \label{tab:replicacao}
 \begin{center}
 \begin{tabular}{|l|p{3.5cm}|p{3.5cm}|p{2cm}|}\hline
-\textbf{Características} & \textbf{DRBD} & \textbf{GlusterFS} & \textbf{Rsync} \\\hline
+\textbf{Critério} & \textbf{DRBD} & \textbf{GlusterFS} & \textbf{Rsync} \\\hline
 Integração com virtualização & Sim & Sim & Não \\\hline
 Dual-primary & Sim & Sim & Não \\\hline
 Replicação em tempo real & Sim & Sim & Não \\\hline
 Nível de replicação & Bloco & Arquivo & Arquivo \\\hline
-Número máximo de nós & 16 & 64 & Ilimitado \\\hline
+%Número máximo de nós & 16 & 64 & Ilimitado \\\hline
 Distribuições Linux & Suse, Debian, CentOS, Red Hat, Ubuntu & Debian, CentOS, Red Hat, Fedora, Ubuntu & Todas \\\hline
 \end{tabular}
 \end{center}
@@ -217,7 +218,7 @@ além de não ter sido desenvolvido para ser utilizado em conjunto com a virtual
 % http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
 % https://elkano.org/blog/live-migration-openstack-ubuntu-14-04/
 
-\section{Softwares para o gerenciamento de cluster}
+\section{Definição do software para o gerenciamento de cluster}
 \label{section:toolcluster}
 
 Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster},
@@ -247,8 +248,8 @@ Na Figura \ref{fig:ganeti_arquitetura} tem-se um exemplo de um \textit{cluster} 
 \textit{cluster} é composto por um nó \textit{master}, que armazena as configurações e gerencia o \textit{cluster}, e um nó 
 \textit{master candidate}, para o caso do nó \textit{master} falhar. Além disso, a arquitetura é formada por vários nós \textit{slaves}. 
 Destaca-se que no \textit{Ganeti} todos os nós são responsáveis por prover o ambiente de virtualização e armazenar os dados das \acp{VM}, 
-sendo que cada nó pode possuir uma ou mais instâncias de \acp{VM}. Em cada instância das \acp{VM} configura-se dois nós: o nó primário, que a 
-instância executará inicialmente; e o nó secundário, que será utilizado no caso de uma falha no nó primário.
+sendo que cada nó pode possuir uma ou mais instâncias de \acp{VM}. Em cada instância das \acp{VM} configura-se dois nós, que são: o nó primário, 
+que a instância da \ac{VM} executará inicialmente; e o nó secundário, que será utilizado no caso de uma falha no nó primário.
 Além disso, as instâncias das \acp{VM} também podem ser migradas de um nó para outro de forma manual. 
 
 \begin{figure}[h!]
@@ -301,8 +302,8 @@ De forma resumida, as principais funcionalidades do \textit{Heartbeat} são \cit
 
 \subsection{Pacemaker}
 \label{section:pacemaker}
-O \textit{Pacemaker} \cite{pacemaker} é um projeto de código aberto mantido pela \textit{ClusterLabs}, e teve origem com a necessidade de 
-aperfeiçoar o \textit{Heartbeat} \cite{heartbeat}. 
+O \textit{Pacemaker} \cite{pacemaker} é um projeto de código aberto mantido pela \textit{ClusterLabs}, e teve origem com a necessidade do 
+aperfeiçoamento do \textit{Heartbeat} \cite{heartbeat}. 
 O \textit{Pacemaker} pode ser definido como um \textit{software} de recuperação de falhas a nível de serviço \cite{perkov2011}. 
 
 Esse \textit{software} é utilizado juntamente com outros \textit{softwares} que fazem os registros dos nós e troca de mensagens entre os nós do 
@@ -338,7 +339,7 @@ Entre as principais funcionalidades do \textit{Pacemaker} destaca-se:
 \end{itemize}
 
 No \textit{Pacemaker} os serviços são denominados recursos (\textit{resources}), esses recursos são monitorados, inicializados e parados.
-Pode-se criar dependências e ordem entre esses recursos, para que esses sejam iniciados em uma determinada sequência. O \textit{Pacemaker} 
+Pode-se criar dependências e uma ordem de inicialização entre esses recursos, para que esses sejam iniciados em uma determinada sequência. O \textit{Pacemaker} 
 também pode ser configurado para fazer o \textit{failover}, desta forma caso ocorra uma falha em um nó, esse fará a inicialização dos serviços 
 em um nó secundário. Além disso, este também faz a recuperação de um recurso que parou de executar por alguma falha, por exemplo, 
 se ocorrer algum erro interno em um \textit{software} e este for interrompido, o \textit{Pacemaker} tentará iniciá-lo novamente.
@@ -385,19 +386,19 @@ Na Tabela \ref{tab:clusterger} tem-se uma comparação dos \textit{softwares} de
 O \textit{software} escolhido para gerenciar o ambiente foi o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
 \textit{cluster} de alta disponibilidade utilizando virtualização. A principal característica disponível neste é o \textit{failover} automático
 dos nós, que não encontra-se disponível nas demais ferramentas. Além disso, essa ferramenta possibilita a migração em tempo real. 
-Por fim, é o único que possui o sincronismo de configuração entre todos os nós. 
+Ela também faz o sincronismo de configuração entre todos os nós, ou seja, a configuração do \textit{cluster} pode ser feita a partir de qualquer nó. 
 %Destaca-se que o \textit{Pacemaker} é indicado no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
 
 \begin{table}[h!]
 \caption{Comparação entre ferramentas de gerenciamento de \textit{cluster}.}
 \label{tab:clusterger}
 \begin{center}
-\begin{tabular}{|p{4cm}|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
-\textbf{Características} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
+\begin{tabular}{|l|p{2cm}|p{3.5cm}|p{3.5cm}|}\hline
+\textbf{Critério} & \textbf{Ganeti} & \textbf{Heartbeat} & \textbf{Pacemaker} \\\hline
 Suporte nativo à virtualização & Sim & Não & Sim \\\hline
 Migração de \acp{VM} em tempo real & Sim & Não & Sim \\\hline
 Failover e failback automáticos & Não & Não & Sim \\\hline
-Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
+%Sincronismo de configuração entre os nós & Não & Não & Sim \\\hline
 Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu \\\hline
 \end{tabular}
 \end{center}
@@ -413,78 +414,12 @@ criar um conjunto de \textit{scripts} para a migração das máquinas virtuais.
 % máquinas virtuais. Além disso, essa ferramenta necessita de um \textit{hardware} especifico para administração do \textit{cluster}.
 
 
-\section{Implementação}
-\label{section:implementacao}
-
-%Para implementação desta solução foram necessários dois servidores físicos, sendo que a configuração ideal de cada servidor é de 
-%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
-%12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido. Essa configuração foi calculada a partir da soma dos 
-%recursos das máquinas virtuais que atualmente abrangem os serviços que foram considerados críticos, observa-se que tais recursos de 
-%\textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais. Com essa solução, 
-%caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
-
-O ambiente foi projetado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração 
-de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido.
-%real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
-Essa configuração foi calculada a partir da soma dos recursos consumidos pelas máquinas virtuais que atualmente executam os serviços que foram 
-considerados críticos. Observa-se que tais recursos de \textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma 
-reorganização das máquinas virtuais. Destaca-se que a configuração também inclui 2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema 
-operacional hóspede.
-
-Além disso, optou-se por utilizar o mesmo sistema operacional e o mesmo hipervisor que são adotados atualmente na empresa, o sistema 
-\textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm}, respectivamente. O processo de instalação e de configuração encontra-se no 
-Apêndice \ref{ap:confos} e \ref{ap:confvirt}.
-
-A estrutura física adotada encontra-se na Figura \ref{fig:projeto_fisico} (a). Como pode ser observado, os dois servidores encontram-se 
-conectados a um \textit{switch} através de dois cabos \aca{UTP}, de forma a implementar uma redundância de cabeamento. Além disso, manteve-se o 
-\textit{link aggregation} e utilizou-se uma \textit{bridge}\footnote[1]{\textit{Bridges}, também conhecidas como pontes, são meios que fazem a 
-conexão entre \textit{LANs}, e operam na camada de enlace de dados.} para incluir as máquinas virtuais à rede. 
-Os detalhes da configuração de rede estão localizados no Apêndice \ref{ap:confrede}.
-Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores, o primeiro é o Nó 1 (\textit{Brina}), que é um 
-\textit{Dell PowerEdge 2950}, e o segundo servidor é o Nó 2 (\textit{Piova}), que é um \textit{Dell PowerEdge R410}.
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=430px]{img/projeto_fisico.eps}
- \caption{Estrutura física.}
- \label{fig:projeto_fisico}
-\end{figure}
-
-A estrutura lógica dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura 
-\ref{fig:projeto_estrutura}. Para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo 
-\textit{dual-master} onde os dois nós são configurados como primários. Para tal configuração é necessário utilizar um sistema de arquivos 
-distribuídos para um acesso compartilhado dos dados, sendo que o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
-Os detalhes da instalação e da configuração de disco, \ac{DRBD} e sistema de arquivos estão detalhadas no Apêndice \ref{ap:confdisco}. 
-Já para o gerenciamento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} \textit{Pacemaker}. 
-Mais especificamente esse é o \textit{software} responsável pelo monitoramento e pela migração das \acp{VM} entre os nós.
-
-\begin{figure}[h!]
- \centering
- \includegraphics[width=350px]{img/projeto_estrutura.eps}
- \caption{Estrutura do \textit{cluster}.}
- \label{fig:projeto_estrutura}
-\end{figure}
-
-%drbd
-% O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
-% replicação \ac{DRBD}. E para utilizar esse dispositivo como disco de uma máquina virtual será criado um volume lógico 
-% \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
-% e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
-
-\newpage
-Os serviços foram distribuídos entre os nós dos \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas de gestão, 
-\ac{DNS} recursivo e autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de telefonia e autenticação \ac{PPPoE}.
-No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. O detalhamento da configuração do \textit{Pacemaker} 
-estão disponíveis no Apêndice \ref{ap:confpacemaker}.
-
-
 \section{Considerações finais}
 
-Neste capítulo foi apresentada a arquitetura de alta disponibilidade implementada com base em virtualização, sendo composta por dois servidores 
-físicos, onde foram configuradas máquinas virtuais contendo os serviços críticos da empresa. Os \textit{softwares} utilizados foram escolhidos 
-a partir de características compatíveis com alguns trabalhos científicos semelhantes e também adequadas com o ambiente da empresa. 
-Deste modo, foram necessários dois \textit{softwares} para a implementação, o \ac{DRBD} para fazer a replicação dos dados, e o \textit{Pacemaker}
-que é responsável pela gerência e monitoramento do \textit{cluster}. ??
-No próximo capítulo serão descritos os testes criados e apresentado os resultados obtidos.
-
-reler ??
+Neste capítulo foi feito um levantamento de \textit{softwares} para possibilitar a construção de um ambiente de alta disponibilidade utilizando 
+virtualização. Para construção desse ambiente dois \textit{softwares} foram necessários, um para a replicação de dados e outro para gerência e 
+monitoramento do \textit{cluster}. Foram utilizados alguns critérios para auxiliar na escolha dos \textit{softwares}, sendo assim, os 
+\textit{softwares} escolhidos foram o \ac{DRBD} para fazer a replicação dos dados, e o \textit{Pacemaker} que é responsável pela gerência e 
+monitoramento.
+No próximo capítulo será apresentado a descrição da implementação efetuada e posteriormente serão descritos os testes criados e apresentado 
+os resultados obtidos.
