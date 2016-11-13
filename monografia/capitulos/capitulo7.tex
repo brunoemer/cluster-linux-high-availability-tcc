@@ -346,7 +346,7 @@ noves, já no ambiente de alta disponibilidade tem-se uma disponibilidade próxi
 \begin{center}
 \begin{tabular}{|l|l|p{4cm}|p{4cm}|}\hline
 \textbf{Servidor} & \textbf{Serviço} & \textbf{Disponibilidade do antigo ambiente} & \textbf{Disponibilidade do novo ambiente} \\\hline
-Passata & DNS recursivo & 99,978\% & ?? \\\hline
+Passata & DNS recursivo & 99,978\% & 99,996\% \\\hline
 Speedauth & Autenticação \ac{PPPoE} & 99,936\% & 100\% \\\hline
 Masterauth & Autenticação \ac{PPPoE} & 99,930\% & 100\% \\\hline
 Soldi & Sistemas & 99,913\% & 100\% \\\hline
@@ -356,8 +356,8 @@ SimplesIP & Telefonia & 99,866\% & 100\% \\\hline
 \end{table}
 
 A Tabela \ref{tab:testefinal2} demonstra o tempo de indisponibilidade de cada serviço, observa-se que o ambiente de alta disponibilidade
-criado não apresentou indisponibilidade com exceção do serviço de \ac{DNS}, este 1 minuto de indisponibilidade ocorreu devido a um problema
-de segurança que ocorreu durante o período de medição dos dados.
+criado não apresentou indisponibilidade com exceção do serviço de \ac{DNS}, este 1 minuto e 40 segundos de indisponibilidade ocorreu devido 
+a um problema de segurança que ocorreu durante o período de medição dos dados.
 
 \begin{table}[h!]
 \caption{Tempo de indisponibilidade dos serviços críticos nas dois ambientes.}
@@ -366,7 +366,7 @@ de segurança que ocorreu durante o período de medição dos dados.
 \begin{center}
 \begin{tabular}{|l|l|p{4cm}|p{4cm}|}\hline
 \textbf{Servidor} & \textbf{Serviço} & \textbf{Tempo de indisponibilidade do antigo ambiente} & \textbf{Tempo de indisponibilidade do novo ambiente} \\\hline
-Passata & DNS recursivo & 9 minutos 40 segundos & 1 minuto \\\hline
+Passata & DNS recursivo & 9 minutos 40 segundos & 1 minuto 40 segundos \\\hline
 Speedauth & Autenticação \ac{PPPoE} & 27 minutos 40 segundos & 0 \\\hline
 Masterauth & Autenticação \ac{PPPoE} & 30 minutos 20 segundos & 0 \\\hline
 Soldi & Sistemas & 37 minutos 20 segundos & 0 \\\hline
