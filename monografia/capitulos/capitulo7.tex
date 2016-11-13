@@ -44,7 +44,7 @@ Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores utilizados
 \end{figure}
 
 Imagem com drbd ??
-descricao 
+descrição
 
 \subsection{Estrutura lógica}
 
@@ -98,7 +98,7 @@ manutenção de \textit{hardware} ou de \textit{software}.
 %sendo que neste ambiente estarão executando os serviços críticos definidos.
 
 \subsection{Teste 1 - Desligamento físico}
-%Desligamento físico (simulação falha de hardware ou eletrica): 4 vezes para medir tempo de downtime dos serviços e dos nodes (servico não crítico)
+%Desligamento físico (simulação falha de hardware ou elétrica): 4 vezes para medir tempo de downtime dos serviços e dos nodes (serviço não crítico)
 
 Neste teste são simuladas falhas de \textit{hardware} ou falhas elétricas nos nós do \textit{cluster}. Para isso foi feito o desligamento 
 forçado de um servidor, ou seja, um servidor foi desligado de forma a simular a falha, sendo que os serviços devem ser transferidos de forma
@@ -145,7 +145,7 @@ Máquina virtual & 81 \\\hline % & 7,07 \\\hline
 % \item Acessar o terminal do servidor de monitoramento;
 % \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
 % \item Forçar desligamento do nó;
-% \item Aguardar máquinas virtuais inicirem no outro nó;
+% \item Aguardar máquinas virtuais iniciarem no outro nó;
 % \item Finalizar a medição do tempo e \textit{ping}.
 %\end{itemize}
 
@@ -188,7 +188,7 @@ porém ocorreu um erro na atualização e o servidor não inicializou corretamen
 %  \item Executar comando \textit{ping} e medir o tempo de indisponibilidade (\textit{script} no Apêndice \ref{ap:scriptindisp});
 %  \item Acessar o terminal do nó que será reiniciado;
 %  \item Executar o comando \textit{reboot};
-%  \item Aguardar máquinas virtuais inicirem no outro nó e aguardar retorno do nó reiniciado;
+%  \item Aguardar máquinas virtuais iniciarem no outro nó e aguardar retorno do nó reiniciado;
 %  \item Finalizar a medição do tempo e \textit{ping}.
 % \end{itemize}
 
@@ -209,7 +209,7 @@ Máquina virtual & 10 \\\hline % & 0 \\\hline
 
 \subsection{Teste 3 - Manutenção agendada}
 %Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
-%atualizacao de kernel dos nodes. Resultados: latencia, comparacao downtime servidor virtual e fisico, log
+%atualização de kernel dos nodes. Resultados: latência, comparação downtime servidor virtual e físico, log
 
 Reinicializações são necessárias para manutenções de \textit{hardware}, atualização de \textit{software} e até mesmo para 
 rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste na aplicações de métodos para remover problemas gerados pelo 
@@ -279,8 +279,8 @@ Máquina virtual & 100\% & 0 minutos \\\hline
 
 %A Figura \ref{fig:teste2_trapel1} demonstra a disponibilidade da máquina virtual, onde pode-se perceber que não houve nenhuma indisponibilidade. 
 %Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que faz o monitoramento da empresa. 
-%grafico comparativo nagios da disponibilidade do servidor fisico e do virtual
-%grafico nagios - Trends(grafico) ou Availability (resumo) - Hosts - servidor - tempo 18/09 a 30/09 + Include Soft States = yes
+%gráfico comparativo nagios da disponibilidade do servidor fisico e do virtual
+%gráfico nagios - Trends(gráfico) ou Availability (resumo) - Hosts - servidor - tempo 18/09 a 30/09 + Include Soft States = yes
 % \begin{figure}[h!]
 %  \centering
 %  \includegraphics[width=360px]{img/teste2_trapel1.eps}
@@ -325,7 +325,7 @@ isso pode ser observado na Figura \ref{fig:teste2_latencia}, onde tem-se um pico
 
 \section{Comparação final da disponibilidade}
 \label{section:comparacaofinal}
-%Medição da disponibilidade dos serviços críticos por 30 dias (14/10 a 12/11) FAZER uma manutencao de hardware.
+%Medição da disponibilidade dos serviços críticos por 30 dias (14/10 a 12/11) FAZER uma manutenção de hardware.
 %Comparar ao mês de setembro (01/09 a 30/09) no ambiente antigo com uma reinicialização dos servidores físicos (reiniciados em 06/09/16)
 
 Esta última seção tem como objetivo comparar e analisar a disponibilidade do ambiente antigo com o ambiente de alta disponibilidade que foi 

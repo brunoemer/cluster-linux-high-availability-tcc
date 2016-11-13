@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  13 NOV 2016 10:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  13 NOV 2016 15:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1260,12 +1260,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 45.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 46.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
 ) [13]
 \openout2 = `capitulos/capitulo2.aux'.
 
@@ -2289,10 +2289,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 16702 strings out of 495004
- 309441 string characters out of 6180662
- 419702 words of memory out of 5000000
- 19530 multiletter control sequences out of 15000+600000
+ 16703 strings out of 495004
+ 309457 string characters out of 6180662
+ 419711 words of memory out of 5000000
+ 19531 multiletter control sequences out of 15000+600000
  12500 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,11n,57p,10374b,1724s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2312,7 +2312,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (78 pages, 2304406 bytes).
+Output written on tcc.pdf (78 pages, 2304451 bytes).
 PDF statistics:
  440 PDF objects out of 1000 (max. 8388607)
  283 compressed objects within 3 object streams

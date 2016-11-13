@@ -30,7 +30,7 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es DNS por segundo do per\IeC {\'\i }odo de uma semana (a) e compara\IeC {\c c}\IeC {\~a}o de requisi\IeC {\c c}\IeC {\~o}es UDP simult\IeC {\^a}neas m\IeC {\'a}ximas entre os principais servidores (b).}}{41}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.2:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de elementos (a) e de conex\IeC {\~o}es TCP simult\IeC {\^a}neas m\IeC {\'a}ximas (b) entre os principais servidores.}}{42}
 \contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do sistema do provedor durante o per\IeC {\'\i }odo de uma semana.}}{43}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos simult\IeC {\^a}neamente no servidor de telefonia durante o per\IeC {\'\i }odo de uma semana.}}{43}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos simultaneamente no servidor de telefonia durante o per\IeC {\'\i }odo de uma semana.}}{43}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.1:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{46}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.2:}{\ignorespaces Modelo do \textit {GlusterFS}.}}{47}

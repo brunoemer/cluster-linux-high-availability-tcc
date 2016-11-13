@@ -14,7 +14,7 @@
 
 %Usar metodologia MAH - Método Analítico Hierárquico \cite{geordano2014} NAO INICIALMENTE
 
-Neste capítulo serão apresetadas as ferramentas que irão compor o ambiente de alta disponibilidade. A solução será baseada na utilização 
+Neste capítulo serão apresentadas as ferramentas que irão compor o ambiente de alta disponibilidade. A solução será baseada na utilização 
 de virtualização e de \textit{softwares} de código aberto. Essa estrutura foi baseada nos trabalhos de \citet{goncalves2009}, \citet{reis2009} 
 e \citet{zaminhani2008}. Os dois primeiros trabalhos implementam alta disponibilidade através de máquinas virtuais, com os mesmos objetivos deste 
 trabalho. O terceiro autor utiliza uma técnica semelhante, porém implementada para apenas um serviço. Nestes trabalhos a estrutura é baseada em 
@@ -197,8 +197,8 @@ uma replicação em tempo real, além de não ter sido desenvolvido para ser uti
 %\textit{master-slave}. Esse \textit{software} necessita de um \textit{hardware} adicional para sua administração. 
 
 %https://www.reddit.com/r/linux/comments/1qwarp/drbd_vs_glusterfs/
-% glusterfs mais escalavel, simples de administrar
-% drbd melhor eficiencia(acredito) nivel de bloco, confiavel(10 anos develop)
+% glusterfs mais escalável, simples de administrar
+% drbd melhor eficiência(acredito) nível de bloco, confiável(10 anos develop)
 
 % drbd: 2 nodes na versão 8 e 16 nodes por stacking / 16 nodes na versão 9
 
@@ -211,10 +211,10 @@ uma replicação em tempo real, além de não ter sido desenvolvido para ser uti
 %disponibilidade, a utilização do DRBD no modo Ativo/Ativo não será discutida.
 
 % glusterfs https://raobharata.wordpress.com/2012/10/29/qemu-glusterfs-native-integration/
-% melhor performace com disco utilizando protocolo gluster file=gluster://path/to
+% melhor performance com disco utilizando protocolo gluster file=gluster://path/to
 
 % ceph http://docs.ceph.com/docs/master/start/intro/
-% necessita minimo 3 monitores com osd, outra para administração
+% necessita mínimo 3 monitores com osd, outra para administração
 % precisa openstack + nova
 % http://www.server-world.info/en/note?os=Ubuntu_14.04&p=ceph
 % https://elkano.org/blog/live-migration-openstack-ubuntu-14-04/

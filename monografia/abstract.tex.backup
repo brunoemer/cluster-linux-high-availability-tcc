@@ -1,24 +1,31 @@
-\keyword{Virtualização}
 \keyword{Alta disponibilidade}
+\keyword{Virtualização}
+\keyword{Tolerância a falhas}
 \keyword{Código aberto}
 
 \begin{abstract}
 
 O número de serviços oferecidos através da Internet vem crescendo a cada dia que passa. Sendo assim, a alta disponibilidade é um fator
-crucial para empresas que prestam serviços desse tipo. O aumento da disponibilidade é um grande diferencial para essas empresas, pois 
-atualmente a concorrência está elevada.
+crucial para empresas que prestam este tipo de serviço. De fato, o aumento da disponibilidade é um grande diferencial para essas empresas.
 
-Além do estudo da disponibilidade apresentado neste trabalho, será feito um estudo sobre virtualização, pois é um dos principais recursos utilizado
-para se obter alta disponibilidade, sendo bastante relevante para empresas de hospedagens.
+Dentro deste contexto, neste trabalho é feito um estudo para a implementação de um ambiente de alta disponibilidade em uma empresa prestadora 
+de serviços para Internet, utilizando ferramentas de código aberto. Para isso, foi feita uma análise dos serviços oferecidos pela empresa, bem 
+como um levantamento do ambiente de servidores da mesma.
 
-O principal objetivo deste trabalho é aumentar a disponibilidade de uma empresa prestadora de serviços para Internet, utilizando ferramentas
-de código aberto, de forma a garantir que seus serviços mais críticos fiquem o menor tempo indisponível. Para isso, será feito uma análise
-dos serviços ofereciados pela empresa bom como um levantamento do ambiente de servidores da mesma.
+Criou-se um projeto de implementação para a solução de alta disponibilidade no ambiente da empresa, esse ambiente utiliza virtualização para uma 
+grande parte dos serviços. Para tal, pesquisou-se algumas ferramentas de gerenciamento de \textit{cluster} e de replicação de dados. A partir 
+destas ferramentas é feita uma análise das mesmas e adotada a mais adequada para o ambiente da empresa. Deste modo, o \textit{cluster} é composto 
+pelo \textit{software} \textit{Pacemaker}, que faz o gerenciamento do \textit{cluster} e pelo \textit{software} \textit{DRBD}, que é responsável 
+pela replicação dos dados.
 
-Além disso será pesquisado e testado ferramentas para possibilitar a criação de uma proposta
+Por fim validou-se o ambiente de alta disponibilidade através de testes que simulam falhas de \textit{hardware}, de energia elétrica e de
+\textit{software}.
 
 \end{abstract}
 
-%\begin{englishabstract}{Title}
+\begin{englishabstract}{}{high availability, virtualization, fault tolerance, open source}
+The number of services provided throught? on Internet
 
-%\end{englishabstract}
+??
+
+\end{englishabstract}
