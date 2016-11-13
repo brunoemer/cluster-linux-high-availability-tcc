@@ -9,11 +9,11 @@
 #!/bin/bash
 # Copyright (c) 2008 Wanderson S. Reis <wasare@gmail.com>
 #
-# Adaptado para gerar estatisticas do ping.
+# Adaptado para gerar estatísticas do ping.
 # Bruno Emer <emerbruno@gmail.com> 2016
 #
-# parametros :
-#endereco IP e numero de sequencia do teste para controle
+# parâmetros :
+#endereço IP e número de sequência do teste para controle
 # ( opcional )
 #
 IP=$1
@@ -66,8 +66,8 @@ exit 0
 # ------------------------------------------------------------------
 # Copyright (c) 2016-09-02 Bruno Emer <emerbruno@gmail.com>
 #
-# Verifica e faz reinicializacao de um node do cluster pacemaker / drbd
-# Instalacao:
+# Verifica e faz reinicialização de um node do cluster pacemaker / drbd
+# Instalação:
 # Agendar no cron de cada node em dias diferentes
 #
 # ------------------------------------------------------------------
@@ -80,7 +80,7 @@ STANDBY_CHECK_RES="MS_DRBD"
 logger "Script manutencao cluster $PROGNAME node: $NODE"
 
 # ------------------------------------------------------------------
-#recovery - retorna node para online se ja foi reiniciado
+#recovery - retorna node para online se já foi reiniciado
 if [ -f pacemaker_reboot.tmp ]; then
 	#verifica se pacemaker esta iniciado
 	service pacemaker status
@@ -99,7 +99,7 @@ if [ -f pacemaker_reboot.tmp ]; then
 else
 # ------------------------------------------------------------------
 #destroy - derruba node para reiniciar
-	#verificacoes
+	#verificações
 	#se cluster esta ok
 	NAG_CHECK=$(/usr/lib/nagios/plugins/check_crm_v0_7)
 	NAG=$?
@@ -109,11 +109,11 @@ else
 		exit
 	fi
 
-	#se ja reiniciou nao executa
+	#se já reiniciou não executa
 	UPTIME=`awk '{print $1}' /proc/uptime`
 	UPINT=${UPTIME%.*}
 	if [ $UPINT -lt 86400 ]; then
-		logger "Ja reiniciado"
+		logger "Já reiniciado"
 		exit
 	fi
 
@@ -134,7 +134,7 @@ else
 		exit
 	fi
 
-	#desativa servicos do node
+	#desativa serviços do node
 	logger "Standby $NODE"
 	/usr/sbin/crm node standby "$NODE"
 

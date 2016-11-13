@@ -19,12 +19,19 @@ pelo \textit{software} \textit{Pacemaker}, que faz o gerenciamento do \textit{cl
 pela replicação dos dados.
 
 Por fim validou-se o ambiente de alta disponibilidade através de testes que simulam falhas de \textit{hardware}, de energia elétrica e de
-\textit{software}.
+\textit{software}. Além disso, simulou-se manutenções e reinicializações do servidores físicos sem causar indisponibilidade dos serviços.
 
 \end{abstract}
 
 \begin{englishabstract}{}{high availability, virtualization, fault tolerance, open source}
-The number of services provided throught? on Internet
+
+The number of services provided throught? on Internet become grown? each passed day. ?, high availability is a ? factor to the companies that
+provide? this kind of service. ?, the availability growth? is a great? diferencial? to these companies.
+
+In? this context, ? article was done a study? to do a implementation? of a high availability environment in a company that provide Internet 
+services, making use? at open source tools. For this?, was done a analisys? of services provide by the company, ? a ? its servers environment.
+
+A implementation project was created for a high availability solution at company environment, 
 
 ??
 
