@@ -137,8 +137,8 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão d
 A partir da análise feita decidiu-se que os servidores com maior importância para a empresa são:
 \begin{itemize}
  \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
- \item \textit{Speedauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
- \item \textit{Masterauth}: servidor \textit{Radius} para autenticação dos clientes do provedor;
+ \item \textit{Speedauth}: servidor \textit{Radius} para autenticação \ac{PPPoE} dos clientes do provedor;
+ \item \textit{Masterauth}: servidor \textit{Radius} para autenticação \ac{PPPoE} dos clientes do provedor;
  \item \textit{Soldi}: servidor dos sistemas gerenciais da empresa e do provedor;
  \item \textit{SimplesIP}: servidor de telefonia sobre \ac{IP} para atendimento dos clientes e comunicação interna do provedor e da empresa;
 \end{itemize}
@@ -157,8 +157,8 @@ todos esses serviços.
 \begin{tabular}{|l|l|l|l|}\hline
 \textbf{Servidor} & \textbf{Serviço} & \textbf{Uptime} & \textbf{Downtime por ano} \\\hline
 Passata & DNS recursivo & 99,913\% & 7 horas 37 minutos 30 segundos \\\hline
-Speedauth & Radius & 99,755\% & 21 horas 25 minutos 50 segundos \\\hline
-Masterauth & Radius & 99,475\% & 33 horas 47 minutos \\\hline
+Speedauth & Autenticação \ac{PPPoE} & 99,755\% & 21 horas 25 minutos 50 segundos \\\hline
+Masterauth & Autenticação \ac{PPPoE} & 99,475\% & 33 horas 47 minutos \\\hline
 Soldi & Sistemas & 99,989\% & 59 minutos 30 segundos \\\hline
 SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-ping pois asterisk nao esta correto
 \end{tabular}

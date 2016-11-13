@@ -35,6 +35,7 @@ Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores utilizados
 \textit{Dell PowerEdge 2950}, e o segundo é o Nó 2 (\textit{Piova}), que é um \textit{Dell PowerEdge R410}.
 
 ? Descricao completa ??
+figura drbd e pacemaker
 
 \begin{figure}[h!]
  \centering
@@ -65,8 +66,8 @@ Mais especificamente esse é o \textit{software} responsável pelo monitoramento
 % \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
 % e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
-Os serviços foram distribuídos entre os nós dos \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas de gestão, 
-\ac{DNS} recursivo e autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de telefonia e autenticação \ac{PPPoE}.
+Os serviços foram distribuídos entre os nós dos \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas de gestão e 
+autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de \ac{DNS} recursivo, telefonia e autenticação \ac{PPPoE}.
 No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. O detalhamento da configuração do \textit{Pacemaker} 
 estão disponíveis no Apêndice \ref{ap:confpacemaker}.
 
@@ -108,7 +109,6 @@ da máquina virtual, que totalizaria aproximadamente 250 segundos.
 Na pior das hipóteses, caso haja uma falha definitiva do servidor físico, sendo necessário reconfigurar a máquina virtual, reinstalar as aplicações,
 configurá-las e restaurar o \textit{backup}, o \ac{MTTR} seria significativamente maior. Dependendo do servidor e da aplicação, 
 a indisponibilidade poderia ser maior que 24 horas.
-%talvez adicionar um teste de desligamento de um servidor comum para comparar os tempos de indisponibilidade??
 Pode-se observar na tabela uma diferença entre os tempos de indisponibilidade do Nó 1 e Nó 2, isso ocorre devido a utilização de \textit{hardwares}
 diferentes na implementação. 
 %Além disso, o desvio padrão demonstra que existe pouca variação entre os tempos de indisponibilidade.
@@ -158,11 +158,12 @@ Máquina virtual & 81 \\\hline % & 7,07 \\\hline
 
 Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, sendo que neste caso pode-se citar como exemplo uma falha no 
 \textit{software} de virtualização, com isso o nó não conseguiria iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma 
-falha de atualização do sistema operacional ou do \textit{kernel}.
+falha de atualização do sistema operacional ou do \textit{kernel}, onde o sistema operacional do nó não conseguiria inicializar corretamente.
 %Esse tipo de situação também pode ocorrer em uma manutenção emergencial, onde é preciso desligar um servidor físico de forma rápida. 
-Desta forma, pode-se verificar a capacidade do outro nó manter os serviços em funcionamento. 
+Neste tipo de falha os serviços devem ser transferidos para o outro nó de forma automática, assim reduzindo a indisponibilidade desses serviços. 
+Desta forma, pode-se avaliar o processo de \textit{failover} dos serviços que estavam executando no nó que apresentou a falha.
 
-Para simular esta situação, foram acessados os nós via \ac{SSH} e executado o comando \textit{reboot}.
+Para simular esta falha, foram acessados os nós via \ac{SSH} e executado o comando \textit{reboot}.
 Esse teste foi executado 2 vezes em cada um dos nós do \textit{cluster}. O tempo de indisponibilidade foi medido da mesma forma do que o teste 
 anterior, utilizando o comando \textit{ping}. A medição desse tempo foi feita nos dois nós e também na máquina virtual. 
 A Tabela \ref{tab:teste2resultados} apresenta o tempo de indisponibilidade dos nós e da \ac{VM}. 
@@ -217,12 +218,13 @@ falhas.} de \textit{software} \cite{melo2014}. Desta forma, criou-se esse teste 
 %\end{itemize}
 
 Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias, para tanto, criou-se um \textit{script} que é 
-responsável por migrar as \acp{VM} para liberar o nó e reiniciá-lo, simulando assim uma atualização de \textit{kernel} 
+responsável por migrar as \acp{VM} de um nó e posteriormente reiniciá-lo, simulando assim uma atualização de \textit{kernel} 
 (este \textit{script} está disponível no Apêndice \ref{ap:scriptmanutencao}). 
 Para a execução do \textit{script} foi utilizada a ferramenta \textit{crontab} do \textit{Linux}. 
-Os resultados são apresentados na Tabela \ref{tab:teste3resultados}, pode-se observar que não houve \textit{downtime} na máquina virtual, e 
-consequentemente, não houve indisponibilidade nos serviços, devido a migração em tempo real das \acp{VM}. 
-Já nos nós do \textit{cluster} tem-se um tempo de indisponibilidade de 145,5 e 173 segundos devido a reinicialização dos nós.
+
+Na Tabela \ref{tab:teste3resultados} tem-se os resultados do teste. Como pode ser observado, o tempo de \textit{downtime} da máquina virtual 
+é nulo, ou seja, não houve indisponibilidade nos serviços devido a migração em tempo real das \acp{VM}. 
+Já nos nós  tem-se um tempo de indisponibilidade de 145,5 e 173 segundos devido a reinicialização destes.
 %A latência baixa da máquina virtual demonstra que não há perda significante de desempenho durante a migração da máquina virtual de um nó para outro.
 
 % feito em 17/09 a 30/09
@@ -252,8 +254,7 @@ Máquina virtual & 0 & 0 \\\hline
 
 A Tabela \ref{tab:teste3disp} demonstra o percentual de disponibilidade da \ac{VM} e dos nós do \textit{cluster} durante o período de 13 dias
 do teste. Destaca-se que a máquina virtual não apresentou nenhuma indisponibilidade. 
-Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, responsável pelo monitoramento da empresa.
-COLOCAR ESSA TABELA ??
+Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que é responsável pelo monitoramento da empresa.
 
 \begin{table}[h!]
 \caption{Disponibilidade e tempo de indisponibilidade do período de 13 dias.}
@@ -298,8 +299,9 @@ Máquina virtual & 100\% & 0 minutos \\\hline
 %  \label{fig:teste2_piova1}
 % \end{figure}
 
-Durante o processo de \textit{live migration} de um nó para outro a latência da máquina virtual aumentou, isso pode ser observado na Figura 
-\ref{fig:teste2_latencia} através do pico ocorrido entre o tempo de 50 e 100 segundos. 
+Durante o processo de \textit{live migration} de um nó para outro a latência da máquina virtual aumentou\footnote[1]{
+O aumento de latência deve-se ao fato da memória e os dados necessários para a migração da máquina virtual serem transferidos através da rede.}, 
+isso pode ser observado na Figura \ref{fig:teste2_latencia}, onde tem-se um pico no intervalo de tempo de 50 à 100 segundos.
 %Mesmo com o aumento de latência não ocorre perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
 %teste2/186.195.16.13-stat-2.log
@@ -319,23 +321,37 @@ Durante o processo de \textit{live migration} de um nó para outro a latência d
 %Medição da disponibilidade dos serviços críticos por 30 dias (14/10 a 12/11) FAZER uma manutencao de hardware.
 %Comparar ao mês de setembro (01/09 a 30/09) no ambiente antigo com uma reinicialização dos servidores físicos (reiniciados em 06/09/16)
 
-Nesta seção será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade, sendo que neste ambiente estarão executando 
-os serviços críticos definidos na Seção \ref{section:maqservcrit}.
-Durante o período foi feito uma manutenção ...
-%...foi mensurado a disponibilidade
+Esta última seção tem como objetivo comparar e analisar a disponibilidade do ambiente antigo com o ambiente de alta disponibilidade que foi 
+implementado. Sendo assim foi feita uma medição da disponibilidade do período de um mês no ambiente antigo e de um mês no ambiente de alta 
+disponibilidade implementado, sendo que nestes ambientes encontravam-se executando os serviços críticos que foram definidos na 
+Seção \ref{section:maqservcrit}. Destaca-se que durante esses períodos foram feitas reinicializações nos servidores físicos, para atualização de
+\textit{kernel}.
 
-continuar ... ??
+A Tabela \ref{tab:testefinal} ...
+??
 
-adicionar gráficos de disponibilidade final dos serviços críticos:
-
-%Medição através do comando ping e do Nagios, que utiliza ping para calcular o tempo de downtime
-%Tabela com perda de pacotes, latencia, tempo de indisponibilidade X node fisico e maquina virtual
+%graficos: nagios_disponibilidade1_*
+\begin{table}[h!]
+\caption{Disponibilidade e tempo de indisponibilidade do antigo ambiente medidos no período de um mês.}
+\small
+\label{tab:testefinal}
+\begin{center}
+\begin{tabular}{|l|l|l|l|}\hline
+\textbf{Servidor} & \textbf{Serviço} & \textbf{Disponibilidade} & \textbf{Tempo de indisponibilidade} \\\hline
+Passata & DNS recursivo & 99,913\% & 7 horas 37 minutos 30 segundos \\\hline
+Speedauth & Autenticação \ac{PPPoE} & 99,755\% & 21 horas 25 minutos 50 segundos \\\hline
+Masterauth & Autenticação \ac{PPPoE} & 99,930\% & 33 horas 47 minutos \\\hline
+Soldi & Sistemas & 99,989\% & 59 minutos 30 segundos \\\hline
+SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-ping pois asterisk nao esta correto
+\end{tabular}
+\end{center}
+\end{table}
 
 
 \section{Considerações finais}
 
 Neste capítulo foi apresentada a arquitetura de alta disponibilidade implementada com base em virtualização, sendo composta por dois servidores 
-físicos, onde foram configuradas máquinas virtuais contendo os serviços críticos da empresa. 
+físicos, onde foram configuradas máquinas virtuais contendo os serviços críticos da empresa. Ferramentas de \textit{cluster} ...
 
 Foi feita uma análise do ambiente de alta disponibilidade implementado na empresa, através de testes e da coleta de dados
 provenientes desses. Pode-se perceber que resultados obtidos foram positivos, e que os objetivos deste trabalho foram alcançados. 

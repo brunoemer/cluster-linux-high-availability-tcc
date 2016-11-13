@@ -23,6 +23,8 @@
 \contentsline {table}{\numberline {Tabela\nobreakspace 7.2:}{\ignorespaces Resultados do teste de desligamento por \textit {software}, com tempo de indisponibilidade em segundos.}}{56}
 \contentsline {table}{\numberline {Tabela\nobreakspace 7.3:}{\ignorespaces Resultados do teste de manuten\IeC {\c c}\IeC {\~a}o agendada, com o tempo de indisponibilidade em segundos e o desvio padr\IeC {\~a}o.}}{57}
 \contentsline {table}{\numberline {Tabela\nobreakspace 7.4:}{\ignorespaces Disponibilidade e tempo de indisponibilidade do per\IeC {\'\i }odo de 13 dias.}}{57}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.5:}{\ignorespaces Disponibilidade do antigo ambiente e do novo ambiente de alta disponibilidade, que foram medidos no per\IeC {\'\i }odo de um m\IeC {\^e}s.}}{58}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.6:}{\ignorespaces Tempo de indisponibilidade dos servi\IeC {\c c}os cr\IeC {\'\i }ticos nas dois ambientes.}}{58}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

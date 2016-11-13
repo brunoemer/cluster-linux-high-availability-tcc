@@ -109,7 +109,6 @@ da máquina virtual, que totalizaria aproximadamente 250 segundos.
 Na pior das hipóteses, caso haja uma falha definitiva do servidor físico, sendo necessário reconfigurar a máquina virtual, reinstalar as aplicações,
 configurá-las e restaurar o \textit{backup}, o \ac{MTTR} seria significativamente maior. Dependendo do servidor e da aplicação, 
 a indisponibilidade poderia ser maior que 24 horas.
-%talvez adicionar um teste de desligamento de um servidor comum para comparar os tempos de indisponibilidade??
 Pode-se observar na tabela uma diferença entre os tempos de indisponibilidade do Nó 1 e Nó 2, isso ocorre devido a utilização de \textit{hardwares}
 diferentes na implementação. 
 %Além disso, o desvio padrão demonstra que existe pouca variação entre os tempos de indisponibilidade.
@@ -322,23 +321,53 @@ isso pode ser observado na Figura \ref{fig:teste2_latencia}, onde tem-se um pico
 %Medição da disponibilidade dos serviços críticos por 30 dias (14/10 a 12/11) FAZER uma manutencao de hardware.
 %Comparar ao mês de setembro (01/09 a 30/09) no ambiente antigo com uma reinicialização dos servidores físicos (reiniciados em 06/09/16)
 
-Nesta seção será feita a medição e a análise do período de um mês no ambiente de alta disponibilidade, sendo que neste ambiente estarão executando 
-os serviços críticos definidos na Seção \ref{section:maqservcrit}.
-Durante o período foi feito uma manutenção ...
-%...foi mensurado a disponibilidade
+Esta última seção tem como objetivo comparar e analisar a disponibilidade do ambiente antigo com o ambiente de alta disponibilidade que foi 
+implementado. Sendo assim foi feita uma medição da disponibilidade do período de um mês no ambiente antigo e de um mês no ambiente de alta 
+disponibilidade implementado, sendo que nestes ambientes encontravam-se executando os serviços críticos que foram definidos na 
+Seção \ref{section:maqservcrit}. Destaca-se que durante esses períodos foram feitas reinicializações nos servidores físicos, para atualização de
+\textit{kernel}.
 
-continuar ... ??
+A Tabela \ref{tab:testefinal} ...
+??
 
-adicionar gráficos de disponibilidade final dos serviços críticos:
+%graficos: nagios_disponibilidade1_*
+\begin{table}[h!]
+\caption{Disponibilidade do antigo ambiente e do novo ambiente de alta disponibilidade, que foram medidos no período de um mês.}
+\small
+\label{tab:testefinal}
+\begin{center}
+\begin{tabular}{|l|l|p{4cm}|p{4cm}|}\hline
+\textbf{Servidor} & \textbf{Serviço} & \textbf{Disponibilidade do antigo ambiente} & \textbf{Disponibilidade do novo ambiente} \\\hline
+Passata & DNS recursivo & 99,978\% &  \\\hline
+Speedauth & Autenticação \ac{PPPoE} & 99,936\% &  \\\hline
+Masterauth & Autenticação \ac{PPPoE} & 99,930\% &  \\\hline
+Soldi & Sistemas & 99,913\% &  \\\hline
+SimplesIP & Telefonia & 99,866\% &  \\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
-%Medição através do comando ping e do Nagios, que utiliza ping para calcular o tempo de downtime
-%Tabela com perda de pacotes, latencia, tempo de indisponibilidade X node fisico e maquina virtual
+\begin{table}[h!]
+\caption{Tempo de indisponibilidade dos serviços críticos nas dois ambientes.}
+\small
+\label{tab:testefinal2}
+\begin{center}
+\begin{tabular}{|l|l|p{4cm}|p{4cm}|}\hline
+\textbf{Servidor} & \textbf{Serviço} & \textbf{Tempo de indisponibilidade do antigo ambiente} & \textbf{Tempo de indisponibilidade do novo ambiente} \\\hline
+Passata & DNS recursivo & 9 minutos 40 segundos &  \\\hline
+Speedauth & Autenticação \ac{PPPoE} & 27 minutos 40 segundos &  \\\hline
+Masterauth & Autenticação \ac{PPPoE} & 30 minutos 20 segundos &  \\\hline
+Soldi & Sistemas & 37 minutos 20 segundos &  \\\hline
+SimplesIP & Telefonia & 58 minutos 0 segundos &  \\\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 
 \section{Considerações finais}
 
 Neste capítulo foi apresentada a arquitetura de alta disponibilidade implementada com base em virtualização, sendo composta por dois servidores 
-físicos, onde foram configuradas máquinas virtuais contendo os serviços críticos da empresa. 
+físicos, onde foram configuradas máquinas virtuais contendo os serviços críticos da empresa. Ferramentas de \textit{cluster} ...
 
 Foi feita uma análise do ambiente de alta disponibilidade implementado na empresa, através de testes e da coleta de dados
 provenientes desses. Pode-se perceber que resultados obtidos foram positivos, e que os objetivos deste trabalho foram alcançados. 

@@ -193,9 +193,9 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=306
+line=0
 mode=LaTeX
-open=true
+open=false
 order=6
 
 [item:capitulos/capitulo4.tex]
@@ -205,7 +205,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=0
 mode=LaTeX
-open=true
+open=false
 order=1
 
 [item:capitulos/capitulo5.tex]
@@ -213,40 +213,40 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=163
+mode=LaTeX
+open=true
+order=1
+
+[item:capitulos/capitulo6.tex]
+archive=true
+column=0
+encoding=UTF-8
+highlight=LaTeX
+line=426
 mode=LaTeX
 open=true
 order=2
 
-[item:capitulos/capitulo6.tex]
+[item:capitulos/capitulo7.tex]
 archive=true
-column=85
+column=77
 encoding=UTF-8
 highlight=LaTeX
-line=425
+line=350
 mode=LaTeX
 open=true
 order=3
-
-[item:capitulos/capitulo7.tex]
-archive=true
-column=16
-encoding=UTF-8
-highlight=LaTeX
-line=329
-mode=LaTeX
-open=true
-order=4
 
 [item:capitulos/conclusao.tex]
 archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=35
+line=33
 mode=LaTeX
 open=true
-order=5
+order=4
 
 [item:capitulos/introducao.tex]
 archive=true
@@ -310,10 +310,10 @@ order=-1
 
 [item:tcc.tex]
 archive=true
-column=21
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=7
+line=83
 mode=LaTeX
 open=true
 order=0
@@ -356,7 +356,7 @@ ViMarks=.,167,10,[,167,10,],167,10
 
 [view-settings,view=0,item:capitulos/capitulo3.tex]
 CursorColumn=0
-CursorLine=306
+CursorLine=0
 JumpList=
 ViMarks=.,314,128,[,314,109,],314,128
 
@@ -368,27 +368,27 @@ ViMarks=.,210,7,[,210,7,],210,7
 
 [view-settings,view=0,item:capitulos/capitulo5.tex]
 CursorColumn=0
-CursorLine=0
+CursorLine=163
 JumpList=
-ViMarks=.,6,87,[,6,78,],6,87
+ViMarks=.,160,13,[,160,13,],160,35
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
-CursorColumn=85
-CursorLine=425
+CursorColumn=0
+CursorLine=426
 JumpList=
 ViMarks=.,425,85,[,425,85,],425,85
 
 [view-settings,view=0,item:capitulos/capitulo7.tex]
-CursorColumn=16
-CursorLine=329
+CursorColumn=77
+CursorLine=350
 JumpList=
-ViMarks=.,303,38,[,303,38,],303,38
+ViMarks=.,350,76,[,350,40,],350,76
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=0
-CursorLine=35
+CursorLine=33
 JumpList=
-ViMarks=.,22,118,[,22,118,],22,118
+ViMarks=.,34,0,[,34,0,],34,0
 
 [view-settings,view=0,item:capitulos/introducao.tex]
 CursorColumn=127
@@ -409,7 +409,7 @@ JumpList=
 ViMarks=.,798,29,[,798,30,],798,29
 
 [view-settings,view=0,item:tcc.tex]
-CursorColumn=21
-CursorLine=7
+CursorColumn=0
+CursorLine=83
 JumpList=
 ViMarks=.,47,24,[,47,24,],47,24
