@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  12 NOV 2016 22:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  12 NOV 2016 23:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2294,7 +2294,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (76 pages, 2301837 bytes).
+Output written on tcc.pdf (76 pages, 2302431 bytes).
 PDF statistics:
  434 PDF objects out of 1000 (max. 8388607)
  279 compressed objects within 3 object streams
