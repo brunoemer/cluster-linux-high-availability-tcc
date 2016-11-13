@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  13 NOV 2016 19:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  13 NOV 2016 20:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2009,7 +2009,7 @@ Package epstopdf Info: Source file: <img/projeto_estrutura.eps>
 (epstopdf)                    size: 101807 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_estrutura-eps-
 converted-to.pdf img/projeto_estrutura.eps>
-(epstopdf)             \includegraphics on input line 65.
+(epstopdf)             \includegraphics on input line 64.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_estrutura-eps-converted-to.pdf, id=294, 1139.25626pt x 984.67876pt
@@ -2017,12 +2017,15 @@ Package epstopdf Info: Output file is already uptodate.
 File: img/projeto_estrutura-eps-converted-to.pdf Graphic file (type pdf)
  <use img/projeto_estrutura-eps-converted-to.pdf>
 Package pdftex.def Info: img/projeto_estrutura-eps-converted-to.pdf used on inp
-ut line 65.
+ut line 64.
 (pdftex.def)             Requested size: 351.31378pt x 303.63959pt.
- [55 <./img/projeto_fisico-eps-converted-to.pdf> <./img/projeto_estrutura-eps-c
-onverted-to.pdf>]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[55 <./img/projeto_fisico-eps-converted-to.pdf>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 133.
+(Font)              <10.95> on input line 132.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -2032,8 +2035,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 \OT1/cmr/m/n/10.95 56
  []
 
-[56]
-Overfull \hbox (1.39171pt too wide) in paragraph at lines 227--231
+[56 <./img/projeto_estrutura-eps-converted-to.pdf>]
+Overfull \hbox (1.39171pt too wide) in paragraph at lines 226--230
 []\OT1/cmr/m/n/12 Esse teste con-siste no agen-da-mento de 4 ma-nu-ten^^Xc~oes 
 efe-tu-a-das du-rante o per^^S^^Podo
  []
@@ -2047,7 +2050,7 @@ Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    size: 17324 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/teste2_latencia-eps-co
 nverted-to.pdf img/teste2_latencia.eps>
-(epstopdf)             \includegraphics on input line 317.
+(epstopdf)             \includegraphics on input line 316.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/teste2_latencia-eps-converted-to.pdf, id=311, 723.70375pt x 506.89375pt>
@@ -2055,26 +2058,8 @@ File: img/teste2_latencia-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/teste2_latencia-eps-converted-to.pdf>
 Package pdftex.def Info: img/teste2_latencia-eps-converted-to.pdf used on input
- line 317.
+ line 316.
 (pdftex.def)             Requested size: 321.20117pt x 224.97531pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 348--348
-[]\OT1/cmr/bx/n/10.95 Disponibilidade do
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 348--348
-[]\OT1/cmr/bx/n/10.95 Disponibilidade do
- []
-
-
-Overfull \hbox (5.2638pt too wide) in paragraph at lines 347--355
- [] 
- []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -2085,14 +2070,32 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [58]
-Underfull \hbox (badness 1917) in paragraph at lines 368--368
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
+[]\OT1/cmr/bx/n/10.95 Disponibilidade do
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--347
+[]\OT1/cmr/bx/n/10.95 Disponibilidade do
+ []
+
+
+Overfull \hbox (5.2638pt too wide) in paragraph at lines 346--354
+ [] 
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 367--367
 []\OT1/cmr/bx/n/10.95 Tempo de in-dis-po-
  []
 
 
-Overfull \hbox (5.2638pt too wide) in paragraph at lines 367--375
+Overfull \hbox (5.2638pt too wide) in paragraph at lines 366--374
  [] 
  []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [59 <./img/teste2_latencia-eps-converted-to.pdf>])
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2722,7 +2725,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  16704 strings out of 495004
  309473 string characters out of 6180662
- 419711 words of memory out of 5000000
+ 419739 words of memory out of 5000000
  19532 multiletter control sequences out of 15000+600000
  12500 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2743,7 +2746,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (78 pages, 2305759 bytes).
+Output written on tcc.pdf (78 pages, 2306161 bytes).
 PDF statistics:
  440 PDF objects out of 1000 (max. 8388607)
  283 compressed objects within 3 object streams

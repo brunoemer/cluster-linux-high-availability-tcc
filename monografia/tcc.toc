@@ -57,13 +57,13 @@
 \contentsline {chapter}{\numberline {7}Implementa\IeC {\c c}\IeC {\~a}o e testes}{54}
 \contentsline {section}{\numberline {7.1}Descri\IeC {\c c}\IeC {\~a}o do ambiente de alta disponibilidade}{54}
 \contentsline {subsection}{\numberline {7.1.1}Estrutura f\IeC {\'\i }sica}{54}
-\contentsline {subsection}{\numberline {7.1.2}Estrutura l\IeC {\'o}gica}{54}
-\contentsline {section}{\numberline {7.2}Testes}{56}
+\contentsline {subsection}{\numberline {7.1.2}Estrutura l\IeC {\'o}gica}{55}
+\contentsline {section}{\numberline {7.2}Testes}{55}
 \contentsline {subsection}{\numberline {7.2.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{56}
-\contentsline {subsection}{\numberline {7.2.2}Teste 2 - Desligamento por software}{56}
+\contentsline {subsection}{\numberline {7.2.2}Teste 2 - Desligamento por software}{57}
 \contentsline {subsection}{\numberline {7.2.3}Teste 3 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{57}
 \contentsline {section}{\numberline {7.3}Compara\IeC {\c c}\IeC {\~a}o final da disponibilidade}{58}
-\contentsline {section}{\numberline {7.4}Considera\IeC {\c c}\IeC {\~o}es finais}{60}
+\contentsline {section}{\numberline {7.4}Considera\IeC {\c c}\IeC {\~o}es finais}{59}
 \contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{61}
 \contentsline {section}{\numberline {8.1}Trabalho futuros}{62}
 \contentsline {chapter}{Refer{\^e}ncias}{63}

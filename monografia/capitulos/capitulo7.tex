@@ -43,9 +43,7 @@ Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores utilizados
  \label{fig:projeto_fisico}
 \end{figure}
 
-Imagem com drbd ??
-descrição
-
+\newpage
 \subsection{Estrutura lógica}
 
 A estrutura lógica dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura 
@@ -55,8 +53,9 @@ distribuídos para um acesso compartilhado dos dados, sendo que o \textit{softwa
 Os detalhes da instalação e da configuração do \ac{DRBD} e do sistema de arquivos \ac{OCFS2} estão detalhadas no Apêndice \ref{ap:confdisco}. 
 
 Já para o gerenciamento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} \textit{Pacemaker}. 
-Mais especificamente esse é o \textit{software} responsável pelo monitoramento e pela migração das \acp{VM} entre os nós.
-Esse \textit{software} inicia e para os recursos de acordo com a configuração definida, por exemplo, ao iniciar o \textit{cluster} o 
+Mais especificamente esse é o \textit{software} responsável pelo monitoramento e pela migração das \acp{VM} entre os nós, ele gerencia
+tudo que esta localizado abaixo dele na figura, o \ac{DRBD}, o sistema de arquivos e as \acp{VM}.
+Esse \textit{software} inicia e pára os recursos de acordo com a configuração definida, por exemplo, ao iniciar o \textit{cluster} o 
 \textit{Pacemaker} inicia o serviço de sincronismo do \ac{DRBD}, monta o sistema de arquivos no diretório onde está localizado os 
 discos das \acp{VM}, e inicia as máquinas virtuais.
 
