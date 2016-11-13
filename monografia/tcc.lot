@@ -9,22 +9,22 @@
 \select@language {brazilian}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {Tabela\nobreakspace 2.1:}{\ignorespaces N\IeC {\'\i }veis de alta disponibilidade e exemplos de sistemas.}}{16}
+\contentsline {table}{\numberline {Tabela\nobreakspace 2.1:}{\ignorespaces N\IeC {\'\i }veis de alta disponibilidade e exemplos de sistemas.}}{17}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {Tabela\nobreakspace 4.1:}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos servidores f\IeC {\'\i }sicos.}}{28}
+\contentsline {table}{\numberline {Tabela\nobreakspace 4.1:}{\ignorespaces Configura\IeC {\c c}\IeC {\~a}o dos servidores f\IeC {\'\i }sicos.}}{29}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {Tabela\nobreakspace 5.1:}{\ignorespaces Servi\IeC {\c c}os cr\IeC {\'\i }ticos do ano de 2015.}}{43}
+\contentsline {table}{\numberline {Tabela\nobreakspace 5.1:}{\ignorespaces Servi\IeC {\c c}os cr\IeC {\'\i }ticos do ano de 2015.}}{44}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {Tabela\nobreakspace 6.1:}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados.}}{48}
-\contentsline {table}{\numberline {Tabela\nobreakspace 6.2:}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o entre ferramentas de gerenciamento de \textit {cluster}.}}{51}
+\contentsline {table}{\numberline {Tabela\nobreakspace 6.1:}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o ferramentas de replica\IeC {\c c}\IeC {\~a}o de dados.}}{49}
+\contentsline {table}{\numberline {Tabela\nobreakspace 6.2:}{\ignorespaces Compara\IeC {\c c}\IeC {\~a}o entre ferramentas de gerenciamento de \textit {cluster}.}}{52}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {Tabela\nobreakspace 7.1:}{\ignorespaces Resultados do teste de desligamento f\IeC {\'\i }sico, contendo o tempo de indisponibilidade em segundos.}}{55}
-\contentsline {table}{\numberline {Tabela\nobreakspace 7.2:}{\ignorespaces Resultados do teste de desligamento por \textit {software}, com tempo de indisponibilidade em segundos.}}{56}
-\contentsline {table}{\numberline {Tabela\nobreakspace 7.3:}{\ignorespaces Resultados do teste de manuten\IeC {\c c}\IeC {\~a}o agendada, com o tempo de indisponibilidade em segundos e o desvio padr\IeC {\~a}o.}}{57}
-\contentsline {table}{\numberline {Tabela\nobreakspace 7.4:}{\ignorespaces Disponibilidade e tempo de indisponibilidade do per\IeC {\'\i }odo de 13 dias.}}{57}
-\contentsline {table}{\numberline {Tabela\nobreakspace 7.5:}{\ignorespaces Disponibilidade do antigo ambiente e do novo ambiente de alta disponibilidade, que foram medidos no per\IeC {\'\i }odo de um m\IeC {\^e}s.}}{58}
-\contentsline {table}{\numberline {Tabela\nobreakspace 7.6:}{\ignorespaces Tempo de indisponibilidade dos servi\IeC {\c c}os cr\IeC {\'\i }ticos nas dois ambientes.}}{58}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.1:}{\ignorespaces Resultados do teste de desligamento f\IeC {\'\i }sico, contendo o tempo de indisponibilidade em segundos.}}{57}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.2:}{\ignorespaces Resultados do teste de desligamento por \textit {software}, com tempo de indisponibilidade em segundos.}}{57}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.3:}{\ignorespaces Resultados do teste de manuten\IeC {\c c}\IeC {\~a}o agendada, com o tempo de indisponibilidade em segundos e o desvio padr\IeC {\~a}o.}}{58}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.4:}{\ignorespaces Disponibilidade e tempo de indisponibilidade do per\IeC {\'\i }odo de 13 dias.}}{58}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.5:}{\ignorespaces Disponibilidade do antigo ambiente e do novo ambiente de alta disponibilidade, que foram medidos no per\IeC {\'\i }odo de um m\IeC {\^e}s.}}{59}
+\contentsline {table}{\numberline {Tabela\nobreakspace 7.6:}{\ignorespaces Tempo de indisponibilidade dos servi\IeC {\c c}os cr\IeC {\'\i }ticos nas dois ambientes.}}{59}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

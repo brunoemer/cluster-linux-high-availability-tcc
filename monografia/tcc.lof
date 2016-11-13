@@ -10,38 +10,38 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.1:}{\ignorespaces Interfaces de sistemas de computa\IeC {\c c}\IeC {\~a}o.}}{19}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.2:}{\ignorespaces M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o e de sistema.}}{20}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.3:}{\ignorespaces Componentes da virtualiza\IeC {\c c}\IeC {\~a}o.}}{21}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.4:}{\ignorespaces Arquiteturas de m\IeC {\'a}quinas virtuais de sistema.}}{22}
-\contentsline {figure}{\numberline {Figura\nobreakspace 3.5:}{\ignorespaces Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema.}}{23}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.1:}{\ignorespaces Interfaces de sistemas de computa\IeC {\c c}\IeC {\~a}o.}}{20}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.2:}{\ignorespaces M\IeC {\'a}quinas virtuais de aplica\IeC {\c c}\IeC {\~a}o e de sistema.}}{21}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.3:}{\ignorespaces Componentes da virtualiza\IeC {\c c}\IeC {\~a}o.}}{22}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.4:}{\ignorespaces Arquiteturas de m\IeC {\'a}quinas virtuais de sistema.}}{23}
+\contentsline {figure}{\numberline {Figura\nobreakspace 3.5:}{\ignorespaces Implementa\IeC {\c c}\IeC {\~o}es de m\IeC {\'a}quinas virtuais de sistema.}}{24}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.1:}{\ignorespaces Diagrama de instala\IeC {\c c}\IeC {\~a}o el\IeC {\'e}trica.}}{27}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.2:}{\ignorespaces Modelo de estrutura f\IeC {\'\i }sica.}}{29}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.3:}{\ignorespaces Imagem do \textit {rack} e dos servidores.}}{29}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.4:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Brina}.}}{32}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.5:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Fulmine}.}}{32}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.6:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Piova}.}}{34}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.7:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Raggio}.}}{35}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.8:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Tempesta}.}}{36}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.9:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Tuono}.}}{37}
-\contentsline {figure}{\numberline {Figura\nobreakspace 4.10:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Venti}.}}{38}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.1:}{\ignorespaces Diagrama de instala\IeC {\c c}\IeC {\~a}o el\IeC {\'e}trica.}}{28}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.2:}{\ignorespaces Modelo de estrutura f\IeC {\'\i }sica.}}{30}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.3:}{\ignorespaces Imagem do \textit {rack} e dos servidores.}}{30}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.4:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Brina}.}}{33}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.5:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Fulmine}.}}{33}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.6:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Piova}.}}{35}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.7:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Raggio}.}}{36}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.8:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Tempesta}.}}{37}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.9:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Tuono}.}}{38}
+\contentsline {figure}{\numberline {Figura\nobreakspace 4.10:}{\ignorespaces Servidor de virtualiza\IeC {\c c}\IeC {\~a}o \textit {Venti}.}}{39}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es DNS por segundo do per\IeC {\'\i }odo de uma semana (a) e compara\IeC {\c c}\IeC {\~a}o de requisi\IeC {\c c}\IeC {\~o}es UDP simult\IeC {\^a}neas m\IeC {\'a}ximas entre os principais servidores (b).}}{40}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.2:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de elementos (a) e de conex\IeC {\~o}es TCP simult\IeC {\^a}neas m\IeC {\'a}ximas (b) entre os principais servidores.}}{41}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do sistema do provedor durante o per\IeC {\'\i }odo de uma semana.}}{42}
-\contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos simult\IeC {\^a}neamente no servidor de telefonia durante o per\IeC {\'\i }odo de uma semana.}}{42}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.1:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es DNS por segundo do per\IeC {\'\i }odo de uma semana (a) e compara\IeC {\c c}\IeC {\~a}o de requisi\IeC {\c c}\IeC {\~o}es UDP simult\IeC {\^a}neas m\IeC {\'a}ximas entre os principais servidores (b).}}{41}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.2:}{\ignorespaces Gr\IeC {\'a}fico de compara\IeC {\c c}\IeC {\~a}o de elementos (a) e de conex\IeC {\~o}es TCP simult\IeC {\^a}neas m\IeC {\'a}ximas (b) entre os principais servidores.}}{42}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.3:}{\ignorespaces Gr\IeC {\'a}fico de requisi\IeC {\c c}\IeC {\~o}es por segundo do sistema do provedor durante o per\IeC {\'\i }odo de uma semana.}}{43}
+\contentsline {figure}{\numberline {Figura\nobreakspace 5.4:}{\ignorespaces Gr\IeC {\'a}fico da quantidade de canais ativos simult\IeC {\^a}neamente no servidor de telefonia durante o per\IeC {\'\i }odo de uma semana.}}{43}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.1:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{45}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.2:}{\ignorespaces Modelo do \textit {GlusterFS}.}}{46}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.3:}{\ignorespaces Transfer\IeC {\^e}ncia de arquivos atrav\IeC {\'e}s do \textit {Rsync}.}}{47}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.4:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{49}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{50}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{50}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.1:}{\ignorespaces Exemplo do modelo \textit {master-slave} do \ac {DRBD}.}}{46}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.2:}{\ignorespaces Modelo do \textit {GlusterFS}.}}{47}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.3:}{\ignorespaces Transfer\IeC {\^e}ncia de arquivos atrav\IeC {\'e}s do \textit {Rsync}.}}{48}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.4:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{50}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{51}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{51}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{54}
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.2:}{\ignorespaces Estrutura do \textit {cluster}.}}{54}
-\contentsline {figure}{\numberline {Figura\nobreakspace 7.3:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{57}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{55}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.2:}{\ignorespaces Estrutura do \textit {cluster}.}}{55}
+\contentsline {figure}{\numberline {Figura\nobreakspace 7.3:}{\ignorespaces Lat\IeC {\^e}ncia da m\IeC {\'a}quina virtual durante o \textit {live migration}.}}{59}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
