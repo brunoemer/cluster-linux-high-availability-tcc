@@ -230,10 +230,10 @@ order=2
 
 [item:capitulos/capitulo7.tex]
 archive=true
-column=8
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=45
+line=55
 mode=LaTeX
 open=true
 order=3
@@ -379,10 +379,10 @@ JumpList=
 ViMarks=.,216,13,[,216,13,],216,13
 
 [view-settings,view=0,item:capitulos/capitulo7.tex]
-CursorColumn=8
-CursorLine=45
+CursorColumn=0
+CursorLine=55
 JumpList=
-ViMarks=.,45,7,[,45,0,],45,7
+ViMarks=.,54,22,[,54,1,],54,22
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=0
