@@ -47,31 +47,32 @@ Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores utilizados
 \subsection{Estrutura lógica}
 
 A estrutura lógica dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura 
-\ref{fig:projeto_estrutura}. Para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo 
-\textit{dual-master} onde os dois nós são configurados como primários. Para tal configuração foi necessário utilizar um sistema de arquivos 
-distribuídos para um acesso compartilhado dos dados, sendo que o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
-Os detalhes da instalação e da configuração do \ac{DRBD} e do sistema de arquivos \ac{OCFS2} estão detalhadas no Apêndice \ref{ap:confdisco}. 
-
-explicar melhor DRBD ??
-
-Já para o gerenciamento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} \textit{Pacemaker}. 
-Mais especificamente esse é o \textit{software} responsável pelo monitoramento e pela migração das \acp{VM} entre os nós, ele gerencia
-tudo que esta localizado abaixo dele na figura, o \ac{DRBD}, o sistema de arquivos e as \acp{VM}.
-Esse \textit{software} inicia e pára os recursos de acordo com a configuração definida, por exemplo, ao iniciar o \textit{cluster} o 
+\ref{fig:projeto_estrutura}. Para o gerenciamento e monitoramento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} 
+\textit{Pacemaker}. Mais especificamente esse é o \textit{software} responsável pelo monitoramento e pela migração das \acp{VM} entre os nós, 
+ele gerencia tudo que está localizado abaixo dele na figura, o \ac{DRBD}, o sistema de arquivos e as \acp{VM}.
+Esse \textit{software} inicia e pára os recursos de acordo com a configuração definida, por exemplo, ao iniciar um nó do \textit{cluster} o 
 \textit{Pacemaker} inicia o serviço de sincronismo do \ac{DRBD}, monta o sistema de arquivos no diretório onde está localizado os 
-discos das \acp{VM}, e inicia as máquinas virtuais.
+discos das \acp{VM}, e inicia as máquinas virtuais. 
+O detalhamento da configuração do \textit{Pacemaker} estão disponíveis no Apêndice \ref{ap:confpacemaker}.
 
 \begin{figure}[h!]
  \centering
  \includegraphics[width=350px]{img/projeto_estrutura.eps}
- \caption{Estrutura do \textit{cluster}.}
+ \caption{Visão geral da estrutura do \textit{cluster}.}
  \label{fig:projeto_estrutura}
 \end{figure}
 
-Os serviços foram distribuídos entre os nós do \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas de gestão e 
-autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de \ac{DNS} recursivo, telefonia e autenticação \ac{PPPoE}.
-No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. O detalhamento da configuração do \textit{Pacemaker} 
-estão disponíveis no Apêndice \ref{ap:confpacemaker}.
+Já para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo \textit{dual-master} onde os dois nós 
+são configurados como primários. Para tal configuração foi necessário utilizar um sistema de arquivos distribuídos para um acesso 
+simultâneo e compartilhado aos dados, sendo que o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
+Esse sistema de arquivos foi montado em um diretório dentro do sistema operacional dos nós, como por exemplo 
+\textit{/var/lib/libvirt/images}, sabendo que esse diretório contêm as imagens dos discos das \acp{VM}. Como pode ser observado na imagem
+todas alterações feitas em um disco da \ac{VM} é replicada para o outro nó através do \textit{software} \ac{DRBD}.
+Os detalhes da instalação, da configuração do \ac{DRBD} e do sistema de arquivos \ac{OCFS2} estão detalhadas no Apêndice \ref{ap:confdisco}. 
+
+As \acp{VM} e seus serviços foram distribuídos entre os nós do \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas 
+de gestão e autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de \ac{DNS} recursivo, telefonia e autenticação \ac{PPPoE}.
+No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. 
 
 %drbd
 % O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
