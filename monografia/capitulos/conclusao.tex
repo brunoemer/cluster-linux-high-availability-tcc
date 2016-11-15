@@ -11,22 +11,25 @@ e funcionários do provedor; o serviço de autenticação \textit{Radius}, por i
 importantes para o provedor; sistemas da empresa, uma vez que todos os funcionários utilizam-nos e também por ter um impacto indireto nos 
 clientes; e serviço de telefonia interna, por ser responsável pela comunicação tanto entre funcionários, como entre clientes e funcionários.
 
-Após criou-se uma proposta de alta disponibilidade para esses serviços. Essa proposta é composta por um \textit{cluster} o qual é constituído 
+Após criou-se um projeto de alta disponibilidade para esses serviços. Esse projeto é composto por um \textit{cluster} o qual é constituído 
 por dois servidores físicos. Para o gerenciamento do \textit{cluster} foi adotado o \textit{software} \textit{Pacemaker}, que é responsável pelo 
-gerenciamento, monitoramento e a transferência das máquinas virtuais, as quais executam os serviços. Para a replicação de dados 
-do \textit{cluster} foi adotado o \textit{software} \ac{DRBD}. Esse é responsável pela replicação dos dados dos dois servidores.
+monitoramento e a transferência das máquinas virtuais, as quais executam os serviços. Para a replicação de dados 
+do \textit{cluster} foi adotado o \textit{software} \ac{DRBD}, que é responsável pela replicação dos dados entre os dois servidores.
 
 O ambiente de alta disponibilidade é composto por máquinas virtuais que executam os serviços críticos. Para garantir a disponibilidade 
 foi utilizada a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Pacemaker}. Desta forma, 
-caso um dos servidores falhe as máquinas virtuais serão migradas para o outro servidor.
+caso seja necessário fazer uma manutenção em um dos servidores, as máquinas virtuais serão migradas para o outro servidor.
+Além disso, caso um servidor falhe as máquinas virtuais serão automaticamente iniciadas no outro servidor, diminuindo assim a indisponibilidade
+dos serviços.
 
-Ao final do trabalho, criou-se uma metodologia de testes para validar a solução de alta disponibilidade. Esses testes simulam falhas de 
-\textit{hardware}, de energia elétrica, de \textit{software} e manutenções previamente agendadas foram implementados e aplicados, com isso
-foi comprovado que a disponibilidade dos serviços críticos foi aumentada.
-Desta forma, é possível concluir que é possível aumentar a disponibilidade de serviços em máquinas virtuais utilizando uma solução de
-código aberto e de baixo custo.
+Ao final do trabalho, criou-se uma metodologia de testes para validar a solução de alta disponibilidade. Esses testes simularam falhas de 
+\textit{hardware}, de energia elétrica, de \textit{software} e manutenções previamente agendadas. Os testes foram implantados e executados, 
+possibilitando a comparação entre o antigo ambiente e o novo ambiente criado, comprovando assim o aumento da disponibilidade nos cenários 
+aprensentados. Desta forma, é possível concluir que é possível aumentar a disponibilidade de serviços em máquinas virtuais utilizando uma solução 
+de código aberto e de baixo custo.
+Conclui-se também que em caso de uma falha permanente de um \textit{hardware}, os dados permanecerão íntegros e disponíveis, assim garantindo 
+uma maior segurança dos dados e informações.
 
-\newpage
 
 \section{Trabalho futuros}
 \label{section:trabalhosfuturos}
