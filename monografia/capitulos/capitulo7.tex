@@ -108,7 +108,7 @@ automática para o outro servidor. Com esse teste pode-se avaliar o processo de 
 executando no nó que falhou, bem como medir o tempo de indisponibilidade dos serviços. Esse teste foi executado 2 vezes em cada nó do 
 \textit{cluster}. O tempo de indisponibilidade foi medido utilizando o comando \textit{ping} (para facilitar a medição foi utilizado um 
 \textit{script} que encontra-se disponível no Apêndice \ref{ap:scriptindisp}), sendo que neste caso foi medido o tempo que o serviço ficou
-fora do ar e tempo que o servidor físico permaneceu indisponível.
+fora do ar e o tempo que o servidor físico permaneceu indisponível.
 
 Na Tabela \ref{tab:teste1resultados} tem-se os resultados deste teste. Pode-se observar que o tempo de indisponibilidade do serviço 
 (máquina virtual) é de apenas 81 segundos, isso se deve ao fato da \ac{VM} ser iniciada em um outro nó após o desligamento do primeiro. 
@@ -308,7 +308,7 @@ Máquina virtual & 100\% & 0 minutos \\\hline
 %  \label{fig:teste2_piova1}
 % \end{figure}
 
-Durante o processo de \textit{live migration} de um nó para outro a latência da máquina virtual aumentou\footnote[1]{
+Durante o processo de \textit{live migration} de um nó para outro a latência da máquina virtual aumentou\footnote[2]{
 O aumento de latência deve-se ao fato da memória e os dados necessários para a migração da máquina virtual serem transferidos através da rede.}, 
 isso pode ser observado na Figura \ref{fig:teste2_latencia}, onde tem-se um pico no intervalo de tempo de 50 à 100 segundos.
 %Mesmo com o aumento de latência não ocorre perda significante de desempenho durante a migração da máquina virtual.
