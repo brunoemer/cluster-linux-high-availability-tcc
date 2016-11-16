@@ -19,20 +19,25 @@ pelo \textit{software} \textit{Pacemaker}, que faz o gerenciamento do \textit{cl
 pela replicação dos dados.
 
 Por fim validou-se o ambiente de alta disponibilidade através de testes que simulam falhas de \textit{hardware}, de energia elétrica e de
-\textit{software}. Além disso, simulou-se manutenções e reinicializações do servidores físicos sem causar indisponibilidade dos serviços.
+\textit{software}. Além disso, simulou-se manutenções e reinicializações dos servidores físicos sem causar indisponibilidade dos serviços.
 
 \end{abstract}
 
 \begin{englishabstract}{}{high availability, virtualization, fault tolerance, open source}
 
-The number of services provided throught? on Internet become grown? each passed day. ?, high availability is a ? factor to the companies that
-provide? this kind of service. ?, the availability growth? is a great? diferencial? to these companies.
+The number of services provided through the Internet has come growing each passed day. Thus, high availability is a crucial factor to the 
+companies that provide this kind of service. In fact, the availability growth is a great differential for these companies.
 
-In? this context, ? article was done a study? to do a implementation? of a high availability environment in a company that provide Internet 
-services, making use? at open source tools. For this?, was done a analisys? of services provide by the company, ? a ? its servers environment.
+Within this context, in this article was done a study at implementation of a high availability environment in a company that provide 
+Internet services, making use at open source tools. For this, was done a analysis of services provided by the company, 
+as well as a survey? its servers environment.
 
-A implementation project was created for a high availability solution at company environment, 
+A implementation project was created for a high availability solution at company environment, this solution was made by virtualization to 
+the majority among of its services. For such, was done a research some tools to cluster manage and to data replication. With this tools was 
+analyzed and adopted the most adequate tool to the company environment. So, the cluster was constituted by software Pacemaker, that is the 
+cluster manager, and by software DRBD, that is the data replication software.
 
-??
+Lastly was validated the high availability environment through at tests that simulate hardware fails, energy fails and software fails. 
+In addition, was simulated maintenance and reboot of physical servers with cause unavailability of the services.
 
 \end{englishabstract}
