@@ -1,8 +1,8 @@
 \chapter{Implementação e testes}
 \label{cap:implementacaoresultados}
 
-Neste capítulo será descrito o ambiente de alta disponibilidade desenvolvida na empresa. Posteriormente será apresentada a metodologia de testes 
-utilizada, bem como os resultados obtidos dos testes efetuados.
+Neste capítulo será descrito o ambiente de alta disponibilidade que foi desenvolvido neste trabalho. Posteriormente, será apresentada a 
+metodologia de testes utilizada, bem como os resultados obtidos dos testes efetuados.
 
 \section{Descrição do ambiente de alta disponibilidade}
 \label{section:implementacao}
@@ -14,27 +14,31 @@ utilizada, bem como os resultados obtidos dos testes efetuados.
 %\textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma reorganização das máquinas virtuais. Com essa solução, 
 %caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
 
-O ambiente foi projetado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração 
-de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido.
+O ambiente foi projetado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração sugeridos
+de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido, porém não haveria problemas se esta apresentar 
+uma pequena variação.
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
-Essa configuração foi calculada a partir da soma dos recursos consumidos pelas máquinas virtuais que anteriormente executavam os serviços que foram 
+Essa configuração foi calculada a partir da soma dos recursos consumidos pelas máquinas virtuais, as quais executavam os serviços que foram 
 considerados críticos. Observa-se que tais recursos de \textit{hardware} já encontravam-se disponíveis, sendo necessário somente efetuar uma 
 reorganização das máquinas virtuais. Destaca-se que a configuração também inclui 2 GB de memória \ac{RAM} e 24 GB de disco para cada sistema 
 operacional hóspede.
 
 Optou-se por utilizar o mesmo sistema operacional e o mesmo hipervisor que são utilizados na empresa, estes são, respectivamente, o sistema 
-\textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm}. O processo de instalação e de configuração encontra-se no 
-Apêndice \ref{ap:confos} e \ref{ap:confvirt}.
+\textit{Ubuntu 14.04 \ac{LTS}} e o \ac{KVM} \cite{kvm}. O processo de instalação e de configuração do sistema operacional e do hipervisor 
+encontram-se no Apêndice \ref{ap:confos} e \ref{ap:confvirt}.
 
 \subsection{Estrutura física}
 
-A estrutura física adotada encontra-se na Figura \ref{fig:projeto_fisico} (a). Como pode ser observado, os dois servidores encontram-se 
+A estrutura física adotada é apresentada na Figura \ref{fig:projeto_fisico} (a). Como pode ser observado, os dois servidores encontram-se 
 conectados a um \textit{switch} através de dois cabos \aca{UTP}, de forma a implementar uma redundância de cabeamento. Além disso, manteve-se o 
 \textit{link aggregation} e utilizou-se uma \textit{bridge}\footnote[1]{\textit{Bridges}, também conhecidas como pontes, são meios que fazem a 
 conexão entre \textit{LANs}, e operam na camada de enlace de dados.} para incluir as máquinas virtuais à rede dos servidores da empresa. 
 Os detalhes da configuração de rede estão localizados no Apêndice \ref{ap:confrede}.
 Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores utilizados, sendo que o primeiro é o Nó 1 (\textit{Brina}), que é um 
-\textit{Dell PowerEdge 2950}, e o segundo é o Nó 2 (\textit{Piova}), que é um \textit{Dell PowerEdge R410}.
+\textit{Dell PowerEdge 2950}, o qual possui uma configuração de 2 processadores \textit{Intel Xeon E5410 de 2.33 GHz}, 24 GB de memória
+\ac{RAM} e aproximadamente 1,5 TB utilizável de armazenamento de disco. 
+E o segundo servidor é o Nó 2 (\textit{Piova}), que é um \textit{Dell PowerEdge R410}, o qual possui uma configuração de 2 processadores 
+\textit{Intel Xeon E5530 de 2.40 GHz}, 32 GB de memória \ac{RAM} e aproximadamente 1,4 TB utilizável de armazenamento de disco.
 
 \begin{figure}[h!]
  \centering
@@ -43,16 +47,29 @@ Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores utilizados
  \label{fig:projeto_fisico}
 \end{figure}
 
-\newpage
 \subsection{Estrutura lógica}
 
-A estrutura lógica dos servidores juntamente com as máquinas virtuais e seus respectivos serviços são apresentados na Figura 
-\ref{fig:projeto_estrutura}. Para o gerenciamento e monitoramento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} 
-\textit{Pacemaker}. Mais especificamente esse é o \textit{software} responsável pelo monitoramento e pela migração das \acp{VM} entre os nós, 
-ele gerencia tudo que está localizado abaixo dele na figura, o \ac{DRBD}, o sistema de arquivos e as \acp{VM}.
-Esse \textit{software} inicia e pára os recursos de acordo com a configuração definida, por exemplo, ao iniciar um nó do \textit{cluster} o 
-\textit{Pacemaker} inicia o serviço de sincronismo do \ac{DRBD}, monta o sistema de arquivos no diretório onde está localizado os 
-discos das \acp{VM}, e inicia as máquinas virtuais. 
+A estrutura lógica do ambiente de alta disponibilidade composta por dois servidores e por máquinas virtuais são apresentados na 
+Figura \ref{fig:projeto_vms}, onde tem-se uma replicação entre esses nós do \textit{cluster}. Cada nó possui máquinas virtuais, que por sua vez
+possuem os serviços críticos da empresa.
+
+As \acp{VM} e seus serviços foram distribuídos entre os nós do \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas 
+de gestão e autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de \ac{DNS} recursivo, telefonia e autenticação \ac{PPPoE}.
+No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. 
+
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=330px]{img/projeto_vms.eps}
+ \caption{Estrutura do \textit{cluster} e das máquinas virtuais.}
+ \label{fig:projeto_vms}
+\end{figure}
+
+A Figura \ref{fig:projeto_estrutura} apresenta os principais componentes e \textit{softwares} que compõem o \textit{cluster} de alta disponibilidade. 
+Sendo que, para o gerenciamento e monitoramento do \textit{cluster} e das \acp{VM} utilizou-se o \textit{software} \textit{Pacemaker}. 
+Mais especificamente esse é o \textit{software} responsável pelo monitoramento e pela migração das \acp{VM} entre os nós, além disso, ele 
+monitora e gerencia o \ac{DRBD}, o sistema de arquivos e as \acp{VM}. De fato, esse \textit{software} inicia e pára os serviços de acordo 
+com a configuração definida. Por exemplo, ao iniciar o sistema operacional de um nó do \textit{cluster}, o \textit{Pacemaker} inicia o serviço 
+de sincronismo do \ac{DRBD}, monta o sistema de arquivos no diretório onde está localizado os discos das \acp{VM}, e inicia as máquinas virtuais. 
 O detalhamento da configuração do \textit{Pacemaker} estão disponíveis no Apêndice \ref{ap:confpacemaker}.
 
 \begin{figure}[h!]
@@ -65,14 +82,24 @@ O detalhamento da configuração do \textit{Pacemaker} estão disponíveis no Ap
 Já para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo \textit{dual-master} onde os dois nós 
 são configurados como primários. Para tal configuração foi necessário utilizar um sistema de arquivos distribuídos para um acesso 
 simultâneo e compartilhado aos dados, sendo que o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
-Esse sistema de arquivos foi montado em um diretório dentro do sistema operacional dos nós, como por exemplo 
-\textit{/var/lib/libvirt/images}, sabendo que esse diretório contêm as imagens dos discos das \acp{VM}. Como pode ser observado na imagem
-todas alterações feitas em um disco da \ac{VM} é replicada para o outro nó através do \textit{software} \ac{DRBD}.
+%Esse sistema de arquivos foi montado em um diretório dentro do sistema operacional dos nós, como por exemplo 
+%\textit{/var/lib/libvirt/images}, sabendo que esse diretório contêm as imagens dos discos das \acp{VM}. 
+Como pode ser observado na Figura \ref{fig:projeto_estrutura} todas alterações feitas em um disco de uma \ac{VM} é replicada para o 
+outro nó através do \textit{software} \ac{DRBD}. 
+
+Para melhor entender o armazenamento e a replicação de dados criou-se a Figura \ref{fig:projeto_discos}, onde tem-se um dispositivo \ac{DRBD}
+replicado através da rede em cada nó, sendo que cada dispositivo \ac{DRBD} possui um disco rígido\footnote[1]{Esse disco rígido é composto
+por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} (sda). O quadro pontilhado que abrange os dois dispositivos
+\ac{DRBD} e se estende pelos dois nós é o sistema de arquivos distribuídos \ac{OCFS2}, o qual permite o acesso simultâneo ao dispositivo \ac{DRBD}.
+Esse sistema de arquivos é montado no sistema operacional, desta forma permitindo o armazenamento dos discos das máquinas virtuais.
 Os detalhes da instalação, da configuração do \ac{DRBD} e do sistema de arquivos \ac{OCFS2} estão detalhadas no Apêndice \ref{ap:confdisco}. 
 
-As \acp{VM} e seus serviços foram distribuídos entre os nós do \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas 
-de gestão e autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de \ac{DNS} recursivo, telefonia e autenticação \ac{PPPoE}.
-No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. 
+\begin{figure}[h!]
+ \centering
+ \includegraphics[width=360px]{img/projeto_discos.eps}
+ \caption{Estrutura de armazenamento de dados do \textit{cluster}.}
+ \label{fig:projeto_discos}
+\end{figure}
 
 %drbd
 % O \ac{DRBD} será configurado no modo \textit{master-slave}, sendo que para cada disco das máquinas virtuais será criado um dispositivo de 
@@ -80,8 +107,8 @@ No caso de falha em um nó, os serviços serão inicializados no outro nó dispo
 % \ac{LVM}\footnote{LVM é uma ferramenta de código aberto que possibilita a manipulação de discos rígidos, através da criação de grupos de volumes 
 % e volumes lógicos para \textit{Linux}.} \cite{lvm}. 
 
-
-\section{Testes}
+\newpage
+\section{Testes realizados}
 
 A metodologia de testes adotada neste trabalho foi baseada nos trabalhos de \citet{reis2009} e \citet{goncalves2009}. No primeiro trabalho, 
 o autor simulou as falhas de três formas distintas, que foram através do desligamento brusco do servidor, desligamento por \textit{software} e 
@@ -126,7 +153,7 @@ diferentes na implementação.
 %ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, por possuírem risco de perda de dados em sua execução.
 
 % feito em 15/09 no ambiente de producao
-% fazer em testes 10 vezes, fazer filmagem
+% fazer em testes 10 vezes no ambiente de teste nos notebook, fazer filmagem
 
 \begin{table}[h!]
 \caption{Resultados do teste de desligamento físico, contendo o tempo de indisponibilidade em segundos.}
@@ -185,7 +212,9 @@ apenas 3,27\% do tempo de indisponibilidade dos servidores físicos que são 138
 A alguns meses ocorreu um problema semelhante a este teste, um servidor de virtualização, que é atualizado de forma automática, foi reiniciado, 
 porém ocorreu um erro na atualização e o servidor não inicializou corretamente. Os serviços executados nele ficaram aproximadamente 
 6 horas indisponíveis.
-% feito em 09/09
+
+% feito em 09/09 no ambiente de producao
+% fazer em testes 10 vezes no ambiente de teste nos notebook
 
 % O procedimento deste teste é o seguinte:
 % \begin{itemize}
