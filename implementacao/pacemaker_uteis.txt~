@@ -12,6 +12,11 @@ crm node online brunonote.emer.com
 crm node maintenance brunonote.emer.com
 crm node ready brunonote.emer.com
 
+### INICIAR CLUSTER APOS REINICIAR SERVIDOR
+service corosync start
+service pacemaker start
+
+
 ### LIMPAR APOS FALHAS
 # limpar recurso e reiniciar, quando recurso falhar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com
@@ -35,6 +40,7 @@ tunefs.ocfs2 -S /dev/drbd/by-res/vms
 drbdadm disconnect vms
 drbdadm invalidate vms
 drbdadm connect --discard-my-data vms
+
 
 ### RECURAR FALHA DE REDE
 # problema drbd split brain

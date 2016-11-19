@@ -12,6 +12,10 @@ crm node online brunonote.emer.com
 crm node maintenance brunonote.emer.com
 crm node ready brunonote.emer.com
 
+### INICIAR CLUSTER APOS REINICIAR SERVIDOR
+service corosync start
+service pacemaker start
+
 ### LIMPAR APOS FALHAS
 # limpar recurso e reiniciar, quando recurso falhar
 crm_resource -r OCFS_MOUNT_CLONE -C -H bruno2.emer.com

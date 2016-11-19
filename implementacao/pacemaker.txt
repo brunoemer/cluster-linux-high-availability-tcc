@@ -885,6 +885,10 @@ service ocfs2 restart
 service o2cb load
 service o2cb online
 
+#iniciar manualmente cluster ocfs
+/etc/init.d/o2cb online clusterocfs
+/etc/init.d/o2cb status clusterocfs
+
 #configurar load no boot
 dpkg-reconfigure ocfs2-tools
 #digitar nome do cluster e restante padrao
