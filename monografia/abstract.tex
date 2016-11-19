@@ -8,18 +8,23 @@
 O número de serviços oferecidos através da Internet vem crescendo a cada dia que passa. Sendo assim, a alta disponibilidade é um fator
 crucial para empresas que prestam este tipo de serviço. De fato, o aumento da disponibilidade é um grande diferencial para essas empresas.
 
-Dentro deste contexto, neste trabalho é feito um estudo para a implementação de um ambiente de alta disponibilidade em uma empresa prestadora 
+Dentro deste contexto, neste trabalho é realizado uma implementação de um ambiente de alta disponibilidade em uma empresa prestadora 
 de serviços para Internet, utilizando ferramentas de código aberto. Para isso, foi feita uma análise dos serviços oferecidos pela empresa, bem 
 como um levantamento do ambiente de servidores da mesma.
 
-Criou-se um projeto de implementação para a solução de alta disponibilidade no ambiente da empresa, esse ambiente utiliza virtualização para uma 
-grande parte dos serviços. Para tal, pesquisou-se algumas ferramentas de gerenciamento de \textit{cluster} e de replicação de dados. A partir 
-destas ferramentas é feita uma análise das mesmas e adotada a mais adequada para o ambiente da empresa. Deste modo, o \textit{cluster} é composto 
-pelo \textit{software} \textit{Pacemaker}, que faz o gerenciamento do \textit{cluster} e pelo \textit{software} \textit{DRBD}, que é responsável 
+Criou-se um projeto de implementação para a solução de alta disponibilidade no ambiente da empresa, baseado no uso de um \textit{cluster}
+de computadores e virtualização. Para tal implementação foi necessário um \textit{software} para fazer a replicação de dados e outro para fazer 
+o gerenciamento e monitoramento do \textit{cluster}. Logo, foi pesquisado alguns \textit{softwares}, tanto para replicação de dados como para 
+gerenciamento de \textit{cluster}, feito uma análise destes e adotado os melhores e mais adequados \textit{softwares} para o ambiente da empresa.
+Esses \textit{softwares} foram o \textit{Pacemaker}, que faz o gerenciamento do \textit{cluster}, e o \textit{DRBD}, que é responsável 
 pela replicação dos dados.
 
-Por fim validou-se o ambiente de alta disponibilidade através de testes que simulam falhas de \textit{hardware}, de energia elétrica e de
-\textit{software}. Além disso, simulou-se manutenções e reinicializações dos servidores físicos sem causar indisponibilidade dos serviços.
+Posteriormente, foram executados alguns testes para simular falhas de \textit{hardware}, de energia elétrica e de \textit{software}. Desta forma,
+pode-se validar o ambiente de alta disponibilidade e avaliar os resultados obtidos desses testes, os quais foram positivos. Esses resultados 
+mostraram que o tempo de indisponibilidade dos serviços neste ambiente de alta disponibilidade é consideravelmente menor se comparado ao 
+antigo ambiente da empresa. 
+Também mediu-se a disponibilidade dos serviços no antigo ambiente e no ambiente de alta disponibilidade criado, comparou-se seus resultados e
+pôde-se perceber a redução da indisponibilidade no recente ambiente de alta disponibilidade.
 
 \end{abstract}
 
@@ -28,16 +33,21 @@ Por fim validou-se o ambiente de alta disponibilidade através de testes que sim
 The number of services provided through the Internet has come growing each passed day. Thus, high availability is a crucial factor to the 
 companies that provide this kind of service. In fact, the availability growth is a great differential for these companies.
 
-Within this context, in this article was done a study at implementation of a high availability environment in a company that provide 
+Within this context, in this article was accomplished a implementation of a high availability environment in a company that provide 
 Internet services, making use at open source tools. For this, was done a analysis of services provided by the company, 
 as well as a survey? its servers environment.
 
-A implementation project was created for a high availability solution at company environment, this solution uses virtualization to the majority
-among of its services. For such, was researched some tools to cluster manage and to data replication. With this tools was analyzed and 
-adopted the most adequate tool to the company environment. So, the cluster was constituted by software Pacemaker, that is the cluster manager, 
-and by software DRBD, that is the data replication software.
+A implementation project was created for a high availability solution at company environment, it was based on computer cluster and virtualization.
+For such implementation was necessary a software to data replication and other to cluster manage and cluster monitoring. Then, was researched
+some softwares both data replication as cluster manager, it was analyzed and were adopted the better and most adequate tools to the company 
+environment. These tools were the Pacemaker that is a cluster manager, and the DRBD that is the data replication software.
 
-Lastly was validated the high availability environment through at tests that simulate hardware fails, energy fails and software fails. 
-In addition, was simulated maintenance and reboot of physical servers without generate unavailability of the services.
+Lastly were executed some tests to simulate hardware fails, energy fails and software fails. So, it was possible validate the high availability
+environment and evaluate these tests results, that was positive. Those results showed that the unavailability time of the services in the
+high availability environment is considerably less when compared with the old environment. Also, the services availability was measured in
+the old environment and in the high availability environment, so it was compared and was possible to see the unavailability reduction in the 
+recent created high availability environment.
+%Lastly was validated the high availability environment through at tests that simulate hardware fails, energy fails and software fails. 
+%In addition, was simulated maintenance and reboot of physical servers without generate unavailability of the services.
 
 \end{englishabstract}

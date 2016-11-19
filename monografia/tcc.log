@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  16 NOV 2016 19:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  18 NOV 2016 22:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1240,7 +1240,7 @@ Underfull \hbox (badness 10000) in alignment at lines 53--53
 
 
 ]
-Overfull \hbox (3.91663pt too wide) in paragraph at lines 26--26
+Overfull \hbox (3.91663pt too wide) in paragraph at lines 31--31
 [] 
  []
 
@@ -2027,7 +2027,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [56]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 135.
+(Font)              <10.95> on input line 136.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -2036,7 +2036,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 1590) has occurred while \output is active []
 
  [57]
-Overfull \hbox (1.39171pt too wide) in paragraph at lines 233--237
+Overfull \hbox (1.39171pt too wide) in paragraph at lines 234--238
 []\OT1/cmr/m/n/12 Esse teste con-siste no agen-da-mento de 4 ma-nu-ten^^Xc~oes 
 efe-tu-a-das du-rante o per^^S^^Podo
  []
@@ -2049,14 +2049,14 @@ Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    size: 17324 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/teste2_latencia-eps-co
 nverted-to.pdf img/teste2_latencia.eps>
-(epstopdf)             \includegraphics on input line 323.
+(epstopdf)             \includegraphics on input line 324.
 Package epstopdf Info: Output file is already uptodate.
 <img/teste2_latencia-eps-converted-to.pdf, id=311, 723.70375pt x 506.89375pt>
 File: img/teste2_latencia-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/teste2_latencia-eps-converted-to.pdf>
 Package pdftex.def Info: img/teste2_latencia-eps-converted-to.pdf used on input
- line 323.
+ line 324.
 (pdftex.def)             Requested size: 321.20117pt x 224.97531pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2064,17 +2064,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [58]
-Underfull \hbox (badness 10000) in paragraph at lines 354--354
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 []\OT1/cmr/bx/n/10.95 Disponibilidade do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--354
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 []\OT1/cmr/bx/n/10.95 Disponibilidade do
  []
 
 
-Overfull \hbox (5.2638pt too wide) in paragraph at lines 353--361
+Overfull \hbox (5.2638pt too wide) in paragraph at lines 354--362
  [] 
  []
 
@@ -2082,12 +2082,12 @@ Overfull \hbox (5.2638pt too wide) in paragraph at lines 353--361
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 374--374
+Underfull \hbox (badness 1917) in paragraph at lines 375--375
 []\OT1/cmr/bx/n/10.95 Tempo de in-dis-po-
  []
 
 
-Overfull \hbox (5.2638pt too wide) in paragraph at lines 373--381
+Overfull \hbox (5.2638pt too wide) in paragraph at lines 374--382
  [] 
  []
 
@@ -2743,7 +2743,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (78 pages, 2326773 bytes).
+Output written on tcc.pdf (78 pages, 2327522 bytes).
 PDF statistics:
  440 PDF objects out of 1000 (max. 8388607)
  283 compressed objects within 3 object streams
