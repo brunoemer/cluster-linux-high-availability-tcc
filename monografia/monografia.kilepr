@@ -130,10 +130,10 @@ Mode=LaTeX
 
 [item:abstract.tex]
 archive=true
-column=104
+column=31
 encoding=UTF-8
 highlight=LaTeX
-line=41
+line=24
 mode=LaTeX
 open=true
 order=1
@@ -173,9 +173,9 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=56
+line=0
 mode=LaTeX
-open=false
+open=true
 order=5
 
 [item:capitulos/capitulo2.tex]
@@ -223,17 +223,17 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=425
+line=427
 mode=LaTeX
 open=true
 order=2
 
 [item:capitulos/capitulo7.tex]
 archive=true
-column=97
+column=101
 encoding=UTF-8
 highlight=LaTeX
-line=284
+line=248
 mode=LaTeX
 open=true
 order=3
@@ -319,8 +319,8 @@ open=true
 order=0
 
 [view-settings,view=0,item:abstract.tex]
-CursorColumn=104
-CursorLine=41
+CursorColumn=31
+CursorLine=24
 JumpList=
 ViMarks=.,41,103,[,41,103,],41,103
 
@@ -344,7 +344,7 @@ ViMarks=.,377,14,[,377,14,],377,14
 
 [view-settings,view=0,item:capitulos/anexo2.tex]
 CursorColumn=0
-CursorLine=56
+CursorLine=0
 JumpList=
 ViMarks=.,55,6,[,8,0,],-1,-1
 
@@ -374,15 +374,15 @@ ViMarks=.,130,98,[,130,98,],130,98
 
 [view-settings,view=0,item:capitulos/capitulo6.tex]
 CursorColumn=0
-CursorLine=425
+CursorLine=427
 JumpList=
 ViMarks=.,288,0,[,288,0,],288,0
 
 [view-settings,view=0,item:capitulos/capitulo7.tex]
-CursorColumn=97
-CursorLine=284
+CursorColumn=101
+CursorLine=248
 JumpList=
-ViMarks=.,284,97,[,284,97,],284,97
+ViMarks=.,248,101,[,248,101,],248,101
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=0

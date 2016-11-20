@@ -132,7 +132,7 @@ manutenção de \textit{hardware} ou de \textit{software}.
 Neste teste são simuladas falhas de \textit{hardware} ou falhas elétricas nos nós do \textit{cluster}. Para isso foi feito o desligamento 
 forçado de um nó do \textit{cluster}, sendo que neste caso os serviços devem ser transferidos de forma automática para o outro servidor. 
 Com esse teste pode-se avaliar o processo de \textit{failover} dos serviços (máquinas virtuais) que estavam executando no nó que falhou, 
-bem como medir o tempo de indisponibilidade dos serviços. Esse teste foi executado 2 ?? vezes em cada nó do \textit{cluster}, totalizando 4 testes. 
+bem como medir o tempo de indisponibilidade dos serviços. Esse teste foi executado 10 vezes no \textit{cluster}. 
 O tempo de indisponibilidade foi medido utilizando o comando \textit{ping} (para facilitar a medição foi utilizado um \textit{script} que 
 encontra-se disponível no Apêndice \ref{ap:scriptindisp}). Neste caso, foi medido o tempo que o serviço ficou indisponível. Além disso, 
 foi medido o tempo que o servidor físico permaneceu indisponível.
@@ -154,7 +154,7 @@ a indisponibilidade poderia ser maior que 24 horas.
 %ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, por possuírem risco de perda de dados em sua execução.
 
 % feito em 15/09 no ambiente de producao
-% fazer em testes 10 vezes no ambiente de teste nos notebook, fazer filmagem
+% feito em 19/11, teste de 10 vezes no ambiente de teste nos notebook, fazer filmagem
 
 \begin{table}[h!]
 \caption{Resultados do teste de desligamento físico, contendo o tempo de indisponibilidade em segundos.}
@@ -197,26 +197,24 @@ máquinas virtuais é significativamente menor se comparado ao tempo de indispon
 
 \subsection{Teste 2 - Desligamento por software}
 
-Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}, sendo que neste caso pode-se citar como exemplo uma falha no 
-\textit{software} de virtualização, com isso o nó não conseguiria iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma 
-falha de atualização do sistema operacional ou do \textit{kernel}, onde o sistema operacional do nó não conseguiria inicializar corretamente.
-%Esse tipo de situação também pode ocorrer em uma manutenção emergencial, onde é preciso desligar um servidor físico de forma rápida. 
-Neste tipo de falha os serviços devem ser transferidos para o outro nó de forma automática, assim reduzindo a indisponibilidade desses serviços. 
-Desta forma, pode-se validar o processo de \textit{failover} dos serviços que estavam executando no nó que apresentou a falha.
+Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}. Neste caso pode-se citar como exemplo, uma falha no \textit{software} 
+de virtualização, com isso o nó não conseguiria iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma falha de atualização 
+do sistema operacional ou de \textit{kernel}.
+Nestes tipos de falhas, os serviços devem ser transferidos para o outro nó de forma automática, reduzindo assim a indisponibilidade desses serviços. 
+%Desta forma, pode-se validar o processo de \textit{failover} dos serviços que estavam executando no nó que apresentou a falha.
 
-Para simular a falha deste teste, foram acessados os nós via \ac{SSH} e executado o comando \textit{reboot}.
-Esse teste foi executado 2 vezes em cada um dos nós do \textit{cluster}, totalizando 4 testes. O tempo de indisponibilidade foi medido da mesma 
-forma do que o teste anterior, utilizando o comando \textit{ping}. A medição desse tempo foi feita nos dois nós e também na máquina virtual. 
-A Tabela \ref{tab:teste2resultados} apresenta o tempo de indisponibilidade dos nós e da \ac{VM}. 
-Pode-se observar que o tempo de indisponibilidade da \ac{VM} é consideravelmente menor que o tempo do servidor físico. De fato, ele representa 
-apenas 3,27\% do tempo de indisponibilidade dos servidores físicos que são 138,5 e 167 segundos. 
+Para simular a falha, os nós foram acessados via \ac{SSH} e foi executado o comando \textit{reboot}. Esse teste foi executado 10 vezes no nó 
+o qual a máquina virtual estava executando. O tempo de indisponibilidade foi medido da mesma forma do que o teste anterior, ou seja, utilizando o 
+comando \textit{ping}. A medição desse tempo foi feita neste nó e na máquina virtual. A Tabela \ref{tab:teste2resultados} apresenta o tempo de 
+indisponibilidade dos nós e da \ac{VM}. Pode-se observar que o tempo de indisponibilidade da \ac{VM} é consideravelmente menor que o tempo do 
+servidor físico. De fato, ele representa apenas 3,27\% ?? do tempo de indisponibilidade do servidor físico que é ?? segundos. 
 
-A alguns meses ocorreu um problema semelhante a este teste, um servidor de virtualização, que é atualizado de forma automática, foi reiniciado, 
-porém ocorreu um erro na atualização e o servidor não inicializou corretamente. Os serviços executados nele ficaram aproximadamente 
-6 horas indisponíveis.
+A alguns meses ocorreu um problema semelhante a este teste em um servidor de virtualização, que foi atualizado de forma automática. Neste caso, 
+ocorreu um erro na atualização e o servidor não inicializou corretamente. Os serviços executados nele ficaram aproximadamente 
+6 horas indisponíveis. Através da solução implementada esse tempo seria de apenas ?? segundos. 
 
 % feito em 09/09 no ambiente de producao
-% fazer em testes 10 vezes no ambiente de teste nos notebook
+% feito em 19/11, teste de 10 vezes no ambiente de teste nos notebook
 
 % O procedimento deste teste é o seguinte:
 % \begin{itemize}
@@ -242,12 +240,13 @@ Máquina virtual & 10 \\\hline % & 0 \\\hline
 \end{center}
 \end{table}
 
+?? CONSIDERACOES FINAIS
 Com este teste que simula falhas de \textit{software} ou falhas em manutenções, pode-se afirmar que o tempo de indisponibilidade dos serviços 
 críticos executados nas máquinas virtuais é significativamente menor se comparado ao tempo de indisponibilidade do antigo ambiente da empresa.
 
 \subsection{Teste 3 - Manutenção agendada}
 %Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
-%atualização de kernel dos nodes. Resultados: latência, comparação downtime servidor virtual e físico, log
+%atualização de kernel dos nodes. Resultados: latência, comparação downtime servidor virtual e físico
 
 Reinicializações são necessárias para manutenções de \textit{hardware}, atualização de \textit{software} e até mesmo para 
 rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste na aplicações de métodos para remover problemas gerados pelo 
