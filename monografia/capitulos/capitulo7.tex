@@ -251,7 +251,7 @@ críticos executados nas máquinas virtuais é significativamente menor se compa
 Reinicializações são necessárias para manutenções de \textit{hardware}, atualização de \textit{software} e até mesmo para 
 rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste na aplicações de métodos para remover problemas gerados pelo 
 envelhecimento. Um exemplo de um método é o \textit{reboot} de um sistema operacional, uma vez que esse torna-se suscetível a gerar erros e 
-falhas.} de \textit{software} \cite{melo2014}. Desta forma, criou-se esse teste para simular manutenções previamente agendadas.
+falhas.} de \textit{software} \cite{melo2014}. Desta forma, esse teste foi realizado de forma a simular manutenções previamente agendadas.
 
 %O procedimento deste teste é o seguinte:
 %\begin{itemize}
@@ -260,16 +260,6 @@ falhas.} de \textit{software} \cite{melo2014}. Desta forma, criou-se esse teste 
 % \item Após retorno do nó executar novamente o \textit{script} anterior para retorno do nó ao \textit{cluster};
 % \item Finalizar a medição do tempo e \textit{ping}.
 %\end{itemize}
-
-Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias, para tanto, criou-se um \textit{script} que é 
-responsável por migrar as \acp{VM} de um nó e posteriormente reiniciá-lo, simulando assim uma atualização de \textit{kernel} 
-(este \textit{script} está disponível no Apêndice \ref{ap:scriptmanutencao}). 
-Para a execução do \textit{script} foi utilizada a ferramenta \textit{crontab} do \textit{Linux}. 
-
-Na Tabela \ref{tab:teste3resultados} tem-se os resultados do teste. Como pode ser observado, o tempo de \textit{downtime} da máquina virtual 
-é nulo, ou seja, não houve indisponibilidade nos serviços devido a migração em tempo real das \acp{VM}. 
-Já nos nós  tem-se um tempo de indisponibilidade de 145,5 e 173 segundos devido a reinicialização destes.
-%A latência baixa da máquina virtual demonstra que não há perda significante de desempenho durante a migração da máquina virtual de um nó para outro.
 
 % feito em 17/09 a 30/09
 % crontab brina:
@@ -282,34 +272,27 @@ Já nos nós  tem-se um tempo de indisponibilidade de 145,5 e 173 segundos devid
 %59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.6 2
 %59 03 * * 4 cd /home/bruno/pacemaker/teste2/; bash indisponibilidade.sh 186.195.16.13 2
 
+Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias, para tanto, criou-se um \textit{script} que é 
+responsável por migrar as \acp{VM} de um nó e posteriormente reiniciá-lo (este \textit{script} está disponível no 
+Apêndice \ref{ap:scriptmanutencao}). Para a execução deste \textit{script} foi utilizada a ferramenta \textit{crontab} do \textit{Linux}. 
+
+Na Tabela \ref{tab:teste3resultados} tem-se os resultados, onde pode ser observado que o tempo de \textit{downtime} da máquina virtual 
+é praticamente nulo, ou seja, não houve indisponibilidade nos serviços devido a migração em tempo real da \ac{VM}. 
+Já nos nós tem-se um tempo de indisponibilidade de 145,5 e 173 segundos devido a reinicialização dos mesmos.
+Também pode-se observar o percentual de disponibilidade da \ac{VM} e dos nós do \textit{cluster} medidos durante o período de 13 dias.
+Destaca-se que a máquina virtual não apresentou nenhuma indisponibilidade. Essa disponibilidade foi obtida através da ferramenta 
+\textit{Nagios} \cite{nagios} da empresa.
+
 \begin{table}[h!]
-\caption{Resultados do teste de manutenção agendada, com o tempo de indisponibilidade em segundos.}
+\caption{Resultados do teste de manutenção agendada, com o tempo de indisponibilidade em segundos e a disponibilidade medida no período de 13 dias.}
 \small
 \label{tab:teste3resultados}
 \begin{center}
-\begin{tabular}{|l|p{5.5cm}|p{5.5cm}|}\hline
- & \textbf{Tempo de indisponibilidade média}\\\hline
-Nó 1 & 145,5 \\\hline
-Nó 2 & 173 \\\hline
-Máquina virtual & 0 \\\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-A Tabela \ref{tab:teste3disp} demonstra o percentual de disponibilidade da \ac{VM} e dos nós do \textit{cluster} referente ao período de 13 dias
-do teste. Destaca-se que a máquina virtual não apresentou nenhuma indisponibilidade. 
-Esses dados foram produzidos pela ferramenta \textit{Nagios} \cite{nagios}, que é responsável pelo monitoramento da empresa.
-
-\begin{table}[h!]
-\caption{Disponibilidade e tempo de indisponibilidade do período de 13 dias.}
-\small
-\label{tab:teste3disp}
-\begin{center}
-\begin{tabular}{|l|p{5.5cm}|p{5.5cm}|}\hline
- & \textbf{Disponibilidade} & \textbf{Tempo indisponibilidade} \\\hline
-Nó 1 & 99,976\% & 4 minutos e 30 segundos \\\hline
-Nó 2 & 99,975\% & 4 minutos e 40 segundos \\\hline
-Máquina virtual & 100\% & 0 minutos \\\hline
+\begin{tabular}{|l|p{7cm}|p{4cm}|}\hline
+ & \textbf{Tempo de indisponibilidade média} & \textbf{Disponibilidade} \\\hline
+Nó 1 & 145,5 & 99,976\% \\\hline
+Nó 2 & 173 & 99,975\% \\\hline
+Máquina virtual & 0 & 100\% \\\hline
 \end{tabular}
 \end{center}
 \end{table}
@@ -343,12 +326,14 @@ Máquina virtual & 100\% & 0 minutos \\\hline
 %  \label{fig:teste2_piova1}
 % \end{figure}
 
-Durante o processo de \textit{live migration} de um nó para outro, a latência da máquina virtual aumentou, esse aumento ocorre devido a 
-transferência da memória e dos dados feita através da rede, que são necessários para a migração da máquina virtual. 
-Isso pode ser observado no pico do intervalo de tempo de 50 à 100 segundos apresentados na Figura \ref{fig:teste2_latencia}.
+Destaca-se que durante o processo de \textit{live migration} de uma \ac{VM} de um nó para outro, a latência da máquina virtual aumentou, 
+sendo que a latência é o tempo de resposta em uma rede de computadores. PESQUISAR E POR FONTE ??
+O aumento da latência ocorre devido a transferência da memória e dos dados da \ac{VM} feita através da rede, que são necessários para a migração 
+da máquina virtual. Isso pode ser observado no pico do intervalo de tempo de 50 à 100 segundos apresentados na Figura \ref{fig:teste2_latencia}.
 %Mesmo com o aumento de latência não ocorre perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
 %teste2/186.195.16.13-stat-2.log
+
 \begin{figure}[h!]
  \centering
  \includegraphics[width=320px]{img/teste2_latencia.eps}
@@ -356,11 +341,8 @@ Isso pode ser observado no pico do intervalo de tempo de 50 à 100 segundos apre
  \label{fig:teste2_latencia}
 \end{figure}
 
-%log do pacemaker
-%O processo de \textit{standby} feito pelo \textit{Pacemaker} está detalhado no \textit{log} abaixo:
 
-
-\section{Comparação final da disponibilidade}
+\section{Cálculo da disponibilidade}
 \label{section:comparacaofinal}
 %Medição da disponibilidade dos serviços críticos por 30 dias (14/10 a 12/11) FAZER uma manutenção de hardware.
 %Comparar ao mês de setembro (01/09 a 30/09) no ambiente antigo com uma reinicialização dos servidores físicos (reiniciados em 06/09/16)
