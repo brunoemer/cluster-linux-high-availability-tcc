@@ -1,0 +1,40 @@
+vm
+192.168.2.69
+
+tempos
+10,10,10,10,10,10,10,20,10,10
+
+total de Números
+10
+Média (Average)
+11
+Desvio padrão
+3.16228
+Variação(desvio padrão)
+10
+População desvio padrão
+3
+Variação(População desvio padrão)
+9
+
+
+no 1
+192.168.2.9
+
+tempos
+63,58,58,58,58,58,58,58,58,58
+
+total de Números
+10
+Média (Average)
+58.5
+Desvio padrão
+1.58114
+Variação(desvio padrão)
+2.5
+População desvio padrão
+1.5
+Variação(População desvio padrão)
+2.25
+
+

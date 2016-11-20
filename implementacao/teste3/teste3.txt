@@ -2,62 +2,38 @@ trapel 186.195.16.13
 brina 186.195.16.14
 piova 186.195.16.6
 
+execucao do script script_pacemaker_manutencao.sh
 
-1
-monit:
-ping 186.195.16.13 > 186.195.16.13-stat-1.log
-./indisponibilidade.sh 186.195.16.6 1
 
-186.195.16.6:
-reboot
+1 - 2016-09-20
+brina
 
 arquivos:
+x
+
+
+2 - 2016-09-22
+piova
+
+arquivos:
+x
+
+
+3 - 2016-09-27
+brina
+
+arquivos:
+186.195.16.13-downtime-1.log
 186.195.16.13-stat-1.log
-186.195.16.6-stat-1.log
-186.195.16.6-downtime-1.log
+186.195.16.14-downtime-1.log
+186.195.16.14-stat-1.log
 
 
-2
-monit:
-ping 186.195.16.13 > 186.195.16.13-stat-2.log
-./indisponibilidade.sh 186.195.16.6 2
-
-186.195.16.6:
-reboot
+4 - 2016-09-29
+piova
 
 arquivos:
+186.195.16.13-downtime-2.log
 186.195.16.13-stat-2.log
-186.195.16.6-stat-2.log
 186.195.16.6-downtime-2.log
-
-
-3
-monit:
-./indisponibilidade.sh 186.195.16.13 3
-./indisponibilidade.sh 186.195.16.14 3
-
-186.195.16.14:
-reboot
-
-arquivos:
-186.195.16.13-downtime-3.log
-186.195.16.13-stat-3.log
-186.195.16.14-downtime-3.log
-186.195.16.14-stat-3.log
-
-
-4
-monit:
-./indisponibilidade.sh 186.195.16.13 4
-./indisponibilidade.sh 186.195.16.14 4
-
-186.195.16.14:
-reboot
-
-arquivos:
-186.195.16.13-downtime-4.log
-186.195.16.13-stat-4.log
-186.195.16.14-downtime-4.log
-186.195.16.14-stat-4.log
-
-
+186.195.16.6-stat-2.log

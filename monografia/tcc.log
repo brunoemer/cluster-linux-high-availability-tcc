@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  19 NOV 2016 20:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  20 NOV 2016 00:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2076,13 +2076,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [58 <./img/projeto_discos-eps-converted-to.pdf>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 163.
+(Font)              <10.95> on input line 164.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[59]
-Overfull \hbox (1.39171pt too wide) in paragraph at lines 263--267
+
+Underfull \vbox (badness 1275) has occurred while \output is active []
+
+ [59]
+Overfull \hbox (1.39171pt too wide) in paragraph at lines 265--269
 []\OT1/cmr/m/n/12 Esse teste con-siste no agen-da-mento de 4 ma-nu-ten^^Xc~oes 
 efe-tu-a-das du-rante o per^^S^^Podo
  []
@@ -2095,14 +2098,14 @@ Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    size: 17324 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/teste2_latencia-eps-co
 nverted-to.pdf img/teste2_latencia.eps>
-(epstopdf)             \includegraphics on input line 353.
+(epstopdf)             \includegraphics on input line 355.
 Package epstopdf Info: Output file is already uptodate.
 <img/teste2_latencia-eps-converted-to.pdf, id=325, 723.70375pt x 506.89375pt>
 File: img/teste2_latencia-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/teste2_latencia-eps-converted-to.pdf>
 Package pdftex.def Info: img/teste2_latencia-eps-converted-to.pdf used on input
- line 353.
+ line 355.
 (pdftex.def)             Requested size: 321.20117pt x 224.97531pt.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2110,17 +2113,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [60]
-Underfull \hbox (badness 10000) in paragraph at lines 384--384
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
 []\OT1/cmr/bx/n/10.95 Disponibilidade do
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--384
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
 []\OT1/cmr/bx/n/10.95 Disponibilidade do
  []
 
 
-Overfull \hbox (5.2638pt too wide) in paragraph at lines 383--391
+Overfull \hbox (5.2638pt too wide) in paragraph at lines 385--393
  [] 
  []
 
@@ -2128,12 +2131,12 @@ Overfull \hbox (5.2638pt too wide) in paragraph at lines 383--391
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 404--404
+Underfull \hbox (badness 1917) in paragraph at lines 406--406
 []\OT1/cmr/bx/n/10.95 Tempo de in-dis-po-
  []
 
 
-Overfull \hbox (5.2638pt too wide) in paragraph at lines 403--411
+Overfull \hbox (5.2638pt too wide) in paragraph at lines 405--413
  [] 
  []
 
@@ -2306,143 +2309,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  (./capitulos/anexo2.tex
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 10.
-
-
-! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
-h LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12 # Adaptado para gerar estatísticas 
-                                         do ping.
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `utf8'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.12 # Adaptado para gerar estatísticas 
-                                         do ping.
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
-h LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.15 # parâmetros 
-                   :
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `utf8'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.15 # parâmetros 
-                   :
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
-h LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 #endereço 
-                IP e número de sequência do teste para controle
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `utf8'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 #endereço 
-                IP e número de sequência do teste para controle
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
-h LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 #endereço IP e número 
-                             de sequência do teste para controle
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `utf8'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 #endereço IP e número 
-                             de sequência do teste para controle
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-! Package inputenc Error: Unicode char \u8:�\expandafter not set up for use wit
-h LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 #endereço IP e número de sequência 
-                                           do teste para controle
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `utf8'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 #endereço IP e número de sequência 
-                                           do teste para controle
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-[77
+ [77
 
 
 
@@ -2768,7 +2635,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  16716 strings out of 495004
  309881 string characters out of 6180662
- 420058 words of memory out of 5000000
+ 420073 words of memory out of 5000000
  19542 multiletter control sequences out of 15000+600000
  12500 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
@@ -2789,7 +2656,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (80 pages, 2530233 bytes).
+Output written on tcc.pdf (80 pages, 2529910 bytes).
 PDF statistics:
  455 PDF objects out of 1000 (max. 8388607)
  292 compressed objects within 3 object streams

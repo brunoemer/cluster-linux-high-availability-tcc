@@ -1,0 +1,127 @@
+PING 192.168.2.9 (192.168.2.9) 56(84) bytes of data.
+64 bytes from 192.168.2.9: icmp_seq=1 ttl=64 time=0.237 ms
+64 bytes from 192.168.2.9: icmp_seq=2 ttl=64 time=0.336 ms
+64 bytes from 192.168.2.9: icmp_seq=3 ttl=64 time=0.159 ms
+64 bytes from 192.168.2.9: icmp_seq=4 ttl=64 time=0.161 ms
+64 bytes from 192.168.2.9: icmp_seq=5 ttl=64 time=0.156 ms
+64 bytes from 192.168.2.9: icmp_seq=6 ttl=64 time=0.125 ms
+64 bytes from 192.168.2.9: icmp_seq=7 ttl=64 time=0.142 ms
+64 bytes from 192.168.2.9: icmp_seq=8 ttl=64 time=0.343 ms
+64 bytes from 192.168.2.9: icmp_seq=9 ttl=64 time=0.143 ms
+64 bytes from 192.168.2.9: icmp_seq=10 ttl=64 time=0.138 ms
+64 bytes from 192.168.2.9: icmp_seq=11 ttl=64 time=0.346 ms
+64 bytes from 192.168.2.9: icmp_seq=12 ttl=64 time=0.355 ms
+64 bytes from 192.168.2.9: icmp_seq=13 ttl=64 time=0.147 ms
+64 bytes from 192.168.2.9: icmp_seq=14 ttl=64 time=0.138 ms
+64 bytes from 192.168.2.9: icmp_seq=15 ttl=64 time=0.128 ms
+64 bytes from 192.168.2.9: icmp_seq=16 ttl=64 time=0.127 ms
+64 bytes from 192.168.2.9: icmp_seq=17 ttl=64 time=0.294 ms
+64 bytes from 192.168.2.9: icmp_seq=18 ttl=64 time=0.349 ms
+64 bytes from 192.168.2.9: icmp_seq=19 ttl=64 time=0.126 ms
+64 bytes from 192.168.2.9: icmp_seq=20 ttl=64 time=0.209 ms
+64 bytes from 192.168.2.9: icmp_seq=21 ttl=64 time=0.347 ms
+64 bytes from 192.168.2.9: icmp_seq=22 ttl=64 time=0.128 ms
+64 bytes from 192.168.2.9: icmp_seq=23 ttl=64 time=0.140 ms
+64 bytes from 192.168.2.9: icmp_seq=24 ttl=64 time=0.126 ms
+64 bytes from 192.168.2.9: icmp_seq=25 ttl=64 time=0.132 ms
+64 bytes from 192.168.2.9: icmp_seq=26 ttl=64 time=0.130 ms
+64 bytes from 192.168.2.9: icmp_seq=27 ttl=64 time=0.144 ms
+64 bytes from 192.168.2.9: icmp_seq=28 ttl=64 time=0.369 ms
+64 bytes from 192.168.2.9: icmp_seq=29 ttl=64 time=0.130 ms
+64 bytes from 192.168.2.9: icmp_seq=30 ttl=64 time=0.186 ms
+64 bytes from 192.168.2.9: icmp_seq=31 ttl=64 time=0.127 ms
+64 bytes from 192.168.2.9: icmp_seq=32 ttl=64 time=0.121 ms
+64 bytes from 192.168.2.9: icmp_seq=33 ttl=64 time=0.095 ms
+64 bytes from 192.168.2.9: icmp_seq=34 ttl=64 time=0.135 ms
+64 bytes from 192.168.2.9: icmp_seq=35 ttl=64 time=0.126 ms
+64 bytes from 192.168.2.9: icmp_seq=36 ttl=64 time=0.123 ms
+64 bytes from 192.168.2.9: icmp_seq=37 ttl=64 time=0.124 ms
+64 bytes from 192.168.2.9: icmp_seq=38 ttl=64 time=0.287 ms
+64 bytes from 192.168.2.9: icmp_seq=39 ttl=64 time=0.344 ms
+64 bytes from 192.168.2.9: icmp_seq=40 ttl=64 time=0.364 ms
+64 bytes from 192.168.2.9: icmp_seq=41 ttl=64 time=0.261 ms
+64 bytes from 192.168.2.9: icmp_seq=42 ttl=64 time=0.347 ms
+64 bytes from 192.168.2.9: icmp_seq=43 ttl=64 time=0.146 ms
+64 bytes from 192.168.2.9: icmp_seq=44 ttl=64 time=0.392 ms
+64 bytes from 192.168.2.9: icmp_seq=45 ttl=64 time=0.132 ms
+64 bytes from 192.168.2.9: icmp_seq=46 ttl=64 time=0.274 ms
+From 192.168.2.9 icmp_seq=77 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=78 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=79 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=80 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=81 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=82 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=83 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=84 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=85 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=86 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=87 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=88 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=89 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=90 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=91 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=92 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=93 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=94 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=95 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=96 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=97 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=98 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=99 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=100 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=101 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=102 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=103 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=104 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=105 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=106 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=107 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=108 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=109 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=110 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=111 Destination Host Unreachable
+From 192.168.2.9 icmp_seq=112 Destination Host Unreachable
+64 bytes from 192.168.2.9: icmp_seq=113 ttl=64 time=1647 ms
+64 bytes from 192.168.2.9: icmp_seq=114 ttl=64 time=648 ms
+64 bytes from 192.168.2.9: icmp_seq=115 ttl=64 time=0.178 ms
+64 bytes from 192.168.2.9: icmp_seq=116 ttl=64 time=0.165 ms
+64 bytes from 192.168.2.9: icmp_seq=117 ttl=64 time=0.179 ms
+64 bytes from 192.168.2.9: icmp_seq=118 ttl=64 time=0.189 ms
+64 bytes from 192.168.2.9: icmp_seq=119 ttl=64 time=0.177 ms
+64 bytes from 192.168.2.9: icmp_seq=120 ttl=64 time=0.188 ms
+64 bytes from 192.168.2.9: icmp_seq=121 ttl=64 time=0.188 ms
+64 bytes from 192.168.2.9: icmp_seq=122 ttl=64 time=0.184 ms
+64 bytes from 192.168.2.9: icmp_seq=123 ttl=64 time=0.220 ms
+64 bytes from 192.168.2.9: icmp_seq=124 ttl=64 time=0.181 ms
+64 bytes from 192.168.2.9: icmp_seq=125 ttl=64 time=0.190 ms
+64 bytes from 192.168.2.9: icmp_seq=126 ttl=64 time=0.194 ms
+64 bytes from 192.168.2.9: icmp_seq=127 ttl=64 time=0.195 ms
+64 bytes from 192.168.2.9: icmp_seq=128 ttl=64 time=0.172 ms
+64 bytes from 192.168.2.9: icmp_seq=129 ttl=64 time=0.177 ms
+64 bytes from 192.168.2.9: icmp_seq=130 ttl=64 time=0.158 ms
+64 bytes from 192.168.2.9: icmp_seq=131 ttl=64 time=0.233 ms
+64 bytes from 192.168.2.9: icmp_seq=132 ttl=64 time=0.236 ms
+64 bytes from 192.168.2.9: icmp_seq=133 ttl=64 time=0.220 ms
+64 bytes from 192.168.2.9: icmp_seq=134 ttl=64 time=0.230 ms
+64 bytes from 192.168.2.9: icmp_seq=135 ttl=64 time=0.232 ms
+64 bytes from 192.168.2.9: icmp_seq=136 ttl=64 time=0.197 ms
+64 bytes from 192.168.2.9: icmp_seq=137 ttl=64 time=0.268 ms
+64 bytes from 192.168.2.9: icmp_seq=138 ttl=64 time=0.198 ms
+64 bytes from 192.168.2.9: icmp_seq=139 ttl=64 time=0.236 ms
+64 bytes from 192.168.2.9: icmp_seq=140 ttl=64 time=0.238 ms
+64 bytes from 192.168.2.9: icmp_seq=141 ttl=64 time=0.188 ms
+64 bytes from 192.168.2.9: icmp_seq=142 ttl=64 time=0.206 ms
+64 bytes from 192.168.2.9: icmp_seq=143 ttl=64 time=0.236 ms
+64 bytes from 192.168.2.9: icmp_seq=144 ttl=64 time=0.197 ms
+64 bytes from 192.168.2.9: icmp_seq=145 ttl=64 time=0.227 ms
+64 bytes from 192.168.2.9: icmp_seq=146 ttl=64 time=0.229 ms
+64 bytes from 192.168.2.9: icmp_seq=147 ttl=64 time=0.203 ms
+64 bytes from 192.168.2.9: icmp_seq=148 ttl=64 time=0.147 ms
+64 bytes from 192.168.2.9: icmp_seq=149 ttl=64 time=0.206 ms
+64 bytes from 192.168.2.9: icmp_seq=150 ttl=64 time=0.206 ms
+64 bytes from 192.168.2.9: icmp_seq=151 ttl=64 time=0.211 ms
+64 bytes from 192.168.2.9: icmp_seq=152 ttl=64 time=0.219 ms
+
+--- 192.168.2.9 ping statistics ---
+152 packets transmitted, 86 received, +36 errors, 43% packet loss, time 151078ms
+rtt min/avg/max/mdev = 0.095/26.897/1647.617/189.028 ms, pipe 3

@@ -10,7 +10,7 @@
 #
 IP=$1
 
-ping $1 > $1-stat-$2.log &
+ping $1 > $2-stat-$1.log &
 PINGPID=$!
 
 INITMP=`date +%s`
@@ -33,13 +33,14 @@ do
 done
 FINAL=`date +%s`
 INTERVALO=$(( $FINAL - $INICIAL ))
-echo "host $1 : $INTERVALO s" > $1-downtime-$2.log
+echo "host $1 : $INTERVALO s" > $2-downtime-$1.log
 
 while :; do
 	TIMECUR=$(( `date +%s` - $INITMP ))
-	if [ $TIMECUR -gt 300 ]; then
+	if [ $TIMECUR -gt 150 ]; then
                 break;
         fi
+	sleep 1;
 done
 
 #pkill -SIGINT ping
