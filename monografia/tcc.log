@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  20 NOV 2016 20:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  21 NOV 2016 19:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2136,7 +2136,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [62]
 \openout2 = `capitulos/conclusao.aux'.
 
- (./capitulos/conclusao.tex [63
+ (./capitulos/conclusao.tex
+Underfull \vbox (badness 2181) has occurred while \output is active []
+
+ [63
 
 
 
@@ -2641,7 +2644,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (80 pages, 2529630 bytes).
+Output written on tcc.pdf (80 pages, 2529584 bytes).
 PDF statistics:
  455 PDF objects out of 1000 (max. 8388607)
  292 compressed objects within 3 object streams
