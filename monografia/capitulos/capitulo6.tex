@@ -14,7 +14,7 @@
 
 %Usar metodologia MAH - Método Analítico Hierárquico \cite{geordano2014} NAO INICIALMENTE
 
-Neste capítulo serão apresentadas as ferramentas que irão compor o ambiente de alta disponibilidade que foi proposta neste trabalho. A solução 
+Neste capítulo serão apresentadas as ferramentas que irão compor o ambiente de alta disponibilidade que foi proposto neste trabalho. A solução 
 será baseada na utilização de virtualização e de \textit{softwares} de código aberto. Essa estrutura foi baseada nos trabalhos de 
 \citet{goncalves2009}, \citet{reis2009} e \citet{zaminhani2008}. Os dois primeiros trabalhos implementam uma alta disponibilidade através do uso 
 de máquinas virtuais, com os mesmos objetivos deste trabalho. O terceiro autor utiliza uma técnica semelhante, porém implementada para apenas 
@@ -50,7 +50,7 @@ Já os critérios utilizados para a escolha do \textit{software} de monitorament
 \label{section:toolrepl}
 
 A replicação de dados pode ser realizada de diferentes formas, podendo ser a nível de aplicação ou até mesmo a nível de \textit{hardware}.
-Dependendo do objetivo pode-se utilizar uma replicação através de um \ac{RAID}\footnote[1]{RAID são usados para melhorar a confiabilidade e o
+Dependendo do objetivo pode-se utilizar uma replicação através de um \ac{RAID}\footnote[1]{RAID é usado para melhorar a confiabilidade e o
 desempenho no armazenamento de dados, fazendo a redundância de dados em um conjunto de discos rígidos \cite{zaminhani2008}.}. 
 Essa solução é eficaz para garantir que o sistema não fique indisponível em caso de falha de discos\footnote[2]{Lembrando que essa solução é 
 utilizada no ambiente atual para aumentar a disponibilidade dos servidores.} rígidos, porém não garante a disponibilidade quando um 
@@ -169,7 +169,7 @@ uma ação de um operador, por exemplo, a execução de um comando.
 \subsection{Comparativo entre os softwares de replicação de dados}
 \label{section:replicacaoescolhido}
 
-Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. A ferramenta adotada para a replicação 
+Na Tabela \ref{tab:replicacao} tem-se uma comparação entre as ferramentas citadas anteriormente. A ferramenta adotada para realizar a replicação 
 de dados foi o \ac{DRBD}, pois esse permite a configuração \textit{dual-primary} e também \textit{master-slave}, além de suportar a replicação 
 de dados das máquinas virtuais e permitir a replicação a nível de bloco. Além disso, esse \textit{software} permite a ressincronização dos dados 
 de forma automática em caso de uma falha \cite{drbd}.
@@ -418,7 +418,7 @@ o desenvolvimento de um conjunto de \textit{scripts} para a migração das máqu
 
 \section{Considerações finais}
 
-Neste capítulo foi feito uma descrição de alguns \textit{softwares} para o desenvolvimento de um ambiente de alta disponibilidade utilizando 
+Neste capítulo foi feita uma descrição de alguns \textit{softwares} para o desenvolvimento de um ambiente de alta disponibilidade utilizando 
 virtualização. Para a implementação desse ambiente dois tipos de \textit{softwares} tornam-se necessários, um para a replicação de dados e outro 
 para gerência e monitoramento do \textit{cluster}, sendo que os \textit{softwares} escolhidos foram o \ac{DRBD} para a replicação de dados, 
 e o \textit{Pacemaker} para a gerência e monitoramento do \textit{cluster}. Esses dois \textit{softwares} foram escolhidos pois eles possuem 

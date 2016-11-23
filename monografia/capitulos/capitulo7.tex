@@ -80,19 +80,20 @@ O detalhamento da configuração do \textit{Pacemaker} estão disponíveis no Ap
 \end{figure}
 
 Já para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo \textit{dual-master} onde os dois nós 
-são configurados como primários. Para tal configuração foi necessário utilizar um sistema de arquivos distribuídos para um acesso 
-simultâneo e compartilhado aos dados, sendo que o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
+são configurados como primários. Para tal configuração foi necessário utilizar um sistema de arquivos distribuídos que permita um acesso 
+simultâneo e compartilhado aos dados, desta forma o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
 %Esse sistema de arquivos foi montado em um diretório dentro do sistema operacional dos nós, como por exemplo 
 %\textit{/var/lib/libvirt/images}, sabendo que esse diretório contêm as imagens dos discos das \acp{VM}. 
 Como pode ser observado na Figura \ref{fig:projeto_estrutura} todas alterações feitas em um disco de uma \ac{VM} é replicada para o 
 outro nó através do \textit{software} \ac{DRBD}. 
 
 Para melhor entender o armazenamento e a replicação de dados criou-se a Figura \ref{fig:projeto_discos}, onde tem-se um dispositivo \ac{DRBD}
-replicado através da rede em cada nó, sendo que cada dispositivo \ac{DRBD} possui um disco rígido\footnote[1]{Esse disco rígido é composto
-por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} (sda). O quadro pontilhado que abrange os dois dispositivos
-\ac{DRBD} e se estende pelos dois nós é o sistema de arquivos distribuídos \ac{OCFS2}, o qual permite o acesso simultâneo ao dispositivo \ac{DRBD}.
-Esse sistema de arquivos é montado no sistema operacional, desta forma permitindo o armazenamento dos discos das máquinas virtuais.
-Os detalhes da instalação, da configuração do \ac{DRBD} e do sistema de arquivos \ac{OCFS2} estão detalhadas no Apêndice \ref{ap:confdisco}. 
+em cada nó que faz a replicação de dados através da rede. Dentro de cada dispositivos \ac{DRBD} existe um disco rígido\footnote[1]{Esse disco 
+rígido é composto por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} (sda). O quadro pontilhado que abrange os 
+dois dispositivos \ac{DRBD} e se estende pelos dois nós é o sistema de arquivos distribuídos \ac{OCFS2}, o qual permite o acesso simultâneo ao 
+dispositivo \ac{DRBD}. Esse sistema de arquivos é montado em um diretório do sistema operacional, desta forma permitindo o armazenamento 
+dos discos das máquinas virtuais. Os detalhes da instalação, da configuração do \ac{DRBD} e do sistema de arquivos \ac{OCFS2} 
+estão detalhadas no Apêndice \ref{ap:confdisco}. 
 
 \begin{figure}[h!]
  \centering
@@ -190,7 +191,7 @@ a indisponibilidade poderia ser maior que 24 horas.
 
 \subsection{Teste 2 - Desligamento por software}
 
-Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}. Neste caso pode-se citar como exemplo, uma falha no \textit{software} 
+Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}. Neste caso, pode-se citar como exemplo, uma falha no \textit{software} 
 de virtualização, com isso o nó não conseguiria iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma falha de atualização 
 do sistema operacional ou de \textit{kernel}.
 Nestes tipos de falhas, os serviços devem ser transferidos para o outro nó de forma automática, reduzindo assim a indisponibilidade desses serviços. 
@@ -338,7 +339,7 @@ da máquina virtual. Isso pode ser observado no pico do intervalo de tempo de 50
 
 Esta seção apresenta uma comparação da disponibilidade do ambiente antigo com o ambiente de alta disponibilidade que foi implementado. 
 Sendo assim foi feita uma medição da disponibilidade do período de um mês no ambiente antigo e de um mês no ambiente de alta disponibilidade 
-implementado, nos quais executavam os serviços críticos. Porém, para se obter resultados mais consistentes da disponibilidade seria relevante 
+implementado, nos quais executavam os serviços críticos. Porém, para se obter resultados mais consistentes da disponibilidade seria interessante 
 realizar uma mensuração mais longa, com duração entre 6 meses e 1 ano. Contudo, isso tornou-se inviável devido ao tempo disponível para a 
 implementação deste trabalho, por isso o tempo utilizado foi de um mês. 
 %Nestes ambientes encontravam-se executando os serviços críticos que foram definidos na Seção \ref{section:maqservcrit}. 
