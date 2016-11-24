@@ -63,8 +63,8 @@ utilizado por um cliente em um determinado período de tempo, o tráfego de dado
 equipamentos dos clientes, entre outros. Essas operações resultam em média 23 requisições por segundo. 
 Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes que
 utilizam esses servidores para autenticação. De fato, como pode-se observar na Figura \ref{fig:elementos_tcp} (a) que os servidores 
-\textit{Masterauth} e \textit{Speedauth} estão entre os que apresentam o maior número de contas. Além disso, nesses servidores existe um grande 
-número de conexões \ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utiliza esse 
+\textit{Masterauth} e \textit{Speedauth} estão entre os que apresentam um maior número de contas. Além disso, nesses servidores existe um grande 
+número de conexões \ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utilizar esse 
 protocolo para a comunicação com o seu banco de dados.} simultâneas, como pode ser observado na Figura \ref{fig:elementos_tcp} (b).
 
 % \begin{figure}[h!]
@@ -134,7 +134,7 @@ deve-se ao fato da telefonia utilizar o protocolo \ac{UDP} para a transmissão d
 \section{Resumo e os serviços críticos}
 \label{section:maqservcrit}
 
-A partir da análise feita decidiu-se que os servidores com maior importância para a empresa são:
+A partir da análise feita conclui-se que os servidores com maior importância para a empresa são:
 \begin{itemize}
  \item \textit{Passata}: servidor de \ac{DNS} recursivo utilizado tanto pelo provedor quanto pela empresa;
  \item \textit{Speedauth}: servidor \textit{Radius} para autenticação \ac{PPPoE} dos clientes do provedor;

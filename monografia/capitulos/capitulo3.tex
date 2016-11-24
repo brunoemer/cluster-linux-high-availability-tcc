@@ -26,13 +26,13 @@ em sistemas de computação \cite{maziero2013}, sendo que entre essas pode-se ci
  \item Conjunto de instruções ou \ac{ISA}: é a interface básica, que fica entre o \textit{software} e o \textit{hardware}, e é composta por 
  instruções de código de máquina. Essa interface é dividida em dois grupos:
  \begin{itemize}
-  \item Instruções de usuário ou \textit{User \ac{ISA}}: são instruções que estão disponíveis para as aplicações de usuários. Essas instruções 
+  \item Instruções de usuários ou \textit{User \ac{ISA}}: são instruções que estão disponíveis para as aplicações de usuários. Essas instruções 
   executam em modo usuário, sendo que neste modo existem restrições que procuram garantir um controle e segurança no acesso aos recursos de 
-  \textit{hardware}. As instruções de usuário são instruções não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir 
+  \textit{hardware}. As instruções de usuários são instruções não privilegiadas, ou seja, são instruções que podem ser executadas sem interferir 
   em outras tarefas, porque elas não acessam recursos compartilhados. Este grupo de interface contém, por exemplo, instruções de operações 
   aritméticas e instruções de ponto flutuante \cite{buyya2013};
   %Caso uma instrução privilegiada for executada no modo usuário, ela manifesta-se através de uma interrupção e será devidamente tratada;
-  \item Instruções de sistema ou \textit{System \ac{ISA}}: essas instruções geralmente são disponibilizadas para o núcleo do sistema operacional. 
+  \item Instruções de sistemas ou \textit{System \ac{ISA}}: essas instruções geralmente são disponibilizadas para o núcleo do sistema operacional. 
   Elas são instruções privilegiadas, ou seja, são instruções que acessam recursos compartilhados. Essas instruções são executadas em modo 
   supervisor (ou modo \textit{kernel}), que permite realizar operações sensíveis\footnote[1]{Operações sensíveis são instruções que podem alterar o 
   estado do processador.} no \textit{hardware} \cite{buyya2013}. Como exemplo de instruções de sistema pode-se citar as instruções que alteram 
@@ -113,7 +113,7 @@ tradução dessas interfaces, que será feita pela camada de virtualização. Os
 \section{Máquinas virtuais de sistema}
 \label{section:virtsistema}
 
-As máquinas virtuais de sistema, também chamadas de hipervisor ou \ac{VMM}, são uma camada de \textit{software} que possibilita
+As máquinas virtuais de sistema, também chamadas de hipervisor ou \ac{VMM}, são representadas por uma camada de \textit{software} que possibilita
 que múltiplos sistemas operacionais convidados executem sobre um mesmo computador físico, ou seja, o hipervisor provê uma interface
 \ac{ISA} virtual, que pode ou não ser igual à interface real, e virtualiza outros componentes de \textit{hardware}, para que cada máquina
 virtual convidada possa ter seus próprios recursos. Para tanto, a virtualização de sistema utiliza abstrações em sua arquitetura. 

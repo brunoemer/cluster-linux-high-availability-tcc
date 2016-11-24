@@ -80,7 +80,7 @@ O detalhamento da configuração do \textit{Pacemaker} estão disponíveis no Ap
 \end{figure}
 
 Já para a replicação de dados foi utilizado o \textit{software} \ac{DRBD}, que foi configurado no modo \textit{dual-master} onde os dois nós 
-são configurados como primários. Para tal configuração foi necessário utilizar um sistema de arquivos distribuídos que permita um acesso 
+são configurados como primários. Para tal configuração foi necessário utilizar um sistema de arquivos distribuídos que permite um acesso 
 simultâneo e compartilhado aos dados, desta forma o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
 %Esse sistema de arquivos foi montado em um diretório dentro do sistema operacional dos nós, como por exemplo 
 %\textit{/var/lib/libvirt/images}, sabendo que esse diretório contêm as imagens dos discos das \acp{VM}. 
@@ -139,7 +139,7 @@ encontra-se disponível no Apêndice \ref{ap:scriptindisp}). Neste caso, foi med
 foi medido o tempo que o servidor físico permaneceu indisponível.
 
 Na Tabela \ref{tab:teste1resultados} tem-se os resultados, onde pode-se observar que o tempo de indisponibilidade do serviço (máquina virtual) 
-é de apenas 71,4 segundos, isso se deve ao fato da \ac{VM} ser iniciada em um outro nó após o desligamento do outro nó. 
+é de apenas 71,4 segundos, isso se deve ao fato da \ac{VM} ser iniciada em um nó secundário após o desligamento do principal. 
 Já no caso de um servidor de virtualização que não possua esta solução de alta disponibilidade, seja reiniciado por causa de uma falha elétrica, 
 por exemplo, o tempo para a recuperação do serviço seria igual a soma do tempo de inicialização do servidor físico mais o tempo de inicialização 
 da máquina virtual, que totalizaria aproximadamente 151 segundos. 
@@ -239,7 +239,7 @@ ocorreu um erro na atualização e o servidor não inicializou corretamente. Os 
 %atualização de kernel dos nodes. Resultados: latência, comparação downtime servidor virtual e físico
 
 Reinicializações são necessárias para manutenções de \textit{hardware}, atualização de \textit{software} e até mesmo para 
-rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste na aplicações de métodos para remover problemas gerados pelo 
+rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste nas aplicações de métodos para remover problemas gerados pelo 
 envelhecimento. Um exemplo de um método é o \textit{reboot} de um sistema operacional, uma vez que esse torna-se suscetível a gerar erros e 
 falhas.} de \textit{software} \cite{melo2014}. Desta forma, esse teste foi realizado de forma a simular manutenções previamente agendadas.
 
@@ -338,7 +338,7 @@ da máquina virtual. Isso pode ser observado no pico do intervalo de tempo de 50
 %Comparar ao mês de setembro (01/09 a 30/09) no ambiente antigo com uma reinicialização dos servidores físicos (reiniciados em 06/09/16)
 
 Esta seção apresenta uma comparação da disponibilidade do ambiente antigo com o ambiente de alta disponibilidade que foi implementado. 
-Sendo assim foi feita uma medição da disponibilidade do período de um mês no ambiente antigo e de um mês no ambiente de alta disponibilidade 
+Sendo assim, foi feita uma medição da disponibilidade do período de um mês no ambiente antigo e de um mês no ambiente de alta disponibilidade 
 implementado, nos quais executavam os serviços críticos. Porém, para se obter resultados mais consistentes da disponibilidade seria interessante 
 realizar uma mensuração mais longa, com duração entre 6 meses e 1 ano. Contudo, isso tornou-se inviável devido ao tempo disponível para a 
 implementação deste trabalho, por isso o tempo utilizado foi de um mês. 
@@ -380,7 +380,7 @@ utilizou-se um \textit{software} para o gerenciamento do \textit{cluster} e um p
 Após a implementação, foram feitos alguns testes que destacaram uma redução no tempo de indisponibilidade dos serviços 
 críticos executados nas máquinas virtuais, se comparado ao tempo de indisponibilidade do antigo ambiente da empresa. 
 Esses testes permitiram realizar uma análise do ambiente de alta disponibilidade.
-Com isso pode-se observar que os resultados obtidos foram positivos, e que os objetivos deste trabalho foram alcançados, ou seja, houve um 
+Com isso, pode-se observar que os resultados obtidos foram positivos, e que os objetivos deste trabalho foram alcançados, ou seja, houve um 
 aumento da disponibilidade dos serviços críticos. Porém, destaca-se que seria necessário mais tempo para efetuar medições mais precisas e concisas.
 
 %Para possibilitar a medição dos dados de disponibilidade foi utilizado \textit{scripts} e o comando \textit{ping}, além da ferramenta de 

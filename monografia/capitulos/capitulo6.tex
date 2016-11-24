@@ -1,4 +1,4 @@
-  \chapter{Softwares para implementação}
+\chapter{Softwares para implementação}
 \label{cap:softwares}
 
 %Para comparar e selecionar o \textit{software} mais adequado para esta implementação utilizou-se uma técnica semelhante à descrita no artigo 
@@ -58,7 +58,7 @@ utilizada no ambiente atual para aumentar a disponibilidade dos servidores.} rí
 %\ac{RAID} \cite{tanenbaum2009sistemas}
 
 A solução de replicação a ser adotada neste trabalho consiste em um espelhamento de dados através da rede. Essa solução permite a sincronização 
-dos dados de um servidor para outro servidor em tempo real.
+dos dados de um servidor para outro em tempo real.
 Nas próximas seções tem-se uma descrição dos \textit{softwares} de replicação de dados que foram estudados, bem como as funcionalidades 
 suportadas pelos mesmos.
 
@@ -223,7 +223,7 @@ uma replicação em tempo real, além de não ter sido desenvolvido para ser uti
 \section{Softwares para o gerenciamento do cluster}
 \label{section:toolcluster}
 
-Para ser possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster},
+Para que seja possível implementar uma solução de alta disponibilidade é necessário organizar os servidores em uma estrutura de \textit{cluster},
 sendo assim, é interessante a utilização de \textit{softwares} que facilitem o gerenciamento deste \textit{cluster}. De fato, esses 
 \textit{softwares} são conhecidos como \ac{CRM}, e permitem detectar falhas em um nó, sendo elas de \textit{hardware} ou de serviços. 
 
@@ -406,7 +406,7 @@ Distribuições Linux & Todas & Red Hat, CentOS, Fedora, Suse, Debian, Ubuntu & 
 \end{center}
 \end{table}
 
-O \textit{software} \textit{Ganeti} não se mostrou adequado pois não possui suporte de \textit{failover} de forma automática. 
+O \textit{software} \textit{Ganeti} não mostrou-se adequado pois não possui suporte de \textit{failover} de forma automática. 
 %Essa ferramenta não possui foco na disponibilidade, mas sim na segurança dos dados, pois os dados ficam replicados e podem ser recuperados de forma manual. 
 Seria possível também implementar uma solução de alta disponibilidade com a ferramenta \textit{Heartbeat}. Porém, neste caso seria necessário 
 o desenvolvimento de um conjunto de \textit{scripts} para a migração das máquinas virtuais.
@@ -421,7 +421,7 @@ o desenvolvimento de um conjunto de \textit{scripts} para a migração das máqu
 Neste capítulo foi feita uma descrição de alguns \textit{softwares} para o desenvolvimento de um ambiente de alta disponibilidade utilizando 
 virtualização. Para a implementação desse ambiente dois tipos de \textit{softwares} tornam-se necessários, um para a replicação de dados e outro 
 para gerência e monitoramento do \textit{cluster}, sendo que os \textit{softwares} escolhidos foram o \ac{DRBD} para a replicação de dados, 
-e o \textit{Pacemaker} para a gerência e monitoramento do \textit{cluster}. Esses dois \textit{softwares} foram escolhidos pois eles possuem 
+e o \textit{Pacemaker} para a gerência e monitoramento do \textit{cluster}. Esses dois \textit{softwares} foram escolhidos pois possuem 
 as características necessárias para a implementação de alta disponibilidade feita na empresa. 
 %Destaca-se que foram utilizados alguns critérios para auxiliar na escolha desses \textit{softwares}.
 No próximo capítulo será apresentada a implementação realizada, bem como os testes e resultados obtidos.

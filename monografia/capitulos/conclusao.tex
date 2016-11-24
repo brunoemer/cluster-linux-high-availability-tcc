@@ -19,7 +19,7 @@ do \textit{cluster} foi adotado o \textit{software} \ac{DRBD}, que é responsáv
 O ambiente de alta disponibilidade é composto por máquinas virtuais que executam os serviços críticos. Para garantir a disponibilidade 
 foi utilizada a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Pacemaker}. Desta forma, 
 caso seja necessário fazer uma manutenção em um dos servidores, as máquinas virtuais serão migradas para o outro servidor.
-Além disso, caso um servidor falhe as máquinas virtuais serão automaticamente iniciadas no outro servidor, diminuindo assim a indisponibilidade
+Além disso, caso um servidor falhe, as máquinas virtuais serão automaticamente iniciadas no outro servidor, diminuindo assim a indisponibilidade
 dos serviços e o impacto para a empresa.
 
 De fato, os testes realizados mostraram que em casos de falhas de \textit{hardware}, de energia elétrica ou de \textit{software}, 
@@ -41,7 +41,7 @@ disponibilidade. Deste modo, pode-se testar outras ferramentas de alta disponibi
 viabilidade do uso das ferramentas como \textit{GlusterFS} e \textit{Ceph}, em conjunto com uma ferramenta de gerenciamento de nuvem, como
 por exemplo, o \textit{OpenStack}, que trarão mais alguns benefícios além da alta disponibilidade.
 Além disso, sugere-se a inclusão de todos os serviços da empresa neste ambiente. De fato, pretende-se fazer a inclusão de mais alguns
-serviços com nível criticidade médio.
+serviços com nível de criticidade médio.
 Por fim, pode-se efetuar uma medição de disponibilidade por um período mais longo, a fim de se certificar sobre o aumento da
 disponibilidade.
 

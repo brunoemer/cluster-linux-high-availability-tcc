@@ -4,7 +4,7 @@
 Este capítulo apresentará a infraestrutura de \ac{TI} da empresa, descrevendo o ambiente, a configuração dos servidores e dos serviços. Esta é 
 uma empresa que fornece serviços de hospedagens e também está associada a um provedor de Internet\footnote[1]{É importante salientar que esse 
 provedor utiliza a maior parte dos serviços da empresa.}. A empresa possui grande parte de seus clientes localizados na serra do Rio Grande do Sul, 
-sendo que, esta empresa possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de Garibaldi. Além disso, 
+sendo que, essa possui aproximadamente 9000 clientes. A sede da empresa está localizada na cidade de Garibaldi. Além disso, 
 a empresa possui quatro filiais no estado, atendendo aproximadamente 30 cidades.
 
 A empresa oferece serviços pela Internet, sendo eles: hospedagens de sites, banco de dados, \textit{e-mail}, sistemas de gestão, 
@@ -158,7 +158,7 @@ O ambiente também possui redundância no cabeamento de rede, como visto anterio
 
 A empresa fornece serviços diversos, desde hospedagens de sites até \aca{DNS} recursivo para o provedor de Internet. Sete servidores 
 são utilizados com virtualização (os últimos sete servidores da Tabela \ref{tab:servfisicos}), sendo que existem quarenta e seis \acp{VM} 
-distribuídas entre esses sete servidores. Nas próximas seções serão descritos esses servidores, e as respectivas máquinas virtuais que são
+distribuídas entre esses sete servidores. Nas próximas seções serão descritos esses servidores e as respectivas máquinas virtuais que são
 executadas nestes.
 
 \subsection{Servidor Brina}
@@ -382,9 +382,9 @@ O servidor \textit{Tuono} possui quatro \acp{VM}, como pode ser visto na Figura 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e fornece \textit{streaming} de áudio para uma 
  \textit{Web} rádio. Esse serviço é feito através do \textit{software} livre \textit{Icecast 2.3.3} \cite{icecast};
  
- \item \textit{Ns}: esse servidor possui 1 \textit{core} de \textit{2.53 GHz}, 2 GB de memória \ac{RAM} e 30 GB de disco. O servidor possui o sistema 
- operacional \textit{CentOS 6.8} \cite{centos} e fornece, através do \textit{software} \textit{Bind 9.9.3} \cite{bind}, o serviço de \ac{DNS} 
- autoritativo. Esse é o servidor de \ac{DNS} primário dos domínios hospedados pela empresa;
+ \item \textit{Ns}: esse servidor possui 1 \textit{core} de \textit{2.53 GHz}, 2 GB de memória \ac{RAM} e 30 GB de disco. O servidor possui o 
+ sistema operacional \textit{CentOS 6.8} \cite{centos} e fornece, através do \textit{software} \textit{Bind 9.9.3} \cite{bind}, o serviço de 
+ \ac{DNS} autoritativo. Esse é o servidor de \ac{DNS} primário dos domínios hospedados pela empresa;
 
  \item \textit{Soldi}: sua configuração é 4 \textit{cores} de \textit{2.53 GHz}, 4 GB de memória \ac{RAM} e 40 GB de disco. 
  Esse servidor possui o sistema operacional \textit{Ubuntu 14.04 \ac{LTS}} \cite{ubuntu} e é um servidor \textit{Web} exclusivo para os
@@ -444,5 +444,5 @@ e o \textit{hardware} que está disponível. Além disso, pôde-se ter uma visã
 bem como do \textit{hardware} que vem sendo utilizado. 
 
 Com base nos serviços apresentados neste capítulo, o próximo capítulo apresentará os serviços que são considerados críticos, para tanto, 
-será definidos alguns critérios. Posteriormente, serão definidas algumas ferramentas para a criação do ambiente de alta disponibilidade, que 
+serão definidos alguns critérios. Posteriormente, serão definidas algumas ferramentas para a criação do ambiente de alta disponibilidade, que 
 farão parte do projeto de implementação.
