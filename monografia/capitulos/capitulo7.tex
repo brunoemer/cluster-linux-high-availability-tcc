@@ -15,7 +15,7 @@ metodologia de testes utilizada, bem como os resultados obtidos dos testes efetu
 %caso ocorra alguma falha em um servidor, as máquinas virtuais serão transferidas para o outro servidor.
 
 O ambiente foi projetado na forma de um \textit{cluster}, o qual é composto por dois servidores com requisitos de configuração sugeridos
-de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido, porém não haveria problemas se esta apresentar 
+de 12 \textit{cores} de processamento, 14 GB de memória \ac{RAM} e 180 GB de disco rígido, porém não haveriam problemas se esta apresentar 
 uma pequena variação.
 %real = 11 \textit{cores} de processamento, 12 GB de memória \ac{RAM} e 156 GB de disco rígido
 Essa configuração foi calculada a partir da soma dos recursos consumidos pelas máquinas virtuais, as quais executavam os serviços que foram 
@@ -230,7 +230,7 @@ Máquina virtual & 11 & 3,16 \\\hline
 \end{center}
 \end{table}
 
-A alguns meses ocorreu um problema semelhante a este teste em um servidor de virtualização, que foi atualizado de forma automática. Neste caso, 
+Há alguns meses ocorreu um problema semelhante a este teste em um servidor de virtualização, que foi atualizado de forma automática. Neste caso, 
 ocorreu um erro na atualização e o servidor não inicializou corretamente. Os serviços executados nele ficaram aproximadamente 
 6 horas indisponíveis. Através da solução implementada esse tempo seria de apenas 11 segundos, pois a \ac{VM} seria iniciada no outro nó. 
 
@@ -319,7 +319,7 @@ Máquina virtual & 0 & 100\% \\\hline
 Observa-se que durante o processo de \textit{live migration} de uma \ac{VM} de um nó para outro, a latência da máquina virtual aumentou, 
 sendo que a latência, em uma rede de computadores, é o tempo que um pacote leva para chegar ao destino \cite{geordano2014}.
 O aumento da latência ocorre devido a transferência da memória e dos dados da \ac{VM} feita através da rede, a qual é necessária para a migração 
-da máquina virtual. Isso pode ser observado no pico do intervalo de tempo de 50 à 100 segundos apresentados na Figura \ref{fig:teste2_latencia}.
+da máquina virtual. Isso pode ser observado no pico do intervalo de tempo de 50 a 100 segundos apresentados na Figura \ref{fig:teste2_latencia}.
 %Mesmo com o aumento de latência não ocorre perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
 %teste2/186.195.16.13-stat-2.log

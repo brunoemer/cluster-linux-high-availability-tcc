@@ -37,7 +37,7 @@ Nas próximas seções serão descritos os serviços que foram considerados crí
 
 Esse serviço foi classificado como o serviço mais importante pois possui um impacto direto nos clientes do provedor. Além disso, esse é o único 
 serviço que todos os clientes e funcionários utilizam, totalizando aproximadamente 9000 pessoas. O objetivo de um provedor é fornecer uma navegação 
-de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. A importância deste serviço está ilustrada na Figura 
+de qualidade aos seus clientes, sendo assim, o \ac{DNS} é fundamental para essa navegação. A importância desse serviço está ilustrada na Figura 
 \ref{fig:dns_udp} (a), onde pode ser observado que esse serviço possui picos de aproximadamente 1150 requisições por segundo. Já na Figura 
 \ref{fig:dns_udp} (b) pode ser observado que o servidor \textit{Passata} é o servidor que apresenta o maior número de requisições 
 \ac{UDP}\footnote[1]{Esse número de requisições \ac{UDP} é elevado devido ao fato do serviço \ac{DNS} utilizar esse protocolo de transporte.}. 
@@ -61,7 +61,7 @@ os clientes não conseguirão estabelecer conexão e, consequentemente, não con
 por segundo. Além disso, esses servidores armazenam dados relacionados à conexão dos clientes, como por exemplo, o endereço de \ac{IP} que é 
 utilizado por um cliente em um determinado período de tempo, o tráfego de dados da conexão, o tempo de conexão, o endereço \aca{MAC} dos 
 equipamentos dos clientes, entre outros. Essas operações resultam em média 23 requisições por segundo. 
-Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que neste caso, representa a quantidade de clientes que
+Outro critério que é relevante para esses servidores é o volume de elementos do serviço, que nesse caso, representa a quantidade de clientes que
 utilizam esses servidores para autenticação. De fato, como pode-se observar na Figura \ref{fig:elementos_tcp} (a) que os servidores 
 \textit{Masterauth} e \textit{Speedauth} estão entre os que apresentam um maior número de contas. Além disso, nesses servidores existe um grande 
 número de conexões \ac{TCP}\footnote[1]{Esse número de conexões \ac{TCP} deve-se ao fato do \textit{software} \textit{Freeradius} utilizar esse 
@@ -84,7 +84,7 @@ protocolo para a comunicação com o seu banco de dados.} simultâneas, como pod
 \section{Sistemas da empresa e do provedor}
 \label{section:sistemas}
 
-O sistema do provedor é responsável pela maior parte das operações gerenciais do provedor. Este sistema é responsável pela emissão de 
+O sistema do provedor é responsável pela maior parte das operações gerenciais do provedor. Esse sistema é responsável pela emissão de 
 boletos, atendimento de clientes, comunicação interna da empresa, vendas, ativações de novos clientes, entre outros. Esse sistema não tem um 
 impacto direto para os clientes, porém é fundamental para o funcionamento da empresa e do provedor. Caso haja uma indisponibilidade desses sistemas 
 a maior parte dos funcionários ficarão impossibilitados de trabalhar, sendo que a empresa possui um total de 65 funcionários.
@@ -168,7 +168,7 @@ SimplesIP & Telefonia & 99,997\% & 15 minutos 10 segundos \\\hline %simplesip-pi
 
 \section{Considerações finais}
 
-Neste capítulo foram apresentados os serviços que foram considerados críticos, sendo que os critérios utilizados para a escolha destes foram 
+Neste capítulo foram apresentados os serviços que foram considerados críticos, sendo que os critérios utilizados para a escolha desses foram 
 criados de acordo com a análise feita nos serviços, levando em consideração a importância para a empresa, para o seu ambiente e a opinião da 
 direção da empresa. Pôde-se observar que a maioria dos serviços críticos estão diretamente relacionados com o provedor, o qual possui a maior
 parte dos clientes. Os serviços críticos apresentados foram o \ac{DNS} recursivo primário e a autenticação \textit{Radius}, as quais possuem
