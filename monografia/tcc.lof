@@ -37,7 +37,7 @@
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.3:}{\ignorespaces Transfer\IeC {\^e}ncia de arquivos atrav\IeC {\'e}s do \textit {Rsync}.}}{49}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.4:}{\ignorespaces Arquitetura do \textit {Ganeti}.}}{51}
 \contentsline {figure}{\numberline {Figura\nobreakspace 6.5:}{\ignorespaces Arquitetura do \textit {Heartbeat}.}}{52}
-\contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{52}
+\contentsline {figure}{\numberline {Figura\nobreakspace 6.6:}{\ignorespaces Exemplo da arquitetura do \textit {Pacemaker}.}}{53}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {Figura\nobreakspace 7.1:}{\ignorespaces Estrutura f\IeC {\'\i }sica.}}{56}
 \contentsline {figure}{\numberline {Figura\nobreakspace 7.2:}{\ignorespaces Estrutura do \textit {cluster} e das m\IeC {\'a}quinas virtuais.}}{56}

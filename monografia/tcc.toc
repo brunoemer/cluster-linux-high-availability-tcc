@@ -51,9 +51,9 @@
 \contentsline {section}{\numberline {6.2}Softwares para o gerenciamento do cluster}{50}
 \contentsline {subsection}{\numberline {6.2.1}Ganeti}{50}
 \contentsline {subsection}{\numberline {6.2.2}Heartbeat}{51}
-\contentsline {subsection}{\numberline {6.2.3}Pacemaker}{51}
+\contentsline {subsection}{\numberline {6.2.3}Pacemaker}{52}
 \contentsline {subsection}{\numberline {6.2.4}Comparativo entre os softwares de gerenciamento de cluster}{53}
-\contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{53}
+\contentsline {section}{\numberline {6.3}Considera\IeC {\c c}\IeC {\~o}es finais}{54}
 \contentsline {chapter}{\numberline {7}Implementa\IeC {\c c}\IeC {\~a}o e testes}{55}
 \contentsline {section}{\numberline {7.1}Descri\IeC {\c c}\IeC {\~a}o do ambiente de alta disponibilidade}{55}
 \contentsline {subsection}{\numberline {7.1.1}Estrutura f\IeC {\'\i }sica}{55}
