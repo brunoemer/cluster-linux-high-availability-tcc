@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  26 NOV 2016 17:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  26 NOV 2016 17:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1986,7 +1986,7 @@ Package epstopdf Info: Source file: <img/projeto_fisico.eps>
 (epstopdf)                    size: 130299 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_fisico-eps-con
 verted-to.pdf img/projeto_fisico.eps>
-(epstopdf)             \includegraphics on input line 45.
+(epstopdf)             \includegraphics on input line 44.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_fisico-eps-converted-to.pdf, id=293, 1012.78375pt x 341.275pt>
@@ -1994,10 +1994,10 @@ File: img/projeto_fisico-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/projeto_fisico-eps-converted-to.pdf>
 Package pdftex.def Info: img/projeto_fisico-eps-converted-to.pdf used on input 
-line 45.
+line 44.
 (pdftex.def)             Requested size: 431.61407pt x 145.43831pt.
 
-Overfull \hbox (4.82272pt too wide) in paragraph at lines 45--46
+Overfull \hbox (4.82272pt too wide) in paragraph at lines 44--45
  [][] 
  []
 
@@ -2017,7 +2017,7 @@ Package epstopdf Info: Source file: <img/projeto_vms.eps>
 (epstopdf)                    size: 54961 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_vms-eps-conver
 ted-to.pdf img/projeto_vms.eps>
-(epstopdf)             \includegraphics on input line 62.
+(epstopdf)             \includegraphics on input line 61.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_vms-eps-converted-to.pdf, id=297, 1006.76125pt x 508.90125pt>
@@ -2025,7 +2025,7 @@ File: img/projeto_vms-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/projeto_vms-eps-converted-to.pdf>
 Package pdftex.def Info: img/projeto_vms-eps-converted-to.pdf used on input lin
-e 62.
+e 61.
 (pdftex.def)             Requested size: 331.23871pt x 167.43318pt.
 Package epstopdf Info: Source file: <img/projeto_estrutura.eps>
 (epstopdf)                    date: 2016-11-15 11:27:47
@@ -2036,7 +2036,7 @@ Package epstopdf Info: Source file: <img/projeto_estrutura.eps>
 (epstopdf)                    size: 121625 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_estrutura-eps-
 converted-to.pdf img/projeto_estrutura.eps>
-(epstopdf)             \includegraphics on input line 77.
+(epstopdf)             \includegraphics on input line 76.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_estrutura-eps-converted-to.pdf, id=298, 1139.25626pt x 992.70876pt
@@ -2044,7 +2044,7 @@ Package epstopdf Info: Output file is already uptodate.
 File: img/projeto_estrutura-eps-converted-to.pdf Graphic file (type pdf)
  <use img/projeto_estrutura-eps-converted-to.pdf>
 Package pdftex.def Info: img/projeto_estrutura-eps-converted-to.pdf used on inp
-ut line 77.
+ut line 76.
 (pdftex.def)             Requested size: 351.31378pt x 306.11575pt.
 
 
@@ -2065,7 +2065,7 @@ Package epstopdf Info: Source file: <img/projeto_discos.eps>
 (epstopdf)                    size: 149569 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_discos-eps-con
 verted-to.pdf img/projeto_discos.eps>
-(epstopdf)             \includegraphics on input line 100.
+(epstopdf)             \includegraphics on input line 99.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_discos-eps-converted-to.pdf, id=308, 998.73125pt x 534.99875pt>
@@ -2073,7 +2073,7 @@ File: img/projeto_discos-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/projeto_discos-eps-converted-to.pdf>
 Package pdftex.def Info: img/projeto_discos-eps-converted-to.pdf used on input 
-line 100.
+line 99.
 (pdftex.def)             Requested size: 361.35132pt x 193.56268pt.
 
 
@@ -2086,12 +2086,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [58 <./img/projeto_discos-eps-converted-to.pdf>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 159.
+(Font)              <10.95> on input line 158.
 
 Underfull \vbox (badness 2932) has occurred while \output is active []
 
  [59]
-Overfull \hbox (1.39171pt too wide) in paragraph at lines 265--268
+Overfull \hbox (1.39171pt too wide) in paragraph at lines 264--267
 []\OT1/cmr/m/n/12 Esse teste con-siste no agen-da-mento de 4 ma-nu-ten^^Xc~oes 
 efe-tu-a-das du-rante o per^^S^^Podo
  []
@@ -2104,14 +2104,14 @@ Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    size: 17324 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/teste2_latencia-eps-co
 nverted-to.pdf img/teste2_latencia.eps>
-(epstopdf)             \includegraphics on input line 329.
+(epstopdf)             \includegraphics on input line 328.
 Package epstopdf Info: Output file is already uptodate.
 <img/teste2_latencia-eps-converted-to.pdf, id=325, 723.70375pt x 506.89375pt>
 File: img/teste2_latencia-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/teste2_latencia-eps-converted-to.pdf>
 Package pdftex.def Info: img/teste2_latencia-eps-converted-to.pdf used on input
- line 329.
+ line 328.
 (pdftex.def)             Requested size: 321.20117pt x 224.97531pt.
 
 
@@ -2123,12 +2123,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [60]
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
 []\OT1/cmr/bx/n/10.95 Antigo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--362
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
 []\OT1/cmr/bx/n/10.95 Antigo
  []
 
@@ -2645,7 +2645,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (80 pages, 2529605 bytes).
+Output written on tcc.pdf (80 pages, 2529537 bytes).
 PDF statistics:
  455 PDF objects out of 1000 (max. 8388607)
  292 compressed objects within 3 object streams
