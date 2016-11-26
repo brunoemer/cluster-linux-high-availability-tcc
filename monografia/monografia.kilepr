@@ -130,10 +130,10 @@ Mode=LaTeX
 
 [item:abstract.tex]
 archive=true
-column=0
+column=40
 encoding=UTF-8
 highlight=LaTeX
-line=28
+line=50
 mode=LaTeX
 open=true
 order=1
@@ -319,10 +319,10 @@ open=true
 order=0
 
 [view-settings,view=0,item:abstract.tex]
-CursorColumn=0
-CursorLine=28
+CursorColumn=40
+CursorLine=50
 JumpList=
-ViMarks=.,45,39,[,45,39,],45,39
+ViMarks=.,50,40,[,50,40,],50,40
 
 [view-settings,view=0,item:acronym.tex]
 CursorColumn=1
