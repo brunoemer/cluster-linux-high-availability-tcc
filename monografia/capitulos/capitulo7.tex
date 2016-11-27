@@ -48,13 +48,10 @@ Já o segundo servidor é o Nó 2 (\textit{Piova}), que é um servidor \textit{D
 
 \subsection{Estrutura lógica}
 
-A estrutura lógica do ambiente de alta disponibilidade composta por dois servidores e por máquinas virtuais são apresentados na 
-Figura \ref{fig:projeto_vms}, onde tem-se uma replicação entre esses nós do \textit{cluster}. Cada nó possui máquinas virtuais, que por sua vez
-possuem os serviços críticos da empresa.
-
-As \acp{VM} e seus serviços foram distribuídos entre os nós do \textit{cluster}, sendo que no Nó 1 foram instalados os serviços de sistemas 
-de gestão e autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de \ac{DNS} recursivo, telefonia e autenticação \ac{PPPoE}.
-No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. 
+A estrutura lógica do ambiente de alta disponibilidade é apresentada na Figura \ref{fig:projeto_vms}. Observa-se nessa figura que os dados são
+replicados entre os nós do \textit{cluster}. Além disso, pode-se observar a distribuição dos serviços críticos entre os servidores, sendo que 
+no Nó 1 foram instalados os serviços de sistemas de gestão e autenticação \ac{PPPoE}. Já no Nó 2 foram instalados os serviços de \ac{DNS} 
+recursivo, telefonia e autenticação \ac{PPPoE}. No caso de falha em um nó, os serviços serão inicializados no outro nó disponível. 
 
 \begin{figure}[h!]
  \centering

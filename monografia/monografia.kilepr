@@ -233,7 +233,7 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=40
+line=61
 mode=LaTeX
 open=true
 order=3
@@ -380,9 +380,9 @@ ViMarks=.,342,81,[,342,81,],342,81
 
 [view-settings,view=0,item:capitulos/capitulo7.tex]
 CursorColumn=0
-CursorLine=40
+CursorLine=61
 JumpList=
-ViMarks=.,37,141,[,38,0,],-1,-1
+ViMarks=.,53,47,[,53,47,],53,47
 
 [view-settings,view=0,item:capitulos/conclusao.tex]
 CursorColumn=0
