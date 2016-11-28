@@ -86,10 +86,9 @@ Como pode ser observado na Figura \ref{fig:projeto_estrutura} todas alterações
 outro nó através do \textit{software} \ac{DRBD}. 
 
 Como pode-se também observar na Figura \ref{fig:projeto_discos} todas as operações de escritas realizadas são replicadas no outro nó do
-\textit{cluster}, através do \textit{software} \ac{DRBD}, o qual é composto por um disco rígido\footnote[1]{Esse disco rígido pode ser composto 
-por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} (sda). O sistema de arquivos \ac{OCFS2} (quadro pontilhado)
-abrange os dois dispositivos \ac{DRBD}, desta forma permitindo o acesso simultâneo aos dados. 
-REVISAR ??
+\textit{cluster}, através do \textit{software} \ac{DRBD} e do \ac{OCFS2}. Cada dispositivo \ac{DRBD} é composto por um disco 
+rígido\footnote[1]{Esse disco rígido pode ser composto por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} 
+(sda). Já o sistema de arquivos \ac{OCFS2} (quadro pontilhado) abrange os dois dispositivos \ac{DRBD}, desta forma permitindo o acesso simultâneo aos dados. 
 %Para melhor entender o armazenamento e a replicação de dados criou-se a Figura \ref{fig:projeto_discos}, onde tem-se um dispositivo \ac{DRBD}
 %em cada nó que faz a replicação de dados através da rede. Dentro de cada dispositivos \ac{DRBD} existe um disco rígido\footnote[1]{Esse disco 
 %rígido é composto por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} (sda). O quadro pontilhado que abrange os 
@@ -259,7 +258,7 @@ falhas.} de \textit{software} \cite{melo2014}. Desta forma, esse teste foi reali
 Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias, para tanto, criou-se um \textit{script} que é 
 responsável por migrar as \acp{VM} de um nó e posteriormente reiniciá-lo. Este \textit{script} está disponível no Apêndice 
 \ref{ap:scriptmanutencao}. Para o agendamento e a execução deste \textit{script} foi utilizada a ferramenta \textit{crontab} do \textit{Linux}
-\cite{neves2008} ??. 
+\cite{neves2008}. 
 
 Observa-se na Tabela \ref{tab:teste3resultados} que o tempo de \textit{downtime} da máquina virtual é praticamente nulo, ou seja, 
 não houve indisponibilidade nos serviços devido a migração em tempo real da \ac{VM}. 
