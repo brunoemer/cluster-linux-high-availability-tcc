@@ -64,15 +64,15 @@
 \contentsline {subsection}{\numberline {7.2.3}Teste 3 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{59}
 \contentsline {section}{\numberline {7.3}C\IeC {\'a}lculo da disponibilidade}{61}
 \contentsline {section}{\numberline {7.4}Considera\IeC {\c c}\IeC {\~o}es finais}{61}
-\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{62}
-\contentsline {section}{\numberline {8.1}Trabalho futuros}{63}
-\contentsline {chapter}{Refer{\^e}ncias}{64}
-\contentsline {chapter}{\numberline {Ap{\^e}ndiceA}}{71}
-\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{71}
-\contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{71}
-\contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{72}
-\contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{74}
-\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{74}
-\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{77}
-\contentsline {section}{\numberline {B.1}Script indisponibilidade}{77}
-\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{77}
+\contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{63}
+\contentsline {section}{\numberline {8.1}Trabalho futuros}{64}
+\contentsline {chapter}{Refer{\^e}ncias}{65}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceA}}{72}
+\contentsline {section}{\numberline {A.1}Configura\IeC {\c c}\IeC {\~a}o do \ac {OS}}{72}
+\contentsline {section}{\numberline {A.2}Configura\IeC {\c c}\IeC {\~a}o de rede}{72}
+\contentsline {section}{\numberline {A.3}Configura\IeC {\c c}\IeC {\~a}o de disco}{73}
+\contentsline {section}{\numberline {A.4}Configura\IeC {\c c}\IeC {\~a}o do ambiente virtualizado}{75}
+\contentsline {section}{\numberline {A.5}Configura\IeC {\c c}\IeC {\~a}o do cluster Pacemaker}{75}
+\contentsline {chapter}{\numberline {Ap{\^e}ndiceB}}{78}
+\contentsline {section}{\numberline {B.1}Script indisponibilidade}{78}
+\contentsline {section}{\numberline {B.2}Script manuten\IeC {\c c}\IeC {\~a}o Pacemaker}{78}

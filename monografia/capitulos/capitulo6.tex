@@ -164,7 +164,7 @@ uma ação de um operador, como por exemplo, a execução de um comando.
 \subsection{Comparativo entre os softwares de replicação de dados}
 \label{section:replicacaoescolhido}
 
-Na Tabela \ref{tab:replicacao} tem-se uma comparação entre os \textit{softwares} de replicação apresentos anteriormente. O \textit{software} 
+Na Tabela \ref{tab:replicacao} tem-se uma comparação entre os \textit{softwares} de replicação apresentados anteriormente. O \textit{software} 
 adotado para realizar a replicação de dados foi o \ac{DRBD}, pois esse permite a configuração \textit{dual-primary} e também \textit{master-slave}, 
 além de suportar a replicação de dados das máquinas virtuais e permitir a replicação a nível de bloco. Além disso, esse \textit{software} 
 permite a ressincronização dos dados de forma automática em caso de uma falha \cite{drbd}.
@@ -385,8 +385,8 @@ tentará iniciá-lo novamente.
 Na Tabela \ref{tab:clusterger} tem-se um comparativo entre os \textit{softwares} de gerenciamento de \textit{cluster}. O \textit{software} 
 escolhido para o gerenciamento do ambiente a ser criado foi o \textit{Pacemaker}, pois este possui todos os requisitos para a criação de um 
 \textit{cluster} de alta disponibilidade utilizando virtualização. A principal característica disponível neste é o \textit{failover} automático
-dos nós, que não encontra-se disponível nos demais \textit{softwares}. Além disso, esse possibilita a migração de \acp{VM} em tempo real. 
-Por fim, esse também implementa uma sincronização automática das configurações dos nós, ou seja, a configuração do \textit{cluster} pode ser 
+dos nós, que não encontra-se disponível nos demais \textit{softwares}. Além disso, este possibilita a migração de \acp{VM} em tempo real. 
+Por fim, este também implementa uma sincronização automática das configurações dos nós, ou seja, a configuração do \textit{cluster} pode ser 
 feita a partir de qualquer nó. 
 %Destaca-se que o \textit{Pacemaker} é indicado no site do \ac{DRBD} para compor um \textit{cluster} de alta disponibilidade \cite{drbd}.
 
@@ -419,7 +419,7 @@ o desenvolvimento de um conjunto de \textit{scripts} para a migração das máqu
 
 Neste capítulo foi feita uma descrição de alguns \textit{softwares} para o desenvolvimento de um ambiente de alta disponibilidade utilizando 
 virtualização. Para a implementação deste tipo de ambiente dois tipos de \textit{softwares} tornam-se necessários, um para a replicação de dados 
-e outro para gerência e monitoramento do \textit{cluster}, sendo que para o desenvolvimento deste trabalho optou-se pelo \textit{software} 
+e outro para gerência e monitoramento do \textit{cluster}, sendo que, para o desenvolvimento deste trabalho optou-se pelo \textit{software} 
 \ac{DRBD} para a replicação de dados, e pelo \textit{Pacemaker} para a gerência e monitoramento do \textit{cluster}. 
 Esses dois \textit{softwares} foram escolhidos pois atendem os requisitos necessários para a implementação de um ambiente de
 alta disponibilidade e virtualizado. 

@@ -17,32 +17,30 @@ responsável pelo monitoramento e a transferência das máquinas virtuais, as qu
 do \textit{cluster} foi adotado o \textit{software} \ac{DRBD}, que é responsável pela replicação dos dados entre os dois servidores.
 
 O ambiente de alta disponibilidade é composto por máquinas virtuais que executam os serviços críticos. Para garantir a disponibilidade 
-foi utilizada a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Pacemaker}. Desta forma, 
-caso seja necessário fazer uma manutenção em um dos servidores, as máquinas virtuais serão migradas para o outro servidor.
+foi utilizada a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Pacemaker}. Desta forma, caso seja 
+necessário fazer uma manutenção em um dos servidores, as máquinas virtuais serão migradas para o outro servidor sem gerar indisponibilidade.
 Além disso, caso um servidor falhe, as máquinas virtuais serão automaticamente iniciadas no outro servidor, diminuindo assim a indisponibilidade
 dos serviços e o impacto para a empresa.
 
 Os testes realizados mostraram que em casos de falhas de \textit{hardware}, de energia elétrica ou de \textit{software}, o sistema manteve-se
 disponível, uma vez que os serviços foram migrados para um outro nó. Além disso, o ambiente de alta disponibilidade possibilitou
 realizar manutenções previamente agendadas sem gerar indisponibilidade para os serviços.
-Foi possível analisar a comparação de disponibilidade feita entre o ambiente de alta disponibilidade implementado e o antigo ambiente,
-e perceber que houve uma melhora na disponibilidade ?? TIRAR. 
+Também foi possível analisar a comparação de disponibilidade feita entre o ambiente de alta disponibilidade implementado e o antigo ambiente,
+e perceber que houve uma melhora na disponibilidade.
+
 Desta forma, conclui-se que é possível aumentar a disponibilidade de serviços em máquinas virtuais utilizando uma solução 
 de código aberto e de baixo custo.
 Conclui-se também que em caso de uma falha permanente de um \textit{hardware}, os dados permanecerão íntegros e disponíveis, assim garantindo 
 uma maior segurança dos dados e informações da empresa.
 
-RELER??
-
 \section{Trabalho futuros}
 \label{section:trabalhosfuturos}
 
-Com a implementação apresentada neste trabalho pode-se perceber a variedade de ferramentas existentes para implantar soluções de alta 
-disponibilidade. Deste modo, pode-se testar outras ferramentas de alta disponibilidade. Assim, sugere-se que seja feito um estudo de
-viabilidade do uso das ferramentas como \textit{GlusterFS} e \textit{Ceph}, em conjunto com uma ferramenta de gerenciamento de nuvem, como
-por exemplo, o \textit{OpenStack}, que trarão mais alguns benefícios além da alta disponibilidade.
-Além disso, sugere-se a inclusão de todos os serviços da empresa neste ambiente. De fato, pretende-se fazer a inclusão de mais alguns
-serviços com nível de criticidade médio.
-Por fim, pode-se efetuar uma medição de disponibilidade por um período mais longo, a fim de se certificar sobre o aumento da
-disponibilidade.
+Durante o estudo realizado nesse trabalho verificou-se uma grande variedade de \textit{softwares} que podem ser utilizados para a implementação 
+de soluções de alta disponibilidade. Deste modo, sugere-se que seja feito um estudo de viabilidade do uso das ferramentas como \textit{GlusterFS} 
+e \textit{Ceph}, em conjunto com uma ferramenta de gerenciamento de nuvem, como por exemplo, o \textit{OpenStack}, que trarão mais alguns 
+benefícios além da alta disponibilidade.
 
+Além disso, sugere-se a inclusão de todos os serviços da empresa nesse ambiente. Destaca-se que em um curto prazo, pretende-se fazer a inclusão 
+de alguns serviços com nível de criticidade médio. Por fim, pode-se efetuar uma medição de disponibilidade por um período mais longo. A partir
+dessa medição será possível avaliar melhor o ambiente desenvolvido, bem como obter resultados mais consistentes.

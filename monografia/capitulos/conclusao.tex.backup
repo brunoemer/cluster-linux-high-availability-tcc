@@ -2,47 +2,47 @@
 \label{cap:conclusao}
 
 Neste trabalho foi feito um estudo sobre uma empresa prestadora de serviços para Internet, analisando sua estrutura física e os serviços oferecidos 
-por esta. Durante este estudo foram definidos os serviços críticos. Para tanto considerou-se o impacto dos mesmos para a empresa, medido através
-da quantidade de clientes e funcionários que utilizam o serviço. Destaca-se que foi necessário selecionar os serviços mais críticos, por não 
-haver recursos necessários para implementar a alta disponibilidade para todos os serviços.
+por essa. Durante este estudo foram definidos os serviços críticos. Para tanto considerou-se o impacto dos mesmos para a empresa, medido através
+da quantidade de clientes e funcionários que utilizam o serviço. Destaca-se que foi necessário selecionar os serviços críticos, por não 
+haver recursos suficientes para a implementação de uma solução de alta disponibilidade para todos os serviços.
 
 Deste modo, os serviços críticos definidos foram: o serviço de \ac{DNS} recursivo, pois é utilizado para navegação de Internet de todos os clientes 
 e funcionários do provedor; o serviço de autenticação \textit{Radius}, por influenciar diretamente na navegação dos clientes e armazenar dados 
 importantes para o provedor; sistemas da empresa, uma vez que todos os funcionários o utilizam e também por ter um impacto indireto nos 
 clientes; e serviço de telefonia interna, por ser responsável pela comunicação tanto entre funcionários, como entre clientes e funcionários.
 
-Após implementou-se um ambiente de alta disponibilidade para esses serviços. Esse ambiente é composto por um \textit{cluster} o qual é constituído 
-por dois servidores físicos. Para o gerenciamento do \textit{cluster} foi adotado o \textit{software} \textit{Pacemaker}, que é responsável pelo 
-monitoramento e a transferência das máquinas virtuais, as quais executam os serviços. Para a replicação de dados 
+Após implementou-se um ambiente de alta disponibilidade para esses serviços, sendo que esse ambiente é composto por um \textit{cluster} o qual é 
+constituído por dois servidores físicos. Para o gerenciamento do \textit{cluster} foi adotado o \textit{software} \textit{Pacemaker}, que é 
+responsável pelo monitoramento e a transferência das máquinas virtuais, as quais executam os serviços. Para a replicação de dados 
 do \textit{cluster} foi adotado o \textit{software} \ac{DRBD}, que é responsável pela replicação dos dados entre os dois servidores.
 
 O ambiente de alta disponibilidade é composto por máquinas virtuais que executam os serviços críticos. Para garantir a disponibilidade 
 foi utilizada a opção de migração em tempo real, fornecida pelo hipervisor \ac{KVM}, juntamente com o \textit{Pacemaker}. Desta forma, 
 caso seja necessário fazer uma manutenção em um dos servidores, as máquinas virtuais serão migradas para o outro servidor.
-Além disso, caso um servidor falhe as máquinas virtuais serão automaticamente iniciadas no outro servidor, diminuindo assim a indisponibilidade
-dos serviços.
+Além disso, caso um servidor falhe, as máquinas virtuais serão automaticamente iniciadas no outro servidor, diminuindo assim a indisponibilidade
+dos serviços e o impacto para a empresa.
 
-De fato, os testes realizados mostraram que em casos de falhas de \textit{hardware}, de energia elétrica ou de \textit{software}, 
-o \textit{cluster} conseguiu recuperar os serviços executados nas máquinas virtuais. Além disso, o ambiente de alta disponibilidade possibilitou
+Os testes realizados mostraram que em casos de falhas de \textit{hardware}, de energia elétrica ou de \textit{software}, o sistema manteve-se
+disponível, uma vez que os serviços foram migrados para um outro nó. Além disso, o ambiente de alta disponibilidade possibilitou
 realizar manutenções previamente agendadas sem gerar indisponibilidade para os serviços.
 Foi possível analisar a comparação de disponibilidade feita entre o ambiente de alta disponibilidade implementado e o antigo ambiente,
-e perceber que houve uma melhora na disponibilidade. 
+e perceber que houve uma melhora na disponibilidade ?? TIRAR. 
 Desta forma, conclui-se que é possível aumentar a disponibilidade de serviços em máquinas virtuais utilizando uma solução 
 de código aberto e de baixo custo.
 Conclui-se também que em caso de uma falha permanente de um \textit{hardware}, os dados permanecerão íntegros e disponíveis, assim garantindo 
 uma maior segurança dos dados e informações da empresa.
 
+RELER??
 
 \section{Trabalho futuros}
 \label{section:trabalhosfuturos}
 
-Com a implementação apresentada neste trabalho pode-se perceber a variedade de ferramentas existentes para implantar soluções de alta 
+Durante o estudo realizado nesse trabalho verificou-se uma grande variedade de \textit{softwares} para implantar soluções de alta 
 disponibilidade. Deste modo, pode-se testar outras ferramentas de alta disponibilidade. Assim, sugere-se que seja feito um estudo de
 viabilidade do uso das ferramentas como \textit{GlusterFS} e \textit{Ceph}, em conjunto com uma ferramenta de gerenciamento de nuvem, como
-por exemplo, o \textit{OpenStack}.
+por exemplo, o \textit{OpenStack}, que trarão mais alguns benefícios além da alta disponibilidade.
 Além disso, sugere-se a inclusão de todos os serviços da empresa neste ambiente. De fato, pretende-se fazer a inclusão de mais alguns
-serviços de nível médio de criticidade.
-%Como proposta de continuidade deste trabalho pode-se ampliar o ambiente, através da inclusão de mais serviços e mais \textit{hardware} ao 
-%\textit{cluster}. Também pode-se configurar uma interface para o gerenciamento do \textit{software} \textit{Pacemaker}, pois ele é configurado 
-%atualmente apenas por linha de comando.
+serviços com nível de criticidade médio.
+Por fim, pode-se efetuar uma medição de disponibilidade por um período mais longo, a fim de se certificar sobre o aumento da
+disponibilidade.
 

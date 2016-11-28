@@ -32,7 +32,7 @@ A estrutura física adotada é apresentada na Figura \ref{fig:projeto_fisico} (a
 conectados a um \textit{switch} através de dois cabos \aca{UTP}, de forma a implementar uma redundância de cabeamento. Além disso, manteve-se o 
 \textit{link aggregation} e utilizou-se uma \textit{bridge}\footnote[1]{\textit{Bridges}, também conhecidas como pontes, são meios que fazem a 
 conexão entre \textit{LANs}, e operam na camada de enlace de dados.} para incluir as máquinas virtuais à rede dos servidores da empresa. 
-Os detalhes da configuração de rede estão localizados no Apêndice \ref{ap:confrede}.
+Os detalhes da configuração de rede são apresentados no Apêndice \ref{ap:confrede}.
 
 Na Figura \ref{fig:projeto_fisico} (b) tem-se a imagem dos servidores utilizados, sendo que o primeiro é o Nó 1 (\textit{Brina}), que é um servidor
 \textit{Dell PowerEdge 2950}, que possui 2 processadores \textit{Intel Xeon E5410 de 2.33 GHz}, 24 GB de memória \ac{RAM} e 1,5 TB de disco. 
@@ -66,7 +66,7 @@ disponibilidade. Observa-se que para o gerenciamento e monitoramento do \textit{
 Além disso, esse é responsável pelo monitoramento e gerência do \ac{DRBD}, do sistema de arquivos e das \acp{VM}. De fato, esse \textit{software} 
 inicializa os serviços de acordo com a configuração definida. Por exemplo, ao inicializar o sistema operacional de um nó do \textit{cluster}, 
 o \textit{Pacemaker} irá inicializar o serviço de sincronismo do \ac{DRBD}, montar o sistema de arquivos no diretório onde está localizado os 
-discos das \acp{VM}, e inicializar as máquinas virtuais. O detalhamento da configuração do \textit{Pacemaker} estão disponíveis no 
+discos das \acp{VM}, e inicializar as máquinas virtuais. O detalhamento da configuração do \textit{Pacemaker} está disponível no 
 Apêndice \ref{ap:confpacemaker}.
 
 \begin{figure}[h!]
@@ -82,7 +82,7 @@ foram configurados como primários. Para tal configuração foi necessário util
 simultâneo e compartilhado aos dados, desta forma o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
 %Esse sistema de arquivos foi montado em um diretório dentro do sistema operacional dos nós, como por exemplo 
 %\textit{/var/lib/libvirt/images}, sabendo que esse diretório contêm as imagens dos discos das \acp{VM}. 
-Como pode ser observado na Figura \ref{fig:projeto_estrutura} todas alterações feitas em um disco de uma \ac{VM} é replicada para o 
+Como pode ser observado na Figura \ref{fig:projeto_estrutura} todas as alterações feitas em um disco de uma \ac{VM} é replicada para o 
 outro nó através do \textit{software} \ac{DRBD}. 
 
 Como pode-se também observar na Figura \ref{fig:projeto_discos} todas as operações de escritas realizadas são replicadas no outro nó do
@@ -140,11 +140,10 @@ comando \textit{ping}. Para facilitar a medição foi utilizado um \textit{scrip
 Desta forma, foi medido o tempo que o serviço ficou indisponível e o tempo que o servidor físico permaneceu indisponível.
 
 Como pode ser observado na Tabela \ref{tab:teste1resultados} o tempo de indisponibilidade do serviço (máquina virtual) é de apenas 71,4 segundos, 
-isso se deve ao fato da \ac{VM} ser iniciada em um nó secundário após o desligamento do principal. Só para exemplo de comparação, no caso de um 
+isso se deve ao fato da \ac{VM} ser iniciada em um nó secundário após o desligamento do principal. Para exemplo de comparação, no caso de um 
 servidor de virtualização que não possua esta solução de alta disponibilidade, o tempo para a recuperação do serviço seria igual a soma do 
 tempo de inicialização do servidor físico mais o tempo de inicialização da máquina virtual, que totalizaria aproximadamente 151 segundos. 
 %Além disso, o desvio padrão demonstra que existe pouca variação entre os tempos de indisponibilidade.
-RELER ??
 
 %Este teste juntamente com os dois testes das próximas seções foram efetuados no 
 %ambiente de alta disponibilidade com uma máquina virtual para fins de experimento, por possuírem risco de perda de dados em sua execução.
@@ -198,7 +197,7 @@ do sistema operacional ou de \textit{kernel}.
 Nestes tipos de falhas, os serviços devem ser transferidos para o outro nó de forma automática, reduzindo assim a indisponibilidade desses serviços. 
 %Desta forma, pode-se validar o processo de \textit{failover} dos serviços que estavam executando no nó que apresentou a falha.
 
-Para simular a falha, os nós foram acessados via \ac{SSH} e foi executado o comando \textit{reboot}. Esse teste foi executado 10 vezes e o 
+Para simular a falha, os nós foram acessados via \ac{SSH} e então executado o comando \textit{reboot}. Esse teste foi executado 10 vezes e o 
 tempo de indisponibilidade foi medido da mesma forma do que o teste anterior, ou seja, utilizando o comando \textit{ping}, sendo que foi medido 
 o tempo de indisponibilidade do nó e da máquina virtual. A Tabela \ref{tab:teste2resultados} apresenta o tempo de indisponibilidade e o 
 desvio padrão do nó e da \ac{VM}. Pode-se observar que o tempo de indisponibilidade da \ac{VM} é consideravelmente menor que o tempo do 
@@ -253,7 +252,7 @@ ocorreu um erro na atualização e o servidor não inicializou corretamente. Os 
 
 Reinicializações são necessárias para manutenções de \textit{hardware}, atualização de \textit{software} e até mesmo para 
 rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste nas aplicações de métodos para remover problemas gerados pelo 
-envelhecimento. Um exemplo de um método é o \textit{reboot} de um sistema operacional, uma vez que esse torna-se suscetível a gerar erros e 
+envelhecimento. Um exemplo desse método é o \textit{reboot} de um sistema operacional, uma vez que esse torna-se suscetível a gerar erros e 
 falhas.} de \textit{software} \cite{melo2014}. Desta forma, esse teste foi realizado de forma a simular manutenções previamente agendadas.
 Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias, para tanto, criou-se um \textit{script} que é 
 responsável por migrar as \acp{VM} de um nó e posteriormente reiniciá-lo. Este \textit{script} está disponível no Apêndice 
@@ -268,7 +267,7 @@ Destaca-se que a máquina virtual não apresentou nenhuma indisponibilidade. Ess
 \textit{Nagios} \cite{nagios} da empresa.
 
 \begin{table}[h!]
-\caption{Resultados do teste de manutenção agendada, com o tempo de indisponibilidade em segundos e a disponibilidade medida no período de 13 dias.}
+\caption{Resultados do teste de manutenção agendada com o tempo de indisponibilidade em segundos e a disponibilidade medida no período de 13 dias.}
 \small
 \label{tab:teste3resultados}
 \begin{center}
@@ -318,15 +317,15 @@ Máquina virtual & 0 & 100\% \\\hline
 %  \label{fig:teste2_piova1}
 % \end{figure}
 
-Observa-se que durante o processo de \textit{live migration} de uma \ac{VM} de um nó para outro, a latência da máquina virtual aumentou, 
-sendo que a latência, em uma rede de computadores, é o tempo que um pacote leva para chegar ao destino \cite{geordano2014}.
-O aumento da latência ocorre devido ao fato da transferência da \ac{VM} ser feita através da rede, a qual é necessária para a cópia da memória 
-durante a migração em tempo real da máquina virtual. ?? VER
+Observa-se que durante o processo de \textit{live migration} de uma \ac{VM}, de um nó para outro houve um aumento da latência\footnote[1]{
+A latência, em uma rede de computadores, é o tempo que um pacote leva para chegar ao destino \cite{geordano2014}.} da máquina virtual.
+O aumento da latência ocorre devido ao aumento do tráfego da rede durante o processo de migração em tempo real da máquina virtual, 
+onde ocorre a cópia da memória da \ac{VM}.
 Esse aumento na latência pode ser observado na Figura \ref{fig:teste2_latencia}, no intervalo de tempo de 50 a 100 segundos.
 
 %1) Aumento de trafego na rede
 %2) Algum aumento da carga computacional do nodo destino.
-%?? por causa da transferencia da memoria atraves da rede.
+% por causa da transferencia da memoria atraves da rede.
 
 %Mesmo com o aumento de latência não ocorre perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
@@ -348,17 +347,15 @@ Esse aumento na latência pode ser observado na Figura \ref{fig:teste2_latencia}
 Esta seção apresenta uma comparação da disponibilidade entre o ambiente antigo e o ambiente de alta disponibilidade. 
 Para tanto, foi feita uma medição da disponibilidade do período de um mês no ambiente antigo e de um mês no ambiente de alta disponibilidade, 
 nos quais executavam os serviços críticos. Porém, para se obter resultados mais consistentes seria interessante realizar uma mensuração mais longa, 
-com duração entre 6 meses e 1 ano. Contudo, isso tornou-se inviável devido ao tempo disponível para a implementação deste trabalho. 
+com duração entre 6 meses e 1 ano. Contudo tornou-se inviável devido ao tempo disponível para a implementação deste trabalho. 
 %Nestes ambientes encontravam-se executando os serviços críticos que foram definidos na Seção \ref{section:maqservcrit}. 
 
 A Tabela \ref{tab:testefinal} apresenta a disponibilidade de cada serviço crítico, tanto no ambiente antigo quanto 
 no ambiente de alta disponibilidade que foi criado. Pode-se observar que a disponibilidade máxima dos serviços no antigo ambiente é de 
-três noves. já no ambiente de alta disponibilidade tem-se uma disponibilidade próxima a 100\% para todos os serviços.
+três noves. Já no ambiente de alta disponibilidade tem-se uma disponibilidade próxima a 100\% para todos os serviços.
 Além disso, a tabela apresenta o tempo de indisponibilidade de cada serviço. Observa-se que o ambiente de alta disponibilidade apresentou
 somente uma indisponibilidade de 1 minuto e 40 segundos no serviço de \ac{DNS}. Essa indisponibilidade ocorreu devido a um problema de segurança,
-DDoS.
-O restante dos serviços não apresentaram indisponibilidade durante o período medido.
-RELER ??
+DDoS. O restante dos serviços não apresentaram indisponibilidade durante o período medido.
 
 %graficos: nagios_disponibilidade1_*
 \begin{table}[h!]
@@ -381,7 +378,7 @@ Telefonia & 99,866\% & 100\% & 58:0 & 0 \\\hline
 
 \section{Considerações finais}
 
-Neste capítulo foi apresentada a arquitetura de alta disponibilidade que foi implementada neste trabalho, sendo que essa solução é baseada em
+Neste capítulo foi apresentada a arquitetura de alta disponibilidade implementada neste trabalho, sendo que essa solução é baseada em
 um ambiente de \textit{cluster} composto por dois servidores físicos, onde foram configuradas máquinas virtuais contendo os serviços 
 críticos da empresa. Para a criação desta estrutura utilizou-se um \textit{software} para o gerenciamento do \textit{cluster} e um 
 para a replicação de dados, que foram o \textit{Pacemaker} e o \ac{DRBD}, respectivamente.
@@ -390,7 +387,6 @@ Após a implementação, foram feitos testes que apresentaram uma redução no t
 De fato, os testes realizados permitiram validar o ambiente de alta disponibilidade e permitiram concluir que é possível criar um ambiente 
 de alta disponibilidade baseado no uso de \textit{software} livre. 
 Porém, destaca-se que seria necessário mais tempo para efetuar medições mais precisas e concisas.
-RELER ??
 
 %Para possibilitar a medição dos dados de disponibilidade foi utilizado \textit{scripts} e o comando \textit{ping}, além da ferramenta de 
 %monitoramento da empresa (\textit{Nagios}). Com o tempo de indisponibilidade do antigo ambiente e do ambiente de alta disponibilidade criado,
