@@ -321,12 +321,12 @@ Máquina virtual & 0 & 100\% \\\hline
 Observa-se que durante o processo de \textit{live migration} de uma \ac{VM} de um nó para outro, a latência da máquina virtual aumentou, 
 sendo que a latência, em uma rede de computadores, é o tempo que um pacote leva para chegar ao destino \cite{geordano2014}.
 O aumento da latência ocorre devido ao fato da transferência da \ac{VM} ser feita através da rede, a qual é necessária para a cópia da memória 
-durante a migração em tempo real da máquina virtual. 
+durante a migração em tempo real da máquina virtual. ?? VER
 Esse aumento na latência pode ser observado na Figura \ref{fig:teste2_latencia}, no intervalo de tempo de 50 a 100 segundos.
 
-1) Aumento de trafego na rede
-2) Algum aumento da carga computacional do nodo destino.
-?? por causa da transferencia da memoria atraves da rede.
+%1) Aumento de trafego na rede
+%2) Algum aumento da carga computacional do nodo destino.
+%?? por causa da transferencia da memoria atraves da rede.
 
 %Mesmo com o aumento de latência não ocorre perda significante de desempenho durante a migração da máquina virtual.
 %teste2/186.195.16.13-stat-1.log
@@ -381,16 +381,16 @@ Telefonia & 99,866\% & 100\% & 58:0 & 0 \\\hline
 
 \section{Considerações finais}
 
-Neste capítulo foi apresentada a arquitetura de alta disponibilidade que foi implementada neste trabalho, sendo que essa proposta é baseada em
+Neste capítulo foi apresentada a arquitetura de alta disponibilidade que foi implementada neste trabalho, sendo que essa solução é baseada em
 um ambiente de \textit{cluster} composto por dois servidores físicos, onde foram configuradas máquinas virtuais contendo os serviços 
-críticos da empresa. Para garantir uma alta disponibilidade utilizou-se um \textit{software} para o gerenciamento do \textit{cluster} e um 
+críticos da empresa. Para a criação desta estrutura utilizou-se um \textit{software} para o gerenciamento do \textit{cluster} e um 
 para a replicação de dados, que foram o \textit{Pacemaker} e o \ac{DRBD}, respectivamente.
 
-Após a implementação, foram feitos alguns testes que destacaram uma redução no tempo de indisponibilidade dos serviços 
-críticos executados nas máquinas virtuais, se comparado ao tempo de indisponibilidade do antigo ambiente da empresa. 
-Esses testes permitiram realizar uma análise do ambiente de alta disponibilidade.
-Com isso, pode-se observar que os resultados obtidos foram positivos, e que os objetivos deste trabalho foram alcançados, ou seja, houve um 
-aumento da disponibilidade dos serviços críticos. Porém, destaca-se que seria necessário mais tempo para efetuar medições mais precisas e concisas.
+Após a implementação, foram feitos testes que apresentaram uma redução no tempo de indisponibilidade dos serviços críticos. 
+De fato, os testes realizados permitiram validar o ambiente de alta disponibilidade e permitiram concluir que é possível criar um ambiente 
+de alta disponibilidade baseado no uso de \textit{software} livre. 
+Porém, destaca-se que seria necessário mais tempo para efetuar medições mais precisas e concisas.
+RELER ??
 
 %Para possibilitar a medição dos dados de disponibilidade foi utilizado \textit{scripts} e o comando \textit{ping}, além da ferramenta de 
 %monitoramento da empresa (\textit{Nagios}). Com o tempo de indisponibilidade do antigo ambiente e do ambiente de alta disponibilidade criado,
