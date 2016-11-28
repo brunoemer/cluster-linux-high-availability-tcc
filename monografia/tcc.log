@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  27 NOV 2016 06:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  27 NOV 2016 22:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2065,7 +2065,7 @@ Package epstopdf Info: Source file: <img/projeto_discos.eps>
 (epstopdf)                    size: 149569 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/projeto_discos-eps-con
 verted-to.pdf img/projeto_discos.eps>
-(epstopdf)             \includegraphics on input line 99.
+(epstopdf)             \includegraphics on input line 103.
 Package epstopdf Info: Output file is already uptodate.
 
 <img/projeto_discos-eps-converted-to.pdf, id=308, 998.73125pt x 534.99875pt>
@@ -2073,16 +2073,20 @@ File: img/projeto_discos-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/projeto_discos-eps-converted-to.pdf>
 Package pdftex.def Info: img/projeto_discos-eps-converted-to.pdf used on input 
-line 99.
+line 103.
 (pdftex.def)             Requested size: 321.20117pt x 172.06024pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [57 <./img/projeto_estrutura-eps-converted-to.pdf>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 158.
+Overfull \hbox (9.32999pt too wide) in paragraph at lines 138--142
+[]\OT1/cmr/m/n/12 A par-tir deste teste foi poss^^S^^Pvel ava-liar o pro-cesso 
+de \OT1/cmr/m/it/12 fai-lo-ver \OT1/cmr/m/n/12 dos servi^^Xcos (m^^Saquinas
+ []
 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 161.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2092,14 +2096,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [58 <./img/projeto_discos-eps-converted-to.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59]
-Overfull \hbox (1.39171pt too wide) in paragraph at lines 264--267
-[]\OT1/cmr/m/n/12 Esse teste con-siste no agen-da-mento de 4 ma-nu-ten^^Xc~oes 
-efe-tu-a-das du-rante o per^^S^^Podo
- []
+Package natbib Warning: Citation `neves2008' on page 59 undefined on input line
+ 262.
 
+[59]
 Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    date: 2016-10-01 21:34:54
 (epstopdf)                    size: 177981 bytes
@@ -2108,14 +2109,15 @@ Package epstopdf Info: Source file: <img/teste2_latencia.eps>
 (epstopdf)                    size: 17324 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/teste2_latencia-eps-co
 nverted-to.pdf img/teste2_latencia.eps>
-(epstopdf)             \includegraphics on input line 328.
+(epstopdf)             \includegraphics on input line 338.
 Package epstopdf Info: Output file is already uptodate.
+
 <img/teste2_latencia-eps-converted-to.pdf, id=325, 723.70375pt x 506.89375pt>
 File: img/teste2_latencia-eps-converted-to.pdf Graphic file (type pdf)
 
 <use img/teste2_latencia-eps-converted-to.pdf>
 Package pdftex.def Info: img/teste2_latencia-eps-converted-to.pdf used on input
- line 328.
+ line 338.
 (pdftex.def)             Requested size: 321.20117pt x 224.97531pt.
 
 
@@ -2127,12 +2129,12 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [60]
-Underfull \hbox (badness 10000) in paragraph at lines 361--361
+Underfull \hbox (badness 10000) in paragraph at lines 371--371
 []\OT1/cmr/bx/n/10.95 Antigo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--361
+Underfull \hbox (badness 10000) in paragraph at lines 371--371
 []\OT1/cmr/bx/n/10.95 Antigo
  []
 
@@ -2614,6 +2616,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [78]) [79] 
 AED: lastpage setting LastPage
+
+Package natbib Warning: There were undefined citations.
+
 (./tcc.aux (./folha_rosto.aux) (./agradecimentos.aux) (./abstract.aux)
 (./capitulos/introducao.aux) (./capitulos/capitulo2.aux)
 (./capitulos/capitulo3.aux) (./capitulos/capitulo4.aux)
@@ -2624,15 +2629,12 @@ AED: lastpage setting LastPage
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 16714 strings out of 495004
- 309848 string characters out of 6180662
- 419989 words of memory out of 5000000
- 19540 multiletter control sequences out of 15000+600000
+ 16715 strings out of 495004
+ 309859 string characters out of 6180662
+ 420092 words of memory out of 5000000
+ 19541 multiletter control sequences out of 15000+600000
  12500 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  62i,11n,57p,10374b,1724s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2652,7 +2654,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (80 pages, 2531126 bytes).
+Output written on tcc.pdf (80 pages, 2531953 bytes).
 PDF statistics:
  455 PDF objects out of 1000 (max. 8388607)
  292 compressed objects within 3 object streams
