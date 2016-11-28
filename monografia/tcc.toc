@@ -62,7 +62,7 @@
 \contentsline {subsection}{\numberline {7.2.1}Teste 1 - Desligamento f\IeC {\'\i }sico}{58}
 \contentsline {subsection}{\numberline {7.2.2}Teste 2 - Desligamento por software}{59}
 \contentsline {subsection}{\numberline {7.2.3}Teste 3 - Manuten\IeC {\c c}\IeC {\~a}o agendada}{59}
-\contentsline {section}{\numberline {7.3}C\IeC {\'a}lculo da disponibilidade}{60}
+\contentsline {section}{\numberline {7.3}C\IeC {\'a}lculo da disponibilidade}{61}
 \contentsline {section}{\numberline {7.4}Considera\IeC {\c c}\IeC {\~o}es finais}{61}
 \contentsline {chapter}{\numberline {8}Conclus\IeC {\~a}o}{63}
 \contentsline {section}{\numberline {8.1}Trabalho futuros}{64}

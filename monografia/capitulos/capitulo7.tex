@@ -340,25 +340,26 @@ Esse aumento na latência pode ser observado na Figura \ref{fig:teste2_latencia}
  \label{fig:teste2_latencia}
 \end{figure}
 
-
+\newpage
 \section{Cálculo da disponibilidade}
 \label{section:comparacaofinal}
 %Medição da disponibilidade dos serviços críticos por 30 dias (14/10 a 12/11) FAZER uma manutenção de hardware.
 %Comparar ao mês de setembro (01/09 a 30/09) no ambiente antigo com uma reinicialização dos servidores físicos (reiniciados em 06/09/16)
 
-Esta seção apresenta uma comparação da disponibilidade do ambiente antigo com o ambiente de alta disponibilidade que foi implementado. 
-Sendo assim, foi feita uma medição da disponibilidade do período de um mês no ambiente antigo e de um mês no ambiente de alta disponibilidade 
-implementado, nos quais executavam os serviços críticos. Porém, para se obter resultados mais consistentes da disponibilidade seria interessante 
-realizar uma mensuração mais longa, com duração entre 6 meses e 1 ano. Contudo, isso tornou-se inviável devido ao tempo disponível para a 
-implementação deste trabalho, por isso o tempo utilizado foi de um mês. 
+Esta seção apresenta uma comparação da disponibilidade entre o ambiente antigo e o ambiente de alta disponibilidade. 
+Para tanto, foi feita uma medição da disponibilidade do período de um mês no ambiente antigo e de um mês no ambiente de alta disponibilidade, 
+nos quais executavam os serviços críticos. Porém, para se obter resultados mais consistentes seria interessante realizar uma mensuração mais longa, 
+com duração entre 6 meses e 1 ano. Contudo, isso tornou-se inviável devido ao tempo disponível para a implementação deste trabalho. 
 %Nestes ambientes encontravam-se executando os serviços críticos que foram definidos na Seção \ref{section:maqservcrit}. 
 
 A Tabela \ref{tab:testefinal} apresenta a disponibilidade de cada serviço crítico, tanto no ambiente antigo quanto 
-no ambiente de alta disponibilidade que foi criado. Pode-se observar que a disponibilidade máxima dos serviços no antigo ambiente é de apenas 
-três noves, já no ambiente de alta disponibilidade tem-se uma disponibilidade próxima a 100\% para todos os serviços.
+no ambiente de alta disponibilidade que foi criado. Pode-se observar que a disponibilidade máxima dos serviços no antigo ambiente é de 
+três noves. já no ambiente de alta disponibilidade tem-se uma disponibilidade próxima a 100\% para todos os serviços.
 Além disso, a tabela apresenta o tempo de indisponibilidade de cada serviço. Observa-se que o ambiente de alta disponibilidade apresentou
-somente uma indisponibilidade de 1 minuto e 40 segundos no serviço de \ac{DNS}. Essa indisponibilidade ocorreu devido a um problema de segurança.
-O restante dos serviços não apresentaram indisponibilidade durante o período medido no novo ambiente de alta disponibilidade.
+somente uma indisponibilidade de 1 minuto e 40 segundos no serviço de \ac{DNS}. Essa indisponibilidade ocorreu devido a um problema de segurança,
+DDoS.
+O restante dos serviços não apresentaram indisponibilidade durante o período medido.
+RELER ??
 
 %graficos: nagios_disponibilidade1_*
 \begin{table}[h!]
@@ -381,10 +382,10 @@ Telefonia & 99,866\% & 100\% & 58:0 & 0 \\\hline
 
 \section{Considerações finais}
 
-Neste capítulo foi apresentada a arquitetura de alta disponibilidade que foi implementada neste trabalho, sendo que essa é composta por dois 
-servidores físicos, onde foram configuradas máquinas virtuais contendo os serviços críticos da empresa. Para garantir uma alta disponibilidade
-utilizou-se um \textit{software} para o gerenciamento do \textit{cluster} e um para a replicação de dados, que foram o \textit{Pacemaker} e o 
-\ac{DRBD}, respectivamente.
+Neste capítulo foi apresentada a arquitetura de alta disponibilidade que foi implementada neste trabalho, sendo que essa proposta é baseada em
+um ambiente de \textit{cluster} composto por dois servidores físicos, onde foram configuradas máquinas virtuais contendo os serviços 
+críticos da empresa. Para garantir uma alta disponibilidade utilizou-se um \textit{software} para o gerenciamento do \textit{cluster} e um 
+para a replicação de dados, que foram o \textit{Pacemaker} e o \ac{DRBD}, respectivamente.
 
 Após a implementação, foram feitos alguns testes que destacaram uma redução no tempo de indisponibilidade dos serviços 
 críticos executados nas máquinas virtuais, se comparado ao tempo de indisponibilidade do antigo ambiente da empresa. 

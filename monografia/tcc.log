@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  27 NOV 2016 22:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.11)  28 NOV 2016 07:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2129,14 +2129,17 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [60]
-Underfull \hbox (badness 10000) in paragraph at lines 371--371
+Underfull \hbox (badness 10000) in paragraph at lines 372--372
 []\OT1/cmr/bx/n/10.95 Antigo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--371
+Underfull \hbox (badness 10000) in paragraph at lines 372--372
 []\OT1/cmr/bx/n/10.95 Antigo
  []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [61 <./img/teste2_latencia-eps-converted-to.pdf>])
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2654,7 +2657,7 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on tcc.pdf (80 pages, 2531953 bytes).
+Output written on tcc.pdf (80 pages, 2531916 bytes).
 PDF statistics:
  455 PDF objects out of 1000 (max. 8388607)
  292 compressed objects within 3 object streams
