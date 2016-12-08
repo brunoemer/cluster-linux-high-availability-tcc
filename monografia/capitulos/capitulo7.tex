@@ -82,13 +82,14 @@ foram configurados como primários. Para tal configuração foi necessário util
 simultâneo e compartilhado aos dados, desta forma o \textit{software} adotado foi o \ac{OCFS2} \cite{ocfs2}. 
 %Esse sistema de arquivos foi montado em um diretório dentro do sistema operacional dos nós, como por exemplo 
 %\textit{/var/lib/libvirt/images}, sabendo que esse diretório contêm as imagens dos discos das \acp{VM}. 
-Como pode ser observado na Figura \ref{fig:projeto_estrutura} todas as alterações feitas em um disco de uma \ac{VM} é replicada para o 
+Como pode ser observado na Figura \ref{fig:projeto_estrutura} todas as alterações feitas em um disco de uma \ac{VM} são replicadas para o 
 outro nó através do \textit{software} \ac{DRBD}. 
 
-Como pode-se também observar na Figura \ref{fig:projeto_discos} todas as operações de escritas realizadas são replicadas no outro nó do
+Como pode-se também observar na Figura \ref{fig:projeto_discos} todas as operações de escrita realizadas são replicadas no outro nó do
 \textit{cluster}, através do \textit{software} \ac{DRBD} e do \ac{OCFS2}. Cada dispositivo \ac{DRBD} é composto por um disco 
-rígido\footnote[1]{Esse disco rígido pode ser composto por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} 
-(sda). Já o sistema de arquivos \ac{OCFS2} (quadro pontilhado) abrange os dois dispositivos \ac{DRBD}, desta forma permitindo o acesso simultâneo aos dados. 
+rígido\footnote[1]{Esse disco rígido pode ser composto por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} (sda). 
+Já o sistema de arquivos \ac{OCFS2} (quadro pontilhado) abrange os dois dispositivos \ac{DRBD}, desta forma permitindo o acesso simultâneo aos 
+dados. 
 %Para melhor entender o armazenamento e a replicação de dados criou-se a Figura \ref{fig:projeto_discos}, onde tem-se um dispositivo \ac{DRBD}
 %em cada nó que faz a replicação de dados através da rede. Dentro de cada dispositivos \ac{DRBD} existe um disco rígido\footnote[1]{Esse disco 
 %rígido é composto por um conjunto de discos rígidos físicos configurados através de um \ac{RAID}.} (sda). O quadro pontilhado que abrange os 
@@ -192,13 +193,13 @@ a indisponibilidade poderia ser maior do que 24 horas.
 \subsection{Teste 2 - Desligamento por software}
 
 Esse teste simula falhas de \textit{software} nos nós do \textit{cluster}. Neste caso, pode-se citar como exemplo, uma falha no \textit{software} 
-de virtualização, com isso o nó não conseguiria iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma falha de atualização 
+de virtualização, com a qual o nó não conseguiria iniciar a máquina virtual. Esse tipo de situação também pode ocorrer em uma falha de atualização 
 do sistema operacional ou de \textit{kernel}.
 Nestes tipos de falhas, os serviços devem ser transferidos para o outro nó de forma automática, reduzindo assim a indisponibilidade desses serviços. 
 %Desta forma, pode-se validar o processo de \textit{failover} dos serviços que estavam executando no nó que apresentou a falha.
 
 Para simular a falha, os nós foram acessados via \ac{SSH} e então executado o comando \textit{reboot}. Esse teste foi executado 10 vezes e o 
-tempo de indisponibilidade foi medido da mesma forma do que o teste anterior, ou seja, utilizando o comando \textit{ping}, sendo que foi medido 
+tempo de indisponibilidade foi medido da mesma forma que no teste anterior, ou seja, utilizando o comando \textit{ping}, sendo que foi medido 
 o tempo de indisponibilidade do nó e da máquina virtual. A Tabela \ref{tab:teste2resultados} apresenta o tempo de indisponibilidade e o 
 desvio padrão do nó e da \ac{VM}. Pode-se observar que o tempo de indisponibilidade da \ac{VM} é consideravelmente menor que o tempo do 
 servidor físico, pois a \ac{VM} foi iniciada no nó secundário logo após a simulação da falha no nó principal. 
@@ -234,6 +235,7 @@ Há alguns meses ocorreu um problema semelhante a este teste em um servidor de v
 ocorreu um erro na atualização e o servidor não inicializou corretamente. Os serviços executados nele ficaram aproximadamente 
 6 horas indisponíveis. Através da solução implementada esse tempo seria de apenas 11 segundos, pois a \ac{VM} seria iniciada no outro nó. 
 
+\newpage
 \subsection{Teste 3 - Manutenção agendada}
 %Agendamento de manutenção (reboot para atualização de software): 2 semanas ou mais, 1 manutenção por semana, com live migration, reboot e 
 %atualização de kernel dos nodes. Resultados: latência, comparação downtime servidor virtual e físico
@@ -253,7 +255,7 @@ Reinicializações são necessárias para manutenções de \textit{hardware}, at
 rejuvenescimento\footnote{O rejuvenescimento de \textit{software} consiste nas aplicações de métodos para remover problemas gerados pelo 
 envelhecimento. Um exemplo desse método é o \textit{reboot} de um sistema operacional, uma vez que esse torna-se suscetível a gerar erros e 
 falhas.} de \textit{software} \cite{melo2014}. Desta forma, esse teste foi realizado de forma a simular manutenções previamente agendadas.
-Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias, para tanto, criou-se um \textit{script} que é 
+Esse teste consiste no agendamento de 4 manutenções efetuadas durante o período de 13 dias. Para tanto, criou-se um \textit{script} que é 
 responsável por migrar as \acp{VM} de um nó e posteriormente reiniciá-lo. Este \textit{script} está disponível no Apêndice 
 \ref{ap:scriptmanutencao}. Para o agendamento e a execução deste \textit{script} foi utilizada a ferramenta \textit{crontab} do \textit{Linux}
 \cite{neves2008}. 
@@ -353,7 +355,8 @@ A Tabela \ref{tab:testefinal} apresenta a disponibilidade de cada serviço crít
 no ambiente de alta disponibilidade que foi criado. Pode-se observar que a disponibilidade máxima dos serviços no antigo ambiente é de 
 três noves. Já no ambiente de alta disponibilidade tem-se uma disponibilidade próxima a 100\% para todos os serviços.
 Além disso, a tabela apresenta o tempo de indisponibilidade de cada serviço. Observa-se que o ambiente de alta disponibilidade apresentou
-somente uma indisponibilidade de 1 minuto e 40 segundos no serviço de \ac{DNS}. Essa indisponibilidade ocorreu devido a um problema de segurança. 
+somente uma indisponibilidade de 1 minuto e 40 segundos no serviço de \ac{DNS}. Essa indisponibilidade ocorreu devido a um problema de segurança,
+no qual alguns clientes com equipamentos infectados efetuaram um ataque de negação de serviço, conhecido como \ac{DDoS}. 
 O restante dos serviços não apresentaram indisponibilidade durante o período medido.
 
 %graficos: nagios_disponibilidade1_*
@@ -366,15 +369,15 @@ O restante dos serviços não apresentaram indisponibilidade durante o período 
  & \multicolumn{2}{|c|}{\textbf{Disponibilidade}} & \multicolumn{2}{|c|}{\textbf{Tempo de indisponibilidade}} \\\hline
 \textbf{Serviço} & \textbf{Antigo ambiente} & \textbf{Novo ambiente} & \textbf{Antigo ambiente} & \textbf{Novo ambiente} \\\hline
 DNS recursivo & 99,978\% & 99,996\% & 9:40 & 1:40 \\\hline
-Autenticação \ac{PPPoE} & 99,936\% & 100\% & 27:40 & 0 \\\hline
-Autenticação \ac{PPPoE} & 99,930\% & 100\% & 30:20 & 0 \\\hline
+Autenticação \ac{PPPoE}\footnote[1]{Este serviço pertence à máquina virtual \textit{Speedauth}.} & 99,936\% & 100\% & 27:40 & 0 \\\hline
+Autenticação \ac{PPPoE}\footnote[2]{Este serviço pertence à máquina virtual \textit{Masterauth}.} & 99,930\% & 100\% & 30:20 & 0 \\\hline
 Sistemas & 99,913\% & 100\% & 37:20 & 0 \\\hline
 Telefonia & 99,866\% & 100\% & 58:0 & 0 \\\hline
 \end{tabular}
 \end{center}
 \end{table}
 
-
+\newpage
 \section{Considerações finais}
 
 Neste capítulo foi apresentada a arquitetura de alta disponibilidade implementada neste trabalho, sendo que essa solução é baseada em

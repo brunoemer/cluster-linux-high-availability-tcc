@@ -70,7 +70,7 @@ suportadas pelos mesmos.
 \subsection{\aca{DRBD}}
 \label{section:drbd}
 O \ac{DRBD} é um projeto de código aberto desenvolvido pela \textit{LINBIT} \cite{drbd}.
-Esse \textit{software} é uma solução de replicação de dispositivos de armazenamento, ou seja, esse permite a duplicação de um dispositivo de bloco 
+Esse \textit{software} é uma solução de replicação de dispositivos de armazenamento, ou seja, ele permite a duplicação de um dispositivo de bloco 
 (geralmente um disco rígido) em um servidor remoto. O \ac{DRBD} é implementado através de um módulo do \textit{kernel} \textit{Linux}. 
 Na Figura \ref{fig:drbd_basic} tem-se dois servidores com seus respectivos discos rígidos, \textit{hda1} e 
 \textit{hda3}, formando um \textit{cluster}, sendo que esses discos estão sincronizados através da rede. Desta forma, todas as operações de escrita 
@@ -126,7 +126,7 @@ Os diferentes tipos de configurações são \cite{glusterfs}:
  e a replicação dos arquivos entre os nós;
  \item Volume listrado: neste modo de configuração ocorre a distribuição de um mesmo arquivo entre os \textit{bricks}, ou seja, um arquivo é 
  dividido entre os \textit{bricks}. Esse tipo é normalmente utilizado para o armazenamento de arquivos muito grandes e para garantir um melhor 
- balanceamento de carga em sistemas com muito acesso à disco. Neste tipo de volume não se tem nenhuma forma de replicação de dados;
+ balanceamento de carga em sistemas com muito acesso a disco. Neste tipo de volume não se tem nenhuma forma de replicação de dados;
  \item Volume distribuído e listrado: este modo de volume é uma combinação do distribuído e do listrado. Neste modo é feita a divisão do arquivo 
  entre \textit{bricks} distintos, sendo que estes são replicados.
 \end{itemize}
@@ -135,7 +135,7 @@ Os diferentes tipos de configurações são \cite{glusterfs}:
 \label{section:rsync}
 O \textit{Rsync} \cite{rsync} é um \textit{software} desenvolvido e mantido por \textit{Wayne Davison}. Esse \textit{software} provê uma rápida
 transferência de arquivos, ou seja, ele faz a sincronização de arquivos transferindo-os de um servidor de origem para um servidor de destino. 
-A Figura \ref{fig:rsync} apresenta o funcionamento do \textit{Rsync}, observa-se nesta figura que a replicação só é realizada em arquivos 
+A Figura \ref{fig:rsync} apresenta o funcionamento do \textit{Rsync}, nesta figura pode-se observar que a replicação só é realizada em arquivos 
 que foram alterados ou que ainda não existem no servidor de destino. Além disso, o \textit{Rsync} permite uma replicação completa, 
 sendo que neste caso os arquivos já existentes são sobrescritos.
 
